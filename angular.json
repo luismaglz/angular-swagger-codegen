@@ -94,6 +94,41 @@
           }
         }
       }
+    },
+    "dotrez-api": {
+      "root": "projects/dotrez-api",
+      "sourceRoot": "projects/dotrez-api/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dotrez-api/tsconfig.lib.json",
+            "project": "projects/dotrez-api/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dotrez-api/src/test.ts",
+            "tsConfig": "projects/dotrez-api/tsconfig.spec.json",
+            "karmaConfig": "projects/dotrez-api/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dotrez-api/tsconfig.lib.json",
+              "projects/dotrez-api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "demo"

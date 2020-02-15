@@ -11,11 +11,13 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { Inject, Injectable, Optional } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Configuration } from '../configuration';
-import { CustomHttpUrlEncodingCodec } from '../encoder';
+import { Inject, Injectable, Optional }                      from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams,
+         HttpResponse, HttpEvent }                           from '@angular/common/http';
+import { CustomHttpUrlEncodingCodec }                        from '../encoder';
+
+import { Observable }                                        from 'rxjs';
+
 import { AccountTransactionCode } from '../model/accountTransactionCode';
 import { AddressType } from '../model/addressType';
 import { AgentSettingType } from '../model/agentSettingType';
@@ -49,6 +51,7 @@ import { FareType } from '../model/fareType';
 import { Fee } from '../model/fee';
 import { FeeDetail } from '../model/feeDetail';
 import { HotCardReason } from '../model/hotCardReason';
+import { IJsonResponse } from '../model/iJsonResponse';
 import { IssuanceReason } from '../model/issuanceReason';
 import { Location } from '../model/location';
 import { Mac } from '../model/mac';
@@ -96,10 +99,9 @@ import { TravelClass } from '../model/travelClass';
 import { Vendor } from '../model/vendor';
 import { Vendorv2 } from '../model/vendorv2';
 import { Zone } from '../model/zone';
-import { BASE_PATH } from '../variables';
 
-
-
+import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
+import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
