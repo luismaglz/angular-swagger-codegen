@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BookingretrieveService, TokenService } from "dotrez-api";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: "app-root",
@@ -15,11 +16,14 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.tokenService.apiNskV1TokenPost();
+    this.tokenService
+      .apiNskV1TokenPost()
+      .pipe(take(1))
+      .subscribe(t => console.log(t));
     const booking = this.bookingRetrieveService.apiNskV2BookingRetrieveGet(
       "PNR"
     );
-    booking.subscribe(b => {
+    booking.pipe(take(1)).subscribe(b => {
       b.journeys[0].designator.arrival;
     });
   }
