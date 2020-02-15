@@ -3,6 +3,7 @@
  */
 
 export * from "./lib/api.module";
+export * from "./lib/api/api";
 export * from "./lib/configuration";
 export * from "./lib/encoder";
 export * from "./lib/variables";
