@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { BookingretrieveService, TokenService } from "dotrez-api";
-import { take } from "rxjs/operators";
+import { Booking, BookingretrieveService, TokenService } from "dotrez-api";
 import { AppSessionService } from "./services/app-session.service";
 
 @Component({
@@ -10,7 +9,7 @@ import { AppSessionService } from "./services/app-session.service";
 })
 export class AppComponent implements OnInit {
   title = "app-usin-api";
-
+  booking: Booking;
   constructor(
     protected tokenService: TokenService,
     protected bookingRetrieveService: BookingretrieveService,
@@ -24,21 +23,17 @@ export class AppComponent implements OnInit {
   async getTokenAndCallBooking(): Promise<void> {
     const tokenResponse = await this.tokenService
       .apiNskV1TokenPost(null, "body")
-      .pipe(take(1))
-      .subscribe(value => {
-        debugger;
-        this.appSession.token = value.token;
-        // debugger;
-        const booking = this.bookingRetrieveService.apiNskV2BookingRetrieveGet(
-          "G5E22Z",
-          undefined,
-          undefined,
-          "tylar",
-          "hiss"
-        );
-        booking.pipe(take(1)).subscribe(b => {
-          b.journeys[0].designator.arrival;
-        });
-      });
+      .toPromise();
+    this.appSession.token = tokenResponse.data.token;
+    const bookingResponse = await this.bookingRetrieveService
+      .apiNskV2BookingRetrieveGet(
+        "G5E22Z",
+        undefined,
+        undefined,
+        "tylar",
+        "hiss"
+      )
+      .toPromise();
+    this.booking = bookingResponse.data;
   }
 }
