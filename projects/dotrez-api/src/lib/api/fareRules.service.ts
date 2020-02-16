@@ -64,8 +64,8 @@ export class FareRulesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe?: 'body', reportProgress?: boolean): Observable<FareRule>;
-    public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FareRule>>;
+    public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:FareRule,metadata:{documentation_url:string}}>;
+    public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:FareRule,metadata:{documentation_url:string}}>>;
     public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FareRule>>;
     public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

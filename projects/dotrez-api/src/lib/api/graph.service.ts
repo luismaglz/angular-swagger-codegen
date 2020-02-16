@@ -66,8 +66,8 @@ export class GraphService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe?: 'body', reportProgress?: boolean): Observable<{data:any,metadata:{documentation_url:string}}>;
+    public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:any,metadata:{documentation_url:string}}>>;
     public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -126,8 +126,8 @@ export class GraphService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV1GraphPost(query?: GraphQlQuery, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV1GraphPost(query?: GraphQlQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV1GraphPost(query?: GraphQlQuery, observe?: 'body', reportProgress?: boolean): Observable<{data:any,metadata:{documentation_url:string}}>;
+    public apiV1GraphPost(query?: GraphQlQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:any,metadata:{documentation_url:string}}>>;
     public apiV1GraphPost(query?: GraphQlQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV1GraphPost(query?: GraphQlQuery, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -173,8 +173,8 @@ export class GraphService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe?: 'body', reportProgress?: boolean): Observable<{data:any,metadata:{documentation_url:string}}>;
+    public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:any,metadata:{documentation_url:string}}>>;
     public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

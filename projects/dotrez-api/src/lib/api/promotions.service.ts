@@ -65,8 +65,8 @@ export class PromotionsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe?: 'body', reportProgress?: boolean): Observable<Promotion>;
-    public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Promotion>>;
+    public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Promotion,metadata:{documentation_url:string}}>;
+    public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Promotion,metadata:{documentation_url:string}}>>;
     public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Promotion>>;
     public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -109,8 +109,8 @@ export class PromotionsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -164,8 +164,8 @@ export class PromotionsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'body', reportProgress?: boolean): Observable<Array<PromotionBase>>;
-    public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PromotionBase>>>;
+    public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PromotionBase>,metadata:{documentation_url:string}}>;
+    public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PromotionBase>,metadata:{documentation_url:string}}>>;
     public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PromotionBase>>>;
     public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

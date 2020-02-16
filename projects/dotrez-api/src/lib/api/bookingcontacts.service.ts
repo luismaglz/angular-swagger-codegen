@@ -69,8 +69,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -112,8 +112,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<Contact>;
-    public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Contact>>;
+    public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Contact,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Contact,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Contact>>;
     public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -156,8 +156,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -210,8 +210,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -258,8 +258,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<PhoneNumber>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PhoneNumber>>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<{data:PhoneNumber,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PhoneNumber,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PhoneNumber>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -307,8 +307,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -364,8 +364,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PhoneNumber>>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PhoneNumber>>>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PhoneNumber>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PhoneNumber>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PhoneNumber>>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -408,8 +408,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -462,8 +462,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -514,8 +514,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2004>;
-    public apiNskV1BookingContactsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2004>>;
+    public apiNskV1BookingContactsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2004,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2004,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2004>>;
     public apiNskV1BookingContactsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -553,8 +553,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsPost(request?: Contact, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPost(request?: Contact, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsPost(request?: Contact, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsPost(request?: Contact, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsPost(request?: Contact, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsPost(request?: Contact, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -601,8 +601,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsPrimaryDelete(observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsPrimaryDelete(observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsPrimaryDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsPrimaryDelete(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsPrimaryDelete(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -639,8 +639,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsPrimaryGet(observe?: 'body', reportProgress?: boolean): Observable<Contact>;
-    public apiNskV1BookingContactsPrimaryGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Contact>>;
+    public apiNskV1BookingContactsPrimaryGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Contact,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsPrimaryGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Contact,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsPrimaryGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Contact>>;
     public apiNskV1BookingContactsPrimaryGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -678,8 +678,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -727,8 +727,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -776,8 +776,8 @@ export class BookingcontactsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

@@ -115,8 +115,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Transaction>>;
-    public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Transaction>>>;
+    public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Transaction>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Transaction>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Transaction>>>;
     public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -186,8 +186,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAccountGet(observe?: 'body', reportProgress?: boolean): Observable<Account>;
-    public apiNskV1BookingAccountGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Account>>;
+    public apiNskV1BookingAccountGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Account,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAccountGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Account,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAccountGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Account>>;
     public apiNskV1BookingAccountGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -229,8 +229,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Transaction>>;
-    public apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Transaction>>>;
+    public apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Transaction>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Transaction>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Transaction>>>;
     public apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -298,8 +298,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ActivityProduct>>;
-    public apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ActivityProduct>>>;
+    public apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ActivityProduct>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ActivityProduct>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ActivityProduct>>>;
     public apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -349,8 +349,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<CarProduct>>;
-    public apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CarProduct>>>;
+    public apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<CarProduct>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<CarProduct>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CarProduct>>>;
     public apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -400,8 +400,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<HotelProduct>>;
-    public apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<HotelProduct>>>;
+    public apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<HotelProduct>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<HotelProduct>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<HotelProduct>>>;
     public apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -451,8 +451,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<InsuranceProduct>>;
-    public apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<InsuranceProduct>>>;
+    public apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<InsuranceProduct>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<InsuranceProduct>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<InsuranceProduct>>>;
     public apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -501,8 +501,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest, observe?: 'body', reportProgress?: boolean): Observable<IActionResult>;
-    public apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IActionResult>>;
+    public apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IActionResult,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IActionResult,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IActionResult>>;
     public apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -551,8 +551,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -605,8 +605,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -658,8 +658,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -701,8 +701,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<AddOn>;
-    public apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AddOn>>;
+    public apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:AddOn,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AddOn,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AddOn>>;
     public apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -746,8 +746,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -805,8 +805,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -862,8 +862,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<AddOnAllowedPayments>;
-    public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AddOnAllowedPayments>>;
+    public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:AddOnAllowedPayments,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AddOnAllowedPayments,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AddOnAllowedPayments>>;
     public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -906,8 +906,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -959,8 +959,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<PreCancelDetail>;
-    public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PreCancelDetail>>;
+    public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PreCancelDetail,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PreCancelDetail,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PreCancelDetail>>;
     public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1002,8 +1002,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1046,8 +1046,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<AddOnSettings>;
-    public apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AddOnSettings>>;
+    public apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:AddOnSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AddOnSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AddOnSettings>>;
     public apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1088,8 +1088,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse200>;
-    public apiNskV1BookingAddonsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse200>>;
+    public apiNskV1BookingAddonsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse200,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse200,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse200>>;
     public apiNskV1BookingAddonsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1126,8 +1126,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingAddonsPaymentsGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2001>;
-    public apiNskV1BookingAddonsPaymentsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2001>>;
+    public apiNskV1BookingAddonsPaymentsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2001,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingAddonsPaymentsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2001,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingAddonsPaymentsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2001>>;
     public apiNskV1BookingAddonsPaymentsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1165,8 +1165,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean, observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2002>;
-    public apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2002>>;
+    public apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean, observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2002,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2002,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2002>>;
     public apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1211,8 +1211,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<BundleAvailability>>;
-    public apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundleAvailability>>>;
+    public apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BundleAvailability>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BundleAvailability>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundleAvailability>>>;
     public apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1259,8 +1259,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingCommentsGet(observe?: 'body', reportProgress?: boolean): Observable<Array<BookingComment>>;
-    public apiNskV1BookingCommentsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BookingComment>>>;
+    public apiNskV1BookingCommentsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BookingComment>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingCommentsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BookingComment>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingCommentsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BookingComment>>>;
     public apiNskV1BookingCommentsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1299,8 +1299,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1352,8 +1352,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string, observe?: 'body', reportProgress?: boolean): Observable<FareRule>;
-    public apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FareRule>>;
+    public apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:FareRule,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:FareRule,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FareRule>>;
     public apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1394,8 +1394,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFareRulesGet(observe?: 'body', reportProgress?: boolean): Observable<Array<FareRule>>;
-    public apiNskV1BookingFareRulesGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<FareRule>>>;
+    public apiNskV1BookingFareRulesGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<FareRule>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFareRulesGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<FareRule>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFareRulesGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<FareRule>>>;
     public apiNskV1BookingFareRulesGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1433,8 +1433,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<FareRule>>;
-    public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<FareRule>>>;
+    public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<FareRule>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<FareRule>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<FareRule>>>;
     public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1476,8 +1476,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<FareRule>>;
-    public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<FareRule>>>;
+    public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<FareRule>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<FareRule>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<FareRule>>>;
     public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1519,8 +1519,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFeeByFeeKeyDelete(feeKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingFeeByFeeKeyDelete(feeKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingFeeByFeeKeyDelete(feeKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFeeByFeeKeyDelete(feeKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFeeByFeeKeyDelete(feeKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingFeeByFeeKeyDelete(feeKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1563,8 +1563,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1619,8 +1619,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ServiceCharge>>;
-    public apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ServiceCharge>>>;
+    public apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ServiceCharge>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ServiceCharge>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ServiceCharge>>>;
     public apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1680,8 +1680,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1728,8 +1728,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingGet(observe?: 'body', reportProgress?: boolean): Observable<Booking>;
-    public apiNskV1BookingGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Booking>>;
+    public apiNskV1BookingGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Booking,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Booking,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Booking>>;
     public apiNskV1BookingGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1768,8 +1768,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<FlightMoveHistoryResponse>;
-    public apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FlightMoveHistoryResponse>>;
+    public apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:FlightMoveHistoryResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:FlightMoveHistoryResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FlightMoveHistoryResponse>>;
     public apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1820,8 +1820,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<HistoryResponse>;
-    public apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HistoryResponse>>;
+    public apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:HistoryResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:HistoryResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HistoryResponse>>;
     public apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1873,8 +1873,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingHistoryMessageGet(observe?: 'body', reportProgress?: boolean): Observable<Array<BookingMessageHistory>>;
-    public apiNskV1BookingHistoryMessageGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BookingMessageHistory>>>;
+    public apiNskV1BookingHistoryMessageGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BookingMessageHistory>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingHistoryMessageGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BookingMessageHistory>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingHistoryMessageGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BookingMessageHistory>>>;
     public apiNskV1BookingHistoryMessageGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1911,8 +1911,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingHistoryNotificationGet(observe?: 'body', reportProgress?: boolean): Observable<Array<BookingNotificationHistory>>;
-    public apiNskV1BookingHistoryNotificationGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BookingNotificationHistory>>>;
+    public apiNskV1BookingHistoryNotificationGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BookingNotificationHistory>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingHistoryNotificationGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BookingNotificationHistory>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingHistoryNotificationGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BookingNotificationHistory>>>;
     public apiNskV1BookingHistoryNotificationGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1952,8 +1952,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<SeatAssignmentHistoryResponse>;
-    public apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SeatAssignmentHistoryResponse>>;
+    public apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:SeatAssignmentHistoryResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SeatAssignmentHistoryResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SeatAssignmentHistoryResponse>>;
     public apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2011,8 +2011,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<SegmentChangeHistoryResponse>;
-    public apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SegmentChangeHistoryResponse>>;
+    public apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:SegmentChangeHistoryResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SegmentChangeHistoryResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SegmentChangeHistoryResponse>>;
     public apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2068,8 +2068,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2117,8 +2117,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2165,8 +2165,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPromotionDelete(observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPromotionDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPromotionDelete(observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPromotionDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPromotionDelete(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPromotionDelete(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2204,8 +2204,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPromotionPost(request?: PromotionRequest, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiNskV1BookingPromotionPost(request?: PromotionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiNskV1BookingPromotionPost(request?: PromotionRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:any,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPromotionPost(request?: PromotionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:any,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPromotionPost(request?: PromotionRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiNskV1BookingPromotionPost(request?: PromotionRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2253,8 +2253,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPromotionPut(request?: PromotionRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPromotionPut(request?: PromotionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPromotionPut(request?: PromotionRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPromotionPut(request?: PromotionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPromotionPut(request?: PromotionRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPromotionPut(request?: PromotionRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2302,8 +2302,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingQueueDelete(request?: BookingQueueRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingQueueDelete(request?: BookingQueueRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingQueueDelete(request?: BookingQueueRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingQueueDelete(request?: BookingQueueRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingQueueDelete(request?: BookingQueueRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingQueueDelete(request?: BookingQueueRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2350,8 +2350,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingQueuePost(request?: BookingQueueRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingQueuePost(request?: BookingQueueRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingQueuePost(request?: BookingQueueRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingQueuePost(request?: BookingQueueRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingQueuePost(request?: BookingQueueRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingQueuePost(request?: BookingQueueRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2399,8 +2399,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2442,8 +2442,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string, observe?: 'body', reportProgress?: boolean): Observable<RecordLocator>;
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RecordLocator>>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:RecordLocator,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:RecordLocator,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RecordLocator>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2486,8 +2486,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2540,8 +2540,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2592,8 +2592,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRecordLocatorsDelete(observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingRecordLocatorsDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingRecordLocatorsDelete(observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRecordLocatorsDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRecordLocatorsDelete(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingRecordLocatorsDelete(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2630,8 +2630,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRecordLocatorsGet(observe?: 'body', reportProgress?: boolean): Observable<Array<RecordLocator>>;
-    public apiNskV1BookingRecordLocatorsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<RecordLocator>>>;
+    public apiNskV1BookingRecordLocatorsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<RecordLocator>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRecordLocatorsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<RecordLocator>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRecordLocatorsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<RecordLocator>>>;
     public apiNskV1BookingRecordLocatorsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2669,8 +2669,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2717,8 +2717,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingResetDelete(observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingResetDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingResetDelete(observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingResetDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingResetDelete(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingResetDelete(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2756,8 +2756,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2805,8 +2805,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2863,8 +2863,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2918,8 +2918,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2975,8 +2975,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3018,8 +3018,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3061,8 +3061,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingDividePost(request?: DivideRequestv2, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingDividePost(request?: DivideRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingDividePost(request?: DivideRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingDividePost(request?: DivideRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingDividePost(request?: DivideRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingDividePost(request?: DivideRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3109,8 +3109,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingHoldAvailableGet(observe?: 'body', reportProgress?: boolean): Observable<Date>;
-    public apiNskV2BookingHoldAvailableGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Date>>;
+    public apiNskV2BookingHoldAvailableGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Date,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingHoldAvailableGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Date,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingHoldAvailableGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Date>>;
     public apiNskV2BookingHoldAvailableGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3149,8 +3149,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<SeatMapAvailability>>;
-    public apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SeatMapAvailability>>>;
+    public apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SeatMapAvailability>>>;
     public apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3201,8 +3201,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<SeatMapAvailability>>;
-    public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SeatMapAvailability>>>;
+    public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SeatMapAvailability>>>;
     public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3254,8 +3254,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingStatusGet(observe?: 'body', reportProgress?: boolean): Observable<Booking>;
-    public apiNskV2BookingStatusGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Booking>>;
+    public apiNskV2BookingStatusGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Booking,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingStatusGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Booking,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingStatusGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Booking>>;
     public apiNskV2BookingStatusGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3293,8 +3293,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPost(request?: CommitRequestv2, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPost(request?: CommitRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPost(request?: CommitRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPost(request?: CommitRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPost(request?: CommitRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPost(request?: CommitRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3342,8 +3342,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPut(request?: CommitRequestv2, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPut(request?: CommitRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPut(request?: CommitRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPut(request?: CommitRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPut(request?: CommitRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPut(request?: CommitRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3393,8 +3393,8 @@ export class BookingService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<SeatMapAvailability>>;
-    public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SeatMapAvailability>>>;
+    public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SeatMapAvailability>>>;
     public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

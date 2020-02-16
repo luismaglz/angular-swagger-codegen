@@ -82,8 +82,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -125,8 +125,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<Payment>;
-    public apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Payment>>;
+    public apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Payment,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Payment,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Payment>>;
     public apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -167,8 +167,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPaymentsGet(observe?: 'body', reportProgress?: boolean): Observable<Array<Payment>>;
-    public apiNskV1BookingPaymentsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Payment>>>;
+    public apiNskV1BookingPaymentsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Payment>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPaymentsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Payment>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPaymentsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Payment>>>;
     public apiNskV1BookingPaymentsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -205,8 +205,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPaymentsRefundsGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2008>;
-    public apiNskV1BookingPaymentsRefundsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2008>>;
+    public apiNskV1BookingPaymentsRefundsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2008,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPaymentsRefundsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2008,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPaymentsRefundsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2008>>;
     public apiNskV1BookingPaymentsRefundsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -244,8 +244,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -293,8 +293,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -337,8 +337,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean, observe?: 'body', reportProgress?: boolean): Observable<VoucherInformation>;
-    public apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<VoucherInformation>>;
+    public apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean, observe?: 'body', reportProgress?: boolean): Observable<{data:VoucherInformation,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:VoucherInformation,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<VoucherInformation>>;
     public apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -389,8 +389,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsAvailableGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2008>;
-    public apiNskV2BookingPaymentsAvailableGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2008>>;
+    public apiNskV2BookingPaymentsAvailableGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2008,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsAvailableGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2008,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsAvailableGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2008>>;
     public apiNskV2BookingPaymentsAvailableGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -435,8 +435,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'body', reportProgress?: boolean): Observable<CreditAccount>;
-    public apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CreditAccount>>;
+    public apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'body', reportProgress?: boolean): Observable<{data:CreditAccount,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CreditAccount,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CreditAccount>>;
     public apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -512,8 +512,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -563,8 +563,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CreditAccount>;
-    public apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CreditAccount>>;
+    public apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CreditAccount,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CreditAccount,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CreditAccount>>;
     public apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -623,8 +623,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -672,8 +672,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CreditAccount>;
-    public apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CreditAccount>>;
+    public apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CreditAccount,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CreditAccount,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CreditAccount>>;
     public apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -718,8 +718,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -767,8 +767,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CreditAccount>;
-    public apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CreditAccount>>;
+    public apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CreditAccount,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CreditAccount,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CreditAccount>>;
     public apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -813,8 +813,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -863,8 +863,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -919,8 +919,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -968,8 +968,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1014,8 +1014,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string, observe?: 'body', reportProgress?: boolean): Observable<DirectCurrencyConversionAvailability>;
-    public apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DirectCurrencyConversionAvailability>>;
+    public apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:DirectCurrencyConversionAvailability,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:DirectCurrencyConversionAvailability,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DirectCurrencyConversionAvailability>>;
     public apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1084,8 +1084,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PaymentFeeResponse>;
-    public apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PaymentFeeResponse>>;
+    public apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PaymentFeeResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PaymentFeeResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PaymentFeeResponse>>;
     public apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1146,8 +1146,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1201,8 +1201,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1257,8 +1257,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsMccGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2009>;
-    public apiNskV3BookingPaymentsMccGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2009>>;
+    public apiNskV3BookingPaymentsMccGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2009,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsMccGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2009,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsMccGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2009>>;
     public apiNskV3BookingPaymentsMccGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1296,8 +1296,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1346,8 +1346,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1400,8 +1400,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1456,8 +1456,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1506,8 +1506,8 @@ export class BookingpaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

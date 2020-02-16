@@ -64,8 +64,8 @@ export class BookingretrieveService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe?: 'body', reportProgress?: boolean): Observable<Booking>;
-    public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Booking>>;
+    public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Booking,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Booking,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Booking>>;
     public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -107,8 +107,8 @@ export class BookingretrieveService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe?: 'body', reportProgress?: boolean): Observable<Booking>;
-    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Booking>>;
+    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Booking,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Booking,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Booking>>;
     public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -156,8 +156,8 @@ export class BookingretrieveService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'body', reportProgress?: boolean): Observable<Booking>;
-    public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Booking>>;
+    public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'body', reportProgress?: boolean): Observable<{data:Booking,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Booking,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Booking>>;
     public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

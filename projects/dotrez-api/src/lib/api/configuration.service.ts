@@ -62,8 +62,8 @@ export class ConfigurationService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ConfigurationCheckGet(observe?: 'body', reportProgress?: boolean): Observable<EnvironmentHealth>;
-    public apiNskV1ConfigurationCheckGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<EnvironmentHealth>>;
+    public apiNskV1ConfigurationCheckGet(observe?: 'body', reportProgress?: boolean): Observable<{data:EnvironmentHealth,metadata:{documentation_url:string}}>;
+    public apiNskV1ConfigurationCheckGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:EnvironmentHealth,metadata:{documentation_url:string}}>>;
     public apiNskV1ConfigurationCheckGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<EnvironmentHealth>>;
     public apiNskV1ConfigurationCheckGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

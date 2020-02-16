@@ -65,8 +65,8 @@ export class VoucherIssuanceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'body', reportProgress?: boolean): Observable<VoucherIssuance>;
-    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<VoucherIssuance>>;
+    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:VoucherIssuance,metadata:{documentation_url:string}}>;
+    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:VoucherIssuance,metadata:{documentation_url:string}}>>;
     public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<VoucherIssuance>>;
     public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -108,8 +108,8 @@ export class VoucherIssuanceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

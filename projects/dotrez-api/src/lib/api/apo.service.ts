@@ -65,8 +65,8 @@ export class ApoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -109,8 +109,8 @@ export class ApoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -159,8 +159,8 @@ export class ApoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ApoDelete(observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1ApoDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1ApoDelete(observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1ApoDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1ApoDelete(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1ApoDelete(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -197,8 +197,8 @@ export class ApoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ApoGet(observe?: 'body', reportProgress?: boolean): Observable<AncillaryPricingOptionsContext>;
-    public apiNskV1ApoGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AncillaryPricingOptionsContext>>;
+    public apiNskV1ApoGet(observe?: 'body', reportProgress?: boolean): Observable<{data:AncillaryPricingOptionsContext,metadata:{documentation_url:string}}>;
+    public apiNskV1ApoGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AncillaryPricingOptionsContext,metadata:{documentation_url:string}}>>;
     public apiNskV1ApoGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AncillaryPricingOptionsContext>>;
     public apiNskV1ApoGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -236,8 +236,8 @@ export class ApoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ApoPost(inputParameters?: InputParameters, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1ApoPost(inputParameters?: InputParameters, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1ApoPost(inputParameters?: InputParameters, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1ApoPost(inputParameters?: InputParameters, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1ApoPost(inputParameters?: InputParameters, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1ApoPost(inputParameters?: InputParameters, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

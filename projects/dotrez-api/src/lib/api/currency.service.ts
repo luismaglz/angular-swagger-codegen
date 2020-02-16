@@ -66,8 +66,8 @@ export class CurrencyService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe?: 'body', reportProgress?: boolean): Observable<CurrencyConversion>;
-    public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CurrencyConversion>>;
+    public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe?: 'body', reportProgress?: boolean): Observable<{data:CurrencyConversion,metadata:{documentation_url:string}}>;
+    public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CurrencyConversion,metadata:{documentation_url:string}}>>;
     public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CurrencyConversion>>;
     public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

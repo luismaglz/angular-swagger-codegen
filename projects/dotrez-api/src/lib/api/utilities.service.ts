@@ -63,8 +63,8 @@ export class UtilitiesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string, observe?: 'body', reportProgress?: boolean): Observable<Date>;
-    public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Date>>;
+    public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Date,metadata:{documentation_url:string}}>;
+    public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Date,metadata:{documentation_url:string}}>>;
     public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Date>>;
     public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

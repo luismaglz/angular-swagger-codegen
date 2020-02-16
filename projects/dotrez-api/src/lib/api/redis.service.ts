@@ -63,8 +63,8 @@ export class RedisService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV1RedisByNameDelete(name: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiV1RedisByNameDelete(name: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiV1RedisByNameDelete(name: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiV1RedisByNameDelete(name: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiV1RedisByNameDelete(name: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiV1RedisByNameDelete(name: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -105,8 +105,8 @@ export class RedisService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV1RedisDelete(observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiV1RedisDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiV1RedisDelete(observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiV1RedisDelete(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiV1RedisDelete(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiV1RedisDelete(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -143,8 +143,8 @@ export class RedisService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV1RedisGet(observe?: 'body', reportProgress?: boolean): Observable<Array<string>>;
-    public apiV1RedisGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<string>>>;
+    public apiV1RedisGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<string>,metadata:{documentation_url:string}}>;
+    public apiV1RedisGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<string>,metadata:{documentation_url:string}}>>;
     public apiV1RedisGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<string>>>;
     public apiV1RedisGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

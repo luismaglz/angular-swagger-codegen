@@ -144,8 +144,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<AccountTransactionCode>;
-    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AccountTransactionCode>>;
+    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:AccountTransactionCode,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AccountTransactionCode,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AccountTransactionCode>>;
     public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -198,8 +198,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<AccountTransactionCode>>;
-    public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<AccountTransactionCode>>>;
+    public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<AccountTransactionCode>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<AccountTransactionCode>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<AccountTransactionCode>>>;
     public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -266,8 +266,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<CommerceLocation>>;
-    public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CommerceLocation>>>;
+    public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<CommerceLocation>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<CommerceLocation>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CommerceLocation>>>;
     public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -330,8 +330,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<DynamicParameter>>;
-    public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DynamicParameter>>>;
+    public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<DynamicParameter>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<DynamicParameter>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DynamicParameter>>>;
     public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -394,8 +394,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ParticipantType>>;
-    public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ParticipantType>>>;
+    public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ParticipantType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ParticipantType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ParticipantType>>>;
     public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -456,8 +456,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Source>;
-    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Source>>;
+    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Source,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Source,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Source>>;
     public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -510,8 +510,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Source>>;
-    public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Source>>>;
+    public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Source>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Source>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Source>>>;
     public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -577,8 +577,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Vendor>>;
-    public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Vendor>>>;
+    public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Vendor>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Vendor>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Vendor>>>;
     public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -635,8 +635,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<AddressType>;
-    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AddressType>>;
+    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:AddressType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AddressType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AddressType>>;
     public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -689,8 +689,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<AddressType>>;
-    public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<AddressType>>>;
+    public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<AddressType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<AddressType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<AddressType>>>;
     public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -755,8 +755,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<AgentSettingType>;
-    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AgentSettingType>>;
+    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:AgentSettingType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AgentSettingType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AgentSettingType>>;
     public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -809,8 +809,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<AgentSettingType>>;
-    public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<AgentSettingType>>>;
+    public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<AgentSettingType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<AgentSettingType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<AgentSettingType>>>;
     public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -875,8 +875,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Area>;
-    public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Area>>;
+    public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Area,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Area,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Area>>;
     public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -929,8 +929,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Area>>;
-    public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Area>>>;
+    public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Area>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Area>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Area>>>;
     public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -995,8 +995,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<BaggageType>;
-    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BaggageType>>;
+    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:BaggageType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BaggageType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BaggageType>>;
     public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1049,8 +1049,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<BaggageType>>;
-    public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BaggageType>>>;
+    public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BaggageType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BaggageType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BaggageType>>>;
     public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1116,8 +1116,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<BundleApplication>>;
-    public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundleApplication>>>;
+    public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BundleApplication>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BundleApplication>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundleApplication>>>;
     public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1174,8 +1174,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<BundleConfiguration>;
-    public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BundleConfiguration>>;
+    public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:BundleConfiguration,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BundleConfiguration,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BundleConfiguration>>;
     public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1228,8 +1228,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<BundleConfiguration>>;
-    public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundleConfiguration>>>;
+    public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BundleConfiguration>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BundleConfiguration>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundleConfiguration>>>;
     public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1293,8 +1293,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<BundleRule>>;
-    public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundleRule>>>;
+    public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BundleRule>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BundleRule>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundleRule>>>;
     public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1343,8 +1343,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<BundleSet>>;
-    public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundleSet>>>;
+    public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BundleSet>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BundleSet>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundleSet>>>;
     public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1410,8 +1410,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<BundleSsrConfiguration>>;
-    public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundleSsrConfiguration>>>;
+    public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BundleSsrConfiguration>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BundleSsrConfiguration>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundleSsrConfiguration>>>;
     public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1469,8 +1469,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Carrier>;
-    public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Carrier>>;
+    public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Carrier,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Carrier,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Carrier>>;
     public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1527,8 +1527,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<ResourceEntriesCarrier>;
-    public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResourceEntriesCarrier>>;
+    public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:ResourceEntriesCarrier,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ResourceEntriesCarrier,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResourceEntriesCarrier>>;
     public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1593,8 +1593,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<City>;
-    public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<City>>;
+    public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:City,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:City,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<City>>;
     public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1647,8 +1647,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<City>>;
-    public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<City>>>;
+    public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<City>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<City>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<City>>>;
     public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1713,8 +1713,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ClassOfService>;
-    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ClassOfService>>;
+    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ClassOfService,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ClassOfService,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ClassOfService>>;
     public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1767,8 +1767,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ClassOfService>>;
-    public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ClassOfService>>>;
+    public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ClassOfService>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ClassOfService>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ClassOfService>>>;
     public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1833,8 +1833,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CommissionRate>;
-    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CommissionRate>>;
+    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CommissionRate,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CommissionRate,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CommissionRate>>;
     public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1887,8 +1887,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<CommissionRate>>;
-    public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CommissionRate>>>;
+    public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<CommissionRate>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<CommissionRate>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CommissionRate>>>;
     public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1953,8 +1953,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ContactType>;
-    public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ContactType>>;
+    public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ContactType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ContactType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ContactType>>;
     public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2007,8 +2007,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ContactType>>;
-    public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ContactType>>>;
+    public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ContactType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ContactType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ContactType>>>;
     public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2074,8 +2074,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<string>;
-    public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+    public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:string,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:string,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
     public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2130,8 +2130,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<ResourceContentItem>;
-    public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResourceContentItem>>;
+    public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ResourceContentItem,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ResourceContentItem,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResourceContentItem>>;
     public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2188,8 +2188,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ResourceContentResult>>;
-    public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ResourceContentResult>>>;
+    public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ResourceContentResult>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ResourceContentResult>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ResourceContentResult>>>;
     public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2254,8 +2254,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Culture>;
-    public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Culture>>;
+    public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Culture,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Culture,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Culture>>;
     public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2308,8 +2308,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Culture>>;
-    public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Culture>>>;
+    public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Culture>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Culture>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Culture>>>;
     public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2374,8 +2374,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CustomerProgram>;
-    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomerProgram>>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CustomerProgram,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CustomerProgram,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomerProgram>>;
     public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2426,8 +2426,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CustomerProgramLevel>;
-    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomerProgramLevel>>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CustomerProgramLevel,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CustomerProgramLevel,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomerProgramLevel>>;
     public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2484,8 +2484,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<CustomerProgram>>;
-    public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CustomerProgram>>>;
+    public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<CustomerProgram>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<CustomerProgram>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CustomerProgram>>>;
     public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2550,8 +2550,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Delay>;
-    public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Delay>>;
+    public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Delay,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Delay,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Delay>>;
     public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2604,8 +2604,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Delay>>;
-    public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Delay>>>;
+    public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Delay>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Delay>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Delay>>>;
     public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2670,8 +2670,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Department>;
-    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Department>>;
+    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Department,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Department,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Department>>;
     public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2724,8 +2724,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Department>>;
-    public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Department>>>;
+    public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Department>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Department>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Department>>>;
     public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2792,8 +2792,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<EnumResource>>;
-    public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<EnumResource>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<EnumResource>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<EnumResource>>>;
     public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2851,8 +2851,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<DocumentType>;
-    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DocumentType>>;
+    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:DocumentType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:DocumentType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DocumentType>>;
     public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2905,8 +2905,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<DocumentType>>;
-    public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<DocumentType>>>;
+    public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<DocumentType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<DocumentType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<DocumentType>>>;
     public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2970,8 +2970,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe?: 'body', reportProgress?: boolean): Observable<Domain>;
-    public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Domain>>;
+    public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Domain,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Domain,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Domain>>;
     public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3013,8 +3013,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesDomainsGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Domain>>;
-    public apiNskV1ResourcesDomainsGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Domain>>>;
+    public apiNskV1ResourcesDomainsGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Domain>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesDomainsGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Domain>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesDomainsGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Domain>>>;
     public apiNskV1ResourcesDomainsGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3060,8 +3060,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<EmailType>;
-    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<EmailType>>;
+    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:EmailType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:EmailType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<EmailType>>;
     public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3114,8 +3114,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<EmailType>>;
-    public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<EmailType>>>;
+    public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<EmailType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<EmailType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<EmailType>>>;
     public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3180,8 +3180,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ExternalRate>;
-    public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ExternalRate>>;
+    public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ExternalRate,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ExternalRate,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ExternalRate>>;
     public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3234,8 +3234,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ExternalRate>>;
-    public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ExternalRate>>>;
+    public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ExternalRate>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ExternalRate>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ExternalRate>>>;
     public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3300,8 +3300,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<FareType>;
-    public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FareType>>;
+    public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:FareType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:FareType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FareType>>;
     public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3354,8 +3354,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<FareType>>;
-    public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<FareType>>>;
+    public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<FareType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<FareType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<FareType>>>;
     public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3419,8 +3419,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe?: 'body', reportProgress?: boolean): Observable<Array<FeeDetail>>;
-    public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<FeeDetail>>>;
+    public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<FeeDetail>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<FeeDetail>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<FeeDetail>>>;
     public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3463,8 +3463,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Fee>;
-    public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Fee>>;
+    public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Fee,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Fee,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Fee>>;
     public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3517,8 +3517,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Fee>>;
-    public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Fee>>>;
+    public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Fee>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Fee>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Fee>>>;
     public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3585,8 +3585,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<EnumResource>>;
-    public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<EnumResource>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<EnumResource>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<EnumResource>>>;
     public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3644,8 +3644,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<HotCardReason>;
-    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<HotCardReason>>;
+    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:HotCardReason,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:HotCardReason,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<HotCardReason>>;
     public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3698,8 +3698,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<HotCardReason>>;
-    public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<HotCardReason>>>;
+    public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<HotCardReason>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<HotCardReason>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<HotCardReason>>>;
     public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3764,8 +3764,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<IssuanceReason>;
-    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IssuanceReason>>;
+    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IssuanceReason,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IssuanceReason,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IssuanceReason>>;
     public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3818,8 +3818,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<IssuanceReason>>;
-    public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<IssuanceReason>>>;
+    public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<IssuanceReason>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<IssuanceReason>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<IssuanceReason>>>;
     public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3884,8 +3884,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Location>;
-    public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Location>>;
+    public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Location,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Location,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Location>>;
     public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3938,8 +3938,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Location>>;
-    public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Location>>>;
+    public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Location>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Location>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Location>>>;
     public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4003,8 +4003,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe?: 'body', reportProgress?: boolean): Observable<Mac>;
-    public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Mac>>;
+    public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Mac,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Mac,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Mac>>;
     public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4046,8 +4046,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesMacsGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Mac>>;
-    public apiNskV1ResourcesMacsGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Mac>>>;
+    public apiNskV1ResourcesMacsGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Mac>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesMacsGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Mac>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesMacsGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Mac>>>;
     public apiNskV1ResourcesMacsGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4093,8 +4093,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<MessageType>;
-    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MessageType>>;
+    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:MessageType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:MessageType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MessageType>>;
     public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4147,8 +4147,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<MessageType>>;
-    public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<MessageType>>>;
+    public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<MessageType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<MessageType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<MessageType>>>;
     public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4215,8 +4215,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<EnumResource>>;
-    public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<EnumResource>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<EnumResource>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<EnumResource>>>;
     public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4274,8 +4274,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerDiscount>;
-    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerDiscount>>;
+    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerDiscount,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerDiscount,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerDiscount>>;
     public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4328,8 +4328,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerDiscount>>;
-    public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerDiscount>>>;
+    public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerDiscount>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerDiscount>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerDiscount>>>;
     public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4394,8 +4394,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerType>;
-    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerType>>;
+    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerType>>;
     public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4448,8 +4448,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerType>>;
-    public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerType>>>;
+    public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerType>>>;
     public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4514,8 +4514,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PaymentMethod>;
-    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PaymentMethod>>;
+    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PaymentMethod,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PaymentMethod,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PaymentMethod>>;
     public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4568,8 +4568,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<PaymentMethod>>;
-    public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PaymentMethod>>>;
+    public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PaymentMethod>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PaymentMethod>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PaymentMethod>>>;
     public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4634,8 +4634,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PersonAttachmentType>;
-    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonAttachmentType>>;
+    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonAttachmentType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonAttachmentType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonAttachmentType>>;
     public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4688,8 +4688,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<ResourceEntriesPersonAttachmentType>;
-    public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResourceEntriesPersonAttachmentType>>;
+    public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:ResourceEntriesPersonAttachmentType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ResourceEntriesPersonAttachmentType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResourceEntriesPersonAttachmentType>>;
     public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4754,8 +4754,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PersonInformationType>;
-    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonInformationType>>;
+    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonInformationType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonInformationType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonInformationType>>;
     public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4808,8 +4808,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonInformationType>>;
-    public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonInformationType>>>;
+    public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonInformationType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonInformationType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonInformationType>>>;
     public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4874,8 +4874,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PhoneType>;
-    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PhoneType>>;
+    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PhoneType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PhoneType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PhoneType>>;
     public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4928,8 +4928,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<PhoneType>>;
-    public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PhoneType>>>;
+    public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PhoneType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PhoneType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PhoneType>>>;
     public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4994,8 +4994,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ProductClass>;
-    public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ProductClass>>;
+    public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ProductClass,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ProductClass,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ProductClass>>;
     public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5048,8 +5048,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ProductClass>>;
-    public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ProductClass>>>;
+    public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ProductClass>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ProductClass>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ProductClass>>>;
     public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5114,8 +5114,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PromotionSettingType>;
-    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PromotionSettingType>>;
+    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PromotionSettingType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PromotionSettingType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PromotionSettingType>>;
     public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5168,8 +5168,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<PromotionSettingType>>;
-    public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PromotionSettingType>>>;
+    public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PromotionSettingType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PromotionSettingType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PromotionSettingType>>>;
     public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5234,8 +5234,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ProvinceState>;
-    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ProvinceState>>;
+    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ProvinceState,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ProvinceState,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ProvinceState>>;
     public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5288,8 +5288,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ProvinceState>>;
-    public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ProvinceState>>>;
+    public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ProvinceState>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ProvinceState>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ProvinceState>>>;
     public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5354,8 +5354,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<QueueCategory>;
-    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<QueueCategory>>;
+    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:QueueCategory,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:QueueCategory,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<QueueCategory>>;
     public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5408,8 +5408,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<QueueCategory>>;
-    public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<QueueCategory>>>;
+    public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<QueueCategory>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<QueueCategory>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<QueueCategory>>>;
     public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5473,8 +5473,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<ProvinceState>;
-    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ProvinceState>>;
+    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<{data:ProvinceState,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ProvinceState,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ProvinceState>>;
     public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5516,8 +5516,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ReminderTime>>;
-    public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ReminderTime>>>;
+    public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ReminderTime>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ReminderTime>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ReminderTime>>>;
     public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5562,8 +5562,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<RoleSettingType>;
-    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RoleSettingType>>;
+    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:RoleSettingType,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:RoleSettingType,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RoleSettingType>>;
     public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5609,8 +5609,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<RoleSettingType>>;
-    public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<RoleSettingType>>>;
+    public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<RoleSettingType>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<RoleSettingType>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<RoleSettingType>>>;
     public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5674,8 +5674,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe?: 'body', reportProgress?: boolean): Observable<Role>;
-    public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Role>>;
+    public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Role,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Role,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Role>>;
     public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5717,8 +5717,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesRolesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Role>>;
-    public apiNskV1ResourcesRolesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Role>>>;
+    public apiNskV1ResourcesRolesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Role>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesRolesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Role>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesRolesGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Role>>>;
     public apiNskV1ResourcesRolesGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5766,8 +5766,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<EnumResource>>;
-    public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<EnumResource>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<EnumResource>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<EnumResource>>>;
     public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5825,8 +5825,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<string>;
-    public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+    public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:string,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:string,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
     public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5882,8 +5882,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<ResourceCategoryItem>;
-    public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResourceCategoryItem>>;
+    public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ResourceCategoryItem,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ResourceCategoryItem,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResourceCategoryItem>>;
     public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5939,8 +5939,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ShoppingAttributeGroup>;
-    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ShoppingAttributeGroup>>;
+    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ShoppingAttributeGroup,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ShoppingAttributeGroup,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ShoppingAttributeGroup>>;
     public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -5993,8 +5993,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ShoppingAttributeGroup>>;
-    public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ShoppingAttributeGroup>>>;
+    public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ShoppingAttributeGroup>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ShoppingAttributeGroup>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ShoppingAttributeGroup>>>;
     public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6059,8 +6059,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ShoppingAttribute>;
-    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ShoppingAttribute>>;
+    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ShoppingAttribute,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ShoppingAttribute,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ShoppingAttribute>>;
     public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6113,8 +6113,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ShoppingAttribute>>;
-    public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ShoppingAttribute>>>;
+    public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ShoppingAttribute>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ShoppingAttribute>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ShoppingAttribute>>>;
     public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6178,8 +6178,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe?: 'body', reportProgress?: boolean): Observable<SingleSignOnProvider>;
-    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SingleSignOnProvider>>;
+    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe?: 'body', reportProgress?: boolean): Observable<{data:SingleSignOnProvider,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SingleSignOnProvider,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SingleSignOnProvider>>;
     public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6225,8 +6225,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<SingleSignOnProvider>>;
-    public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SingleSignOnProvider>>>;
+    public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SingleSignOnProvider>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SingleSignOnProvider>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SingleSignOnProvider>>>;
     public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6291,8 +6291,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<SsrGroup>;
-    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SsrGroup>>;
+    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:SsrGroup,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SsrGroup,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SsrGroup>>;
     public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6345,8 +6345,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<SsrGroup>>;
-    public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SsrGroup>>>;
+    public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SsrGroup>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SsrGroup>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SsrGroup>>>;
     public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6411,8 +6411,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<SsrNest>;
-    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SsrNest>>;
+    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:SsrNest,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SsrNest,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SsrNest>>;
     public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6465,8 +6465,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<SsrNest>>;
-    public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SsrNest>>>;
+    public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SsrNest>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SsrNest>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SsrNest>>>;
     public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6531,8 +6531,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<SsrRestrictionResult>;
-    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SsrRestrictionResult>>;
+    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:SsrRestrictionResult,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SsrRestrictionResult,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SsrRestrictionResult>>;
     public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6585,8 +6585,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<SsrRestrictionResult>>;
-    public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SsrRestrictionResult>>>;
+    public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SsrRestrictionResult>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SsrRestrictionResult>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SsrRestrictionResult>>>;
     public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6651,8 +6651,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Ssr>;
-    public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Ssr>>;
+    public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Ssr,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Ssr,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Ssr>>;
     public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6705,8 +6705,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Ssr>>;
-    public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Ssr>>>;
+    public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Ssr>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Ssr>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Ssr>>>;
     public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6771,8 +6771,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<StandByPriority>;
-    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<StandByPriority>>;
+    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:StandByPriority,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:StandByPriority,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<StandByPriority>>;
     public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6825,8 +6825,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<StandByPriority>>;
-    public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<StandByPriority>>>;
+    public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<StandByPriority>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<StandByPriority>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<StandByPriority>>>;
     public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6891,8 +6891,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<StationCategory>;
-    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<StationCategory>>;
+    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:StationCategory,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:StationCategory,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<StationCategory>>;
     public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -6945,8 +6945,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<StationCategory>>;
-    public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<StationCategory>>>;
+    public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<StationCategory>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<StationCategory>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<StationCategory>>>;
     public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7010,8 +7010,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe?: 'body', reportProgress?: boolean): Observable<ResourceEntriesStationDetail>;
-    public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResourceEntriesStationDetail>>;
+    public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ResourceEntriesStationDetail,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ResourceEntriesStationDetail,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResourceEntriesStationDetail>>;
     public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7055,8 +7055,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Station>;
-    public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Station>>;
+    public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Station,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Station,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Station>>;
     public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7114,8 +7114,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Station>>;
-    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Station>>>;
+    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Station>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Station>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Station>>>;
     public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7187,8 +7187,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Station>>;
-    public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Station>>>;
+    public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Station>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Station>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Station>>>;
     public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7253,8 +7253,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<SubZone>;
-    public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SubZone>>;
+    public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:SubZone,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SubZone,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SubZone>>;
     public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7307,8 +7307,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<SubZone>>;
-    public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SubZone>>>;
+    public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SubZone>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SubZone>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SubZone>>>;
     public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7372,8 +7372,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe?: 'body', reportProgress?: boolean): Observable<Suffix>;
-    public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Suffix>>;
+    public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Suffix,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Suffix,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Suffix>>;
     public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7419,8 +7419,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Suffix>>;
-    public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Suffix>>>;
+    public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Suffix>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Suffix>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Suffix>>>;
     public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7486,8 +7486,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<TimeZone>;
-    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TimeZone>>;
+    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:TimeZone,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:TimeZone,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TimeZone>>;
     public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7544,8 +7544,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<TimeZone>>;
-    public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TimeZone>>>;
+    public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<TimeZone>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<TimeZone>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TimeZone>>>;
     public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7609,8 +7609,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe?: 'body', reportProgress?: boolean): Observable<Title>;
-    public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Title>>;
+    public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Title,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Title,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Title>>;
     public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7656,8 +7656,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Title>>;
-    public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Title>>>;
+    public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Title>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Title>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Title>>>;
     public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7722,8 +7722,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<TravelClass>;
-    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TravelClass>>;
+    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:TravelClass,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:TravelClass,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TravelClass>>;
     public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7776,8 +7776,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<TravelClass>>;
-    public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TravelClass>>>;
+    public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<TravelClass>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<TravelClass>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TravelClass>>>;
     public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7842,8 +7842,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Zone>;
-    public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Zone>>;
+    public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Zone,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Zone,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Zone>>;
     public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7896,8 +7896,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Zone>>;
-    public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Zone>>>;
+    public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Zone>,metadata:{documentation_url:string}}>;
+    public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Zone>,metadata:{documentation_url:string}}>>;
     public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Zone>>>;
     public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -7963,8 +7963,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Vendorv2>>;
-    public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Vendorv2>>>;
+    public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Vendorv2>,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Vendorv2>,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Vendorv2>>>;
     public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -8021,8 +8021,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Countryv2>;
-    public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Countryv2>>;
+    public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Countryv2,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Countryv2,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Countryv2>>;
     public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -8075,8 +8075,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Countryv2>>;
-    public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Countryv2>>>;
+    public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Countryv2>,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Countryv2>,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Countryv2>>>;
     public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -8141,8 +8141,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Currency>;
-    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Currency>>;
+    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Currency,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Currency,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Currency>>;
     public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -8195,8 +8195,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<ResourceEntriesCurrencyv2>;
-    public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResourceEntriesCurrencyv2>>;
+    public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:ResourceEntriesCurrencyv2,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ResourceEntriesCurrencyv2,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResourceEntriesCurrencyv2>>;
     public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -8262,8 +8262,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Market>;
-    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Market>>;
+    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Market,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Market,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Market>>;
     public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -8317,8 +8317,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Market>>;
-    public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Market>>>;
+    public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Market>,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Market>,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Market>>>;
     public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -8371,8 +8371,8 @@ export class ResourcesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Marketv2>>;
-    public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Marketv2>>>;
+    public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Marketv2>,metadata:{documentation_url:string}}>;
+    public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Marketv2>,metadata:{documentation_url:string}}>>;
     public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Marketv2>>>;
     public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

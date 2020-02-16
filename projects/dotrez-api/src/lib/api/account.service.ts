@@ -65,8 +65,8 @@ export class AccountService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -114,8 +114,8 @@ export class AccountService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

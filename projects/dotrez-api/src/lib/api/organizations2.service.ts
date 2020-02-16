@@ -80,8 +80,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -134,8 +134,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -187,8 +187,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe?: 'body', reportProgress?: boolean): Observable<OrganizationAccount>;
-    public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OrganizationAccount>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:OrganizationAccount,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:OrganizationAccount,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OrganizationAccount>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -231,8 +231,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -285,8 +285,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -344,8 +344,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Transaction>>;
-    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Transaction>>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Transaction>,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Transaction>,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Transaction>>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -417,8 +417,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -471,8 +471,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -519,8 +519,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe?: 'body', reportProgress?: boolean): Observable<OrganizationCommissionRate>;
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OrganizationCommissionRate>>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:OrganizationCommissionRate,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:OrganizationCommissionRate,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OrganizationCommissionRate>>;
     public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -567,8 +567,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -621,8 +621,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -670,8 +670,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -728,8 +728,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -782,8 +782,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -831,8 +831,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -889,8 +889,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -943,8 +943,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -991,8 +991,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe?: 'body', reportProgress?: boolean): Observable<OrganizationExternalAccountv2>;
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OrganizationExternalAccountv2>>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:OrganizationExternalAccountv2,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:OrganizationExternalAccountv2,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OrganizationExternalAccountv2>>;
     public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1039,8 +1039,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1092,8 +1092,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe?: 'body', reportProgress?: boolean): Observable<Organizationv2>;
-    public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Organizationv2,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Organizationv2,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Organizationv2>>;
     public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1136,8 +1136,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<Organizationv2>;
-    public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Organizationv2,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Organizationv2,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Organizationv2>>;
     public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1190,8 +1190,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<Organizationv2>;
-    public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Organizationv2,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Organizationv2,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Organizationv2>>;
     public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1243,8 +1243,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<Organizationv2>;
-    public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Organizationv2,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Organizationv2,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Organizationv2>>;
     public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1292,8 +1292,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe?: 'body', reportProgress?: boolean): Observable<Organizationv2>;
-    public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Organizationv2,metadata:{documentation_url:string}}>;
+    public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Organizationv2,metadata:{documentation_url:string}}>>;
     public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Organizationv2>>;
     public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1354,8 +1354,8 @@ export class Organizations2Service {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'body', reportProgress?: boolean): Observable<Array<OrganizationRecord>>;
-    public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<OrganizationRecord>>>;
+    public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'body', reportProgress?: boolean): Observable<{data:Array<OrganizationRecord>,metadata:{documentation_url:string}}>;
+    public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<OrganizationRecord>,metadata:{documentation_url:string}}>>;
     public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<OrganizationRecord>>>;
     public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

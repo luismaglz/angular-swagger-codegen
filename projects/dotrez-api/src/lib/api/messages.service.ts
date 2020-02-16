@@ -64,8 +64,8 @@ export class MessagesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -107,8 +107,8 @@ export class MessagesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe?: 'body', reportProgress?: boolean): Observable<MessageBase>;
-    public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MessageBase>>;
+    public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:MessageBase,metadata:{documentation_url:string}}>;
+    public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:MessageBase,metadata:{documentation_url:string}}>>;
     public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MessageBase>>;
     public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -156,8 +156,8 @@ export class MessagesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<MessageBase>>;
-    public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<MessageBase>>>;
+    public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<MessageBase>,metadata:{documentation_url:string}}>;
+    public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<MessageBase>,metadata:{documentation_url:string}}>>;
     public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<MessageBase>>>;
     public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -229,8 +229,8 @@ export class MessagesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1MessagesPost(request?: MessageBase, observe?: 'body', reportProgress?: boolean): Observable<MessageBase>;
-    public apiNskV1MessagesPost(request?: MessageBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<MessageBase>>;
+    public apiNskV1MessagesPost(request?: MessageBase, observe?: 'body', reportProgress?: boolean): Observable<{data:MessageBase,metadata:{documentation_url:string}}>;
+    public apiNskV1MessagesPost(request?: MessageBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:MessageBase,metadata:{documentation_url:string}}>>;
     public apiNskV1MessagesPost(request?: MessageBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<MessageBase>>;
     public apiNskV1MessagesPost(request?: MessageBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

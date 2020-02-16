@@ -71,8 +71,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe?: 'body', reportProgress?: boolean): Observable<VouchersSummaryResponse>;
-    public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<VouchersSummaryResponse>>;
+    public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe?: 'body', reportProgress?: boolean): Observable<{data:VouchersSummaryResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:VouchersSummaryResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<VouchersSummaryResponse>>;
     public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -132,8 +132,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<VoucherItem>>;
-    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<VoucherItem>>>;
+    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<VoucherItem>,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<VoucherItem>,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<VoucherItem>>>;
     public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -180,8 +180,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<VoucherItem>>;
-    public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<VoucherItem>>>;
+    public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<VoucherItem>,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<VoucherItem>,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<VoucherItem>>>;
     public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -261,8 +261,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe?: 'body', reportProgress?: boolean): Observable<Voucher>;
-    public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Voucher>>;
+    public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Voucher,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Voucher,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Voucher>>;
     public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -305,8 +305,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -358,8 +358,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe?: 'body', reportProgress?: boolean): Observable<VoucherConfiguration>;
-    public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<VoucherConfiguration>>;
+    public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:VoucherConfiguration,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:VoucherConfiguration,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<VoucherConfiguration>>;
     public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -400,8 +400,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersConfigurationGet(observe?: 'body', reportProgress?: boolean): Observable<Array<VoucherConfiguration>>;
-    public apiNskV1VouchersConfigurationGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<VoucherConfiguration>>>;
+    public apiNskV1VouchersConfigurationGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<VoucherConfiguration>,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersConfigurationGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<VoucherConfiguration>,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersConfigurationGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<VoucherConfiguration>>>;
     public apiNskV1VouchersConfigurationGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -444,8 +444,8 @@ export class VouchersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<VoucherItem>>;
-    public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<VoucherItem>>>;
+    public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<VoucherItem>,metadata:{documentation_url:string}}>;
+    public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<VoucherItem>,metadata:{documentation_url:string}}>>;
     public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<VoucherItem>>>;
     public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

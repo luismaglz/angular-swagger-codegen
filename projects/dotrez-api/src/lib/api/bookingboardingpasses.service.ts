@@ -69,8 +69,8 @@ export class BookingboardingpassesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<BoardingPassesM2D>;
-    public apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BoardingPassesM2D>>;
+    public apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:BoardingPassesM2D,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BoardingPassesM2D,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BoardingPassesM2D>>;
     public apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -123,8 +123,8 @@ export class BookingboardingpassesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<BoardingPassesS2D>;
-    public apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BoardingPassesS2D>>;
+    public apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:BoardingPassesS2D,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BoardingPassesS2D,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BoardingPassesS2D>>;
     public apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -177,8 +177,8 @@ export class BookingboardingpassesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<BoardingPassesCollectionv2>;
-    public apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BoardingPassesCollectionv2>>;
+    public apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:BoardingPassesCollectionv2,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BoardingPassesCollectionv2,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassFilterRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BoardingPassesCollectionv2>>;
     public apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassFilterRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -231,8 +231,8 @@ export class BookingboardingpassesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<BoardingPassesCollectionv2>;
-    public apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BoardingPassesCollectionv2>>;
+    public apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:BoardingPassesCollectionv2,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BoardingPassesCollectionv2,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey: string, request?: BoardingPassPassengerFilterRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BoardingPassesCollectionv2>>;
     public apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey: string, request?: BoardingPassPassengerFilterRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

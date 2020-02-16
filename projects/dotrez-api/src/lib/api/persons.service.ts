@@ -124,8 +124,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsGet(personKey: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Transaction>>;
-    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsGet(personKey: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Transaction>>>;
+    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsGet(personKey: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Transaction>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsGet(personKey: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Transaction>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsGet(personKey: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Transaction>>>;
     public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsGet(personKey: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -202,8 +202,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsPost(personKey: string, accountCollectionKey: string, request?: TransactionRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsPost(personKey: string, accountCollectionKey: string, request?: TransactionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsPost(personKey: string, accountCollectionKey: string, request?: TransactionRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsPost(personKey: string, accountCollectionKey: string, request?: TransactionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsPost(personKey: string, accountCollectionKey: string, request?: TransactionRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAccountCollectionByAccountCollectionKeyTransactionsPost(personKey: string, accountCollectionKey: string, request?: TransactionRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -260,8 +260,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAccountCollectionPost(personKey: string, request?: AccountCollectionRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAccountCollectionPost(personKey: string, request?: AccountCollectionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAccountCollectionPost(personKey: string, request?: AccountCollectionRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAccountCollectionPost(personKey: string, request?: AccountCollectionRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAccountCollectionPost(personKey: string, request?: AccountCollectionRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAccountCollectionPost(personKey: string, request?: AccountCollectionRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -313,8 +313,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAccountGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Account>;
-    public apiNskV1PersonsByPersonKeyAccountGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Account>>;
+    public apiNskV1PersonsByPersonKeyAccountGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Account,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAccountGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Account,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAccountGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Account>>;
     public apiNskV1PersonsByPersonKeyAccountGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -357,8 +357,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAccountPost(personKey: string, request?: CreateAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAccountPost(personKey: string, request?: CreateAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAccountPost(personKey: string, request?: CreateAccountRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAccountPost(personKey: string, request?: CreateAccountRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAccountPost(personKey: string, request?: CreateAccountRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAccountPost(personKey: string, request?: CreateAccountRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -411,8 +411,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAccountStatusPut(personKey: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAccountStatusPut(personKey: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAccountStatusPut(personKey: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAccountStatusPut(personKey: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAccountStatusPut(personKey: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAccountStatusPut(personKey: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -470,8 +470,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAccountTransactionsGet(personKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Transaction>>;
-    public apiNskV1PersonsByPersonKeyAccountTransactionsGet(personKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Transaction>>>;
+    public apiNskV1PersonsByPersonKeyAccountTransactionsGet(personKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<Transaction>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAccountTransactionsGet(personKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<Transaction>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAccountTransactionsGet(personKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Transaction>>>;
     public apiNskV1PersonsByPersonKeyAccountTransactionsGet(personKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -543,8 +543,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyDelete(personKey: string, personAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyDelete(personKey: string, personAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyDelete(personKey: string, personAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyDelete(personKey: string, personAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyDelete(personKey: string, personAddressKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyDelete(personKey: string, personAddressKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -591,8 +591,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyGet(personKey: string, personAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonAddress>;
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyGet(personKey: string, personAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonAddress>>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyGet(personKey: string, personAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonAddress,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyGet(personKey: string, personAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonAddress,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyGet(personKey: string, personAddressKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonAddress>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyGet(personKey: string, personAddressKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -640,8 +640,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPatch(personKey: string, personAddressKey: string, request?: DeltaMapperPersonAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPatch(personKey: string, personAddressKey: string, request?: DeltaMapperPersonAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPatch(personKey: string, personAddressKey: string, request?: DeltaMapperPersonAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPatch(personKey: string, personAddressKey: string, request?: DeltaMapperPersonAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPatch(personKey: string, personAddressKey: string, request?: DeltaMapperPersonAddressEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPatch(personKey: string, personAddressKey: string, request?: DeltaMapperPersonAddressEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -699,8 +699,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPut(personKey: string, personAddressKey: string, request?: PersonAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPut(personKey: string, personAddressKey: string, request?: PersonAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPut(personKey: string, personAddressKey: string, request?: PersonAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPut(personKey: string, personAddressKey: string, request?: PersonAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPut(personKey: string, personAddressKey: string, request?: PersonAddressEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAddressesByPersonAddressKeyPut(personKey: string, personAddressKey: string, request?: PersonAddressEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -756,8 +756,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAddressesGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonAddress>>;
-    public apiNskV1PersonsByPersonKeyAddressesGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonAddress>>>;
+    public apiNskV1PersonsByPersonKeyAddressesGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonAddress>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAddressesGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonAddress>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAddressesGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonAddress>>>;
     public apiNskV1PersonsByPersonKeyAddressesGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -800,8 +800,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAddressesPost(personKey: string, request?: PersonAddressCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAddressesPost(personKey: string, request?: PersonAddressCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAddressesPost(personKey: string, request?: PersonAddressCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAddressesPost(personKey: string, request?: PersonAddressCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAddressesPost(personKey: string, request?: PersonAddressCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAddressesPost(personKey: string, request?: PersonAddressCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -854,8 +854,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyDelete(personKey: string, personAliasKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyDelete(personKey: string, personAliasKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyDelete(personKey: string, personAliasKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyDelete(personKey: string, personAliasKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyDelete(personKey: string, personAliasKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyDelete(personKey: string, personAliasKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -902,8 +902,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyGet(personKey: string, personAliasKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonAlias>;
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyGet(personKey: string, personAliasKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonAlias>>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyGet(personKey: string, personAliasKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonAlias,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyGet(personKey: string, personAliasKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonAlias,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyGet(personKey: string, personAliasKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonAlias>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyGet(personKey: string, personAliasKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -951,8 +951,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPatch(personKey: string, personAliasKey: string, request?: DeltaMapperPersonAliasRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPatch(personKey: string, personAliasKey: string, request?: DeltaMapperPersonAliasRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPatch(personKey: string, personAliasKey: string, request?: DeltaMapperPersonAliasRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPatch(personKey: string, personAliasKey: string, request?: DeltaMapperPersonAliasRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPatch(personKey: string, personAliasKey: string, request?: DeltaMapperPersonAliasRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPatch(personKey: string, personAliasKey: string, request?: DeltaMapperPersonAliasRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1010,8 +1010,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPut(personKey: string, personAliasKey: string, request?: PersonAliasRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPut(personKey: string, personAliasKey: string, request?: PersonAliasRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPut(personKey: string, personAliasKey: string, request?: PersonAliasRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPut(personKey: string, personAliasKey: string, request?: PersonAliasRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPut(personKey: string, personAliasKey: string, request?: PersonAliasRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAliasesByPersonAliasKeyPut(personKey: string, personAliasKey: string, request?: PersonAliasRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1067,8 +1067,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAliasesGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonAlias>>;
-    public apiNskV1PersonsByPersonKeyAliasesGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonAlias>>>;
+    public apiNskV1PersonsByPersonKeyAliasesGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonAlias>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAliasesGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonAlias>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAliasesGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonAlias>>>;
     public apiNskV1PersonsByPersonKeyAliasesGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1111,8 +1111,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyAliasesPost(personKey: string, request?: PersonAliasRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyAliasesPost(personKey: string, request?: PersonAliasRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyAliasesPost(personKey: string, request?: PersonAliasRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyAliasesPost(personKey: string, request?: PersonAliasRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyAliasesPost(personKey: string, request?: PersonAliasRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyAliasesPost(personKey: string, request?: PersonAliasRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1165,8 +1165,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyDelete(personKey: string, personCommentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyDelete(personKey: string, personCommentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyDelete(personKey: string, personCommentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyDelete(personKey: string, personCommentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyDelete(personKey: string, personCommentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyDelete(personKey: string, personCommentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1213,8 +1213,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyGet(personKey: string, personCommentKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonComment>;
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyGet(personKey: string, personCommentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonComment>>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyGet(personKey: string, personCommentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonComment,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyGet(personKey: string, personCommentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonComment,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyGet(personKey: string, personCommentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonComment>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyGet(personKey: string, personCommentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1262,8 +1262,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPatch(personKey: string, personCommentKey: string, request?: DeltaMapperPersonCommentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPatch(personKey: string, personCommentKey: string, request?: DeltaMapperPersonCommentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPatch(personKey: string, personCommentKey: string, request?: DeltaMapperPersonCommentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPatch(personKey: string, personCommentKey: string, request?: DeltaMapperPersonCommentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPatch(personKey: string, personCommentKey: string, request?: DeltaMapperPersonCommentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPatch(personKey: string, personCommentKey: string, request?: DeltaMapperPersonCommentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1321,8 +1321,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPut(personKey: string, personCommentKey: string, request?: PersonCommentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPut(personKey: string, personCommentKey: string, request?: PersonCommentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPut(personKey: string, personCommentKey: string, request?: PersonCommentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPut(personKey: string, personCommentKey: string, request?: PersonCommentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPut(personKey: string, personCommentKey: string, request?: PersonCommentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyCommentsByPersonCommentKeyPut(personKey: string, personCommentKey: string, request?: PersonCommentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1378,8 +1378,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyCommentsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonComment>>;
-    public apiNskV1PersonsByPersonKeyCommentsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonComment>>>;
+    public apiNskV1PersonsByPersonKeyCommentsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonComment>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyCommentsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonComment>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyCommentsGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonComment>>>;
     public apiNskV1PersonsByPersonKeyCommentsGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1422,8 +1422,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyCommentsPost(personKey: string, request?: PersonCommentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyCommentsPost(personKey: string, request?: PersonCommentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyCommentsPost(personKey: string, request?: PersonCommentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyCommentsPost(personKey: string, request?: PersonCommentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyCommentsPost(personKey: string, request?: PersonCommentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyCommentsPost(personKey: string, request?: PersonCommentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1475,8 +1475,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyDelete(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyDelete(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyDelete(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyDelete(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyDelete(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyDelete(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1519,8 +1519,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyDelete(personKey: string, personEmailAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyDelete(personKey: string, personEmailAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyDelete(personKey: string, personEmailAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyDelete(personKey: string, personEmailAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyDelete(personKey: string, personEmailAddressKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyDelete(personKey: string, personEmailAddressKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1567,8 +1567,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyGet(personKey: string, personEmailAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonEmail>;
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyGet(personKey: string, personEmailAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonEmail>>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyGet(personKey: string, personEmailAddressKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonEmail,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyGet(personKey: string, personEmailAddressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonEmail,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyGet(personKey: string, personEmailAddressKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonEmail>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyGet(personKey: string, personEmailAddressKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1616,8 +1616,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPatch(personKey: string, personEmailAddressKey: string, request?: DeltaMapperPersonEmailEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPatch(personKey: string, personEmailAddressKey: string, request?: DeltaMapperPersonEmailEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPatch(personKey: string, personEmailAddressKey: string, request?: DeltaMapperPersonEmailEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPatch(personKey: string, personEmailAddressKey: string, request?: DeltaMapperPersonEmailEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPatch(personKey: string, personEmailAddressKey: string, request?: DeltaMapperPersonEmailEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPatch(personKey: string, personEmailAddressKey: string, request?: DeltaMapperPersonEmailEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1675,8 +1675,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPut(personKey: string, personEmailAddressKey: string, request?: PersonEmailEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPut(personKey: string, personEmailAddressKey: string, request?: PersonEmailEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPut(personKey: string, personEmailAddressKey: string, request?: PersonEmailEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPut(personKey: string, personEmailAddressKey: string, request?: PersonEmailEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPut(personKey: string, personEmailAddressKey: string, request?: PersonEmailEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyEmailsByPersonEmailAddressKeyPut(personKey: string, personEmailAddressKey: string, request?: PersonEmailEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1732,8 +1732,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyEmailsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonEmail>>;
-    public apiNskV1PersonsByPersonKeyEmailsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonEmail>>>;
+    public apiNskV1PersonsByPersonKeyEmailsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonEmail>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyEmailsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonEmail>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyEmailsGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonEmail>>>;
     public apiNskV1PersonsByPersonKeyEmailsGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1776,8 +1776,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyEmailsPost(personKey: string, request?: PersonEmailCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyEmailsPost(personKey: string, request?: PersonEmailCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyEmailsPost(personKey: string, request?: PersonEmailCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyEmailsPost(personKey: string, request?: PersonEmailCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyEmailsPost(personKey: string, request?: PersonEmailCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyEmailsPost(personKey: string, request?: PersonEmailCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1829,8 +1829,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Person>;
-    public apiNskV1PersonsByPersonKeyGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Person>>;
+    public apiNskV1PersonsByPersonKeyGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Person,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Person,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Person>>;
     public apiNskV1PersonsByPersonKeyGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1873,8 +1873,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyDelete(personKey: string, personInformationKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyDelete(personKey: string, personInformationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyDelete(personKey: string, personInformationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyDelete(personKey: string, personInformationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyDelete(personKey: string, personInformationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyDelete(personKey: string, personInformationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1921,8 +1921,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyGet(personKey: string, personInformationKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonInformation>;
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyGet(personKey: string, personInformationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonInformation>>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyGet(personKey: string, personInformationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonInformation,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyGet(personKey: string, personInformationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonInformation,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyGet(personKey: string, personInformationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonInformation>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyGet(personKey: string, personInformationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1970,8 +1970,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPatch(personKey: string, personInformationKey: string, request?: DeltaMapperPersonInformationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPatch(personKey: string, personInformationKey: string, request?: DeltaMapperPersonInformationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPatch(personKey: string, personInformationKey: string, request?: DeltaMapperPersonInformationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPatch(personKey: string, personInformationKey: string, request?: DeltaMapperPersonInformationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPatch(personKey: string, personInformationKey: string, request?: DeltaMapperPersonInformationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPatch(personKey: string, personInformationKey: string, request?: DeltaMapperPersonInformationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2029,8 +2029,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPut(personKey: string, personInformationKey: string, request?: PersonInformationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPut(personKey: string, personInformationKey: string, request?: PersonInformationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPut(personKey: string, personInformationKey: string, request?: PersonInformationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPut(personKey: string, personInformationKey: string, request?: PersonInformationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPut(personKey: string, personInformationKey: string, request?: PersonInformationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyInformationByPersonInformationKeyPut(personKey: string, personInformationKey: string, request?: PersonInformationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2086,8 +2086,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyInformationGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonInformation>>;
-    public apiNskV1PersonsByPersonKeyInformationGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonInformation>>>;
+    public apiNskV1PersonsByPersonKeyInformationGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonInformation>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyInformationGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonInformation>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyInformationGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonInformation>>>;
     public apiNskV1PersonsByPersonKeyInformationGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2130,8 +2130,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyInformationPost(personKey: string, request?: PersonInformationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyInformationPost(personKey: string, request?: PersonInformationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyInformationPost(personKey: string, request?: PersonInformationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyInformationPost(personKey: string, request?: PersonInformationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyInformationPost(personKey: string, request?: PersonInformationCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyInformationPost(personKey: string, request?: PersonInformationCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2184,8 +2184,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPatch(personKey: string, request?: DeltaMapperPersonEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPatch(personKey: string, request?: DeltaMapperPersonEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPatch(personKey: string, request?: DeltaMapperPersonEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPatch(personKey: string, request?: DeltaMapperPersonEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPatch(personKey: string, request?: DeltaMapperPersonEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPatch(personKey: string, request?: DeltaMapperPersonEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2238,8 +2238,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyDelete(personKey: string, personPhoneNumberKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyDelete(personKey: string, personPhoneNumberKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyDelete(personKey: string, personPhoneNumberKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyDelete(personKey: string, personPhoneNumberKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyDelete(personKey: string, personPhoneNumberKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyDelete(personKey: string, personPhoneNumberKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2286,8 +2286,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyGet(personKey: string, personPhoneNumberKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonPhoneNumber>;
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyGet(personKey: string, personPhoneNumberKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonPhoneNumber>>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyGet(personKey: string, personPhoneNumberKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonPhoneNumber,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyGet(personKey: string, personPhoneNumberKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonPhoneNumber,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyGet(personKey: string, personPhoneNumberKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonPhoneNumber>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyGet(personKey: string, personPhoneNumberKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2335,8 +2335,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPatch(personKey: string, personPhoneNumberKey: string, request?: DeltaMapperPersonPhoneNumberRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPatch(personKey: string, personPhoneNumberKey: string, request?: DeltaMapperPersonPhoneNumberRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPatch(personKey: string, personPhoneNumberKey: string, request?: DeltaMapperPersonPhoneNumberRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPatch(personKey: string, personPhoneNumberKey: string, request?: DeltaMapperPersonPhoneNumberRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPatch(personKey: string, personPhoneNumberKey: string, request?: DeltaMapperPersonPhoneNumberRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPatch(personKey: string, personPhoneNumberKey: string, request?: DeltaMapperPersonPhoneNumberRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2394,8 +2394,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPut(personKey: string, personPhoneNumberKey: string, request?: PersonPhoneNumberRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPut(personKey: string, personPhoneNumberKey: string, request?: PersonPhoneNumberRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPut(personKey: string, personPhoneNumberKey: string, request?: PersonPhoneNumberRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPut(personKey: string, personPhoneNumberKey: string, request?: PersonPhoneNumberRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPut(personKey: string, personPhoneNumberKey: string, request?: PersonPhoneNumberRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersByPersonPhoneNumberKeyPut(personKey: string, personPhoneNumberKey: string, request?: PersonPhoneNumberRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2451,8 +2451,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPhoneNumbersGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonPhoneNumber>>;
-    public apiNskV1PersonsByPersonKeyPhoneNumbersGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonPhoneNumber>>>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonPhoneNumber>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonPhoneNumber>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonPhoneNumber>>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2495,8 +2495,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPhoneNumbersPost(personKey: string, request?: PersonPhoneNumberRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPhoneNumbersPost(personKey: string, request?: PersonPhoneNumberRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersPost(personKey: string, request?: PersonPhoneNumberRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPhoneNumbersPost(personKey: string, request?: PersonPhoneNumberRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersPost(personKey: string, request?: PersonPhoneNumberRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPhoneNumbersPost(personKey: string, request?: PersonPhoneNumberRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2549,8 +2549,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyDelete(personKey: string, personPreferenceKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyDelete(personKey: string, personPreferenceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyDelete(personKey: string, personPreferenceKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyDelete(personKey: string, personPreferenceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyDelete(personKey: string, personPreferenceKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyDelete(personKey: string, personPreferenceKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2597,8 +2597,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyGet(personKey: string, personPreferenceKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonPreference>;
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyGet(personKey: string, personPreferenceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonPreference>>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyGet(personKey: string, personPreferenceKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonPreference,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyGet(personKey: string, personPreferenceKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonPreference,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyGet(personKey: string, personPreferenceKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonPreference>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyGet(personKey: string, personPreferenceKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2646,8 +2646,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPatch(personKey: string, personPreferenceKey: string, request?: DeltaMapperPersonPreferenceEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPatch(personKey: string, personPreferenceKey: string, request?: DeltaMapperPersonPreferenceEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPatch(personKey: string, personPreferenceKey: string, request?: DeltaMapperPersonPreferenceEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPatch(personKey: string, personPreferenceKey: string, request?: DeltaMapperPersonPreferenceEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPatch(personKey: string, personPreferenceKey: string, request?: DeltaMapperPersonPreferenceEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPatch(personKey: string, personPreferenceKey: string, request?: DeltaMapperPersonPreferenceEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2705,8 +2705,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPut(personKey: string, personPreferenceKey: string, request?: PersonPreferenceEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPut(personKey: string, personPreferenceKey: string, request?: PersonPreferenceEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPut(personKey: string, personPreferenceKey: string, request?: PersonPreferenceEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPut(personKey: string, personPreferenceKey: string, request?: PersonPreferenceEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPut(personKey: string, personPreferenceKey: string, request?: PersonPreferenceEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPreferencesByPersonPreferenceKeyPut(personKey: string, personPreferenceKey: string, request?: PersonPreferenceEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2762,8 +2762,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPreferencesGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonPreference>>;
-    public apiNskV1PersonsByPersonKeyPreferencesGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonPreference>>>;
+    public apiNskV1PersonsByPersonKeyPreferencesGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonPreference>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPreferencesGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonPreference>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPreferencesGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonPreference>>>;
     public apiNskV1PersonsByPersonKeyPreferencesGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2806,8 +2806,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPreferencesPost(personKey: string, request?: PersonPreferenceCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPreferencesPost(personKey: string, request?: PersonPreferenceCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPreferencesPost(personKey: string, request?: PersonPreferenceCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPreferencesPost(personKey: string, request?: PersonPreferenceCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPreferencesPost(personKey: string, request?: PersonPreferenceCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPreferencesPost(personKey: string, request?: PersonPreferenceCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2860,8 +2860,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyDelete(personKey: string, personProgramKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyDelete(personKey: string, personProgramKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyDelete(personKey: string, personProgramKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyDelete(personKey: string, personProgramKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyDelete(personKey: string, personProgramKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyDelete(personKey: string, personProgramKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2908,8 +2908,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyGet(personKey: string, personProgramKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonCustomerProgram>;
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyGet(personKey: string, personProgramKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonCustomerProgram>>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyGet(personKey: string, personProgramKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonCustomerProgram,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyGet(personKey: string, personProgramKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonCustomerProgram,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyGet(personKey: string, personProgramKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonCustomerProgram>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyGet(personKey: string, personProgramKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2957,8 +2957,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPatch(personKey: string, personProgramKey: string, request?: DeltaMapperPersonCustomerProgramEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPatch(personKey: string, personProgramKey: string, request?: DeltaMapperPersonCustomerProgramEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPatch(personKey: string, personProgramKey: string, request?: DeltaMapperPersonCustomerProgramEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPatch(personKey: string, personProgramKey: string, request?: DeltaMapperPersonCustomerProgramEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPatch(personKey: string, personProgramKey: string, request?: DeltaMapperPersonCustomerProgramEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPatch(personKey: string, personProgramKey: string, request?: DeltaMapperPersonCustomerProgramEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3016,8 +3016,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPut(personKey: string, personProgramKey: string, request?: PersonCustomerProgramEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPut(personKey: string, personProgramKey: string, request?: PersonCustomerProgramEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPut(personKey: string, personProgramKey: string, request?: PersonCustomerProgramEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPut(personKey: string, personProgramKey: string, request?: PersonCustomerProgramEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPut(personKey: string, personProgramKey: string, request?: PersonCustomerProgramEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyProgramsByPersonProgramKeyPut(personKey: string, personProgramKey: string, request?: PersonCustomerProgramEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3073,8 +3073,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyProgramsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonCustomerProgram>>;
-    public apiNskV1PersonsByPersonKeyProgramsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonCustomerProgram>>>;
+    public apiNskV1PersonsByPersonKeyProgramsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonCustomerProgram>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyProgramsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonCustomerProgram>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyProgramsGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonCustomerProgram>>>;
     public apiNskV1PersonsByPersonKeyProgramsGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3117,8 +3117,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyProgramsPost(personKey: string, request?: PersonCustomerProgramCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyProgramsPost(personKey: string, request?: PersonCustomerProgramCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyProgramsPost(personKey: string, request?: PersonCustomerProgramCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyProgramsPost(personKey: string, request?: PersonCustomerProgramCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyProgramsPost(personKey: string, request?: PersonCustomerProgramCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyProgramsPost(personKey: string, request?: PersonCustomerProgramCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3171,8 +3171,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyPut(personKey: string, request?: PersonEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyPut(personKey: string, request?: PersonEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyPut(personKey: string, request?: PersonEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyPut(personKey: string, request?: PersonEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyPut(personKey: string, request?: PersonEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyPut(personKey: string, request?: PersonEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3225,8 +3225,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyDelete(personKey: string, personStoredPaymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyDelete(personKey: string, personStoredPaymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyDelete(personKey: string, personStoredPaymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyDelete(personKey: string, personStoredPaymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyDelete(personKey: string, personStoredPaymentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyDelete(personKey: string, personStoredPaymentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3273,8 +3273,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyGet(personKey: string, personStoredPaymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonStoredPayment>;
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyGet(personKey: string, personStoredPaymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonStoredPayment>>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyGet(personKey: string, personStoredPaymentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonStoredPayment,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyGet(personKey: string, personStoredPaymentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonStoredPayment,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyGet(personKey: string, personStoredPaymentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonStoredPayment>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyGet(personKey: string, personStoredPaymentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3322,8 +3322,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPatch(personKey: string, personStoredPaymentKey: string, request?: DeltaMapperPersonStoredPaymentUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPatch(personKey: string, personStoredPaymentKey: string, request?: DeltaMapperPersonStoredPaymentUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPatch(personKey: string, personStoredPaymentKey: string, request?: DeltaMapperPersonStoredPaymentUpdateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPatch(personKey: string, personStoredPaymentKey: string, request?: DeltaMapperPersonStoredPaymentUpdateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPatch(personKey: string, personStoredPaymentKey: string, request?: DeltaMapperPersonStoredPaymentUpdateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPatch(personKey: string, personStoredPaymentKey: string, request?: DeltaMapperPersonStoredPaymentUpdateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3381,8 +3381,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPut(personKey: string, personStoredPaymentKey: string, request?: PersonStoredPaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPut(personKey: string, personStoredPaymentKey: string, request?: PersonStoredPaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPut(personKey: string, personStoredPaymentKey: string, request?: PersonStoredPaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPut(personKey: string, personStoredPaymentKey: string, request?: PersonStoredPaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPut(personKey: string, personStoredPaymentKey: string, request?: PersonStoredPaymentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsByPersonStoredPaymentKeyPut(personKey: string, personStoredPaymentKey: string, request?: PersonStoredPaymentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3438,8 +3438,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyStoredPaymentsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonStoredPayment>>;
-    public apiNskV1PersonsByPersonKeyStoredPaymentsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonStoredPayment>>>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonStoredPayment>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonStoredPayment>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonStoredPayment>>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3482,8 +3482,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyStoredPaymentsPost(personKey: string, request?: PersonStoredPaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyStoredPaymentsPost(personKey: string, request?: PersonStoredPaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsPost(personKey: string, request?: PersonStoredPaymentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyStoredPaymentsPost(personKey: string, request?: PersonStoredPaymentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsPost(personKey: string, request?: PersonStoredPaymentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyStoredPaymentsPost(personKey: string, request?: PersonStoredPaymentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3536,8 +3536,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyDelete(personKey: string, personTravelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyDelete(personKey: string, personTravelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyDelete(personKey: string, personTravelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyDelete(personKey: string, personTravelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyDelete(personKey: string, personTravelDocumentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyDelete(personKey: string, personTravelDocumentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3584,8 +3584,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyGet(personKey: string, personTravelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<PersonTravelDocument>;
-    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyGet(personKey: string, personTravelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PersonTravelDocument>>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyGet(personKey: string, personTravelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PersonTravelDocument,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyGet(personKey: string, personTravelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PersonTravelDocument,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyGet(personKey: string, personTravelDocumentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PersonTravelDocument>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyGet(personKey: string, personTravelDocumentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3631,8 +3631,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelDocumentsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonTravelDocument>>;
-    public apiNskV1PersonsByPersonKeyTravelDocumentsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonTravelDocument>>>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonTravelDocument>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonTravelDocument>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonTravelDocument>>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3675,8 +3675,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelDocumentsPost(personKey: string, request?: PersonTravelDocumentRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelDocumentsPost(personKey: string, request?: PersonTravelDocumentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsPost(personKey: string, request?: PersonTravelDocumentRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelDocumentsPost(personKey: string, request?: PersonTravelDocumentRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsPost(personKey: string, request?: PersonTravelDocumentRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelDocumentsPost(personKey: string, request?: PersonTravelDocumentRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3729,8 +3729,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyDelete(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyDelete(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyDelete(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyDelete(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyDelete(personKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyDelete(personKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3778,8 +3778,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3831,8 +3831,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<NotificationEvent>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NotificationEvent>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<{data:NotificationEvent,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:NotificationEvent,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NotificationEvent>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(personKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3883,8 +3883,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsGet(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<NotificationEvent>>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsGet(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<NotificationEvent>>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsGet(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<NotificationEvent>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsGet(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<NotificationEvent>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsGet(personKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<NotificationEvent>>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsGet(personKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3932,8 +3932,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -3990,8 +3990,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyGet(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<TravelNotification>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyGet(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TravelNotification>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyGet(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:TravelNotification,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyGet(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:TravelNotification,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyGet(personKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TravelNotification>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyGet(personKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4039,8 +4039,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPatch(personKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPatch(personKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPatch(personKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPatch(personKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPatch(personKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPatch(personKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4098,8 +4098,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPut(personKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPut(personKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPut(personKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPut(personKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPut(personKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyPut(personKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4157,8 +4157,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4210,8 +4210,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<NotificationTimedEvent>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NotificationTimedEvent>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<{data:NotificationTimedEvent,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:NotificationTimedEvent,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NotificationTimedEvent>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4264,8 +4264,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(personKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4326,8 +4326,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<NotificationTimedEvent>>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<NotificationTimedEvent>>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(personKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<NotificationTimedEvent>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(personKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<NotificationTimedEvent>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(personKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<NotificationTimedEvent>>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(personKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4375,8 +4375,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(personKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4432,8 +4432,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<TravelNotification>>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TravelNotification>>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsGet(personKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<TravelNotification>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsGet(personKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<TravelNotification>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsGet(personKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TravelNotification>>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsGet(personKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4476,8 +4476,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsByPersonKeyTravelNotificationsPost(personKey: string, request?: TravelNotificationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsByPersonKeyTravelNotificationsPost(personKey: string, request?: TravelNotificationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsPost(personKey: string, request?: TravelNotificationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsByPersonKeyTravelNotificationsPost(personKey: string, request?: TravelNotificationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsPost(personKey: string, request?: TravelNotificationCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsByPersonKeyTravelNotificationsPost(personKey: string, request?: TravelNotificationCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4542,8 +4542,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsGet(activeOnly: boolean, firstName?: string, lastName?: string, firstNameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', customerNumber?: string, phoneNumber?: string, emailAddress?: string, programNumber?: string, programCode?: string, type?: 'None' | 'Customer' | 'Agent', nationalIdNumber?: string, nationalIdNumberMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', returnCount?: number, lastPersonKey?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PersonRecord>>;
-    public apiNskV1PersonsGet(activeOnly: boolean, firstName?: string, lastName?: string, firstNameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', customerNumber?: string, phoneNumber?: string, emailAddress?: string, programNumber?: string, programCode?: string, type?: 'None' | 'Customer' | 'Agent', nationalIdNumber?: string, nationalIdNumberMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', returnCount?: number, lastPersonKey?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PersonRecord>>>;
+    public apiNskV1PersonsGet(activeOnly: boolean, firstName?: string, lastName?: string, firstNameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', customerNumber?: string, phoneNumber?: string, emailAddress?: string, programNumber?: string, programCode?: string, type?: 'None' | 'Customer' | 'Agent', nationalIdNumber?: string, nationalIdNumberMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', returnCount?: number, lastPersonKey?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PersonRecord>,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsGet(activeOnly: boolean, firstName?: string, lastName?: string, firstNameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', customerNumber?: string, phoneNumber?: string, emailAddress?: string, programNumber?: string, programCode?: string, type?: 'None' | 'Customer' | 'Agent', nationalIdNumber?: string, nationalIdNumberMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', returnCount?: number, lastPersonKey?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PersonRecord>,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsGet(activeOnly: boolean, firstName?: string, lastName?: string, firstNameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', customerNumber?: string, phoneNumber?: string, emailAddress?: string, programNumber?: string, programCode?: string, type?: 'None' | 'Customer' | 'Agent', nationalIdNumber?: string, nationalIdNumberMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', returnCount?: number, lastPersonKey?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PersonRecord>>>;
     public apiNskV1PersonsGet(activeOnly: boolean, firstName?: string, lastName?: string, firstNameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', customerNumber?: string, phoneNumber?: string, emailAddress?: string, programNumber?: string, programCode?: string, type?: 'None' | 'Customer' | 'Agent', nationalIdNumber?: string, nationalIdNumberMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', returnCount?: number, lastPersonKey?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4643,8 +4643,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1PersonsPost(request?: PersonCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1PersonsPost(request?: PersonCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PersonsPost(request?: PersonCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1PersonsPost(request?: PersonCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1PersonsPost(request?: PersonCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1PersonsPost(request?: PersonCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4694,8 +4694,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPatch(personKey: string, personTravelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequestv2, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPatch(personKey: string, personTravelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPatch(personKey: string, personTravelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPatch(personKey: string, personTravelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPatch(personKey: string, personTravelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPatch(personKey: string, personTravelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -4753,8 +4753,8 @@ export class PersonsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPut(personKey: string, personTravelDocumentKey: string, request?: TravelDocumentEditRequestv2, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPut(personKey: string, personTravelDocumentKey: string, request?: TravelDocumentEditRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPut(personKey: string, personTravelDocumentKey: string, request?: TravelDocumentEditRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPut(personKey: string, personTravelDocumentKey: string, request?: TravelDocumentEditRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPut(personKey: string, personTravelDocumentKey: string, request?: TravelDocumentEditRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPut(personKey: string, personTravelDocumentKey: string, request?: TravelDocumentEditRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

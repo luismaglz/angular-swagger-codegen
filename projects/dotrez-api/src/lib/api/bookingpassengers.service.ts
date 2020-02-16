@@ -95,8 +95,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersBreakdownByTypeGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2007>;
-    public apiNskV1BookingPassengersBreakdownByTypeGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2007>>;
+    public apiNskV1BookingPassengersBreakdownByTypeGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2007,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersBreakdownByTypeGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2007,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersBreakdownByTypeGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2007>>;
     public apiNskV1BookingPassengersBreakdownByTypeGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -133,8 +133,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersBreakdownGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2006>;
-    public apiNskV1BookingPassengersBreakdownGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2006>>;
+    public apiNskV1BookingPassengersBreakdownGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2006,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersBreakdownGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2006,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersBreakdownGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2006>>;
     public apiNskV1BookingPassengersBreakdownGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -173,8 +173,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -222,8 +222,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -275,8 +275,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<NotificationEvent>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NotificationEvent>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'body', reportProgress?: boolean): Observable<{data:NotificationEvent,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:NotificationEvent,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NotificationEvent>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -327,8 +327,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<NotificationEvent>>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<NotificationEvent>>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<NotificationEvent>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<NotificationEvent>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<NotificationEvent>>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -376,8 +376,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -434,8 +434,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<TravelNotification>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TravelNotification>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:TravelNotification,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:TravelNotification,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TravelNotification>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -483,8 +483,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -542,8 +542,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -601,8 +601,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -654,8 +654,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<NotificationTimedEvent>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<NotificationTimedEvent>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'body', reportProgress?: boolean): Observable<{data:NotificationTimedEvent,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:NotificationTimedEvent,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<NotificationTimedEvent>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -708,8 +708,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -770,8 +770,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<NotificationTimedEvent>>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<NotificationTimedEvent>>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<NotificationTimedEvent>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<NotificationTimedEvent>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<NotificationTimedEvent>>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -819,8 +819,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -876,8 +876,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<TravelNotification>>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TravelNotification>>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<TravelNotification>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<TravelNotification>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TravelNotification>>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -920,8 +920,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -974,8 +974,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerAddress>;
-    public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerAddress>>;
+    public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerAddress,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerAddress,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerAddress>>;
     public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1021,8 +1021,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerAddress>>;
-    public apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerAddress>>>;
+    public apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerAddress>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerAddress>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerAddress>>>;
     public apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1065,8 +1065,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerBag>;
-    public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerBag>>;
+    public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerBag,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerBag,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerBag>>;
     public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1112,8 +1112,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerBag>>;
-    public apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerBag>>>;
+    public apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerBag>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerBag>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerBag>>>;
     public apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1155,8 +1155,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerPriceBreakdown>;
-    public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerPriceBreakdown>>;
+    public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerPriceBreakdown,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerPriceBreakdown,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerPriceBreakdown>>;
     public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1199,8 +1199,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerTravelDocument>;
-    public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerTravelDocument>>;
+    public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerTravelDocument,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerTravelDocument,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerTravelDocument>>;
     public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1246,8 +1246,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerTravelDocument>>;
-    public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerTravelDocument>>>;
+    public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerTravelDocument>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerTravelDocument>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerTravelDocument>>>;
     public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1289,8 +1289,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Passenger>;
-    public apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Passenger>>;
+    public apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Passenger,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Passenger,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Passenger>>;
     public apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1333,8 +1333,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerTravelDocument>;
-    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerTravelDocument>>;
+    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerTravelDocument,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerTravelDocument,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerTravelDocument>>;
     public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1380,8 +1380,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerTravelDocument>>;
-    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerTravelDocument>>>;
+    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerTravelDocument>,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerTravelDocument>,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerTravelDocument>>>;
     public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1423,8 +1423,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerInfant>;
-    public apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerInfant>>;
+    public apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerInfant,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerInfant,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerInfant>>;
     public apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1467,8 +1467,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest, observe?: 'body', reportProgress?: boolean): Observable<PassengerKeyResponse>;
-    public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerKeyResponse>>;
+    public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerKeyResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerKeyResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerKeyResponse>>;
     public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1523,8 +1523,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1580,8 +1580,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BookingPassengersGet(observe?: 'body', reportProgress?: boolean): Observable<InlineResponse2005>;
-    public apiNskV1BookingPassengersGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<InlineResponse2005>>;
+    public apiNskV1BookingPassengersGet(observe?: 'body', reportProgress?: boolean): Observable<{data:InlineResponse2005,metadata:{documentation_url:string}}>;
+    public apiNskV1BookingPassengersGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:InlineResponse2005,metadata:{documentation_url:string}}>>;
     public apiNskV1BookingPassengersGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<InlineResponse2005>>;
     public apiNskV1BookingPassengersGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1620,8 +1620,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1669,8 +1669,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1728,8 +1728,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1786,8 +1786,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1840,8 +1840,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1889,8 +1889,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1948,8 +1948,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2006,8 +2006,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2059,8 +2059,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2103,8 +2103,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2152,8 +2152,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2211,8 +2211,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2269,8 +2269,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2323,8 +2323,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2377,8 +2377,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerSeat>;
-    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerSeat>>;
+    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerSeat,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerSeat,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerSeat>>;
     public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2426,8 +2426,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2483,8 +2483,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerSeat>>;
-    public apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerSeat>>>;
+    public apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerSeat>,metadata:{documentation_url:string}}>;
+    public apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerSeat>,metadata:{documentation_url:string}}>>;
     public apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerSeat>>>;
     public apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2527,8 +2527,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2581,8 +2581,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2636,8 +2636,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -2698,8 +2698,8 @@ export class BookingpassengersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

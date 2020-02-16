@@ -66,8 +66,8 @@ export class BundlesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string, observe?: 'body', reportProgress?: boolean): Observable<BundleApplicationDetails>;
-    public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BundleApplicationDetails>>;
+    public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:BundleApplicationDetails,metadata:{documentation_url:string}}>;
+    public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BundleApplicationDetails,metadata:{documentation_url:string}}>>;
     public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BundleApplicationDetails>>;
     public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -109,8 +109,8 @@ export class BundlesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string, observe?: 'body', reportProgress?: boolean): Observable<Array<BundleApplication>>;
-    public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BundleApplication>>>;
+    public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BundleApplication>,metadata:{documentation_url:string}}>;
+    public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BundleApplication>,metadata:{documentation_url:string}}>>;
     public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BundleApplication>>>;
     public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -152,8 +152,8 @@ export class BundlesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string, observe?: 'body', reportProgress?: boolean): Observable<BundleSetDetails>;
-    public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BundleSetDetails>>;
+    public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:BundleSetDetails,metadata:{documentation_url:string}}>;
+    public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BundleSetDetails,metadata:{documentation_url:string}}>>;
     public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BundleSetDetails>>;
     public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

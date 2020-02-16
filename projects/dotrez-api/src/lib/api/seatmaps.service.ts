@@ -66,8 +66,8 @@ export class SeatmapsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<SeatMapAvailability>>;
-    public apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<SeatMapAvailability>>>;
+    public apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>;
+    public apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<SeatMapAvailability>,metadata:{documentation_url:string}}>>;
     public apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<SeatMapAvailability>>>;
     public apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

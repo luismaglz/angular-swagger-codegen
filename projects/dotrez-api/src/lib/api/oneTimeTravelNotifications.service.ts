@@ -65,8 +65,8 @@ export class OneTimeTravelNotificationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -108,8 +108,8 @@ export class OneTimeTravelNotificationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<OneTimeTravelNotification>;
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OneTimeTravelNotification>>;
+    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:OneTimeTravelNotification,metadata:{documentation_url:string}}>;
+    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:OneTimeTravelNotification,metadata:{documentation_url:string}}>>;
     public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OneTimeTravelNotification>>;
     public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -151,8 +151,8 @@ export class OneTimeTravelNotificationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

@@ -74,8 +74,8 @@ export class RedirectService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:any,metadata:{documentation_url:string}}>;
+    public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:any,metadata:{documentation_url:string}}>>;
     public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
     public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

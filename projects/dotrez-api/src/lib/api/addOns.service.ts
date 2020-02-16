@@ -76,8 +76,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<ActivityProduct>>;
-    public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ActivityProduct>>>;
+    public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ActivityProduct>,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ActivityProduct>,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ActivityProduct>>>;
     public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -125,8 +125,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe?: 'body', reportProgress?: boolean): Observable<AddOn>;
-    public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AddOn>>;
+    public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:AddOn,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AddOn,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AddOn>>;
     public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -174,8 +174,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe?: 'body', reportProgress?: boolean): Observable<QuotedProduct>;
-    public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<QuotedProduct>>;
+    public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:QuotedProduct,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:QuotedProduct,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<QuotedProduct>>;
     public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -223,8 +223,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<CarProduct>>;
-    public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CarProduct>>>;
+    public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<CarProduct>,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<CarProduct>,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CarProduct>>>;
     public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -272,8 +272,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe?: 'body', reportProgress?: boolean): Observable<AddOn>;
-    public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AddOn>>;
+    public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:AddOn,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AddOn,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AddOn>>;
     public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -321,8 +321,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe?: 'body', reportProgress?: boolean): Observable<QuotedProduct>;
-    public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<QuotedProduct>>;
+    public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:QuotedProduct,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:QuotedProduct,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<QuotedProduct>>;
     public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -370,8 +370,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe?: 'body', reportProgress?: boolean): Observable<Array<HotelProduct>>;
-    public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<HotelProduct>>>;
+    public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<HotelProduct>,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<HotelProduct>,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<HotelProduct>>>;
     public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -419,8 +419,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe?: 'body', reportProgress?: boolean): Observable<AddOn>;
-    public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AddOn>>;
+    public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:AddOn,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AddOn,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AddOn>>;
     public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -468,8 +468,8 @@ export class AddOnsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe?: 'body', reportProgress?: boolean): Observable<QuotedProduct>;
-    public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<QuotedProduct>>;
+    public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:QuotedProduct,metadata:{documentation_url:string}}>;
+    public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:QuotedProduct,metadata:{documentation_url:string}}>>;
     public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<QuotedProduct>>;
     public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

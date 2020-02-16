@@ -71,8 +71,8 @@ export class QueuesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -129,8 +129,8 @@ export class QueuesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -187,8 +187,8 @@ export class QueuesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe?: 'body', reportProgress?: boolean): Observable<DequeueTravelSummary>;
-    public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<DequeueTravelSummary>>;
+    public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:DequeueTravelSummary,metadata:{documentation_url:string}}>;
+    public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:DequeueTravelSummary,metadata:{documentation_url:string}}>>;
     public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<DequeueTravelSummary>>;
     public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -237,8 +237,8 @@ export class QueuesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -290,8 +290,8 @@ export class QueuesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<BookingQueueItemBase>>;
-    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<BookingQueueItemBase>>>;
+    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<BookingQueueItemBase>,metadata:{documentation_url:string}}>;
+    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<BookingQueueItemBase>,metadata:{documentation_url:string}}>>;
     public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<BookingQueueItemBase>>>;
     public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -356,8 +356,8 @@ export class QueuesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<QueueResults>;
-    public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<QueueResults>>;
+    public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe?: 'body', reportProgress?: boolean): Observable<{data:QueueResults,metadata:{documentation_url:string}}>;
+    public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:QueueResults,metadata:{documentation_url:string}}>>;
     public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<QueueResults>>;
     public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

@@ -81,8 +81,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripDowngradePost(request?: TripDowngradeRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1TripDowngradePost(request?: TripDowngradeRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TripDowngradePost(request?: TripDowngradeRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1TripDowngradePost(request?: TripDowngradeRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1TripDowngradePost(request?: TripDowngradeRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1TripDowngradePost(request?: TripDowngradeRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -130,8 +130,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string, observe?: 'body', reportProgress?: boolean): Observable<Trip>;
-    public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Trip>>;
+    public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Trip,metadata:{documentation_url:string}}>;
+    public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Trip,metadata:{documentation_url:string}}>>;
     public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Trip>>;
     public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -173,8 +173,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest, observe?: 'body', reportProgress?: boolean): Observable<Trip>;
-    public apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Trip>>;
+    public apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Trip,metadata:{documentation_url:string}}>;
+    public apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Trip,metadata:{documentation_url:string}}>>;
     public apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Trip>>;
     public apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -222,8 +222,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripInfoByLegKeyDetailsGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<TripDetails>;
-    public apiNskV1TripInfoByLegKeyDetailsGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TripDetails>>;
+    public apiNskV1TripInfoByLegKeyDetailsGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:TripDetails,metadata:{documentation_url:string}}>;
+    public apiNskV1TripInfoByLegKeyDetailsGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:TripDetails,metadata:{documentation_url:string}}>>;
     public apiNskV1TripInfoByLegKeyDetailsGet(legKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TripDetails>>;
     public apiNskV1TripInfoByLegKeyDetailsGet(legKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -265,8 +265,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripInfoPost(request?: TripInformationQuery, observe?: 'body', reportProgress?: boolean): Observable<Array<TripInformationResponse>>;
-    public apiNskV1TripInfoPost(request?: TripInformationQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TripInformationResponse>>>;
+    public apiNskV1TripInfoPost(request?: TripInformationQuery, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<TripInformationResponse>,metadata:{documentation_url:string}}>;
+    public apiNskV1TripInfoPost(request?: TripInformationQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<TripInformationResponse>,metadata:{documentation_url:string}}>>;
     public apiNskV1TripInfoPost(request?: TripInformationQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TripInformationResponse>>>;
     public apiNskV1TripInfoPost(request?: TripInformationQuery, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -323,8 +323,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'body', reportProgress?: boolean): Observable<Array<TripInformationResponse>>;
-    public apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TripInformationResponse>>>;
+    public apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'body', reportProgress?: boolean): Observable<{data:Array<TripInformationResponse>,metadata:{documentation_url:string}}>;
+    public apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<TripInformationResponse>,metadata:{documentation_url:string}}>>;
     public apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TripInformationResponse>>>;
     public apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -407,8 +407,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripMoveAvailabilitySelfServiceGet(observe?: 'body', reportProgress?: boolean): Observable<Availability>;
-    public apiNskV1TripMoveAvailabilitySelfServiceGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Availability>>;
+    public apiNskV1TripMoveAvailabilitySelfServiceGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Availability,metadata:{documentation_url:string}}>;
+    public apiNskV1TripMoveAvailabilitySelfServiceGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Availability,metadata:{documentation_url:string}}>>;
     public apiNskV1TripMoveAvailabilitySelfServiceGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Availability>>;
     public apiNskV1TripMoveAvailabilitySelfServiceGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -446,8 +446,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripMovePost(request?: MoveRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1TripMovePost(request?: MoveRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TripMovePost(request?: MoveRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1TripMovePost(request?: MoveRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1TripMovePost(request?: MoveRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1TripMovePost(request?: MoveRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -499,8 +499,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All', observe?: 'body', reportProgress?: boolean): Observable<Array<ScheduleDetail>>;
-    public apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ScheduleDetail>>>;
+    public apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All', observe?: 'body', reportProgress?: boolean): Observable<{data:Array<ScheduleDetail>,metadata:{documentation_url:string}}>;
+    public apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<ScheduleDetail>,metadata:{documentation_url:string}}>>;
     public apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ScheduleDetail>>>;
     public apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -574,8 +574,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -626,8 +626,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripUpgradeGet(observe?: 'body', reportProgress?: boolean): Observable<Array<UpgradeSegment>>;
-    public apiNskV1TripUpgradeGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<UpgradeSegment>>>;
+    public apiNskV1TripUpgradeGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<UpgradeSegment>,metadata:{documentation_url:string}}>;
+    public apiNskV1TripUpgradeGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<UpgradeSegment>,metadata:{documentation_url:string}}>>;
     public apiNskV1TripUpgradeGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<UpgradeSegment>>>;
     public apiNskV1TripUpgradeGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -665,8 +665,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1TripUpgradePost(request?: TripUpgradeRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV1TripUpgradePost(request?: TripUpgradeRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TripUpgradePost(request?: TripUpgradeRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1TripUpgradePost(request?: TripUpgradeRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1TripUpgradePost(request?: TripUpgradeRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV1TripUpgradePost(request?: TripUpgradeRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -714,8 +714,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2TripInfoByLegKeyStatusGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<TripStatusv2>;
-    public apiNskV2TripInfoByLegKeyStatusGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TripStatusv2>>;
+    public apiNskV2TripInfoByLegKeyStatusGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:TripStatusv2,metadata:{documentation_url:string}}>;
+    public apiNskV2TripInfoByLegKeyStatusGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:TripStatusv2,metadata:{documentation_url:string}}>>;
     public apiNskV2TripInfoByLegKeyStatusGet(legKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TripStatusv2>>;
     public apiNskV2TripInfoByLegKeyStatusGet(legKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -761,8 +761,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string, observe?: 'body', reportProgress?: boolean): Observable<Availability>;
-    public apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Availability>>;
+    public apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Availability,metadata:{documentation_url:string}}>;
+    public apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Availability,metadata:{documentation_url:string}}>>;
     public apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Availability>>;
     public apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -826,8 +826,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest, observe?: 'body', reportProgress?: boolean): Observable<Availability>;
-    public apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Availability>>;
+    public apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Availability,metadata:{documentation_url:string}}>;
+    public apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Availability,metadata:{documentation_url:string}}>>;
     public apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Availability>>;
     public apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -875,8 +875,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest, observe?: 'body', reportProgress?: boolean): Observable<Availability>;
-    public apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Availability>>;
+    public apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Availability,metadata:{documentation_url:string}}>;
+    public apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Availability,metadata:{documentation_url:string}}>>;
     public apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Availability>>;
     public apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -928,8 +928,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent', observe?: 'body', reportProgress?: boolean): Observable<Availability>;
-    public apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Availability>>;
+    public apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent', observe?: 'body', reportProgress?: boolean): Observable<{data:Availability,metadata:{documentation_url:string}}>;
+    public apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Availability,metadata:{documentation_url:string}}>>;
     public apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Availability>>;
     public apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -999,8 +999,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV4TripPost(request?: BookingSellRequest, observe?: 'body', reportProgress?: boolean): Observable<IJsonResponse>;
-    public apiNskV4TripPost(request?: BookingSellRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV4TripPost(request?: BookingSellRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:IJsonResponse,metadata:{documentation_url:string}}>;
+    public apiNskV4TripPost(request?: BookingSellRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:IJsonResponse,metadata:{documentation_url:string}}>>;
     public apiNskV4TripPost(request?: BookingSellRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<IJsonResponse>>;
     public apiNskV4TripPost(request?: BookingSellRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -1048,8 +1048,8 @@ export class TripService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV4TripSellPost(request?: TripSellRequest, observe?: 'body', reportProgress?: boolean): Observable<Booking>;
-    public apiNskV4TripSellPost(request?: TripSellRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Booking>>;
+    public apiNskV4TripSellPost(request?: TripSellRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:Booking,metadata:{documentation_url:string}}>;
+    public apiNskV4TripSellPost(request?: TripSellRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Booking,metadata:{documentation_url:string}}>>;
     public apiNskV4TripSellPost(request?: TripSellRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Booking>>;
     public apiNskV4TripSellPost(request?: TripSellRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

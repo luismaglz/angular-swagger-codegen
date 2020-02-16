@@ -82,8 +82,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CheckInSettings>;
-    public apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CheckInSettings>>;
+    public apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CheckInSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CheckInSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CheckInSettings>>;
     public apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -133,8 +133,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ContactSettings>;
-    public apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ContactSettings>>;
+    public apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ContactSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ContactSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ContactSettings>>;
     public apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -184,8 +184,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CustomerAccountSettings>;
-    public apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomerAccountSettings>>;
+    public apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CustomerAccountSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CustomerAccountSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomerAccountSettings>>;
     public apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -235,8 +235,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<FeeSettings>;
-    public apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FeeSettings>>;
+    public apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:FeeSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:FeeSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FeeSettings>>;
     public apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -286,8 +286,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<FlightSearchSettings>;
-    public apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<FlightSearchSettings>>;
+    public apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:FlightSearchSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:FlightSearchSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<FlightSearchSettings>>;
     public apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -337,8 +337,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<GeneralSettings>;
-    public apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GeneralSettings>>;
+    public apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:GeneralSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:GeneralSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GeneralSettings>>;
     public apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -388,8 +388,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerSettings>;
-    public apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerSettings>>;
+    public apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerSettings>>;
     public apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -439,8 +439,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<ReserveFlightsSettings>;
-    public apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReserveFlightsSettings>>;
+    public apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ReserveFlightsSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ReserveFlightsSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReserveFlightsSettings>>;
     public apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -490,8 +490,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<LogonSettings>;
-    public apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<LogonSettings>>;
+    public apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:LogonSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:LogonSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<LogonSettings>>;
     public apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -541,8 +541,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<CodesSettings>;
-    public apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CodesSettings>>;
+    public apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CodesSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CodesSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CodesSettings>>;
     public apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -592,8 +592,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<SessionSettings>;
-    public apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SessionSettings>>;
+    public apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:SessionSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SessionSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SessionSettings>>;
     public apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -642,8 +642,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsItineraryGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<ItinerarySettings>;
-    public apiNskV1SettingsItineraryGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ItinerarySettings>>;
+    public apiNskV1SettingsItineraryGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:ItinerarySettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsItineraryGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:ItinerarySettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsItineraryGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ItinerarySettings>>;
     public apiNskV1SettingsItineraryGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -688,8 +688,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsPaymentGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<PaymentSettings>;
-    public apiNskV1SettingsPaymentGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PaymentSettings>>;
+    public apiNskV1SettingsPaymentGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PaymentSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsPaymentGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PaymentSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsPaymentGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PaymentSettings>>;
     public apiNskV1SettingsPaymentGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -734,8 +734,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsUserAgencyCreationGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<AgencyCreationSettings>;
-    public apiNskV1SettingsUserAgencyCreationGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<AgencyCreationSettings>>;
+    public apiNskV1SettingsUserAgencyCreationGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:AgencyCreationSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsUserAgencyCreationGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:AgencyCreationSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsUserAgencyCreationGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<AgencyCreationSettings>>;
     public apiNskV1SettingsUserAgencyCreationGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -780,8 +780,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1SettingsUserCustomerCreationGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<CustomerCreationSettings>;
-    public apiNskV1SettingsUserCustomerCreationGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CustomerCreationSettings>>;
+    public apiNskV1SettingsUserCustomerCreationGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:CustomerCreationSettings,metadata:{documentation_url:string}}>;
+    public apiNskV1SettingsUserCustomerCreationGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:CustomerCreationSettings,metadata:{documentation_url:string}}>>;
     public apiNskV1SettingsUserCustomerCreationGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CustomerCreationSettings>>;
     public apiNskV1SettingsUserCustomerCreationGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -827,8 +827,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<BookingPaymentSettingsv2>;
-    public apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<BookingPaymentSettingsv2>>;
+    public apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:BookingPaymentSettingsv2,metadata:{documentation_url:string}}>;
+    public apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:BookingPaymentSettingsv2,metadata:{documentation_url:string}}>>;
     public apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<BookingPaymentSettingsv2>>;
     public apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -877,8 +877,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2SettingsPremiumServicesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<PremiumServicesSettingsv2>;
-    public apiNskV2SettingsPremiumServicesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PremiumServicesSettingsv2>>;
+    public apiNskV2SettingsPremiumServicesGet(eTag?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PremiumServicesSettingsv2,metadata:{documentation_url:string}}>;
+    public apiNskV2SettingsPremiumServicesGet(eTag?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PremiumServicesSettingsv2,metadata:{documentation_url:string}}>>;
     public apiNskV2SettingsPremiumServicesGet(eTag?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PremiumServicesSettingsv2>>;
     public apiNskV2SettingsPremiumServicesGet(eTag?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -924,8 +924,8 @@ export class SettingsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<SkySpeedSettingsv2>;
-    public apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<SkySpeedSettingsv2>>;
+    public apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string, observe?: 'body', reportProgress?: boolean): Observable<{data:SkySpeedSettingsv2,metadata:{documentation_url:string}}>;
+    public apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:SkySpeedSettingsv2,metadata:{documentation_url:string}}>>;
     public apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<SkySpeedSettingsv2>>;
     public apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

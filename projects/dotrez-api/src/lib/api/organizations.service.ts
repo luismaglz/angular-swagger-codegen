@@ -65,8 +65,8 @@ export class OrganizationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe?: 'body', reportProgress?: boolean): Observable<OrganizationGroupDetails>;
-    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OrganizationGroupDetails>>;
+    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe?: 'body', reportProgress?: boolean): Observable<{data:OrganizationGroupDetails,metadata:{documentation_url:string}}>;
+    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:OrganizationGroupDetails,metadata:{documentation_url:string}}>>;
     public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OrganizationGroupDetails>>;
     public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -107,8 +107,8 @@ export class OrganizationsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1OrganizationsGroupsGet(observe?: 'body', reportProgress?: boolean): Observable<Array<OrganizationGroup>>;
-    public apiNskV1OrganizationsGroupsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<OrganizationGroup>>>;
+    public apiNskV1OrganizationsGroupsGet(observe?: 'body', reportProgress?: boolean): Observable<{data:Array<OrganizationGroup>,metadata:{documentation_url:string}}>;
+    public apiNskV1OrganizationsGroupsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<OrganizationGroup>,metadata:{documentation_url:string}}>>;
     public apiNskV1OrganizationsGroupsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<OrganizationGroup>>>;
     public apiNskV1OrganizationsGroupsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

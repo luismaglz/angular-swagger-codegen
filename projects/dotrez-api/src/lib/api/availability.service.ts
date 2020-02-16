@@ -71,8 +71,8 @@ export class AvailabilityService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe?: 'body', reportProgress?: boolean): Observable<LowFareCacheAvailability>;
-    public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<LowFareCacheAvailability>>;
+    public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:LowFareCacheAvailability,metadata:{documentation_url:string}}>;
+    public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:LowFareCacheAvailability,metadata:{documentation_url:string}}>>;
     public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<LowFareCacheAvailability>>;
     public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -120,8 +120,8 @@ export class AvailabilityService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe?: 'body', reportProgress?: boolean): Observable<LowFareAvailability>;
-    public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<LowFareAvailability>>;
+    public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:LowFareAvailability,metadata:{documentation_url:string}}>;
+    public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:LowFareAvailability,metadata:{documentation_url:string}}>>;
     public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<LowFareAvailability>>;
     public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -169,8 +169,8 @@ export class AvailabilityService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe?: 'body', reportProgress?: boolean): Observable<LowFareAvailability>;
-    public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<LowFareAvailability>>;
+    public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe?: 'body', reportProgress?: boolean): Observable<{data:LowFareAvailability,metadata:{documentation_url:string}}>;
+    public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:LowFareAvailability,metadata:{documentation_url:string}}>>;
     public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<LowFareAvailability>>;
     public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -218,8 +218,8 @@ export class AvailabilityService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe?: 'body', reportProgress?: boolean): Observable<Availabilityv2>;
-    public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Availabilityv2>>;
+    public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:Availabilityv2,metadata:{documentation_url:string}}>;
+    public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Availabilityv2,metadata:{documentation_url:string}}>>;
     public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Availabilityv2>>;
     public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -267,8 +267,8 @@ export class AvailabilityService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe?: 'body', reportProgress?: boolean): Observable<Availabilityv2>;
-    public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Availabilityv2>>;
+    public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe?: 'body', reportProgress?: boolean): Observable<{data:Availabilityv2,metadata:{documentation_url:string}}>;
+    public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Availabilityv2,metadata:{documentation_url:string}}>>;
     public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Availabilityv2>>;
     public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 

@@ -68,8 +68,8 @@ export class ManifestService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<PassengerDetails>;
-    public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<PassengerDetails>>;
+    public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:PassengerDetails,metadata:{documentation_url:string}}>;
+    public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:PassengerDetails,metadata:{documentation_url:string}}>>;
     public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<PassengerDetails>>;
     public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -111,8 +111,8 @@ export class ManifestService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<Array<PassengerSeatAssignment>>;
-    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<PassengerSeatAssignment>>>;
+    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe?: 'body', reportProgress?: boolean): Observable<{data:Array<PassengerSeatAssignment>,metadata:{documentation_url:string}}>;
+    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Array<PassengerSeatAssignment>,metadata:{documentation_url:string}}>>;
     public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<PassengerSeatAssignment>>>;
     public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -155,8 +155,8 @@ export class ManifestService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe?: 'body', reportProgress?: boolean): Observable<Manifest>;
-    public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Manifest>>;
+    public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe?: 'body', reportProgress?: boolean): Observable<{data:Manifest,metadata:{documentation_url:string}}>;
+    public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:Manifest,metadata:{documentation_url:string}}>>;
     public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Manifest>>;
     public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
@@ -213,8 +213,8 @@ export class ManifestService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'body', reportProgress?: boolean): Observable<TripInformationResponse>;
-    public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<TripInformationResponse>>;
+    public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'body', reportProgress?: boolean): Observable<{data:TripInformationResponse,metadata:{documentation_url:string}}>;
+    public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<{data:TripInformationResponse,metadata:{documentation_url:string}}>>;
     public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<TripInformationResponse>>;
     public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
