@@ -26,7 +26,8 @@
     "replace": "replace-in-file --configFile=script-config/convert-to-dictionary",
     "pretty": "prettier --write ./projects/dotrez-api/src/lib/model/*.ts",
     "replace:pretty": "npm run replace && npm run pretty",
-    "swagger-gen": "java -jar ./swagger-codegen-cli.jar generate -i ./swagger.json -l typescript-angular -o ../projects/dotrez-api/src/lib/ -t ./typescript-angular/",
+    "swagger-gen": "java -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-angular -o projects/dotrez-api/src/lib/ -t ./swagger-gen/typescript-angular/ -c ./swagger-gen/config.json",
+    "swagger-gen:replace:pretty": "npm run swagger-gen && npm run replace:pretty",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/app-usin-api/stats.json",
     "analyze:dev": "ng build --stats-json && webpack-bundle-analyzer dist/app-usin-api/stats.json"
   },

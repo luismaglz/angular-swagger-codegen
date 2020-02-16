@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { AvailabilityRequestv2 } from '../model/availabilityRequestv2';
 import { AvailabilitySimpleRequestv2 } from '../model/availabilitySimpleRequestv2';
