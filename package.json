@@ -29,7 +29,8 @@
     "swagger-gen": "java -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-angular -o projects/dotrez-api/src/lib/ -t ./swagger-gen/typescript-angular/ -c ./swagger-gen/config.json",
     "swagger-gen:replace:pretty": "npm run swagger-gen && npm run replace:pretty",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/app-usin-api/stats.json",
-    "analyze:dev": "ng build --stats-json && webpack-bundle-analyzer dist/app-usin-api/stats.json"
+    "analyze:dev": "ng build --stats-json && webpack-bundle-analyzer dist/app-usin-api/stats.json",
+    "barrel:api": "barrelsby --directory ./projects/dotrez-api/src/lib/model/ --delete --singleQuotes --location all --exclude \"spec.ts|test.data.ts|test.module.ts|internal\\..*?ts\""
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
@@ -56,6 +57,7 @@
     "tslint": "~5.11.0",
     "typescript": "~3.1.1",
     "prettier": "^1.19.1",
-    "replace-in-file": "^5.0.2"
+    "replace-in-file": "^5.0.2",
+    "barrelsby": "^2.2.0"
   }
 }

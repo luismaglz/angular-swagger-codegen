@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BookingretrieveService, TokenService } from "dotrez-api";
 import { take } from "rxjs/operators";
+import { AppSessionService } from "./services/app-session.service";
 
 @Component({
   selector: "app-root",
@@ -12,19 +13,32 @@ export class AppComponent implements OnInit {
 
   constructor(
     protected tokenService: TokenService,
-    protected bookingRetrieveService: BookingretrieveService
+    protected bookingRetrieveService: BookingretrieveService,
+    protected appSession: AppSessionService
   ) {}
 
   ngOnInit(): void {
-    this.tokenService
-      .apiNskV1TokenPost()
+    this.getTokenAndCallBooking();
+  }
+
+  async getTokenAndCallBooking(): Promise<void> {
+    const tokenResponse = await this.tokenService
+      .apiNskV1TokenPost(null, "body")
       .pipe(take(1))
-      .subscribe(t => console.log(t));
-    const booking = this.bookingRetrieveService.apiNskV2BookingRetrieveGet(
-      "PNR"
-    );
-    booking.pipe(take(1)).subscribe(b => {
-      b.journeys[0].designator.arrival;
-    });
+      .subscribe(value => {
+        debugger;
+        this.appSession.token = value.token;
+        // debugger;
+        const booking = this.bookingRetrieveService.apiNskV2BookingRetrieveGet(
+          "G5E22Z",
+          undefined,
+          undefined,
+          "tylar",
+          "hiss"
+        );
+        booking.pipe(take(1)).subscribe(b => {
+          b.journeys[0].designator.arrival;
+        });
+      });
   }
 }
