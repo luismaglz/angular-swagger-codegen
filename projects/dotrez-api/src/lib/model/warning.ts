@@ -34,9 +34,4 @@ export interface Warning {
 }
 export namespace Warning {
     export type ChargeOriginEnum = 'Internal' | 'External' | 'Unknown';
-    export const ChargeOriginEnum = {
-        Internal: 'Internal' as ChargeOriginEnum,
-        External: 'External' as ChargeOriginEnum,
-        Unknown: 'Unknown' as ChargeOriginEnum
-    };
 }

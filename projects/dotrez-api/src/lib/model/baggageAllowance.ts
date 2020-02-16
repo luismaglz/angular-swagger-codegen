@@ -63,16 +63,5 @@ export interface BaggageAllowance {
 }
 export namespace BaggageAllowance {
     export type BehaviorEnum = 'Default' | 'WeightSharing' | 'PerPiece' | 'PerPieceWithWeightSharing';
-    export const BehaviorEnum = {
-        Default: 'Default' as BehaviorEnum,
-        WeightSharing: 'WeightSharing' as BehaviorEnum,
-        PerPiece: 'PerPiece' as BehaviorEnum,
-        PerPieceWithWeightSharing: 'PerPieceWithWeightSharing' as BehaviorEnum
-    };
     export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    };
 }

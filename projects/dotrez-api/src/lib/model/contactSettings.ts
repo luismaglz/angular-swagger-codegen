@@ -114,163 +114,23 @@ export interface ContactSettings {
 }
 export namespace ContactSettings {
     export type TitleEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const TitleEnum = {
-        Required: 'Required' as TitleEnum,
-        Optional: 'Optional' as TitleEnum,
-        Disabled: 'Disabled' as TitleEnum,
-        RequiredMasked: 'RequiredMasked' as TitleEnum,
-        OptionalMasked: 'OptionalMasked' as TitleEnum
-    };
     export type FirstNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const FirstNameEnum = {
-        Required: 'Required' as FirstNameEnum,
-        Optional: 'Optional' as FirstNameEnum,
-        Disabled: 'Disabled' as FirstNameEnum,
-        RequiredMasked: 'RequiredMasked' as FirstNameEnum,
-        OptionalMasked: 'OptionalMasked' as FirstNameEnum
-    };
     export type MiddleNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const MiddleNameEnum = {
-        Required: 'Required' as MiddleNameEnum,
-        Optional: 'Optional' as MiddleNameEnum,
-        Disabled: 'Disabled' as MiddleNameEnum,
-        RequiredMasked: 'RequiredMasked' as MiddleNameEnum,
-        OptionalMasked: 'OptionalMasked' as MiddleNameEnum
-    };
     export type LastNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const LastNameEnum = {
-        Required: 'Required' as LastNameEnum,
-        Optional: 'Optional' as LastNameEnum,
-        Disabled: 'Disabled' as LastNameEnum,
-        RequiredMasked: 'RequiredMasked' as LastNameEnum,
-        OptionalMasked: 'OptionalMasked' as LastNameEnum
-    };
     export type SuffixEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const SuffixEnum = {
-        Required: 'Required' as SuffixEnum,
-        Optional: 'Optional' as SuffixEnum,
-        Disabled: 'Disabled' as SuffixEnum,
-        RequiredMasked: 'RequiredMasked' as SuffixEnum,
-        OptionalMasked: 'OptionalMasked' as SuffixEnum
-    };
     export type AddressLineOneEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const AddressLineOneEnum = {
-        Required: 'Required' as AddressLineOneEnum,
-        Optional: 'Optional' as AddressLineOneEnum,
-        Disabled: 'Disabled' as AddressLineOneEnum,
-        RequiredMasked: 'RequiredMasked' as AddressLineOneEnum,
-        OptionalMasked: 'OptionalMasked' as AddressLineOneEnum
-    };
     export type AddressLineTwoEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const AddressLineTwoEnum = {
-        Required: 'Required' as AddressLineTwoEnum,
-        Optional: 'Optional' as AddressLineTwoEnum,
-        Disabled: 'Disabled' as AddressLineTwoEnum,
-        RequiredMasked: 'RequiredMasked' as AddressLineTwoEnum,
-        OptionalMasked: 'OptionalMasked' as AddressLineTwoEnum
-    };
     export type AddressLineThreeEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const AddressLineThreeEnum = {
-        Required: 'Required' as AddressLineThreeEnum,
-        Optional: 'Optional' as AddressLineThreeEnum,
-        Disabled: 'Disabled' as AddressLineThreeEnum,
-        RequiredMasked: 'RequiredMasked' as AddressLineThreeEnum,
-        OptionalMasked: 'OptionalMasked' as AddressLineThreeEnum
-    };
     export type CityEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const CityEnum = {
-        Required: 'Required' as CityEnum,
-        Optional: 'Optional' as CityEnum,
-        Disabled: 'Disabled' as CityEnum,
-        RequiredMasked: 'RequiredMasked' as CityEnum,
-        OptionalMasked: 'OptionalMasked' as CityEnum
-    };
     export type StateEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const StateEnum = {
-        Required: 'Required' as StateEnum,
-        Optional: 'Optional' as StateEnum,
-        Disabled: 'Disabled' as StateEnum,
-        RequiredMasked: 'RequiredMasked' as StateEnum,
-        OptionalMasked: 'OptionalMasked' as StateEnum
-    };
     export type PostalCodeEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PostalCodeEnum = {
-        Required: 'Required' as PostalCodeEnum,
-        Optional: 'Optional' as PostalCodeEnum,
-        Disabled: 'Disabled' as PostalCodeEnum,
-        RequiredMasked: 'RequiredMasked' as PostalCodeEnum,
-        OptionalMasked: 'OptionalMasked' as PostalCodeEnum
-    };
     export type CountryEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const CountryEnum = {
-        Required: 'Required' as CountryEnum,
-        Optional: 'Optional' as CountryEnum,
-        Disabled: 'Disabled' as CountryEnum,
-        RequiredMasked: 'RequiredMasked' as CountryEnum,
-        OptionalMasked: 'OptionalMasked' as CountryEnum
-    };
     export type EmailEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const EmailEnum = {
-        Required: 'Required' as EmailEnum,
-        Optional: 'Optional' as EmailEnum,
-        Disabled: 'Disabled' as EmailEnum,
-        RequiredMasked: 'RequiredMasked' as EmailEnum,
-        OptionalMasked: 'OptionalMasked' as EmailEnum
-    };
     export type HomePhoneNumberEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const HomePhoneNumberEnum = {
-        Required: 'Required' as HomePhoneNumberEnum,
-        Optional: 'Optional' as HomePhoneNumberEnum,
-        Disabled: 'Disabled' as HomePhoneNumberEnum,
-        RequiredMasked: 'RequiredMasked' as HomePhoneNumberEnum,
-        OptionalMasked: 'OptionalMasked' as HomePhoneNumberEnum
-    };
     export type WorkPhoneNumberEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const WorkPhoneNumberEnum = {
-        Required: 'Required' as WorkPhoneNumberEnum,
-        Optional: 'Optional' as WorkPhoneNumberEnum,
-        Disabled: 'Disabled' as WorkPhoneNumberEnum,
-        RequiredMasked: 'RequiredMasked' as WorkPhoneNumberEnum,
-        OptionalMasked: 'OptionalMasked' as WorkPhoneNumberEnum
-    };
     export type OtherPhoneNumberEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const OtherPhoneNumberEnum = {
-        Required: 'Required' as OtherPhoneNumberEnum,
-        Optional: 'Optional' as OtherPhoneNumberEnum,
-        Disabled: 'Disabled' as OtherPhoneNumberEnum,
-        RequiredMasked: 'RequiredMasked' as OtherPhoneNumberEnum,
-        OptionalMasked: 'OptionalMasked' as OtherPhoneNumberEnum
-    };
     export type FaxNumberEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const FaxNumberEnum = {
-        Required: 'Required' as FaxNumberEnum,
-        Optional: 'Optional' as FaxNumberEnum,
-        Disabled: 'Disabled' as FaxNumberEnum,
-        RequiredMasked: 'RequiredMasked' as FaxNumberEnum,
-        OptionalMasked: 'OptionalMasked' as FaxNumberEnum
-    };
     export type DefaultItineraryDistributionEnum = 'None' | 'Mail' | 'Email' | 'Fax' | 'MailFax' | 'Airport' | 'Hold' | 'Print';
-    export const DefaultItineraryDistributionEnum = {
-        None: 'None' as DefaultItineraryDistributionEnum,
-        Mail: 'Mail' as DefaultItineraryDistributionEnum,
-        Email: 'Email' as DefaultItineraryDistributionEnum,
-        Fax: 'Fax' as DefaultItineraryDistributionEnum,
-        MailFax: 'MailFax' as DefaultItineraryDistributionEnum,
-        Airport: 'Airport' as DefaultItineraryDistributionEnum,
-        Hold: 'Hold' as DefaultItineraryDistributionEnum,
-        Print: 'Print' as DefaultItineraryDistributionEnum
-    };
     export type NotificationPreferenceEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const NotificationPreferenceEnum = {
-        Required: 'Required' as NotificationPreferenceEnum,
-        Optional: 'Optional' as NotificationPreferenceEnum,
-        Disabled: 'Disabled' as NotificationPreferenceEnum,
-        RequiredMasked: 'RequiredMasked' as NotificationPreferenceEnum,
-        OptionalMasked: 'OptionalMasked' as NotificationPreferenceEnum
-    };
     export type DefaultNotificationPreferenceEnum = 'None' | 'Promotional';
-    export const DefaultNotificationPreferenceEnum = {
-        None: 'None' as DefaultNotificationPreferenceEnum,
-        Promotional: 'Promotional' as DefaultNotificationPreferenceEnum
-    };
 }

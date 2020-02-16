@@ -34,9 +34,4 @@ export interface BaggageUsageDetails {
 }
 export namespace BaggageUsageDetails {
     export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    };
 }

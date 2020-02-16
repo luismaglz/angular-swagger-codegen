@@ -60,16 +60,5 @@ export interface ProductVariationCatalog {
 }
 export namespace ProductVariationCatalog {
     export type InventoryGroupingEnum = 'Existing' | 'Total';
-    export const InventoryGroupingEnum = {
-        Existing: 'Existing' as InventoryGroupingEnum,
-        Total: 'Total' as InventoryGroupingEnum
-    };
     export type PaymentActionEnum = 'SellingSystemCollects' | 'PassThroughHold' | 'NoPaymentRequired' | 'ReferToSupplierMessage' | 'PassThroughCharge';
-    export const PaymentActionEnum = {
-        SellingSystemCollects: 'SellingSystemCollects' as PaymentActionEnum,
-        PassThroughHold: 'PassThroughHold' as PaymentActionEnum,
-        NoPaymentRequired: 'NoPaymentRequired' as PaymentActionEnum,
-        ReferToSupplierMessage: 'ReferToSupplierMessage' as PaymentActionEnum,
-        PassThroughCharge: 'PassThroughCharge' as PaymentActionEnum
-    };
 }

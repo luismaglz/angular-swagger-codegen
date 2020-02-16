@@ -87,21 +87,5 @@ export interface BookingSearchResult {
 }
 export namespace BookingSearchResult {
     export type BookingStatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const BookingStatusEnum = {
-        Default: 'Default' as BookingStatusEnum,
-        Hold: 'Hold' as BookingStatusEnum,
-        Confirmed: 'Confirmed' as BookingStatusEnum,
-        Closed: 'Closed' as BookingStatusEnum,
-        HoldCanceled: 'HoldCanceled' as BookingStatusEnum,
-        PendingArchive: 'PendingArchive' as BookingStatusEnum,
-        Archived: 'Archived' as BookingStatusEnum
-    };
     export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    };
 }

@@ -46,9 +46,4 @@ export interface Currency {
 }
 export namespace Currency {
     export type DisplayDigitsEnum = 'ZeroDigits' | 'TwoDigits' | 'ThreeDigits';
-    export const DisplayDigitsEnum = {
-        ZeroDigits: 'ZeroDigits' as DisplayDigitsEnum,
-        TwoDigits: 'TwoDigits' as DisplayDigitsEnum,
-        ThreeDigits: 'ThreeDigits' as DisplayDigitsEnum
-    };
 }

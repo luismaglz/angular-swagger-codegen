@@ -55,11 +55,4 @@ export interface UserRequest {
 }
 export namespace UserRequest {
     export type StatusEnum = 'Default' | 'Active' | 'Pending' | 'Suspended' | 'Terminated';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum
-    };
 }

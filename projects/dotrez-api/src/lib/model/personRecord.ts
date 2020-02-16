@@ -52,15 +52,5 @@ export interface PersonRecord {
 }
 export namespace PersonRecord {
     export type TypeEnum = 'None' | 'Customer' | 'Agent';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        Customer: 'Customer' as TypeEnum,
-        Agent: 'Agent' as TypeEnum
-    };
     export type StatusEnum = 'Active' | 'Terminated' | 'Suspended';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum
-    };
 }

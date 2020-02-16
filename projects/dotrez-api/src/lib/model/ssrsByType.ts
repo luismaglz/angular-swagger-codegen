@@ -32,9 +32,4 @@ export interface SsrsByType {
 }
 export namespace SsrsByType {
     export type TypeEnum = 'Segment' | 'Journey' | 'Leg';
-    export const TypeEnum = {
-        Segment: 'Segment' as TypeEnum,
-        Journey: 'Journey' as TypeEnum,
-        Leg: 'Leg' as TypeEnum
-    };
 }

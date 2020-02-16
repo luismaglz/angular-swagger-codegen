@@ -59,10 +59,4 @@ export interface OrderFee {
 }
 export namespace OrderFee {
     export type TypeEnum = 'Default' | 'Tax' | 'Markup' | 'Discount';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Tax: 'Tax' as TypeEnum,
-        Markup: 'Markup' as TypeEnum,
-        Discount: 'Discount' as TypeEnum
-    };
 }

@@ -69,12 +69,4 @@ export interface AvailableSegment {
 }
 export namespace AvailableSegment {
     export type SegmentTypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const SegmentTypeEnum = {
-        Normal: 'Normal' as SegmentTypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as SegmentTypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as SegmentTypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as SegmentTypeEnum,
-        InterlineInbound: 'InterlineInbound' as SegmentTypeEnum,
-        Passive: 'Passive' as SegmentTypeEnum
-    };
 }

@@ -30,8 +30,4 @@ export interface NotificationTimedEvent {
 }
 export namespace NotificationTimedEvent {
     export type TypeEnum = 'Departure' | 'Arrival';
-    export const TypeEnum = {
-        Departure: 'Departure' as TypeEnum,
-        Arrival: 'Arrival' as TypeEnum
-    };
 }

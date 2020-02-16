@@ -66,9 +66,4 @@ export interface BoardingPassPassengerDetailsv2 {
 }
 export namespace BoardingPassPassengerDetailsv2 {
     export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    };
 }

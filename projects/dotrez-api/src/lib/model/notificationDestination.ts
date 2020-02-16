@@ -26,8 +26,4 @@ export interface NotificationDestination {
 }
 export namespace NotificationDestination {
     export type DeliveryMethodCodeEnum = 'Email' | 'Sms';
-    export const DeliveryMethodCodeEnum = {
-        Email: 'Email' as DeliveryMethodCodeEnum,
-        Sms: 'Sms' as DeliveryMethodCodeEnum
-    };
 }

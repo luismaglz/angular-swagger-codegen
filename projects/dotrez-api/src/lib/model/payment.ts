@@ -133,52 +133,7 @@ export interface Payment {
 }
 export namespace Payment {
     export type AuthorizationStatusEnum = 'Unknown' | 'Acknowledged' | 'Pending' | 'InProcess' | 'Approved' | 'Declined' | 'Referral' | 'PickUpCard' | 'HotCard' | 'Voided' | 'Retrieval' | 'ChargedBack' | 'Error' | 'ValidationFailed' | 'Address' | 'VerificationCode' | 'FraudPrevention' | 'ForcedApproval' | 'ForcedDecline';
-    export const AuthorizationStatusEnum = {
-        Unknown: 'Unknown' as AuthorizationStatusEnum,
-        Acknowledged: 'Acknowledged' as AuthorizationStatusEnum,
-        Pending: 'Pending' as AuthorizationStatusEnum,
-        InProcess: 'InProcess' as AuthorizationStatusEnum,
-        Approved: 'Approved' as AuthorizationStatusEnum,
-        Declined: 'Declined' as AuthorizationStatusEnum,
-        Referral: 'Referral' as AuthorizationStatusEnum,
-        PickUpCard: 'PickUpCard' as AuthorizationStatusEnum,
-        HotCard: 'HotCard' as AuthorizationStatusEnum,
-        Voided: 'Voided' as AuthorizationStatusEnum,
-        Retrieval: 'Retrieval' as AuthorizationStatusEnum,
-        ChargedBack: 'ChargedBack' as AuthorizationStatusEnum,
-        Error: 'Error' as AuthorizationStatusEnum,
-        ValidationFailed: 'ValidationFailed' as AuthorizationStatusEnum,
-        Address: 'Address' as AuthorizationStatusEnum,
-        VerificationCode: 'VerificationCode' as AuthorizationStatusEnum,
-        FraudPrevention: 'FraudPrevention' as AuthorizationStatusEnum,
-        ForcedApproval: 'ForcedApproval' as AuthorizationStatusEnum,
-        ForcedDecline: 'ForcedDecline' as AuthorizationStatusEnum
-    };
     export type TypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const TypeEnum = {
-        ExternalAccount: 'ExternalAccount' as TypeEnum,
-        PrePaid: 'PrePaid' as TypeEnum,
-        AgencyAccount: 'AgencyAccount' as TypeEnum,
-        CustomerAccount: 'CustomerAccount' as TypeEnum,
-        Voucher: 'Voucher' as TypeEnum,
-        Loyalty: 'Loyalty' as TypeEnum
-    };
     export type StatusEnum = 'New' | 'Received' | 'Pending' | 'Approved' | 'Declined' | 'Unknown' | 'PendingCustomerAction';
-    export const StatusEnum = {
-        New: 'New' as StatusEnum,
-        Received: 'Received' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Approved: 'Approved' as StatusEnum,
-        Declined: 'Declined' as StatusEnum,
-        Unknown: 'Unknown' as StatusEnum,
-        PendingCustomerAction: 'PendingCustomerAction' as StatusEnum
-    };
     export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    };
 }

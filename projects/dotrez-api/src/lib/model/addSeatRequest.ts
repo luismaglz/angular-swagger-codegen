@@ -39,14 +39,5 @@ export interface AddSeatRequest {
 }
 export namespace AddSeatRequest {
     export type InventoryControlEnum = 'Session' | 'None';
-    export const InventoryControlEnum = {
-        Session: 'Session' as InventoryControlEnum,
-        None: 'None' as InventoryControlEnum
-    };
     export type SeatAssignmentModeEnum = 'AutoDetermine' | 'PreSeatAssignment' | 'WebCheckIn';
-    export const SeatAssignmentModeEnum = {
-        AutoDetermine: 'AutoDetermine' as SeatAssignmentModeEnum,
-        PreSeatAssignment: 'PreSeatAssignment' as SeatAssignmentModeEnum,
-        WebCheckIn: 'WebCheckIn' as SeatAssignmentModeEnum
-    };
 }

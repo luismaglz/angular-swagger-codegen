@@ -114,9 +114,4 @@ export interface ManifestSegment {
 }
 export namespace ManifestSegment {
     export type BaggageAllowanceWeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const BaggageAllowanceWeightTypeEnum = {
-        Default: 'Default' as BaggageAllowanceWeightTypeEnum,
-        Pounds: 'Pounds' as BaggageAllowanceWeightTypeEnum,
-        Kilograms: 'Kilograms' as BaggageAllowanceWeightTypeEnum
-    };
 }

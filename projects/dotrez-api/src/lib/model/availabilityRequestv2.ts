@@ -41,9 +41,4 @@ export interface AvailabilityRequestv2 {
 }
 export namespace AvailabilityRequestv2 {
     export type TaxesAndFeesEnum = 'None' | 'Taxes' | 'TaxesAndFees';
-    export const TaxesAndFeesEnum = {
-        None: 'None' as TaxesAndFeesEnum,
-        Taxes: 'Taxes' as TaxesAndFeesEnum,
-        TaxesAndFees: 'TaxesAndFees' as TaxesAndFeesEnum
-    };
 }

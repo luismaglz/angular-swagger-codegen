@@ -61,19 +61,5 @@ export interface ContactRequest {
 }
 export namespace ContactRequest {
     export type DistributionOptionEnum = 'None' | 'Mail' | 'Email' | 'Fax' | 'MailFax' | 'Airport' | 'Hold' | 'Print';
-    export const DistributionOptionEnum = {
-        None: 'None' as DistributionOptionEnum,
-        Mail: 'Mail' as DistributionOptionEnum,
-        Email: 'Email' as DistributionOptionEnum,
-        Fax: 'Fax' as DistributionOptionEnum,
-        MailFax: 'MailFax' as DistributionOptionEnum,
-        Airport: 'Airport' as DistributionOptionEnum,
-        Hold: 'Hold' as DistributionOptionEnum,
-        Print: 'Print' as DistributionOptionEnum
-    };
     export type NotificationPreferenceEnum = 'None' | 'Promotional';
-    export const NotificationPreferenceEnum = {
-        None: 'None' as NotificationPreferenceEnum,
-        Promotional: 'Promotional' as NotificationPreferenceEnum
-    };
 }

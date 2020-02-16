@@ -26,12 +26,4 @@ export interface TripOperationCrew {
 }
 export namespace TripOperationCrew {
     export type CrewTypeEnum = 'Default' | 'Pilot' | 'CoPilot' | 'CockpitJumpseat' | 'CabinJumpseat' | 'CabinCrew';
-    export const CrewTypeEnum = {
-        Default: 'Default' as CrewTypeEnum,
-        Pilot: 'Pilot' as CrewTypeEnum,
-        CoPilot: 'CoPilot' as CrewTypeEnum,
-        CockpitJumpseat: 'CockpitJumpseat' as CrewTypeEnum,
-        CabinJumpseat: 'CabinJumpseat' as CrewTypeEnum,
-        CabinCrew: 'CabinCrew' as CrewTypeEnum
-    };
 }

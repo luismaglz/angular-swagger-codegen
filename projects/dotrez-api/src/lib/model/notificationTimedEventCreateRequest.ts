@@ -26,8 +26,4 @@ export interface NotificationTimedEventCreateRequest {
 }
 export namespace NotificationTimedEventCreateRequest {
     export type TypeEnum = 'Departure' | 'Arrival';
-    export const TypeEnum = {
-        Departure: 'Departure' as TypeEnum,
-        Arrival: 'Arrival' as TypeEnum
-    };
 }

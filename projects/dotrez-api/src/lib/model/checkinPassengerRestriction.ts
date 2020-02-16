@@ -26,24 +26,4 @@ export interface CheckinPassengerRestriction {
 }
 export namespace CheckinPassengerRestriction {
     export type RestrictionEnum = 'NotFound' | 'MissingDestinationAddress' | 'MissingCountryOrResidence' | 'OnLockQueue' | 'MissingRequiredSsrs' | 'ContainsRestrictedSsrs' | 'IsSelectee' | 'MissingSeat' | 'NotConfirmed' | 'NotStandby' | 'ContainsUnknownSsr' | 'MissingApisRequirement' | 'MissingDocuments' | 'MissingName' | 'MissingInfantName' | 'MissingDateOfBirth' | 'MissingInfantDateOfBirth' | 'RestrictedInfantInLap';
-    export const RestrictionEnum = {
-        NotFound: 'NotFound' as RestrictionEnum,
-        MissingDestinationAddress: 'MissingDestinationAddress' as RestrictionEnum,
-        MissingCountryOrResidence: 'MissingCountryOrResidence' as RestrictionEnum,
-        OnLockQueue: 'OnLockQueue' as RestrictionEnum,
-        MissingRequiredSsrs: 'MissingRequiredSsrs' as RestrictionEnum,
-        ContainsRestrictedSsrs: 'ContainsRestrictedSsrs' as RestrictionEnum,
-        IsSelectee: 'IsSelectee' as RestrictionEnum,
-        MissingSeat: 'MissingSeat' as RestrictionEnum,
-        NotConfirmed: 'NotConfirmed' as RestrictionEnum,
-        NotStandby: 'NotStandby' as RestrictionEnum,
-        ContainsUnknownSsr: 'ContainsUnknownSsr' as RestrictionEnum,
-        MissingApisRequirement: 'MissingApisRequirement' as RestrictionEnum,
-        MissingDocuments: 'MissingDocuments' as RestrictionEnum,
-        MissingName: 'MissingName' as RestrictionEnum,
-        MissingInfantName: 'MissingInfantName' as RestrictionEnum,
-        MissingDateOfBirth: 'MissingDateOfBirth' as RestrictionEnum,
-        MissingInfantDateOfBirth: 'MissingInfantDateOfBirth' as RestrictionEnum,
-        RestrictedInfantInLap: 'RestrictedInfantInLap' as RestrictionEnum
-    };
 }

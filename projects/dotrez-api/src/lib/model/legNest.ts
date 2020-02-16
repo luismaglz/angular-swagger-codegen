@@ -43,10 +43,4 @@ export interface LegNest {
 }
 export namespace LegNest {
     export type NestTypeEnum = 'Default' | 'Net' | 'Serial' | 'OneBooking';
-    export const NestTypeEnum = {
-        Default: 'Default' as NestTypeEnum,
-        Net: 'Net' as NestTypeEnum,
-        Serial: 'Serial' as NestTypeEnum,
-        OneBooking: 'OneBooking' as NestTypeEnum
-    };
 }

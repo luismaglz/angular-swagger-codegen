@@ -102,13 +102,4 @@ export interface Manifest {
 }
 export namespace Manifest {
     export type LegStatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const LegStatusEnum = {
-        Normal: 'Normal' as LegStatusEnum,
-        Closed: 'Closed' as LegStatusEnum,
-        Canceled: 'Canceled' as LegStatusEnum,
-        Suspended: 'Suspended' as LegStatusEnum,
-        ClosedPending: 'ClosedPending' as LegStatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as LegStatusEnum,
-        Mishap: 'Mishap' as LegStatusEnum
-    };
 }

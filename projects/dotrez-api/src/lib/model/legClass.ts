@@ -62,11 +62,4 @@ export interface LegClass {
 }
 export namespace LegClass {
     export type StatusEnum = 'Active' | 'InActive' | 'AvsOpen' | 'AvsOnRequest' | 'AvsClosed';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        InActive: 'InActive' as StatusEnum,
-        AvsOpen: 'AvsOpen' as StatusEnum,
-        AvsOnRequest: 'AvsOnRequest' as StatusEnum,
-        AvsClosed: 'AvsClosed' as StatusEnum
-    };
 }

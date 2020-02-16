@@ -30,10 +30,4 @@ export interface BookingMessageHistory {
 }
 export namespace BookingMessageHistory {
     export type TypeEnum = 'TeletypeMessage' | 'ETicket' | 'GovernmentSecurity' | 'PnrGovernment';
-    export const TypeEnum = {
-        TeletypeMessage: 'TeletypeMessage' as TypeEnum,
-        ETicket: 'ETicket' as TypeEnum,
-        GovernmentSecurity: 'GovernmentSecurity' as TypeEnum,
-        PnrGovernment: 'PnrGovernment' as TypeEnum
-    };
 }

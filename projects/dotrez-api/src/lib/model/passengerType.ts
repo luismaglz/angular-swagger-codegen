@@ -50,10 +50,4 @@ export interface PassengerType {
 }
 export namespace PassengerType {
     export type TypeIndicatorEnum = 'Adult' | 'Infant' | 'Child' | 'NonAdult';
-    export const TypeIndicatorEnum = {
-        Adult: 'Adult' as TypeIndicatorEnum,
-        Infant: 'Infant' as TypeIndicatorEnum,
-        Child: 'Child' as TypeIndicatorEnum,
-        NonAdult: 'NonAdult' as TypeIndicatorEnum
-    };
 }

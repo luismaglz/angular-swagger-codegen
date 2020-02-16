@@ -134,19 +134,5 @@ export interface QuotedOrder {
 }
 export namespace QuotedOrder {
     export type TypeEnum = 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Insurance: 'Insurance' as TypeEnum,
-        Activity: 'Activity' as TypeEnum,
-        Hotel: 'Hotel' as TypeEnum,
-        Car: 'Car' as TypeEnum
-    };
     export type PaymentActionEnum = 'SellingSystemCollects' | 'PassThroughHold' | 'NoPaymentRequired' | 'ReferToSupplierMessage' | 'PassThroughCharge';
-    export const PaymentActionEnum = {
-        SellingSystemCollects: 'SellingSystemCollects' as PaymentActionEnum,
-        PassThroughHold: 'PassThroughHold' as PaymentActionEnum,
-        NoPaymentRequired: 'NoPaymentRequired' as PaymentActionEnum,
-        ReferToSupplierMessage: 'ReferToSupplierMessage' as PaymentActionEnum,
-        PassThroughCharge: 'PassThroughCharge' as PaymentActionEnum
-    };
 }

@@ -50,20 +50,5 @@ export interface AvailabilityMoveRequest {
 }
 export namespace AvailabilityMoveRequest {
     export type PassengerMoveTypeEnum = 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking';
-    export const PassengerMoveTypeEnum = {
-        None: 'None' as PassengerMoveTypeEnum,
-        Irop: 'Irop' as PassengerMoveTypeEnum,
-        Diversion: 'Diversion' as PassengerMoveTypeEnum,
-        FlightClose: 'FlightClose' as PassengerMoveTypeEnum,
-        FlyAhead: 'FlyAhead' as PassengerMoveTypeEnum,
-        SplitJourney: 'SplitJourney' as PassengerMoveTypeEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as PassengerMoveTypeEnum
-    };
     export type TypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Standby: 'Standby' as TypeEnum,
-        Overbook: 'Overbook' as TypeEnum,
-        NoPricing: 'NoPricing' as TypeEnum
-    };
 }

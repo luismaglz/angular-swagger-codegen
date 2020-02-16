@@ -26,11 +26,4 @@ export interface PhoneNumber {
 }
 export namespace PhoneNumber {
     export type TypeEnum = 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax';
-    export const TypeEnum = {
-        Other: 'Other' as TypeEnum,
-        Home: 'Home' as TypeEnum,
-        Work: 'Work' as TypeEnum,
-        Mobile: 'Mobile' as TypeEnum,
-        Fax: 'Fax' as TypeEnum
-    };
 }

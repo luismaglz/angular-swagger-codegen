@@ -170,48 +170,10 @@ export interface ReserveFlightsSettings {
 }
 export namespace ReserveFlightsSettings {
     export type ViewManifestControlEnum = 'None' | 'StandbyOnly' | 'Full';
-    export const ViewManifestControlEnum = {
-        None: 'None' as ViewManifestControlEnum,
-        StandbyOnly: 'StandbyOnly' as ViewManifestControlEnum,
-        Full: 'Full' as ViewManifestControlEnum
-    };
     export type AdHocFlightControlEnum = 'None' | 'View' | 'Sell';
-    export const AdHocFlightControlEnum = {
-        None: 'None' as AdHocFlightControlEnum,
-        View: 'View' as AdHocFlightControlEnum,
-        Sell: 'Sell' as AdHocFlightControlEnum
-    };
     export type AllowSellOverbookEnum = 'CannotOverbook' | 'CanOverbookClass' | 'CanOverbookNest' | 'CanOverbookLeg';
-    export const AllowSellOverbookEnum = {
-        CannotOverbook: 'CannotOverbook' as AllowSellOverbookEnum,
-        CanOverbookClass: 'CanOverbookClass' as AllowSellOverbookEnum,
-        CanOverbookNest: 'CanOverbookNest' as AllowSellOverbookEnum,
-        CanOverbookLeg: 'CanOverbookLeg' as AllowSellOverbookEnum
-    };
     export type AllowMoveOverbookEnum = 'CannotOverbook' | 'CanOverbookClass' | 'CanOverbookNest' | 'CanOverbookLeg';
-    export const AllowMoveOverbookEnum = {
-        CannotOverbook: 'CannotOverbook' as AllowMoveOverbookEnum,
-        CanOverbookClass: 'CanOverbookClass' as AllowMoveOverbookEnum,
-        CanOverbookNest: 'CanOverbookNest' as AllowMoveOverbookEnum,
-        CanOverbookLeg: 'CanOverbookLeg' as AllowMoveOverbookEnum
-    };
     export type AllowUpgradeOverbookEnum = 'CannotOverbook' | 'CanOverbookClass' | 'CanOverbookNest' | 'CanOverbookLeg';
-    export const AllowUpgradeOverbookEnum = {
-        CannotOverbook: 'CannotOverbook' as AllowUpgradeOverbookEnum,
-        CanOverbookClass: 'CanOverbookClass' as AllowUpgradeOverbookEnum,
-        CanOverbookNest: 'CanOverbookNest' as AllowUpgradeOverbookEnum,
-        CanOverbookLeg: 'CanOverbookLeg' as AllowUpgradeOverbookEnum
-    };
     export type AllowMoveEnum = 'NotAllowed' | 'AllowedOnInventory' | 'Allowed';
-    export const AllowMoveEnum = {
-        NotAllowed: 'NotAllowed' as AllowMoveEnum,
-        AllowedOnInventory: 'AllowedOnInventory' as AllowMoveEnum,
-        Allowed: 'Allowed' as AllowMoveEnum
-    };
     export type AllowedFareOverrideTypeEnum = 'DiscountedPrice' | 'PublishedPrice' | 'All';
-    export const AllowedFareOverrideTypeEnum = {
-        DiscountedPrice: 'DiscountedPrice' as AllowedFareOverrideTypeEnum,
-        PublishedPrice: 'PublishedPrice' as AllowedFareOverrideTypeEnum,
-        All: 'All' as AllowedFareOverrideTypeEnum
-    };
 }

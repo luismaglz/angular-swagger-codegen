@@ -79,22 +79,5 @@ export interface TripInformationQuery {
 }
 export namespace TripInformationQuery {
     export type DaysOfWeekEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const DaysOfWeekEnum = {
-        None: 'None' as DaysOfWeekEnum,
-        Monday: 'Monday' as DaysOfWeekEnum,
-        Tuesday: 'Tuesday' as DaysOfWeekEnum,
-        Wednesday: 'Wednesday' as DaysOfWeekEnum,
-        Thursday: 'Thursday' as DaysOfWeekEnum,
-        Friday: 'Friday' as DaysOfWeekEnum,
-        Saturday: 'Saturday' as DaysOfWeekEnum,
-        Sunday: 'Sunday' as DaysOfWeekEnum
-    };
     export type FlightTypeEnum = 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect';
-    export const FlightTypeEnum = {
-        All: 'All' as FlightTypeEnum,
-        NonStop: 'NonStop' as FlightTypeEnum,
-        Through: 'Through' as FlightTypeEnum,
-        Direct: 'Direct' as FlightTypeEnum,
-        Connect: 'Connect' as FlightTypeEnum
-    };
 }

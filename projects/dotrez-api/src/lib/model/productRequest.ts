@@ -105,14 +105,4 @@ export interface ProductRequest {
 }
 export namespace ProductRequest {
     export type SortEnum = 'SupplierDefined' | 'Price' | 'Rating' | 'Name' | 'Category' | 'VendorDescription' | 'Preferred' | 'Relevance';
-    export const SortEnum = {
-        SupplierDefined: 'SupplierDefined' as SortEnum,
-        Price: 'Price' as SortEnum,
-        Rating: 'Rating' as SortEnum,
-        Name: 'Name' as SortEnum,
-        Category: 'Category' as SortEnum,
-        VendorDescription: 'VendorDescription' as SortEnum,
-        Preferred: 'Preferred' as SortEnum,
-        Relevance: 'Relevance' as SortEnum
-    };
 }

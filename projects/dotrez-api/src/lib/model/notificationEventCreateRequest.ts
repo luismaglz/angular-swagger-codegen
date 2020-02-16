@@ -22,10 +22,4 @@ export interface NotificationEventCreateRequest {
 }
 export namespace NotificationEventCreateRequest {
     export type TypeEnum = 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn';
-    export const TypeEnum = {
-        DepartureDelay: 'DepartureDelay' as TypeEnum,
-        ArrivalDelay: 'ArrivalDelay' as TypeEnum,
-        ScheduleChange: 'ScheduleChange' as TypeEnum,
-        CheckIn: 'CheckIn' as TypeEnum
-    };
 }

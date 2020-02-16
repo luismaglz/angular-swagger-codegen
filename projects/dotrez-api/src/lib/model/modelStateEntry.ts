@@ -22,10 +22,4 @@ export interface ModelStateEntry {
 }
 export namespace ModelStateEntry {
     export type ValidationStateEnum = 'Unvalidated' | 'Invalid' | 'Valid' | 'Skipped';
-    export const ValidationStateEnum = {
-        Unvalidated: 'Unvalidated' as ValidationStateEnum,
-        Invalid: 'Invalid' as ValidationStateEnum,
-        Valid: 'Valid' as ValidationStateEnum,
-        Skipped: 'Skipped' as ValidationStateEnum
-    };
 }

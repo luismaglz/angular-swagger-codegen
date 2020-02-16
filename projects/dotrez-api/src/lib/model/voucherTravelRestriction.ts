@@ -38,9 +38,4 @@ export interface VoucherTravelRestriction {
 }
 export namespace VoucherTravelRestriction {
     export type RestrictionTypeEnum = 'Default' | 'Blackout' | 'Season';
-    export const RestrictionTypeEnum = {
-        Default: 'Default' as RestrictionTypeEnum,
-        Blackout: 'Blackout' as RestrictionTypeEnum,
-        Season: 'Season' as RestrictionTypeEnum
-    };
 }

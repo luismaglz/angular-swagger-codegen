@@ -34,10 +34,4 @@ export interface OrganizationTransactionRequest {
 }
 export namespace OrganizationTransactionRequest {
     export type TypeEnum = 'Default' | 'Payment' | 'Adjustment' | 'Supplementary';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Payment: 'Payment' as TypeEnum,
-        Adjustment: 'Adjustment' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum
-    };
 }

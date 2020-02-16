@@ -34,10 +34,4 @@ export interface CheckinPassengerRequest {
 }
 export namespace CheckinPassengerRequest {
     export type TransitTypeEnum = 'Default' | 'Origin' | 'Destination' | 'Both';
-    export const TransitTypeEnum = {
-        Default: 'Default' as TransitTypeEnum,
-        Origin: 'Origin' as TransitTypeEnum,
-        Destination: 'Destination' as TransitTypeEnum,
-        Both: 'Both' as TransitTypeEnum
-    };
 }

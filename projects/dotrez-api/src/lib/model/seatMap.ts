@@ -56,15 +56,4 @@ export interface SeatMap {
 }
 export namespace SeatMap {
     export type CategoryEnum = 'None' | 'JetAircraft' | 'PistonAircraft' | 'TurbopropAircraft' | 'Helicopter' | 'Surface' | 'Train' | 'Bus' | 'AllCategories';
-    export const CategoryEnum = {
-        None: 'None' as CategoryEnum,
-        JetAircraft: 'JetAircraft' as CategoryEnum,
-        PistonAircraft: 'PistonAircraft' as CategoryEnum,
-        TurbopropAircraft: 'TurbopropAircraft' as CategoryEnum,
-        Helicopter: 'Helicopter' as CategoryEnum,
-        Surface: 'Surface' as CategoryEnum,
-        Train: 'Train' as CategoryEnum,
-        Bus: 'Bus' as CategoryEnum,
-        AllCategories: 'AllCategories' as CategoryEnum
-    };
 }

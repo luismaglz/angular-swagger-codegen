@@ -42,16 +42,5 @@ export interface AvailabilityFareCriteria {
 }
 export namespace AvailabilityFareCriteria {
     export type ClassControlEnum = 'LowestFareClass' | 'CompressByProductClass' | 'Default';
-    export const ClassControlEnum = {
-        LowestFareClass: 'LowestFareClass' as ClassControlEnum,
-        CompressByProductClass: 'CompressByProductClass' as ClassControlEnum,
-        Default: 'Default' as ClassControlEnum
-    };
     export type LoyaltyEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyEnum
-    };
 }

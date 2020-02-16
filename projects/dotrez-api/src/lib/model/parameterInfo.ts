@@ -32,17 +32,4 @@ export interface ParameterInfo {
 }
 export namespace ParameterInfo {
     export type AttributesEnum = 'None' | 'In' | 'Out' | 'Lcid' | 'Retval' | 'Optional' | 'HasDefault' | 'HasFieldMarshal' | 'Reserved3' | 'Reserved4' | 'ReservedMask';
-    export const AttributesEnum = {
-        None: 'None' as AttributesEnum,
-        In: 'In' as AttributesEnum,
-        Out: 'Out' as AttributesEnum,
-        Lcid: 'Lcid' as AttributesEnum,
-        Retval: 'Retval' as AttributesEnum,
-        Optional: 'Optional' as AttributesEnum,
-        HasDefault: 'HasDefault' as AttributesEnum,
-        HasFieldMarshal: 'HasFieldMarshal' as AttributesEnum,
-        Reserved3: 'Reserved3' as AttributesEnum,
-        Reserved4: 'Reserved4' as AttributesEnum,
-        ReservedMask: 'ReservedMask' as AttributesEnum
-    };
 }

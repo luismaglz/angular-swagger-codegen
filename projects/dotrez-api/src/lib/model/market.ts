@@ -62,41 +62,7 @@ export interface Market {
 }
 export namespace Market {
     export type IncludesTaxesAndFeesEnum = 'None' | 'To' | 'From' | 'Between';
-    export const IncludesTaxesAndFeesEnum = {
-        None: 'None' as IncludesTaxesAndFeesEnum,
-        To: 'To' as IncludesTaxesAndFeesEnum,
-        From: 'From' as IncludesTaxesAndFeesEnum,
-        Between: 'Between' as IncludesTaxesAndFeesEnum
-    };
     export type LocationTypeEnum = 'Undefined' | 'Station' | 'Mac';
-    export const LocationTypeEnum = {
-        Undefined: 'Undefined' as LocationTypeEnum,
-        Station: 'Station' as LocationTypeEnum,
-        Mac: 'Mac' as LocationTypeEnum
-    };
     export type TravelDocsRequiredEnum = 'None' | 'FromTravel' | 'ToTravel' | 'BothTravel' | 'BothOverride' | 'FromOverride' | 'ToOverride' | 'ToTravelToOverride' | 'ToTravelBothOverride' | 'ToTravelFromOverride' | 'FromTravelToOverride' | 'FromTravelBothOverride' | 'FromTravelFromOverride' | 'BothTravelToOverride' | 'BothTravelBothOverride' | 'BothTravelFromOverride';
-    export const TravelDocsRequiredEnum = {
-        None: 'None' as TravelDocsRequiredEnum,
-        FromTravel: 'FromTravel' as TravelDocsRequiredEnum,
-        ToTravel: 'ToTravel' as TravelDocsRequiredEnum,
-        BothTravel: 'BothTravel' as TravelDocsRequiredEnum,
-        BothOverride: 'BothOverride' as TravelDocsRequiredEnum,
-        FromOverride: 'FromOverride' as TravelDocsRequiredEnum,
-        ToOverride: 'ToOverride' as TravelDocsRequiredEnum,
-        ToTravelToOverride: 'ToTravelToOverride' as TravelDocsRequiredEnum,
-        ToTravelBothOverride: 'ToTravelBothOverride' as TravelDocsRequiredEnum,
-        ToTravelFromOverride: 'ToTravelFromOverride' as TravelDocsRequiredEnum,
-        FromTravelToOverride: 'FromTravelToOverride' as TravelDocsRequiredEnum,
-        FromTravelBothOverride: 'FromTravelBothOverride' as TravelDocsRequiredEnum,
-        FromTravelFromOverride: 'FromTravelFromOverride' as TravelDocsRequiredEnum,
-        BothTravelToOverride: 'BothTravelToOverride' as TravelDocsRequiredEnum,
-        BothTravelBothOverride: 'BothTravelBothOverride' as TravelDocsRequiredEnum,
-        BothTravelFromOverride: 'BothTravelFromOverride' as TravelDocsRequiredEnum
-    };
     export type TravelLocationTypeEnum = 'Undefined' | 'Station' | 'Mac';
-    export const TravelLocationTypeEnum = {
-        Undefined: 'Undefined' as TravelLocationTypeEnum,
-        Station: 'Station' as TravelLocationTypeEnum,
-        Mac: 'Mac' as TravelLocationTypeEnum
-    };
 }

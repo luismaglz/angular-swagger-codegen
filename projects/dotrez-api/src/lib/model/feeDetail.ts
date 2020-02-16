@@ -52,39 +52,6 @@ export interface FeeDetail {
 }
 export namespace FeeDetail {
     export type TaxApplicationOverrideEnum = 'Unknown' | 'Taxable' | 'TaxableLocal' | 'NonTaxable' | 'NonTaxableApplyToBaseFareOnly' | 'TaxableByTrip' | 'TaxableByItinerary';
-    export const TaxApplicationOverrideEnum = {
-        Unknown: 'Unknown' as TaxApplicationOverrideEnum,
-        Taxable: 'Taxable' as TaxApplicationOverrideEnum,
-        TaxableLocal: 'TaxableLocal' as TaxApplicationOverrideEnum,
-        NonTaxable: 'NonTaxable' as TaxApplicationOverrideEnum,
-        NonTaxableApplyToBaseFareOnly: 'NonTaxableApplyToBaseFareOnly' as TaxApplicationOverrideEnum,
-        TaxableByTrip: 'TaxableByTrip' as TaxApplicationOverrideEnum,
-        TaxableByItinerary: 'TaxableByItinerary' as TaxApplicationOverrideEnum
-    };
     export type TravelComponentOverrideEnum = 'Unknown' | 'Itinerary' | 'Trip' | 'Journey' | 'Segment' | 'Leg' | 'ItineraryWithJourneySalesDate' | 'TripWithJourneySalesDate' | 'JourneyWithBookingSalesDate' | 'JourneyWithJourneySalesDate' | 'SegmentWithJourneySalesDate' | 'LegWithJourneySalesDate' | 'Fare';
-    export const TravelComponentOverrideEnum = {
-        Unknown: 'Unknown' as TravelComponentOverrideEnum,
-        Itinerary: 'Itinerary' as TravelComponentOverrideEnum,
-        Trip: 'Trip' as TravelComponentOverrideEnum,
-        Journey: 'Journey' as TravelComponentOverrideEnum,
-        Segment: 'Segment' as TravelComponentOverrideEnum,
-        Leg: 'Leg' as TravelComponentOverrideEnum,
-        ItineraryWithJourneySalesDate: 'ItineraryWithJourneySalesDate' as TravelComponentOverrideEnum,
-        TripWithJourneySalesDate: 'TripWithJourneySalesDate' as TravelComponentOverrideEnum,
-        JourneyWithBookingSalesDate: 'JourneyWithBookingSalesDate' as TravelComponentOverrideEnum,
-        JourneyWithJourneySalesDate: 'JourneyWithJourneySalesDate' as TravelComponentOverrideEnum,
-        SegmentWithJourneySalesDate: 'SegmentWithJourneySalesDate' as TravelComponentOverrideEnum,
-        LegWithJourneySalesDate: 'LegWithJourneySalesDate' as TravelComponentOverrideEnum,
-        Fare: 'Fare' as TravelComponentOverrideEnum
-    };
     export type FeeApplicationOverrideEnum = 'Pnr' | 'TravelComponent' | 'EachPassenger' | 'EachPassengerTravelComponent' | 'SpecifyPassenger' | 'AllPaxCheckingBagsTogether' | 'PerBookingNoLimit';
-    export const FeeApplicationOverrideEnum = {
-        Pnr: 'Pnr' as FeeApplicationOverrideEnum,
-        TravelComponent: 'TravelComponent' as FeeApplicationOverrideEnum,
-        EachPassenger: 'EachPassenger' as FeeApplicationOverrideEnum,
-        EachPassengerTravelComponent: 'EachPassengerTravelComponent' as FeeApplicationOverrideEnum,
-        SpecifyPassenger: 'SpecifyPassenger' as FeeApplicationOverrideEnum,
-        AllPaxCheckingBagsTogether: 'AllPaxCheckingBagsTogether' as FeeApplicationOverrideEnum,
-        PerBookingNoLimit: 'PerBookingNoLimit' as FeeApplicationOverrideEnum
-    };
 }

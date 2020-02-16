@@ -34,9 +34,4 @@ export interface CreateOrganizationAccountRequest {
 }
 export namespace CreateOrganizationAccountRequest {
     export type TypeEnum = 'Credit' | 'Prepaid' | 'Supplementary';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        Prepaid: 'Prepaid' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum
-    };
 }

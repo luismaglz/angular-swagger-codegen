@@ -74,44 +74,8 @@ export interface BookingInfo {
 }
 export namespace BookingInfo {
     export type StatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Hold: 'Hold' as StatusEnum,
-        Confirmed: 'Confirmed' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        HoldCanceled: 'HoldCanceled' as StatusEnum,
-        PendingArchive: 'PendingArchive' as StatusEnum,
-        Archived: 'Archived' as StatusEnum
-    };
     export type PaidStatusEnum = 'UnderPaid' | 'PaidInFull' | 'OverPaid';
-    export const PaidStatusEnum = {
-        UnderPaid: 'UnderPaid' as PaidStatusEnum,
-        PaidInFull: 'PaidInFull' as PaidStatusEnum,
-        OverPaid: 'OverPaid' as PaidStatusEnum
-    };
     export type PriceStatusEnum = 'Invalid' | 'Override' | 'Valid';
-    export const PriceStatusEnum = {
-        Invalid: 'Invalid' as PriceStatusEnum,
-        Override: 'Override' as PriceStatusEnum,
-        Valid: 'Valid' as PriceStatusEnum
-    };
     export type ProfileStatusEnum = 'Default' | 'KnownIndividual' | 'ResolutionGroup' | 'SelecteeGroup' | 'NotUsed' | 'FailureGroup' | 'RandomSelectee' | 'Exempt';
-    export const ProfileStatusEnum = {
-        Default: 'Default' as ProfileStatusEnum,
-        KnownIndividual: 'KnownIndividual' as ProfileStatusEnum,
-        ResolutionGroup: 'ResolutionGroup' as ProfileStatusEnum,
-        SelecteeGroup: 'SelecteeGroup' as ProfileStatusEnum,
-        NotUsed: 'NotUsed' as ProfileStatusEnum,
-        FailureGroup: 'FailureGroup' as ProfileStatusEnum,
-        RandomSelectee: 'RandomSelectee' as ProfileStatusEnum,
-        Exempt: 'Exempt' as ProfileStatusEnum
-    };
     export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    };
 }

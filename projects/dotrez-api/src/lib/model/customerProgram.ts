@@ -55,9 +55,4 @@ export interface CustomerProgram {
 }
 export namespace CustomerProgram {
     export type ProgramTypeEnum = 'Default' | 'Internal' | 'External';
-    export const ProgramTypeEnum = {
-        Default: 'Default' as ProgramTypeEnum,
-        Internal: 'Internal' as ProgramTypeEnum,
-        External: 'External' as ProgramTypeEnum
-    };
 }

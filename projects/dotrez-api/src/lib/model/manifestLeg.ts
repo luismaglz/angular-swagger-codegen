@@ -85,10 +85,4 @@ export interface ManifestLeg {
 }
 export namespace ManifestLeg {
     export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    };
 }

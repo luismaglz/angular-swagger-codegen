@@ -42,16 +42,5 @@ export interface LowFareAvailabilityFilterCriteria {
 }
 export namespace LowFareAvailabilityFilterCriteria {
     export type FlightFilterEnum = 'NoFlights' | 'AllFlights' | 'SelectedFlight';
-    export const FlightFilterEnum = {
-        NoFlights: 'NoFlights' as FlightFilterEnum,
-        AllFlights: 'AllFlights' as FlightFilterEnum,
-        SelectedFlight: 'SelectedFlight' as FlightFilterEnum
-    };
     export type LoyaltyEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyEnum
-    };
 }

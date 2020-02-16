@@ -30,14 +30,4 @@ export interface UserRoleEditRequest {
 }
 export namespace UserRoleEditRequest {
     export type EffectiveDaysEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const EffectiveDaysEnum = {
-        None: 'None' as EffectiveDaysEnum,
-        Monday: 'Monday' as EffectiveDaysEnum,
-        Tuesday: 'Tuesday' as EffectiveDaysEnum,
-        Wednesday: 'Wednesday' as EffectiveDaysEnum,
-        Thursday: 'Thursday' as EffectiveDaysEnum,
-        Friday: 'Friday' as EffectiveDaysEnum,
-        Saturday: 'Saturday' as EffectiveDaysEnum,
-        Sunday: 'Sunday' as EffectiveDaysEnum
-    };
 }

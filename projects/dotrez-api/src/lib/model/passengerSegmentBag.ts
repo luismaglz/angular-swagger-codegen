@@ -42,11 +42,4 @@ export interface PassengerSegmentBag {
 }
 export namespace PassengerSegmentBag {
     export type StatusEnum = 'Default' | 'Checked' | 'Removed' | 'Added' | 'AddedPrinted';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Checked: 'Checked' as StatusEnum,
-        Removed: 'Removed' as StatusEnum,
-        Added: 'Added' as StatusEnum,
-        AddedPrinted: 'AddedPrinted' as StatusEnum
-    };
 }

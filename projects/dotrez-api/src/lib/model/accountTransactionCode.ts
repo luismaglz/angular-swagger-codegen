@@ -42,10 +42,4 @@ export interface AccountTransactionCode {
 }
 export namespace AccountTransactionCode {
     export type ExpirationTypeEnum = 'None' | 'FixedAtIssuance' | 'FixedDate' | 'FixedAtBooking';
-    export const ExpirationTypeEnum = {
-        None: 'None' as ExpirationTypeEnum,
-        FixedAtIssuance: 'FixedAtIssuance' as ExpirationTypeEnum,
-        FixedDate: 'FixedDate' as ExpirationTypeEnum,
-        FixedAtBooking: 'FixedAtBooking' as ExpirationTypeEnum
-    };
 }

@@ -59,10 +59,4 @@ export interface LowFareAvailabilitySearchSimpleRequest {
 }
 export namespace LowFareAvailabilitySearchSimpleRequest {
     export type LoyaltyFilterEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyFilterEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyFilterEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyFilterEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyFilterEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyFilterEnum
-    };
 }

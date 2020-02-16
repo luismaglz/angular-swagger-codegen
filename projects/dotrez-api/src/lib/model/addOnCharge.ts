@@ -46,36 +46,5 @@ export interface AddOnCharge {
 }
 export namespace AddOnCharge {
     export type TypeEnum = 'FarePrice' | 'Discount' | 'IncludedTravelFee' | 'IncludedTax' | 'TravelFee' | 'Tax' | 'ServiceCharge' | 'PromotionDiscount' | 'ConnectionAdjustmentAmount' | 'AddOnsPrice' | 'FarePoints' | 'DiscountPoints' | 'IncludedAddOnsFee' | 'AddOnsFee' | 'AddOnsMarkup' | 'FareSurcharge' | 'Loyalty' | 'AddOnsCancelFee' | 'Calculated' | 'Note' | 'Points' | 'DynamicFareAdjustment';
-    export const TypeEnum = {
-        FarePrice: 'FarePrice' as TypeEnum,
-        Discount: 'Discount' as TypeEnum,
-        IncludedTravelFee: 'IncludedTravelFee' as TypeEnum,
-        IncludedTax: 'IncludedTax' as TypeEnum,
-        TravelFee: 'TravelFee' as TypeEnum,
-        Tax: 'Tax' as TypeEnum,
-        ServiceCharge: 'ServiceCharge' as TypeEnum,
-        PromotionDiscount: 'PromotionDiscount' as TypeEnum,
-        ConnectionAdjustmentAmount: 'ConnectionAdjustmentAmount' as TypeEnum,
-        AddOnsPrice: 'AddOnsPrice' as TypeEnum,
-        FarePoints: 'FarePoints' as TypeEnum,
-        DiscountPoints: 'DiscountPoints' as TypeEnum,
-        IncludedAddOnsFee: 'IncludedAddOnsFee' as TypeEnum,
-        AddOnsFee: 'AddOnsFee' as TypeEnum,
-        AddOnsMarkup: 'AddOnsMarkup' as TypeEnum,
-        FareSurcharge: 'FareSurcharge' as TypeEnum,
-        Loyalty: 'Loyalty' as TypeEnum,
-        AddOnsCancelFee: 'AddOnsCancelFee' as TypeEnum,
-        Calculated: 'Calculated' as TypeEnum,
-        Note: 'Note' as TypeEnum,
-        Points: 'Points' as TypeEnum,
-        DynamicFareAdjustment: 'DynamicFareAdjustment' as TypeEnum
-    };
     export type CollectionEnum = 'SellerChargeable' | 'ExternalChargeable' | 'SellerNonChargeable' | 'ExternalNonChargeable' | 'ExternalChargeableImmediate';
-    export const CollectionEnum = {
-        SellerChargeable: 'SellerChargeable' as CollectionEnum,
-        ExternalChargeable: 'ExternalChargeable' as CollectionEnum,
-        SellerNonChargeable: 'SellerNonChargeable' as CollectionEnum,
-        ExternalNonChargeable: 'ExternalNonChargeable' as CollectionEnum,
-        ExternalChargeableImmediate: 'ExternalChargeableImmediate' as CollectionEnum
-    };
 }

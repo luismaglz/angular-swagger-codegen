@@ -51,20 +51,5 @@ export interface LegTripResult {
 }
 export namespace LegTripResult {
     export type StatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const StatusEnum = {
-        Normal: 'Normal' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        Canceled: 'Canceled' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        ClosedPending: 'ClosedPending' as StatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as StatusEnum,
-        Mishap: 'Mishap' as StatusEnum
-    };
     export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    };
 }

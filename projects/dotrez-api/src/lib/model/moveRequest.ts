@@ -62,25 +62,6 @@ export interface MoveRequest {
 }
 export namespace MoveRequest {
     export type MoveTypeEnum = 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking';
-    export const MoveTypeEnum = {
-        None: 'None' as MoveTypeEnum,
-        Irop: 'Irop' as MoveTypeEnum,
-        Diversion: 'Diversion' as MoveTypeEnum,
-        FlightClose: 'FlightClose' as MoveTypeEnum,
-        FlyAhead: 'FlyAhead' as MoveTypeEnum,
-        SplitJourney: 'SplitJourney' as MoveTypeEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as MoveTypeEnum
-    };
     export type IgnoreLiftStatusEnum = 'IgnoreNotAllowed' | 'IgnoreCheckin' | 'IgnoreBoarded';
-    export const IgnoreLiftStatusEnum = {
-        IgnoreNotAllowed: 'IgnoreNotAllowed' as IgnoreLiftStatusEnum,
-        IgnoreCheckin: 'IgnoreCheckin' as IgnoreLiftStatusEnum,
-        IgnoreBoarded: 'IgnoreBoarded' as IgnoreLiftStatusEnum
-    };
     export type MoveSsrOptionEnum = 'OverbookSsr' | 'MoveAvailableSsr' | 'MoveNone';
-    export const MoveSsrOptionEnum = {
-        OverbookSsr: 'OverbookSsr' as MoveSsrOptionEnum,
-        MoveAvailableSsr: 'MoveAvailableSsr' as MoveSsrOptionEnum,
-        MoveNone: 'MoveNone' as MoveSsrOptionEnum
-    };
 }

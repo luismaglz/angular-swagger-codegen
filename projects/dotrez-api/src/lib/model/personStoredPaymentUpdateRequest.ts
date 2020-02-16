@@ -38,12 +38,4 @@ export interface PersonStoredPaymentUpdateRequest {
 }
 export namespace PersonStoredPaymentUpdateRequest {
     export type PaymentMethodTypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const PaymentMethodTypeEnum = {
-        ExternalAccount: 'ExternalAccount' as PaymentMethodTypeEnum,
-        PrePaid: 'PrePaid' as PaymentMethodTypeEnum,
-        AgencyAccount: 'AgencyAccount' as PaymentMethodTypeEnum,
-        CustomerAccount: 'CustomerAccount' as PaymentMethodTypeEnum,
-        Voucher: 'Voucher' as PaymentMethodTypeEnum,
-        Loyalty: 'Loyalty' as PaymentMethodTypeEnum
-    };
 }

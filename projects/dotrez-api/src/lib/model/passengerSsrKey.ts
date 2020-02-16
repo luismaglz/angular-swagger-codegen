@@ -39,9 +39,4 @@ export interface PassengerSsrKey {
 }
 export namespace PassengerSsrKey {
     export type SsrDurationEnum = 'Segment' | 'Journey' | 'Leg';
-    export const SsrDurationEnum = {
-        Segment: 'Segment' as SsrDurationEnum,
-        Journey: 'Journey' as SsrDurationEnum,
-        Leg: 'Leg' as SsrDurationEnum
-    };
 }

@@ -126,22 +126,6 @@ export interface PassengerSegment {
 }
 export namespace PassengerSegment {
     export type BaggageAllowanceWeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const BaggageAllowanceWeightTypeEnum = {
-        Default: 'Default' as BaggageAllowanceWeightTypeEnum,
-        Pounds: 'Pounds' as BaggageAllowanceWeightTypeEnum,
-        Kilograms: 'Kilograms' as BaggageAllowanceWeightTypeEnum
-    };
     export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    };
     export type OverBookIndicatorEnum = 'NormalSell' | 'Oversold' | 'ClassOrCabinOversold';
-    export const OverBookIndicatorEnum = {
-        NormalSell: 'NormalSell' as OverBookIndicatorEnum,
-        Oversold: 'Oversold' as OverBookIndicatorEnum,
-        ClassOrCabinOversold: 'ClassOrCabinOversold' as OverBookIndicatorEnum
-    };
 }

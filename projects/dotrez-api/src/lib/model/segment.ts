@@ -104,30 +104,6 @@ export interface Segment {
 }
 export namespace Segment {
     export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    };
     export type ChangeReasonCodeEnum = 'NoChange' | 'Irop' | 'ScheduleChange' | 'Move' | 'VoluntaryFlyAhead' | 'InvoluntaryFlyAhead' | 'SelfServiceRebooking';
-    export const ChangeReasonCodeEnum = {
-        NoChange: 'NoChange' as ChangeReasonCodeEnum,
-        Irop: 'Irop' as ChangeReasonCodeEnum,
-        ScheduleChange: 'ScheduleChange' as ChangeReasonCodeEnum,
-        Move: 'Move' as ChangeReasonCodeEnum,
-        VoluntaryFlyAhead: 'VoluntaryFlyAhead' as ChangeReasonCodeEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as ChangeReasonCodeEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as ChangeReasonCodeEnum
-    };
     export type SegmentTypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const SegmentTypeEnum = {
-        Normal: 'Normal' as SegmentTypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as SegmentTypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as SegmentTypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as SegmentTypeEnum,
-        InterlineInbound: 'InterlineInbound' as SegmentTypeEnum,
-        Passive: 'Passive' as SegmentTypeEnum
-    };
 }

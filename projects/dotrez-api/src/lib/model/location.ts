@@ -46,9 +46,4 @@ export interface Location {
 }
 export namespace Location {
     export type LocationTypeEnum = 'Other' | 'Station' | 'City';
-    export const LocationTypeEnum = {
-        Other: 'Other' as LocationTypeEnum,
-        Station: 'Station' as LocationTypeEnum,
-        City: 'City' as LocationTypeEnum
-    };
 }

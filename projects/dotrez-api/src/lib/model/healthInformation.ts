@@ -19,10 +19,4 @@ export interface HealthInformation {
 }
 export namespace HealthInformation {
     export type StatusEnum = 'Unknown' | 'Ok' | 'Warning' | 'Error';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        Ok: 'Ok' as StatusEnum,
-        Warning: 'Warning' as StatusEnum,
-        Error: 'Error' as StatusEnum
-    };
 }

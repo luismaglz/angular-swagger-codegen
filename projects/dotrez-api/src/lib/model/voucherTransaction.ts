@@ -46,11 +46,4 @@ export interface VoucherTransaction {
 }
 export namespace VoucherTransaction {
     export type TypeEnum = 'Debit' | 'Credit' | 'Void' | 'Reinstate' | 'Adjustment';
-    export const TypeEnum = {
-        Debit: 'Debit' as TypeEnum,
-        Credit: 'Credit' as TypeEnum,
-        Void: 'Void' as TypeEnum,
-        Reinstate: 'Reinstate' as TypeEnum,
-        Adjustment: 'Adjustment' as TypeEnum
-    };
 }

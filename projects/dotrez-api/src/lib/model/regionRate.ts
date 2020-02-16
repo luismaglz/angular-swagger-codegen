@@ -42,16 +42,4 @@ export interface RegionRate {
 }
 export namespace RegionRate {
     export type RegionTypeEnum = 'Default' | 'Station' | 'City' | 'ProvinceState' | 'Country' | 'FeeZone' | 'SubZone' | 'Area' | 'All' | 'Mac';
-    export const RegionTypeEnum = {
-        Default: 'Default' as RegionTypeEnum,
-        Station: 'Station' as RegionTypeEnum,
-        City: 'City' as RegionTypeEnum,
-        ProvinceState: 'ProvinceState' as RegionTypeEnum,
-        Country: 'Country' as RegionTypeEnum,
-        FeeZone: 'FeeZone' as RegionTypeEnum,
-        SubZone: 'SubZone' as RegionTypeEnum,
-        Area: 'Area' as RegionTypeEnum,
-        All: 'All' as RegionTypeEnum,
-        Mac: 'Mac' as RegionTypeEnum
-    };
 }

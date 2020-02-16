@@ -122,29 +122,7 @@ export interface CheckInSettings {
 }
 export namespace CheckInSettings {
     export type AllowApisCheckInEnum = 'NotAllowed' | 'AllowedWithVerifiedDocument' | 'AllowedWithDocument' | 'AllowedWithoutVerifiedDocument';
-    export const AllowApisCheckInEnum = {
-        NotAllowed: 'NotAllowed' as AllowApisCheckInEnum,
-        AllowedWithVerifiedDocument: 'AllowedWithVerifiedDocument' as AllowApisCheckInEnum,
-        AllowedWithDocument: 'AllowedWithDocument' as AllowApisCheckInEnum,
-        AllowedWithoutVerifiedDocument: 'AllowedWithoutVerifiedDocument' as AllowApisCheckInEnum
-    };
     export type AllowIappCheckInEnum = 'NotAllowed' | 'AllowedWithVerifiedDocument' | 'AllowedWithDocument' | 'AllowedWithoutVerifiedDocument';
-    export const AllowIappCheckInEnum = {
-        NotAllowed: 'NotAllowed' as AllowIappCheckInEnum,
-        AllowedWithVerifiedDocument: 'AllowedWithVerifiedDocument' as AllowIappCheckInEnum,
-        AllowedWithDocument: 'AllowedWithDocument' as AllowIappCheckInEnum,
-        AllowedWithoutVerifiedDocument: 'AllowedWithoutVerifiedDocument' as AllowIappCheckInEnum
-    };
     export type DomesticBagWeightEnum = 'WeightNotRequired' | 'TotalWeightRequired' | 'IndividualWeightRequired';
-    export const DomesticBagWeightEnum = {
-        WeightNotRequired: 'WeightNotRequired' as DomesticBagWeightEnum,
-        TotalWeightRequired: 'TotalWeightRequired' as DomesticBagWeightEnum,
-        IndividualWeightRequired: 'IndividualWeightRequired' as DomesticBagWeightEnum
-    };
     export type InternationalBagWeightEnum = 'WeightNotRequired' | 'TotalWeightRequired' | 'IndividualWeightRequired';
-    export const InternationalBagWeightEnum = {
-        WeightNotRequired: 'WeightNotRequired' as InternationalBagWeightEnum,
-        TotalWeightRequired: 'TotalWeightRequired' as InternationalBagWeightEnum,
-        IndividualWeightRequired: 'IndividualWeightRequired' as InternationalBagWeightEnum
-    };
 }

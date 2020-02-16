@@ -30,30 +30,5 @@ export interface GovernmentProgramRequirements {
 }
 export namespace GovernmentProgramRequirements {
     export type RequiredDocumentFieldsEnum = 'FirstName' | 'MiddleName' | 'LastName' | 'Title' | 'Suffix' | 'DateOfBirth' | 'BirthCountry' | 'Gender' | 'Nationality' | 'Number' | 'IssuingCountry' | 'ExpirationDate' | 'IssuedDate' | 'Verified';
-    export const RequiredDocumentFieldsEnum = {
-        FirstName: 'FirstName' as RequiredDocumentFieldsEnum,
-        MiddleName: 'MiddleName' as RequiredDocumentFieldsEnum,
-        LastName: 'LastName' as RequiredDocumentFieldsEnum,
-        Title: 'Title' as RequiredDocumentFieldsEnum,
-        Suffix: 'Suffix' as RequiredDocumentFieldsEnum,
-        DateOfBirth: 'DateOfBirth' as RequiredDocumentFieldsEnum,
-        BirthCountry: 'BirthCountry' as RequiredDocumentFieldsEnum,
-        Gender: 'Gender' as RequiredDocumentFieldsEnum,
-        Nationality: 'Nationality' as RequiredDocumentFieldsEnum,
-        Number: 'Number' as RequiredDocumentFieldsEnum,
-        IssuingCountry: 'IssuingCountry' as RequiredDocumentFieldsEnum,
-        ExpirationDate: 'ExpirationDate' as RequiredDocumentFieldsEnum,
-        IssuedDate: 'IssuedDate' as RequiredDocumentFieldsEnum,
-        Verified: 'Verified' as RequiredDocumentFieldsEnum
-    };
     export type AdditionalDataRequiredEnum = 'CountryOfResidence' | 'InTransitOrigin' | 'InTransitDestination' | 'DateOfBirth' | 'Gender' | 'FirstName' | 'LastName';
-    export const AdditionalDataRequiredEnum = {
-        CountryOfResidence: 'CountryOfResidence' as AdditionalDataRequiredEnum,
-        InTransitOrigin: 'InTransitOrigin' as AdditionalDataRequiredEnum,
-        InTransitDestination: 'InTransitDestination' as AdditionalDataRequiredEnum,
-        DateOfBirth: 'DateOfBirth' as AdditionalDataRequiredEnum,
-        Gender: 'Gender' as AdditionalDataRequiredEnum,
-        FirstName: 'FirstName' as AdditionalDataRequiredEnum,
-        LastName: 'LastName' as AdditionalDataRequiredEnum
-    };
 }

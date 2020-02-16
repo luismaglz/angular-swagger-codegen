@@ -80,20 +80,5 @@ export interface OperationsInformation {
 }
 export namespace OperationsInformation {
     export type ArrivalStatusEnum = 'Default' | 'Cancelled' | 'Arrived' | 'SeeAgent' | 'Delayed';
-    export const ArrivalStatusEnum = {
-        Default: 'Default' as ArrivalStatusEnum,
-        Cancelled: 'Cancelled' as ArrivalStatusEnum,
-        Arrived: 'Arrived' as ArrivalStatusEnum,
-        SeeAgent: 'SeeAgent' as ArrivalStatusEnum,
-        Delayed: 'Delayed' as ArrivalStatusEnum
-    };
     export type DepartureStatusEnum = 'Default' | 'Cancelled' | 'Boarding' | 'SeeAgent' | 'Delayed' | 'Departed';
-    export const DepartureStatusEnum = {
-        Default: 'Default' as DepartureStatusEnum,
-        Cancelled: 'Cancelled' as DepartureStatusEnum,
-        Boarding: 'Boarding' as DepartureStatusEnum,
-        SeeAgent: 'SeeAgent' as DepartureStatusEnum,
-        Delayed: 'Delayed' as DepartureStatusEnum,
-        Departed: 'Departed' as DepartureStatusEnum
-    };
 }

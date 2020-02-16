@@ -55,25 +55,6 @@ export interface BookingTripResult {
 }
 export namespace BookingTripResult {
     export type BookingStatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const BookingStatusEnum = {
-        Default: 'Default' as BookingStatusEnum,
-        Hold: 'Hold' as BookingStatusEnum,
-        Confirmed: 'Confirmed' as BookingStatusEnum,
-        Closed: 'Closed' as BookingStatusEnum,
-        HoldCanceled: 'HoldCanceled' as BookingStatusEnum,
-        PendingArchive: 'PendingArchive' as BookingStatusEnum,
-        Archived: 'Archived' as BookingStatusEnum
-    };
     export type PriceStatusEnum = 'Invalid' | 'Override' | 'Valid';
-    export const PriceStatusEnum = {
-        Invalid: 'Invalid' as PriceStatusEnum,
-        Override: 'Override' as PriceStatusEnum,
-        Valid: 'Valid' as PriceStatusEnum
-    };
     export type PaidStatusEnum = 'UnderPaid' | 'PaidInFull' | 'OverPaid';
-    export const PaidStatusEnum = {
-        UnderPaid: 'UnderPaid' as PaidStatusEnum,
-        PaidInFull: 'PaidInFull' as PaidStatusEnum,
-        OverPaid: 'OverPaid' as PaidStatusEnum
-    };
 }

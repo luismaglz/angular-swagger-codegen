@@ -46,9 +46,4 @@ export interface ResourceCategoryItem {
 }
 export namespace ResourceCategoryItem {
     export type ContentTypeEnum = 'Unknown' | 'Json' | 'Xml';
-    export const ContentTypeEnum = {
-        Unknown: 'Unknown' as ContentTypeEnum,
-        Json: 'Json' as ContentTypeEnum,
-        Xml: 'Xml' as ContentTypeEnum
-    };
 }

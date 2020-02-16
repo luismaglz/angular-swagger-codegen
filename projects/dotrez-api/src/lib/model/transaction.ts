@@ -62,17 +62,4 @@ export interface Transaction {
 }
 export namespace Transaction {
     export type TypeEnum = 'Default' | 'Payment' | 'Adjustment' | 'Supplementary' | 'Transfer' | 'Spoilage' | 'StatementDateAndBalance' | 'PayableCommission' | 'Commission' | 'ChildCommissionTransfer' | 'ParentCommissionTransfer';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Payment: 'Payment' as TypeEnum,
-        Adjustment: 'Adjustment' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum,
-        Transfer: 'Transfer' as TypeEnum,
-        Spoilage: 'Spoilage' as TypeEnum,
-        StatementDateAndBalance: 'StatementDateAndBalance' as TypeEnum,
-        PayableCommission: 'PayableCommission' as TypeEnum,
-        Commission: 'Commission' as TypeEnum,
-        ChildCommissionTransfer: 'ChildCommissionTransfer' as TypeEnum,
-        ParentCommissionTransfer: 'ParentCommissionTransfer' as TypeEnum
-    };
 }

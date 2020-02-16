@@ -44,9 +44,4 @@ export interface ManifestInfant {
 }
 export namespace ManifestInfant {
     export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    };
 }

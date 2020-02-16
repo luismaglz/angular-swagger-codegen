@@ -35,12 +35,4 @@ export interface OriginDetails {
 }
 export namespace OriginDetails {
     export type StatusEnum = 'Default' | 'Cancelled' | 'Boarding' | 'SeeAgent' | 'Delayed' | 'Departed';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Boarding: 'Boarding' as StatusEnum,
-        SeeAgent: 'SeeAgent' as StatusEnum,
-        Delayed: 'Delayed' as StatusEnum,
-        Departed: 'Departed' as StatusEnum
-    };
 }

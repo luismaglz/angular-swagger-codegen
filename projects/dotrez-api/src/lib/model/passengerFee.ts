@@ -71,26 +71,4 @@ export interface PassengerFee {
 }
 export namespace PassengerFee {
     export type TypeEnum = 'All' | 'Tax' | 'TravelFee' | 'ServiceFee' | 'PaymentFee' | 'PenaltyFee' | 'SsrFee' | 'NonFlightServiceFee' | 'UpgradeFee' | 'SeatFee' | 'BaseFare' | 'SpoilageFee' | 'NameChangeFee' | 'ConvenienceFee' | 'BaggageFee' | 'FareSurcharge' | 'PromotionDiscount' | 'ServiceBundle' | 'ExtraBagFee' | 'ATPCOBagFee';
-    export const TypeEnum = {
-        All: 'All' as TypeEnum,
-        Tax: 'Tax' as TypeEnum,
-        TravelFee: 'TravelFee' as TypeEnum,
-        ServiceFee: 'ServiceFee' as TypeEnum,
-        PaymentFee: 'PaymentFee' as TypeEnum,
-        PenaltyFee: 'PenaltyFee' as TypeEnum,
-        SsrFee: 'SsrFee' as TypeEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as TypeEnum,
-        UpgradeFee: 'UpgradeFee' as TypeEnum,
-        SeatFee: 'SeatFee' as TypeEnum,
-        BaseFare: 'BaseFare' as TypeEnum,
-        SpoilageFee: 'SpoilageFee' as TypeEnum,
-        NameChangeFee: 'NameChangeFee' as TypeEnum,
-        ConvenienceFee: 'ConvenienceFee' as TypeEnum,
-        BaggageFee: 'BaggageFee' as TypeEnum,
-        FareSurcharge: 'FareSurcharge' as TypeEnum,
-        PromotionDiscount: 'PromotionDiscount' as TypeEnum,
-        ServiceBundle: 'ServiceBundle' as TypeEnum,
-        ExtraBagFee: 'ExtraBagFee' as TypeEnum,
-        ATPCOBagFee: 'ATPCOBagFee' as TypeEnum
-    };
 }

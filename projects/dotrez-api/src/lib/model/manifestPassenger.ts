@@ -128,38 +128,7 @@ export interface ManifestPassenger {
 }
 export namespace ManifestPassenger {
     export type CheckInTypeEnum = 'Default' | 'Local' | 'Through' | 'Connecting' | 'NonLocal';
-    export const CheckInTypeEnum = {
-        Default: 'Default' as CheckInTypeEnum,
-        Local: 'Local' as CheckInTypeEnum,
-        Through: 'Through' as CheckInTypeEnum,
-        Connecting: 'Connecting' as CheckInTypeEnum,
-        NonLocal: 'NonLocal' as CheckInTypeEnum
-    };
     export type PaidStatusEnum = 'UnderPaid' | 'PaidInFull' | 'OverPaid';
-    export const PaidStatusEnum = {
-        UnderPaid: 'UnderPaid' as PaidStatusEnum,
-        PaidInFull: 'PaidInFull' as PaidStatusEnum,
-        OverPaid: 'OverPaid' as PaidStatusEnum
-    };
     export type ProfileStatusEnum = 'Default' | 'KnownIndividual' | 'ResolutionGroup' | 'SelecteeGroup' | 'NotUsed' | 'FailureGroup' | 'RandomSelectee' | 'Exempt';
-    export const ProfileStatusEnum = {
-        Default: 'Default' as ProfileStatusEnum,
-        KnownIndividual: 'KnownIndividual' as ProfileStatusEnum,
-        ResolutionGroup: 'ResolutionGroup' as ProfileStatusEnum,
-        SelecteeGroup: 'SelecteeGroup' as ProfileStatusEnum,
-        NotUsed: 'NotUsed' as ProfileStatusEnum,
-        FailureGroup: 'FailureGroup' as ProfileStatusEnum,
-        RandomSelectee: 'RandomSelectee' as ProfileStatusEnum,
-        Exempt: 'Exempt' as ProfileStatusEnum
-    };
     export type StatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Hold: 'Hold' as StatusEnum,
-        Confirmed: 'Confirmed' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        HoldCanceled: 'HoldCanceled' as StatusEnum,
-        PendingArchive: 'PendingArchive' as StatusEnum,
-        Archived: 'Archived' as StatusEnum
-    };
 }

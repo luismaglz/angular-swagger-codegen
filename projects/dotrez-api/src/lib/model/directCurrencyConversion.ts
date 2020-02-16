@@ -46,11 +46,4 @@ export interface DirectCurrencyConversion {
 }
 export namespace DirectCurrencyConversion {
     export type StatusEnum = 'DccNotOffered' | 'DccOfferRejected' | 'DccOfferAccepted' | 'DccInitialValue' | 'MccInUse';
-    export const StatusEnum = {
-        DccNotOffered: 'DccNotOffered' as StatusEnum,
-        DccOfferRejected: 'DccOfferRejected' as StatusEnum,
-        DccOfferAccepted: 'DccOfferAccepted' as StatusEnum,
-        DccInitialValue: 'DccInitialValue' as StatusEnum,
-        MccInUse: 'MccInUse' as StatusEnum
-    };
 }

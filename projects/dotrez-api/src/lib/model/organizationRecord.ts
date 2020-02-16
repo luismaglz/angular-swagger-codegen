@@ -44,18 +44,5 @@ export interface OrganizationRecord {
 }
 export namespace OrganizationRecord {
     export type TypeEnum = 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Master: 'Master' as TypeEnum,
-        Carrier: 'Carrier' as TypeEnum,
-        TravelAgency: 'TravelAgency' as TypeEnum,
-        ThirdParty: 'ThirdParty' as TypeEnum
-    };
     export type StatusEnum = 'Default' | 'Active' | 'Cancelled' | 'Pending';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Pending: 'Pending' as StatusEnum
-    };
 }

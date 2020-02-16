@@ -38,12 +38,4 @@ export interface ManifestQueue {
 }
 export namespace ManifestQueue {
     export type QueueActionEnum = 'Default' | 'Warning' | 'Lock' | 'DefaultAndNotify' | 'WarningAndNotify' | 'LockAndNotify';
-    export const QueueActionEnum = {
-        Default: 'Default' as QueueActionEnum,
-        Warning: 'Warning' as QueueActionEnum,
-        Lock: 'Lock' as QueueActionEnum,
-        DefaultAndNotify: 'DefaultAndNotify' as QueueActionEnum,
-        WarningAndNotify: 'WarningAndNotify' as QueueActionEnum,
-        LockAndNotify: 'LockAndNotify' as QueueActionEnum
-    };
 }

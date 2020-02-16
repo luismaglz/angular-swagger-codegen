@@ -34,28 +34,5 @@ export interface ServerContext {
 }
 export namespace ServerContext {
     export type SystemNameEnum = 'Default' | 'WinRez' | 'FareManager' | 'ScheduleManager' | 'WinManager' | 'ConsoleRez' | 'WebRez' | 'WebServicesApi' | 'WebServicesEsc' | 'InternalService' | 'WebReporting' | 'TaxAndFeeManager' | 'Dcs' | 'DCS_Kiosk';
-    export const SystemNameEnum = {
-        Default: 'Default' as SystemNameEnum,
-        WinRez: 'WinRez' as SystemNameEnum,
-        FareManager: 'FareManager' as SystemNameEnum,
-        ScheduleManager: 'ScheduleManager' as SystemNameEnum,
-        WinManager: 'WinManager' as SystemNameEnum,
-        ConsoleRez: 'ConsoleRez' as SystemNameEnum,
-        WebRez: 'WebRez' as SystemNameEnum,
-        WebServicesApi: 'WebServicesApi' as SystemNameEnum,
-        WebServicesEsc: 'WebServicesEsc' as SystemNameEnum,
-        InternalService: 'InternalService' as SystemNameEnum,
-        WebReporting: 'WebReporting' as SystemNameEnum,
-        TaxAndFeeManager: 'TaxAndFeeManager' as SystemNameEnum,
-        Dcs: 'Dcs' as SystemNameEnum,
-        DCSKiosk: 'DCS_Kiosk' as SystemNameEnum
-    };
     export type ChannelEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelEnum = {
-        Default: 'Default' as ChannelEnum,
-        Direct: 'Direct' as ChannelEnum,
-        Web: 'Web' as ChannelEnum,
-        Gds: 'Gds' as ChannelEnum,
-        Api: 'Api' as ChannelEnum
-    };
 }

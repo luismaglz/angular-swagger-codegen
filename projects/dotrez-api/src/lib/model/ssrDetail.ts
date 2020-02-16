@@ -60,18 +60,5 @@ export interface SsrDetail {
 }
 export namespace SsrDetail {
     export type SsrTypeEnum = 'Standard' | 'Infant' | 'Meal' | 'BaggageAllowance' | 'TravelLineMeal';
-    export const SsrTypeEnum = {
-        Standard: 'Standard' as SsrTypeEnum,
-        Infant: 'Infant' as SsrTypeEnum,
-        Meal: 'Meal' as SsrTypeEnum,
-        BaggageAllowance: 'BaggageAllowance' as SsrTypeEnum,
-        TravelLineMeal: 'TravelLineMeal' as SsrTypeEnum
-    };
     export type SeatRestrictionEnum = 'Undefined' | 'AlwaysAllowed' | 'DefaultAllowed' | 'DefaultRestricted';
-    export const SeatRestrictionEnum = {
-        Undefined: 'Undefined' as SeatRestrictionEnum,
-        AlwaysAllowed: 'AlwaysAllowed' as SeatRestrictionEnum,
-        DefaultAllowed: 'DefaultAllowed' as SeatRestrictionEnum,
-        DefaultRestricted: 'DefaultRestricted' as SeatRestrictionEnum
-    };
 }

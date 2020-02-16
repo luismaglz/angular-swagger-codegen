@@ -103,12 +103,4 @@ export interface BoardingPassSegment {
 }
 export namespace BoardingPassSegment {
     export type TypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const TypeEnum = {
-        Normal: 'Normal' as TypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as TypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as TypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as TypeEnum,
-        InterlineInbound: 'InterlineInbound' as TypeEnum,
-        Passive: 'Passive' as TypeEnum
-    };
 }

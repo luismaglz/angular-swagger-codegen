@@ -39,13 +39,4 @@ export interface PreCancelDetail {
 }
 export namespace PreCancelDetail {
     export type StatusEnum = 'Unknown' | 'CancelAvailable' | 'ExternalCancelAvailable' | 'ImmediateCancel' | 'CancelDenied' | 'RemoveFromBooking' | 'CancelPending';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        CancelAvailable: 'CancelAvailable' as StatusEnum,
-        ExternalCancelAvailable: 'ExternalCancelAvailable' as StatusEnum,
-        ImmediateCancel: 'ImmediateCancel' as StatusEnum,
-        CancelDenied: 'CancelDenied' as StatusEnum,
-        RemoveFromBooking: 'RemoveFromBooking' as StatusEnum,
-        CancelPending: 'CancelPending' as StatusEnum
-    };
 }

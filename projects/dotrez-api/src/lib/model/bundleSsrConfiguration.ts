@@ -55,9 +55,4 @@ export interface BundleSsrConfiguration {
 }
 export namespace BundleSsrConfiguration {
     export type BundleSsrTypeEnum = 'InBundle' | 'InBundleUpgrade' | 'NotInBundle';
-    export const BundleSsrTypeEnum = {
-        InBundle: 'InBundle' as BundleSsrTypeEnum,
-        InBundleUpgrade: 'InBundleUpgrade' as BundleSsrTypeEnum,
-        NotInBundle: 'NotInBundle' as BundleSsrTypeEnum
-    };
 }

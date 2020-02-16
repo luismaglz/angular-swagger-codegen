@@ -99,54 +99,5 @@ export interface UnitInformation {
 }
 export namespace UnitInformation {
     export type AvailabilityEnum = 'Unknown' | 'Reserved' | 'Blocked' | 'HeldForAnotherSession' | 'HeldForThisSession' | 'Open' | 'Missing' | 'CheckedIn' | 'FleetBlocked' | 'Restricted' | 'Broken' | 'ReservedForPnr' | 'SoftBlocked' | 'Unavailable';
-    export const AvailabilityEnum = {
-        Unknown: 'Unknown' as AvailabilityEnum,
-        Reserved: 'Reserved' as AvailabilityEnum,
-        Blocked: 'Blocked' as AvailabilityEnum,
-        HeldForAnotherSession: 'HeldForAnotherSession' as AvailabilityEnum,
-        HeldForThisSession: 'HeldForThisSession' as AvailabilityEnum,
-        Open: 'Open' as AvailabilityEnum,
-        Missing: 'Missing' as AvailabilityEnum,
-        CheckedIn: 'CheckedIn' as AvailabilityEnum,
-        FleetBlocked: 'FleetBlocked' as AvailabilityEnum,
-        Restricted: 'Restricted' as AvailabilityEnum,
-        Broken: 'Broken' as AvailabilityEnum,
-        ReservedForPnr: 'ReservedForPnr' as AvailabilityEnum,
-        SoftBlocked: 'SoftBlocked' as AvailabilityEnum,
-        Unavailable: 'Unavailable' as AvailabilityEnum
-    };
     export type TypeEnum = 'None' | 'NormalSeat' | 'LargeSeat' | 'Couchette' | 'Compartment' | 'Table' | 'Wall' | 'Window' | 'Door' | 'Stairs' | 'Wing' | 'Other' | 'Bulkhead' | 'BedOneOfThree' | 'BedTwoOfThree' | 'BedThreeOfThree' | 'BedOneOfTwo' | 'BedTwoOfTwo' | 'Bed' | 'Exit' | 'LabelRuler' | 'GenericUnitResizableArea' | 'Lavatory' | 'LavatoryWithHandicappedFacilities' | 'Luggage' | 'MovableCompartmentDivider' | 'Bar' | 'Closet' | 'Galley' | 'MovieScreen' | 'Storage';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        NormalSeat: 'NormalSeat' as TypeEnum,
-        LargeSeat: 'LargeSeat' as TypeEnum,
-        Couchette: 'Couchette' as TypeEnum,
-        Compartment: 'Compartment' as TypeEnum,
-        Table: 'Table' as TypeEnum,
-        Wall: 'Wall' as TypeEnum,
-        Window: 'Window' as TypeEnum,
-        Door: 'Door' as TypeEnum,
-        Stairs: 'Stairs' as TypeEnum,
-        Wing: 'Wing' as TypeEnum,
-        Other: 'Other' as TypeEnum,
-        Bulkhead: 'Bulkhead' as TypeEnum,
-        BedOneOfThree: 'BedOneOfThree' as TypeEnum,
-        BedTwoOfThree: 'BedTwoOfThree' as TypeEnum,
-        BedThreeOfThree: 'BedThreeOfThree' as TypeEnum,
-        BedOneOfTwo: 'BedOneOfTwo' as TypeEnum,
-        BedTwoOfTwo: 'BedTwoOfTwo' as TypeEnum,
-        Bed: 'Bed' as TypeEnum,
-        Exit: 'Exit' as TypeEnum,
-        LabelRuler: 'LabelRuler' as TypeEnum,
-        GenericUnitResizableArea: 'GenericUnitResizableArea' as TypeEnum,
-        Lavatory: 'Lavatory' as TypeEnum,
-        LavatoryWithHandicappedFacilities: 'LavatoryWithHandicappedFacilities' as TypeEnum,
-        Luggage: 'Luggage' as TypeEnum,
-        MovableCompartmentDivider: 'MovableCompartmentDivider' as TypeEnum,
-        Bar: 'Bar' as TypeEnum,
-        Closet: 'Closet' as TypeEnum,
-        Galley: 'Galley' as TypeEnum,
-        MovieScreen: 'MovieScreen' as TypeEnum,
-        Storage: 'Storage' as TypeEnum
-    };
 }

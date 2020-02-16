@@ -38,15 +38,5 @@ export interface Title {
 }
 export namespace Title {
     export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    };
     export type WeightCategoryEnum = 'Male' | 'Female' | 'Child';
-    export const WeightCategoryEnum = {
-        Male: 'Male' as WeightCategoryEnum,
-        Female: 'Female' as WeightCategoryEnum,
-        Child: 'Child' as WeightCategoryEnum
-    };
 }

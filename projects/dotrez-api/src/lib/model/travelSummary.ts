@@ -79,13 +79,4 @@ export interface TravelSummary {
 }
 export namespace TravelSummary {
     export type StatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const StatusEnum = {
-        Normal: 'Normal' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        Canceled: 'Canceled' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        ClosedPending: 'ClosedPending' as StatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as StatusEnum,
-        Mishap: 'Mishap' as StatusEnum
-    };
 }

@@ -38,11 +38,4 @@ export interface SingleSignOnCredentials {
 }
 export namespace SingleSignOnCredentials {
     export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    };
 }

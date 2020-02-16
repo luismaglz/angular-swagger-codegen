@@ -83,20 +83,5 @@ export interface AddOn {
 }
 export namespace AddOn {
     export type StatusEnum = 'Unknown' | 'Active' | 'Pending' | 'Confirming' | 'CancelPending' | 'Cancelled';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Confirming: 'Confirming' as StatusEnum,
-        CancelPending: 'CancelPending' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum
-    };
     export type TypeEnum = 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Insurance: 'Insurance' as TypeEnum,
-        Activity: 'Activity' as TypeEnum,
-        Hotel: 'Hotel' as TypeEnum,
-        Car: 'Car' as TypeEnum
-    };
 }

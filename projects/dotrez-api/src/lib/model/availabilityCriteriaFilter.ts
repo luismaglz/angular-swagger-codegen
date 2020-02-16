@@ -86,60 +86,10 @@ export interface AvailabilityCriteriaFilter {
 }
 export namespace AvailabilityCriteriaFilter {
     export type FareInclusionTypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const FareInclusionTypeEnum = {
-        Default: 'Default' as FareInclusionTypeEnum,
-        Standby: 'Standby' as FareInclusionTypeEnum,
-        Overbook: 'Overbook' as FareInclusionTypeEnum,
-        NoPricing: 'NoPricing' as FareInclusionTypeEnum
-    };
     export type CompressionTypeEnum = 'LowestFareClass' | 'CompressByProductClass' | 'Default';
-    export const CompressionTypeEnum = {
-        LowestFareClass: 'LowestFareClass' as CompressionTypeEnum,
-        CompressByProductClass: 'CompressByProductClass' as CompressionTypeEnum,
-        Default: 'Default' as CompressionTypeEnum
-    };
     export type LoyaltyEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyEnum
-    };
     export type ExclusionTypeEnum = 'Default' | 'ExcludeDeparted' | 'ExcludeImminent' | 'ExcludeUnavailable';
-    export const ExclusionTypeEnum = {
-        Default: 'Default' as ExclusionTypeEnum,
-        ExcludeDeparted: 'ExcludeDeparted' as ExclusionTypeEnum,
-        ExcludeImminent: 'ExcludeImminent' as ExclusionTypeEnum,
-        ExcludeUnavailable: 'ExcludeUnavailable' as ExclusionTypeEnum
-    };
     export type SortOptionsEnum = 'ServiceType' | 'ShortestTravelTime' | 'LowestFare' | 'HighestFare' | 'EarliestDeparture' | 'LatestDeparture' | 'EarliestArrival' | 'LatestArrival' | 'NoSort' | 'BiasOnlineCommercialDuplicates' | 'JourneyNumber';
-    export const SortOptionsEnum = {
-        ServiceType: 'ServiceType' as SortOptionsEnum,
-        ShortestTravelTime: 'ShortestTravelTime' as SortOptionsEnum,
-        LowestFare: 'LowestFare' as SortOptionsEnum,
-        HighestFare: 'HighestFare' as SortOptionsEnum,
-        EarliestDeparture: 'EarliestDeparture' as SortOptionsEnum,
-        LatestDeparture: 'LatestDeparture' as SortOptionsEnum,
-        EarliestArrival: 'EarliestArrival' as SortOptionsEnum,
-        LatestArrival: 'LatestArrival' as SortOptionsEnum,
-        NoSort: 'NoSort' as SortOptionsEnum,
-        BiasOnlineCommercialDuplicates: 'BiasOnlineCommercialDuplicates' as SortOptionsEnum,
-        JourneyNumber: 'JourneyNumber' as SortOptionsEnum
-    };
     export type TypeEnum = 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        NonStop: 'NonStop' as TypeEnum,
-        Through: 'Through' as TypeEnum,
-        Direct: 'Direct' as TypeEnum,
-        Connect: 'Connect' as TypeEnum,
-        All: 'All' as TypeEnum
-    };
     export type ConnectionTypeEnum = 'None' | 'Domestic' | 'International' | 'Both';
-    export const ConnectionTypeEnum = {
-        None: 'None' as ConnectionTypeEnum,
-        Domestic: 'Domestic' as ConnectionTypeEnum,
-        International: 'International' as ConnectionTypeEnum,
-        Both: 'Both' as ConnectionTypeEnum
-    };
 }

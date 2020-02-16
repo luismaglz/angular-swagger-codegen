@@ -127,25 +127,6 @@ export interface VoucherInformation {
 }
 export namespace VoucherInformation {
     export type TypeEnum = 'Credit' | 'SingleUseCredit' | 'Service' | 'SingleUse' | 'MultiUse' | 'SingleUseNegativeAdjustment';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        SingleUseCredit: 'SingleUseCredit' as TypeEnum,
-        Service: 'Service' as TypeEnum,
-        SingleUse: 'SingleUse' as TypeEnum,
-        MultiUse: 'MultiUse' as TypeEnum,
-        SingleUseNegativeAdjustment: 'SingleUseNegativeAdjustment' as TypeEnum
-    };
     export type StatusEnum = 'Available' | 'Void' | 'Redeemed' | 'Expired';
-    export const StatusEnum = {
-        Available: 'Available' as StatusEnum,
-        Void: 'Void' as StatusEnum,
-        Redeemed: 'Redeemed' as StatusEnum,
-        Expired: 'Expired' as StatusEnum
-    };
     export type NameRestrictionEnum = 'None' | 'MustBePassenger' | 'MustBePassengerOrContact';
-    export const NameRestrictionEnum = {
-        None: 'None' as NameRestrictionEnum,
-        MustBePassenger: 'MustBePassenger' as NameRestrictionEnum,
-        MustBePassengerOrContact: 'MustBePassengerOrContact' as NameRestrictionEnum
-    };
 }

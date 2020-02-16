@@ -34,12 +34,4 @@ export interface AvailabilityFlightCriteria {
 }
 export namespace AvailabilityFlightCriteria {
     export type TypeEnum = 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        NonStop: 'NonStop' as TypeEnum,
-        Through: 'Through' as TypeEnum,
-        Direct: 'Direct' as TypeEnum,
-        Connect: 'Connect' as TypeEnum,
-        All: 'All' as TypeEnum
-    };
 }

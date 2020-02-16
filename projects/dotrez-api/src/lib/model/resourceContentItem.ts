@@ -50,33 +50,5 @@ export interface ResourceContentItem {
 }
 export namespace ResourceContentItem {
     export type TypeEnum = 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference';
-    export const TypeEnum = {
-        GeneralReference: 'GeneralReference' as TypeEnum,
-        News: 'News' as TypeEnum,
-        ConsoleHelp: 'ConsoleHelp' as TypeEnum,
-        FareRuleReference: 'FareRuleReference' as TypeEnum,
-        ReviewWithCustomer: 'ReviewWithCustomer' as TypeEnum,
-        Notices: 'Notices' as TypeEnum,
-        Literature: 'Literature' as TypeEnum,
-        Links: 'Links' as TypeEnum,
-        Image: 'Image' as TypeEnum,
-        PromotionReference: 'PromotionReference' as TypeEnum,
-        SubscriptionReference: 'SubscriptionReference' as TypeEnum
-    };
     export type DataTypeEnum = 'Default' | 'Text' | 'RichTextFormat' | 'ImageJpg' | 'ImageGif' | 'ImageBmp' | 'ImagePng' | 'WordDoc' | 'Html' | 'Pdf' | 'Uri' | 'WordDocx' | 'Unmapped';
-    export const DataTypeEnum = {
-        Default: 'Default' as DataTypeEnum,
-        Text: 'Text' as DataTypeEnum,
-        RichTextFormat: 'RichTextFormat' as DataTypeEnum,
-        ImageJpg: 'ImageJpg' as DataTypeEnum,
-        ImageGif: 'ImageGif' as DataTypeEnum,
-        ImageBmp: 'ImageBmp' as DataTypeEnum,
-        ImagePng: 'ImagePng' as DataTypeEnum,
-        WordDoc: 'WordDoc' as DataTypeEnum,
-        Html: 'Html' as DataTypeEnum,
-        Pdf: 'Pdf' as DataTypeEnum,
-        Uri: 'Uri' as DataTypeEnum,
-        WordDocx: 'WordDocx' as DataTypeEnum,
-        Unmapped: 'Unmapped' as DataTypeEnum
-    };
 }

@@ -38,11 +38,4 @@ export interface FeeSettings {
 }
 export namespace FeeSettings {
     export type FeeDescriptionEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const FeeDescriptionEnum = {
-        Required: 'Required' as FeeDescriptionEnum,
-        Optional: 'Optional' as FeeDescriptionEnum,
-        Disabled: 'Disabled' as FeeDescriptionEnum,
-        RequiredMasked: 'RequiredMasked' as FeeDescriptionEnum,
-        OptionalMasked: 'OptionalMasked' as FeeDescriptionEnum
-    };
 }

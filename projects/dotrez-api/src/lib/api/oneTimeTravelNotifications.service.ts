@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs';
+import { Observable }                                        from 'rxjs/Observable';
 
 import { IJsonResponse } from '../model/iJsonResponse';
 import { OneTimeNotificationCreateRequest } from '../model/oneTimeNotificationCreateRequest';

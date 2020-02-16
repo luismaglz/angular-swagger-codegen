@@ -47,10 +47,4 @@ export interface AvailabilityFlyAheadRequest {
 }
 export namespace AvailabilityFlyAheadRequest {
     export type TypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Standby: 'Standby' as TypeEnum,
-        Overbook: 'Overbook' as TypeEnum,
-        NoPricing: 'NoPricing' as TypeEnum
-    };
 }

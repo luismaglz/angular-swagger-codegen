@@ -71,18 +71,5 @@ export interface FareAvailabilityv2 {
 }
 export namespace FareAvailabilityv2 {
     export type FareApplicationTypeEnum = 'Route' | 'Sector' | 'Governing';
-    export const FareApplicationTypeEnum = {
-        Route: 'Route' as FareApplicationTypeEnum,
-        Sector: 'Sector' as FareApplicationTypeEnum,
-        Governing: 'Governing' as FareApplicationTypeEnum
-    };
     export type FareStatusEnum = 'Default' | 'SameDayStandBy' | 'FareOverrideConfirming' | 'FareOverrideConfirmed' | 'PublishedFareOverrideConfirming' | 'PublishedFareOverrideConfirmed';
-    export const FareStatusEnum = {
-        Default: 'Default' as FareStatusEnum,
-        SameDayStandBy: 'SameDayStandBy' as FareStatusEnum,
-        FareOverrideConfirming: 'FareOverrideConfirming' as FareStatusEnum,
-        FareOverrideConfirmed: 'FareOverrideConfirmed' as FareStatusEnum,
-        PublishedFareOverrideConfirming: 'PublishedFareOverrideConfirming' as FareStatusEnum,
-        PublishedFareOverrideConfirmed: 'PublishedFareOverrideConfirmed' as FareStatusEnum
-    };
 }

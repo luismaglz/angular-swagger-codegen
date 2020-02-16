@@ -110,91 +110,10 @@ export interface Fee {
 }
 export namespace Fee {
     export type ChargeLimitModeEnum = 'FirstOccurrences' | 'LastOccurrences' | 'FirstOutLastInOccurrences';
-    export const ChargeLimitModeEnum = {
-        FirstOccurrences: 'FirstOccurrences' as ChargeLimitModeEnum,
-        LastOccurrences: 'LastOccurrences' as ChargeLimitModeEnum,
-        FirstOutLastInOccurrences: 'FirstOutLastInOccurrences' as ChargeLimitModeEnum
-    };
     export type ChargeLimitTravelComponentEnum = 'Unknown' | 'Itinerary' | 'Trip' | 'Journey' | 'Segment' | 'Leg' | 'ItineraryWithJourneySalesDate' | 'TripWithJourneySalesDate' | 'JourneyWithBookingSalesDate' | 'JourneyWithJourneySalesDate' | 'SegmentWithJourneySalesDate' | 'LegWithJourneySalesDate' | 'Fare';
-    export const ChargeLimitTravelComponentEnum = {
-        Unknown: 'Unknown' as ChargeLimitTravelComponentEnum,
-        Itinerary: 'Itinerary' as ChargeLimitTravelComponentEnum,
-        Trip: 'Trip' as ChargeLimitTravelComponentEnum,
-        Journey: 'Journey' as ChargeLimitTravelComponentEnum,
-        Segment: 'Segment' as ChargeLimitTravelComponentEnum,
-        Leg: 'Leg' as ChargeLimitTravelComponentEnum,
-        ItineraryWithJourneySalesDate: 'ItineraryWithJourneySalesDate' as ChargeLimitTravelComponentEnum,
-        TripWithJourneySalesDate: 'TripWithJourneySalesDate' as ChargeLimitTravelComponentEnum,
-        JourneyWithBookingSalesDate: 'JourneyWithBookingSalesDate' as ChargeLimitTravelComponentEnum,
-        JourneyWithJourneySalesDate: 'JourneyWithJourneySalesDate' as ChargeLimitTravelComponentEnum,
-        SegmentWithJourneySalesDate: 'SegmentWithJourneySalesDate' as ChargeLimitTravelComponentEnum,
-        LegWithJourneySalesDate: 'LegWithJourneySalesDate' as ChargeLimitTravelComponentEnum,
-        Fare: 'Fare' as ChargeLimitTravelComponentEnum
-    };
     export type FeeApplicationEnum = 'Pnr' | 'TravelComponent' | 'EachPassenger' | 'EachPassengerTravelComponent' | 'SpecifyPassenger' | 'AllPaxCheckingBagsTogether' | 'PerBookingNoLimit';
-    export const FeeApplicationEnum = {
-        Pnr: 'Pnr' as FeeApplicationEnum,
-        TravelComponent: 'TravelComponent' as FeeApplicationEnum,
-        EachPassenger: 'EachPassenger' as FeeApplicationEnum,
-        EachPassengerTravelComponent: 'EachPassengerTravelComponent' as FeeApplicationEnum,
-        SpecifyPassenger: 'SpecifyPassenger' as FeeApplicationEnum,
-        AllPaxCheckingBagsTogether: 'AllPaxCheckingBagsTogether' as FeeApplicationEnum,
-        PerBookingNoLimit: 'PerBookingNoLimit' as FeeApplicationEnum
-    };
     export type FeeOptionModeEnum = 'Default' | 'All' | 'LowestCost' | 'HighestCost';
-    export const FeeOptionModeEnum = {
-        Default: 'Default' as FeeOptionModeEnum,
-        All: 'All' as FeeOptionModeEnum,
-        LowestCost: 'LowestCost' as FeeOptionModeEnum,
-        HighestCost: 'HighestCost' as FeeOptionModeEnum
-    };
     export type FeeTypeEnum = 'All' | 'Tax' | 'TravelFee' | 'ServiceFee' | 'PaymentFee' | 'PenaltyFee' | 'SsrFee' | 'NonFlightServiceFee' | 'UpgradeFee' | 'SeatFee' | 'BaseFare' | 'SpoilageFee' | 'NameChangeFee' | 'ConvenienceFee' | 'BaggageFee' | 'FareSurcharge' | 'PromotionDiscount' | 'ServiceBundle' | 'ExtraBagFee' | 'ATPCOBagFee';
-    export const FeeTypeEnum = {
-        All: 'All' as FeeTypeEnum,
-        Tax: 'Tax' as FeeTypeEnum,
-        TravelFee: 'TravelFee' as FeeTypeEnum,
-        ServiceFee: 'ServiceFee' as FeeTypeEnum,
-        PaymentFee: 'PaymentFee' as FeeTypeEnum,
-        PenaltyFee: 'PenaltyFee' as FeeTypeEnum,
-        SsrFee: 'SsrFee' as FeeTypeEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as FeeTypeEnum,
-        UpgradeFee: 'UpgradeFee' as FeeTypeEnum,
-        SeatFee: 'SeatFee' as FeeTypeEnum,
-        BaseFare: 'BaseFare' as FeeTypeEnum,
-        SpoilageFee: 'SpoilageFee' as FeeTypeEnum,
-        NameChangeFee: 'NameChangeFee' as FeeTypeEnum,
-        ConvenienceFee: 'ConvenienceFee' as FeeTypeEnum,
-        BaggageFee: 'BaggageFee' as FeeTypeEnum,
-        FareSurcharge: 'FareSurcharge' as FeeTypeEnum,
-        PromotionDiscount: 'PromotionDiscount' as FeeTypeEnum,
-        ServiceBundle: 'ServiceBundle' as FeeTypeEnum,
-        ExtraBagFee: 'ExtraBagFee' as FeeTypeEnum,
-        ATPCOBagFee: 'ATPCOBagFee' as FeeTypeEnum
-    };
     export type TaxApplicationEnum = 'Unknown' | 'Taxable' | 'TaxableLocal' | 'NonTaxable' | 'NonTaxableApplyToBaseFareOnly' | 'TaxableByTrip' | 'TaxableByItinerary';
-    export const TaxApplicationEnum = {
-        Unknown: 'Unknown' as TaxApplicationEnum,
-        Taxable: 'Taxable' as TaxApplicationEnum,
-        TaxableLocal: 'TaxableLocal' as TaxApplicationEnum,
-        NonTaxable: 'NonTaxable' as TaxApplicationEnum,
-        NonTaxableApplyToBaseFareOnly: 'NonTaxableApplyToBaseFareOnly' as TaxApplicationEnum,
-        TaxableByTrip: 'TaxableByTrip' as TaxApplicationEnum,
-        TaxableByItinerary: 'TaxableByItinerary' as TaxApplicationEnum
-    };
     export type TravelComponentEnum = 'Unknown' | 'Itinerary' | 'Trip' | 'Journey' | 'Segment' | 'Leg' | 'ItineraryWithJourneySalesDate' | 'TripWithJourneySalesDate' | 'JourneyWithBookingSalesDate' | 'JourneyWithJourneySalesDate' | 'SegmentWithJourneySalesDate' | 'LegWithJourneySalesDate' | 'Fare';
-    export const TravelComponentEnum = {
-        Unknown: 'Unknown' as TravelComponentEnum,
-        Itinerary: 'Itinerary' as TravelComponentEnum,
-        Trip: 'Trip' as TravelComponentEnum,
-        Journey: 'Journey' as TravelComponentEnum,
-        Segment: 'Segment' as TravelComponentEnum,
-        Leg: 'Leg' as TravelComponentEnum,
-        ItineraryWithJourneySalesDate: 'ItineraryWithJourneySalesDate' as TravelComponentEnum,
-        TripWithJourneySalesDate: 'TripWithJourneySalesDate' as TravelComponentEnum,
-        JourneyWithBookingSalesDate: 'JourneyWithBookingSalesDate' as TravelComponentEnum,
-        JourneyWithJourneySalesDate: 'JourneyWithJourneySalesDate' as TravelComponentEnum,
-        SegmentWithJourneySalesDate: 'SegmentWithJourneySalesDate' as TravelComponentEnum,
-        LegWithJourneySalesDate: 'LegWithJourneySalesDate' as TravelComponentEnum,
-        Fare: 'Fare' as TravelComponentEnum
-    };
 }

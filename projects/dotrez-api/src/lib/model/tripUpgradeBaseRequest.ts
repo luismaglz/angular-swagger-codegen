@@ -30,11 +30,4 @@ export interface TripUpgradeBaseRequest {
 }
 export namespace TripUpgradeBaseRequest {
     export type InventoryControlEnum = 'HoldSpace' | 'SoftHoldSpace' | 'ClaimSpace' | 'OversellSpace' | 'StandBy';
-    export const InventoryControlEnum = {
-        HoldSpace: 'HoldSpace' as InventoryControlEnum,
-        SoftHoldSpace: 'SoftHoldSpace' as InventoryControlEnum,
-        ClaimSpace: 'ClaimSpace' as InventoryControlEnum,
-        OversellSpace: 'OversellSpace' as InventoryControlEnum,
-        StandBy: 'StandBy' as InventoryControlEnum
-    };
 }

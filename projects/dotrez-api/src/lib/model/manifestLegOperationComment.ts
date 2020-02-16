@@ -34,13 +34,4 @@ export interface ManifestLegOperationComment {
 }
 export namespace ManifestLegOperationComment {
     export type CommentTypeEnum = 'Default' | 'Reservation' | 'Operation' | 'PitLoad' | 'Irop' | 'AppsOverride' | 'ManualAppsOverride';
-    export const CommentTypeEnum = {
-        Default: 'Default' as CommentTypeEnum,
-        Reservation: 'Reservation' as CommentTypeEnum,
-        Operation: 'Operation' as CommentTypeEnum,
-        PitLoad: 'PitLoad' as CommentTypeEnum,
-        Irop: 'Irop' as CommentTypeEnum,
-        AppsOverride: 'AppsOverride' as CommentTypeEnum,
-        ManualAppsOverride: 'ManualAppsOverride' as CommentTypeEnum
-    };
 }

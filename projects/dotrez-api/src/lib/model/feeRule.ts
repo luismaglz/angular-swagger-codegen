@@ -35,9 +35,4 @@ export interface FeeRule {
 }
 export namespace FeeRule {
     export type OperatorEnum = 'Default' | 'MustBe' | 'MustNotBe';
-    export const OperatorEnum = {
-        Default: 'Default' as OperatorEnum,
-        MustBe: 'MustBe' as OperatorEnum,
-        MustNotBe: 'MustNotBe' as OperatorEnum
-    };
 }

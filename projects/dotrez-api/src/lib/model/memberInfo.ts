@@ -23,15 +23,4 @@ export interface MemberInfo {
 }
 export namespace MemberInfo {
     export type MemberTypeEnum = 'Constructor' | 'Event' | 'Field' | 'Method' | 'Property' | 'TypeInfo' | 'Custom' | 'NestedType' | 'All';
-    export const MemberTypeEnum = {
-        Constructor: 'Constructor' as MemberTypeEnum,
-        Event: 'Event' as MemberTypeEnum,
-        Field: 'Field' as MemberTypeEnum,
-        Method: 'Method' as MemberTypeEnum,
-        Property: 'Property' as MemberTypeEnum,
-        TypeInfo: 'TypeInfo' as MemberTypeEnum,
-        Custom: 'Custom' as MemberTypeEnum,
-        NestedType: 'NestedType' as MemberTypeEnum,
-        All: 'All' as MemberTypeEnum
-    };
 }

@@ -82,9 +82,4 @@ export interface Passenger {
 }
 export namespace Passenger {
     export type WeightCategoryEnum = 'Male' | 'Female' | 'Child';
-    export const WeightCategoryEnum = {
-        Male: 'Male' as WeightCategoryEnum,
-        Female: 'Female' as WeightCategoryEnum,
-        Child: 'Child' as WeightCategoryEnum
-    };
 }

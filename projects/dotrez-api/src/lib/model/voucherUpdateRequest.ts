@@ -22,8 +22,4 @@ export interface VoucherUpdateRequest {
 }
 export namespace VoucherUpdateRequest {
     export type StatusEnum = 'Reinstate' | 'Void';
-    export const StatusEnum = {
-        Reinstate: 'Reinstate' as StatusEnum,
-        Void: 'Void' as StatusEnum
-    };
 }

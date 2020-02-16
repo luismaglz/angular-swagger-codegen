@@ -47,11 +47,4 @@ export interface Personalization {
 }
 export namespace Personalization {
     export type DataTypeEnum = 'Unknown' | 'Bool' | 'List' | 'Text' | 'Date';
-    export const DataTypeEnum = {
-        Unknown: 'Unknown' as DataTypeEnum,
-        Bool: 'Bool' as DataTypeEnum,
-        List: 'List' as DataTypeEnum,
-        Text: 'Text' as DataTypeEnum,
-        Date: 'Date' as DataTypeEnum
-    };
 }

@@ -49,12 +49,4 @@ export interface Journey {
 }
 export namespace Journey {
     export type FlightTypeEnum = 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All';
-    export const FlightTypeEnum = {
-        None: 'None' as FlightTypeEnum,
-        NonStop: 'NonStop' as FlightTypeEnum,
-        Through: 'Through' as FlightTypeEnum,
-        Direct: 'Direct' as FlightTypeEnum,
-        Connect: 'Connect' as FlightTypeEnum,
-        All: 'All' as FlightTypeEnum
-    };
 }

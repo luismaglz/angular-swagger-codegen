@@ -62,29 +62,7 @@ export interface Marketv2 {
 }
 export namespace Marketv2 {
     export type IncludesTaxesAndFeesEnum = 'None' | 'To' | 'From' | 'Between';
-    export const IncludesTaxesAndFeesEnum = {
-        None: 'None' as IncludesTaxesAndFeesEnum,
-        To: 'To' as IncludesTaxesAndFeesEnum,
-        From: 'From' as IncludesTaxesAndFeesEnum,
-        Between: 'Between' as IncludesTaxesAndFeesEnum
-    };
     export type LocationTypeEnum = 'Undefined' | 'Station' | 'Mac';
-    export const LocationTypeEnum = {
-        Undefined: 'Undefined' as LocationTypeEnum,
-        Station: 'Station' as LocationTypeEnum,
-        Mac: 'Mac' as LocationTypeEnum
-    };
     export type TravelLocationTypeEnum = 'Undefined' | 'Station' | 'Mac';
-    export const TravelLocationTypeEnum = {
-        Undefined: 'Undefined' as TravelLocationTypeEnum,
-        Station: 'Station' as TravelLocationTypeEnum,
-        Mac: 'Mac' as TravelLocationTypeEnum
-    };
     export type TravelLocationsRequiredEnum = 'None' | 'FromTravel' | 'ToTravel' | 'BothTravel';
-    export const TravelLocationsRequiredEnum = {
-        None: 'None' as TravelLocationsRequiredEnum,
-        FromTravel: 'FromTravel' as TravelLocationsRequiredEnum,
-        ToTravel: 'ToTravel' as TravelLocationsRequiredEnum,
-        BothTravel: 'BothTravel' as TravelLocationsRequiredEnum
-    };
 }

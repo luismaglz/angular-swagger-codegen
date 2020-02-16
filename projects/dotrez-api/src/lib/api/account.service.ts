@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs';
+import { Observable }                                        from 'rxjs/Observable';
 
 import { AccountChangePasswordRequest } from '../model/accountChangePasswordRequest';
 import { AccountForgotPasswordRequest } from '../model/accountForgotPasswordRequest';

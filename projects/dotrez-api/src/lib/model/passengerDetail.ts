@@ -121,46 +121,8 @@ export interface PassengerDetail {
 }
 export namespace PassengerDetail {
     export type StatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Hold: 'Hold' as StatusEnum,
-        Confirmed: 'Confirmed' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        HoldCanceled: 'HoldCanceled' as StatusEnum,
-        PendingArchive: 'PendingArchive' as StatusEnum,
-        Archived: 'Archived' as StatusEnum
-    };
     export type ProfileStatusEnum = 'Default' | 'KnownIndividual' | 'ResolutionGroup' | 'SelecteeGroup' | 'NotUsed' | 'FailureGroup' | 'RandomSelectee' | 'Exempt';
-    export const ProfileStatusEnum = {
-        Default: 'Default' as ProfileStatusEnum,
-        KnownIndividual: 'KnownIndividual' as ProfileStatusEnum,
-        ResolutionGroup: 'ResolutionGroup' as ProfileStatusEnum,
-        SelecteeGroup: 'SelecteeGroup' as ProfileStatusEnum,
-        NotUsed: 'NotUsed' as ProfileStatusEnum,
-        FailureGroup: 'FailureGroup' as ProfileStatusEnum,
-        RandomSelectee: 'RandomSelectee' as ProfileStatusEnum,
-        Exempt: 'Exempt' as ProfileStatusEnum
-    };
     export type WeightCategoryEnum = 'Male' | 'Female' | 'Child';
-    export const WeightCategoryEnum = {
-        Male: 'Male' as WeightCategoryEnum,
-        Female: 'Female' as WeightCategoryEnum,
-        Child: 'Child' as WeightCategoryEnum
-    };
     export type TripTypeEnum = 'None' | 'OneWay' | 'RoundTrip' | 'HalfRound' | 'OpenJaw' | 'CircleTrip' | 'All';
-    export const TripTypeEnum = {
-        None: 'None' as TripTypeEnum,
-        OneWay: 'OneWay' as TripTypeEnum,
-        RoundTrip: 'RoundTrip' as TripTypeEnum,
-        HalfRound: 'HalfRound' as TripTypeEnum,
-        OpenJaw: 'OpenJaw' as TripTypeEnum,
-        CircleTrip: 'CircleTrip' as TripTypeEnum,
-        All: 'All' as TripTypeEnum
-    };
     export type PaidStatusEnum = 'UnderPaid' | 'PaidInFull' | 'OverPaid';
-    export const PaidStatusEnum = {
-        UnderPaid: 'UnderPaid' as PaidStatusEnum,
-        PaidInFull: 'PaidInFull' as PaidStatusEnum,
-        OverPaid: 'OverPaid' as PaidStatusEnum
-    };
 }

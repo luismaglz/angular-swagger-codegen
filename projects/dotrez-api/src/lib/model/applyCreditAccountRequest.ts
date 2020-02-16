@@ -34,9 +34,4 @@ export interface ApplyCreditAccountRequest {
 }
 export namespace ApplyCreditAccountRequest {
     export type TypeEnum = 'Customer' | 'Booking' | 'Organization';
-    export const TypeEnum = {
-        Customer: 'Customer' as TypeEnum,
-        Booking: 'Booking' as TypeEnum,
-        Organization: 'Organization' as TypeEnum
-    };
 }

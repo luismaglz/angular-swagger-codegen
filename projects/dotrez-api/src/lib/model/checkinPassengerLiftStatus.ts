@@ -27,10 +27,4 @@ export interface CheckinPassengerLiftStatus {
 }
 export namespace CheckinPassengerLiftStatus {
     export type StatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        CheckedIn: 'CheckedIn' as StatusEnum,
-        Boarded: 'Boarded' as StatusEnum,
-        NoShow: 'NoShow' as StatusEnum
-    };
 }

@@ -60,16 +60,5 @@ export interface DequeueTravelSummary {
 }
 export namespace DequeueTravelSummary {
     export type ProcessStatusEnum = 'Ready' | 'Pending';
-    export const ProcessStatusEnum = {
-        Ready: 'Ready' as ProcessStatusEnum,
-        Pending: 'Pending' as ProcessStatusEnum
-    };
     export type ProcessStateEnum = 'Default' | 'SegmentsConfirmed' | 'BookingBalanced' | 'Other' | 'Complete';
-    export const ProcessStateEnum = {
-        Default: 'Default' as ProcessStateEnum,
-        SegmentsConfirmed: 'SegmentsConfirmed' as ProcessStateEnum,
-        BookingBalanced: 'BookingBalanced' as ProcessStateEnum,
-        Other: 'Other' as ProcessStateEnum,
-        Complete: 'Complete' as ProcessStateEnum
-    };
 }

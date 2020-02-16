@@ -59,25 +59,6 @@ export interface OrganizationAccount {
 }
 export namespace OrganizationAccount {
     export type OwnerEnum = 'Organization' | 'Personnal' | 'Booking' | 'Unknown';
-    export const OwnerEnum = {
-        Organization: 'Organization' as OwnerEnum,
-        Personnal: 'Personnal' as OwnerEnum,
-        Booking: 'Booking' as OwnerEnum,
-        Unknown: 'Unknown' as OwnerEnum
-    };
     export type TypeEnum = 'Credit' | 'Prepaid' | 'Supplementary' | 'Dependent' | 'Unknown';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        Prepaid: 'Prepaid' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum,
-        Dependent: 'Dependent' as TypeEnum,
-        Unknown: 'Unknown' as TypeEnum
-    };
     export type StatusEnum = 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown';
-    export const StatusEnum = {
-        Open: 'Open' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        AgencyInactive: 'AgencyInactive' as StatusEnum,
-        Unknown: 'Unknown' as StatusEnum
-    };
 }

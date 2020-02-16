@@ -46,69 +46,7 @@ export interface ConstructorInfo {
 }
 export namespace ConstructorInfo {
     export type MemberTypeEnum = 'Constructor' | 'Event' | 'Field' | 'Method' | 'Property' | 'TypeInfo' | 'Custom' | 'NestedType' | 'All';
-    export const MemberTypeEnum = {
-        Constructor: 'Constructor' as MemberTypeEnum,
-        Event: 'Event' as MemberTypeEnum,
-        Field: 'Field' as MemberTypeEnum,
-        Method: 'Method' as MemberTypeEnum,
-        Property: 'Property' as MemberTypeEnum,
-        TypeInfo: 'TypeInfo' as MemberTypeEnum,
-        Custom: 'Custom' as MemberTypeEnum,
-        NestedType: 'NestedType' as MemberTypeEnum,
-        All: 'All' as MemberTypeEnum
-    };
     export type MethodImplementationFlagsEnum = 'Managed' | 'IL' | 'Native' | 'OPTIL' | 'Runtime' | 'CodeTypeMask' | 'Unmanaged' | 'ManagedMask' | 'NoInlining' | 'ForwardRef' | 'Synchronized' | 'NoOptimization' | 'PreserveSig' | 'AggressiveInlining' | 'InternalCall' | 'MaxMethodImplVal';
-    export const MethodImplementationFlagsEnum = {
-        Managed: 'Managed' as MethodImplementationFlagsEnum,
-        IL: 'IL' as MethodImplementationFlagsEnum,
-        Native: 'Native' as MethodImplementationFlagsEnum,
-        OPTIL: 'OPTIL' as MethodImplementationFlagsEnum,
-        Runtime: 'Runtime' as MethodImplementationFlagsEnum,
-        CodeTypeMask: 'CodeTypeMask' as MethodImplementationFlagsEnum,
-        Unmanaged: 'Unmanaged' as MethodImplementationFlagsEnum,
-        ManagedMask: 'ManagedMask' as MethodImplementationFlagsEnum,
-        NoInlining: 'NoInlining' as MethodImplementationFlagsEnum,
-        ForwardRef: 'ForwardRef' as MethodImplementationFlagsEnum,
-        Synchronized: 'Synchronized' as MethodImplementationFlagsEnum,
-        NoOptimization: 'NoOptimization' as MethodImplementationFlagsEnum,
-        PreserveSig: 'PreserveSig' as MethodImplementationFlagsEnum,
-        AggressiveInlining: 'AggressiveInlining' as MethodImplementationFlagsEnum,
-        InternalCall: 'InternalCall' as MethodImplementationFlagsEnum,
-        MaxMethodImplVal: 'MaxMethodImplVal' as MethodImplementationFlagsEnum
-    };
     export type AttributesEnum = 'ReuseSlot' | 'PrivateScope' | 'Private' | 'FamANDAssem' | 'Assembly' | 'Family' | 'FamORAssem' | 'Public' | 'MemberAccessMask' | 'UnmanagedExport' | 'Static' | 'Final' | 'Virtual' | 'HideBySig' | 'NewSlot' | 'VtableLayoutMask' | 'CheckAccessOnOverride' | 'Abstract' | 'SpecialName' | 'RTSpecialName' | 'PinvokeImpl' | 'HasSecurity' | 'RequireSecObject' | 'ReservedMask';
-    export const AttributesEnum = {
-        ReuseSlot: 'ReuseSlot' as AttributesEnum,
-        PrivateScope: 'PrivateScope' as AttributesEnum,
-        Private: 'Private' as AttributesEnum,
-        FamANDAssem: 'FamANDAssem' as AttributesEnum,
-        Assembly: 'Assembly' as AttributesEnum,
-        Family: 'Family' as AttributesEnum,
-        FamORAssem: 'FamORAssem' as AttributesEnum,
-        Public: 'Public' as AttributesEnum,
-        MemberAccessMask: 'MemberAccessMask' as AttributesEnum,
-        UnmanagedExport: 'UnmanagedExport' as AttributesEnum,
-        Static: 'Static' as AttributesEnum,
-        Final: 'Final' as AttributesEnum,
-        Virtual: 'Virtual' as AttributesEnum,
-        HideBySig: 'HideBySig' as AttributesEnum,
-        NewSlot: 'NewSlot' as AttributesEnum,
-        VtableLayoutMask: 'VtableLayoutMask' as AttributesEnum,
-        CheckAccessOnOverride: 'CheckAccessOnOverride' as AttributesEnum,
-        Abstract: 'Abstract' as AttributesEnum,
-        SpecialName: 'SpecialName' as AttributesEnum,
-        RTSpecialName: 'RTSpecialName' as AttributesEnum,
-        PinvokeImpl: 'PinvokeImpl' as AttributesEnum,
-        HasSecurity: 'HasSecurity' as AttributesEnum,
-        RequireSecObject: 'RequireSecObject' as AttributesEnum,
-        ReservedMask: 'ReservedMask' as AttributesEnum
-    };
     export type CallingConventionEnum = 'Standard' | 'VarArgs' | 'Any' | 'HasThis' | 'ExplicitThis';
-    export const CallingConventionEnum = {
-        Standard: 'Standard' as CallingConventionEnum,
-        VarArgs: 'VarArgs' as CallingConventionEnum,
-        Any: 'Any' as CallingConventionEnum,
-        HasThis: 'HasThis' as CallingConventionEnum,
-        ExplicitThis: 'ExplicitThis' as CallingConventionEnum
-    };
 }

@@ -146,71 +146,14 @@ export interface GeneralSettings {
 }
 export namespace GeneralSettings {
     export type AllowSeatAssignmentEnum = 'Never' | 'OnlyOnUnheldBookings' | 'Always';
-    export const AllowSeatAssignmentEnum = {
-        Never: 'Never' as AllowSeatAssignmentEnum,
-        OnlyOnUnheldBookings: 'OnlyOnUnheldBookings' as AllowSeatAssignmentEnum,
-        Always: 'Always' as AllowSeatAssignmentEnum
-    };
     export type BookingAccessControlEnum = 'None' | 'ScheduleOnly' | 'Availability' | 'View' | 'ModifyNoCommit' | 'Create' | 'Change' | 'CreateAndChange';
-    export const BookingAccessControlEnum = {
-        None: 'None' as BookingAccessControlEnum,
-        ScheduleOnly: 'ScheduleOnly' as BookingAccessControlEnum,
-        Availability: 'Availability' as BookingAccessControlEnum,
-        View: 'View' as BookingAccessControlEnum,
-        ModifyNoCommit: 'ModifyNoCommit' as BookingAccessControlEnum,
-        Create: 'Create' as BookingAccessControlEnum,
-        Change: 'Change' as BookingAccessControlEnum,
-        CreateAndChange: 'CreateAndChange' as BookingAccessControlEnum
-    };
     export type ViewBookingsByControlEnum = 'Agent' | 'Organization' | 'OrganizationGroup' | 'All';
-    export const ViewBookingsByControlEnum = {
-        Agent: 'Agent' as ViewBookingsByControlEnum,
-        Organization: 'Organization' as ViewBookingsByControlEnum,
-        OrganizationGroup: 'OrganizationGroup' as ViewBookingsByControlEnum,
-        All: 'All' as ViewBookingsByControlEnum
-    };
     export type EditBookingsByControlEnum = 'Agent' | 'Organization' | 'OrganizationGroup' | 'All';
-    export const EditBookingsByControlEnum = {
-        Agent: 'Agent' as EditBookingsByControlEnum,
-        Organization: 'Organization' as EditBookingsByControlEnum,
-        OrganizationGroup: 'OrganizationGroup' as EditBookingsByControlEnum,
-        All: 'All' as EditBookingsByControlEnum
-    };
     export type HighlightFareOverrideEnum = 'None' | 'Highlight';
-    export const HighlightFareOverrideEnum = {
-        None: 'None' as HighlightFareOverrideEnum,
-        Highlight: 'Highlight' as HighlightFareOverrideEnum
-    };
     export type HighlightIropEnum = 'None' | 'Highlight';
-    export const HighlightIropEnum = {
-        None: 'None' as HighlightIropEnum,
-        Highlight: 'Highlight' as HighlightIropEnum
-    };
     export type HighlightScheduleChangeEnum = 'None' | 'Highlight';
-    export const HighlightScheduleChangeEnum = {
-        None: 'None' as HighlightScheduleChangeEnum,
-        Highlight: 'Highlight' as HighlightScheduleChangeEnum
-    };
     export type HighlightStandbyEnum = 'None' | 'Highlight';
-    export const HighlightStandbyEnum = {
-        None: 'None' as HighlightStandbyEnum,
-        Highlight: 'Highlight' as HighlightStandbyEnum
-    };
     export type HighlightUpgradeEnum = 'None' | 'Highlight';
-    export const HighlightUpgradeEnum = {
-        None: 'None' as HighlightUpgradeEnum,
-        Highlight: 'Highlight' as HighlightUpgradeEnum
-    };
     export type ReassignSeatingBehaviorEnum = 'DropSeats' | 'LikeForLike' | 'Algorithm';
-    export const ReassignSeatingBehaviorEnum = {
-        DropSeats: 'DropSeats' as ReassignSeatingBehaviorEnum,
-        LikeForLike: 'LikeForLike' as ReassignSeatingBehaviorEnum,
-        Algorithm: 'Algorithm' as ReassignSeatingBehaviorEnum
-    };
     export type TimeDisplayEnum = 'Default' | 'AmPm' | 'TwentyFourHour';
-    export const TimeDisplayEnum = {
-        Default: 'Default' as TimeDisplayEnum,
-        AmPm: 'AmPm' as TimeDisplayEnum,
-        TwentyFourHour: 'TwentyFourHour' as TimeDisplayEnum
-    };
 }

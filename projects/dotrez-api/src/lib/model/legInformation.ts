@@ -142,22 +142,5 @@ export interface LegInformation {
 }
 export namespace LegInformation {
     export type CodeShareIndicatorEnum = 'NonCodeShare' | 'CodeShareCommercialDuplicate' | 'SharedDesignatorOrWetLease' | 'CodeShareHostOperatingCarrier' | 'CodeShareCommercialDuplicateWithOverrideText' | 'SharedDesignatorOrWetLeaseWithOverrideText';
-    export const CodeShareIndicatorEnum = {
-        NonCodeShare: 'NonCodeShare' as CodeShareIndicatorEnum,
-        CodeShareCommercialDuplicate: 'CodeShareCommercialDuplicate' as CodeShareIndicatorEnum,
-        SharedDesignatorOrWetLease: 'SharedDesignatorOrWetLease' as CodeShareIndicatorEnum,
-        CodeShareHostOperatingCarrier: 'CodeShareHostOperatingCarrier' as CodeShareIndicatorEnum,
-        CodeShareCommercialDuplicateWithOverrideText: 'CodeShareCommercialDuplicateWithOverrideText' as CodeShareIndicatorEnum,
-        SharedDesignatorOrWetLeaseWithOverrideText: 'SharedDesignatorOrWetLeaseWithOverrideText' as CodeShareIndicatorEnum
-    };
     export type StatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const StatusEnum = {
-        Normal: 'Normal' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        Canceled: 'Canceled' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        ClosedPending: 'ClosedPending' as StatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as StatusEnum,
-        Mishap: 'Mishap' as StatusEnum
-    };
 }

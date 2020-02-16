@@ -26,11 +26,4 @@ export interface PersonCommentRequest {
 }
 export namespace PersonCommentRequest {
     export type TypeEnum = 'Default' | 'Itinerary' | 'Manifest' | 'Alert' | 'Archive';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Itinerary: 'Itinerary' as TypeEnum,
-        Manifest: 'Manifest' as TypeEnum,
-        Alert: 'Alert' as TypeEnum,
-        Archive: 'Archive' as TypeEnum
-    };
 }

@@ -50,15 +50,5 @@ export interface AvailabilityByTrip {
 }
 export namespace AvailabilityByTrip {
     export type SsrCollectionsModeEnum = 'None' | 'Leg';
-    export const SsrCollectionsModeEnum = {
-        None: 'None' as SsrCollectionsModeEnum,
-        Leg: 'Leg' as SsrCollectionsModeEnum
-    };
     export type TypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Standby: 'Standby' as TypeEnum,
-        Overbook: 'Overbook' as TypeEnum,
-        NoPricing: 'NoPricing' as TypeEnum
-    };
 }

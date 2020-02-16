@@ -30,23 +30,5 @@ export interface ManifestRequestBase {
 }
 export namespace ManifestRequestBase {
     export type BaggageWeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const BaggageWeightTypeEnum = {
-        Default: 'Default' as BaggageWeightTypeEnum,
-        Pounds: 'Pounds' as BaggageWeightTypeEnum,
-        Kilograms: 'Kilograms' as BaggageWeightTypeEnum
-    };
     export type ManifestFiltersEnum = 'None' | 'Baggage' | 'PassengerTravelDoc' | 'PassengerInfant' | 'PassengerAddress' | 'BookingComment' | 'BookingQueue' | 'PassengerJourneySegmentProperty' | 'PassengerJourneySsr' | 'InventoryLegOpComments' | 'All';
-    export const ManifestFiltersEnum = {
-        None: 'None' as ManifestFiltersEnum,
-        Baggage: 'Baggage' as ManifestFiltersEnum,
-        PassengerTravelDoc: 'PassengerTravelDoc' as ManifestFiltersEnum,
-        PassengerInfant: 'PassengerInfant' as ManifestFiltersEnum,
-        PassengerAddress: 'PassengerAddress' as ManifestFiltersEnum,
-        BookingComment: 'BookingComment' as ManifestFiltersEnum,
-        BookingQueue: 'BookingQueue' as ManifestFiltersEnum,
-        PassengerJourneySegmentProperty: 'PassengerJourneySegmentProperty' as ManifestFiltersEnum,
-        PassengerJourneySsr: 'PassengerJourneySsr' as ManifestFiltersEnum,
-        InventoryLegOpComments: 'InventoryLegOpComments' as ManifestFiltersEnum,
-        All: 'All' as ManifestFiltersEnum
-    };
 }

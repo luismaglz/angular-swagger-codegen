@@ -30,11 +30,4 @@ export interface ServerTransferRequest {
 }
 export namespace ServerTransferRequest {
     export type ChannelEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelEnum = {
-        Default: 'Default' as ChannelEnum,
-        Direct: 'Direct' as ChannelEnum,
-        Web: 'Web' as ChannelEnum,
-        Gds: 'Gds' as ChannelEnum,
-        Api: 'Api' as ChannelEnum
-    };
 }

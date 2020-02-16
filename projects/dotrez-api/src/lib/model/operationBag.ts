@@ -62,17 +62,5 @@ export interface OperationBag {
 }
 export namespace OperationBag {
     export type BaggageStatusEnum = 'Default' | 'Checked' | 'Removed' | 'Added' | 'AddedPrinted';
-    export const BaggageStatusEnum = {
-        Default: 'Default' as BaggageStatusEnum,
-        Checked: 'Checked' as BaggageStatusEnum,
-        Removed: 'Removed' as BaggageStatusEnum,
-        Added: 'Added' as BaggageStatusEnum,
-        AddedPrinted: 'AddedPrinted' as BaggageStatusEnum
-    };
     export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    };
 }

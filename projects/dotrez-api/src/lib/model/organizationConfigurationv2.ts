@@ -62,17 +62,5 @@ export interface OrganizationConfigurationv2 {
 }
 export namespace OrganizationConfigurationv2 {
     export type GdsEmailItineraryEnum = 'NoDistribution' | 'UseOrganizationEmailOnly' | 'UseMessageEmailOnly' | 'UseMessageEmail';
-    export const GdsEmailItineraryEnum = {
-        NoDistribution: 'NoDistribution' as GdsEmailItineraryEnum,
-        UseOrganizationEmailOnly: 'UseOrganizationEmailOnly' as GdsEmailItineraryEnum,
-        UseMessageEmailOnly: 'UseMessageEmailOnly' as GdsEmailItineraryEnum,
-        UseMessageEmail: 'UseMessageEmail' as GdsEmailItineraryEnum
-    };
     export type ReferralTypeEnum = 'Default' | 'Allowed' | 'AllowedWithUrlMatch' | 'NotAllowed';
-    export const ReferralTypeEnum = {
-        Default: 'Default' as ReferralTypeEnum,
-        Allowed: 'Allowed' as ReferralTypeEnum,
-        AllowedWithUrlMatch: 'AllowedWithUrlMatch' as ReferralTypeEnum,
-        NotAllowed: 'NotAllowed' as ReferralTypeEnum
-    };
 }

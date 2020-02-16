@@ -42,10 +42,4 @@ export interface ShoppingAttribute {
 }
 export namespace ShoppingAttribute {
     export type ShoppingAttributeTypeEnum = 'None' | 'Destination' | 'Region' | 'Event';
-    export const ShoppingAttributeTypeEnum = {
-        None: 'None' as ShoppingAttributeTypeEnum,
-        Destination: 'Destination' as ShoppingAttributeTypeEnum,
-        Region: 'Region' as ShoppingAttributeTypeEnum,
-        Event: 'Event' as ShoppingAttributeTypeEnum
-    };
 }

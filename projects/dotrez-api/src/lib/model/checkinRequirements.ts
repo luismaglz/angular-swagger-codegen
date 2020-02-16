@@ -30,20 +30,4 @@ export interface CheckinRequirements {
 }
 export namespace CheckinRequirements {
     export type RestrictionsEnum = 'Closed' | 'NotOpened' | 'PnrLocked' | 'MarketingCodeShareNotAllowed' | 'NotPaidInFull' | 'PaymentsPending' | 'PaymentsPendingCustomerAction' | 'RestrictedOnAnotherSystem' | 'NotAllowed' | 'ApisNotAllowed' | 'AppsNotAllowed' | 'SegmentNotFound' | 'InvalidPrice' | 'MissingEMDCoupon';
-    export const RestrictionsEnum = {
-        Closed: 'Closed' as RestrictionsEnum,
-        NotOpened: 'NotOpened' as RestrictionsEnum,
-        PnrLocked: 'PnrLocked' as RestrictionsEnum,
-        MarketingCodeShareNotAllowed: 'MarketingCodeShareNotAllowed' as RestrictionsEnum,
-        NotPaidInFull: 'NotPaidInFull' as RestrictionsEnum,
-        PaymentsPending: 'PaymentsPending' as RestrictionsEnum,
-        PaymentsPendingCustomerAction: 'PaymentsPendingCustomerAction' as RestrictionsEnum,
-        RestrictedOnAnotherSystem: 'RestrictedOnAnotherSystem' as RestrictionsEnum,
-        NotAllowed: 'NotAllowed' as RestrictionsEnum,
-        ApisNotAllowed: 'ApisNotAllowed' as RestrictionsEnum,
-        AppsNotAllowed: 'AppsNotAllowed' as RestrictionsEnum,
-        SegmentNotFound: 'SegmentNotFound' as RestrictionsEnum,
-        InvalidPrice: 'InvalidPrice' as RestrictionsEnum,
-        MissingEMDCoupon: 'MissingEMDCoupon' as RestrictionsEnum
-    };
 }

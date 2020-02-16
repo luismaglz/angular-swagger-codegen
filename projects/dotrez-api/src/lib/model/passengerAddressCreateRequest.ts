@@ -66,10 +66,4 @@ export interface PassengerAddressCreateRequest {
 }
 export namespace PassengerAddressCreateRequest {
     export type StatusEnum = 'Residence' | 'InCountry' | 'Emergency' | 'Contact';
-    export const StatusEnum = {
-        Residence: 'Residence' as StatusEnum,
-        InCountry: 'InCountry' as StatusEnum,
-        Emergency: 'Emergency' as StatusEnum,
-        Contact: 'Contact' as StatusEnum
-    };
 }

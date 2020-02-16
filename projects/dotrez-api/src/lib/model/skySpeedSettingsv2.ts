@@ -218,13 +218,5 @@ export interface SkySpeedSettingsv2 {
 }
 export namespace SkySpeedSettingsv2 {
     export type ManifestViewDateEnum = 'BookingDate' | 'SoldDate';
-    export const ManifestViewDateEnum = {
-        BookingDate: 'BookingDate' as ManifestViewDateEnum,
-        SoldDate: 'SoldDate' as ManifestViewDateEnum
-    };
     export type PostalCodeLookupEnum = 'None' | 'UsZipCode';
-    export const PostalCodeLookupEnum = {
-        None: 'None' as PostalCodeLookupEnum,
-        UsZipCode: 'UsZipCode' as PostalCodeLookupEnum
-    };
 }

@@ -100,30 +100,7 @@ export interface PaymentMethod {
 }
 export namespace PaymentMethod {
     export type DccTypeEnum = 'None' | 'ZeroRate' | 'FullAmount';
-    export const DccTypeEnum = {
-        None: 'None' as DccTypeEnum,
-        ZeroRate: 'ZeroRate' as DccTypeEnum,
-        FullAmount: 'FullAmount' as DccTypeEnum
-    };
     export type PaymentMethodTypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const PaymentMethodTypeEnum = {
-        ExternalAccount: 'ExternalAccount' as PaymentMethodTypeEnum,
-        PrePaid: 'PrePaid' as PaymentMethodTypeEnum,
-        AgencyAccount: 'AgencyAccount' as PaymentMethodTypeEnum,
-        CustomerAccount: 'CustomerAccount' as PaymentMethodTypeEnum,
-        Voucher: 'Voucher' as PaymentMethodTypeEnum,
-        Loyalty: 'Loyalty' as PaymentMethodTypeEnum
-    };
     export type PaymentRefundTypeEnum = 'NotAllowed' | 'LineItemLevel' | 'AccountLevel' | 'BookingLevel';
-    export const PaymentRefundTypeEnum = {
-        NotAllowed: 'NotAllowed' as PaymentRefundTypeEnum,
-        LineItemLevel: 'LineItemLevel' as PaymentRefundTypeEnum,
-        AccountLevel: 'AccountLevel' as PaymentRefundTypeEnum,
-        BookingLevel: 'BookingLevel' as PaymentRefundTypeEnum
-    };
     export type RefundCurrencyControlEnum = 'UseCollectedCurrency' | 'UseQuotedCurrency';
-    export const RefundCurrencyControlEnum = {
-        UseCollectedCurrency: 'UseCollectedCurrency' as RefundCurrencyControlEnum,
-        UseQuotedCurrency: 'UseQuotedCurrency' as RefundCurrencyControlEnum
-    };
 }

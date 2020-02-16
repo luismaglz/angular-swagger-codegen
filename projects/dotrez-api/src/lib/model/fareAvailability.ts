@@ -91,27 +91,6 @@ export interface FareAvailability {
 }
 export namespace FareAvailability {
     export type FareApplicationTypeEnum = 'Route' | 'Sector' | 'Governing';
-    export const FareApplicationTypeEnum = {
-        Route: 'Route' as FareApplicationTypeEnum,
-        Sector: 'Sector' as FareApplicationTypeEnum,
-        Governing: 'Governing' as FareApplicationTypeEnum
-    };
     export type FareStatusEnum = 'Default' | 'SameDayStandBy' | 'FareOverrideConfirming' | 'FareOverrideConfirmed' | 'PublishedFareOverrideConfirming' | 'PublishedFareOverrideConfirmed';
-    export const FareStatusEnum = {
-        Default: 'Default' as FareStatusEnum,
-        SameDayStandBy: 'SameDayStandBy' as FareStatusEnum,
-        FareOverrideConfirming: 'FareOverrideConfirming' as FareStatusEnum,
-        FareOverrideConfirmed: 'FareOverrideConfirmed' as FareStatusEnum,
-        PublishedFareOverrideConfirming: 'PublishedFareOverrideConfirming' as FareStatusEnum,
-        PublishedFareOverrideConfirmed: 'PublishedFareOverrideConfirmed' as FareStatusEnum
-    };
     export type InboundOutBoundEnum = 'None' | 'Inbound' | 'Outbound' | 'Both' | 'RoundFrom' | 'RoundTo';
-    export const InboundOutBoundEnum = {
-        None: 'None' as InboundOutBoundEnum,
-        Inbound: 'Inbound' as InboundOutBoundEnum,
-        Outbound: 'Outbound' as InboundOutBoundEnum,
-        Both: 'Both' as InboundOutBoundEnum,
-        RoundFrom: 'RoundFrom' as InboundOutBoundEnum,
-        RoundTo: 'RoundTo' as InboundOutBoundEnum
-    };
 }

@@ -22,8 +22,4 @@ export interface OneTimeNotificationEventCreateRequest {
 }
 export namespace OneTimeNotificationEventCreateRequest {
     export type TypeEnum = 'DepartureDelay' | 'ArrivalDelay';
-    export const TypeEnum = {
-        DepartureDelay: 'DepartureDelay' as TypeEnum,
-        ArrivalDelay: 'ArrivalDelay' as TypeEnum
-    };
 }

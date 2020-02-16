@@ -74,54 +74,9 @@ export interface FlightSearchSettings {
 }
 export namespace FlightSearchSettings {
     export type PrimarySortKeyEnum = 'ServiceType' | 'ShortestTravelTime' | 'LowestFare' | 'HighestFare' | 'EarliestDeparture' | 'LatestDeparture' | 'EarliestArrival' | 'LatestArrival' | 'NoSort' | 'BiasOnlineCommercialDuplicates' | 'JourneyNumber';
-    export const PrimarySortKeyEnum = {
-        ServiceType: 'ServiceType' as PrimarySortKeyEnum,
-        ShortestTravelTime: 'ShortestTravelTime' as PrimarySortKeyEnum,
-        LowestFare: 'LowestFare' as PrimarySortKeyEnum,
-        HighestFare: 'HighestFare' as PrimarySortKeyEnum,
-        EarliestDeparture: 'EarliestDeparture' as PrimarySortKeyEnum,
-        LatestDeparture: 'LatestDeparture' as PrimarySortKeyEnum,
-        EarliestArrival: 'EarliestArrival' as PrimarySortKeyEnum,
-        LatestArrival: 'LatestArrival' as PrimarySortKeyEnum,
-        NoSort: 'NoSort' as PrimarySortKeyEnum,
-        BiasOnlineCommercialDuplicates: 'BiasOnlineCommercialDuplicates' as PrimarySortKeyEnum,
-        JourneyNumber: 'JourneyNumber' as PrimarySortKeyEnum
-    };
     export type SecondarySortKeyEnum = 'ServiceType' | 'ShortestTravelTime' | 'LowestFare' | 'HighestFare' | 'EarliestDeparture' | 'LatestDeparture' | 'EarliestArrival' | 'LatestArrival' | 'NoSort' | 'BiasOnlineCommercialDuplicates' | 'JourneyNumber';
-    export const SecondarySortKeyEnum = {
-        ServiceType: 'ServiceType' as SecondarySortKeyEnum,
-        ShortestTravelTime: 'ShortestTravelTime' as SecondarySortKeyEnum,
-        LowestFare: 'LowestFare' as SecondarySortKeyEnum,
-        HighestFare: 'HighestFare' as SecondarySortKeyEnum,
-        EarliestDeparture: 'EarliestDeparture' as SecondarySortKeyEnum,
-        LatestDeparture: 'LatestDeparture' as SecondarySortKeyEnum,
-        EarliestArrival: 'EarliestArrival' as SecondarySortKeyEnum,
-        LatestArrival: 'LatestArrival' as SecondarySortKeyEnum,
-        NoSort: 'NoSort' as SecondarySortKeyEnum,
-        BiasOnlineCommercialDuplicates: 'BiasOnlineCommercialDuplicates' as SecondarySortKeyEnum,
-        JourneyNumber: 'JourneyNumber' as SecondarySortKeyEnum
-    };
     export type DisplayLowerFaresEnum = 'HideLowerFares' | 'ShowAndAllowLowerFares' | 'ShowButDisableLowerFares';
-    export const DisplayLowerFaresEnum = {
-        HideLowerFares: 'HideLowerFares' as DisplayLowerFaresEnum,
-        ShowAndAllowLowerFares: 'ShowAndAllowLowerFares' as DisplayLowerFaresEnum,
-        ShowButDisableLowerFares: 'ShowButDisableLowerFares' as DisplayLowerFaresEnum
-    };
     export type FareClassControlEnum = 'LowestFareClass' | 'CompressByProductClass' | 'Default';
-    export const FareClassControlEnum = {
-        LowestFareClass: 'LowestFareClass' as FareClassControlEnum,
-        CompressByProductClass: 'CompressByProductClass' as FareClassControlEnum,
-        Default: 'Default' as FareClassControlEnum
-    };
     export type FareSortingEnum = 'BySortPrice' | 'ByCalculatedFarePrice';
-    export const FareSortingEnum = {
-        BySortPrice: 'BySortPrice' as FareSortingEnum,
-        ByCalculatedFarePrice: 'ByCalculatedFarePrice' as FareSortingEnum
-    };
     export type LowFareCacheStatusEnum = 'AlwaysUseCache' | 'BypassCacheOnRequest' | 'NeverUseCache';
-    export const LowFareCacheStatusEnum = {
-        AlwaysUseCache: 'AlwaysUseCache' as LowFareCacheStatusEnum,
-        BypassCacheOnRequest: 'BypassCacheOnRequest' as LowFareCacheStatusEnum,
-        NeverUseCache: 'NeverUseCache' as LowFareCacheStatusEnum
-    };
 }

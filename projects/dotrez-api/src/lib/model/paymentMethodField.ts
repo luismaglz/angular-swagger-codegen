@@ -70,54 +70,8 @@ export interface PaymentMethodField {
 }
 export namespace PaymentMethodField {
     export type BookingPaymentFieldEnum = 'Miscellaneous' | 'AccountNumber' | 'Amount' | 'ExpirationDate' | 'CurrencyCode' | 'PaymentText' | 'PrepaidApprovalCode' | 'Deposit';
-    export const BookingPaymentFieldEnum = {
-        Miscellaneous: 'Miscellaneous' as BookingPaymentFieldEnum,
-        AccountNumber: 'AccountNumber' as BookingPaymentFieldEnum,
-        Amount: 'Amount' as BookingPaymentFieldEnum,
-        ExpirationDate: 'ExpirationDate' as BookingPaymentFieldEnum,
-        CurrencyCode: 'CurrencyCode' as BookingPaymentFieldEnum,
-        PaymentText: 'PaymentText' as BookingPaymentFieldEnum,
-        PrepaidApprovalCode: 'PrepaidApprovalCode' as BookingPaymentFieldEnum,
-        Deposit: 'Deposit' as BookingPaymentFieldEnum
-    };
     export type PaymentMethodTypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const PaymentMethodTypeEnum = {
-        ExternalAccount: 'ExternalAccount' as PaymentMethodTypeEnum,
-        PrePaid: 'PrePaid' as PaymentMethodTypeEnum,
-        AgencyAccount: 'AgencyAccount' as PaymentMethodTypeEnum,
-        CustomerAccount: 'CustomerAccount' as PaymentMethodTypeEnum,
-        Voucher: 'Voucher' as PaymentMethodTypeEnum,
-        Loyalty: 'Loyalty' as PaymentMethodTypeEnum
-    };
     export type RefundUiStateEnum = 'Enabled' | 'Disabled' | 'Hidden';
-    export const RefundUiStateEnum = {
-        Enabled: 'Enabled' as RefundUiStateEnum,
-        Disabled: 'Disabled' as RefundUiStateEnum,
-        Hidden: 'Hidden' as RefundUiStateEnum
-    };
     export type RequiredTypeEnum = 'Required' | 'Optional' | 'NotAllowed';
-    export const RequiredTypeEnum = {
-        Required: 'Required' as RequiredTypeEnum,
-        Optional: 'Optional' as RequiredTypeEnum,
-        NotAllowed: 'NotAllowed' as RequiredTypeEnum
-    };
     export type ValueTypeEnum = 'Unknown' | 'String' | 'UpperCaseString' | 'Numeric' | 'Alphanumeric' | 'Amount' | 'Date' | 'Mod10' | 'Name' | 'Address' | 'State' | 'Zip' | 'Country' | 'City' | 'Boolean' | 'Email';
-    export const ValueTypeEnum = {
-        Unknown: 'Unknown' as ValueTypeEnum,
-        String: 'String' as ValueTypeEnum,
-        UpperCaseString: 'UpperCaseString' as ValueTypeEnum,
-        Numeric: 'Numeric' as ValueTypeEnum,
-        Alphanumeric: 'Alphanumeric' as ValueTypeEnum,
-        Amount: 'Amount' as ValueTypeEnum,
-        Date: 'Date' as ValueTypeEnum,
-        Mod10: 'Mod10' as ValueTypeEnum,
-        Name: 'Name' as ValueTypeEnum,
-        Address: 'Address' as ValueTypeEnum,
-        State: 'State' as ValueTypeEnum,
-        Zip: 'Zip' as ValueTypeEnum,
-        Country: 'Country' as ValueTypeEnum,
-        City: 'City' as ValueTypeEnum,
-        Boolean: 'Boolean' as ValueTypeEnum,
-        Email: 'Email' as ValueTypeEnum
-    };
 }

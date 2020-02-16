@@ -21,10 +21,4 @@ export interface EnvironmentHealth {
 }
 export namespace EnvironmentHealth {
     export type StatusEnum = 'Unknown' | 'Ok' | 'Warning' | 'Error';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        Ok: 'Ok' as StatusEnum,
-        Warning: 'Warning' as StatusEnum,
-        Error: 'Error' as StatusEnum
-    };
 }

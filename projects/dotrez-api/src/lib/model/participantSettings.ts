@@ -106,135 +106,25 @@ export interface ParticipantSettings {
 }
 export namespace ParticipantSettings {
     export type TypeCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TypeCodeEnum = {
-        Prompt: 'Prompt' as TypeCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as TypeCodeEnum,
-        Required: 'Required' as TypeCodeEnum
-    };
     export type TitleEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TitleEnum = {
-        Prompt: 'Prompt' as TitleEnum,
-        DoNotPrompt: 'DoNotPrompt' as TitleEnum,
-        Required: 'Required' as TitleEnum
-    };
     export type DocumentNumberEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const DocumentNumberEnum = {
-        Prompt: 'Prompt' as DocumentNumberEnum,
-        DoNotPrompt: 'DoNotPrompt' as DocumentNumberEnum,
-        Required: 'Required' as DocumentNumberEnum
-    };
     export type FirstNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const FirstNameEnum = {
-        Prompt: 'Prompt' as FirstNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as FirstNameEnum,
-        Required: 'Required' as FirstNameEnum
-    };
     export type DocumentIssueByEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const DocumentIssueByEnum = {
-        Prompt: 'Prompt' as DocumentIssueByEnum,
-        DoNotPrompt: 'DoNotPrompt' as DocumentIssueByEnum,
-        Required: 'Required' as DocumentIssueByEnum
-    };
     export type MiddleNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const MiddleNameEnum = {
-        Prompt: 'Prompt' as MiddleNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as MiddleNameEnum,
-        Required: 'Required' as MiddleNameEnum
-    };
     export type DocumentTypeCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const DocumentTypeCodeEnum = {
-        Prompt: 'Prompt' as DocumentTypeCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as DocumentTypeCodeEnum,
-        Required: 'Required' as DocumentTypeCodeEnum
-    };
     export type LastNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LastNameEnum = {
-        Prompt: 'Prompt' as LastNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as LastNameEnum,
-        Required: 'Required' as LastNameEnum
-    };
     export type LineOneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LineOneEnum = {
-        Prompt: 'Prompt' as LineOneEnum,
-        DoNotPrompt: 'DoNotPrompt' as LineOneEnum,
-        Required: 'Required' as LineOneEnum
-    };
     export type LineTwoEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LineTwoEnum = {
-        Prompt: 'Prompt' as LineTwoEnum,
-        DoNotPrompt: 'DoNotPrompt' as LineTwoEnum,
-        Required: 'Required' as LineTwoEnum
-    };
     export type CityEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CityEnum = {
-        Prompt: 'Prompt' as CityEnum,
-        DoNotPrompt: 'DoNotPrompt' as CityEnum,
-        Required: 'Required' as CityEnum
-    };
     export type PostalCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const PostalCodeEnum = {
-        Prompt: 'Prompt' as PostalCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as PostalCodeEnum,
-        Required: 'Required' as PostalCodeEnum
-    };
     export type ProvinceStateEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const ProvinceStateEnum = {
-        Prompt: 'Prompt' as ProvinceStateEnum,
-        DoNotPrompt: 'DoNotPrompt' as ProvinceStateEnum,
-        Required: 'Required' as ProvinceStateEnum
-    };
     export type CountryCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CountryCodeEnum = {
-        Prompt: 'Prompt' as CountryCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as CountryCodeEnum,
-        Required: 'Required' as CountryCodeEnum
-    };
     export type CountyEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CountyEnum = {
-        Prompt: 'Prompt' as CountyEnum,
-        DoNotPrompt: 'DoNotPrompt' as CountyEnum,
-        Required: 'Required' as CountyEnum
-    };
     export type HomePhoneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const HomePhoneEnum = {
-        Prompt: 'Prompt' as HomePhoneEnum,
-        DoNotPrompt: 'DoNotPrompt' as HomePhoneEnum,
-        Required: 'Required' as HomePhoneEnum
-    };
     export type WorkPhoneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const WorkPhoneEnum = {
-        Prompt: 'Prompt' as WorkPhoneEnum,
-        DoNotPrompt: 'DoNotPrompt' as WorkPhoneEnum,
-        Required: 'Required' as WorkPhoneEnum
-    };
     export type FaxEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const FaxEnum = {
-        Prompt: 'Prompt' as FaxEnum,
-        DoNotPrompt: 'DoNotPrompt' as FaxEnum,
-        Required: 'Required' as FaxEnum
-    };
     export type EmailEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const EmailEnum = {
-        Prompt: 'Prompt' as EmailEnum,
-        DoNotPrompt: 'DoNotPrompt' as EmailEnum,
-        Required: 'Required' as EmailEnum
-    };
     export type TypeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TypeEnum = {
-        Prompt: 'Prompt' as TypeEnum,
-        DoNotPrompt: 'DoNotPrompt' as TypeEnum,
-        Required: 'Required' as TypeEnum
-    };
     export type CompanyNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CompanyNameEnum = {
-        Prompt: 'Prompt' as CompanyNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as CompanyNameEnum,
-        Required: 'Required' as CompanyNameEnum
-    };
     export type BirthDateEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const BirthDateEnum = {
-        Prompt: 'Prompt' as BirthDateEnum,
-        DoNotPrompt: 'DoNotPrompt' as BirthDateEnum,
-        Required: 'Required' as BirthDateEnum
-    };
 }

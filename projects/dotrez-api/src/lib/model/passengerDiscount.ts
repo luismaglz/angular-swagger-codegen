@@ -38,9 +38,4 @@ export interface PassengerDiscount {
 }
 export namespace PassengerDiscount {
     export type PassengerDiscountTypeEnum = 'Default' | 'Regular' | 'Loyalty';
-    export const PassengerDiscountTypeEnum = {
-        Default: 'Default' as PassengerDiscountTypeEnum,
-        Regular: 'Regular' as PassengerDiscountTypeEnum,
-        Loyalty: 'Loyalty' as PassengerDiscountTypeEnum
-    };
 }

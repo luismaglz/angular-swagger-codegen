@@ -62,9 +62,4 @@ export interface PassengerBag {
 }
 export namespace PassengerBag {
     export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    };
 }

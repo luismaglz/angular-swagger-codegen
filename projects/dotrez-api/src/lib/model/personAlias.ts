@@ -46,8 +46,4 @@ export interface PersonAlias {
 }
 export namespace PersonAlias {
     export type TypeEnum = 'Alias' | 'Variant';
-    export const TypeEnum = {
-        Alias: 'Alias' as TypeEnum,
-        Variant: 'Variant' as TypeEnum
-    };
 }

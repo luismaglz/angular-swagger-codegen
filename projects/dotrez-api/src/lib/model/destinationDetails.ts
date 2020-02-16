@@ -39,11 +39,4 @@ export interface DestinationDetails {
 }
 export namespace DestinationDetails {
     export type StatusEnum = 'Default' | 'Cancelled' | 'Arrived' | 'SeeAgent' | 'Delayed';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Arrived: 'Arrived' as StatusEnum,
-        SeeAgent: 'SeeAgent' as StatusEnum,
-        Delayed: 'Delayed' as StatusEnum
-    };
 }

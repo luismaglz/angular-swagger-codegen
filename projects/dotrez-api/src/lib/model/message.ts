@@ -19,9 +19,4 @@ export interface Message {
 }
 export namespace Message {
     export type StatusEnum = 'General' | 'Warning' | 'Critical';
-    export const StatusEnum = {
-        General: 'General' as StatusEnum,
-        Warning: 'Warning' as StatusEnum,
-        Critical: 'Critical' as StatusEnum
-    };
 }

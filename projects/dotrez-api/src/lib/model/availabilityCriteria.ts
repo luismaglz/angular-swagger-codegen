@@ -41,8 +41,4 @@ export interface AvailabilityCriteria {
 }
 export namespace AvailabilityCriteria {
     export type SsrCollectionsModeEnum = 'None' | 'Leg';
-    export const SsrCollectionsModeEnum = {
-        None: 'None' as SsrCollectionsModeEnum,
-        Leg: 'Leg' as SsrCollectionsModeEnum
-    };
 }

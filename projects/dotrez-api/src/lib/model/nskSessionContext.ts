@@ -57,10 +57,4 @@ export interface NskSessionContext {
 }
 export namespace NskSessionContext {
     export type TypeEnum = 'Unknown' | 'Customer' | 'Anonymous' | 'Agent';
-    export const TypeEnum = {
-        Unknown: 'Unknown' as TypeEnum,
-        Customer: 'Customer' as TypeEnum,
-        Anonymous: 'Anonymous' as TypeEnum,
-        Agent: 'Agent' as TypeEnum
-    };
 }

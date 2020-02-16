@@ -60,13 +60,4 @@ export interface FlightMoveHistory {
 }
 export namespace FlightMoveHistory {
     export type ChangeReasonEnum = 'NoChange' | 'Irop' | 'ScheduleChange' | 'Move' | 'VoluntaryFlyAhead' | 'InvoluntaryFlyAhead' | 'SelfServiceRebooking';
-    export const ChangeReasonEnum = {
-        NoChange: 'NoChange' as ChangeReasonEnum,
-        Irop: 'Irop' as ChangeReasonEnum,
-        ScheduleChange: 'ScheduleChange' as ChangeReasonEnum,
-        Move: 'Move' as ChangeReasonEnum,
-        VoluntaryFlyAhead: 'VoluntaryFlyAhead' as ChangeReasonEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as ChangeReasonEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as ChangeReasonEnum
-    };
 }

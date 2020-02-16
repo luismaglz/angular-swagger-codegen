@@ -104,75 +104,8 @@ export interface RegionFee {
 }
 export namespace RegionFee {
     export type DeductionTypeEnum = 'All' | 'First' | 'Last' | 'ExceptForFirst' | 'ExceptForLast' | 'None';
-    export const DeductionTypeEnum = {
-        All: 'All' as DeductionTypeEnum,
-        First: 'First' as DeductionTypeEnum,
-        Last: 'Last' as DeductionTypeEnum,
-        ExceptForFirst: 'ExceptForFirst' as DeductionTypeEnum,
-        ExceptForLast: 'ExceptForLast' as DeductionTypeEnum,
-        None: 'None' as DeductionTypeEnum
-    };
     export type DirectionalityEnum = 'None' | 'To' | 'From' | 'Between';
-    export const DirectionalityEnum = {
-        None: 'None' as DirectionalityEnum,
-        To: 'To' as DirectionalityEnum,
-        From: 'From' as DirectionalityEnum,
-        Between: 'Between' as DirectionalityEnum
-    };
     export type RegionTypeEnum = 'Default' | 'Station' | 'City' | 'ProvinceState' | 'Country' | 'FeeZone' | 'SubZone' | 'Area' | 'All' | 'Mac';
-    export const RegionTypeEnum = {
-        Default: 'Default' as RegionTypeEnum,
-        Station: 'Station' as RegionTypeEnum,
-        City: 'City' as RegionTypeEnum,
-        ProvinceState: 'ProvinceState' as RegionTypeEnum,
-        Country: 'Country' as RegionTypeEnum,
-        FeeZone: 'FeeZone' as RegionTypeEnum,
-        SubZone: 'SubZone' as RegionTypeEnum,
-        Area: 'Area' as RegionTypeEnum,
-        All: 'All' as RegionTypeEnum,
-        Mac: 'Mac' as RegionTypeEnum
-    };
     export type TravelRegionTypeEnum = 'Default' | 'Station' | 'City' | 'ProvinceState' | 'Country' | 'FeeZone' | 'SubZone' | 'Area' | 'All' | 'Mac';
-    export const TravelRegionTypeEnum = {
-        Default: 'Default' as TravelRegionTypeEnum,
-        Station: 'Station' as TravelRegionTypeEnum,
-        City: 'City' as TravelRegionTypeEnum,
-        ProvinceState: 'ProvinceState' as TravelRegionTypeEnum,
-        Country: 'Country' as TravelRegionTypeEnum,
-        FeeZone: 'FeeZone' as TravelRegionTypeEnum,
-        SubZone: 'SubZone' as TravelRegionTypeEnum,
-        Area: 'Area' as TravelRegionTypeEnum,
-        All: 'All' as TravelRegionTypeEnum,
-        Mac: 'Mac' as TravelRegionTypeEnum
-    };
     export type TravelSegmentIndicatorEnum = 'None' | 'CheckAgainstJourney' | 'CheckAgainstTrip' | 'Departure' | 'DepartureOfTripOrigin' | 'DepartureAtConnection' | 'DepartureWithinStopoverTime' | 'DepartureAtPointOfTurnaround' | 'DepartureOfTransOceanicSegment' | 'DepartureFromGateway' | 'DepartureOfLastSegment' | 'DepartureExceedsStopoverTime' | 'NotDepartingViaConnection' | 'GroundTimeBeforeDepartureOfJourneyWithin' | 'GroundTimeBeforeDepartureOfJourneyExceeds' | 'Arrival' | 'ArrivalOfTransOceanicSegment' | 'ArrivalAtGateway' | 'ArrivalAtPointOfTurnaround' | 'ArrivalAtConnection' | 'ArrivalAtTripOrigin' | 'NotDepartingViaConnectionOnSameCalendarDay' | 'CheckAgainstItinerary' | 'GroundTimeAfterArrivalAtConnectionWithin' | 'GroundTimeAfterArrivalAtConnectionExceeds' | 'GroundTimeAfterArrivalOfJourneyWithin' | 'GroundTimeAfterArrivalOfJourneyExceeds';
-    export const TravelSegmentIndicatorEnum = {
-        None: 'None' as TravelSegmentIndicatorEnum,
-        CheckAgainstJourney: 'CheckAgainstJourney' as TravelSegmentIndicatorEnum,
-        CheckAgainstTrip: 'CheckAgainstTrip' as TravelSegmentIndicatorEnum,
-        Departure: 'Departure' as TravelSegmentIndicatorEnum,
-        DepartureOfTripOrigin: 'DepartureOfTripOrigin' as TravelSegmentIndicatorEnum,
-        DepartureAtConnection: 'DepartureAtConnection' as TravelSegmentIndicatorEnum,
-        DepartureWithinStopoverTime: 'DepartureWithinStopoverTime' as TravelSegmentIndicatorEnum,
-        DepartureAtPointOfTurnaround: 'DepartureAtPointOfTurnaround' as TravelSegmentIndicatorEnum,
-        DepartureOfTransOceanicSegment: 'DepartureOfTransOceanicSegment' as TravelSegmentIndicatorEnum,
-        DepartureFromGateway: 'DepartureFromGateway' as TravelSegmentIndicatorEnum,
-        DepartureOfLastSegment: 'DepartureOfLastSegment' as TravelSegmentIndicatorEnum,
-        DepartureExceedsStopoverTime: 'DepartureExceedsStopoverTime' as TravelSegmentIndicatorEnum,
-        NotDepartingViaConnection: 'NotDepartingViaConnection' as TravelSegmentIndicatorEnum,
-        GroundTimeBeforeDepartureOfJourneyWithin: 'GroundTimeBeforeDepartureOfJourneyWithin' as TravelSegmentIndicatorEnum,
-        GroundTimeBeforeDepartureOfJourneyExceeds: 'GroundTimeBeforeDepartureOfJourneyExceeds' as TravelSegmentIndicatorEnum,
-        Arrival: 'Arrival' as TravelSegmentIndicatorEnum,
-        ArrivalOfTransOceanicSegment: 'ArrivalOfTransOceanicSegment' as TravelSegmentIndicatorEnum,
-        ArrivalAtGateway: 'ArrivalAtGateway' as TravelSegmentIndicatorEnum,
-        ArrivalAtPointOfTurnaround: 'ArrivalAtPointOfTurnaround' as TravelSegmentIndicatorEnum,
-        ArrivalAtConnection: 'ArrivalAtConnection' as TravelSegmentIndicatorEnum,
-        ArrivalAtTripOrigin: 'ArrivalAtTripOrigin' as TravelSegmentIndicatorEnum,
-        NotDepartingViaConnectionOnSameCalendarDay: 'NotDepartingViaConnectionOnSameCalendarDay' as TravelSegmentIndicatorEnum,
-        CheckAgainstItinerary: 'CheckAgainstItinerary' as TravelSegmentIndicatorEnum,
-        GroundTimeAfterArrivalAtConnectionWithin: 'GroundTimeAfterArrivalAtConnectionWithin' as TravelSegmentIndicatorEnum,
-        GroundTimeAfterArrivalAtConnectionExceeds: 'GroundTimeAfterArrivalAtConnectionExceeds' as TravelSegmentIndicatorEnum,
-        GroundTimeAfterArrivalOfJourneyWithin: 'GroundTimeAfterArrivalOfJourneyWithin' as TravelSegmentIndicatorEnum,
-        GroundTimeAfterArrivalOfJourneyExceeds: 'GroundTimeAfterArrivalOfJourneyExceeds' as TravelSegmentIndicatorEnum
-    };
 }

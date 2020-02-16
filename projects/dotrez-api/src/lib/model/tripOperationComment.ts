@@ -30,13 +30,4 @@ export interface TripOperationComment {
 }
 export namespace TripOperationComment {
     export type TypeEnum = 'Default' | 'Reservation' | 'Operation' | 'PitLoad' | 'Irop' | 'AppsOverride' | 'ManualAppsOverride';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Reservation: 'Reservation' as TypeEnum,
-        Operation: 'Operation' as TypeEnum,
-        PitLoad: 'PitLoad' as TypeEnum,
-        Irop: 'Irop' as TypeEnum,
-        AppsOverride: 'AppsOverride' as TypeEnum,
-        ManualAppsOverride: 'ManualAppsOverride' as TypeEnum
-    };
 }

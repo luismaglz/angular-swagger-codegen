@@ -70,10 +70,4 @@ export interface VoucherItem {
 }
 export namespace VoucherItem {
     export type StatusEnum = 'Available' | 'Void' | 'Redeemed' | 'Expired';
-    export const StatusEnum = {
-        Available: 'Available' as StatusEnum,
-        Void: 'Void' as StatusEnum,
-        Redeemed: 'Redeemed' as StatusEnum,
-        Expired: 'Expired' as StatusEnum
-    };
 }

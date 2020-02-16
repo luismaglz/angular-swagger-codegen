@@ -31,17 +31,5 @@ export interface SeatPreferences {
 }
 export namespace SeatPreferences {
     export type SeatEnum = 'None' | 'Window' | 'Aisle' | 'Other';
-    export const SeatEnum = {
-        None: 'None' as SeatEnum,
-        Window: 'Window' as SeatEnum,
-        Aisle: 'Aisle' as SeatEnum,
-        Other: 'Other' as SeatEnum
-    };
     export type TravelClassEnum = 'None' | 'Business' | 'Economy' | 'FirstClass';
-    export const TravelClassEnum = {
-        None: 'None' as TravelClassEnum,
-        Business: 'Business' as TravelClassEnum,
-        Economy: 'Economy' as TravelClassEnum,
-        FirstClass: 'FirstClass' as TravelClassEnum
-    };
 }
