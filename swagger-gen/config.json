@@ -1,3 +1,4 @@
 {
-  "ngVersion": "8"
+  "ngVersion": "8",
+  "providedInRoot": "true"
 }

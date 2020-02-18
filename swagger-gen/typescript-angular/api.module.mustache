@@ -13,9 +13,7 @@ import { {{classname}} } from './{{importPath}}';
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [
-    {{#apiInfo}}{{#apis}}{{classname}}{{#hasMore}},
-    {{/hasMore}}{{/apis}}{{/apiInfo}} ]
+  providers: []
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
