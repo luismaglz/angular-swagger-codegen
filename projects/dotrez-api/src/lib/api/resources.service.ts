@@ -17,89 +17,89 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { AccountTransactionCode } from '../model/accountTransactionCode';
-import { AddressType } from '../model/addressType';
-import { AgentSettingType } from '../model/agentSettingType';
-import { Area } from '../model/area';
-import { BaggageType } from '../model/baggageType';
-import { BundleApplication } from '../model/bundleApplication';
-import { BundleConfiguration } from '../model/bundleConfiguration';
-import { BundleRule } from '../model/bundleRule';
-import { BundleSet } from '../model/bundleSet';
-import { BundleSsrConfiguration } from '../model/bundleSsrConfiguration';
-import { Carrier } from '../model/carrier';
-import { City } from '../model/city';
-import { ClassOfService } from '../model/classOfService';
-import { CommerceLocation } from '../model/commerceLocation';
-import { CommissionRate } from '../model/commissionRate';
-import { ContactType } from '../model/contactType';
-import { Countryv2 } from '../model/countryv2';
-import { Culture } from '../model/culture';
-import { Currency } from '../model/currency';
-import { CustomerProgram } from '../model/customerProgram';
-import { CustomerProgramLevel } from '../model/customerProgramLevel';
-import { Delay } from '../model/delay';
-import { Department } from '../model/department';
-import { DocumentType } from '../model/documentType';
-import { Domain } from '../model/domain';
-import { DynamicParameter } from '../model/dynamicParameter';
-import { EmailType } from '../model/emailType';
-import { EnumResource } from '../model/enumResource';
-import { ExternalRate } from '../model/externalRate';
-import { FareType } from '../model/fareType';
-import { Fee } from '../model/fee';
-import { FeeDetail } from '../model/feeDetail';
-import { HotCardReason } from '../model/hotCardReason';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { IssuanceReason } from '../model/issuanceReason';
-import { Location } from '../model/location';
-import { Mac } from '../model/mac';
-import { Market } from '../model/market';
-import { Marketv2 } from '../model/marketv2';
-import { MessageType } from '../model/messageType';
-import { ParticipantType } from '../model/participantType';
-import { PassengerDiscount } from '../model/passengerDiscount';
-import { PassengerType } from '../model/passengerType';
-import { PaymentMethod } from '../model/paymentMethod';
-import { PersonAttachmentType } from '../model/personAttachmentType';
-import { PersonInformationType } from '../model/personInformationType';
-import { PhoneType } from '../model/phoneType';
-import { ProductClass } from '../model/productClass';
-import { PromotionSettingType } from '../model/promotionSettingType';
-import { ProvinceState } from '../model/provinceState';
-import { QueueCategory } from '../model/queueCategory';
-import { ReminderTime } from '../model/reminderTime';
-import { ResourceCategoryItem } from '../model/resourceCategoryItem';
-import { ResourceContentItem } from '../model/resourceContentItem';
-import { ResourceContentResult } from '../model/resourceContentResult';
-import { ResourceEntriesCarrier } from '../model/resourceEntriesCarrier';
-import { ResourceEntriesCurrencyv2 } from '../model/resourceEntriesCurrencyv2';
-import { ResourceEntriesPersonAttachmentType } from '../model/resourceEntriesPersonAttachmentType';
-import { ResourceEntriesStationDetail } from '../model/resourceEntriesStationDetail';
-import { Role } from '../model/role';
-import { RoleSettingType } from '../model/roleSettingType';
-import { SettingsCategoryRequest } from '../model/settingsCategoryRequest';
-import { ShoppingAttribute } from '../model/shoppingAttribute';
-import { ShoppingAttributeGroup } from '../model/shoppingAttributeGroup';
-import { SingleSignOnProvider } from '../model/singleSignOnProvider';
-import { Source } from '../model/source';
-import { Ssr } from '../model/ssr';
-import { SsrGroup } from '../model/ssrGroup';
-import { SsrNest } from '../model/ssrNest';
-import { SsrRestrictionResult } from '../model/ssrRestrictionResult';
-import { StandByPriority } from '../model/standByPriority';
-import { Station } from '../model/station';
-import { StationCategory } from '../model/stationCategory';
-import { SubZone } from '../model/subZone';
-import { Suffix } from '../model/suffix';
-import { TimeZone } from '../model/timeZone';
-import { Title } from '../model/title';
-import { TravelClass } from '../model/travelClass';
-import { Vendor } from '../model/vendor';
-import { Vendorv2 } from '../model/vendorv2';
-import { Zone } from '../model/zone';
-
+import {
+ AccountTransactionCode,
+ AddressType,
+ AgentSettingType,
+ Area,
+ BaggageType,
+ BundleApplication,
+ BundleConfiguration,
+ BundleRule,
+ BundleSet,
+ BundleSsrConfiguration,
+ Carrier,
+ City,
+ ClassOfService,
+ CommerceLocation,
+ CommissionRate,
+ ContactType,
+ Countryv2,
+ Culture,
+ Currency,
+ CustomerProgram,
+ CustomerProgramLevel,
+ Delay,
+ Department,
+ DocumentType,
+ Domain,
+ DynamicParameter,
+ EmailType,
+ EnumResource,
+ ExternalRate,
+ FareType,
+ Fee,
+ FeeDetail,
+ HotCardReason,
+ IJsonResponse,
+ IssuanceReason,
+ Location,
+ Mac,
+ Market,
+ Marketv2,
+ MessageType,
+ ParticipantType,
+ PassengerDiscount,
+ PassengerType,
+ PaymentMethod,
+ PersonAttachmentType,
+ PersonInformationType,
+ PhoneType,
+ ProductClass,
+ PromotionSettingType,
+ ProvinceState,
+ QueueCategory,
+ ReminderTime,
+ ResourceCategoryItem,
+ ResourceContentItem,
+ ResourceContentResult,
+ ResourceEntriesCarrier,
+ ResourceEntriesCurrencyv2,
+ ResourceEntriesPersonAttachmentType,
+ ResourceEntriesStationDetail,
+ Role,
+ RoleSettingType,
+ SettingsCategoryRequest,
+ ShoppingAttribute,
+ ShoppingAttributeGroup,
+ SingleSignOnProvider,
+ Source,
+ Ssr,
+ SsrGroup,
+ SsrNest,
+ SsrRestrictionResult,
+ StandByPriority,
+ Station,
+ StationCategory,
+ SubZone,
+ Suffix,
+ TimeZone,
+ Title,
+ TravelClass,
+ Vendor,
+ Vendorv2,
+ Zone,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

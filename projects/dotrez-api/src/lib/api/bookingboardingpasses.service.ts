@@ -17,14 +17,14 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { BoardingPassFilterRequest } from '../model/boardingPassFilterRequest';
-import { BoardingPassPassengerFilterRequest } from '../model/boardingPassPassengerFilterRequest';
-import { BoardingPassesCollectionv2 } from '../model/boardingPassesCollectionv2';
-import { BoardingPassesM2D } from '../model/boardingPassesM2D';
-import { BoardingPassesS2D } from '../model/boardingPassesS2D';
-import { IJsonResponse } from '../model/iJsonResponse';
-
+import {
+ BoardingPassFilterRequest,
+ BoardingPassPassengerFilterRequest,
+ BoardingPassesCollectionv2,
+ BoardingPassesM2D,
+ BoardingPassesS2D,
+ IJsonResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

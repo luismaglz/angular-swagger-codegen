@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { FareRule } from '../model/fareRule';
-import { IJsonResponse } from '../model/iJsonResponse';
-
+import {
+ FareRule,
+ IJsonResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

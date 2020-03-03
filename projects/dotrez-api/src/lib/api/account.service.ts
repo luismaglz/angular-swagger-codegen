@@ -17,11 +17,11 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { AccountChangePasswordRequest } from '../model/accountChangePasswordRequest';
-import { AccountForgotPasswordRequest } from '../model/accountForgotPasswordRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-
+import {
+ AccountChangePasswordRequest,
+ AccountForgotPasswordRequest,
+ IJsonResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

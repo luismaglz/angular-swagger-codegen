@@ -17,16 +17,16 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { Credentials } from '../model/credentials';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { NskSessionContext } from '../model/nskSessionContext';
-import { NskTokenRequest } from '../model/nskTokenRequest';
-import { ServerTransferRequest } from '../model/serverTransferRequest';
-import { SingleSignOnCredentials } from '../model/singleSignOnCredentials';
-import { TokenRequest } from '../model/tokenRequest';
-import { TokenResponse } from '../model/tokenResponse';
-
+import {
+ Credentials,
+ IJsonResponse,
+ NskSessionContext,
+ NskTokenRequest,
+ ServerTransferRequest,
+ SingleSignOnCredentials,
+ TokenRequest,
+ TokenResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

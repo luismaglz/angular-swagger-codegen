@@ -17,64 +17,64 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { Account } from '../model/account';
-import { AccountCollectionRequest } from '../model/accountCollectionRequest';
-import { CreateAccountRequest } from '../model/createAccountRequest';
-import { DeltaMapperPersonAddressEditRequest } from '../model/deltaMapperPersonAddressEditRequest';
-import { DeltaMapperPersonAliasRequest } from '../model/deltaMapperPersonAliasRequest';
-import { DeltaMapperPersonCommentRequest } from '../model/deltaMapperPersonCommentRequest';
-import { DeltaMapperPersonCustomerProgramEditRequest } from '../model/deltaMapperPersonCustomerProgramEditRequest';
-import { DeltaMapperPersonEditRequest } from '../model/deltaMapperPersonEditRequest';
-import { DeltaMapperPersonEmailEditRequest } from '../model/deltaMapperPersonEmailEditRequest';
-import { DeltaMapperPersonInformationEditRequest } from '../model/deltaMapperPersonInformationEditRequest';
-import { DeltaMapperPersonPhoneNumberRequest } from '../model/deltaMapperPersonPhoneNumberRequest';
-import { DeltaMapperPersonPreferenceEditRequest } from '../model/deltaMapperPersonPreferenceEditRequest';
-import { DeltaMapperPersonStoredPaymentUpdateRequest } from '../model/deltaMapperPersonStoredPaymentUpdateRequest';
-import { DeltaMapperTravelDocumentEditRequestv2 } from '../model/deltaMapperTravelDocumentEditRequestv2';
-import { DeltaMapperTravelNotificationEditRequest } from '../model/deltaMapperTravelNotificationEditRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { NotificationEvent } from '../model/notificationEvent';
-import { NotificationEventCreateRequest } from '../model/notificationEventCreateRequest';
-import { NotificationTimedEvent } from '../model/notificationTimedEvent';
-import { NotificationTimedEventCreateRequest } from '../model/notificationTimedEventCreateRequest';
-import { NotificationTimedEventEditRequest } from '../model/notificationTimedEventEditRequest';
-import { Person } from '../model/person';
-import { PersonAddress } from '../model/personAddress';
-import { PersonAddressCreateRequest } from '../model/personAddressCreateRequest';
-import { PersonAddressEditRequest } from '../model/personAddressEditRequest';
-import { PersonAlias } from '../model/personAlias';
-import { PersonAliasRequest } from '../model/personAliasRequest';
-import { PersonComment } from '../model/personComment';
-import { PersonCommentRequest } from '../model/personCommentRequest';
-import { PersonCreateRequest } from '../model/personCreateRequest';
-import { PersonCustomerProgram } from '../model/personCustomerProgram';
-import { PersonCustomerProgramCreateRequest } from '../model/personCustomerProgramCreateRequest';
-import { PersonCustomerProgramEditRequest } from '../model/personCustomerProgramEditRequest';
-import { PersonEditRequest } from '../model/personEditRequest';
-import { PersonEmail } from '../model/personEmail';
-import { PersonEmailCreateRequest } from '../model/personEmailCreateRequest';
-import { PersonEmailEditRequest } from '../model/personEmailEditRequest';
-import { PersonInformation } from '../model/personInformation';
-import { PersonInformationCreateRequest } from '../model/personInformationCreateRequest';
-import { PersonInformationEditRequest } from '../model/personInformationEditRequest';
-import { PersonPhoneNumber } from '../model/personPhoneNumber';
-import { PersonPhoneNumberRequest } from '../model/personPhoneNumberRequest';
-import { PersonPreference } from '../model/personPreference';
-import { PersonPreferenceCreateRequest } from '../model/personPreferenceCreateRequest';
-import { PersonPreferenceEditRequest } from '../model/personPreferenceEditRequest';
-import { PersonRecord } from '../model/personRecord';
-import { PersonStoredPayment } from '../model/personStoredPayment';
-import { PersonStoredPaymentRequest } from '../model/personStoredPaymentRequest';
-import { PersonTravelDocument } from '../model/personTravelDocument';
-import { PersonTravelDocumentRequest } from '../model/personTravelDocumentRequest';
-import { Transaction } from '../model/transaction';
-import { TransactionRequest } from '../model/transactionRequest';
-import { TravelDocumentEditRequestv2 } from '../model/travelDocumentEditRequestv2';
-import { TravelNotification } from '../model/travelNotification';
-import { TravelNotificationCreateRequest } from '../model/travelNotificationCreateRequest';
-import { TravelNotificationEditRequest } from '../model/travelNotificationEditRequest';
-
+import {
+ Account,
+ AccountCollectionRequest,
+ CreateAccountRequest,
+ DeltaMapperPersonAddressEditRequest,
+ DeltaMapperPersonAliasRequest,
+ DeltaMapperPersonCommentRequest,
+ DeltaMapperPersonCustomerProgramEditRequest,
+ DeltaMapperPersonEditRequest,
+ DeltaMapperPersonEmailEditRequest,
+ DeltaMapperPersonInformationEditRequest,
+ DeltaMapperPersonPhoneNumberRequest,
+ DeltaMapperPersonPreferenceEditRequest,
+ DeltaMapperPersonStoredPaymentUpdateRequest,
+ DeltaMapperTravelDocumentEditRequestv2,
+ DeltaMapperTravelNotificationEditRequest,
+ IJsonResponse,
+ NotificationEvent,
+ NotificationEventCreateRequest,
+ NotificationTimedEvent,
+ NotificationTimedEventCreateRequest,
+ NotificationTimedEventEditRequest,
+ Person,
+ PersonAddress,
+ PersonAddressCreateRequest,
+ PersonAddressEditRequest,
+ PersonAlias,
+ PersonAliasRequest,
+ PersonComment,
+ PersonCommentRequest,
+ PersonCreateRequest,
+ PersonCustomerProgram,
+ PersonCustomerProgramCreateRequest,
+ PersonCustomerProgramEditRequest,
+ PersonEditRequest,
+ PersonEmail,
+ PersonEmailCreateRequest,
+ PersonEmailEditRequest,
+ PersonInformation,
+ PersonInformationCreateRequest,
+ PersonInformationEditRequest,
+ PersonPhoneNumber,
+ PersonPhoneNumberRequest,
+ PersonPreference,
+ PersonPreferenceCreateRequest,
+ PersonPreferenceEditRequest,
+ PersonRecord,
+ PersonStoredPayment,
+ PersonStoredPaymentRequest,
+ PersonTravelDocument,
+ PersonTravelDocumentRequest,
+ Transaction,
+ TransactionRequest,
+ TravelDocumentEditRequestv2,
+ TravelNotification,
+ TravelNotificationCreateRequest,
+ TravelNotificationEditRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

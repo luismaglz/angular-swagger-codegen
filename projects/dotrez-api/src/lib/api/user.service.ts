@@ -17,26 +17,26 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { BookingSearchResult } from '../model/bookingSearchResult';
-import { BookingTripResult } from '../model/bookingTripResult';
-import { DeltaMapperSingleSignOnTokenRequest } from '../model/deltaMapperSingleSignOnTokenRequest';
-import { DeltaMapperUserRequest } from '../model/deltaMapperUserRequest';
-import { DeltaMapperUserRolePatchRequest } from '../model/deltaMapperUserRolePatchRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { SessionRoles } from '../model/sessionRoles';
-import { SingleSignOnTokenRequest } from '../model/singleSignOnTokenRequest';
-import { User } from '../model/user';
-import { UserChangePasswordRequestBase } from '../model/userChangePasswordRequestBase';
-import { UserCustomerCreateRequest } from '../model/userCustomerCreateRequest';
-import { UserCustomerCreateRequestv2 } from '../model/userCustomerCreateRequestv2';
-import { UserImpersonateRequest } from '../model/userImpersonateRequest';
-import { UserRequest } from '../model/userRequest';
-import { UserRole } from '../model/userRole';
-import { UserRoleCreateRequest } from '../model/userRoleCreateRequest';
-import { UserRoleEditRequest } from '../model/userRoleEditRequest';
-import { UserSingleSignOnToken } from '../model/userSingleSignOnToken';
-
+import {
+ BookingSearchResult,
+ BookingTripResult,
+ DeltaMapperSingleSignOnTokenRequest,
+ DeltaMapperUserRequest,
+ DeltaMapperUserRolePatchRequest,
+ IJsonResponse,
+ SessionRoles,
+ SingleSignOnTokenRequest,
+ User,
+ UserChangePasswordRequestBase,
+ UserCustomerCreateRequest,
+ UserCustomerCreateRequestv2,
+ UserImpersonateRequest,
+ UserRequest,
+ UserRole,
+ UserRoleCreateRequest,
+ UserRoleEditRequest,
+ UserSingleSignOnToken,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

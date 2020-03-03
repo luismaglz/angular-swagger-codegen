@@ -17,11 +17,11 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { AncillaryPricingOptionsContext } from '../model/ancillaryPricingOptionsContext';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InputParameters } from '../model/inputParameters';
-
+import {
+ AncillaryPricingOptionsContext,
+ IJsonResponse,
+ InputParameters,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

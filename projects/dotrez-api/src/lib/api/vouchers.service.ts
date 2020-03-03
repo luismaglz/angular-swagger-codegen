@@ -17,14 +17,14 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Voucher } from '../model/voucher';
-import { VoucherConfiguration } from '../model/voucherConfiguration';
-import { VoucherItem } from '../model/voucherItem';
-import { VoucherUpdateRequest } from '../model/voucherUpdateRequest';
-import { VouchersSummaryResponse } from '../model/vouchersSummaryResponse';
-
+import {
+ IJsonResponse,
+ Voucher,
+ VoucherConfiguration,
+ VoucherItem,
+ VoucherUpdateRequest,
+ VouchersSummaryResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

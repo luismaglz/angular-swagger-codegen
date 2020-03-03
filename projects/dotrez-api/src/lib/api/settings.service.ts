@@ -17,27 +17,27 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { AgencyCreationSettings } from '../model/agencyCreationSettings';
-import { BookingPaymentSettingsv2 } from '../model/bookingPaymentSettingsv2';
-import { CheckInSettings } from '../model/checkInSettings';
-import { CodesSettings } from '../model/codesSettings';
-import { ContactSettings } from '../model/contactSettings';
-import { CustomerAccountSettings } from '../model/customerAccountSettings';
-import { CustomerCreationSettings } from '../model/customerCreationSettings';
-import { FeeSettings } from '../model/feeSettings';
-import { FlightSearchSettings } from '../model/flightSearchSettings';
-import { GeneralSettings } from '../model/generalSettings';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { ItinerarySettings } from '../model/itinerarySettings';
-import { LogonSettings } from '../model/logonSettings';
-import { PassengerSettings } from '../model/passengerSettings';
-import { PaymentSettings } from '../model/paymentSettings';
-import { PremiumServicesSettingsv2 } from '../model/premiumServicesSettingsv2';
-import { ReserveFlightsSettings } from '../model/reserveFlightsSettings';
-import { SessionSettings } from '../model/sessionSettings';
-import { SkySpeedSettingsv2 } from '../model/skySpeedSettingsv2';
-
+import {
+ AgencyCreationSettings,
+ BookingPaymentSettingsv2,
+ CheckInSettings,
+ CodesSettings,
+ ContactSettings,
+ CustomerAccountSettings,
+ CustomerCreationSettings,
+ FeeSettings,
+ FlightSearchSettings,
+ GeneralSettings,
+ IJsonResponse,
+ ItinerarySettings,
+ LogonSettings,
+ PassengerSettings,
+ PaymentSettings,
+ PremiumServicesSettingsv2,
+ ReserveFlightsSettings,
+ SessionSettings,
+ SkySpeedSettingsv2,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 

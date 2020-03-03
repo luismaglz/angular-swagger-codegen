@@ -17,15 +17,15 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { BookingQueueItemBase } from '../model/bookingQueueItemBase';
-import { DeleteBookingQueueItemBaseRequest } from '../model/deleteBookingQueueItemBaseRequest';
-import { DequeueTravelSummary } from '../model/dequeueTravelSummary';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { MoveBookingQueueItemBase } from '../model/moveBookingQueueItemBase';
-import { QueueResults } from '../model/queueResults';
-import { TravelQueueItemRequest } from '../model/travelQueueItemRequest';
-
+import {
+ BookingQueueItemBase,
+ DeleteBookingQueueItemBaseRequest,
+ DequeueTravelSummary,
+ IJsonResponse,
+ MoveBookingQueueItemBase,
+ QueueResults,
+ TravelQueueItemRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
