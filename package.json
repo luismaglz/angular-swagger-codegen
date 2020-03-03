@@ -28,7 +28,8 @@
     "pretty": "prettier --write ./projects/dotrez-api/src/lib/model/*.ts",
     "build:dotrez-api": "ng build dotrez-api",
     "swagger-gen": "java -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-angular -o projects/dotrez-api/src/lib/ -t ./swagger-gen/typescript-angular/ -c ./swagger-gen/config.json",
-    "gen": "npm run swagger-gen && npm run replace && npm run barrel:api && npm run pretty && npm run build:dotrez-api",
+    "swagger-gen-ts": "java -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-inversify -o projects/ts-dotrez-api/",
+    "gen": "npm run swagger-gen && npm run replace && npm run barrel:api && npm run pretty && npm run build:dotrez-api --model-package ts-models",
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/app-usin-api/stats.json",
     "analyze:dev": "ng build --stats-json && webpack-bundle-analyzer dist/app-usin-api/stats.json",
     "barrel:api": "barrelsby --directory ./projects/dotrez-api/src/lib/model/ --delete --singleQuotes --location all --exclude \"spec.ts|test.data.ts|test.module.ts|internal\\..*?ts\""
