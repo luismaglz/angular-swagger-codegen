@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { FareRule } from '../model/fareRule';
 import { IJsonResponse } from '../model/iJsonResponse';
 
@@ -29,13 +34,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class FareRulesService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Gets the fare rules from the server based on a fare availability key.
@@ -43,20 +43,22 @@ export class FareRulesService {
      * @param fareAvailabilityKey The unique fare availability key to get rules for.
      
      */
-    public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe?: 'body', headers?: Headers): Observable<FareRule>;
-    public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<FareRule>>;
-    public apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1FareRulesByFareAvailabilityKeyGet = (fareAvailabilityKey: string, ) => {
         if (!fareAvailabilityKey){
             throw new Error('Required parameter fareAvailabilityKey was null or undefined when calling apiNskV1FareRulesByFareAvailabilityKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<FareRule>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/fareRules/${encodeURIComponent(String(fareAvailabilityKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <FareRule>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                fareAvailabilityKey: string, 
+            }> = {
+                url: '/api/nsk/v1/fareRules/${encodeURIComponent(String(fareAvailabilityKey))}',
+                method: 'get',
+                data: {
+                    fareAvailabilityKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

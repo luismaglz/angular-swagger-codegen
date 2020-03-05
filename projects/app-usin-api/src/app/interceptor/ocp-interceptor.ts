@@ -27,7 +27,6 @@ export class OcpInterceptor implements HttpInterceptor {
       headers
     });
 
-    console.log(duplicate);
     return next.handle(duplicate);
   }
 }

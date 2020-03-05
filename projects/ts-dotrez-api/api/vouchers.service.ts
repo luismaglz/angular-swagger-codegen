@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { IJsonResponse } from '../model/iJsonResponse';
 import { Voucher } from '../model/voucher';
 import { VoucherConfiguration } from '../model/voucherConfiguration';
@@ -33,13 +38,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class VouchersService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Searches for vouchers issued within the given date range.
@@ -50,9 +50,7 @@ export class VouchersService {
      * @param endDate The ending date.
      
      */
-    public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe?: 'body', headers?: Headers): Observable<VouchersSummaryResponse>;
-    public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe?: 'response', headers?: Headers): Observable<HttpResponse<VouchersSummaryResponse>>;
-    public apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VouchersByDateGet = (beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, ) => {
         if (!beginDate){
             throw new Error('Required parameter beginDate was null or undefined when calling apiNskV1VouchersByDateGet.');
         }
@@ -71,13 +69,17 @@ export class VouchersService {
            queryParameters.push("endDate="+encodeURIComponent(<any>endDate.toISOString()));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<VouchersSummaryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/byDate?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <VouchersSummaryResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date, 
+            }> = {
+                url: '/api/nsk/v1/vouchers/byDate',
+                method: 'get',
+                data: {
+                    beginDate,pageSize,lastPageKey,endDate,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -87,20 +89,22 @@ export class VouchersService {
      * @param voucherIssuanceKey The voucher issuance key.
      
      */
-    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'body', headers?: Headers): Observable<Array<VoucherItem>>;
-    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<VoucherItem>>>;
-    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet = (voucherIssuanceKey: string, ) => {
         if (!voucherIssuanceKey){
             throw new Error('Required parameter voucherIssuanceKey was null or undefined when calling apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<VoucherItem>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/byIssuance/${encodeURIComponent(String(voucherIssuanceKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherItem>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                voucherIssuanceKey: string, 
+            }> = {
+                url: '/api/nsk/v1/vouchers/byIssuance/${encodeURIComponent(String(voucherIssuanceKey))}',
+                method: 'get',
+                data: {
+                    voucherIssuanceKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -115,9 +119,7 @@ export class VouchersService {
      * @param opSuffix The op suffix.
      
      */
-    public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe?: 'body', headers?: Headers): Observable<Array<VoucherItem>>;
-    public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<VoucherItem>>>;
-    public apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VouchersByMarketGet = (destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, ) => {
         if (!destination){
             throw new Error('Required parameter destination was null or undefined when calling apiNskV1VouchersByMarketGet.');
         }
@@ -158,13 +160,17 @@ export class VouchersService {
             queryParameters.push("opSuffix="+encodeURIComponent(String(opSuffix)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<VoucherItem>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/byMarket?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherItem>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string, 
+            }> = {
+                url: '/api/nsk/v1/vouchers/byMarket',
+                method: 'get',
+                data: {
+                    destination,origin,departureDate,identifier,carrierCode,opSuffix,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -174,20 +180,22 @@ export class VouchersService {
      * @param voucherKey The voucher key.
      
      */
-    public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe?: 'body', headers?: Headers): Observable<Voucher>;
-    public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Voucher>>;
-    public apiNskV1VouchersByVoucherKeyGet(voucherKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VouchersByVoucherKeyGet = (voucherKey: string, ) => {
         if (!voucherKey){
             throw new Error('Required parameter voucherKey was null or undefined when calling apiNskV1VouchersByVoucherKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Voucher>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/${encodeURIComponent(String(voucherKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Voucher>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                voucherKey: string, 
+            }> = {
+                url: '/api/nsk/v1/vouchers/${encodeURIComponent(String(voucherKey))}',
+                method: 'get',
+                data: {
+                    voucherKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -198,21 +206,22 @@ export class VouchersService {
      * @param request The voucher update request.
      
      */
-    public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VouchersByVoucherKeyPut = (voucherKey: string, request?: VoucherUpdateRequest, ) => {
         if (!voucherKey){
             throw new Error('Required parameter voucherKey was null or undefined when calling apiNskV1VouchersByVoucherKeyPut.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/vouchers/${encodeURIComponent(String(voucherKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                voucherKey: string, request?: VoucherUpdateRequest, 
+            }> = {
+                url: '/api/nsk/v1/vouchers/${encodeURIComponent(String(voucherKey))}',
+                method: 'put',
+                data: {
+                    voucherKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -222,20 +231,22 @@ export class VouchersService {
      * @param configurationCode The code of the voucher configuration to retrieve.
      
      */
-    public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe?: 'body', headers?: Headers): Observable<VoucherConfiguration>;
-    public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<VoucherConfiguration>>;
-    public apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VouchersConfigurationByConfigurationCodeGet = (configurationCode: string, ) => {
         if (!configurationCode){
             throw new Error('Required parameter configurationCode was null or undefined when calling apiNskV1VouchersConfigurationByConfigurationCodeGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<VoucherConfiguration>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/configuration/${encodeURIComponent(String(configurationCode))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <VoucherConfiguration>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                configurationCode: string, 
+            }> = {
+                url: '/api/nsk/v1/vouchers/configuration/${encodeURIComponent(String(configurationCode))}',
+                method: 'get',
+                data: {
+                    configurationCode,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -244,16 +255,18 @@ export class VouchersService {
      * 
      
      */
-    public apiNskV1VouchersConfigurationGet(observe?: 'body', headers?: Headers): Observable<Array<VoucherConfiguration>>;
-    public apiNskV1VouchersConfigurationGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<VoucherConfiguration>>>;
-    public apiNskV1VouchersConfigurationGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1VouchersConfigurationGet = () => {
 
-        const response: Observable<HttpResponse<Array<VoucherConfiguration>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/configuration`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherConfiguration>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/vouchers/configuration',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -268,9 +281,7 @@ export class VouchersService {
      * @param cultureCode The culture code of the paged request.
      
      */
-    public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Array<VoucherItem>>;
-    public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<VoucherItem>>>;
-    public apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VouchersGet = (customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, ) => {
         if (!customerNameFirstName){
             throw new Error('Required parameter customerNameFirstName was null or undefined when calling apiNskV1VouchersGet.');
         }
@@ -303,13 +314,17 @@ export class VouchersService {
             queryParameters.push("cultureCode="+encodeURIComponent(String(cultureCode)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<VoucherItem>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherItem>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string, 
+            }> = {
+                url: '/api/nsk/v1/vouchers',
+                method: 'get',
+                data: {
+                    customerNameFirstName,customerNameLastName,activeOnly,recordLocator,customerNumber,cultureCode,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

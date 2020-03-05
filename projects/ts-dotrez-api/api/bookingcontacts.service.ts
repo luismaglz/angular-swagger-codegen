@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { Contact } from '../model/contact';
 import { ContactRequest } from '../model/contactRequest';
 import { DeltaMapperContactBase } from '../model/deltaMapperContactBase';
@@ -34,13 +39,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class BookingcontactsService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Deletes a specific contact on the booking.
@@ -48,20 +48,22 @@ export class BookingcontactsService {
      * @param contactTypeCode The unique type code.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodeDelete = (contactTypeCode: string, ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodeDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}',
+                method: 'delete',
+                data: {
+                    contactTypeCode,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -71,20 +73,22 @@ export class BookingcontactsService {
      * @param contactTypeCode The unique contact type code.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe?: 'body', headers?: Headers): Observable<Contact>;
-    public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Contact>>;
-    public apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodeGet = (contactTypeCode: string, ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodeGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Contact>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Contact>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}',
+                method: 'get',
+                data: {
+                    contactTypeCode,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -95,21 +99,22 @@ export class BookingcontactsService {
      * @param request The patched contact request.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodePatch = (contactTypeCode: string, request?: DeltaMapperContactBase, ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePatch.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, request?: DeltaMapperContactBase, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}',
+                method: 'patch',
+                data: {
+                    contactTypeCode,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -120,9 +125,7 @@ export class BookingcontactsService {
      * @param phoneNumberType The phone number type.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete = (contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete.');
         }
@@ -131,13 +134,17 @@ export class BookingcontactsService {
             throw new Error('Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}',
+                method: 'delete',
+                data: {
+                    contactTypeCode,phoneNumberType,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -148,9 +155,7 @@ export class BookingcontactsService {
      * @param phoneNumberType The phone number type.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', headers?: Headers): Observable<PhoneNumber>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', headers?: Headers): Observable<HttpResponse<PhoneNumber>>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet = (contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet.');
         }
@@ -159,13 +164,17 @@ export class BookingcontactsService {
             throw new Error('Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<PhoneNumber>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <PhoneNumber>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}',
+                method: 'get',
+                data: {
+                    contactTypeCode,phoneNumberType,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -177,9 +186,7 @@ export class BookingcontactsService {
      * @param request The modified phone number.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut = (contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut.');
         }
@@ -188,14 +195,17 @@ export class BookingcontactsService {
             throw new Error('Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}',
+                method: 'put',
+                data: {
+                    contactTypeCode,phoneNumberType,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -205,20 +215,22 @@ export class BookingcontactsService {
      * @param contactTypeCode The unique contact type code.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe?: 'body', headers?: Headers): Observable<Array<PhoneNumber>>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PhoneNumber>>>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet = (contactTypeCode: string, ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<PhoneNumber>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<PhoneNumber>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers',
+                method: 'get',
+                data: {
+                    contactTypeCode,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -229,21 +241,22 @@ export class BookingcontactsService {
      * @param request The new phone number.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost = (contactTypeCode: string, request?: PhoneNumber, ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, request?: PhoneNumber, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}/phoneNumbers',
+                method: 'post',
+                data: {
+                    contactTypeCode,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -254,21 +267,22 @@ export class BookingcontactsService {
      * @param request The modified contact.
      
      */
-    public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingContactsByContactTypeCodePut = (contactTypeCode: string, request?: ContactRequest, ) => {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePut.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactTypeCode: string, request?: ContactRequest, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/${encodeURIComponent(String(contactTypeCode))}',
+                method: 'put',
+                data: {
+                    contactTypeCode,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -277,16 +291,18 @@ export class BookingcontactsService {
      * 
      
      */
-    public apiNskV1BookingContactsGet(observe?: 'body', headers?: Headers): Observable<InlineResponse2004>;
-    public apiNskV1BookingContactsGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<InlineResponse2004>>;
-    public apiNskV1BookingContactsGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1BookingContactsGet = () => {
 
-        const response: Observable<HttpResponse<InlineResponse2004>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/contacts`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2004>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/booking/contacts',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -296,17 +312,18 @@ export class BookingcontactsService {
      * @param request The new contact.
      
      */
-    public apiNskV1BookingContactsPost(request?: Contact, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPost(request?: Contact, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsPost(request?: Contact, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1BookingContactsPost = (request?: Contact, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/contacts`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: Contact, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -315,16 +332,18 @@ export class BookingcontactsService {
      * 
      
      */
-    public apiNskV1BookingContactsPrimaryDelete(observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryDelete(observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsPrimaryDelete(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1BookingContactsPrimaryDelete = () => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/contacts/primary`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/primary',
+                method: 'delete',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -333,16 +352,18 @@ export class BookingcontactsService {
      * 
      
      */
-    public apiNskV1BookingContactsPrimaryGet(observe?: 'body', headers?: Headers): Observable<Contact>;
-    public apiNskV1BookingContactsPrimaryGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Contact>>;
-    public apiNskV1BookingContactsPrimaryGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1BookingContactsPrimaryGet = () => {
 
-        const response: Observable<HttpResponse<Contact>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/contacts/primary`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Contact>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/primary',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -352,17 +373,18 @@ export class BookingcontactsService {
      * @param request The patched contact request.
      
      */
-    public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1BookingContactsPrimaryPatch = (request?: DeltaMapperContactBase, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/booking/contacts/primary`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: DeltaMapperContactBase, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/primary',
+                method: 'patch',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -372,17 +394,18 @@ export class BookingcontactsService {
      * @param request The new contact.
      
      */
-    public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsPrimaryPost(request?: ContactRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1BookingContactsPrimaryPost = (request?: ContactRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/contacts/primary`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: ContactRequest, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/primary',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -392,17 +415,18 @@ export class BookingcontactsService {
      * @param request The modified contact request.
      
      */
-    public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingContactsPrimaryPut(request?: ContactRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1BookingContactsPrimaryPut = (request?: ContactRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/booking/contacts/primary`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: ContactRequest, 
+            }> = {
+                url: '/api/nsk/v1/booking/contacts/primary',
+                method: 'put',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

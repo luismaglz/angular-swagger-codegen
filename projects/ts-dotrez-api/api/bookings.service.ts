@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { Account } from '../model/account';
 import { AccountCollectionRequest } from '../model/accountCollectionRequest';
 import { Booking } from '../model/booking';
@@ -51,13 +56,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class BookingsService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Gets a flight move history stateless.
@@ -67,9 +67,7 @@ export class BookingsService {
      * @param pageSize The page size for the response.
      
      */
-    public apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(bookingKey: string, lastPageKey?: string, pageSize?: number, observe?: 'body', headers?: Headers): Observable<SeatAssignmentHistoryResponse>;
-    public apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(bookingKey: string, lastPageKey?: string, pageSize?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<SeatAssignmentHistoryResponse>>;
-    public apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(bookingKey: string, lastPageKey?: string, pageSize?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyHistoryFlightMoveGet = (bookingKey: string, lastPageKey?: string, pageSize?: number, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryFlightMoveGet.');
         }
@@ -82,13 +80,17 @@ export class BookingsService {
             queryParameters.push("pageSize="+encodeURIComponent(String(pageSize)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<SeatAssignmentHistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/flightMove?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <SeatAssignmentHistoryResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, lastPageKey?: string, pageSize?: number, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/flightMove',
+                method: 'get',
+                data: {
+                    bookingKey,lastPageKey,pageSize,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -101,9 +103,7 @@ export class BookingsService {
      * @param pageSize The page size for the response.
      
      */
-    public apiNskV1BookingsByBookingKeyHistoryGet(bookingKey: string, event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe?: 'body', headers?: Headers): Observable<HistoryResponse>;
-    public apiNskV1BookingsByBookingKeyHistoryGet(bookingKey: string, event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<HistoryResponse>>;
-    public apiNskV1BookingsByBookingKeyHistoryGet(bookingKey: string, event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyHistoryGet = (bookingKey: string, event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryGet.');
         }
@@ -119,13 +119,17 @@ export class BookingsService {
             queryParameters.push("pageSize="+encodeURIComponent(String(pageSize)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<HistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <HistoryResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history',
+                method: 'get',
+                data: {
+                    bookingKey,event,lastPageKey,pageSize,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -135,20 +139,22 @@ export class BookingsService {
      * @param bookingKey The booking key.
      
      */
-    public apiNskV1BookingsByBookingKeyHistoryMessageGet(bookingKey: string, observe?: 'body', headers?: Headers): Observable<Array<BookingMessageHistory>>;
-    public apiNskV1BookingsByBookingKeyHistoryMessageGet(bookingKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingMessageHistory>>>;
-    public apiNskV1BookingsByBookingKeyHistoryMessageGet(bookingKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyHistoryMessageGet = (bookingKey: string, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryMessageGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingMessageHistory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/message`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingMessageHistory>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/message',
+                method: 'get',
+                data: {
+                    bookingKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -158,20 +164,22 @@ export class BookingsService {
      * @param bookingKey The booking key.
      
      */
-    public apiNskV1BookingsByBookingKeyHistoryNotificationGet(bookingKey: string, observe?: 'body', headers?: Headers): Observable<Array<BookingNotificationHistory>>;
-    public apiNskV1BookingsByBookingKeyHistoryNotificationGet(bookingKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingNotificationHistory>>>;
-    public apiNskV1BookingsByBookingKeyHistoryNotificationGet(bookingKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyHistoryNotificationGet = (bookingKey: string, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryNotificationGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingNotificationHistory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/notification`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingNotificationHistory>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/notification',
+                method: 'get',
+                data: {
+                    bookingKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -184,9 +192,7 @@ export class BookingsService {
      * @param pageSize The page size for the response.
      
      */
-    public apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(bookingKey: string, event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe?: 'body', headers?: Headers): Observable<SeatAssignmentHistoryResponse>;
-    public apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(bookingKey: string, event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<SeatAssignmentHistoryResponse>>;
-    public apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(bookingKey: string, event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet = (bookingKey: string, event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet.');
         }
@@ -206,13 +212,17 @@ export class BookingsService {
             queryParameters.push("pageSize="+encodeURIComponent(String(pageSize)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<SeatAssignmentHistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/seatAssignment?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <SeatAssignmentHistoryResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/seatAssignment',
+                method: 'get',
+                data: {
+                    bookingKey,event,lastPageKey,pageSize,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -225,9 +235,7 @@ export class BookingsService {
      * @param pageSize The page size for the response.
      
      */
-    public apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(bookingKey: string, event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe?: 'body', headers?: Headers): Observable<SegmentChangeHistoryResponse>;
-    public apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(bookingKey: string, event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<SegmentChangeHistoryResponse>>;
-    public apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(bookingKey: string, event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyHistorySegmentChangeGet = (bookingKey: string, event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySegmentChangeGet.');
         }
@@ -247,13 +255,17 @@ export class BookingsService {
             queryParameters.push("pageSize="+encodeURIComponent(String(pageSize)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<SegmentChangeHistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/segmentChange?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <SegmentChangeHistoryResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/segmentChange',
+                method: 'get',
+                data: {
+                    bookingKey,event,lastPageKey,pageSize,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -264,21 +276,22 @@ export class BookingsService {
      * @param request The booking request.
      
      */
-    public apiNskV1BookingsByBookingKeyQueueDelete(bookingKey: string, request?: BookingQueueRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByBookingKeyQueueDelete(bookingKey: string, request?: BookingQueueRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByBookingKeyQueueDelete(bookingKey: string, request?: BookingQueueRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyQueueDelete = (bookingKey: string, request?: BookingQueueRequest, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueueDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, request?: BookingQueueRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue',
+                method: 'delete',
+                data: {
+                    bookingKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -289,21 +302,22 @@ export class BookingsService {
      * @param request The booking queue history request.
      
      */
-    public apiNskV1BookingsByBookingKeyQueueHistoryPost(bookingKey: string, request?: BookingQueueHistoryRequest, observe?: 'body', headers?: Headers): Observable<Array<BookingQueueHistory>>;
-    public apiNskV1BookingsByBookingKeyQueueHistoryPost(bookingKey: string, request?: BookingQueueHistoryRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingQueueHistory>>>;
-    public apiNskV1BookingsByBookingKeyQueueHistoryPost(bookingKey: string, request?: BookingQueueHistoryRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyQueueHistoryPost = (bookingKey: string, request?: BookingQueueHistoryRequest, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueueHistoryPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<Array<BookingQueueHistory>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue/history`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingQueueHistory>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, request?: BookingQueueHistoryRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue/history',
+                method: 'post',
+                data: {
+                    bookingKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -314,21 +328,22 @@ export class BookingsService {
      * @param request The booking request.
      
      */
-    public apiNskV1BookingsByBookingKeyQueuePost(bookingKey: string, request?: BookingQueueRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByBookingKeyQueuePost(bookingKey: string, request?: BookingQueueRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByBookingKeyQueuePost(bookingKey: string, request?: BookingQueueRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByBookingKeyQueuePost = (bookingKey: string, request?: BookingQueueRequest, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueuePost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, request?: BookingQueueRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue',
+                method: 'post',
+                data: {
+                    bookingKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -344,9 +359,7 @@ export class BookingsService {
      * @param pageIndex Represents the index of the requested paged item.
      
      */
-    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(recordLocator: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', headers?: Headers): Observable<Array<Transaction>>;
-    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(recordLocator: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Transaction>>>;
-    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(recordLocator: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet = (recordLocator: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet.');
         }
@@ -380,13 +393,17 @@ export class BookingsService {
             queryParameters.push("pageIndex="+encodeURIComponent(String(pageIndex)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions',
+                method: 'get',
+                data: {
+                    recordLocator,accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -398,9 +415,7 @@ export class BookingsService {
      * @param request The create transaction requests.
      
      */
-    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(recordLocator: string, accountCollectionKey: string, request?: TransactionRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(recordLocator: string, accountCollectionKey: string, request?: TransactionRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(recordLocator: string, accountCollectionKey: string, request?: TransactionRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost = (recordLocator: string, accountCollectionKey: string, request?: TransactionRequest, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost.');
         }
@@ -409,14 +424,17 @@ export class BookingsService {
             throw new Error('Required parameter accountCollectionKey was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, accountCollectionKey: string, request?: TransactionRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions',
+                method: 'post',
+                data: {
+                    recordLocator,accountCollectionKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -427,21 +445,22 @@ export class BookingsService {
      * @param request The create account collection request.
      
      */
-    public apiNskV1BookingsByRecordLocatorAccountCollectionPost(recordLocator: string, request?: AccountCollectionRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByRecordLocatorAccountCollectionPost(recordLocator: string, request?: AccountCollectionRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByRecordLocatorAccountCollectionPost(recordLocator: string, request?: AccountCollectionRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorAccountCollectionPost = (recordLocator: string, request?: AccountCollectionRequest, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, request?: AccountCollectionRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection',
+                method: 'post',
+                data: {
+                    recordLocator,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -451,20 +470,22 @@ export class BookingsService {
      * @param recordLocator The record locator.
      
      */
-    public apiNskV1BookingsByRecordLocatorAccountGet(recordLocator: string, observe?: 'body', headers?: Headers): Observable<Account>;
-    public apiNskV1BookingsByRecordLocatorAccountGet(recordLocator: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Account>>;
-    public apiNskV1BookingsByRecordLocatorAccountGet(recordLocator: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorAccountGet = (recordLocator: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Account>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Account>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account',
+                method: 'get',
+                data: {
+                    recordLocator,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -475,21 +496,22 @@ export class BookingsService {
      * @param request The create account request.
      
      */
-    public apiNskV1BookingsByRecordLocatorAccountPost(recordLocator: string, request?: CreateAccountRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByRecordLocatorAccountPost(recordLocator: string, request?: CreateAccountRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByRecordLocatorAccountPost(recordLocator: string, request?: CreateAccountRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorAccountPost = (recordLocator: string, request?: CreateAccountRequest, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, request?: CreateAccountRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account',
+                method: 'post',
+                data: {
+                    recordLocator,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -500,9 +522,7 @@ export class BookingsService {
      * @param status The allowed account status.
      
      */
-    public apiNskV1BookingsByRecordLocatorAccountStatusPut(recordLocator: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByRecordLocatorAccountStatusPut(recordLocator: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByRecordLocatorAccountStatusPut(recordLocator: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorAccountStatusPut = (recordLocator: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountStatusPut.');
         }
@@ -516,13 +536,17 @@ export class BookingsService {
             queryParameters.push("status="+encodeURIComponent(String(status)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/status?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/status',
+                method: 'put',
+                data: {
+                    recordLocator,status,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -537,9 +561,7 @@ export class BookingsService {
      * @param pageIndex Represents the index of the requested paged item.
      
      */
-    public apiNskV1BookingsByRecordLocatorAccountTransactionsGet(recordLocator: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', headers?: Headers): Observable<Array<Transaction>>;
-    public apiNskV1BookingsByRecordLocatorAccountTransactionsGet(recordLocator: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Transaction>>>;
-    public apiNskV1BookingsByRecordLocatorAccountTransactionsGet(recordLocator: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorAccountTransactionsGet = (recordLocator: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountTransactionsGet.');
         }
@@ -569,13 +591,17 @@ export class BookingsService {
             queryParameters.push("pageIndex="+encodeURIComponent(String(pageIndex)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/transactions?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/transactions',
+                method: 'get',
+                data: {
+                    recordLocator,startTime,sortByNewest,endTime,pageSize,pageIndex,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -586,21 +612,22 @@ export class BookingsService {
      * @param comments The comments to add.
      
      */
-    public apiNskV1BookingsByRecordLocatorCommentsPost(recordLocator: string, comments?: Array<BookingCommentRequest>, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByRecordLocatorCommentsPost(recordLocator: string, comments?: Array<BookingCommentRequest>, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByRecordLocatorCommentsPost(recordLocator: string, comments?: Array<BookingCommentRequest>, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorCommentsPost = (recordLocator: string, comments?: Array<BookingCommentRequest>, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorCommentsPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/comments`, comments , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, comments?: Array<BookingCommentRequest>, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/comments',
+                method: 'post',
+                data: {
+                    recordLocator,comments,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -610,20 +637,22 @@ export class BookingsService {
      * @param recordLocator The record locator.
      
      */
-    public apiNskV1BookingsByRecordLocatorEmailPost(recordLocator: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByRecordLocatorEmailPost(recordLocator: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByRecordLocatorEmailPost(recordLocator: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorEmailPost = (recordLocator: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorEmailPost.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/email`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/email',
+                method: 'post',
+                data: {
+                    recordLocator,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -635,9 +664,7 @@ export class BookingsService {
      * @param request The fare override request.
      
      */
-    public apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: FareOverrideRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: FareOverrideRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: FareOverrideRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost = (recordLocator: string, journeyKey: string, request?: FareOverrideRequest, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost.');
         }
@@ -646,14 +673,17 @@ export class BookingsService {
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/fareOverride/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, journeyKey: string, request?: FareOverrideRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/fareOverride/journey/${encodeURIComponent(String(journeyKey))}',
+                method: 'post',
+                data: {
+                    recordLocator,journeyKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -663,20 +693,22 @@ export class BookingsService {
      * @param recordLocator The record locator.
      
      */
-    public apiNskV1BookingsByRecordLocatorGet(recordLocator: string, observe?: 'body', headers?: Headers): Observable<Booking>;
-    public apiNskV1BookingsByRecordLocatorGet(recordLocator: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Booking>>;
-    public apiNskV1BookingsByRecordLocatorGet(recordLocator: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsByRecordLocatorGet = (recordLocator: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}',
+                method: 'get',
+                data: {
+                    recordLocator,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -688,9 +720,7 @@ export class BookingsService {
      * @param request The checkin passengers request.
      
      */
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete = (recordLocator: string, journeyKey: string, request?: CheckinPassengersRequest, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete.');
         }
@@ -699,14 +729,17 @@ export class BookingsService {
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, journeyKey: string, request?: CheckinPassengersRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}',
+                method: 'delete',
+                data: {
+                    recordLocator,journeyKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -717,9 +750,7 @@ export class BookingsService {
      * @param journeyKey The journey key to be pre validate checkin with.
      
      */
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(recordLocator: string, journeyKey: string, observe?: 'body', headers?: Headers): Observable<CheckinRequirements>;
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(recordLocator: string, journeyKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<CheckinRequirements>>;
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(recordLocator: string, journeyKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet = (recordLocator: string, journeyKey: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet.');
         }
@@ -728,13 +759,17 @@ export class BookingsService {
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<CheckinRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}/requirements`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <CheckinRequirements>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, journeyKey: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}/requirements',
+                method: 'get',
+                data: {
+                    recordLocator,journeyKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -745,9 +780,7 @@ export class BookingsService {
      * @param journeyKey The journey key in reference.
      
      */
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(recordLocator: string, journeyKey: string, observe?: 'body', headers?: Headers): Observable<InlineResponse2003>;
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(recordLocator: string, journeyKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<InlineResponse2003>>;
-    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(recordLocator: string, journeyKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet = (recordLocator: string, journeyKey: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet.');
         }
@@ -756,13 +789,17 @@ export class BookingsService {
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<InlineResponse2003>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}/status`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2003>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, journeyKey: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}/status',
+                method: 'get',
+                data: {
+                    recordLocator,journeyKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -774,9 +811,7 @@ export class BookingsService {
      * @param request The checkin passengers request.
      
      */
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete = (recordLocator: string, segmentKey: string, request?: CheckinPassengersRequest, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete.');
         }
@@ -785,14 +820,17 @@ export class BookingsService {
             throw new Error('Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, segmentKey: string, request?: CheckinPassengersRequest, 
+            }> = {
+                url: '/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}',
+                method: 'delete',
+                data: {
+                    recordLocator,segmentKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -803,9 +841,7 @@ export class BookingsService {
      * @param segmentKey The segment key to pre validate checkin with.
      
      */
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(recordLocator: string, segmentKey: string, observe?: 'body', headers?: Headers): Observable<CheckinRequirements>;
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(recordLocator: string, segmentKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<CheckinRequirements>>;
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(recordLocator: string, segmentKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet = (recordLocator: string, segmentKey: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet.');
         }
@@ -814,13 +850,17 @@ export class BookingsService {
             throw new Error('Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<CheckinRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}/requirements`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <CheckinRequirements>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, segmentKey: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}/requirements',
+                method: 'get',
+                data: {
+                    recordLocator,segmentKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -831,9 +871,7 @@ export class BookingsService {
      * @param segmentKey The segment key in reference.
      
      */
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(recordLocator: string, segmentKey: string, observe?: 'body', headers?: Headers): Observable<InlineResponse2003>;
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(recordLocator: string, segmentKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<InlineResponse2003>>;
-    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(recordLocator: string, segmentKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet = (recordLocator: string, segmentKey: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet.');
         }
@@ -842,13 +880,17 @@ export class BookingsService {
             throw new Error('Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<InlineResponse2003>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}/status`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2003>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, segmentKey: string, 
+            }> = {
+                url: '/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}/status',
+                method: 'get',
+                data: {
+                    recordLocator,segmentKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -870,9 +912,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByAgencyGet(organizationCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByAgencyGet(organizationCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByAgencyGet(organizationCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByAgencyGet = (organizationCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1BookingsSearchByAgencyGet.');
         }
@@ -918,13 +958,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByAgency?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                organizationCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByAgency',
+                method: 'get',
+                data: {
+                    organizationCode,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -947,9 +991,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByAgentCodeGet(agentCode: string, domainCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByAgentCodeGet(agentCode: string, domainCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByAgentCodeGet(agentCode: string, domainCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByAgentCodeGet = (agentCode: string, domainCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!agentCode){
             throw new Error('Required parameter agentCode was null or undefined when calling apiNskV1BookingsSearchByAgentCodeGet.');
         }
@@ -1002,13 +1044,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByAgentCode?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                agentCode: string, domainCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByAgentCode',
+                method: 'get',
+                data: {
+                    agentCode,domainCode,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1030,9 +1076,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByAgentGet(agentId: number, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByAgentGet(agentId: number, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByAgentGet(agentId: number, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByAgentGet = (agentId: number, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!agentId){
             throw new Error('Required parameter agentId was null or undefined when calling apiNskV1BookingsSearchByAgentGet.');
         }
@@ -1078,13 +1122,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByAgent?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                agentId: number, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByAgent',
+                method: 'get',
+                data: {
+                    agentId,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1099,9 +1147,7 @@ export class BookingsService {
      * @param searchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByBagTagGet(bagTag: string, startUtc: Date, endUtc: Date, pageSize?: number, lastIndex?: number, searchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByBagTagGet(bagTag: string, startUtc: Date, endUtc: Date, pageSize?: number, lastIndex?: number, searchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByBagTagGet(bagTag: string, startUtc: Date, endUtc: Date, pageSize?: number, lastIndex?: number, searchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByBagTagGet = (bagTag: string, startUtc: Date, endUtc: Date, pageSize?: number, lastIndex?: number, searchArchive?: boolean, ) => {
         if (!bagTag){
             throw new Error('Required parameter bagTag was null or undefined when calling apiNskV1BookingsSearchByBagTagGet.');
         }
@@ -1134,13 +1180,17 @@ export class BookingsService {
             queryParameters.push("searchArchive="+encodeURIComponent(String(searchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByBagTag?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bagTag: string, startUtc: Date, endUtc: Date, pageSize?: number, lastIndex?: number, searchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByBagTag',
+                method: 'get',
+                data: {
+                    bagTag,startUtc,endUtc,pageSize,lastIndex,searchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1161,9 +1211,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByContactCustomerNumberGet(contactCustomerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByContactCustomerNumberGet(contactCustomerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByContactCustomerNumberGet(contactCustomerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByContactCustomerNumberGet = (contactCustomerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!contactCustomerNumber){
             throw new Error('Required parameter contactCustomerNumber was null or undefined when calling apiNskV1BookingsSearchByContactCustomerNumberGet.');
         }
@@ -1206,13 +1254,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByContactCustomerNumber?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                contactCustomerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByContactCustomerNumber',
+                method: 'get',
+                data: {
+                    contactCustomerNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1232,9 +1284,7 @@ export class BookingsService {
      * @param lastIndex The last booking index (used for paging).
      
      */
-    public apiNskV1BookingsSearchByContactGet(firstName?: string, lastName?: string, recordLocator?: string, phoneNumber?: string, emailAddress?: string, sourceOrganization?: string, organizationCode?: string, organizationGroupCode?: string, searchArchive?: boolean, pageSize?: number, lastIndex?: number, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByContactGet(firstName?: string, lastName?: string, recordLocator?: string, phoneNumber?: string, emailAddress?: string, sourceOrganization?: string, organizationCode?: string, organizationGroupCode?: string, searchArchive?: boolean, pageSize?: number, lastIndex?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByContactGet(firstName?: string, lastName?: string, recordLocator?: string, phoneNumber?: string, emailAddress?: string, sourceOrganization?: string, organizationCode?: string, organizationGroupCode?: string, searchArchive?: boolean, pageSize?: number, lastIndex?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByContactGet = (firstName?: string, lastName?: string, recordLocator?: string, phoneNumber?: string, emailAddress?: string, sourceOrganization?: string, organizationCode?: string, organizationGroupCode?: string, searchArchive?: boolean, pageSize?: number, lastIndex?: number, ) => {
         let queryParameters: string[] = [];
         if (firstName !== undefined) {
             queryParameters.push("firstName="+encodeURIComponent(String(firstName)));
@@ -1270,13 +1320,17 @@ export class BookingsService {
             queryParameters.push("lastIndex="+encodeURIComponent(String(lastIndex)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByContact?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                firstName?: string, lastName?: string, recordLocator?: string, phoneNumber?: string, emailAddress?: string, sourceOrganization?: string, organizationCode?: string, organizationGroupCode?: string, searchArchive?: boolean, pageSize?: number, lastIndex?: number, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByContact',
+                method: 'get',
+                data: {
+                    firstName,lastName,recordLocator,phoneNumber,emailAddress,sourceOrganization,organizationCode,organizationGroupCode,searchArchive,pageSize,lastIndex,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1297,9 +1351,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByCreditCardGet(creditCardNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByCreditCardGet(creditCardNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByCreditCardGet(creditCardNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByCreditCardGet = (creditCardNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!creditCardNumber){
             throw new Error('Required parameter creditCardNumber was null or undefined when calling apiNskV1BookingsSearchByCreditCardGet.');
         }
@@ -1342,13 +1394,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByCreditCard?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                creditCardNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByCreditCard',
+                method: 'get',
+                data: {
+                    creditCardNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1369,9 +1425,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByCustomerNumberGet(customerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByCustomerNumberGet(customerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByCustomerNumberGet(customerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByCustomerNumberGet = (customerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!customerNumber){
             throw new Error('Required parameter customerNumber was null or undefined when calling apiNskV1BookingsSearchByCustomerNumberGet.');
         }
@@ -1414,13 +1468,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByCustomerNumber?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                customerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByCustomerNumber',
+                method: 'get',
+                data: {
+                    customerNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1440,9 +1498,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByDateGet(startDateUtc: Date, endDateUtc: Date, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByDateGet(startDateUtc: Date, endDateUtc: Date, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByDateGet(startDateUtc: Date, endDateUtc: Date, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByDateGet = (startDateUtc: Date, endDateUtc: Date, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!startDateUtc){
             throw new Error('Required parameter startDateUtc was null or undefined when calling apiNskV1BookingsSearchByDateGet.');
         }
@@ -1486,13 +1542,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByDate?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                startDateUtc: Date, endDateUtc: Date, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByDate',
+                method: 'get',
+                data: {
+                    startDateUtc,endDateUtc,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1512,9 +1572,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByDocumentGet(documentDocumentNumber: string, documentDocumentTypeCode: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByDocumentGet(documentDocumentNumber: string, documentDocumentTypeCode: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByDocumentGet(documentDocumentNumber: string, documentDocumentTypeCode: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByDocumentGet = (documentDocumentNumber: string, documentDocumentTypeCode: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!documentDocumentNumber){
             throw new Error('Required parameter documentDocumentNumber was null or undefined when calling apiNskV1BookingsSearchByDocumentGet.');
         }
@@ -1558,13 +1616,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByDocument?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                documentDocumentNumber: string, documentDocumentTypeCode: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByDocument',
+                method: 'get',
+                data: {
+                    documentDocumentNumber,documentDocumentTypeCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1585,9 +1647,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByEmailGet(emailAddress: string, agentId?: number, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByEmailGet(emailAddress: string, agentId?: number, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByEmailGet(emailAddress: string, agentId?: number, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByEmailGet = (emailAddress: string, agentId?: number, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!emailAddress){
             throw new Error('Required parameter emailAddress was null or undefined when calling apiNskV1BookingsSearchByEmailGet.');
         }
@@ -1630,13 +1690,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByEmail?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                emailAddress: string, agentId?: number, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByEmail',
+                method: 'get',
+                data: {
+                    emailAddress,agentId,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1657,9 +1721,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByLastNameGet(lastName: string, firstName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByLastNameGet(lastName: string, firstName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByLastNameGet(lastName: string, firstName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByLastNameGet = (lastName: string, firstName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!lastName){
             throw new Error('Required parameter lastName was null or undefined when calling apiNskV1BookingsSearchByLastNameGet.');
         }
@@ -1702,13 +1764,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByLastName?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                lastName: string, firstName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByLastName',
+                method: 'get',
+                data: {
+                    lastName,firstName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1729,9 +1795,7 @@ export class BookingsService {
      * @param filtersSearchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByPhoneGet(phoneNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByPhoneGet(phoneNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByPhoneGet(phoneNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByPhoneGet = (phoneNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, ) => {
         if (!phoneNumber){
             throw new Error('Required parameter phoneNumber was null or undefined when calling apiNskV1BookingsSearchByPhoneGet.');
         }
@@ -1774,13 +1838,17 @@ export class BookingsService {
             queryParameters.push("filtersSearchArchive="+encodeURIComponent(String(filtersSearchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByPhone?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                phoneNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByPhone',
+                method: 'get',
+                data: {
+                    phoneNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1795,9 +1863,7 @@ export class BookingsService {
      * @param searchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByRecordLocatorGet(recordLocator: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByRecordLocatorGet(recordLocator: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByRecordLocatorGet(recordLocator: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByRecordLocatorGet = (recordLocator: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingsSearchByRecordLocatorGet.');
         }
@@ -1822,13 +1888,17 @@ export class BookingsService {
             queryParameters.push("searchArchive="+encodeURIComponent(String(searchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByRecordLocator?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByRecordLocator',
+                method: 'get',
+                data: {
+                    recordLocator,pageSize,lastIndex,sourceOrganization,organizationGroupCode,searchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1846,9 +1916,7 @@ export class BookingsService {
      * @param searchArchive Whether or not to search the booking archive.
      
      */
-    public apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(systemCode: string, recordLocator: string, agentId?: number, organizationCode?: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(systemCode: string, recordLocator: string, agentId?: number, organizationCode?: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(systemCode: string, recordLocator: string, agentId?: number, organizationCode?: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingsSearchByThirdPartyRecordLocatorGet = (systemCode: string, recordLocator: string, agentId?: number, organizationCode?: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, ) => {
         if (!systemCode){
             throw new Error('Required parameter systemCode was null or undefined when calling apiNskV1BookingsSearchByThirdPartyRecordLocatorGet.');
         }
@@ -1886,13 +1954,17 @@ export class BookingsService {
             queryParameters.push("searchArchive="+encodeURIComponent(String(searchArchive)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByThirdPartyRecordLocator?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                systemCode: string, recordLocator: string, agentId?: number, organizationCode?: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean, 
+            }> = {
+                url: '/api/nsk/v1/bookings/searchByThirdPartyRecordLocator',
+                method: 'get',
+                data: {
+                    systemCode,recordLocator,agentId,organizationCode,pageSize,lastIndex,sourceOrganization,organizationGroupCode,searchArchive,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1902,20 +1974,22 @@ export class BookingsService {
      * @param recordLocator The record locator of the booking.
      
      */
-    public apiNskV2BookingsByRecordLocatorNotificationPost(recordLocator: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV2BookingsByRecordLocatorNotificationPost(recordLocator: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV2BookingsByRecordLocatorNotificationPost(recordLocator: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV2BookingsByRecordLocatorNotificationPost = (recordLocator: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV2BookingsByRecordLocatorNotificationPost.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/bookings/${encodeURIComponent(String(recordLocator))}/notification`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, 
+            }> = {
+                url: '/api/nsk/v2/bookings/${encodeURIComponent(String(recordLocator))}/notification',
+                method: 'post',
+                data: {
+                    recordLocator,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1931,9 +2005,7 @@ export class BookingsService {
      * @param departureDate The first journeys departure date.
      
      */
-    public apiNskV2BookingsGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'body', headers?: Headers): Observable<Booking>;
-    public apiNskV2BookingsGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'response', headers?: Headers): Observable<HttpResponse<Booking>>;
-    public apiNskV2BookingsGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV2BookingsGet = (recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV2BookingsGet.');
         }
@@ -1961,13 +2033,17 @@ export class BookingsService {
            queryParameters.push("departureDate="+encodeURIComponent(<any>departureDate.toISOString()));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/bookings?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, 
+            }> = {
+                url: '/api/nsk/v2/bookings',
+                method: 'get',
+                data: {
+                    recordLocator,emailAddress,origin,firstName,lastName,customerNumber,departureDate,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1977,17 +2053,18 @@ export class BookingsService {
      * @param request The itinerary quote request.
      
      */
-    public apiNskV2BookingsQuotePost(request?: ItineraryQuoteRequest, observe?: 'body', headers?: Headers): Observable<ItineraryQuote>;
-    public apiNskV2BookingsQuotePost(request?: ItineraryQuoteRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<ItineraryQuote>>;
-    public apiNskV2BookingsQuotePost(request?: ItineraryQuoteRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV2BookingsQuotePost = (request?: ItineraryQuoteRequest, ) => {
 
-        const response: Observable<HttpResponse<ItineraryQuote>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/bookings/quote`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <ItineraryQuote>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: ItineraryQuoteRequest, 
+            }> = {
+                url: '/api/nsk/v2/bookings/quote',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -1999,9 +2076,7 @@ export class BookingsService {
      * @param request The checkin passengers request.
      
      */
-    public apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequestv3, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequestv3, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequestv3, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost = (recordLocator: string, journeyKey: string, request?: CheckinPassengersRequestv3, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost.');
         }
@@ -2010,14 +2085,17 @@ export class BookingsService {
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, journeyKey: string, request?: CheckinPassengersRequestv3, 
+            }> = {
+                url: '/api/nsk/v3/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}',
+                method: 'post',
+                data: {
+                    recordLocator,journeyKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -2029,9 +2107,7 @@ export class BookingsService {
      * @param request The checkin passengers request.
      
      */
-    public apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequestv3, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequestv3, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequestv3, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost = (recordLocator: string, segmentKey: string, request?: CheckinPassengersRequestv3, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost.');
         }
@@ -2040,14 +2116,17 @@ export class BookingsService {
             throw new Error('Required parameter segmentKey was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, segmentKey: string, request?: CheckinPassengersRequestv3, 
+            }> = {
+                url: '/api/nsk/v3/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}',
+                method: 'post',
+                data: {
+                    recordLocator,segmentKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

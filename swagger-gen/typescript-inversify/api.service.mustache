@@ -1,0 +1,104 @@
+{{>licenseInfo}}
+/* tslint:disable:no-unused-variable member-ordering */
+
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+import IHttpClient from "../IHttpClient";
+import { inject, injectable } from "inversify";
+import { IAPIConfiguration } from "../IAPIConfiguration";
+import { Headers } from "../Headers";
+import HttpResponse from "../HttpResponse";
+
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
+{{#imports}}
+import { {{classname}} } from '../{{filename}}';
+{{/imports}}
+
+import { COLLECTION_FORMATS }  from '../variables';
+{{#withInterfaces}}
+import { {{classname}}Interface }  from './{{classname}}Interface';
+{{/withInterfaces}}
+
+{{#operations}}
+
+{{#description}}
+/**
+ * {{&description}}
+ */
+{{/description}}
+
+@injectable()
+{{#withInterfaces}}
+export class {{classname}} implements {{classname}}Interface {
+{{/withInterfaces}}
+{{^withInterfaces}}
+export class {{classname}} {
+{{/withInterfaces}}
+
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+{{#operation}}
+
+    /**
+     * {{summary}}
+     * {{notes}}
+     {{#allParams}}* @param {{paramName}} {{description}}
+     {{/allParams}}{{#useHttpClient}}* @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.{{/useHttpClient}}
+     */
+    public {{nickname}} = ({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}) => {
+{{#allParams}}
+{{#required}}
+        if (!{{paramName}}){
+            throw new Error('Required parameter {{paramName}} was null or undefined when calling {{nickname}}.');
+        }
+
+{{/required}}
+{{/allParams}}
+{{#hasQueryParams}}
+        let queryParameters: string[] = [];
+{{#queryParams}}
+        {{#isListContainer}}
+        if ({{paramName}}) {
+        {{#isCollectionFormatMulti}}
+            {{paramName}}.forEach((element) => {
+                queryParameters.push("{{paramName}}="+encodeURIComponent(String({{paramName}})));
+            })
+        {{/isCollectionFormatMulti}}
+        {{^isCollectionFormatMulti}}
+            queryParameters.push("{{paramName}}="+encodeURIComponent({{paramName}}.join(COLLECTION_FORMATS['{{collectionFormat}}'])));
+        {{/isCollectionFormatMulti}}
+        }
+        {{/isListContainer}}
+        {{^isListContainer}}
+        if ({{paramName}} !== undefined) {
+        {{#isDateTime}}
+           queryParameters.push("{{paramName}}="+encodeURIComponent(<any>{{paramName}}.toISOString()));
+        {{/isDateTime}}
+        {{^isDateTime}}
+            queryParameters.push("{{paramName}}="+encodeURIComponent(String({{paramName}})));
+        {{/isDateTime}}
+        }
+        {{/isListContainer}}
+{{/queryParams}}
+
+{{/hasQueryParams}}
+
+            const requestObj: Request<{
+                {{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}
+            }> = {
+                url: '{{path}}',
+                method: '{{httpMethod}}',
+                data: {
+                    {{#allParams}}{{paramName}},{{/allParams}}
+                }
+            };
+            return this.client.makeRequest(requestObj);
+    }
+
+{{/operation}}}
+{{/operations}}

@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { ActivityProduct } from '../model/activityProduct';
 import { ActivitySimpleRequest } from '../model/activitySimpleRequest';
 import { AddOn } from '../model/addOn';
@@ -41,13 +46,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class AddOnsService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Gets availability.
@@ -55,17 +55,18 @@ export class AddOnsService {
      * @param request Activity simple query.
      
      */
-    public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe?: 'body', headers?: Headers): Observable<Array<ActivityProduct>>;
-    public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ActivityProduct>>>;
-    public apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsActivitiesAvailablePost = (request?: ActivitySimpleRequest, ) => {
 
-        const response: Observable<HttpResponse<Array<ActivityProduct>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/activities/available`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<ActivityProduct>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: ActivitySimpleRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/activities/available',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -75,17 +76,18 @@ export class AddOnsService {
      * @param request Items request.
      
      */
-    public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe?: 'body', headers?: Headers): Observable<AddOn>;
-    public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<AddOn>>;
-    public apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsActivitiesPost = (request?: SellTokenRequest, ) => {
 
-        const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/activities`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <AddOn>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: SellTokenRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/activities',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -95,17 +97,18 @@ export class AddOnsService {
      * @param request Quote hotel request.
      
      */
-    public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe?: 'body', headers?: Headers): Observable<QuotedProduct>;
-    public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<QuotedProduct>>;
-    public apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsActivitiesQuotePost = (request?: QuoteTokenRequest, ) => {
 
-        const response: Observable<HttpResponse<QuotedProduct>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/activities/quote`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <QuotedProduct>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: QuoteTokenRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/activities/quote',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -115,17 +118,18 @@ export class AddOnsService {
      * @param request Activity simple query.
      
      */
-    public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe?: 'body', headers?: Headers): Observable<Array<CarProduct>>;
-    public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<CarProduct>>>;
-    public apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsCarsAvailablePost = (request?: ProductRequest, ) => {
 
-        const response: Observable<HttpResponse<Array<CarProduct>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/cars/available`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<CarProduct>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: ProductRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/cars/available',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -135,17 +139,18 @@ export class AddOnsService {
      * @param request Items request.
      
      */
-    public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe?: 'body', headers?: Headers): Observable<AddOn>;
-    public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<AddOn>>;
-    public apiNskV1AddOnsCarsPost(request?: SellCarRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsCarsPost = (request?: SellCarRequest, ) => {
 
-        const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/cars`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <AddOn>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: SellCarRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/cars',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -155,17 +160,18 @@ export class AddOnsService {
      * @param request Quote hotel request.
      
      */
-    public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe?: 'body', headers?: Headers): Observable<QuotedProduct>;
-    public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<QuotedProduct>>;
-    public apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsCarsQuotePost = (request?: QuoteCarRequest, ) => {
 
-        const response: Observable<HttpResponse<QuotedProduct>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/cars/quote`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <QuotedProduct>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: QuoteCarRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/cars/quote',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -175,17 +181,18 @@ export class AddOnsService {
      * @param request Activity simple query.
      
      */
-    public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe?: 'body', headers?: Headers): Observable<Array<HotelProduct>>;
-    public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<HotelProduct>>>;
-    public apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsHotelsAvailablePost = (request?: HotelRequest, ) => {
 
-        const response: Observable<HttpResponse<Array<HotelProduct>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/hotels/available`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<HotelProduct>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: HotelRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/hotels/available',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -195,17 +202,18 @@ export class AddOnsService {
      * @param request Items request.
      
      */
-    public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe?: 'body', headers?: Headers): Observable<AddOn>;
-    public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<AddOn>>;
-    public apiNskV1AddOnsHotelsPost(request?: SellHotelRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsHotelsPost = (request?: SellHotelRequest, ) => {
 
-        const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/hotels`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <AddOn>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: SellHotelRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/hotels',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -215,17 +223,18 @@ export class AddOnsService {
      * @param request Quote hotel request.
      
      */
-    public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe?: 'body', headers?: Headers): Observable<QuotedProduct>;
-    public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<QuotedProduct>>;
-    public apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1AddOnsHotelsQuotePost = (request?: QuoteHotelRequest, ) => {
 
-        const response: Observable<HttpResponse<QuotedProduct>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/hotels/quote`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <QuotedProduct>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: QuoteHotelRequest, 
+            }> = {
+                url: '/api/nsk/v1/addOns/hotels/quote',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

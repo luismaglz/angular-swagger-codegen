@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { IJsonResponse } from '../model/iJsonResponse';
 import { OneTimeNotificationCreateRequest } from '../model/oneTimeNotificationCreateRequest';
 import { OneTimeTravelNotification } from '../model/oneTimeTravelNotification';
@@ -30,13 +35,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class OneTimeTravelNotificationsService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Deletes a one time travel notification.
@@ -44,20 +44,22 @@ export class OneTimeTravelNotificationsService {
      * @param oneTimeTravelNotificationKey The one time travel notification key.
      
      */
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete = (oneTimeTravelNotificationKey: string, ) => {
         if (!oneTimeTravelNotificationKey){
             throw new Error('Required parameter oneTimeTravelNotificationKey was null or undefined when calling apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/oneTimeTravelNotifications/${encodeURIComponent(String(oneTimeTravelNotificationKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                oneTimeTravelNotificationKey: string, 
+            }> = {
+                url: '/api/nsk/v1/oneTimeTravelNotifications/${encodeURIComponent(String(oneTimeTravelNotificationKey))}',
+                method: 'delete',
+                data: {
+                    oneTimeTravelNotificationKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -67,20 +69,22 @@ export class OneTimeTravelNotificationsService {
      * @param oneTimeTravelNotificationKey The one time travel notification key.
      
      */
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe?: 'body', headers?: Headers): Observable<OneTimeTravelNotification>;
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<OneTimeTravelNotification>>;
-    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet = (oneTimeTravelNotificationKey: string, ) => {
         if (!oneTimeTravelNotificationKey){
             throw new Error('Required parameter oneTimeTravelNotificationKey was null or undefined when calling apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<OneTimeTravelNotification>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/oneTimeTravelNotifications/${encodeURIComponent(String(oneTimeTravelNotificationKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <OneTimeTravelNotification>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                oneTimeTravelNotificationKey: string, 
+            }> = {
+                url: '/api/nsk/v1/oneTimeTravelNotifications/${encodeURIComponent(String(oneTimeTravelNotificationKey))}',
+                method: 'get',
+                data: {
+                    oneTimeTravelNotificationKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -90,17 +94,18 @@ export class OneTimeTravelNotificationsService {
      * @param request The passenger travel notification create request.
      
      */
-    public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1OneTimeTravelNotificationsPost = (request?: OneTimeNotificationCreateRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/oneTimeTravelNotifications`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: OneTimeNotificationCreateRequest, 
+            }> = {
+                url: '/api/nsk/v1/oneTimeTravelNotifications',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

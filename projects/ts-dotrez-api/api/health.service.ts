@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { EnvironmentHealth } from '../model/environmentHealth';
 
 import { COLLECTION_FORMATS }  from '../variables';
@@ -28,29 +33,26 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class HealthService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * 
      * 
      
      */
-    public apiV1HealthGet(observe?: 'body', headers?: Headers): Observable<EnvironmentHealth>;
-    public apiV1HealthGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<EnvironmentHealth>>;
-    public apiV1HealthGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiV1HealthGet = () => {
 
-        const response: Observable<HttpResponse<EnvironmentHealth>> = this.httpClient.get(`${this.basePath}/api/v1/health`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <EnvironmentHealth>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/v1/health',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }
