@@ -17,19 +17,21 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Manifest } from '../model/manifest';
-import { ManifestRequestBase } from '../model/manifestRequestBase';
-import { PassengerDetails } from '../model/passengerDetails';
-import { PassengerSeatAssignment } from '../model/passengerSeatAssignment';
-import { TripInformationResponse } from '../model/tripInformationResponse';
-
+import {
+ IJsonResponse,
+ Manifest,
+ ManifestRequestBase,
+ PassengerDetails,
+ PassengerSeatAssignment,
+ TripInformationResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ManifestService {
 
     protected basePath = 'https://localhost';

@@ -17,16 +17,18 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { IJsonResponse } from '../model/iJsonResponse';
-import { OneTimeNotificationCreateRequest } from '../model/oneTimeNotificationCreateRequest';
-import { OneTimeTravelNotification } from '../model/oneTimeTravelNotification';
-
+import {
+ IJsonResponse,
+ OneTimeNotificationCreateRequest,
+ OneTimeTravelNotification,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class OneTimeTravelNotificationsService {
 
     protected basePath = 'https://localhost';

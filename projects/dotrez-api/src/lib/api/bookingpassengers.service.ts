@@ -17,47 +17,49 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { AddSeatRequest } from '../model/addSeatRequest';
-import { DeltaMapperInfant } from '../model/deltaMapperInfant';
-import { DeltaMapperPassengerAddressEditRequest } from '../model/deltaMapperPassengerAddressEditRequest';
-import { DeltaMapperPassengerBase } from '../model/deltaMapperPassengerBase';
-import { DeltaMapperTravelDocumentEditRequest } from '../model/deltaMapperTravelDocumentEditRequest';
-import { DeltaMapperTravelNotificationEditRequest } from '../model/deltaMapperTravelNotificationEditRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Infant } from '../model/infant';
-import { InlineResponse2005 } from '../model/inlineResponse2005';
-import { InlineResponse2006 } from '../model/inlineResponse2006';
-import { InlineResponse2007 } from '../model/inlineResponse2007';
-import { NotificationEvent } from '../model/notificationEvent';
-import { NotificationEventCreateRequest } from '../model/notificationEventCreateRequest';
-import { NotificationTimedEvent } from '../model/notificationTimedEvent';
-import { NotificationTimedEventCreateRequest } from '../model/notificationTimedEventCreateRequest';
-import { NotificationTimedEventEditRequest } from '../model/notificationTimedEventEditRequest';
-import { Passenger } from '../model/passenger';
-import { PassengerAddress } from '../model/passengerAddress';
-import { PassengerAddressCreateRequest } from '../model/passengerAddressCreateRequest';
-import { PassengerAddressEditRequest } from '../model/passengerAddressEditRequest';
-import { PassengerBag } from '../model/passengerBag';
-import { PassengerBase } from '../model/passengerBase';
-import { PassengerInfant } from '../model/passengerInfant';
-import { PassengerInfantCreateRequest } from '../model/passengerInfantCreateRequest';
-import { PassengerKeyResponse } from '../model/passengerKeyResponse';
-import { PassengerPriceBreakdown } from '../model/passengerPriceBreakdown';
-import { PassengerSeat } from '../model/passengerSeat';
-import { PassengerTravelDocument } from '../model/passengerTravelDocument';
-import { PassengerTypeCodeEditRequest } from '../model/passengerTypeCodeEditRequest';
-import { TravelDocumentCreateRequest } from '../model/travelDocumentCreateRequest';
-import { TravelDocumentEditRequest } from '../model/travelDocumentEditRequest';
-import { TravelNotification } from '../model/travelNotification';
-import { TravelNotificationCreateRequest } from '../model/travelNotificationCreateRequest';
-import { TravelNotificationEditRequest } from '../model/travelNotificationEditRequest';
-
+import {
+ AddSeatRequest,
+ DeltaMapperInfant,
+ DeltaMapperPassengerAddressEditRequest,
+ DeltaMapperPassengerBase,
+ DeltaMapperTravelDocumentEditRequest,
+ DeltaMapperTravelNotificationEditRequest,
+ IJsonResponse,
+ Infant,
+ InlineResponse2005,
+ InlineResponse2006,
+ InlineResponse2007,
+ NotificationEvent,
+ NotificationEventCreateRequest,
+ NotificationTimedEvent,
+ NotificationTimedEventCreateRequest,
+ NotificationTimedEventEditRequest,
+ Passenger,
+ PassengerAddress,
+ PassengerAddressCreateRequest,
+ PassengerAddressEditRequest,
+ PassengerBag,
+ PassengerBase,
+ PassengerInfant,
+ PassengerInfantCreateRequest,
+ PassengerKeyResponse,
+ PassengerPriceBreakdown,
+ PassengerSeat,
+ PassengerTravelDocument,
+ PassengerTypeCodeEditRequest,
+ TravelDocumentCreateRequest,
+ TravelDocumentEditRequest,
+ TravelNotification,
+ TravelNotificationCreateRequest,
+ TravelNotificationEditRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingpassengersService {
 
     protected basePath = 'https://localhost';

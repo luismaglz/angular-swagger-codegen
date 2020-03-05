@@ -10,6 +10,7 @@ import { AppSessionService } from "./services/app-session.service";
 export class AppComponent implements OnInit {
   title = "app-usin-api";
   booking: Booking;
+
   constructor(
     protected tokenService: TokenService,
     protected bookingRetrieveService: BookingretrieveService,

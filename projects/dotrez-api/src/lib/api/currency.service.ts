@@ -17,15 +17,17 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { CurrencyConversion } from '../model/currencyConversion';
-import { IJsonResponse } from '../model/iJsonResponse';
-
+import {
+ CurrencyConversion,
+ IJsonResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CurrencyService {
 
     protected basePath = 'https://localhost';

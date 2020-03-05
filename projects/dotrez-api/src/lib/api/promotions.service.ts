@@ -17,16 +17,18 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Promotion } from '../model/promotion';
-import { PromotionBase } from '../model/promotionBase';
-
+import {
+ IJsonResponse,
+ Promotion,
+ PromotionBase,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PromotionsService {
 
     protected basePath = 'https://localhost';

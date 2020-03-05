@@ -17,61 +17,63 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { Account } from '../model/account';
-import { ActivityProduct } from '../model/activityProduct';
-import { AddOn } from '../model/addOn';
-import { AddOnAllowedPayments } from '../model/addOnAllowedPayments';
-import { AddOnSettings } from '../model/addOnSettings';
-import { AutoAssignRequest } from '../model/autoAssignRequest';
-import { Booking } from '../model/booking';
-import { BookingComment } from '../model/bookingComment';
-import { BookingMessageHistory } from '../model/bookingMessageHistory';
-import { BookingNotificationHistory } from '../model/bookingNotificationHistory';
-import { BookingPointOfSaleEditRequest } from '../model/bookingPointOfSaleEditRequest';
-import { BookingQueueRequest } from '../model/bookingQueueRequest';
-import { BundleAvailability } from '../model/bundleAvailability';
-import { BundleAvailabilityRequest } from '../model/bundleAvailabilityRequest';
-import { CarProduct } from '../model/carProduct';
-import { CommitPassengerFeeRequest } from '../model/commitPassengerFeeRequest';
-import { CommitRequestv2 } from '../model/commitRequestv2';
-import { Consumer } from '../model/consumer';
-import { DeltaMapperBookingPointOfSaleEditRequest } from '../model/deltaMapperBookingPointOfSaleEditRequest';
-import { DeltaMapperConsumer } from '../model/deltaMapperConsumer';
-import { DeltaMapperOrderParticipantUpdateRequest } from '../model/deltaMapperOrderParticipantUpdateRequest';
-import { DeltaMapperRecordLocatorEditRequest } from '../model/deltaMapperRecordLocatorEditRequest';
-import { DivideRequestv2 } from '../model/divideRequestv2';
-import { FareOverrideRequest } from '../model/fareOverrideRequest';
-import { FareRule } from '../model/fareRule';
-import { FeeRequestBase } from '../model/feeRequestBase';
-import { FlightMoveHistoryResponse } from '../model/flightMoveHistoryResponse';
-import { HistoryResponse } from '../model/historyResponse';
-import { HotelProduct } from '../model/hotelProduct';
-import { IActionResult } from '../model/iActionResult';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InlineResponse200 } from '../model/inlineResponse200';
-import { InlineResponse2001 } from '../model/inlineResponse2001';
-import { InlineResponse2002 } from '../model/inlineResponse2002';
-import { InsuranceProduct } from '../model/insuranceProduct';
-import { OrderParticipantUpdateRequest } from '../model/orderParticipantUpdateRequest';
-import { OrderPaymentBase } from '../model/orderPaymentBase';
-import { PreCancelDetail } from '../model/preCancelDetail';
-import { PromotionRequest } from '../model/promotionRequest';
-import { RecordLocator } from '../model/recordLocator';
-import { RecordLocatorCreateRequest } from '../model/recordLocatorCreateRequest';
-import { RecordLocatorEditRequest } from '../model/recordLocatorEditRequest';
-import { SeatAssignmentHistoryResponse } from '../model/seatAssignmentHistoryResponse';
-import { SeatMapAvailability } from '../model/seatMapAvailability';
-import { SegmentChangeHistoryResponse } from '../model/segmentChangeHistoryResponse';
-import { SellInsuranceRequest } from '../model/sellInsuranceRequest';
-import { ServiceCharge } from '../model/serviceCharge';
-import { Transaction } from '../model/transaction';
-
+import {
+ Account,
+ ActivityProduct,
+ AddOn,
+ AddOnAllowedPayments,
+ AddOnSettings,
+ AutoAssignRequest,
+ Booking,
+ BookingComment,
+ BookingMessageHistory,
+ BookingNotificationHistory,
+ BookingPointOfSaleEditRequest,
+ BookingQueueRequest,
+ BundleAvailability,
+ BundleAvailabilityRequest,
+ CarProduct,
+ CommitPassengerFeeRequest,
+ CommitRequestv2,
+ Consumer,
+ DeltaMapperBookingPointOfSaleEditRequest,
+ DeltaMapperConsumer,
+ DeltaMapperOrderParticipantUpdateRequest,
+ DeltaMapperRecordLocatorEditRequest,
+ DivideRequestv2,
+ FareOverrideRequest,
+ FareRule,
+ FeeRequestBase,
+ FlightMoveHistoryResponse,
+ HistoryResponse,
+ HotelProduct,
+ IActionResult,
+ IJsonResponse,
+ InlineResponse200,
+ InlineResponse2001,
+ InlineResponse2002,
+ InsuranceProduct,
+ OrderParticipantUpdateRequest,
+ OrderPaymentBase,
+ PreCancelDetail,
+ PromotionRequest,
+ RecordLocator,
+ RecordLocatorCreateRequest,
+ RecordLocatorEditRequest,
+ SeatAssignmentHistoryResponse,
+ SeatMapAvailability,
+ SegmentChangeHistoryResponse,
+ SellInsuranceRequest,
+ ServiceCharge,
+ Transaction,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingService {
 
     protected basePath = 'https://localhost';

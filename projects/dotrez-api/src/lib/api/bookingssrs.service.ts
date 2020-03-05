@@ -17,22 +17,24 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { IJsonResponse } from '../model/iJsonResponse';
-import { PassengerSsr } from '../model/passengerSsr';
-import { PassengerSsrKey } from '../model/passengerSsrKey';
-import { ResellSsrRequest } from '../model/resellSsrRequest';
-import { SingleSsrByKeyRequestv2 } from '../model/singleSsrByKeyRequestv2';
-import { SsrAvailability } from '../model/ssrAvailability';
-import { SsrAvailabilityRequestv2 } from '../model/ssrAvailabilityRequestv2';
-import { SsrByKeysRequestv2 } from '../model/ssrByKeysRequestv2';
-import { SsrsRequest } from '../model/ssrsRequest';
-
+import {
+ IJsonResponse,
+ PassengerSsr,
+ PassengerSsrKey,
+ ResellSsrRequest,
+ SingleSsrByKeyRequestv2,
+ SsrAvailability,
+ SsrAvailabilityRequestv2,
+ SsrByKeysRequestv2,
+ SsrsRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingssrsService {
 
     protected basePath = 'https://localhost';

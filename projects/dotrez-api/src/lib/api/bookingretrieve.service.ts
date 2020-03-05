@@ -17,15 +17,17 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { Booking } from '../model/booking';
-import { IJsonResponse } from '../model/iJsonResponse';
-
+import {
+ Booking,
+ IJsonResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingretrieveService {
 
     protected basePath = 'https://localhost';

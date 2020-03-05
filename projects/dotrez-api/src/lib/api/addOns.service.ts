@@ -17,27 +17,29 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { ActivityProduct } from '../model/activityProduct';
-import { ActivitySimpleRequest } from '../model/activitySimpleRequest';
-import { AddOn } from '../model/addOn';
-import { CarProduct } from '../model/carProduct';
-import { HotelProduct } from '../model/hotelProduct';
-import { HotelRequest } from '../model/hotelRequest';
-import { ProductRequest } from '../model/productRequest';
-import { QuoteCarRequest } from '../model/quoteCarRequest';
-import { QuoteHotelRequest } from '../model/quoteHotelRequest';
-import { QuoteTokenRequest } from '../model/quoteTokenRequest';
-import { QuotedProduct } from '../model/quotedProduct';
-import { SellCarRequest } from '../model/sellCarRequest';
-import { SellHotelRequest } from '../model/sellHotelRequest';
-import { SellTokenRequest } from '../model/sellTokenRequest';
-
+import {
+ ActivityProduct,
+ ActivitySimpleRequest,
+ AddOn,
+ CarProduct,
+ HotelProduct,
+ HotelRequest,
+ ProductRequest,
+ QuoteCarRequest,
+ QuoteHotelRequest,
+ QuoteTokenRequest,
+ QuotedProduct,
+ SellCarRequest,
+ SellHotelRequest,
+ SellTokenRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AddOnsService {
 
     protected basePath = 'https://localhost';

@@ -17,15 +17,17 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { GraphQlQuery } from '../model/graphQlQuery';
-import { GraphQlQueryv2 } from '../model/graphQlQueryv2';
-
+import {
+ GraphQlQuery,
+ GraphQlQueryv2,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GraphService {
 
     protected basePath = 'https://localhost';

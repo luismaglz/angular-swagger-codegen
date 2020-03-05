@@ -17,22 +17,24 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { AvailabilityRequestv2 } from '../model/availabilityRequestv2';
-import { AvailabilitySimpleRequestv2 } from '../model/availabilitySimpleRequestv2';
-import { Availabilityv2 } from '../model/availabilityv2';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { LowFareAvailability } from '../model/lowFareAvailability';
-import { LowFareAvailabilityRequest } from '../model/lowFareAvailabilityRequest';
-import { LowFareAvailabilitySearchSimpleRequest } from '../model/lowFareAvailabilitySearchSimpleRequest';
-import { LowFareCacheAvailability } from '../model/lowFareCacheAvailability';
-import { LowFareCacheRequest } from '../model/lowFareCacheRequest';
-
+import {
+ AvailabilityRequestv2,
+ AvailabilitySimpleRequestv2,
+ Availabilityv2,
+ IJsonResponse,
+ LowFareAvailability,
+ LowFareAvailabilityRequest,
+ LowFareAvailabilitySearchSimpleRequest,
+ LowFareCacheAvailability,
+ LowFareCacheRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AvailabilityService {
 
     protected basePath = 'https://localhost';

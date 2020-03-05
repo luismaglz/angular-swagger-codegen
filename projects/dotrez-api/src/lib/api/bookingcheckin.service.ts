@@ -17,19 +17,21 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { CheckinPassengerLiftStatus } from '../model/checkinPassengerLiftStatus';
-import { CheckinPassengersRequest } from '../model/checkinPassengersRequest';
-import { CheckinPassengersRequestv3 } from '../model/checkinPassengersRequestv3';
-import { CheckinRequirements } from '../model/checkinRequirements';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InlineResponse2003 } from '../model/inlineResponse2003';
-
+import {
+ CheckinPassengerLiftStatus,
+ CheckinPassengersRequest,
+ CheckinPassengersRequestv3,
+ CheckinRequirements,
+ IJsonResponse,
+ InlineResponse2003,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingcheckinService {
 
     protected basePath = 'https://localhost';

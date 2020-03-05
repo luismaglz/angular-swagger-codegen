@@ -17,16 +17,18 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { IJsonResponse } from '../model/iJsonResponse';
-import { OrganizationGroup } from '../model/organizationGroup';
-import { OrganizationGroupDetails } from '../model/organizationGroupDetails';
-
+import {
+ IJsonResponse,
+ OrganizationGroup,
+ OrganizationGroupDetails,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class OrganizationsService {
 
     protected basePath = 'https://localhost';

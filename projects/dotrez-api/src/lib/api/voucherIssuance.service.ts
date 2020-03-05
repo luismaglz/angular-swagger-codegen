@@ -17,16 +17,18 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { IJsonResponse } from '../model/iJsonResponse';
-import { VoucherIssuance } from '../model/voucherIssuance';
-import { VoucherIssuanceRequest } from '../model/voucherIssuanceRequest';
-
+import {
+ IJsonResponse,
+ VoucherIssuance,
+ VoucherIssuanceRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class VoucherIssuanceService {
 
     protected basePath = 'https://localhost';

@@ -17,32 +17,34 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { Availability } from '../model/availability';
-import { AvailabilityFlyAheadRequest } from '../model/availabilityFlyAheadRequest';
-import { AvailabilityMoveRequest } from '../model/availabilityMoveRequest';
-import { AvailabilityRebookRequest } from '../model/availabilityRebookRequest';
-import { Booking } from '../model/booking';
-import { BookingSellRequest } from '../model/bookingSellRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { MoveRequest } from '../model/moveRequest';
-import { ScheduleDetail } from '../model/scheduleDetail';
-import { Trip } from '../model/trip';
-import { TripDetails } from '../model/tripDetails';
-import { TripDowngradeRequest } from '../model/tripDowngradeRequest';
-import { TripInformationQuery } from '../model/tripInformationQuery';
-import { TripInformationResponse } from '../model/tripInformationResponse';
-import { TripSellRequest } from '../model/tripSellRequest';
-import { TripStatusv2 } from '../model/tripStatusv2';
-import { TripUpgradeBaseRequest } from '../model/tripUpgradeBaseRequest';
-import { TripUpgradeRequest } from '../model/tripUpgradeRequest';
-import { UpgradeSegment } from '../model/upgradeSegment';
-
+import {
+ Availability,
+ AvailabilityFlyAheadRequest,
+ AvailabilityMoveRequest,
+ AvailabilityRebookRequest,
+ Booking,
+ BookingSellRequest,
+ IJsonResponse,
+ MoveRequest,
+ ScheduleDetail,
+ Trip,
+ TripDetails,
+ TripDowngradeRequest,
+ TripInformationQuery,
+ TripInformationResponse,
+ TripSellRequest,
+ TripStatusv2,
+ TripUpgradeBaseRequest,
+ TripUpgradeRequest,
+ UpgradeSegment,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TripService {
 
     protected basePath = 'https://localhost';

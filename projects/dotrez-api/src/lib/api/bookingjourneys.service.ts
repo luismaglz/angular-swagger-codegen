@@ -17,20 +17,22 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { BundleSellRequest } from '../model/bundleSellRequest';
-import { CancelJourneyRequest } from '../model/cancelJourneyRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Journey } from '../model/journey';
-import { PassengerBag } from '../model/passengerBag';
-import { PassengerBagRequest } from '../model/passengerBagRequest';
-import { TravelDocumentRequirements } from '../model/travelDocumentRequirements';
-
+import {
+ BundleSellRequest,
+ CancelJourneyRequest,
+ IJsonResponse,
+ Journey,
+ PassengerBag,
+ PassengerBagRequest,
+ TravelDocumentRequirements,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingjourneysService {
 
     protected basePath = 'https://localhost';

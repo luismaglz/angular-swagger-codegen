@@ -23,11 +23,11 @@ import { Observable }                                        from 'rxjs';
 {{^useHttpClient}}
 import '../rxjs-operators';
 {{/useHttpClient}}
-
+import {
 {{#imports}}
-import { {{classname}} } from '../{{filename}}';
+ {{classname}},
 {{/imports}}
-
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 {{#withInterfaces}}

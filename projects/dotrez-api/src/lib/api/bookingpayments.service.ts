@@ -17,33 +17,35 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { ApplyBookingCreditRequestv2 } from '../model/applyBookingCreditRequestv2';
-import { ApplyCreditAccountRequest } from '../model/applyCreditAccountRequest';
-import { ApplyCreditRequest } from '../model/applyCreditRequest';
-import { CreditAccount } from '../model/creditAccount';
-import { CustomerCreditRefundRequest } from '../model/customerCreditRefundRequest';
-import { DccRequestBasev2 } from '../model/dccRequestBasev2';
-import { DirectCurrencyConversionAvailability } from '../model/directCurrencyConversionAvailability';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InlineResponse2008 } from '../model/inlineResponse2008';
-import { InlineResponse2009 } from '../model/inlineResponse2009';
-import { OrganizationRefundRequest } from '../model/organizationRefundRequest';
-import { Payment } from '../model/payment';
-import { PaymentFeeResponse } from '../model/paymentFeeResponse';
-import { PaymentMethodRequest } from '../model/paymentMethodRequest';
-import { PaymentRefundRequest } from '../model/paymentRefundRequest';
-import { PaymentRequest } from '../model/paymentRequest';
-import { ThreeDSecurePaymentMethodRequestv2 } from '../model/threeDSecurePaymentMethodRequestv2';
-import { ThreeDSecureResponse } from '../model/threeDSecureResponse';
-import { VoucherInformation } from '../model/voucherInformation';
-import { VoucherPaymentRequest } from '../model/voucherPaymentRequest';
-
+import {
+ ApplyBookingCreditRequestv2,
+ ApplyCreditAccountRequest,
+ ApplyCreditRequest,
+ CreditAccount,
+ CustomerCreditRefundRequest,
+ DccRequestBasev2,
+ DirectCurrencyConversionAvailability,
+ IJsonResponse,
+ InlineResponse2008,
+ InlineResponse2009,
+ OrganizationRefundRequest,
+ Payment,
+ PaymentFeeResponse,
+ PaymentMethodRequest,
+ PaymentRefundRequest,
+ PaymentRequest,
+ ThreeDSecurePaymentMethodRequestv2,
+ ThreeDSecureResponse,
+ VoucherInformation,
+ VoucherPaymentRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingpaymentsService {
 
     protected basePath = 'https://localhost';

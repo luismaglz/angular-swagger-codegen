@@ -17,30 +17,32 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { ChildAccountTransactionsRequest } from '../model/childAccountTransactionsRequest';
-import { CreateOrganizationAccountRequest } from '../model/createOrganizationAccountRequest';
-import { DeltaMapperOrganizationEditRequest } from '../model/deltaMapperOrganizationEditRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { OrganizationAccount } from '../model/organizationAccount';
-import { OrganizationCommissionRate } from '../model/organizationCommissionRate';
-import { OrganizationCreateRequest } from '../model/organizationCreateRequest';
-import { OrganizationEditRequest } from '../model/organizationEditRequest';
-import { OrganizationExternalAccountRequest } from '../model/organizationExternalAccountRequest';
-import { OrganizationExternalAccountv2 } from '../model/organizationExternalAccountv2';
-import { OrganizationRecord } from '../model/organizationRecord';
-import { OrganizationRegisterRequest } from '../model/organizationRegisterRequest';
-import { OrganizationTransactionRequest } from '../model/organizationTransactionRequest';
-import { Organizationv2 } from '../model/organizationv2';
-import { PhoneNumber } from '../model/phoneNumber';
-import { PhoneNumberBase } from '../model/phoneNumberBase';
-import { Transaction } from '../model/transaction';
-
+import {
+ ChildAccountTransactionsRequest,
+ CreateOrganizationAccountRequest,
+ DeltaMapperOrganizationEditRequest,
+ IJsonResponse,
+ OrganizationAccount,
+ OrganizationCommissionRate,
+ OrganizationCreateRequest,
+ OrganizationEditRequest,
+ OrganizationExternalAccountRequest,
+ OrganizationExternalAccountv2,
+ OrganizationRecord,
+ OrganizationRegisterRequest,
+ OrganizationTransactionRequest,
+ Organizationv2,
+ PhoneNumber,
+ PhoneNumberBase,
+ Transaction,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class Organizations2Service {
 
     protected basePath = 'https://localhost';

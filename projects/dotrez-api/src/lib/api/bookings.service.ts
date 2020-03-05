@@ -17,37 +17,39 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { Account } from '../model/account';
-import { AccountCollectionRequest } from '../model/accountCollectionRequest';
-import { Booking } from '../model/booking';
-import { BookingCommentRequest } from '../model/bookingCommentRequest';
-import { BookingMessageHistory } from '../model/bookingMessageHistory';
-import { BookingNotificationHistory } from '../model/bookingNotificationHistory';
-import { BookingQueueHistory } from '../model/bookingQueueHistory';
-import { BookingQueueHistoryRequest } from '../model/bookingQueueHistoryRequest';
-import { BookingQueueRequest } from '../model/bookingQueueRequest';
-import { BookingSearchResult } from '../model/bookingSearchResult';
-import { CheckinPassengersRequest } from '../model/checkinPassengersRequest';
-import { CheckinPassengersRequestv3 } from '../model/checkinPassengersRequestv3';
-import { CheckinRequirements } from '../model/checkinRequirements';
-import { CreateAccountRequest } from '../model/createAccountRequest';
-import { FareOverrideRequest } from '../model/fareOverrideRequest';
-import { HistoryResponse } from '../model/historyResponse';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InlineResponse2003 } from '../model/inlineResponse2003';
-import { ItineraryQuote } from '../model/itineraryQuote';
-import { ItineraryQuoteRequest } from '../model/itineraryQuoteRequest';
-import { SeatAssignmentHistoryResponse } from '../model/seatAssignmentHistoryResponse';
-import { SegmentChangeHistoryResponse } from '../model/segmentChangeHistoryResponse';
-import { Transaction } from '../model/transaction';
-import { TransactionRequest } from '../model/transactionRequest';
-
+import {
+ Account,
+ AccountCollectionRequest,
+ Booking,
+ BookingCommentRequest,
+ BookingMessageHistory,
+ BookingNotificationHistory,
+ BookingQueueHistory,
+ BookingQueueHistoryRequest,
+ BookingQueueRequest,
+ BookingSearchResult,
+ CheckinPassengersRequest,
+ CheckinPassengersRequestv3,
+ CheckinRequirements,
+ CreateAccountRequest,
+ FareOverrideRequest,
+ HistoryResponse,
+ IJsonResponse,
+ InlineResponse2003,
+ ItineraryQuote,
+ ItineraryQuoteRequest,
+ SeatAssignmentHistoryResponse,
+ SegmentChangeHistoryResponse,
+ Transaction,
+ TransactionRequest,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingsService {
 
     protected basePath = 'https://localhost';

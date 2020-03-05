@@ -17,17 +17,19 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { BundleApplication } from '../model/bundleApplication';
-import { BundleApplicationDetails } from '../model/bundleApplicationDetails';
-import { BundleSetDetails } from '../model/bundleSetDetails';
-import { IJsonResponse } from '../model/iJsonResponse';
-
+import {
+ BundleApplication,
+ BundleApplicationDetails,
+ BundleSetDetails,
+ IJsonResponse,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BundlesService {
 
     protected basePath = 'https://localhost';

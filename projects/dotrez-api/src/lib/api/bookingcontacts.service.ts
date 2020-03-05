@@ -17,20 +17,22 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
-
-import { Contact } from '../model/contact';
-import { ContactRequest } from '../model/contactRequest';
-import { DeltaMapperContactBase } from '../model/deltaMapperContactBase';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InlineResponse2004 } from '../model/inlineResponse2004';
-import { PhoneNumber } from '../model/phoneNumber';
-import { PhoneNumberBase } from '../model/phoneNumberBase';
-
+import {
+ Contact,
+ ContactRequest,
+ DeltaMapperContactBase,
+ IJsonResponse,
+ InlineResponse2004,
+ PhoneNumber,
+ PhoneNumberBase,
+} from '../types/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingcontactsService {
 
     protected basePath = 'https://localhost';
