@@ -17,6 +17,10 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Availability segment defines segment information before being booked.
  */
+
+    import { AvailabilitySegment<CAP>changeReasonCode<CAP> } from '../models/enums';
+    import { AvailabilitySegment<CAP>segmentType<CAP> } from '../models/enums';
+
 export interface AvailabilitySegment { 
     /**
      * Represents the blocked status of the segment.
@@ -57,11 +61,11 @@ export interface AvailabilitySegment {
     /**
      * The change reason code.
      */
-    changeReasonCode?: AvailabilitySegment.ChangeReasonCodeEnum;
+    changeReasonCode?: AvailabilitySegment<CAP>changeReasonCode<CAP>;
     /**
      * The type of the segment.
      */
-    segmentType?: AvailabilitySegment.SegmentTypeEnum;
+    segmentType?: AvailabilitySegment<CAP>segmentType<CAP>;
     /**
      * The value indicating if this segment is international.
      */
@@ -70,25 +74,4 @@ export interface AvailabilitySegment {
      * The legs.
      */
     legs?: Array<Leg>;
-}
-export namespace AvailabilitySegment {
-    export type ChangeReasonCodeEnum = 'NoChange' | 'Irop' | 'ScheduleChange' | 'Move' | 'VoluntaryFlyAhead' | 'InvoluntaryFlyAhead' | 'SelfServiceRebooking';
-    export const ChangeReasonCodeEnum = {
-        NoChange: 'NoChange' as ChangeReasonCodeEnum,
-        Irop: 'Irop' as ChangeReasonCodeEnum,
-        ScheduleChange: 'ScheduleChange' as ChangeReasonCodeEnum,
-        Move: 'Move' as ChangeReasonCodeEnum,
-        VoluntaryFlyAhead: 'VoluntaryFlyAhead' as ChangeReasonCodeEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as ChangeReasonCodeEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as ChangeReasonCodeEnum
-    }
-    export type SegmentTypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const SegmentTypeEnum = {
-        Normal: 'Normal' as SegmentTypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as SegmentTypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as SegmentTypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as SegmentTypeEnum,
-        InterlineInbound: 'InterlineInbound' as SegmentTypeEnum,
-        Passive: 'Passive' as SegmentTypeEnum
-    }
 }

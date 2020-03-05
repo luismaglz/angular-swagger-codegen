@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { GraphQlQuery } from '../model/graphQlQuery';
 import { GraphQlQueryv2 } from '../model/graphQlQueryv2';
 
@@ -34,8 +29,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class GraphService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Invokes a graph query configured in utilities.
@@ -45,7 +45,9 @@ export class GraphService {
      * @param variables The json matching your json variables in your graph query.
      
      */
-    public apiNskV1GraphByQueryNamePost = (queryName: string, cachedResults: boolean, variables?: any, ) => {
+    public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe?: 'body', headers?: Headers): Observable<any>;
+    public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!queryName){
             throw new Error('Required parameter queryName was null or undefined when calling apiNskV1GraphByQueryNamePost.');
         }
@@ -60,16 +62,11 @@ export class GraphService {
         }
 
 
-            const requestObj: Request<{
-                queryName: string, cachedResults: boolean, variables?: any, 
-            }> = {
-                url: '/api/nsk/v1/graph/${encodeURIComponent(String(queryName))}',
-                method: 'post',
-                data: {
-                    queryName,cachedResults,variables,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/graph/${encodeURIComponent(String(queryName))}?${queryParameters.join('&')}`, variables , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <any>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -79,18 +76,15 @@ export class GraphService {
      * @param query 
      
      */
-    public apiV1GraphPost = (query?: GraphQlQuery, ) => {
+    public apiV1GraphPost(query?: GraphQlQuery, observe?: 'body', headers?: Headers): Observable<any>;
+    public apiV1GraphPost(query?: GraphQlQuery, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public apiV1GraphPost(query?: GraphQlQuery, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                query?: GraphQlQuery, 
-            }> = {
-                url: '/api/v1/graph',
-                method: 'post',
-                data: {
-                    query,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.basePath}/api/v1/graph`, query , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <any>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -101,22 +95,19 @@ export class GraphService {
      * @param query 
      
      */
-    public apiV2GraphByQueryNamePost = (queryName: string, query?: GraphQlQueryv2, ) => {
+    public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe?: 'body', headers?: Headers): Observable<any>;
+    public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!queryName){
             throw new Error('Required parameter queryName was null or undefined when calling apiV2GraphByQueryNamePost.');
         }
 
 
-            const requestObj: Request<{
-                queryName: string, query?: GraphQlQueryv2, 
-            }> = {
-                url: '/api/v2/graph/${encodeURIComponent(String(queryName))}',
-                method: 'post',
-                data: {
-                    queryName,query,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.basePath}/api/v2/graph/${encodeURIComponent(String(queryName))}`, query , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <any>(httpResponse.response));
+        }
+        return response;
     }
 
 }

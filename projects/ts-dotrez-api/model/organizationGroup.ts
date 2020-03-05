@@ -14,6 +14,7 @@
 /**
  * The data for an organization group.
  */
+
 export interface OrganizationGroup { 
     /**
      * The organization group code.

@@ -15,6 +15,10 @@ import { PassengerFareAvailability } from './passengerFareAvailability';
 /**
  * The fare availability represents a master fare reference with all the fare details.
  */
+
+    import { FareAvailabilityv2<CAP>fareApplicationType<CAP> } from '../models/enums';
+    import { FareAvailabilityv2<CAP>fareStatus<CAP> } from '../models/enums';
+
 export interface FareAvailabilityv2 { 
     /**
      * Flag indicating of the fare is the governing fare.
@@ -35,11 +39,11 @@ export interface FareAvailabilityv2 {
     /**
      * The fare application type.
      */
-    fareApplicationType?: FareAvailabilityv2.FareApplicationTypeEnum;
+    fareApplicationType?: FareAvailabilityv2<CAP>fareApplicationType<CAP>;
     /**
      * The fare status.
      */
-    fareStatus?: FareAvailabilityv2.FareStatusEnum;
+    fareStatus?: FareAvailabilityv2<CAP>fareStatus<CAP>;
     /**
      * The fare product class.
      */
@@ -68,21 +72,4 @@ export interface FareAvailabilityv2 {
      * The reference to the fare from the journey fare available.
      */
     reference?: string;
-}
-export namespace FareAvailabilityv2 {
-    export type FareApplicationTypeEnum = 'Route' | 'Sector' | 'Governing';
-    export const FareApplicationTypeEnum = {
-        Route: 'Route' as FareApplicationTypeEnum,
-        Sector: 'Sector' as FareApplicationTypeEnum,
-        Governing: 'Governing' as FareApplicationTypeEnum
-    }
-    export type FareStatusEnum = 'Default' | 'SameDayStandBy' | 'FareOverrideConfirming' | 'FareOverrideConfirmed' | 'PublishedFareOverrideConfirming' | 'PublishedFareOverrideConfirmed';
-    export const FareStatusEnum = {
-        Default: 'Default' as FareStatusEnum,
-        SameDayStandBy: 'SameDayStandBy' as FareStatusEnum,
-        FareOverrideConfirming: 'FareOverrideConfirming' as FareStatusEnum,
-        FareOverrideConfirmed: 'FareOverrideConfirmed' as FareStatusEnum,
-        PublishedFareOverrideConfirming: 'PublishedFareOverrideConfirming' as FareStatusEnum,
-        PublishedFareOverrideConfirmed: 'PublishedFareOverrideConfirmed' as FareStatusEnum
-    }
 }

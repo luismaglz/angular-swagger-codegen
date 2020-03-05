@@ -14,6 +14,9 @@
 /**
  * Represents the crew of an trip operation.
  */
+
+    import { TripOperationCrew<CAP>crewType<CAP> } from '../models/enums';
+
 export interface TripOperationCrew { 
     /**
      * The unique identifier for the trip crew operation.
@@ -22,16 +25,5 @@ export interface TripOperationCrew {
     /**
      * The crew personnel type.
      */
-    crewType?: TripOperationCrew.CrewTypeEnum;
-}
-export namespace TripOperationCrew {
-    export type CrewTypeEnum = 'Default' | 'Pilot' | 'CoPilot' | 'CockpitJumpseat' | 'CabinJumpseat' | 'CabinCrew';
-    export const CrewTypeEnum = {
-        Default: 'Default' as CrewTypeEnum,
-        Pilot: 'Pilot' as CrewTypeEnum,
-        CoPilot: 'CoPilot' as CrewTypeEnum,
-        CockpitJumpseat: 'CockpitJumpseat' as CrewTypeEnum,
-        CabinJumpseat: 'CabinJumpseat' as CrewTypeEnum,
-        CabinCrew: 'CabinCrew' as CrewTypeEnum
-    }
+    crewType?: TripOperationCrew<CAP>crewType<CAP>;
 }

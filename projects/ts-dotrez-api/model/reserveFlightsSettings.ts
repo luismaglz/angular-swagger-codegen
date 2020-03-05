@@ -14,6 +14,15 @@
 /**
  * The booking reserve flight settings.
  */
+
+    import { ReserveFlightsSettings<CAP>viewManifestControl<CAP> } from '../models/enums';
+    import { ReserveFlightsSettings<CAP>adHocFlightControl<CAP> } from '../models/enums';
+    import { ReserveFlightsSettings<CAP>allowSellOverbook<CAP> } from '../models/enums';
+    import { ReserveFlightsSettings<CAP>allowMoveOverbook<CAP> } from '../models/enums';
+    import { ReserveFlightsSettings<CAP>allowUpgradeOverbook<CAP> } from '../models/enums';
+    import { ReserveFlightsSettings<CAP>allowMove<CAP> } from '../models/enums';
+    import { ReserveFlightsSettings<CAP>allowedFareOverrideType<CAP> } from '../models/enums';
+
 export interface ReserveFlightsSettings { 
     /**
      * Time limit for availability departure from current date and time.
@@ -50,23 +59,23 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to view manifest.
      */
-    viewManifestControl?: ReserveFlightsSettings.ViewManifestControlEnum;
+    viewManifestControl?: ReserveFlightsSettings<CAP>viewManifestControl<CAP>;
     /**
      * Indicator on permissions for AdHoc flight operations.
      */
-    adHocFlightControl?: ReserveFlightsSettings.AdHocFlightControlEnum;
+    adHocFlightControl?: ReserveFlightsSettings<CAP>adHocFlightControl<CAP>;
     /**
      * Indicator whether the agent is allowed to overbook except on moves.
      */
-    allowSellOverbook?: ReserveFlightsSettings.AllowSellOverbookEnum;
+    allowSellOverbook?: ReserveFlightsSettings<CAP>allowSellOverbook<CAP>;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowMoveOverbook?: ReserveFlightsSettings.AllowMoveOverbookEnum;
+    allowMoveOverbook?: ReserveFlightsSettings<CAP>allowMoveOverbook<CAP>;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowUpgradeOverbook?: ReserveFlightsSettings.AllowUpgradeOverbookEnum;
+    allowUpgradeOverbook?: ReserveFlightsSettings<CAP>allowUpgradeOverbook<CAP>;
     /**
      * Flag indicating whether the agent allows split-journey moves.
      */
@@ -74,7 +83,7 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to move a passenger from a flight to another without repricing.
      */
-    allowMove?: ReserveFlightsSettings.AllowMoveEnum;
+    allowMove?: ReserveFlightsSettings<CAP>allowMove<CAP>;
     /**
      * Flag indicating if move by maximum class availability.
      */
@@ -162,56 +171,9 @@ export interface ReserveFlightsSettings {
     /**
      * Controls which type of fare overrides are allowed by a role.
      */
-    allowedFareOverrideType?: ReserveFlightsSettings.AllowedFareOverrideTypeEnum;
+    allowedFareOverrideType?: ReserveFlightsSettings<CAP>allowedFareOverrideType<CAP>;
     /**
      * Flag indicating whether or not to allow a trip move for the initial (non-committed) booking.
      */
     allowMoveOnInitialBooking?: boolean;
-}
-export namespace ReserveFlightsSettings {
-    export type ViewManifestControlEnum = 'None' | 'StandbyOnly' | 'Full';
-    export const ViewManifestControlEnum = {
-        None: 'None' as ViewManifestControlEnum,
-        StandbyOnly: 'StandbyOnly' as ViewManifestControlEnum,
-        Full: 'Full' as ViewManifestControlEnum
-    }
-    export type AdHocFlightControlEnum = 'None' | 'View' | 'Sell';
-    export const AdHocFlightControlEnum = {
-        None: 'None' as AdHocFlightControlEnum,
-        View: 'View' as AdHocFlightControlEnum,
-        Sell: 'Sell' as AdHocFlightControlEnum
-    }
-    export type AllowSellOverbookEnum = 'CannotOverbook' | 'CanOverbookClass' | 'CanOverbookNest' | 'CanOverbookLeg';
-    export const AllowSellOverbookEnum = {
-        CannotOverbook: 'CannotOverbook' as AllowSellOverbookEnum,
-        CanOverbookClass: 'CanOverbookClass' as AllowSellOverbookEnum,
-        CanOverbookNest: 'CanOverbookNest' as AllowSellOverbookEnum,
-        CanOverbookLeg: 'CanOverbookLeg' as AllowSellOverbookEnum
-    }
-    export type AllowMoveOverbookEnum = 'CannotOverbook' | 'CanOverbookClass' | 'CanOverbookNest' | 'CanOverbookLeg';
-    export const AllowMoveOverbookEnum = {
-        CannotOverbook: 'CannotOverbook' as AllowMoveOverbookEnum,
-        CanOverbookClass: 'CanOverbookClass' as AllowMoveOverbookEnum,
-        CanOverbookNest: 'CanOverbookNest' as AllowMoveOverbookEnum,
-        CanOverbookLeg: 'CanOverbookLeg' as AllowMoveOverbookEnum
-    }
-    export type AllowUpgradeOverbookEnum = 'CannotOverbook' | 'CanOverbookClass' | 'CanOverbookNest' | 'CanOverbookLeg';
-    export const AllowUpgradeOverbookEnum = {
-        CannotOverbook: 'CannotOverbook' as AllowUpgradeOverbookEnum,
-        CanOverbookClass: 'CanOverbookClass' as AllowUpgradeOverbookEnum,
-        CanOverbookNest: 'CanOverbookNest' as AllowUpgradeOverbookEnum,
-        CanOverbookLeg: 'CanOverbookLeg' as AllowUpgradeOverbookEnum
-    }
-    export type AllowMoveEnum = 'NotAllowed' | 'AllowedOnInventory' | 'Allowed';
-    export const AllowMoveEnum = {
-        NotAllowed: 'NotAllowed' as AllowMoveEnum,
-        AllowedOnInventory: 'AllowedOnInventory' as AllowMoveEnum,
-        Allowed: 'Allowed' as AllowMoveEnum
-    }
-    export type AllowedFareOverrideTypeEnum = 'DiscountedPrice' | 'PublishedPrice' | 'All';
-    export const AllowedFareOverrideTypeEnum = {
-        DiscountedPrice: 'DiscountedPrice' as AllowedFareOverrideTypeEnum,
-        PublishedPrice: 'PublishedPrice' as AllowedFareOverrideTypeEnum,
-        All: 'All' as AllowedFareOverrideTypeEnum
-    }
 }

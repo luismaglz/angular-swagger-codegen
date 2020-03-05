@@ -14,6 +14,10 @@
 /**
  * The configuration details of an organization.
  */
+
+    import { OrganizationConfigurationv2<CAP>gdsEmailItinerary<CAP> } from '../models/enums';
+    import { OrganizationConfigurationv2<CAP>referralType<CAP> } from '../models/enums';
+
 export interface OrganizationConfigurationv2 { 
     /**
      * The culture code.
@@ -42,7 +46,7 @@ export interface OrganizationConfigurationv2 {
     /**
      * Gds email itinerary.
      */
-    gdsEmailItinerary?: OrganizationConfigurationv2.GdsEmailItineraryEnum;
+    gdsEmailItinerary?: OrganizationConfigurationv2<CAP>gdsEmailItinerary<CAP>;
     /**
      * Organization source is internal. Otherwise its external.
      */
@@ -58,21 +62,5 @@ export interface OrganizationConfigurationv2 {
     /**
      * Referral type.
      */
-    referralType?: OrganizationConfigurationv2.ReferralTypeEnum;
-}
-export namespace OrganizationConfigurationv2 {
-    export type GdsEmailItineraryEnum = 'NoDistribution' | 'UseOrganizationEmailOnly' | 'UseMessageEmailOnly' | 'UseMessageEmail';
-    export const GdsEmailItineraryEnum = {
-        NoDistribution: 'NoDistribution' as GdsEmailItineraryEnum,
-        UseOrganizationEmailOnly: 'UseOrganizationEmailOnly' as GdsEmailItineraryEnum,
-        UseMessageEmailOnly: 'UseMessageEmailOnly' as GdsEmailItineraryEnum,
-        UseMessageEmail: 'UseMessageEmail' as GdsEmailItineraryEnum
-    }
-    export type ReferralTypeEnum = 'Default' | 'Allowed' | 'AllowedWithUrlMatch' | 'NotAllowed';
-    export const ReferralTypeEnum = {
-        Default: 'Default' as ReferralTypeEnum,
-        Allowed: 'Allowed' as ReferralTypeEnum,
-        AllowedWithUrlMatch: 'AllowedWithUrlMatch' as ReferralTypeEnum,
-        NotAllowed: 'NotAllowed' as ReferralTypeEnum
-    }
+    referralType?: OrganizationConfigurationv2<CAP>referralType<CAP>;
 }

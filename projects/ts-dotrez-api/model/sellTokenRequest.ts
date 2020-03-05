@@ -15,6 +15,7 @@ import { SellTokenCatalogRequest } from './sellTokenCatalogRequest';
 /**
  * Defines a product sell token request.
  */
+
 export interface SellTokenRequest { 
     /**
      * The selected unique product variations catalog keys and quantities.

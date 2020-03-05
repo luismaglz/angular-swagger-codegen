@@ -14,6 +14,7 @@
 /**
  * Defines the base role.
  */
+
 export interface RoleBase { 
     /**
      * The unique role code.

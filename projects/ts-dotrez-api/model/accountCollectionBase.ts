@@ -14,6 +14,7 @@
 /**
  * The account collection base model.
  */
+
 export interface AccountCollectionBase { 
     /**
      * The unique account collection key.

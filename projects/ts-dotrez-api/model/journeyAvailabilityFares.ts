@@ -15,6 +15,7 @@ import { JourneyFareAvailability } from './journeyFareAvailability';
 /**
  * The journey fares which contain only the key and journey specific information of the fare.
  */
+
 export interface JourneyAvailabilityFares { 
     ?: JourneyFareAvailability;
 }

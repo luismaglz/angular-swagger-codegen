@@ -16,11 +16,14 @@ import { SsrRequest } from './ssrRequest';
 /**
  * Ssrs by type model allows multiple Ssr requests for a specific type.
  */
+
+    import { SsrsByType<CAP>type<CAP> } from '../models/enums';
+
 export interface SsrsByType { 
     /**
      * Defines the duration type of the Ssr.
      */
-    type: SsrsByType.TypeEnum;
+    type: SsrsByType<CAP>type<CAP>;
     /**
      * Market for the corresponding type.
      */
@@ -29,12 +32,4 @@ export interface SsrsByType {
      * SSR request items.
      */
     items: Array<SsrRequest>;
-}
-export namespace SsrsByType {
-    export type TypeEnum = 'Segment' | 'Journey' | 'Leg';
-    export const TypeEnum = {
-        Segment: 'Segment' as TypeEnum,
-        Journey: 'Journey' as TypeEnum,
-        Leg: 'Leg' as TypeEnum
-    }
 }

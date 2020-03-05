@@ -14,6 +14,7 @@
 /**
  * The defined coordinates of a location.
  */
+
 export interface Coordinate { 
     /**
      * The locations latitude.

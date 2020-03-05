@@ -15,6 +15,7 @@ import { BoardingPassv2 } from './boardingPassv2';
 /**
  * Defines the boarding passes base that contains all the common boarding pass details that is not specific to bar  code type.
  */
+
 export interface BoardingPassesCollectionv2 { 
     /**
      * The record locator in reference.

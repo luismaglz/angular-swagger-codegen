@@ -14,6 +14,7 @@
 /**
  * The bundle set details model.
  */
+
 export interface BundleSetDetails { 
     /**
      * The list of bundle codes associated with the bundle set.

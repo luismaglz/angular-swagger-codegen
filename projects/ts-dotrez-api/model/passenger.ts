@@ -22,6 +22,9 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Model information representing a passenger on a journey.
  */
+
+    import { Passenger<CAP>weightCategory<CAP> } from '../models/enums';
+
 export interface Passenger { 
     /**
      * The unique passenger identifier key.
@@ -78,13 +81,5 @@ export interface Passenger {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: Passenger.WeightCategoryEnum;
-}
-export namespace Passenger {
-    export type WeightCategoryEnum = 'Male' | 'Female' | 'Child';
-    export const WeightCategoryEnum = {
-        Male: 'Male' as WeightCategoryEnum,
-        Female: 'Female' as WeightCategoryEnum,
-        Child: 'Child' as WeightCategoryEnum
-    }
+    weightCategory?: Passenger<CAP>weightCategory<CAP>;
 }

@@ -17,11 +17,18 @@ import { Program } from './program';
 /**
  * The passenger detail model.
  */
+
+    import { PassengerDetail<CAP>status<CAP> } from '../models/enums';
+    import { PassengerDetail<CAP>profileStatus<CAP> } from '../models/enums';
+    import { PassengerDetail<CAP>weightCategory<CAP> } from '../models/enums';
+    import { PassengerDetail<CAP>tripType<CAP> } from '../models/enums';
+    import { PassengerDetail<CAP>paidStatus<CAP> } from '../models/enums';
+
 export interface PassengerDetail { 
     /**
      * The current status of the booking.
      */
-    status?: PassengerDetail.StatusEnum;
+    status?: PassengerDetail<CAP>status<CAP>;
     /**
      * The record locator.
      */
@@ -37,7 +44,7 @@ export interface PassengerDetail {
     /**
      * The profile status on the booking.
      */
-    profileStatus?: PassengerDetail.ProfileStatusEnum;
+    profileStatus?: PassengerDetail<CAP>profileStatus<CAP>;
     /**
      * The ticket number of the infant with the passenger.
      */
@@ -53,7 +60,7 @@ export interface PassengerDetail {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: PassengerDetail.WeightCategoryEnum;
+    weightCategory?: PassengerDetail<CAP>weightCategory<CAP>;
     /**
      * The ticket type of the passenger.
      */
@@ -73,7 +80,7 @@ export interface PassengerDetail {
     /**
      * The current assigned trip type.
      */
-    tripType?: PassengerDetail.TripTypeEnum;
+    tripType?: PassengerDetail<CAP>tripType<CAP>;
     /**
      * The passenger segment booking status.
      */
@@ -117,50 +124,5 @@ export interface PassengerDetail {
     /**
      * The paid status for the passenger.
      */
-    paidStatus?: PassengerDetail.PaidStatusEnum;
-}
-export namespace PassengerDetail {
-    export type StatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Hold: 'Hold' as StatusEnum,
-        Confirmed: 'Confirmed' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        HoldCanceled: 'HoldCanceled' as StatusEnum,
-        PendingArchive: 'PendingArchive' as StatusEnum,
-        Archived: 'Archived' as StatusEnum
-    }
-    export type ProfileStatusEnum = 'Default' | 'KnownIndividual' | 'ResolutionGroup' | 'SelecteeGroup' | 'NotUsed' | 'FailureGroup' | 'RandomSelectee' | 'Exempt';
-    export const ProfileStatusEnum = {
-        Default: 'Default' as ProfileStatusEnum,
-        KnownIndividual: 'KnownIndividual' as ProfileStatusEnum,
-        ResolutionGroup: 'ResolutionGroup' as ProfileStatusEnum,
-        SelecteeGroup: 'SelecteeGroup' as ProfileStatusEnum,
-        NotUsed: 'NotUsed' as ProfileStatusEnum,
-        FailureGroup: 'FailureGroup' as ProfileStatusEnum,
-        RandomSelectee: 'RandomSelectee' as ProfileStatusEnum,
-        Exempt: 'Exempt' as ProfileStatusEnum
-    }
-    export type WeightCategoryEnum = 'Male' | 'Female' | 'Child';
-    export const WeightCategoryEnum = {
-        Male: 'Male' as WeightCategoryEnum,
-        Female: 'Female' as WeightCategoryEnum,
-        Child: 'Child' as WeightCategoryEnum
-    }
-    export type TripTypeEnum = 'None' | 'OneWay' | 'RoundTrip' | 'HalfRound' | 'OpenJaw' | 'CircleTrip' | 'All';
-    export const TripTypeEnum = {
-        None: 'None' as TripTypeEnum,
-        OneWay: 'OneWay' as TripTypeEnum,
-        RoundTrip: 'RoundTrip' as TripTypeEnum,
-        HalfRound: 'HalfRound' as TripTypeEnum,
-        OpenJaw: 'OpenJaw' as TripTypeEnum,
-        CircleTrip: 'CircleTrip' as TripTypeEnum,
-        All: 'All' as TripTypeEnum
-    }
-    export type PaidStatusEnum = 'UnderPaid' | 'PaidInFull' | 'OverPaid';
-    export const PaidStatusEnum = {
-        UnderPaid: 'UnderPaid' as PaidStatusEnum,
-        PaidInFull: 'PaidInFull' as PaidStatusEnum,
-        OverPaid: 'OverPaid' as PaidStatusEnum
-    }
+    paidStatus?: PassengerDetail<CAP>paidStatus<CAP>;
 }

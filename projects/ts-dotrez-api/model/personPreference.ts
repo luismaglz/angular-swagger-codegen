@@ -14,6 +14,7 @@
 /**
  * Defines the person preferences.
  */
+
 export interface PersonPreference { 
     /**
      * The unique preference key.

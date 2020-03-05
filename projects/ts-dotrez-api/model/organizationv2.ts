@@ -19,6 +19,10 @@ import { OrganizationExternalAccountv2 } from './organizationExternalAccountv2';
 /**
  * The base data on the organization.
  */
+
+    import { Organizationv2<CAP>type<CAP> } from '../models/enums';
+    import { Organizationv2<CAP>status<CAP> } from '../models/enums';
+
 export interface Organizationv2 { 
     /**
      * External accounts.
@@ -35,7 +39,7 @@ export interface Organizationv2 {
     /**
      * Organization type.
      */
-    type?: Organizationv2.TypeEnum;
+    type?: Organizationv2<CAP>type<CAP>;
     /**
      * The company details.
      */
@@ -51,7 +55,7 @@ export interface Organizationv2 {
     /**
      * The organization status.
      */
-    status?: Organizationv2.StatusEnum;
+    status?: Organizationv2<CAP>status<CAP>;
     /**
      * The parent organization code.
      */
@@ -64,21 +68,4 @@ export interface Organizationv2 {
      * The last statement date.
      */
     lastStatementDate?: Date;
-}
-export namespace Organizationv2 {
-    export type TypeEnum = 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Master: 'Master' as TypeEnum,
-        Carrier: 'Carrier' as TypeEnum,
-        TravelAgency: 'TravelAgency' as TypeEnum,
-        ThirdParty: 'ThirdParty' as TypeEnum
-    }
-    export type StatusEnum = 'Default' | 'Active' | 'Cancelled' | 'Pending';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Pending: 'Pending' as StatusEnum
-    }
 }

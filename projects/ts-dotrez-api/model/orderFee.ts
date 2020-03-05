@@ -15,6 +15,9 @@ import { Amount } from './amount';
 /**
  * Defines a order fee.
  */
+
+    import { OrderFee<CAP>type<CAP> } from '../models/enums';
+
 export interface OrderFee { 
     /**
      * The fee code.
@@ -39,7 +42,7 @@ export interface OrderFee {
     /**
      * The type of fee applied.
      */
-    type?: OrderFee.TypeEnum;
+    type?: OrderFee<CAP>type<CAP>;
     /**
      * Flag indicating if they specific fee is waiveable.
      */
@@ -56,13 +59,4 @@ export interface OrderFee {
      * The currency code.
      */
     isChargeable?: boolean;
-}
-export namespace OrderFee {
-    export type TypeEnum = 'Default' | 'Tax' | 'Markup' | 'Discount';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Tax: 'Tax' as TypeEnum,
-        Markup: 'Markup' as TypeEnum,
-        Discount: 'Discount' as TypeEnum
-    }
 }

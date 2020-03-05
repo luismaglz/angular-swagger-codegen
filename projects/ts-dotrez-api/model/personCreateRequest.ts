@@ -25,6 +25,11 @@ import { PersonTravelDocumentRequest } from './personTravelDocumentRequest';
 /**
  * Defines the person create request.
  */
+
+    import { PersonCreateRequest<CAP>type<CAP> } from '../models/enums';
+    import { PersonCreateRequest<CAP>status<CAP> } from '../models/enums';
+    import { PersonCreateRequest<CAP>notificationPreference<CAP> } from '../models/enums';
+
 export interface PersonCreateRequest { 
     /**
      * The persons true name.
@@ -37,7 +42,7 @@ export interface PersonCreateRequest {
     /**
      * The type of person.
      */
-    type?: PersonCreateRequest.TypeEnum;
+    type?: PersonCreateRequest<CAP>type<CAP>;
     /**
      * The collection of registered email address.
      */
@@ -45,7 +50,7 @@ export interface PersonCreateRequest {
     /**
      * The status of the person.
      */
-    status?: PersonCreateRequest.StatusEnum;
+    status?: PersonCreateRequest<CAP>status<CAP>;
     /**
      * The collection of registered phone numbers.
      */
@@ -61,7 +66,7 @@ export interface PersonCreateRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: PersonCreateRequest.NotificationPreferenceEnum;
+    notificationPreference?: PersonCreateRequest<CAP>notificationPreference<CAP>;
     /**
      * The collection of registered stored payments.
      */
@@ -86,23 +91,4 @@ export interface PersonCreateRequest {
      * The collection of alternate names for the person.
      */
     aliases?: Array<PersonAliasRequest>;
-}
-export namespace PersonCreateRequest {
-    export type TypeEnum = 'None' | 'Customer' | 'Agent';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        Customer: 'Customer' as TypeEnum,
-        Agent: 'Agent' as TypeEnum
-    }
-    export type StatusEnum = 'Active' | 'Terminated' | 'Suspended';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum
-    }
-    export type NotificationPreferenceEnum = 'None' | 'Promotional';
-    export const NotificationPreferenceEnum = {
-        None: 'None' as NotificationPreferenceEnum,
-        Promotional: 'Promotional' as NotificationPreferenceEnum
-    }
 }

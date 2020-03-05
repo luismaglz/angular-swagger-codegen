@@ -14,6 +14,9 @@
 /**
  * The booking fee settings.
  */
+
+    import { FeeSettings<CAP>feeDescription<CAP> } from '../models/enums';
+
 export interface FeeSettings { 
     /**
      * Gets or sets the flag allowing negative fees.
@@ -34,15 +37,5 @@ export interface FeeSettings {
     /**
      * Gets or sets the restriction for fee description fields.
      */
-    feeDescription?: FeeSettings.FeeDescriptionEnum;
-}
-export namespace FeeSettings {
-    export type FeeDescriptionEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const FeeDescriptionEnum = {
-        Required: 'Required' as FeeDescriptionEnum,
-        Optional: 'Optional' as FeeDescriptionEnum,
-        Disabled: 'Disabled' as FeeDescriptionEnum,
-        RequiredMasked: 'RequiredMasked' as FeeDescriptionEnum,
-        OptionalMasked: 'OptionalMasked' as FeeDescriptionEnum
-    }
+    feeDescription?: FeeSettings<CAP>feeDescription<CAP>;
 }

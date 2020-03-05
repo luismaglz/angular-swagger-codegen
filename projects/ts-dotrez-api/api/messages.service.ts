@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { IJsonResponse } from '../model/iJsonResponse';
 import { MessageBase } from '../model/messageBase';
 
@@ -34,8 +29,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class MessagesService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Deletes a message item.
@@ -43,22 +43,19 @@ export class MessagesService {
      * @param messageKey The key of the message to delete.
      
      */
-    public apiNskV1MessagesByMessageKeyDelete = (messageKey: string, ) => {
+    public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1MessagesByMessageKeyDelete(messageKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!messageKey){
             throw new Error('Required parameter messageKey was null or undefined when calling apiNskV1MessagesByMessageKeyDelete.');
         }
 
 
-            const requestObj: Request<{
-                messageKey: string, 
-            }> = {
-                url: '/api/nsk/v1/messages/${encodeURIComponent(String(messageKey))}',
-                method: 'delete',
-                data: {
-                    messageKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/messages/${encodeURIComponent(String(messageKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -68,22 +65,19 @@ export class MessagesService {
      * @param messageKey The key of the message to be retrieved.
      
      */
-    public apiNskV1MessagesByMessageKeyGet = (messageKey: string, ) => {
+    public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe?: 'body', headers?: Headers): Observable<MessageBase>;
+    public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<MessageBase>>;
+    public apiNskV1MessagesByMessageKeyGet(messageKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!messageKey){
             throw new Error('Required parameter messageKey was null or undefined when calling apiNskV1MessagesByMessageKeyGet.');
         }
 
 
-            const requestObj: Request<{
-                messageKey: string, 
-            }> = {
-                url: '/api/nsk/v1/messages/${encodeURIComponent(String(messageKey))}',
-                method: 'get',
-                data: {
-                    messageKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<MessageBase>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/messages/${encodeURIComponent(String(messageKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <MessageBase>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -99,7 +93,9 @@ export class MessagesService {
      * @param searchValue The search query.
      
      */
-    public apiNskV1MessagesGet = (searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, ) => {
+    public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe?: 'body', headers?: Headers): Observable<Array<MessageBase>>;
+    public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<MessageBase>>>;
+    public apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!searchType){
             throw new Error('Required parameter searchType was null or undefined when calling apiNskV1MessagesGet.');
         }
@@ -128,16 +124,11 @@ export class MessagesService {
         }
 
 
-            const requestObj: Request<{
-                searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string, 
-            }> = {
-                url: '/api/nsk/v1/messages',
-                method: 'get',
-                data: {
-                    searchType,messageTypeCode,searchStartDate,searchEndDate,pageSize,lastIndex,searchValue,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<MessageBase>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/messages?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<MessageBase>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -147,18 +138,15 @@ export class MessagesService {
      * @param request The message queue.
      
      */
-    public apiNskV1MessagesPost = (request?: MessageBase, ) => {
+    public apiNskV1MessagesPost(request?: MessageBase, observe?: 'body', headers?: Headers): Observable<MessageBase>;
+    public apiNskV1MessagesPost(request?: MessageBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<MessageBase>>;
+    public apiNskV1MessagesPost(request?: MessageBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: MessageBase, 
-            }> = {
-                url: '/api/nsk/v1/messages',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<MessageBase>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/messages`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <MessageBase>(httpResponse.response));
+        }
+        return response;
     }
 
 }

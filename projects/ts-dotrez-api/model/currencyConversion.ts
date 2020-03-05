@@ -14,6 +14,7 @@
 /**
  * Model with the information needed to calculate from one currency to another.
  */
+
 export interface CurrencyConversion { 
     /**
      * The converted amount. This will be in the ToCurrencyCode currency.

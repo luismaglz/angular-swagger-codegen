@@ -14,18 +14,12 @@
 /**
  * A travel notification event create request.
  */
+
+    import { NotificationEventCreateRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface NotificationEventCreateRequest { 
     /**
      * The travel notification event type.
      */
-    type: NotificationEventCreateRequest.TypeEnum;
-}
-export namespace NotificationEventCreateRequest {
-    export type TypeEnum = 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn';
-    export const TypeEnum = {
-        DepartureDelay: 'DepartureDelay' as TypeEnum,
-        ArrivalDelay: 'ArrivalDelay' as TypeEnum,
-        ScheduleChange: 'ScheduleChange' as TypeEnum,
-        CheckIn: 'CheckIn' as TypeEnum
-    }
+    type: NotificationEventCreateRequest<CAP>type<CAP>;
 }

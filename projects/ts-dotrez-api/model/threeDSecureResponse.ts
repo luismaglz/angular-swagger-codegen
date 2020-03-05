@@ -14,6 +14,7 @@
 /**
  * Defines three D secure response.
  */
+
 export interface ThreeDSecureResponse { 
     /**
      * The url to visit for 3DS verification.

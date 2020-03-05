@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { AvailabilityRequestv2 } from '../model/availabilityRequestv2';
 import { AvailabilitySimpleRequestv2 } from '../model/availabilitySimpleRequestv2';
 import { Availabilityv2 } from '../model/availabilityv2';
@@ -41,8 +36,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class AvailabilityService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * 
@@ -50,18 +50,15 @@ export class AvailabilityService {
      * @param request 
      
      */
-    public apiNskV1AvailabilityLowfareBetaPost = (request?: LowFareCacheRequest, ) => {
+    public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe?: 'body', headers?: Headers): Observable<LowFareCacheAvailability>;
+    public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<LowFareCacheAvailability>>;
+    public apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: LowFareCacheRequest, 
-            }> = {
-                url: '/api/nsk/v1/availability/lowfare/beta',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<LowFareCacheAvailability>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/availability/lowfare/beta`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <LowFareCacheAvailability>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -71,18 +68,15 @@ export class AvailabilityService {
      * @param request The low fare availability request.
      
      */
-    public apiNskV2AvailabilityLowfarePost = (request?: LowFareAvailabilityRequest, ) => {
+    public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe?: 'body', headers?: Headers): Observable<LowFareAvailability>;
+    public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<LowFareAvailability>>;
+    public apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: LowFareAvailabilityRequest, 
-            }> = {
-                url: '/api/nsk/v2/availability/lowfare',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<LowFareAvailability>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/availability/lowfare`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <LowFareAvailability>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -92,18 +86,15 @@ export class AvailabilityService {
      * @param request The low fare availability search simple request.
      
      */
-    public apiNskV2AvailabilityLowfareSimplePost = (request?: LowFareAvailabilitySearchSimpleRequest, ) => {
+    public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe?: 'body', headers?: Headers): Observable<LowFareAvailability>;
+    public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<LowFareAvailability>>;
+    public apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: LowFareAvailabilitySearchSimpleRequest, 
-            }> = {
-                url: '/api/nsk/v2/availability/lowfare/simple',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<LowFareAvailability>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/availability/lowfare/simple`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <LowFareAvailability>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -113,18 +104,15 @@ export class AvailabilityService {
      * @param request The availability v2 search request.
      
      */
-    public apiNskV4AvailabilitySearchPost = (request?: AvailabilityRequestv2, ) => {
+    public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe?: 'body', headers?: Headers): Observable<Availabilityv2>;
+    public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe?: 'response', headers?: Headers): Observable<HttpResponse<Availabilityv2>>;
+    public apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: AvailabilityRequestv2, 
-            }> = {
-                url: '/api/nsk/v4/availability/search',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Availabilityv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v4/availability/search`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Availabilityv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -134,18 +122,15 @@ export class AvailabilityService {
      * @param request The availability simple v2 search request.
      
      */
-    public apiNskV4AvailabilitySearchSimplePost = (request?: AvailabilitySimpleRequestv2, ) => {
+    public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe?: 'body', headers?: Headers): Observable<Availabilityv2>;
+    public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe?: 'response', headers?: Headers): Observable<HttpResponse<Availabilityv2>>;
+    public apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: AvailabilitySimpleRequestv2, 
-            }> = {
-                url: '/api/nsk/v4/availability/search/simple',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Availabilityv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v4/availability/search/simple`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Availabilityv2>(httpResponse.response));
+        }
+        return response;
     }
 
 }

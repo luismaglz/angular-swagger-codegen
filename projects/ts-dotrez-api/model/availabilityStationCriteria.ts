@@ -14,6 +14,7 @@
 /**
  * Defines the availability criteria stations.
  */
+
 export interface AvailabilityStationCriteria { 
     /**
      * The Arrival Station Codes.

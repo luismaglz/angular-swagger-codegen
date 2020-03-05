@@ -14,6 +14,7 @@
 /**
  * Defines a direct currency conversion availability model.
  */
+
 export interface DirectCurrencyConversionAvailability { 
     /**
      * The direct currency conversion key.

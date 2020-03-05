@@ -11,6 +11,7 @@
  */
 
 
+
 export interface GraphQlQueryv2 { 
     query: string;
     variables?: any;

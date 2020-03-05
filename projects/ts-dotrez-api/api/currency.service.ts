@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { CurrencyConversion } from '../model/currencyConversion';
 import { IJsonResponse } from '../model/iJsonResponse';
 
@@ -34,8 +29,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class CurrencyService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Calculates currency conversions.
@@ -45,7 +45,9 @@ export class CurrencyService {
      * @param amount The amount to be converted. This will be in the FromCurrencyCode currency.
      
      */
-    public apiNskV1CurrencyConverterGet = (fromCurrencyCode: string, toCurrencyCode: string, amount: number, ) => {
+    public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe?: 'body', headers?: Headers): Observable<CurrencyConversion>;
+    public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<CurrencyConversion>>;
+    public apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!fromCurrencyCode){
             throw new Error('Required parameter fromCurrencyCode was null or undefined when calling apiNskV1CurrencyConverterGet.');
         }
@@ -70,16 +72,11 @@ export class CurrencyService {
         }
 
 
-            const requestObj: Request<{
-                fromCurrencyCode: string, toCurrencyCode: string, amount: number, 
-            }> = {
-                url: '/api/nsk/v1/currency/converter',
-                method: 'get',
-                data: {
-                    fromCurrencyCode,toCurrencyCode,amount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<CurrencyConversion>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/currency/converter?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <CurrencyConversion>(httpResponse.response));
+        }
+        return response;
     }
 
 }

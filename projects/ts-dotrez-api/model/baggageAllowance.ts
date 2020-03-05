@@ -15,6 +15,10 @@ import { BaggageUsageDetails } from './baggageUsageDetails';
 /**
  * Defines a baggage allowance.
  */
+
+    import { BaggageAllowance<CAP>behavior<CAP> } from '../models/enums';
+    import { BaggageAllowance<CAP>weightType<CAP> } from '../models/enums';
+
 export interface BaggageAllowance { 
     /**
      * The unique identifier for the baggage allowance.
@@ -35,7 +39,7 @@ export interface BaggageAllowance {
     /**
      * The allowance behavior.
      */
-    behavior?: BaggageAllowance.BehaviorEnum;
+    behavior?: BaggageAllowance<CAP>behavior<CAP>;
     /**
      * The list of baggage type codes.
      */
@@ -55,24 +59,9 @@ export interface BaggageAllowance {
     /**
      * The weight type for MaximumWeightPerPiece and TotalWeight.
      */
-    weightType?: BaggageAllowance.WeightTypeEnum;
+    weightType?: BaggageAllowance<CAP>weightType<CAP>;
     /**
      * The associated baggage usage details.
      */
     baggageUsage?: BaggageUsageDetails;
-}
-export namespace BaggageAllowance {
-    export type BehaviorEnum = 'Default' | 'WeightSharing' | 'PerPiece' | 'PerPieceWithWeightSharing';
-    export const BehaviorEnum = {
-        Default: 'Default' as BehaviorEnum,
-        WeightSharing: 'WeightSharing' as BehaviorEnum,
-        PerPiece: 'PerPiece' as BehaviorEnum,
-        PerPieceWithWeightSharing: 'PerPieceWithWeightSharing' as BehaviorEnum
-    }
-    export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    }
 }

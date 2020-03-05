@@ -15,6 +15,7 @@ import { SeatAssignmentHistory } from './seatAssignmentHistory';
 /**
  * Defines a seat assignment history response.
  */
+
 export interface SeatAssignmentHistoryResponse { 
     /**
      * The seat assignment history list.

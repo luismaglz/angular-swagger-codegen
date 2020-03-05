@@ -16,6 +16,7 @@ import { RetrieveBookingv2 } from './retrieveBookingv2';
 /**
  * Defines a request to apply credit from state.
  */
+
 export interface ApplyBookingCreditRequestv2 { 
     /**
      * The credit details requested.

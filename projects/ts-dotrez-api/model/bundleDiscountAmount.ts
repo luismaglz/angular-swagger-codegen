@@ -14,6 +14,7 @@
 /**
  * The discount amount details for an SSR bundle.
  */
+
 export interface BundleDiscountAmount { 
     /**
      * The currency code.

@@ -15,6 +15,7 @@ import { SegmentChangeHistory } from './segmentChangeHistory';
 /**
  * Defines a segment change history response.
  */
+
 export interface SegmentChangeHistoryResponse { 
     /**
      * The segment change history list.

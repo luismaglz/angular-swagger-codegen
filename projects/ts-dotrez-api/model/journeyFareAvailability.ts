@@ -14,6 +14,7 @@
 /**
  * Model describing the basic fare information that is displayed per availability segment.
  */
+
 export interface JourneyFareAvailability { 
     /**
      * Unique key for this type of fare.

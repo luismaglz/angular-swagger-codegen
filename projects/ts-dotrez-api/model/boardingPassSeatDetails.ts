@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass assigned seat details.
  */
+
 export interface BoardingPassSeatDetails { 
     /**
      * The seat column.

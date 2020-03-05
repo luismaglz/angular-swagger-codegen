@@ -16,6 +16,7 @@ import { Upgrade } from './upgrade';
 /**
  * Defines a available upgrade segment.
  */
+
 export interface UpgradeSegment { 
     /**
      * The segments flight designator.

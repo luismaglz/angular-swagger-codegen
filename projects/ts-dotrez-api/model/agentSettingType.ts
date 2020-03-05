@@ -14,6 +14,7 @@
 /**
  * The agent setting type.
  */
+
 export interface AgentSettingType { 
     /**
      * The setting type code.

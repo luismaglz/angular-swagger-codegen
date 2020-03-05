@@ -15,6 +15,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Model information about the market arrival and destination details.
  */
+
 export interface MarketInformation { 
     /**
      * Gets or sets the leg arrival station.

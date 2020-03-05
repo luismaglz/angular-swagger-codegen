@@ -14,6 +14,7 @@
 /**
  * Defines the addOn price breakdown.
  */
+
 export interface AddOnPriceBreakdown { 
     /**
      * The car price total.

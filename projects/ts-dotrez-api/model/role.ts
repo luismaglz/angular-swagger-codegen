@@ -15,6 +15,7 @@ import { RoleSetting } from './roleSetting';
 /**
  * Person model describes basic information about a person.
  */
+
 export interface Role { 
     /**
      * Gets or sets the parent role code for this role.

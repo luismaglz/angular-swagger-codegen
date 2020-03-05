@@ -15,6 +15,7 @@ import { Address } from './address';
 /**
  * The organization company details of an organization.
  */
+
 export interface CompanyEditDetails { 
     /**
      * The organization name.

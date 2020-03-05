@@ -15,6 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Defines information needed for an organization account refund.
  */
+
 export interface OrganizationRefundRequest { 
     /**
      * The payment identifier used if this refund is being reversed from an existing payment.

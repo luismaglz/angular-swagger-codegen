@@ -13,6 +13,9 @@ import { CustomAttributeData } from './customAttributeData';
 import { MemberInfo } from './memberInfo';
 
 
+
+    import { ParameterInfo<CAP>attributes<CAP> } from '../models/enums';
+
 export interface ParameterInfo { 
     readonly parameterType?: string;
     readonly name?: string;
@@ -20,7 +23,7 @@ export interface ParameterInfo {
     readonly defaultValue?: any;
     readonly rawDefaultValue?: any;
     readonly position?: number;
-    readonly attributes?: ParameterInfo.AttributesEnum;
+    readonly attributes?: ParameterInfo<CAP>attributes<CAP>;
     readonly member?: MemberInfo;
     readonly isIn?: boolean;
     readonly isOut?: boolean;
@@ -29,20 +32,4 @@ export interface ParameterInfo {
     readonly isOptional?: boolean;
     readonly metadataToken?: number;
     readonly customAttributes?: Array<CustomAttributeData>;
-}
-export namespace ParameterInfo {
-    export type AttributesEnum = 'None' | 'In' | 'Out' | 'Lcid' | 'Retval' | 'Optional' | 'HasDefault' | 'HasFieldMarshal' | 'Reserved3' | 'Reserved4' | 'ReservedMask';
-    export const AttributesEnum = {
-        None: 'None' as AttributesEnum,
-        In: 'In' as AttributesEnum,
-        Out: 'Out' as AttributesEnum,
-        Lcid: 'Lcid' as AttributesEnum,
-        Retval: 'Retval' as AttributesEnum,
-        Optional: 'Optional' as AttributesEnum,
-        HasDefault: 'HasDefault' as AttributesEnum,
-        HasFieldMarshal: 'HasFieldMarshal' as AttributesEnum,
-        Reserved3: 'Reserved3' as AttributesEnum,
-        Reserved4: 'Reserved4' as AttributesEnum,
-        ReservedMask: 'ReservedMask' as AttributesEnum
-    }
 }

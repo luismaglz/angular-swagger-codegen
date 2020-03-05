@@ -12,6 +12,7 @@
 import { WaitHandle } from './waitHandle';
 
 
+
 export interface CancellationToken { 
     readonly isCancellationRequested?: boolean;
     readonly canBeCanceled?: boolean;

@@ -14,6 +14,7 @@
 /**
  * Defines the person address edit request.
  */
+
 export interface PersonAddressEditRequest { 
     /**
      * Flag indicating if the address is the persons default.

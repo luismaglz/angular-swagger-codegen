@@ -15,6 +15,7 @@ import { Currencyv2 } from './currencyv2';
 /**
  * Model representing the resource entries.
  */
+
 export interface ResourceEntriesCurrencyv2 { 
     /**
      * The expiration.

@@ -14,6 +14,9 @@
 /**
  * A model for a request to update the passenger bags.
  */
+
+    import { PassengerBagRequest<CAP>weightType<CAP> } from '../models/enums';
+
 export interface PassengerBagRequest { 
     /**
      * The bag count for this request.
@@ -30,17 +33,9 @@ export interface PassengerBagRequest {
     /**
      * Type of weight for the baggage weight.
      */
-    weightType?: PassengerBagRequest.WeightTypeEnum;
+    weightType?: PassengerBagRequest<CAP>weightType<CAP>;
     /**
      * The baggage weight.
      */
     weight?: number;
-}
-export namespace PassengerBagRequest {
-    export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    }
 }

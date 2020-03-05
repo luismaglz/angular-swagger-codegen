@@ -14,6 +14,10 @@
 /**
  * Model describing the detailed leg information.
  */
+
+    import { LegInformation<CAP>codeShareIndicator<CAP> } from '../models/enums';
+    import { LegInformation<CAP>status<CAP> } from '../models/enums';
+
 export interface LegInformation { 
     /**
      * The departure time using the time variant in universal time.
@@ -50,7 +54,7 @@ export interface LegInformation {
     /**
      * The leg code share indicator.
      */
-    codeShareIndicator?: LegInformation.CodeShareIndicatorEnum;
+    codeShareIndicator?: LegInformation<CAP>codeShareIndicator<CAP>;
     /**
      * The leg departure terminal.
      */
@@ -134,30 +138,9 @@ export interface LegInformation {
     /**
      * The legs status.
      */
-    status?: LegInformation.StatusEnum;
+    status?: LegInformation<CAP>status<CAP>;
     /**
      * A value indicating whether the leg is subject to government approval.
      */
     subjectToGovtApproval?: boolean;
-}
-export namespace LegInformation {
-    export type CodeShareIndicatorEnum = 'NonCodeShare' | 'CodeShareCommercialDuplicate' | 'SharedDesignatorOrWetLease' | 'CodeShareHostOperatingCarrier' | 'CodeShareCommercialDuplicateWithOverrideText' | 'SharedDesignatorOrWetLeaseWithOverrideText';
-    export const CodeShareIndicatorEnum = {
-        NonCodeShare: 'NonCodeShare' as CodeShareIndicatorEnum,
-        CodeShareCommercialDuplicate: 'CodeShareCommercialDuplicate' as CodeShareIndicatorEnum,
-        SharedDesignatorOrWetLease: 'SharedDesignatorOrWetLease' as CodeShareIndicatorEnum,
-        CodeShareHostOperatingCarrier: 'CodeShareHostOperatingCarrier' as CodeShareIndicatorEnum,
-        CodeShareCommercialDuplicateWithOverrideText: 'CodeShareCommercialDuplicateWithOverrideText' as CodeShareIndicatorEnum,
-        SharedDesignatorOrWetLeaseWithOverrideText: 'SharedDesignatorOrWetLeaseWithOverrideText' as CodeShareIndicatorEnum
-    }
-    export type StatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const StatusEnum = {
-        Normal: 'Normal' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        Canceled: 'Canceled' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        ClosedPending: 'ClosedPending' as StatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as StatusEnum,
-        Mishap: 'Mishap' as StatusEnum
-    }
 }

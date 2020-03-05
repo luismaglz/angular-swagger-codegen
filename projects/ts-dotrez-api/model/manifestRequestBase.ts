@@ -14,11 +14,15 @@
 /**
  * Represents the manifest request base model.
  */
+
+    import { ManifestRequestBase<CAP>baggageWeightType<CAP> } from '../models/enums';
+    import { ManifestRequestBase<CAP>manifestFilters<CAP> } from '../models/enums';
+
 export interface ManifestRequestBase { 
     /**
      * Represents the weight type for all bags in the manifest.
      */
-    baggageWeightType?: ManifestRequestBase.BaggageWeightTypeEnum;
+    baggageWeightType?: ManifestRequestBase<CAP>baggageWeightType<CAP>;
     /**
      * Specify whether the returned manifest includes   downline(.D)/inbound(.I) IATCI connections.
      */
@@ -26,27 +30,5 @@ export interface ManifestRequestBase {
     /**
      * The filters for the manifest.
      */
-    manifestFilters?: Array<ManifestRequestBase.ManifestFiltersEnum>;
-}
-export namespace ManifestRequestBase {
-    export type BaggageWeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const BaggageWeightTypeEnum = {
-        Default: 'Default' as BaggageWeightTypeEnum,
-        Pounds: 'Pounds' as BaggageWeightTypeEnum,
-        Kilograms: 'Kilograms' as BaggageWeightTypeEnum
-    }
-    export type ManifestFiltersEnum = 'None' | 'Baggage' | 'PassengerTravelDoc' | 'PassengerInfant' | 'PassengerAddress' | 'BookingComment' | 'BookingQueue' | 'PassengerJourneySegmentProperty' | 'PassengerJourneySsr' | 'InventoryLegOpComments' | 'All';
-    export const ManifestFiltersEnum = {
-        None: 'None' as ManifestFiltersEnum,
-        Baggage: 'Baggage' as ManifestFiltersEnum,
-        PassengerTravelDoc: 'PassengerTravelDoc' as ManifestFiltersEnum,
-        PassengerInfant: 'PassengerInfant' as ManifestFiltersEnum,
-        PassengerAddress: 'PassengerAddress' as ManifestFiltersEnum,
-        BookingComment: 'BookingComment' as ManifestFiltersEnum,
-        BookingQueue: 'BookingQueue' as ManifestFiltersEnum,
-        PassengerJourneySegmentProperty: 'PassengerJourneySegmentProperty' as ManifestFiltersEnum,
-        PassengerJourneySsr: 'PassengerJourneySsr' as ManifestFiltersEnum,
-        InventoryLegOpComments: 'InventoryLegOpComments' as ManifestFiltersEnum,
-        All: 'All' as ManifestFiltersEnum
-    }
+    manifestFilters?: ManifestRequestBase<CAP>manifestFilters<CAP>;
 }

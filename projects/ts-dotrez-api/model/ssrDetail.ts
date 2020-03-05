@@ -15,6 +15,10 @@ import { BundleLegSsrPassengersAvailability } from './bundleLegSsrPassengersAvai
 /**
  * Ssr detail model.
  */
+
+    import { SsrDetail<CAP>ssrType<CAP> } from '../models/enums';
+    import { SsrDetail<CAP>seatRestriction<CAP> } from '../models/enums';
+
 export interface SsrDetail { 
     /**
      * Gets the SSR code.
@@ -24,7 +28,7 @@ export interface SsrDetail {
     /**
      * Gets the SSR type.
      */
-    ssrType?: SsrDetail.SsrTypeEnum;
+    ssrType?: SsrDetail<CAP>ssrType<CAP>;
     /**
      * Gets the SSR name.
      */
@@ -56,22 +60,5 @@ export interface SsrDetail {
     /**
      * Gets the seat restriction.
      */
-    seatRestriction?: SsrDetail.SeatRestrictionEnum;
-}
-export namespace SsrDetail {
-    export type SsrTypeEnum = 'Standard' | 'Infant' | 'Meal' | 'BaggageAllowance' | 'TravelLineMeal';
-    export const SsrTypeEnum = {
-        Standard: 'Standard' as SsrTypeEnum,
-        Infant: 'Infant' as SsrTypeEnum,
-        Meal: 'Meal' as SsrTypeEnum,
-        BaggageAllowance: 'BaggageAllowance' as SsrTypeEnum,
-        TravelLineMeal: 'TravelLineMeal' as SsrTypeEnum
-    }
-    export type SeatRestrictionEnum = 'Undefined' | 'AlwaysAllowed' | 'DefaultAllowed' | 'DefaultRestricted';
-    export const SeatRestrictionEnum = {
-        Undefined: 'Undefined' as SeatRestrictionEnum,
-        AlwaysAllowed: 'AlwaysAllowed' as SeatRestrictionEnum,
-        DefaultAllowed: 'DefaultAllowed' as SeatRestrictionEnum,
-        DefaultRestricted: 'DefaultRestricted' as SeatRestrictionEnum
-    }
+    seatRestriction?: SsrDetail<CAP>seatRestriction<CAP>;
 }

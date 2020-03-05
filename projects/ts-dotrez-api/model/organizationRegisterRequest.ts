@@ -17,6 +17,7 @@ import { OrganizationExternalAccountRequest } from './organizationExternalAccoun
 /**
  * The data on the organization register request.
  */
+
 export interface OrganizationRegisterRequest { 
     /**
      * The organization code.

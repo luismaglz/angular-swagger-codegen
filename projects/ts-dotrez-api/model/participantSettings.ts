@@ -14,227 +14,117 @@
 /**
  * Defines the order participant field validation levels.
  */
+
+    import { ParticipantSettings<CAP>typeCode<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>title<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>documentNumber<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>firstName<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>documentIssueBy<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>middleName<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>documentTypeCode<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>lastName<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>lineOne<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>lineTwo<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>city<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>postalCode<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>provinceState<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>countryCode<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>county<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>homePhone<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>workPhone<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>fax<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>email<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>type<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>companyName<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>birthDate<CAP> } from '../models/enums';
+
 export interface ParticipantSettings { 
     /**
      * The field usage for the type code.
      */
-    typeCode?: ParticipantSettings.TypeCodeEnum;
+    typeCode?: ParticipantSettings<CAP>typeCode<CAP>;
     /**
      * The title field usage.
      */
-    title?: ParticipantSettings.TitleEnum;
+    title?: ParticipantSettings<CAP>title<CAP>;
     /**
      * The field usage for the document number.
      */
-    documentNumber?: ParticipantSettings.DocumentNumberEnum;
+    documentNumber?: ParticipantSettings<CAP>documentNumber<CAP>;
     /**
      * The first name field usage.
      */
-    firstName?: ParticipantSettings.FirstNameEnum;
+    firstName?: ParticipantSettings<CAP>firstName<CAP>;
     /**
      * The field usage for the document issue by.
      */
-    documentIssueBy?: ParticipantSettings.DocumentIssueByEnum;
+    documentIssueBy?: ParticipantSettings<CAP>documentIssueBy<CAP>;
     /**
      * The middle name field usage.
      */
-    middleName?: ParticipantSettings.MiddleNameEnum;
+    middleName?: ParticipantSettings<CAP>middleName<CAP>;
     /**
      * The field usage for the document type code.
      */
-    documentTypeCode?: ParticipantSettings.DocumentTypeCodeEnum;
+    documentTypeCode?: ParticipantSettings<CAP>documentTypeCode<CAP>;
     /**
      * The last name field usage.
      */
-    lastName?: ParticipantSettings.LastNameEnum;
+    lastName?: ParticipantSettings<CAP>lastName<CAP>;
     /**
      * The address line one field usage.
      */
-    lineOne?: ParticipantSettings.LineOneEnum;
+    lineOne?: ParticipantSettings<CAP>lineOne<CAP>;
     /**
      * The address line two field usage.
      */
-    lineTwo?: ParticipantSettings.LineTwoEnum;
+    lineTwo?: ParticipantSettings<CAP>lineTwo<CAP>;
     /**
      * The address city field usage.
      */
-    city?: ParticipantSettings.CityEnum;
+    city?: ParticipantSettings<CAP>city<CAP>;
     /**
      * The address postal code field usage.
      */
-    postalCode?: ParticipantSettings.PostalCodeEnum;
+    postalCode?: ParticipantSettings<CAP>postalCode<CAP>;
     /**
      * The address province state field usage.
      */
-    provinceState?: ParticipantSettings.ProvinceStateEnum;
+    provinceState?: ParticipantSettings<CAP>provinceState<CAP>;
     /**
      * The address country code field usage.
      */
-    countryCode?: ParticipantSettings.CountryCodeEnum;
+    countryCode?: ParticipantSettings<CAP>countryCode<CAP>;
     /**
      * The address county field usage.
      */
-    county?: ParticipantSettings.CountyEnum;
+    county?: ParticipantSettings<CAP>county<CAP>;
     /**
      * The home phone number field usage.
      */
-    homePhone?: ParticipantSettings.HomePhoneEnum;
+    homePhone?: ParticipantSettings<CAP>homePhone<CAP>;
     /**
      * The work phone field usage.
      */
-    workPhone?: ParticipantSettings.WorkPhoneEnum;
+    workPhone?: ParticipantSettings<CAP>workPhone<CAP>;
     /**
      * The fax number field usage.
      */
-    fax?: ParticipantSettings.FaxEnum;
+    fax?: ParticipantSettings<CAP>fax<CAP>;
     /**
      * The email address field usage.
      */
-    email?: ParticipantSettings.EmailEnum;
+    email?: ParticipantSettings<CAP>email<CAP>;
     /**
      * The consumer type field usage.
      */
-    type?: ParticipantSettings.TypeEnum;
+    type?: ParticipantSettings<CAP>type<CAP>;
     /**
      * The company name field usage.
      */
-    companyName?: ParticipantSettings.CompanyNameEnum;
+    companyName?: ParticipantSettings<CAP>companyName<CAP>;
     /**
      * The date of birth field usage.
      */
-    birthDate?: ParticipantSettings.BirthDateEnum;
-}
-export namespace ParticipantSettings {
-    export type TypeCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TypeCodeEnum = {
-        Prompt: 'Prompt' as TypeCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as TypeCodeEnum,
-        Required: 'Required' as TypeCodeEnum
-    }
-    export type TitleEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TitleEnum = {
-        Prompt: 'Prompt' as TitleEnum,
-        DoNotPrompt: 'DoNotPrompt' as TitleEnum,
-        Required: 'Required' as TitleEnum
-    }
-    export type DocumentNumberEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const DocumentNumberEnum = {
-        Prompt: 'Prompt' as DocumentNumberEnum,
-        DoNotPrompt: 'DoNotPrompt' as DocumentNumberEnum,
-        Required: 'Required' as DocumentNumberEnum
-    }
-    export type FirstNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const FirstNameEnum = {
-        Prompt: 'Prompt' as FirstNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as FirstNameEnum,
-        Required: 'Required' as FirstNameEnum
-    }
-    export type DocumentIssueByEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const DocumentIssueByEnum = {
-        Prompt: 'Prompt' as DocumentIssueByEnum,
-        DoNotPrompt: 'DoNotPrompt' as DocumentIssueByEnum,
-        Required: 'Required' as DocumentIssueByEnum
-    }
-    export type MiddleNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const MiddleNameEnum = {
-        Prompt: 'Prompt' as MiddleNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as MiddleNameEnum,
-        Required: 'Required' as MiddleNameEnum
-    }
-    export type DocumentTypeCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const DocumentTypeCodeEnum = {
-        Prompt: 'Prompt' as DocumentTypeCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as DocumentTypeCodeEnum,
-        Required: 'Required' as DocumentTypeCodeEnum
-    }
-    export type LastNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LastNameEnum = {
-        Prompt: 'Prompt' as LastNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as LastNameEnum,
-        Required: 'Required' as LastNameEnum
-    }
-    export type LineOneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LineOneEnum = {
-        Prompt: 'Prompt' as LineOneEnum,
-        DoNotPrompt: 'DoNotPrompt' as LineOneEnum,
-        Required: 'Required' as LineOneEnum
-    }
-    export type LineTwoEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LineTwoEnum = {
-        Prompt: 'Prompt' as LineTwoEnum,
-        DoNotPrompt: 'DoNotPrompt' as LineTwoEnum,
-        Required: 'Required' as LineTwoEnum
-    }
-    export type CityEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CityEnum = {
-        Prompt: 'Prompt' as CityEnum,
-        DoNotPrompt: 'DoNotPrompt' as CityEnum,
-        Required: 'Required' as CityEnum
-    }
-    export type PostalCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const PostalCodeEnum = {
-        Prompt: 'Prompt' as PostalCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as PostalCodeEnum,
-        Required: 'Required' as PostalCodeEnum
-    }
-    export type ProvinceStateEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const ProvinceStateEnum = {
-        Prompt: 'Prompt' as ProvinceStateEnum,
-        DoNotPrompt: 'DoNotPrompt' as ProvinceStateEnum,
-        Required: 'Required' as ProvinceStateEnum
-    }
-    export type CountryCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CountryCodeEnum = {
-        Prompt: 'Prompt' as CountryCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as CountryCodeEnum,
-        Required: 'Required' as CountryCodeEnum
-    }
-    export type CountyEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CountyEnum = {
-        Prompt: 'Prompt' as CountyEnum,
-        DoNotPrompt: 'DoNotPrompt' as CountyEnum,
-        Required: 'Required' as CountyEnum
-    }
-    export type HomePhoneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const HomePhoneEnum = {
-        Prompt: 'Prompt' as HomePhoneEnum,
-        DoNotPrompt: 'DoNotPrompt' as HomePhoneEnum,
-        Required: 'Required' as HomePhoneEnum
-    }
-    export type WorkPhoneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const WorkPhoneEnum = {
-        Prompt: 'Prompt' as WorkPhoneEnum,
-        DoNotPrompt: 'DoNotPrompt' as WorkPhoneEnum,
-        Required: 'Required' as WorkPhoneEnum
-    }
-    export type FaxEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const FaxEnum = {
-        Prompt: 'Prompt' as FaxEnum,
-        DoNotPrompt: 'DoNotPrompt' as FaxEnum,
-        Required: 'Required' as FaxEnum
-    }
-    export type EmailEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const EmailEnum = {
-        Prompt: 'Prompt' as EmailEnum,
-        DoNotPrompt: 'DoNotPrompt' as EmailEnum,
-        Required: 'Required' as EmailEnum
-    }
-    export type TypeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TypeEnum = {
-        Prompt: 'Prompt' as TypeEnum,
-        DoNotPrompt: 'DoNotPrompt' as TypeEnum,
-        Required: 'Required' as TypeEnum
-    }
-    export type CompanyNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CompanyNameEnum = {
-        Prompt: 'Prompt' as CompanyNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as CompanyNameEnum,
-        Required: 'Required' as CompanyNameEnum
-    }
-    export type BirthDateEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const BirthDateEnum = {
-        Prompt: 'Prompt' as BirthDateEnum,
-        DoNotPrompt: 'DoNotPrompt' as BirthDateEnum,
-        Required: 'Required' as BirthDateEnum
-    }
+    birthDate?: ParticipantSettings<CAP>birthDate<CAP>;
 }

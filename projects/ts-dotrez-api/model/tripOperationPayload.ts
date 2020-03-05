@@ -14,6 +14,7 @@
 /**
  * Represents the payload data for the trip operation.
  */
+
 export interface TripOperationPayload { 
     /**
      * The type of payload this model represents, expressed as a single  character.

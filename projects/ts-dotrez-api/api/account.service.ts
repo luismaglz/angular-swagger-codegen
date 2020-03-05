@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { AccountChangePasswordRequest } from '../model/accountChangePasswordRequest';
 import { AccountForgotPasswordRequest } from '../model/accountForgotPasswordRequest';
 import { IJsonResponse } from '../model/iJsonResponse';
@@ -35,8 +30,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class AccountService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Changes the accounts password.
@@ -44,18 +44,15 @@ export class AccountService {
      * @param request The change password request.
      
      */
-    public apiNskV1AccountPasswordChangePost = (request?: AccountChangePasswordRequest, ) => {
+    public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: AccountChangePasswordRequest, 
-            }> = {
-                url: '/api/nsk/v1/account/password/change',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/account/password/change`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -65,18 +62,15 @@ export class AccountService {
      * @param request The forgot password request.
      
      */
-    public apiNskV1AccountPasswordResetPost = (request?: AccountForgotPasswordRequest, ) => {
+    public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: AccountForgotPasswordRequest, 
-            }> = {
-                url: '/api/nsk/v1/account/password/reset',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/account/password/reset`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 }

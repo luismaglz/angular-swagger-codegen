@@ -14,6 +14,7 @@
 /**
  * Defines information used to populate the printed boarding pass and 2D bar codes.
  */
+
 export interface PassengerBoardingPassDetail { 
     /**
      * The gate information from the boarding pass.

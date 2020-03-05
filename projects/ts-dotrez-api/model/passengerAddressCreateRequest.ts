@@ -14,11 +14,14 @@
 /**
  * Defines a passenger address create request.
  */
+
+    import { PassengerAddressCreateRequest<CAP>status<CAP> } from '../models/enums';
+
 export interface PassengerAddressCreateRequest { 
     /**
      * The addresses APIS status.
      */
-    status?: PassengerAddressCreateRequest.StatusEnum;
+    status?: PassengerAddressCreateRequest<CAP>status<CAP>;
     /**
      * Company name associated with this address.
      */
@@ -63,13 +66,4 @@ export interface PassengerAddressCreateRequest {
      * The postal code.
      */
     postalCode?: string;
-}
-export namespace PassengerAddressCreateRequest {
-    export type StatusEnum = 'Residence' | 'InCountry' | 'Emergency' | 'Contact';
-    export const StatusEnum = {
-        Residence: 'Residence' as StatusEnum,
-        InCountry: 'InCountry' as StatusEnum,
-        Emergency: 'Emergency' as StatusEnum,
-        Contact: 'Contact' as StatusEnum
-    }
 }

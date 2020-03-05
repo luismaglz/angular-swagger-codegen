@@ -15,6 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Defines information needed for a customer credit refund.
  */
+
 export interface CustomerCreditRefundRequest { 
     /**
      * The payment identifier used if this refund is being reversed from an existing payment.

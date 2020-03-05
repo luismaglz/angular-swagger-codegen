@@ -14,6 +14,7 @@
 /**
  * The person information type model.
  */
+
 export interface PersonInformationType { 
     /**
      * The person information type code.

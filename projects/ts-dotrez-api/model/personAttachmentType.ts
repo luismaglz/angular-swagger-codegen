@@ -14,6 +14,7 @@
 /**
  * The person attachment Type.
  */
+
 export interface PersonAttachmentType { 
     /**
      * The type code.

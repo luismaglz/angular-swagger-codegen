@@ -14,6 +14,7 @@
 /**
  * Represents a bundle availability request.
  */
+
 export interface BundleAvailabilityRequest { 
     /**
      * The optional bundle code to look for.

@@ -15,6 +15,11 @@ import { PassengerFareAvailability } from './passengerFareAvailability';
 /**
  * Model describing common fare availability information for an entire availability request.
  */
+
+    import { FareAvailability<CAP>fareApplicationType<CAP> } from '../models/enums';
+    import { FareAvailability<CAP>fareStatus<CAP> } from '../models/enums';
+    import { FareAvailability<CAP>inboundOutBound<CAP> } from '../models/enums';
+
 export interface FareAvailability { 
     /**
      * Flag that indicates if the fare is the governing fare.
@@ -47,7 +52,7 @@ export interface FareAvailability {
     /**
      * The type of the fare application.
      */
-    fareApplicationType?: FareAvailability.FareApplicationTypeEnum;
+    fareApplicationType?: FareAvailability<CAP>fareApplicationType<CAP>;
     /**
      * The fare class of service.
      */
@@ -59,11 +64,11 @@ export interface FareAvailability {
     /**
      * The fare status.
      */
-    fareStatus?: FareAvailability.FareStatusEnum;
+    fareStatus?: FareAvailability<CAP>fareStatus<CAP>;
     /**
      * The inbound and outbound.
      */
-    inboundOutBound?: FareAvailability.InboundOutBoundEnum;
+    inboundOutBound?: FareAvailability<CAP>inboundOutBound<CAP>;
     /**
      * Gets or sets a value indicating whether this fare is an allotment marker.
      */
@@ -88,30 +93,4 @@ export interface FareAvailability {
      * The list of passenger fares on the fare.
      */
     passengerFares?: Array<PassengerFareAvailability>;
-}
-export namespace FareAvailability {
-    export type FareApplicationTypeEnum = 'Route' | 'Sector' | 'Governing';
-    export const FareApplicationTypeEnum = {
-        Route: 'Route' as FareApplicationTypeEnum,
-        Sector: 'Sector' as FareApplicationTypeEnum,
-        Governing: 'Governing' as FareApplicationTypeEnum
-    }
-    export type FareStatusEnum = 'Default' | 'SameDayStandBy' | 'FareOverrideConfirming' | 'FareOverrideConfirmed' | 'PublishedFareOverrideConfirming' | 'PublishedFareOverrideConfirmed';
-    export const FareStatusEnum = {
-        Default: 'Default' as FareStatusEnum,
-        SameDayStandBy: 'SameDayStandBy' as FareStatusEnum,
-        FareOverrideConfirming: 'FareOverrideConfirming' as FareStatusEnum,
-        FareOverrideConfirmed: 'FareOverrideConfirmed' as FareStatusEnum,
-        PublishedFareOverrideConfirming: 'PublishedFareOverrideConfirming' as FareStatusEnum,
-        PublishedFareOverrideConfirmed: 'PublishedFareOverrideConfirmed' as FareStatusEnum
-    }
-    export type InboundOutBoundEnum = 'None' | 'Inbound' | 'Outbound' | 'Both' | 'RoundFrom' | 'RoundTo';
-    export const InboundOutBoundEnum = {
-        None: 'None' as InboundOutBoundEnum,
-        Inbound: 'Inbound' as InboundOutBoundEnum,
-        Outbound: 'Outbound' as InboundOutBoundEnum,
-        Both: 'Both' as InboundOutBoundEnum,
-        RoundFrom: 'RoundFrom' as InboundOutBoundEnum,
-        RoundTo: 'RoundTo' as InboundOutBoundEnum
-    }
 }

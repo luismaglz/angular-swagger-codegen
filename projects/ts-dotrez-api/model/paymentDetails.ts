@@ -15,6 +15,7 @@ import { PaymentDetailsFields } from './paymentDetailsFields';
 /**
  * Defines the payment details.
  */
+
 export interface PaymentDetails { 
     /**
      * The reference of an encrypted account number.

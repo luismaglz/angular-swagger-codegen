@@ -14,6 +14,7 @@
 /**
  * Defines a person information edit request.
  */
+
 export interface PersonInformationEditRequest { 
     /**
      * The information data.

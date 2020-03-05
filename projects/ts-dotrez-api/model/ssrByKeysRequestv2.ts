@@ -15,6 +15,7 @@ import { SsrByKeyRequest } from './ssrByKeyRequest';
 /**
  * Request to add a leg, segment, or journey Ssr.
  */
+
 export interface SsrByKeysRequestv2 { 
     /**
      * Keys for the request.

@@ -14,6 +14,10 @@
 /**
  * Model for a ticket applied to a passenger.
  */
+
+    import { Ticket<CAP>ticketIndicator<CAP> } from '../models/enums';
+    import { Ticket<CAP>ticketStatus<CAP> } from '../models/enums';
+
 export interface Ticket { 
     /**
      * The ticket number.
@@ -26,35 +30,13 @@ export interface Ticket {
     /**
      * The ticket indicator.
      */
-    ticketIndicator?: Ticket.TicketIndicatorEnum;
+    ticketIndicator?: Ticket<CAP>ticketIndicator<CAP>;
     /**
      * The ticket status.
      */
-    ticketStatus?: Ticket.TicketStatusEnum;
+    ticketStatus?: Ticket<CAP>ticketStatus<CAP>;
     /**
      * The passenger key the ticket is associated with.
      */
     passengerKey?: string;
-}
-export namespace Ticket {
-    export type TicketIndicatorEnum = 'Unknown' | 'TicketRequired' | 'AutomatedTicketLiftRequired' | 'ManualTicketLiftRequired' | 'AutomatedTicketNoLiftRequired' | 'ManualTicketNoLiftRequired' | 'HostETicketNoLiftRequired' | 'ElectronicTicketNoLiftRequired';
-    export const TicketIndicatorEnum = {
-        Unknown: 'Unknown' as TicketIndicatorEnum,
-        TicketRequired: 'TicketRequired' as TicketIndicatorEnum,
-        AutomatedTicketLiftRequired: 'AutomatedTicketLiftRequired' as TicketIndicatorEnum,
-        ManualTicketLiftRequired: 'ManualTicketLiftRequired' as TicketIndicatorEnum,
-        AutomatedTicketNoLiftRequired: 'AutomatedTicketNoLiftRequired' as TicketIndicatorEnum,
-        ManualTicketNoLiftRequired: 'ManualTicketNoLiftRequired' as TicketIndicatorEnum,
-        HostETicketNoLiftRequired: 'HostETicketNoLiftRequired' as TicketIndicatorEnum,
-        ElectronicTicketNoLiftRequired: 'ElectronicTicketNoLiftRequired' as TicketIndicatorEnum
-    }
-    export type TicketStatusEnum = 'Unknown' | 'TicketAvailableForUse' | 'TicketUnavailableForUse' | 'TicketReissueRequiredForPassenger' | 'TicketReissueRequiredForInfant' | 'TicketReissueRequiredForBoth';
-    export const TicketStatusEnum = {
-        Unknown: 'Unknown' as TicketStatusEnum,
-        TicketAvailableForUse: 'TicketAvailableForUse' as TicketStatusEnum,
-        TicketUnavailableForUse: 'TicketUnavailableForUse' as TicketStatusEnum,
-        TicketReissueRequiredForPassenger: 'TicketReissueRequiredForPassenger' as TicketStatusEnum,
-        TicketReissueRequiredForInfant: 'TicketReissueRequiredForInfant' as TicketStatusEnum,
-        TicketReissueRequiredForBoth: 'TicketReissueRequiredForBoth' as TicketStatusEnum
-    }
 }

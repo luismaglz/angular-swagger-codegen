@@ -14,6 +14,7 @@
 /**
  * Represents the transportation identifier model data.
  */
+
 export interface TransportationIdentifier { 
     /**
      * The unique transportation identifier.

@@ -15,6 +15,7 @@ import { Carrier } from './carrier';
 /**
  * Model representing the resource entries.
  */
+
 export interface ResourceEntriesCarrier { 
     /**
      * The expiration.

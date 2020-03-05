@@ -19,6 +19,9 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Defines the boarding pass segment details.
  */
+
+    import { BoardingPassSegment<CAP>type<CAP> } from '../models/enums';
+
 export interface BoardingPassSegment { 
     /**
      * The transportation designator details based on the legs.
@@ -39,7 +42,7 @@ export interface BoardingPassSegment {
     /**
      * The type of the current segment.
      */
-    type?: BoardingPassSegment.TypeEnum;
+    type?: BoardingPassSegment<CAP>type<CAP>;
     /**
      * Flag indicating if the segment is international.
      */
@@ -100,15 +103,4 @@ export interface BoardingPassSegment {
      * The external transportation identifier details about the segment.
      */
     externalIdentifier?: BoardingPassTransportationIdentifier;
-}
-export namespace BoardingPassSegment {
-    export type TypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const TypeEnum = {
-        Normal: 'Normal' as TypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as TypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as TypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as TypeEnum,
-        InterlineInbound: 'InterlineInbound' as TypeEnum,
-        Passive: 'Passive' as TypeEnum
-    }
 }

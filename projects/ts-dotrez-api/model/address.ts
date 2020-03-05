@@ -14,6 +14,7 @@
 /**
  * Defines a common address.
  */
+
 export interface Address { 
     /**
      * The address line one.

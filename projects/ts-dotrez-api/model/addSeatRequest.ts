@@ -14,6 +14,10 @@
 /**
  * Defines update seat request.
  */
+
+    import { AddSeatRequest<CAP>inventoryControl<CAP> } from '../models/enums';
+    import { AddSeatRequest<CAP>seatAssignmentMode<CAP> } from '../models/enums';
+
 export interface AddSeatRequest { 
     journeyKey?: string;
     /**
@@ -27,7 +31,7 @@ export interface AddSeatRequest {
     /**
      * Indicates the type of hold placed on a unit.
      */
-    inventoryControl?: AddSeatRequest.InventoryControlEnum;
+    inventoryControl?: AddSeatRequest<CAP>inventoryControl<CAP>;
     /**
      * Flag indicating whether to ignore seat SSR's.
      */
@@ -35,18 +39,5 @@ export interface AddSeatRequest {
     /**
      * The seat assignment mode.
      */
-    seatAssignmentMode?: AddSeatRequest.SeatAssignmentModeEnum;
-}
-export namespace AddSeatRequest {
-    export type InventoryControlEnum = 'Session' | 'None';
-    export const InventoryControlEnum = {
-        Session: 'Session' as InventoryControlEnum,
-        None: 'None' as InventoryControlEnum
-    }
-    export type SeatAssignmentModeEnum = 'AutoDetermine' | 'PreSeatAssignment' | 'WebCheckIn';
-    export const SeatAssignmentModeEnum = {
-        AutoDetermine: 'AutoDetermine' as SeatAssignmentModeEnum,
-        PreSeatAssignment: 'PreSeatAssignment' as SeatAssignmentModeEnum,
-        WebCheckIn: 'WebCheckIn' as SeatAssignmentModeEnum
-    }
+    seatAssignmentMode?: AddSeatRequest<CAP>seatAssignmentMode<CAP>;
 }

@@ -14,6 +14,7 @@
 /**
  * Defines three D secure.
  */
+
 export interface ThreeDSecure { 
     /**
      * The browser agent being used.

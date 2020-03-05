@@ -12,6 +12,7 @@
 import { LowFareAvailabilityByDate } from './lowFareAvailabilityByDate';
 
 
+
 export interface LowFareCacheAvailability { 
     lowFares?: Array<LowFareAvailabilityByDate>;
 }

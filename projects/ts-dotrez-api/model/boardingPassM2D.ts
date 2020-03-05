@@ -17,6 +17,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Represents the boarding pass following the M2D barcode format.
  */
+
 export interface BoardingPassM2D { 
     /**
      * The collection of boarding pass segments.

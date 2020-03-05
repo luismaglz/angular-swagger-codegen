@@ -14,20 +14,16 @@
 /**
  * A travel notification destination.
  */
+
+    import { NotificationDestination<CAP>deliveryMethodCode<CAP> } from '../models/enums';
+
 export interface NotificationDestination { 
     /**
      * The delivery method code.
      */
-    deliveryMethodCode: NotificationDestination.DeliveryMethodCodeEnum;
+    deliveryMethodCode: NotificationDestination<CAP>deliveryMethodCode<CAP>;
     /**
      * The notification destination, an email or phone number.
      */
     destination?: string;
-}
-export namespace NotificationDestination {
-    export type DeliveryMethodCodeEnum = 'Email' | 'Sms';
-    export const DeliveryMethodCodeEnum = {
-        Email: 'Email' as DeliveryMethodCodeEnum,
-        Sms: 'Sms' as DeliveryMethodCodeEnum
-    }
 }

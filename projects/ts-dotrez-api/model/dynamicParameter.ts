@@ -14,6 +14,7 @@
 /**
  * The dynamic parameter.
  */
+
 export interface DynamicParameter { 
     /**
      * The culture code.

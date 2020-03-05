@@ -14,6 +14,10 @@
 /**
  * Operation Bag.
  */
+
+    import { OperationBag<CAP>baggageStatus<CAP> } from '../models/enums';
+    import { OperationBag<CAP>weightType<CAP> } from '../models/enums';
+
 export interface OperationBag { 
     /**
      * The baggage key
@@ -26,7 +30,7 @@ export interface OperationBag {
     /**
      * The BaggageStatus in Bag object.
      */
-    baggageStatus?: OperationBag.BaggageStatusEnum;
+    baggageStatus?: OperationBag<CAP>baggageStatus<CAP>;
     /**
      * Flag for marking a bag as a non-standard piece of luggage.
      */
@@ -58,21 +62,5 @@ export interface OperationBag {
     /**
      * The WeightType in Bag object.
      */
-    weightType?: OperationBag.WeightTypeEnum;
-}
-export namespace OperationBag {
-    export type BaggageStatusEnum = 'Default' | 'Checked' | 'Removed' | 'Added' | 'AddedPrinted';
-    export const BaggageStatusEnum = {
-        Default: 'Default' as BaggageStatusEnum,
-        Checked: 'Checked' as BaggageStatusEnum,
-        Removed: 'Removed' as BaggageStatusEnum,
-        Added: 'Added' as BaggageStatusEnum,
-        AddedPrinted: 'AddedPrinted' as BaggageStatusEnum
-    }
-    export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    }
+    weightType?: OperationBag<CAP>weightType<CAP>;
 }

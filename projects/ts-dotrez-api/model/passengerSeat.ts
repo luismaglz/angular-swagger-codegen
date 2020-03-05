@@ -15,6 +15,7 @@ import { SeatInfo } from './seatInfo';
 /**
  * Model for a passenger seat for a segment.
  */
+
 export interface PassengerSeat { 
     /**
      * The passenger seat compartment designator.

@@ -11,49 +11,16 @@
  */
 
 
+
+    import { IPAddress<CAP>addressFamily<CAP> } from '../models/enums';
+
 export interface IPAddress { 
     address?: number;
-    readonly addressFamily?: IPAddress.AddressFamilyEnum;
+    readonly addressFamily?: IPAddress<CAP>addressFamily<CAP>;
     scopeId?: number;
     readonly isIPv6Multicast?: boolean;
     readonly isIPv6LinkLocal?: boolean;
     readonly isIPv6SiteLocal?: boolean;
     readonly isIPv6Teredo?: boolean;
     readonly isIPv4MappedToIPv6?: boolean;
-}
-export namespace IPAddress {
-    export type AddressFamilyEnum = 'Unspecified' | 'Unix' | 'InterNetwork' | 'ImpLink' | 'Pup' | 'Chaos' | 'Ipx' | 'NS' | 'Iso' | 'Osi' | 'Ecma' | 'DataKit' | 'Ccitt' | 'Sna' | 'DecNet' | 'DataLink' | 'Lat' | 'HyperChannel' | 'AppleTalk' | 'NetBios' | 'VoiceView' | 'FireFox' | 'Banyan' | 'Atm' | 'InterNetworkV6' | 'Cluster' | 'Ieee12844' | 'Irda' | 'NetworkDesigners' | 'Max' | 'Unknown';
-    export const AddressFamilyEnum = {
-        Unspecified: 'Unspecified' as AddressFamilyEnum,
-        Unix: 'Unix' as AddressFamilyEnum,
-        InterNetwork: 'InterNetwork' as AddressFamilyEnum,
-        ImpLink: 'ImpLink' as AddressFamilyEnum,
-        Pup: 'Pup' as AddressFamilyEnum,
-        Chaos: 'Chaos' as AddressFamilyEnum,
-        Ipx: 'Ipx' as AddressFamilyEnum,
-        NS: 'NS' as AddressFamilyEnum,
-        Iso: 'Iso' as AddressFamilyEnum,
-        Osi: 'Osi' as AddressFamilyEnum,
-        Ecma: 'Ecma' as AddressFamilyEnum,
-        DataKit: 'DataKit' as AddressFamilyEnum,
-        Ccitt: 'Ccitt' as AddressFamilyEnum,
-        Sna: 'Sna' as AddressFamilyEnum,
-        DecNet: 'DecNet' as AddressFamilyEnum,
-        DataLink: 'DataLink' as AddressFamilyEnum,
-        Lat: 'Lat' as AddressFamilyEnum,
-        HyperChannel: 'HyperChannel' as AddressFamilyEnum,
-        AppleTalk: 'AppleTalk' as AddressFamilyEnum,
-        NetBios: 'NetBios' as AddressFamilyEnum,
-        VoiceView: 'VoiceView' as AddressFamilyEnum,
-        FireFox: 'FireFox' as AddressFamilyEnum,
-        Banyan: 'Banyan' as AddressFamilyEnum,
-        Atm: 'Atm' as AddressFamilyEnum,
-        InterNetworkV6: 'InterNetworkV6' as AddressFamilyEnum,
-        Cluster: 'Cluster' as AddressFamilyEnum,
-        Ieee12844: 'Ieee12844' as AddressFamilyEnum,
-        Irda: 'Irda' as AddressFamilyEnum,
-        NetworkDesigners: 'NetworkDesigners' as AddressFamilyEnum,
-        Max: 'Max' as AddressFamilyEnum,
-        Unknown: 'Unknown' as AddressFamilyEnum
-    }
 }

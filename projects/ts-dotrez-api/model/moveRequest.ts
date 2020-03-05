@@ -14,6 +14,11 @@
 /**
  * Defines the move journey request for a booking in state.
  */
+
+    import { MoveRequest<CAP>moveType<CAP> } from '../models/enums';
+    import { MoveRequest<CAP>ignoreLiftStatus<CAP> } from '../models/enums';
+    import { MoveRequest<CAP>moveSsrOption<CAP> } from '../models/enums';
+
 export interface MoveRequest { 
     /**
      * The journey key to move from.
@@ -30,7 +35,7 @@ export interface MoveRequest {
     /**
      * The type of move that is requested.
      */
-    moveType?: MoveRequest.MoveTypeEnum;
+    moveType?: MoveRequest<CAP>moveType<CAP>;
     /**
      * If true and the FromJourney is waitlisted, then the newly moved-to journey will  also be waitlisted.  This interacts with ChangeStatus.  See documentation for  ChangeStatus for further details.
      */
@@ -42,7 +47,7 @@ export interface MoveRequest {
     /**
      * Controls whether the Move is allowed to ignore boarded and/or  checked-in statuses.
      */
-    ignoreLiftStatus?: MoveRequest.IgnoreLiftStatusEnum;
+    ignoreLiftStatus?: MoveRequest<CAP>ignoreLiftStatus<CAP>;
     /**
      * Set ChangeStatus to false and KeepWaitListStatus to false if you wish the  status of the new segments to be set based upon the ActionStatusCodes  specified in the ToJourney.  Set ChangeStatus to false and KeepWaitListStatus to true if you wish the  status of the new segments to be set based upon the ActionStatusCodes  specified in the ToJourney EXCEPT when the original segments (being moved  from) are waitlisted.  If the original segments are waitlisted, then the  new segments will also be forced to be waitlisted, regardless of which  ActionStatusCodes were specified in ToJourney.  If ChangeStatus is true, the status of the new segments will be set to  the opposite of the status of the original (moving from) segment.  If the  original segments were waitlisted, then new segments will not be.  If the  original segments were not waitlisted, the new segments will be waitlisted.  This does not need to be set to true if moving to a standby journey that is  already part of the booking.
      */
@@ -58,29 +63,5 @@ export interface MoveRequest {
     /**
      * Controls whether to move SSRs from FromJourney to ToJourney.
      */
-    moveSsrOption?: MoveRequest.MoveSsrOptionEnum;
-}
-export namespace MoveRequest {
-    export type MoveTypeEnum = 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking';
-    export const MoveTypeEnum = {
-        None: 'None' as MoveTypeEnum,
-        Irop: 'Irop' as MoveTypeEnum,
-        Diversion: 'Diversion' as MoveTypeEnum,
-        FlightClose: 'FlightClose' as MoveTypeEnum,
-        FlyAhead: 'FlyAhead' as MoveTypeEnum,
-        SplitJourney: 'SplitJourney' as MoveTypeEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as MoveTypeEnum
-    }
-    export type IgnoreLiftStatusEnum = 'IgnoreNotAllowed' | 'IgnoreCheckin' | 'IgnoreBoarded';
-    export const IgnoreLiftStatusEnum = {
-        IgnoreNotAllowed: 'IgnoreNotAllowed' as IgnoreLiftStatusEnum,
-        IgnoreCheckin: 'IgnoreCheckin' as IgnoreLiftStatusEnum,
-        IgnoreBoarded: 'IgnoreBoarded' as IgnoreLiftStatusEnum
-    }
-    export type MoveSsrOptionEnum = 'OverbookSsr' | 'MoveAvailableSsr' | 'MoveNone';
-    export const MoveSsrOptionEnum = {
-        OverbookSsr: 'OverbookSsr' as MoveSsrOptionEnum,
-        MoveAvailableSsr: 'MoveAvailableSsr' as MoveSsrOptionEnum,
-        MoveNone: 'MoveNone' as MoveSsrOptionEnum
-    }
+    moveSsrOption?: MoveRequest<CAP>moveSsrOption<CAP>;
 }

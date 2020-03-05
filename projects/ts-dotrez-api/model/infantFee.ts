@@ -15,6 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Defines the infant fee information.
  */
+
 export interface InfantFee { 
     /**
      * The fee code.

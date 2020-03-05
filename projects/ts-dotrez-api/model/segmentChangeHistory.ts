@@ -16,11 +16,14 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines a segment change history log entry.
  */
+
+    import { SegmentChangeHistory<CAP>daysOfWeek<CAP> } from '../models/enums';
+
 export interface SegmentChangeHistory { 
     /**
      * The days of the week of the operation.
      */
-    daysOfWeek?: Array<SegmentChangeHistory.DaysOfWeekEnum>;
+    daysOfWeek?: SegmentChangeHistory<CAP>daysOfWeek<CAP>;
     /**
      * The segment number.
      */
@@ -81,17 +84,4 @@ export interface SegmentChangeHistory {
      * The cash value of the fare.
      */
     fareAmount?: number;
-}
-export namespace SegmentChangeHistory {
-    export type DaysOfWeekEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const DaysOfWeekEnum = {
-        None: 'None' as DaysOfWeekEnum,
-        Monday: 'Monday' as DaysOfWeekEnum,
-        Tuesday: 'Tuesday' as DaysOfWeekEnum,
-        Wednesday: 'Wednesday' as DaysOfWeekEnum,
-        Thursday: 'Thursday' as DaysOfWeekEnum,
-        Friday: 'Friday' as DaysOfWeekEnum,
-        Saturday: 'Saturday' as DaysOfWeekEnum,
-        Sunday: 'Sunday' as DaysOfWeekEnum
-    }
 }

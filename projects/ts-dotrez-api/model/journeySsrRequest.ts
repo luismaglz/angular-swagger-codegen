@@ -14,6 +14,7 @@
 /**
  * SSR request for a single journey Ssr.
  */
+
 export interface JourneySsrRequest { 
     /**
      * The journey key.

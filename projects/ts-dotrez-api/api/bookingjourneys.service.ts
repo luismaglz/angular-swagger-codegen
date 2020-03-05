@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { BundleSellRequest } from '../model/bundleSellRequest';
 import { CancelJourneyRequest } from '../model/cancelJourneyRequest';
 import { IJsonResponse } from '../model/iJsonResponse';
@@ -39,8 +34,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class BookingjourneysService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Sells a service bundle for one or more passengers on a journey.
@@ -49,22 +49,19 @@ export class BookingjourneysService {
      * @param request The bundle sell request.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyBundlesPost = (journeyKey: string, request?: BundleSellRequest, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyBundlesPost(journeyKey: string, request?: BundleSellRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingJourneysByJourneyKeyBundlesPost(journeyKey: string, request?: BundleSellRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingJourneysByJourneyKeyBundlesPost(journeyKey: string, request?: BundleSellRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyBundlesPost.');
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, request?: BundleSellRequest, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/bundles',
-                method: 'post',
-                data: {
-                    journeyKey,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/bundles`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -75,22 +72,19 @@ export class BookingjourneysService {
      * @param request The cancel journey request options.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyDelete = (journeyKey: string, request?: CancelJourneyRequest, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyDelete(journeyKey: string, request?: CancelJourneyRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingJourneysByJourneyKeyDelete(journeyKey: string, request?: CancelJourneyRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingJourneysByJourneyKeyDelete(journeyKey: string, request?: CancelJourneyRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyDelete.');
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, request?: CancelJourneyRequest, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}',
-                method: 'delete',
-                data: {
-                    journeyKey,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -100,22 +94,19 @@ export class BookingjourneysService {
      * @param journeyKey 
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyGet = (journeyKey: string, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyGet(journeyKey: string, observe?: 'body', headers?: Headers): Observable<Journey>;
+    public apiNskV1BookingJourneysByJourneyKeyGet(journeyKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Journey>>;
+    public apiNskV1BookingJourneysByJourneyKeyGet(journeyKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyGet.');
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}',
-                method: 'get',
-                data: {
-                    journeyKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Journey>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Journey>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -126,7 +117,9 @@ export class BookingjourneysService {
      * @param passengerKey The passenger key to check requirements for.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet = (journeyKey: string, passengerKey: string, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet(journeyKey: string, passengerKey: string, observe?: 'body', headers?: Headers): Observable<boolean>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet(journeyKey: string, passengerKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<boolean>>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet(journeyKey: string, passengerKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet.');
         }
@@ -136,16 +129,11 @@ export class BookingjourneysService {
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, passengerKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/address/requirements',
-                method: 'get',
-                data: {
-                    journeyKey,passengerKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<boolean>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/address/requirements`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <boolean>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -157,7 +145,9 @@ export class BookingjourneysService {
      * @param baggageKey Unique identifier for the bag to remove.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete = (journeyKey: string, passengerKey: string, baggageKey: string, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete(journeyKey: string, passengerKey: string, baggageKey: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete(journeyKey: string, passengerKey: string, baggageKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete(journeyKey: string, passengerKey: string, baggageKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete.');
         }
@@ -171,16 +161,11 @@ export class BookingjourneysService {
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, passengerKey: string, baggageKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage/${encodeURIComponent(String(baggageKey))}',
-                method: 'delete',
-                data: {
-                    journeyKey,passengerKey,baggageKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage/${encodeURIComponent(String(baggageKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -192,7 +177,9 @@ export class BookingjourneysService {
      * @param baggageKey The bag key for the bag to retrieve.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet = (journeyKey: string, passengerKey: string, baggageKey: string, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet(journeyKey: string, passengerKey: string, baggageKey: string, observe?: 'body', headers?: Headers): Observable<Array<PassengerBag>>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet(journeyKey: string, passengerKey: string, baggageKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PassengerBag>>>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet(journeyKey: string, passengerKey: string, baggageKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet.');
         }
@@ -206,16 +193,11 @@ export class BookingjourneysService {
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, passengerKey: string, baggageKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage/${encodeURIComponent(String(baggageKey))}',
-                method: 'get',
-                data: {
-                    journeyKey,passengerKey,baggageKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PassengerBag>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage/${encodeURIComponent(String(baggageKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PassengerBag>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -226,7 +208,9 @@ export class BookingjourneysService {
      * @param passengerKey The passenger key for the passenger to retrieve from.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet = (journeyKey: string, passengerKey: string, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet(journeyKey: string, passengerKey: string, observe?: 'body', headers?: Headers): Observable<Array<PassengerBag>>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet(journeyKey: string, passengerKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PassengerBag>>>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet(journeyKey: string, passengerKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet.');
         }
@@ -236,16 +220,11 @@ export class BookingjourneysService {
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, passengerKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage',
-                method: 'get',
-                data: {
-                    journeyKey,passengerKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PassengerBag>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PassengerBag>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -257,7 +236,9 @@ export class BookingjourneysService {
      * @param request A request to add bags to the given passenger.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost = (journeyKey: string, passengerKey: string, request?: PassengerBagRequest, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost(journeyKey: string, passengerKey: string, request?: PassengerBagRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost(journeyKey: string, passengerKey: string, request?: PassengerBagRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost(journeyKey: string, passengerKey: string, request?: PassengerBagRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost.');
         }
@@ -267,16 +248,11 @@ export class BookingjourneysService {
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, passengerKey: string, request?: PassengerBagRequest, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage',
-                method: 'post',
-                data: {
-                    journeyKey,passengerKey,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/passengers/${encodeURIComponent(String(passengerKey))}/baggage`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -286,22 +262,19 @@ export class BookingjourneysService {
      * @param journeyKey The journey key to get required travel documents for.
      
      */
-    public apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet = (journeyKey: string, ) => {
+    public apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet(journeyKey: string, observe?: 'body', headers?: Headers): Observable<TravelDocumentRequirements>;
+    public apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet(journeyKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<TravelDocumentRequirements>>;
+    public apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet(journeyKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!journeyKey){
             throw new Error('Required parameter journeyKey was null or undefined when calling apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet.');
         }
 
 
-            const requestObj: Request<{
-                journeyKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/travelDocument/requirements',
-                method: 'get',
-                data: {
-                    journeyKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TravelDocumentRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys/${encodeURIComponent(String(journeyKey))}/travelDocument/requirements`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TravelDocumentRequirements>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -310,18 +283,15 @@ export class BookingjourneysService {
      * 
      
      */
-    public apiNskV1BookingJourneysDelete = () => {
+    public apiNskV1BookingJourneysDelete(observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingJourneysDelete(observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingJourneysDelete(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/nsk/v1/booking/journeys',
-                method: 'delete',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/journeys`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -330,18 +300,15 @@ export class BookingjourneysService {
      * 
      
      */
-    public apiNskV1BookingJourneysGet = () => {
+    public apiNskV1BookingJourneysGet(observe?: 'body', headers?: Headers): Observable<Array<Journey>>;
+    public apiNskV1BookingJourneysGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Journey>>>;
+    public apiNskV1BookingJourneysGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/nsk/v1/booking/journeys',
-                method: 'get',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Journey>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Journey>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -351,22 +318,19 @@ export class BookingjourneysService {
      * @param passengerKey The passenger key to check requirements for.
      
      */
-    public apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet = (passengerKey: string, ) => {
+    public apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet(passengerKey: string, observe?: 'body', headers?: Headers): Observable<boolean>;
+    public apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet(passengerKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<boolean>>;
+    public apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet(passengerKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!passengerKey){
             throw new Error('Required parameter passengerKey was null or undefined when calling apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet.');
         }
 
 
-            const requestObj: Request<{
-                passengerKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/passengers/${encodeURIComponent(String(passengerKey))}/address/requirements',
-                method: 'get',
-                data: {
-                    passengerKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<boolean>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys/passengers/${encodeURIComponent(String(passengerKey))}/address/requirements`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <boolean>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -375,18 +339,15 @@ export class BookingjourneysService {
      * This endpoint will return a response containing a collection of travel document type codes that could fulfill  a travel document requirement.  If the \&quot;AtLeastOneDocumentRequired\&quot; value is true, then one or more documents  in the list are required.  However, it does not mean that every document in the list is required.  If  \&quot;AtLeastOneDocumentRequired\&quot; is false, then the list of document type codes represents a list of acceptable  travel documents, but nothing is required.                This endpoint does not determine if any passengers already have required travel documents.
      
      */
-    public apiNskV1BookingJourneysTravelDocumentRequirementsGet = () => {
+    public apiNskV1BookingJourneysTravelDocumentRequirementsGet(observe?: 'body', headers?: Headers): Observable<TravelDocumentRequirements>;
+    public apiNskV1BookingJourneysTravelDocumentRequirementsGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<TravelDocumentRequirements>>;
+    public apiNskV1BookingJourneysTravelDocumentRequirementsGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/nsk/v1/booking/journeys/travelDocument/requirements',
-                method: 'get',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TravelDocumentRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/journeys/travelDocument/requirements`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TravelDocumentRequirements>(httpResponse.response));
+        }
+        return response;
     }
 
 }

@@ -13,6 +13,7 @@ import { ActionDescriptorProperties } from './actionDescriptorProperties';
 import { IRouter } from './iRouter';
 
 
+
 export interface RouteData { 
     dataTokens?: ActionDescriptorProperties;
     readonly routers?: Array<IRouter>;

@@ -12,6 +12,7 @@
 import { HttpContext } from './httpContext';
 
 
+
 export interface AuthenticationManager { 
     readonly httpContext?: HttpContext;
 }

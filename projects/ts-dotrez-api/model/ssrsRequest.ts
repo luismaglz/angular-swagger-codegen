@@ -15,6 +15,7 @@ import { SsrsByType } from './ssrsByType';
 /**
  * Request to add multiple leg, segment, or journey Ssr's.
  */
+
 export interface SsrsRequest { 
     /**
      * Ssr requests by type of request (Journey, Leg, Segment).

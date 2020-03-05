@@ -14,6 +14,9 @@
 /**
  * The location model.
  */
+
+    import { Location<CAP>locationType<CAP> } from '../models/enums';
+
 export interface Location { 
     /**
      * The Location Code.
@@ -26,7 +29,7 @@ export interface Location {
     /**
      * The location type.
      */
-    locationType?: Location.LocationTypeEnum;
+    locationType?: Location<CAP>locationType<CAP>;
     /**
      * The payment group id.
      */
@@ -43,12 +46,4 @@ export interface Location {
      * The in active.
      */
     inActive?: boolean;
-}
-export namespace Location {
-    export type LocationTypeEnum = 'Other' | 'Station' | 'City';
-    export const LocationTypeEnum = {
-        Other: 'Other' as LocationTypeEnum,
-        Station: 'Station' as LocationTypeEnum,
-        City: 'City' as LocationTypeEnum
-    }
 }

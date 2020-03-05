@@ -12,6 +12,7 @@
 import { PassengerTypePriceBreakdown } from './passengerTypePriceBreakdown';
 
 
+
 export interface InlineResponse2007 { 
     ?: PassengerTypePriceBreakdown;
 }

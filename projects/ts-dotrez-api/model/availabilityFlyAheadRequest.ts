@@ -18,6 +18,9 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
 /**
  * Defines a fly ahead availability criteria search.
  */
+
+    import { AvailabilityFlyAheadRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface AvailabilityFlyAheadRequest { 
     passengerKeys?: Array<string>;
     /**
@@ -43,14 +46,5 @@ export interface AvailabilityFlyAheadRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: AvailabilityFlyAheadRequest.TypeEnum;
-}
-export namespace AvailabilityFlyAheadRequest {
-    export type TypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Standby: 'Standby' as TypeEnum,
-        Overbook: 'Overbook' as TypeEnum,
-        NoPricing: 'NoPricing' as TypeEnum
-    }
+    type?: AvailabilityFlyAheadRequest<CAP>type<CAP>;
 }

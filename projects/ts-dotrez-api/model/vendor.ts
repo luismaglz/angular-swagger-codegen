@@ -15,6 +15,9 @@ import { Supplier } from './supplier';
 /**
  * Defines a travel commerce vendor.
  */
+
+    import { Vendor<CAP>paymentAction<CAP> } from '../models/enums';
+
 export interface Vendor { 
     /**
      * The unique code for this vendor.
@@ -51,19 +54,9 @@ export interface Vendor {
     /**
      * The payment action.
      */
-    paymentAction?: Vendor.PaymentActionEnum;
+    paymentAction?: Vendor<CAP>paymentAction<CAP>;
     /**
      * Supplier information.
      */
     supplier?: Supplier;
-}
-export namespace Vendor {
-    export type PaymentActionEnum = 'SellingSystemCollects' | 'PassThroughHold' | 'NoPaymentRequired' | 'ReferToSupplierMessage' | 'PassThroughCharge';
-    export const PaymentActionEnum = {
-        SellingSystemCollects: 'SellingSystemCollects' as PaymentActionEnum,
-        PassThroughHold: 'PassThroughHold' as PaymentActionEnum,
-        NoPaymentRequired: 'NoPaymentRequired' as PaymentActionEnum,
-        ReferToSupplierMessage: 'ReferToSupplierMessage' as PaymentActionEnum,
-        PassThroughCharge: 'PassThroughCharge' as PaymentActionEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * Defines the request to retrieve a service fee.
  */
+
 export interface CommitPassengerFeeRequest { 
     /**
      * The passenger key.

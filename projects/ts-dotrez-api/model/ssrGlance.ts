@@ -14,6 +14,7 @@
 /**
  * Manifest Leg SSR.
  */
+
 export interface SsrGlance { 
     /**
      * The additional information on the SSR that are not visible to passengers.

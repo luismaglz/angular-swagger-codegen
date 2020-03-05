@@ -15,6 +15,7 @@ import { CompartmentInformation } from './compartmentInformation';
 /**
  * The collection of compartments within the deck.
  */
+
 export interface DeckInformationCompartments { 
     ?: CompartmentInformation;
 }

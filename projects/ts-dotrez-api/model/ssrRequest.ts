@@ -14,6 +14,7 @@
 /**
  * SSR request for a single Ssr.
  */
+
 export interface SsrRequest { 
     /**
      * The passenger key.

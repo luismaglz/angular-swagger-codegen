@@ -15,6 +15,7 @@ import { Passenger } from './passenger';
 /**
  * The list of passengers and information.
  */
+
 export interface BookingPassengers { 
     ?: Passenger;
 }

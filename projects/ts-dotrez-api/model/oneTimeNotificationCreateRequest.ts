@@ -18,6 +18,7 @@ import { OneTimeNotificationEventCreateRequest } from './oneTimeNotificationEven
 /**
  * Request for one time notification creation.
  */
+
 export interface OneTimeNotificationCreateRequest { 
     /**
      * The list of one time travel notification event.

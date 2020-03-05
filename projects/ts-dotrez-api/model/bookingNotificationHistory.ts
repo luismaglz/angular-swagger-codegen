@@ -14,6 +14,9 @@
 /**
  * Defines a booking notification history.
  */
+
+    import { BookingNotificationHistory<CAP>eventTypeCode<CAP> } from '../models/enums';
+
 export interface BookingNotificationHistory { 
     /**
      * The booking notification history key.
@@ -26,7 +29,7 @@ export interface BookingNotificationHistory {
     /**
      * Event type code of the notification.
      */
-    eventTypeCode?: BookingNotificationHistory.EventTypeCodeEnum;
+    eventTypeCode?: BookingNotificationHistory<CAP>eventTypeCode<CAP>;
     /**
      * Delivery method code of the notification.
      */
@@ -47,16 +50,4 @@ export interface BookingNotificationHistory {
      * Reminder time for the notification.
      */
     minutesToEvent?: number;
-}
-export namespace BookingNotificationHistory {
-    export type EventTypeCodeEnum = 'Unknown' | 'Departure' | 'DepartureDelay' | 'Arrival' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn';
-    export const EventTypeCodeEnum = {
-        Unknown: 'Unknown' as EventTypeCodeEnum,
-        Departure: 'Departure' as EventTypeCodeEnum,
-        DepartureDelay: 'DepartureDelay' as EventTypeCodeEnum,
-        Arrival: 'Arrival' as EventTypeCodeEnum,
-        ArrivalDelay: 'ArrivalDelay' as EventTypeCodeEnum,
-        ScheduleChange: 'ScheduleChange' as EventTypeCodeEnum,
-        CheckIn: 'CheckIn' as EventTypeCodeEnum
-    }
 }

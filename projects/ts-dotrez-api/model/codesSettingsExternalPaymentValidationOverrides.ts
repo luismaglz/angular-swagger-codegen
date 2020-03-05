@@ -14,6 +14,7 @@
 /**
  * A list of external payment codes that allow validation overrides.
  */
+
 export interface CodesSettingsExternalPaymentValidationOverrides { 
     ?: boolean;
 }

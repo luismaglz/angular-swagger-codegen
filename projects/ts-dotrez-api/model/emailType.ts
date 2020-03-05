@@ -14,6 +14,7 @@
 /**
  * The email type.
  */
+
 export interface EmailType { 
     /**
      * The email type code.

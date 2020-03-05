@@ -16,6 +16,7 @@ import { LegCrossReference } from './legCrossReference';
 /**
  * Represents the trip status details version two model.
  */
+
 export interface TripDetails { 
     /**
      * Represents the leg cross references.

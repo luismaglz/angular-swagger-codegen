@@ -16,6 +16,7 @@ import { PassengerRequest } from './passengerRequest';
 /**
  * Defines the the passenger and associated ssr request.
  */
+
 export interface BookingPassengerRequest { 
     /**
      * The passenger information.

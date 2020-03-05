@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass acting program.
  */
+
 export interface BoardingPassProgram { 
     /**
      * The programs name.

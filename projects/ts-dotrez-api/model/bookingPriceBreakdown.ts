@@ -19,6 +19,7 @@ import { PassengerPriceBreakdownBase } from './passengerPriceBreakdownBase';
 /**
  * Defines the booking top level pricing breakdown.
  */
+
 export interface BookingPriceBreakdown { 
     /**
      * The booking balance due.

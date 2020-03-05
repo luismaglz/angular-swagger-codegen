@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass boarding details.
  */
+
 export interface BoardingPassBoardingDetails { 
     /**
      * The boarding sequence number.

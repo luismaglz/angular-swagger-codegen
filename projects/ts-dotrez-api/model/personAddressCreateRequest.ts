@@ -14,6 +14,7 @@
 /**
  * Defines a person address request.
  */
+
 export interface PersonAddressCreateRequest { 
     /**
      * The type of address.

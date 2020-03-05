@@ -14,6 +14,9 @@
 /**
  * Defines the peron's stored payment create request.
  */
+
+    import { PersonStoredPaymentRequest<CAP>paymentMethodType<CAP> } from '../models/enums';
+
 export interface PersonStoredPaymentRequest { 
     /**
      * The account number.
@@ -22,7 +25,7 @@ export interface PersonStoredPaymentRequest {
     /**
      * The type of payment being added.
      */
-    paymentMethodType: PersonStoredPaymentRequest.PaymentMethodTypeEnum;
+    paymentMethodType: PersonStoredPaymentRequest<CAP>paymentMethodType<CAP>;
     /**
      * The name of the account.
      */
@@ -39,15 +42,4 @@ export interface PersonStoredPaymentRequest {
      * Indicates if the stored payment is the default.
      */
     _default?: boolean;
-}
-export namespace PersonStoredPaymentRequest {
-    export type PaymentMethodTypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const PaymentMethodTypeEnum = {
-        ExternalAccount: 'ExternalAccount' as PaymentMethodTypeEnum,
-        PrePaid: 'PrePaid' as PaymentMethodTypeEnum,
-        AgencyAccount: 'AgencyAccount' as PaymentMethodTypeEnum,
-        CustomerAccount: 'CustomerAccount' as PaymentMethodTypeEnum,
-        Voucher: 'Voucher' as PaymentMethodTypeEnum,
-        Loyalty: 'Loyalty' as PaymentMethodTypeEnum
-    }
 }

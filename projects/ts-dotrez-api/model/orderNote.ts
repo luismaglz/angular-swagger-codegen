@@ -14,6 +14,7 @@
 /**
  * Defines a order note.
  */
+
 export interface OrderNote { 
     /**
      * The notes text.

@@ -14,6 +14,7 @@
 /**
  * The bundle dates model.
  */
+
 export interface BundleDates { 
     /**
      * The start date when the bundle application is effective.

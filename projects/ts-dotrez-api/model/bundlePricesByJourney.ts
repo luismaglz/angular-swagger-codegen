@@ -15,6 +15,7 @@ import { BundlePriceAvailability } from './bundlePriceAvailability';
 /**
  * The bundle prices by journey model.
  */
+
 export interface BundlePricesByJourney { 
     /**
      * The journey key associated with the bundle prices.

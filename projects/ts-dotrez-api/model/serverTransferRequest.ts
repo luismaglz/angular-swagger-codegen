@@ -14,6 +14,9 @@
 /**
  * Represents a server transfer request.
  */
+
+    import { ServerTransferRequest<CAP>channel<CAP> } from '../models/enums';
+
 export interface ServerTransferRequest { 
     /**
      * The NewSkies server context token to transfer.
@@ -26,15 +29,5 @@ export interface ServerTransferRequest {
     /**
      * The transferred server's channel type.
      */
-    channel?: ServerTransferRequest.ChannelEnum;
-}
-export namespace ServerTransferRequest {
-    export type ChannelEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelEnum = {
-        Default: 'Default' as ChannelEnum,
-        Direct: 'Direct' as ChannelEnum,
-        Web: 'Web' as ChannelEnum,
-        Gds: 'Gds' as ChannelEnum,
-        Api: 'Api' as ChannelEnum
-    }
+    channel?: ServerTransferRequest<CAP>channel<CAP>;
 }

@@ -17,6 +17,9 @@ import { SsrGlance } from './ssrGlance';
 /**
  * Manifest Leg.
  */
+
+    import { ManifestLeg<CAP>liftStatus<CAP> } from '../models/enums';
+
 export interface ManifestLeg { 
     /**
      * The ArrivalDetail property.
@@ -53,7 +56,7 @@ export interface ManifestLeg {
     /**
      * The LiftStatus property.
      */
-    liftStatus?: ManifestLeg.LiftStatusEnum;
+    liftStatus?: ManifestLeg<CAP>liftStatus<CAP>;
     /**
      * The ManifestOrigin property.
      */
@@ -82,13 +85,4 @@ export interface ManifestLeg {
      * The UnitDesignator property.
      */
     unitDesignator?: string;
-}
-export namespace ManifestLeg {
-    export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    }
 }

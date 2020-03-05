@@ -14,6 +14,7 @@
 /**
  * The record locator edit request model.
  */
+
 export interface RecordLocatorEditRequest { 
     /**
      * The system domain code.

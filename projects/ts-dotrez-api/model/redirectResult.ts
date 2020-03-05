@@ -12,6 +12,7 @@
 import { IUrlHelper } from './iUrlHelper';
 
 
+
 export interface RedirectResult { 
     permanent?: boolean;
     preserveMethod?: boolean;

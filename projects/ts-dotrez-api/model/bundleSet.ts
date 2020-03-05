@@ -14,6 +14,7 @@
 /**
  * The bundle set model.
  */
+
 export interface BundleSet { 
     /**
      * The service bundle code.

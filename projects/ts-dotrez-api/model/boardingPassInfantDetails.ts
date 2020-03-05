@@ -16,6 +16,9 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Defines the boarding pass infant details.
  */
+
+    import { BoardingPassInfantDetails<CAP>gender<CAP> } from '../models/enums';
+
 export interface BoardingPassInfantDetails { 
     /**
      * The given name.
@@ -32,17 +35,9 @@ export interface BoardingPassInfantDetails {
     /**
      * The gender.
      */
-    gender?: BoardingPassInfantDetails.GenderEnum;
+    gender?: BoardingPassInfantDetails<CAP>gender<CAP>;
     /**
      * The collection of travel documents.
      */
     documents?: Array<PassengerTravelDocument>;
-}
-export namespace BoardingPassInfantDetails {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

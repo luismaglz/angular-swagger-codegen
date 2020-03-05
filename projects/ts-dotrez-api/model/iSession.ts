@@ -11,6 +11,7 @@
  */
 
 
+
 export interface ISession { 
     readonly isAvailable?: boolean;
     readonly id?: string;

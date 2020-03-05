@@ -15,6 +15,7 @@ import { JourneyAvailability } from './journeyAvailability';
 /**
  * Trip model representing a slim version of a core Availability Schedule.
  */
+
 export interface Trip { 
     /**
      * The arrival station code.

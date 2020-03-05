@@ -17,6 +17,7 @@ import { OneTimeNotificationEvent } from './oneTimeNotificationEvent';
 /**
  * A one time travel notification.
  */
+
 export interface OneTimeTravelNotification { 
     /**
      * The expiration date.

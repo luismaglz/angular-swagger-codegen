@@ -15,6 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Model that represents the passenger fare details.
  */
+
 export interface PassengerFare { 
     /**
      * The service charges.

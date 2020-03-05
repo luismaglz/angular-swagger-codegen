@@ -14,11 +14,14 @@
 /**
  * The organization account transaction request.
  */
+
+    import { OrganizationTransactionRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface OrganizationTransactionRequest { 
     /**
      * The transaction types for an organization account.
      */
-    type?: OrganizationTransactionRequest.TypeEnum;
+    type?: OrganizationTransactionRequest<CAP>type<CAP>;
     /**
      * The credit account transaction amount.
      */
@@ -31,13 +34,4 @@ export interface OrganizationTransactionRequest {
      * The credit account transaction note.
      */
     note?: string;
-}
-export namespace OrganizationTransactionRequest {
-    export type TypeEnum = 'Default' | 'Payment' | 'Adjustment' | 'Supplementary';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Payment: 'Payment' as TypeEnum,
-        Adjustment: 'Adjustment' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum
-    }
 }

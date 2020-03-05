@@ -14,11 +14,14 @@
 /**
  * Defines a booking message history log entry.
  */
+
+    import { BookingMessageHistory<CAP>type<CAP> } from '../models/enums';
+
 export interface BookingMessageHistory { 
     /**
      * The message history type.
      */
-    type?: BookingMessageHistory.TypeEnum;
+    type?: BookingMessageHistory<CAP>type<CAP>;
     /**
      * The message.
      */
@@ -27,13 +30,4 @@ export interface BookingMessageHistory {
      * The created date.
      */
     createdDate?: Date;
-}
-export namespace BookingMessageHistory {
-    export type TypeEnum = 'TeletypeMessage' | 'ETicket' | 'GovernmentSecurity' | 'PnrGovernment';
-    export const TypeEnum = {
-        TeletypeMessage: 'TeletypeMessage' as TypeEnum,
-        ETicket: 'ETicket' as TypeEnum,
-        GovernmentSecurity: 'GovernmentSecurity' as TypeEnum,
-        PnrGovernment: 'PnrGovernment' as TypeEnum
-    }
 }

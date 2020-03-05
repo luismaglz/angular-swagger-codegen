@@ -11,6 +11,7 @@
  */
 
 
+
 export interface LowFareAvailabilityByDate { 
     date?: Date;
     price?: number;

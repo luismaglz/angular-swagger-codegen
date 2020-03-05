@@ -15,6 +15,7 @@ import { GovernmentPassengerDocumentRequirement } from './governmentPassengerDoc
 /**
  * Defines a passenger checkin document requirements.
  */
+
 export interface CheckinDocumentRequirements { 
     /**
      * Flag indicating if the checkin document requirements are all meet and ready/valid for checkin.

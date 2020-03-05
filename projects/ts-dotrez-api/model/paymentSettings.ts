@@ -14,6 +14,7 @@
 /**
  * The payment settings.
  */
+
 export interface PaymentSettings { 
     /**
      * Hold the default comment that will be applied for a credit shell payment.

@@ -16,6 +16,7 @@ import { SellTokenCatalogRequestParameters } from './sellTokenCatalogRequestPara
 /**
  * Defines a product quote token request.
  */
+
 export interface SellHotelRequest { 
     parameters?: SellTokenCatalogRequestParameters;
     /**

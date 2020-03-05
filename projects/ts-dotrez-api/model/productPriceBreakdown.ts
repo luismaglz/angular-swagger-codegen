@@ -14,6 +14,7 @@
 /**
  * Defines the search results price calculations.
  */
+
 export interface ProductPriceBreakdown { 
     /**
      * The minimum price offered.

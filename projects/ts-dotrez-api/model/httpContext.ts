@@ -22,6 +22,7 @@ import { KeyValuePairTypeObject } from './keyValuePairTypeObject';
 import { WebSocketManager } from './webSocketManager';
 
 
+
 export interface HttpContext { 
     readonly features?: Array<KeyValuePairTypeObject>;
     readonly request?: HttpRequest;

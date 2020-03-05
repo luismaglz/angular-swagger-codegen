@@ -14,6 +14,7 @@
 /**
  * The account collection model.
  */
+
 export interface AccountCollection { 
     /**
      * The transaction code.

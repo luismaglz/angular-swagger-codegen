@@ -16,6 +16,7 @@ import { SellTokenCatalogRequestParameters } from './sellTokenCatalogRequestPara
 /**
  * Defines a product quote item request used for a singular catalog item.
  */
+
 export interface SellCarRequest { 
     parameters?: SellTokenCatalogRequestParameters;
     /**

@@ -14,6 +14,7 @@
 /**
  * This model represents the passenger summary info per cabin.
  */
+
 export interface TravelClass { 
     /**
      * Gets or sets the code for this travel class.

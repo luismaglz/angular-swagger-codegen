@@ -18,6 +18,9 @@ import { UserSetting } from './userSetting';
 /**
  * Defines the user create request.
  */
+
+    import { UserCreateRequest<CAP>status<CAP> } from '../models/enums';
+
 export interface UserCreateRequest { 
     /**
      * The person to create for the user.
@@ -30,7 +33,7 @@ export interface UserCreateRequest {
     /**
      * The status of the account.
      */
-    status?: UserCreateRequest.StatusEnum;
+    status?: UserCreateRequest<CAP>status<CAP>;
     /**
      * The collection of user roles.
      */
@@ -75,14 +78,4 @@ export interface UserCreateRequest {
      * Flag indicating if the password needs to be reset.
      */
     forcePasswordReset?: boolean;
-}
-export namespace UserCreateRequest {
-    export type StatusEnum = 'Default' | 'Active' | 'Pending' | 'Suspended' | 'Terminated';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum
-    }
 }

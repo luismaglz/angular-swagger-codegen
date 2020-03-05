@@ -15,6 +15,7 @@ import { AvailableJourney } from './availableJourney';
 /**
  * The dictionary of available journeys for the date per market.
  */
+
 export interface TripDateMarketJourneysAvailableByMarket { 
     ?: Array<AvailableJourney>;
 }

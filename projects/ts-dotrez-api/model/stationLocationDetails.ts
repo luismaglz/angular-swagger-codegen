@@ -15,6 +15,9 @@ import { Coordinate } from './coordinate';
 /**
  * Defines the station location details.
  */
+
+    import { StationLocationDetails<CAP>weightType<CAP> } from '../models/enums';
+
 export interface StationLocationDetails { 
     /**
      * The coordinates of the station.
@@ -55,13 +58,5 @@ export interface StationLocationDetails {
     /**
      * The stations configured weight units of measurement.
      */
-    weightType?: StationLocationDetails.WeightTypeEnum;
-}
-export namespace StationLocationDetails {
-    export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    }
+    weightType?: StationLocationDetails<CAP>weightType<CAP>;
 }

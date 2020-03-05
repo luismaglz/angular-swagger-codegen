@@ -19,6 +19,9 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Represents a boarding pass segment following the S2D barcode type. When using S2D format each segment will have a  barcode.
  */
+
+    import { BoardingPassS2DSegment<CAP>type<CAP> } from '../models/enums';
+
 export interface BoardingPassS2DSegment { 
     /**
      * The transportation designator details based on the legs.
@@ -43,7 +46,7 @@ export interface BoardingPassS2DSegment {
     /**
      * The type of the current segment.
      */
-    type?: BoardingPassS2DSegment.TypeEnum;
+    type?: BoardingPassS2DSegment<CAP>type<CAP>;
     /**
      * Flag indicating if the segment is international.
      */
@@ -104,15 +107,4 @@ export interface BoardingPassS2DSegment {
      * The external transportation identifier details about the segment.
      */
     externalIdentifier?: BoardingPassTransportationIdentifier;
-}
-export namespace BoardingPassS2DSegment {
-    export type TypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const TypeEnum = {
-        Normal: 'Normal' as TypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as TypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as TypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as TypeEnum,
-        InterlineInbound: 'InterlineInbound' as TypeEnum,
-        Passive: 'Passive' as TypeEnum
-    }
 }

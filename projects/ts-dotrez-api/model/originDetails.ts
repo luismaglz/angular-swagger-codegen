@@ -15,11 +15,14 @@ import { GateInformation } from './gateInformation';
 /**
  * Represents the origin details model.
  */
+
+    import { OriginDetails<CAP>status<CAP> } from '../models/enums';
+
 export interface OriginDetails { 
     /**
      * Represents the departure status.
      */
-    status?: OriginDetails.StatusEnum;
+    status?: OriginDetails<CAP>status<CAP>;
     /**
      * Represents additional information about the  trip operation station.
      */
@@ -32,15 +35,4 @@ export interface OriginDetails {
      * The station code.
      */
     station?: string;
-}
-export namespace OriginDetails {
-    export type StatusEnum = 'Default' | 'Cancelled' | 'Boarding' | 'SeeAgent' | 'Delayed' | 'Departed';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Boarding: 'Boarding' as StatusEnum,
-        SeeAgent: 'SeeAgent' as StatusEnum,
-        Delayed: 'Delayed' as StatusEnum,
-        Departed: 'Departed' as StatusEnum
-    }
 }

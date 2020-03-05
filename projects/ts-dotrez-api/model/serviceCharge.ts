@@ -14,6 +14,10 @@
 /**
  * Model that represents the fare service charge information.
  */
+
+    import { ServiceCharge<CAP>type<CAP> } from '../models/enums';
+    import { ServiceCharge<CAP>collectType<CAP> } from '../models/enums';
+
 export interface ServiceCharge { 
     /**
      * The service charge amount.
@@ -30,11 +34,11 @@ export interface ServiceCharge {
     /**
      * The service charge type.
      */
-    type?: ServiceCharge.TypeEnum;
+    type?: ServiceCharge<CAP>type<CAP>;
     /**
      * The service charge collect type.
      */
-    collectType?: ServiceCharge.CollectTypeEnum;
+    collectType?: ServiceCharge<CAP>collectType<CAP>;
     /**
      * The service charge currency code.
      */
@@ -51,39 +55,4 @@ export interface ServiceCharge {
      * The service charge ticket code.
      */
     ticketCode?: string;
-}
-export namespace ServiceCharge {
-    export type TypeEnum = 'FarePrice' | 'Discount' | 'IncludedTravelFee' | 'IncludedTax' | 'TravelFee' | 'Tax' | 'ServiceCharge' | 'PromotionDiscount' | 'ConnectionAdjustmentAmount' | 'AddOnsPrice' | 'FarePoints' | 'DiscountPoints' | 'IncludedAddOnsFee' | 'AddOnsFee' | 'AddOnsMarkup' | 'FareSurcharge' | 'Loyalty' | 'AddOnsCancelFee' | 'Calculated' | 'Note' | 'Points' | 'DynamicFareAdjustment';
-    export const TypeEnum = {
-        FarePrice: 'FarePrice' as TypeEnum,
-        Discount: 'Discount' as TypeEnum,
-        IncludedTravelFee: 'IncludedTravelFee' as TypeEnum,
-        IncludedTax: 'IncludedTax' as TypeEnum,
-        TravelFee: 'TravelFee' as TypeEnum,
-        Tax: 'Tax' as TypeEnum,
-        ServiceCharge: 'ServiceCharge' as TypeEnum,
-        PromotionDiscount: 'PromotionDiscount' as TypeEnum,
-        ConnectionAdjustmentAmount: 'ConnectionAdjustmentAmount' as TypeEnum,
-        AddOnsPrice: 'AddOnsPrice' as TypeEnum,
-        FarePoints: 'FarePoints' as TypeEnum,
-        DiscountPoints: 'DiscountPoints' as TypeEnum,
-        IncludedAddOnsFee: 'IncludedAddOnsFee' as TypeEnum,
-        AddOnsFee: 'AddOnsFee' as TypeEnum,
-        AddOnsMarkup: 'AddOnsMarkup' as TypeEnum,
-        FareSurcharge: 'FareSurcharge' as TypeEnum,
-        Loyalty: 'Loyalty' as TypeEnum,
-        AddOnsCancelFee: 'AddOnsCancelFee' as TypeEnum,
-        Calculated: 'Calculated' as TypeEnum,
-        Note: 'Note' as TypeEnum,
-        Points: 'Points' as TypeEnum,
-        DynamicFareAdjustment: 'DynamicFareAdjustment' as TypeEnum
-    }
-    export type CollectTypeEnum = 'SellerChargeable' | 'ExternalChargeable' | 'SellerNonChargeable' | 'ExternalNonChargeable' | 'ExternalChargeableImmediate';
-    export const CollectTypeEnum = {
-        SellerChargeable: 'SellerChargeable' as CollectTypeEnum,
-        ExternalChargeable: 'ExternalChargeable' as CollectTypeEnum,
-        SellerNonChargeable: 'SellerNonChargeable' as CollectTypeEnum,
-        ExternalNonChargeable: 'ExternalNonChargeable' as CollectTypeEnum,
-        ExternalChargeableImmediate: 'ExternalChargeableImmediate' as CollectTypeEnum
-    }
 }

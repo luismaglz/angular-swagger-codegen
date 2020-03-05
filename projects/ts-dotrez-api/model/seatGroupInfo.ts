@@ -15,6 +15,7 @@ import { PassengerFee } from './passengerFee';
 /**
  * Information about a equipment seat group.
  */
+
 export interface SeatGroupInfo { 
     /**
      * The seat group number.

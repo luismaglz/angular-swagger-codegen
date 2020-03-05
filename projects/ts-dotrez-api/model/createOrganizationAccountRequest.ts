@@ -14,6 +14,9 @@
 /**
  * The create organization account request model.
  */
+
+    import { CreateOrganizationAccountRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface CreateOrganizationAccountRequest { 
     /**
      * The account currency code.
@@ -26,17 +29,9 @@ export interface CreateOrganizationAccountRequest {
     /**
      * The allowed account types for account creation.
      */
-    type?: CreateOrganizationAccountRequest.TypeEnum;
+    type?: CreateOrganizationAccountRequest<CAP>type<CAP>;
     /**
      * The optional note to associate with the account creation.
      */
     note?: string;
-}
-export namespace CreateOrganizationAccountRequest {
-    export type TypeEnum = 'Credit' | 'Prepaid' | 'Supplementary';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        Prepaid: 'Prepaid' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum
-    }
 }

@@ -17,6 +17,7 @@ import { Journey } from './journey';
 /**
  * Defines the itinerary quote model.
  */
+
 export interface ItineraryQuote { 
     passengers?: ItineraryQuotePassengers;
     /**

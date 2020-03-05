@@ -15,11 +15,14 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines a booking comment.
  */
+
+    import { BookingComment<CAP>type<CAP> } from '../models/enums';
+
 export interface BookingComment { 
     /**
      * Indicates where the comment will be seen.
      */
-    type?: BookingComment.TypeEnum;
+    type?: BookingComment<CAP>type<CAP>;
     /**
      * The point of sale for the comment.
      */
@@ -36,14 +39,4 @@ export interface BookingComment {
      * The created date of the comment.
      */
     createdDate?: Date;
-}
-export namespace BookingComment {
-    export type TypeEnum = 'Default' | 'Itinerary' | 'Manifest' | 'Alert' | 'Archive';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Itinerary: 'Itinerary' as TypeEnum,
-        Manifest: 'Manifest' as TypeEnum,
-        Alert: 'Alert' as TypeEnum,
-        Archive: 'Archive' as TypeEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * Defines the participant results.
  */
+
 export interface ParticipantLinkedResult { 
     /**
      * The passenger number of the participant.

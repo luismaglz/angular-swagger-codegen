@@ -14,6 +14,9 @@
 /**
  * Represents a comment for a trip operation.
  */
+
+    import { TripOperationComment<CAP>type<CAP> } from '../models/enums';
+
 export interface TripOperationComment { 
     /**
      * The unique identification number for the comment.
@@ -26,17 +29,5 @@ export interface TripOperationComment {
     /**
      * Represents the comment type.
      */
-    type?: TripOperationComment.TypeEnum;
-}
-export namespace TripOperationComment {
-    export type TypeEnum = 'Default' | 'Reservation' | 'Operation' | 'PitLoad' | 'Irop' | 'AppsOverride' | 'ManualAppsOverride';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Reservation: 'Reservation' as TypeEnum,
-        Operation: 'Operation' as TypeEnum,
-        PitLoad: 'PitLoad' as TypeEnum,
-        Irop: 'Irop' as TypeEnum,
-        AppsOverride: 'AppsOverride' as TypeEnum,
-        ManualAppsOverride: 'ManualAppsOverride' as TypeEnum
-    }
+    type?: TripOperationComment<CAP>type<CAP>;
 }

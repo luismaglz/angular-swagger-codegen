@@ -15,6 +15,7 @@ import { IResponseCookies } from './iResponseCookies';
 import { Stream } from './stream';
 
 
+
 export interface HttpResponse { 
     readonly httpContext?: HttpContext;
     statusCode?: number;

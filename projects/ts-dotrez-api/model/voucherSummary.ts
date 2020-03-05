@@ -14,6 +14,7 @@
 /**
  * The voucher summary model.
  */
+
 export interface VoucherSummary { 
     /**
      * The unique identifier for the voucher.

@@ -14,6 +14,7 @@
 /**
  * The voucher issuance request model.
  */
+
 export interface VoucherMarketInformation { 
     /**
      * Gets or sets the leg arrival station.

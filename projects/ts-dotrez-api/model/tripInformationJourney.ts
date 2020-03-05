@@ -16,6 +16,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Represents the trip information journey.
  */
+
 export interface TripInformationJourney { 
     /**
      * This is a summary of all the segments on the journey. It will contain the details  of the transportation from the first and last segment.

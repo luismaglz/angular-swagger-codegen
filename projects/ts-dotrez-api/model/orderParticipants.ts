@@ -15,6 +15,7 @@ import { OrderParticipant } from './orderParticipant';
 /**
  * The collection of order participants.
  */
+
 export interface OrderParticipants { 
     ?: OrderParticipant;
 }

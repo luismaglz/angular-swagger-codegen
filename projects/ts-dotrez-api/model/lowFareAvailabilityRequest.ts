@@ -18,6 +18,7 @@ import { PassengerTypeCriteria } from './passengerTypeCriteria';
 /**
  * Defines the low are availability request.
  */
+
 export interface LowFareAvailabilityRequest { 
     /**
      * Flag indicating to bypass the low fare cache and use real time results instead of cached results.

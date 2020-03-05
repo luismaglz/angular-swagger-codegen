@@ -15,6 +15,12 @@ import { Name } from './name';
 /**
  * Defines a Booking Queue item.
  */
+
+    import { BookingQueueItemBase<CAP>processStatus<CAP> } from '../models/enums';
+    import { BookingQueueItemBase<CAP>processState<CAP> } from '../models/enums';
+    import { BookingQueueItemBase<CAP>eventType<CAP> } from '../models/enums';
+    import { BookingQueueItemBase<CAP>restriction<CAP> } from '../models/enums';
+
 export interface BookingQueueItemBase { 
     /**
      * The booking queue item key.
@@ -23,7 +29,7 @@ export interface BookingQueueItemBase {
     /**
      * Process status.
      */
-    processStatus?: BookingQueueItemBase.ProcessStatusEnum;
+    processStatus?: BookingQueueItemBase<CAP>processStatus<CAP>;
     /**
      * The segment key of the flight associated with the booking queue entry.
      */
@@ -31,7 +37,7 @@ export interface BookingQueueItemBase {
     /**
      * Process state.
      */
-    processState?: BookingQueueItemBase.ProcessStateEnum;
+    processState?: BookingQueueItemBase<CAP>processState<CAP>;
     /**
      * The WatchList Id of the booking queue entry.
      */
@@ -67,105 +73,13 @@ export interface BookingQueueItemBase {
     /**
      * The booking queue event type that caused the booking queue entry to be created.
      */
-    eventType?: BookingQueueItemBase.EventTypeEnum;
+    eventType?: BookingQueueItemBase<CAP>eventType<CAP>;
     /**
      * The restrictions associated with the booking queue.
      */
-    restriction?: BookingQueueItemBase.RestrictionEnum;
+    restriction?: BookingQueueItemBase<CAP>restriction<CAP>;
     /**
      * The booking record locator associated with the booking queue entry.
      */
     recordLocator?: string;
-}
-export namespace BookingQueueItemBase {
-    export type ProcessStatusEnum = 'Ready' | 'Pending';
-    export const ProcessStatusEnum = {
-        Ready: 'Ready' as ProcessStatusEnum,
-        Pending: 'Pending' as ProcessStatusEnum
-    }
-    export type ProcessStateEnum = 'Default' | 'SegmentsConfirmed' | 'BookingBalanced' | 'Other' | 'Complete';
-    export const ProcessStateEnum = {
-        Default: 'Default' as ProcessStateEnum,
-        SegmentsConfirmed: 'SegmentsConfirmed' as ProcessStateEnum,
-        BookingBalanced: 'BookingBalanced' as ProcessStateEnum,
-        Other: 'Other' as ProcessStateEnum,
-        Complete: 'Complete' as ProcessStateEnum
-    }
-    export type EventTypeEnum = 'Default' | 'BookingBalanceDue' | 'BookingNegativeBalance' | 'BookingCustomerComment' | 'DeclinedPaymentInitial' | 'DeclinedPaymentChange' | 'FareOverride' | 'ScheduleTimeChange' | 'ScheduleTimeChangeMisconnect' | 'ScheduleCancellation' | 'FlightDesignatorChange' | 'ReaccommodationMove' | 'GdsCancelWithPendingPayment' | 'InvalidPriceStatusOverride' | 'FareRestrictionOverride' | 'HeldBookings' | 'InvalidPriceStatus' | 'Watchlist' | 'NonFlightServiceFee' | 'NotAllTicketNumbersReceived' | 'BookingSegmentOversold' | 'ReaccommodationCancel' | 'ExternalSsrAutoConfirmed' | 'OpCarrierSegUpdate' | 'OpCarrierSsrUpdate' | 'OpCarrierOtherUpdate' | 'NameChangeNotAllowed' | 'InboundAscNotProcessed' | 'OpCarrierInformationChange' | 'BookingComponentUpdate' | 'GroupBookings' | 'BankDirectPnrOutOfBalance' | 'NoSeatAssigned' | 'SeatNumberChange' | 'SsrNotSupportedOnNewSeat' | 'FewerSeatPreferencesMetOnNewSeat' | 'AosUnableToConfirmCancel' | 'ETicketIssue' | 'ETicketFollowup' | 'InvoluntaryFlyAhead' | 'ManualClearanceOnOutage' | 'UnbalancedPoints' | 'OpCarrierTimeChange' | 'OaCarrierTimeChange' | 'VoluntaryFlightChange' | 'InvoluntaryFlightChange' | 'HoldCancellationFailed' | 'ScheduleTimeChangeWithDynamicQueueCode' | 'ReaccommodationMoveWithDynamicQueueCode' | 'ItineraryIntegrity' | 'ReducePartyNotProcessed' | 'CheckedPassengerUpdate' | 'NameChangeWithinRule' | 'IncompletePassengerEMDCoupon' | 'ASVCUpdateFailed' | 'ScheduleTimeChangeMisconnectBelowMinimum' | 'ScheduleTimeChangeMisconnectAboveMaximum' | 'OpCarrierMisconnect' | 'InventoryQueuing' | 'SelfServiceAsm' | 'SelfServiceDelay' | 'SelfServiceFlightCancellation' | 'SelfServiceIrop' | 'SelfServiceScheduleChange' | 'SelfServiceTimeChange' | 'AosAddOrCancelNotSuccessful' | 'MissingGdsFareFamily' | 'ChangeCabinQueue';
-    export const EventTypeEnum = {
-        Default: 'Default' as EventTypeEnum,
-        BookingBalanceDue: 'BookingBalanceDue' as EventTypeEnum,
-        BookingNegativeBalance: 'BookingNegativeBalance' as EventTypeEnum,
-        BookingCustomerComment: 'BookingCustomerComment' as EventTypeEnum,
-        DeclinedPaymentInitial: 'DeclinedPaymentInitial' as EventTypeEnum,
-        DeclinedPaymentChange: 'DeclinedPaymentChange' as EventTypeEnum,
-        FareOverride: 'FareOverride' as EventTypeEnum,
-        ScheduleTimeChange: 'ScheduleTimeChange' as EventTypeEnum,
-        ScheduleTimeChangeMisconnect: 'ScheduleTimeChangeMisconnect' as EventTypeEnum,
-        ScheduleCancellation: 'ScheduleCancellation' as EventTypeEnum,
-        FlightDesignatorChange: 'FlightDesignatorChange' as EventTypeEnum,
-        ReaccommodationMove: 'ReaccommodationMove' as EventTypeEnum,
-        GdsCancelWithPendingPayment: 'GdsCancelWithPendingPayment' as EventTypeEnum,
-        InvalidPriceStatusOverride: 'InvalidPriceStatusOverride' as EventTypeEnum,
-        FareRestrictionOverride: 'FareRestrictionOverride' as EventTypeEnum,
-        HeldBookings: 'HeldBookings' as EventTypeEnum,
-        InvalidPriceStatus: 'InvalidPriceStatus' as EventTypeEnum,
-        Watchlist: 'Watchlist' as EventTypeEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as EventTypeEnum,
-        NotAllTicketNumbersReceived: 'NotAllTicketNumbersReceived' as EventTypeEnum,
-        BookingSegmentOversold: 'BookingSegmentOversold' as EventTypeEnum,
-        ReaccommodationCancel: 'ReaccommodationCancel' as EventTypeEnum,
-        ExternalSsrAutoConfirmed: 'ExternalSsrAutoConfirmed' as EventTypeEnum,
-        OpCarrierSegUpdate: 'OpCarrierSegUpdate' as EventTypeEnum,
-        OpCarrierSsrUpdate: 'OpCarrierSsrUpdate' as EventTypeEnum,
-        OpCarrierOtherUpdate: 'OpCarrierOtherUpdate' as EventTypeEnum,
-        NameChangeNotAllowed: 'NameChangeNotAllowed' as EventTypeEnum,
-        InboundAscNotProcessed: 'InboundAscNotProcessed' as EventTypeEnum,
-        OpCarrierInformationChange: 'OpCarrierInformationChange' as EventTypeEnum,
-        BookingComponentUpdate: 'BookingComponentUpdate' as EventTypeEnum,
-        GroupBookings: 'GroupBookings' as EventTypeEnum,
-        BankDirectPnrOutOfBalance: 'BankDirectPnrOutOfBalance' as EventTypeEnum,
-        NoSeatAssigned: 'NoSeatAssigned' as EventTypeEnum,
-        SeatNumberChange: 'SeatNumberChange' as EventTypeEnum,
-        SsrNotSupportedOnNewSeat: 'SsrNotSupportedOnNewSeat' as EventTypeEnum,
-        FewerSeatPreferencesMetOnNewSeat: 'FewerSeatPreferencesMetOnNewSeat' as EventTypeEnum,
-        AosUnableToConfirmCancel: 'AosUnableToConfirmCancel' as EventTypeEnum,
-        ETicketIssue: 'ETicketIssue' as EventTypeEnum,
-        ETicketFollowup: 'ETicketFollowup' as EventTypeEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as EventTypeEnum,
-        ManualClearanceOnOutage: 'ManualClearanceOnOutage' as EventTypeEnum,
-        UnbalancedPoints: 'UnbalancedPoints' as EventTypeEnum,
-        OpCarrierTimeChange: 'OpCarrierTimeChange' as EventTypeEnum,
-        OaCarrierTimeChange: 'OaCarrierTimeChange' as EventTypeEnum,
-        VoluntaryFlightChange: 'VoluntaryFlightChange' as EventTypeEnum,
-        InvoluntaryFlightChange: 'InvoluntaryFlightChange' as EventTypeEnum,
-        HoldCancellationFailed: 'HoldCancellationFailed' as EventTypeEnum,
-        ScheduleTimeChangeWithDynamicQueueCode: 'ScheduleTimeChangeWithDynamicQueueCode' as EventTypeEnum,
-        ReaccommodationMoveWithDynamicQueueCode: 'ReaccommodationMoveWithDynamicQueueCode' as EventTypeEnum,
-        ItineraryIntegrity: 'ItineraryIntegrity' as EventTypeEnum,
-        ReducePartyNotProcessed: 'ReducePartyNotProcessed' as EventTypeEnum,
-        CheckedPassengerUpdate: 'CheckedPassengerUpdate' as EventTypeEnum,
-        NameChangeWithinRule: 'NameChangeWithinRule' as EventTypeEnum,
-        IncompletePassengerEMDCoupon: 'IncompletePassengerEMDCoupon' as EventTypeEnum,
-        ASVCUpdateFailed: 'ASVCUpdateFailed' as EventTypeEnum,
-        ScheduleTimeChangeMisconnectBelowMinimum: 'ScheduleTimeChangeMisconnectBelowMinimum' as EventTypeEnum,
-        ScheduleTimeChangeMisconnectAboveMaximum: 'ScheduleTimeChangeMisconnectAboveMaximum' as EventTypeEnum,
-        OpCarrierMisconnect: 'OpCarrierMisconnect' as EventTypeEnum,
-        InventoryQueuing: 'InventoryQueuing' as EventTypeEnum,
-        SelfServiceAsm: 'SelfServiceAsm' as EventTypeEnum,
-        SelfServiceDelay: 'SelfServiceDelay' as EventTypeEnum,
-        SelfServiceFlightCancellation: 'SelfServiceFlightCancellation' as EventTypeEnum,
-        SelfServiceIrop: 'SelfServiceIrop' as EventTypeEnum,
-        SelfServiceScheduleChange: 'SelfServiceScheduleChange' as EventTypeEnum,
-        SelfServiceTimeChange: 'SelfServiceTimeChange' as EventTypeEnum,
-        AosAddOrCancelNotSuccessful: 'AosAddOrCancelNotSuccessful' as EventTypeEnum,
-        MissingGdsFareFamily: 'MissingGdsFareFamily' as EventTypeEnum,
-        ChangeCabinQueue: 'ChangeCabinQueue' as EventTypeEnum
-    }
-    export type RestrictionEnum = 'Restricted' | 'AddAllowedOnly' | 'Allowed';
-    export const RestrictionEnum = {
-        Restricted: 'Restricted' as RestrictionEnum,
-        AddAllowedOnly: 'AddAllowedOnly' as RestrictionEnum,
-        Allowed: 'Allowed' as RestrictionEnum
-    }
 }

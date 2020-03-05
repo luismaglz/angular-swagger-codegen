@@ -14,87 +14,109 @@
 /**
  * The booking passenger settings.
  */
+
+    import { PassengerSettings<CAP>passengerTitle<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerFirstName<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerMiddleName<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerLastName<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerSuffix<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerCustomerNumber<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerGender<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerDateOfBirth<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerNationality<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>passengerResidentCountry<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantTitle<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantFirstName<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantMiddleName<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantLastName<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantSuffix<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantGender<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantDateOfBirth<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantNationality<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>infantResidentCountry<CAP> } from '../models/enums';
+    import { PassengerSettings<CAP>tbaPassengersAllowed<CAP> } from '../models/enums';
+
 export interface PassengerSettings { 
     /**
      * Passenger title field validation control.
      */
-    passengerTitle?: PassengerSettings.PassengerTitleEnum;
+    passengerTitle?: PassengerSettings<CAP>passengerTitle<CAP>;
     /**
      * Passenger first name field validation control.
      */
-    passengerFirstName?: PassengerSettings.PassengerFirstNameEnum;
+    passengerFirstName?: PassengerSettings<CAP>passengerFirstName<CAP>;
     /**
      * Passenger middle name field validation control.
      */
-    passengerMiddleName?: PassengerSettings.PassengerMiddleNameEnum;
+    passengerMiddleName?: PassengerSettings<CAP>passengerMiddleName<CAP>;
     /**
      * Passenger last name field validation control.
      */
-    passengerLastName?: PassengerSettings.PassengerLastNameEnum;
+    passengerLastName?: PassengerSettings<CAP>passengerLastName<CAP>;
     /**
      * Passenger suffix field validation control.
      */
-    passengerSuffix?: PassengerSettings.PassengerSuffixEnum;
+    passengerSuffix?: PassengerSettings<CAP>passengerSuffix<CAP>;
     /**
      * Passenger customer number field validation control.
      */
-    passengerCustomerNumber?: PassengerSettings.PassengerCustomerNumberEnum;
+    passengerCustomerNumber?: PassengerSettings<CAP>passengerCustomerNumber<CAP>;
     /**
      * Passenger gender field validation control.
      */
-    passengerGender?: PassengerSettings.PassengerGenderEnum;
+    passengerGender?: PassengerSettings<CAP>passengerGender<CAP>;
     /**
      * Passenger date of birth field validation control.
      */
-    passengerDateOfBirth?: PassengerSettings.PassengerDateOfBirthEnum;
+    passengerDateOfBirth?: PassengerSettings<CAP>passengerDateOfBirth<CAP>;
     /**
      * Passenger nationality field validation control.
      */
-    passengerNationality?: PassengerSettings.PassengerNationalityEnum;
+    passengerNationality?: PassengerSettings<CAP>passengerNationality<CAP>;
     /**
      * Passenger resident country field validation control.
      */
-    passengerResidentCountry?: PassengerSettings.PassengerResidentCountryEnum;
+    passengerResidentCountry?: PassengerSettings<CAP>passengerResidentCountry<CAP>;
     /**
      * Infant title field validation control.
      */
-    infantTitle?: PassengerSettings.InfantTitleEnum;
+    infantTitle?: PassengerSettings<CAP>infantTitle<CAP>;
     /**
      * Infant first name field validation control.
      */
-    infantFirstName?: PassengerSettings.InfantFirstNameEnum;
+    infantFirstName?: PassengerSettings<CAP>infantFirstName<CAP>;
     /**
      * Infant middle name field validation control.
      */
-    infantMiddleName?: PassengerSettings.InfantMiddleNameEnum;
+    infantMiddleName?: PassengerSettings<CAP>infantMiddleName<CAP>;
     /**
      * Infant last name field validation control.
      */
-    infantLastName?: PassengerSettings.InfantLastNameEnum;
+    infantLastName?: PassengerSettings<CAP>infantLastName<CAP>;
     /**
      * Infant suffix field validation control.
      */
-    infantSuffix?: PassengerSettings.InfantSuffixEnum;
+    infantSuffix?: PassengerSettings<CAP>infantSuffix<CAP>;
     /**
      * Infant gender field validation control.
      */
-    infantGender?: PassengerSettings.InfantGenderEnum;
+    infantGender?: PassengerSettings<CAP>infantGender<CAP>;
     /**
      * Infant date of birth field validation control.
      */
-    infantDateOfBirth?: PassengerSettings.InfantDateOfBirthEnum;
+    infantDateOfBirth?: PassengerSettings<CAP>infantDateOfBirth<CAP>;
     /**
      * Infant nationality field validation control.
      */
-    infantNationality?: PassengerSettings.InfantNationalityEnum;
+    infantNationality?: PassengerSettings<CAP>infantNationality<CAP>;
     /**
      * Infant resident country field validation control.
      */
-    infantResidentCountry?: PassengerSettings.InfantResidentCountryEnum;
+    infantResidentCountry?: PassengerSettings<CAP>infantResidentCountry<CAP>;
     /**
      * TBA passenger will allow users to enter passengers with information \"To Be Determined\".
      */
-    tbaPassengersAllowed?: PassengerSettings.TbaPassengersAllowedEnum;
+    tbaPassengersAllowed?: PassengerSettings<CAP>tbaPassengersAllowed<CAP>;
     /**
      * Flag to indicate if passenger customer programs are allowed.
      */
@@ -103,164 +125,4 @@ export interface PassengerSettings {
      * Flag to indicate if passenger name changes are allowed.
      */
     allowNameChange?: boolean;
-}
-export namespace PassengerSettings {
-    export type PassengerTitleEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerTitleEnum = {
-        Required: 'Required' as PassengerTitleEnum,
-        Optional: 'Optional' as PassengerTitleEnum,
-        Disabled: 'Disabled' as PassengerTitleEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerTitleEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerTitleEnum
-    }
-    export type PassengerFirstNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerFirstNameEnum = {
-        Required: 'Required' as PassengerFirstNameEnum,
-        Optional: 'Optional' as PassengerFirstNameEnum,
-        Disabled: 'Disabled' as PassengerFirstNameEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerFirstNameEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerFirstNameEnum
-    }
-    export type PassengerMiddleNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerMiddleNameEnum = {
-        Required: 'Required' as PassengerMiddleNameEnum,
-        Optional: 'Optional' as PassengerMiddleNameEnum,
-        Disabled: 'Disabled' as PassengerMiddleNameEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerMiddleNameEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerMiddleNameEnum
-    }
-    export type PassengerLastNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerLastNameEnum = {
-        Required: 'Required' as PassengerLastNameEnum,
-        Optional: 'Optional' as PassengerLastNameEnum,
-        Disabled: 'Disabled' as PassengerLastNameEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerLastNameEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerLastNameEnum
-    }
-    export type PassengerSuffixEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerSuffixEnum = {
-        Required: 'Required' as PassengerSuffixEnum,
-        Optional: 'Optional' as PassengerSuffixEnum,
-        Disabled: 'Disabled' as PassengerSuffixEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerSuffixEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerSuffixEnum
-    }
-    export type PassengerCustomerNumberEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerCustomerNumberEnum = {
-        Required: 'Required' as PassengerCustomerNumberEnum,
-        Optional: 'Optional' as PassengerCustomerNumberEnum,
-        Disabled: 'Disabled' as PassengerCustomerNumberEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerCustomerNumberEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerCustomerNumberEnum
-    }
-    export type PassengerGenderEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerGenderEnum = {
-        Required: 'Required' as PassengerGenderEnum,
-        Optional: 'Optional' as PassengerGenderEnum,
-        Disabled: 'Disabled' as PassengerGenderEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerGenderEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerGenderEnum
-    }
-    export type PassengerDateOfBirthEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerDateOfBirthEnum = {
-        Required: 'Required' as PassengerDateOfBirthEnum,
-        Optional: 'Optional' as PassengerDateOfBirthEnum,
-        Disabled: 'Disabled' as PassengerDateOfBirthEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerDateOfBirthEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerDateOfBirthEnum
-    }
-    export type PassengerNationalityEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerNationalityEnum = {
-        Required: 'Required' as PassengerNationalityEnum,
-        Optional: 'Optional' as PassengerNationalityEnum,
-        Disabled: 'Disabled' as PassengerNationalityEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerNationalityEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerNationalityEnum
-    }
-    export type PassengerResidentCountryEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const PassengerResidentCountryEnum = {
-        Required: 'Required' as PassengerResidentCountryEnum,
-        Optional: 'Optional' as PassengerResidentCountryEnum,
-        Disabled: 'Disabled' as PassengerResidentCountryEnum,
-        RequiredMasked: 'RequiredMasked' as PassengerResidentCountryEnum,
-        OptionalMasked: 'OptionalMasked' as PassengerResidentCountryEnum
-    }
-    export type InfantTitleEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantTitleEnum = {
-        Required: 'Required' as InfantTitleEnum,
-        Optional: 'Optional' as InfantTitleEnum,
-        Disabled: 'Disabled' as InfantTitleEnum,
-        RequiredMasked: 'RequiredMasked' as InfantTitleEnum,
-        OptionalMasked: 'OptionalMasked' as InfantTitleEnum
-    }
-    export type InfantFirstNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantFirstNameEnum = {
-        Required: 'Required' as InfantFirstNameEnum,
-        Optional: 'Optional' as InfantFirstNameEnum,
-        Disabled: 'Disabled' as InfantFirstNameEnum,
-        RequiredMasked: 'RequiredMasked' as InfantFirstNameEnum,
-        OptionalMasked: 'OptionalMasked' as InfantFirstNameEnum
-    }
-    export type InfantMiddleNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantMiddleNameEnum = {
-        Required: 'Required' as InfantMiddleNameEnum,
-        Optional: 'Optional' as InfantMiddleNameEnum,
-        Disabled: 'Disabled' as InfantMiddleNameEnum,
-        RequiredMasked: 'RequiredMasked' as InfantMiddleNameEnum,
-        OptionalMasked: 'OptionalMasked' as InfantMiddleNameEnum
-    }
-    export type InfantLastNameEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantLastNameEnum = {
-        Required: 'Required' as InfantLastNameEnum,
-        Optional: 'Optional' as InfantLastNameEnum,
-        Disabled: 'Disabled' as InfantLastNameEnum,
-        RequiredMasked: 'RequiredMasked' as InfantLastNameEnum,
-        OptionalMasked: 'OptionalMasked' as InfantLastNameEnum
-    }
-    export type InfantSuffixEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantSuffixEnum = {
-        Required: 'Required' as InfantSuffixEnum,
-        Optional: 'Optional' as InfantSuffixEnum,
-        Disabled: 'Disabled' as InfantSuffixEnum,
-        RequiredMasked: 'RequiredMasked' as InfantSuffixEnum,
-        OptionalMasked: 'OptionalMasked' as InfantSuffixEnum
-    }
-    export type InfantGenderEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantGenderEnum = {
-        Required: 'Required' as InfantGenderEnum,
-        Optional: 'Optional' as InfantGenderEnum,
-        Disabled: 'Disabled' as InfantGenderEnum,
-        RequiredMasked: 'RequiredMasked' as InfantGenderEnum,
-        OptionalMasked: 'OptionalMasked' as InfantGenderEnum
-    }
-    export type InfantDateOfBirthEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantDateOfBirthEnum = {
-        Required: 'Required' as InfantDateOfBirthEnum,
-        Optional: 'Optional' as InfantDateOfBirthEnum,
-        Disabled: 'Disabled' as InfantDateOfBirthEnum,
-        RequiredMasked: 'RequiredMasked' as InfantDateOfBirthEnum,
-        OptionalMasked: 'OptionalMasked' as InfantDateOfBirthEnum
-    }
-    export type InfantNationalityEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantNationalityEnum = {
-        Required: 'Required' as InfantNationalityEnum,
-        Optional: 'Optional' as InfantNationalityEnum,
-        Disabled: 'Disabled' as InfantNationalityEnum,
-        RequiredMasked: 'RequiredMasked' as InfantNationalityEnum,
-        OptionalMasked: 'OptionalMasked' as InfantNationalityEnum
-    }
-    export type InfantResidentCountryEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const InfantResidentCountryEnum = {
-        Required: 'Required' as InfantResidentCountryEnum,
-        Optional: 'Optional' as InfantResidentCountryEnum,
-        Disabled: 'Disabled' as InfantResidentCountryEnum,
-        RequiredMasked: 'RequiredMasked' as InfantResidentCountryEnum,
-        OptionalMasked: 'OptionalMasked' as InfantResidentCountryEnum
-    }
-    export type TbaPassengersAllowedEnum = 'Never' | 'IfFirstPassengerIsKnown' | 'Always';
-    export const TbaPassengersAllowedEnum = {
-        Never: 'Never' as TbaPassengersAllowedEnum,
-        IfFirstPassengerIsKnown: 'IfFirstPassengerIsKnown' as TbaPassengersAllowedEnum,
-        Always: 'Always' as TbaPassengersAllowedEnum
-    }
 }

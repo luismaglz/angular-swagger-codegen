@@ -15,6 +15,9 @@ import { Name } from './name';
 /**
  * The base class for the infant.
  */
+
+    import { InfantBase<CAP>gender<CAP> } from '../models/enums';
+
 export interface InfantBase { 
     /**
      * The date of birth of the infant.
@@ -23,17 +26,9 @@ export interface InfantBase {
     /**
      * The gender of the passenger.
      */
-    gender?: InfantBase.GenderEnum;
+    gender?: InfantBase<CAP>gender<CAP>;
     /**
      * The name of the passenger.
      */
     name?: Name;
-}
-export namespace InfantBase {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

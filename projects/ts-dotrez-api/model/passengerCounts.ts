@@ -14,6 +14,7 @@
 /**
  * Represents various count data for passengers, such as checked-in, no-shows, etc.
  */
+
 export interface PassengerCounts { 
     /**
      * The checked-in passenger count.

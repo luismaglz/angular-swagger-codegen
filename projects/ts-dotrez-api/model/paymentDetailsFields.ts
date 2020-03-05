@@ -14,6 +14,7 @@
 /**
  * The collection of payment fields.
  */
+
 export interface PaymentDetailsFields { 
     ?: string;
 }

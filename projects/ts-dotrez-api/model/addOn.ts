@@ -19,6 +19,10 @@ import { Order } from './order';
 /**
  * Defines a booking add on service details.
  */
+
+    import { AddOn<CAP>status<CAP> } from '../models/enums';
+    import { AddOn<CAP>type<CAP> } from '../models/enums';
+
 export interface AddOn { 
     /**
      * Returns true if the component requires a separate  payment from the rest of the booking.
@@ -27,7 +31,7 @@ export interface AddOn {
     /**
      * The status of the add on.
      */
-    readonly status?: AddOn.StatusEnum;
+    readonly status?: AddOn<CAP>status<CAP>;
     /**
      * The unique add on key.
      */
@@ -35,7 +39,7 @@ export interface AddOn {
     /**
      * The type of add on.
      */
-    type?: AddOn.TypeEnum;
+    type?: AddOn<CAP>type<CAP>;
     /**
      * The components order summary when the order is not available.
      */
@@ -80,23 +84,4 @@ export interface AddOn {
      * The collection of booking component charges.
      */
     charges?: Array<AddOnCharge>;
-}
-export namespace AddOn {
-    export type StatusEnum = 'Unknown' | 'Active' | 'Pending' | 'Confirming' | 'CancelPending' | 'Cancelled';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Confirming: 'Confirming' as StatusEnum,
-        CancelPending: 'CancelPending' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum
-    }
-    export type TypeEnum = 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Insurance: 'Insurance' as TypeEnum,
-        Activity: 'Activity' as TypeEnum,
-        Hotel: 'Hotel' as TypeEnum,
-        Car: 'Car' as TypeEnum
-    }
 }

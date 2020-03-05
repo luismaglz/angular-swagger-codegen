@@ -14,6 +14,7 @@
 /**
  * Defines the person preference edit request.
  */
+
 export interface PersonPreferenceEditRequest { 
     /**
      * The value of the preference.

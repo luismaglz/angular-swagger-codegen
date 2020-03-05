@@ -16,6 +16,9 @@ import { ParticipantCriteria } from './participantCriteria';
 /**
  * Defines the query for a destionation request used in car and insurance types.
  */
+
+    import { ProductRequest<CAP>sort<CAP> } from '../models/enums';
+
 export interface ProductRequest { 
     /**
      * The origin station code for the city.
@@ -48,7 +51,7 @@ export interface ProductRequest {
     /**
      * The search sort order.
      */
-    sort?: ProductRequest.SortEnum;
+    sort?: ProductRequest<CAP>sort<CAP>;
     /**
      * The promotion code with which to search.
      */
@@ -102,17 +105,4 @@ export interface ProductRequest {
      */
     quantity?: number;
     parameters?: ActivitySimpleRequestParameters;
-}
-export namespace ProductRequest {
-    export type SortEnum = 'SupplierDefined' | 'Price' | 'Rating' | 'Name' | 'Category' | 'VendorDescription' | 'Preferred' | 'Relevance';
-    export const SortEnum = {
-        SupplierDefined: 'SupplierDefined' as SortEnum,
-        Price: 'Price' as SortEnum,
-        Rating: 'Rating' as SortEnum,
-        Name: 'Name' as SortEnum,
-        Category: 'Category' as SortEnum,
-        VendorDescription: 'VendorDescription' as SortEnum,
-        Preferred: 'Preferred' as SortEnum,
-        Relevance: 'Relevance' as SortEnum
-    }
 }

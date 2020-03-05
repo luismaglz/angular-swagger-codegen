@@ -15,6 +15,7 @@ import { PassengerFee } from './passengerFee';
 /**
  * Defines the upgrade information.
  */
+
 export interface Upgrade { 
     /**
      * The upgrade key.

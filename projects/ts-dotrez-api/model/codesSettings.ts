@@ -18,6 +18,13 @@ import { CodesSettingsQueueCategoryCodes } from './codesSettingsQueueCategoryCod
 /**
  * The codes settings.
  */
+
+    import { CodesSettings<CAP>overrideFeeTypes<CAP> } from '../models/enums';
+    import { CodesSettings<CAP>privateTravelQueueCategory<CAP> } from '../models/enums';
+    import { CodesSettings<CAP>publicTravelQueueCategory<CAP> } from '../models/enums';
+    import { CodesSettings<CAP>spoilFeeTypes<CAP> } from '../models/enums';
+    import { CodesSettings<CAP>waiveFeeTypes<CAP> } from '../models/enums';
+
 export interface CodesSettings { 
     allowedPaymentMethodsForFraudPrevention?: CodesSettingsAllowedPaymentMethodsForFraudPrevention;
     /**
@@ -32,16 +39,16 @@ export interface CodesSettings {
     /**
      * A list of fee types that allow overrides. = ['All', 'Tax', 'TravelFee', 'ServiceFee', 'PaymentFee', 'PenaltyFee', 'SsrFee', 'NonFlightServiceFee', 'UpgradeFee', 'SeatFee', 'BaseFare', 'SpoilageFee', 'NameChangeFee', 'ConvenienceFee', 'BaggageFee', 'FareSurcharge', 'PromotionDiscount']
      */
-    overrideFeeTypes?: Array<CodesSettings.OverrideFeeTypesEnum>;
+    overrideFeeTypes?: CodesSettings<CAP>overrideFeeTypes<CAP>;
     paymentFieldOverrides?: CodesSettingsPaymentFieldOverrides;
     /**
      * The permissions allowed on the private travel queue category for this role.
      */
-    privateTravelQueueCategory?: CodesSettings.PrivateTravelQueueCategoryEnum;
+    privateTravelQueueCategory?: CodesSettings<CAP>privateTravelQueueCategory<CAP>;
     /**
      * The permissions allowed on the public travel queue category for this role.
      */
-    publicTravelQueueCategory?: CodesSettings.PublicTravelQueueCategoryEnum;
+    publicTravelQueueCategory?: CodesSettings<CAP>publicTravelQueueCategory<CAP>;
     /**
      * A list of payment codes that allow refunds.
      */
@@ -49,7 +56,7 @@ export interface CodesSettings {
     /**
      * A list of fee types that are Spoilage Fees. = ['All', 'Tax', 'TravelFee', 'ServiceFee', 'PaymentFee', 'PenaltyFee', 'SsrFee', 'NonFlightServiceFee', 'UpgradeFee', 'SeatFee', 'BaseFare', 'SpoilageFee', 'NameChangeFee', 'ConvenienceFee', 'BaggageFee', 'FareSurcharge', 'PromotionDiscount']
      */
-    spoilFeeTypes?: Array<CodesSettings.SpoilFeeTypesEnum>;
+    spoilFeeTypes?: CodesSettings<CAP>spoilFeeTypes<CAP>;
     /**
      * A list of allowed classes of service.
      */
@@ -106,88 +113,5 @@ export interface CodesSettings {
     /**
      * The fee types that allow waiving. = ['All', 'Tax', 'TravelFee', 'ServiceFee', 'PaymentFee', 'PenaltyFee', 'SsrFee', 'NonFlightServiceFee', 'UpgradeFee', 'SeatFee', 'BaseFare', 'SpoilageFee', 'NameChangeFee', 'ConvenienceFee', 'BaggageFee', 'FareSurcharge', 'PromotionDiscount']
      */
-    waiveFeeTypes?: Array<CodesSettings.WaiveFeeTypesEnum>;
-}
-export namespace CodesSettings {
-    export type OverrideFeeTypesEnum = 'All' | 'Tax' | 'TravelFee' | 'ServiceFee' | 'PaymentFee' | 'PenaltyFee' | 'SsrFee' | 'NonFlightServiceFee' | 'UpgradeFee' | 'SeatFee' | 'BaseFare' | 'SpoilageFee' | 'NameChangeFee' | 'ConvenienceFee' | 'BaggageFee' | 'FareSurcharge' | 'PromotionDiscount' | 'ServiceBundle' | 'ExtraBagFee' | 'ATPCOBagFee';
-    export const OverrideFeeTypesEnum = {
-        All: 'All' as OverrideFeeTypesEnum,
-        Tax: 'Tax' as OverrideFeeTypesEnum,
-        TravelFee: 'TravelFee' as OverrideFeeTypesEnum,
-        ServiceFee: 'ServiceFee' as OverrideFeeTypesEnum,
-        PaymentFee: 'PaymentFee' as OverrideFeeTypesEnum,
-        PenaltyFee: 'PenaltyFee' as OverrideFeeTypesEnum,
-        SsrFee: 'SsrFee' as OverrideFeeTypesEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as OverrideFeeTypesEnum,
-        UpgradeFee: 'UpgradeFee' as OverrideFeeTypesEnum,
-        SeatFee: 'SeatFee' as OverrideFeeTypesEnum,
-        BaseFare: 'BaseFare' as OverrideFeeTypesEnum,
-        SpoilageFee: 'SpoilageFee' as OverrideFeeTypesEnum,
-        NameChangeFee: 'NameChangeFee' as OverrideFeeTypesEnum,
-        ConvenienceFee: 'ConvenienceFee' as OverrideFeeTypesEnum,
-        BaggageFee: 'BaggageFee' as OverrideFeeTypesEnum,
-        FareSurcharge: 'FareSurcharge' as OverrideFeeTypesEnum,
-        PromotionDiscount: 'PromotionDiscount' as OverrideFeeTypesEnum,
-        ServiceBundle: 'ServiceBundle' as OverrideFeeTypesEnum,
-        ExtraBagFee: 'ExtraBagFee' as OverrideFeeTypesEnum,
-        ATPCOBagFee: 'ATPCOBagFee' as OverrideFeeTypesEnum
-    }
-    export type PrivateTravelQueueCategoryEnum = 'None' | 'View' | 'All';
-    export const PrivateTravelQueueCategoryEnum = {
-        None: 'None' as PrivateTravelQueueCategoryEnum,
-        View: 'View' as PrivateTravelQueueCategoryEnum,
-        All: 'All' as PrivateTravelQueueCategoryEnum
-    }
-    export type PublicTravelQueueCategoryEnum = 'None' | 'View' | 'All';
-    export const PublicTravelQueueCategoryEnum = {
-        None: 'None' as PublicTravelQueueCategoryEnum,
-        View: 'View' as PublicTravelQueueCategoryEnum,
-        All: 'All' as PublicTravelQueueCategoryEnum
-    }
-    export type SpoilFeeTypesEnum = 'All' | 'Tax' | 'TravelFee' | 'ServiceFee' | 'PaymentFee' | 'PenaltyFee' | 'SsrFee' | 'NonFlightServiceFee' | 'UpgradeFee' | 'SeatFee' | 'BaseFare' | 'SpoilageFee' | 'NameChangeFee' | 'ConvenienceFee' | 'BaggageFee' | 'FareSurcharge' | 'PromotionDiscount' | 'ServiceBundle' | 'ExtraBagFee' | 'ATPCOBagFee';
-    export const SpoilFeeTypesEnum = {
-        All: 'All' as SpoilFeeTypesEnum,
-        Tax: 'Tax' as SpoilFeeTypesEnum,
-        TravelFee: 'TravelFee' as SpoilFeeTypesEnum,
-        ServiceFee: 'ServiceFee' as SpoilFeeTypesEnum,
-        PaymentFee: 'PaymentFee' as SpoilFeeTypesEnum,
-        PenaltyFee: 'PenaltyFee' as SpoilFeeTypesEnum,
-        SsrFee: 'SsrFee' as SpoilFeeTypesEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as SpoilFeeTypesEnum,
-        UpgradeFee: 'UpgradeFee' as SpoilFeeTypesEnum,
-        SeatFee: 'SeatFee' as SpoilFeeTypesEnum,
-        BaseFare: 'BaseFare' as SpoilFeeTypesEnum,
-        SpoilageFee: 'SpoilageFee' as SpoilFeeTypesEnum,
-        NameChangeFee: 'NameChangeFee' as SpoilFeeTypesEnum,
-        ConvenienceFee: 'ConvenienceFee' as SpoilFeeTypesEnum,
-        BaggageFee: 'BaggageFee' as SpoilFeeTypesEnum,
-        FareSurcharge: 'FareSurcharge' as SpoilFeeTypesEnum,
-        PromotionDiscount: 'PromotionDiscount' as SpoilFeeTypesEnum,
-        ServiceBundle: 'ServiceBundle' as SpoilFeeTypesEnum,
-        ExtraBagFee: 'ExtraBagFee' as SpoilFeeTypesEnum,
-        ATPCOBagFee: 'ATPCOBagFee' as SpoilFeeTypesEnum
-    }
-    export type WaiveFeeTypesEnum = 'All' | 'Tax' | 'TravelFee' | 'ServiceFee' | 'PaymentFee' | 'PenaltyFee' | 'SsrFee' | 'NonFlightServiceFee' | 'UpgradeFee' | 'SeatFee' | 'BaseFare' | 'SpoilageFee' | 'NameChangeFee' | 'ConvenienceFee' | 'BaggageFee' | 'FareSurcharge' | 'PromotionDiscount' | 'ServiceBundle' | 'ExtraBagFee' | 'ATPCOBagFee';
-    export const WaiveFeeTypesEnum = {
-        All: 'All' as WaiveFeeTypesEnum,
-        Tax: 'Tax' as WaiveFeeTypesEnum,
-        TravelFee: 'TravelFee' as WaiveFeeTypesEnum,
-        ServiceFee: 'ServiceFee' as WaiveFeeTypesEnum,
-        PaymentFee: 'PaymentFee' as WaiveFeeTypesEnum,
-        PenaltyFee: 'PenaltyFee' as WaiveFeeTypesEnum,
-        SsrFee: 'SsrFee' as WaiveFeeTypesEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as WaiveFeeTypesEnum,
-        UpgradeFee: 'UpgradeFee' as WaiveFeeTypesEnum,
-        SeatFee: 'SeatFee' as WaiveFeeTypesEnum,
-        BaseFare: 'BaseFare' as WaiveFeeTypesEnum,
-        SpoilageFee: 'SpoilageFee' as WaiveFeeTypesEnum,
-        NameChangeFee: 'NameChangeFee' as WaiveFeeTypesEnum,
-        ConvenienceFee: 'ConvenienceFee' as WaiveFeeTypesEnum,
-        BaggageFee: 'BaggageFee' as WaiveFeeTypesEnum,
-        FareSurcharge: 'FareSurcharge' as WaiveFeeTypesEnum,
-        PromotionDiscount: 'PromotionDiscount' as WaiveFeeTypesEnum,
-        ServiceBundle: 'ServiceBundle' as WaiveFeeTypesEnum,
-        ExtraBagFee: 'ExtraBagFee' as WaiveFeeTypesEnum,
-        ATPCOBagFee: 'ATPCOBagFee' as WaiveFeeTypesEnum
-    }
+    waiveFeeTypes?: CodesSettings<CAP>waiveFeeTypes<CAP>;
 }

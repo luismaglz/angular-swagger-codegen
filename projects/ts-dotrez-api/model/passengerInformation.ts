@@ -14,6 +14,9 @@
 /**
  * Model representing additional passenger information.
  */
+
+    import { PassengerInformation<CAP>gender<CAP> } from '../models/enums';
+
 export interface PassengerInformation { 
     /**
      * The passenger nationality.
@@ -26,7 +29,7 @@ export interface PassengerInformation {
     /**
      * Gets or sets passenger gender.
      */
-    gender?: PassengerInformation.GenderEnum;
+    gender?: PassengerInformation<CAP>gender<CAP>;
     /**
      * The passenger's date of birth.
      */
@@ -35,12 +38,4 @@ export interface PassengerInformation {
      * The unique identifier of a family registered in the system.
      */
     familyNumber?: number;
-}
-export namespace PassengerInformation {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

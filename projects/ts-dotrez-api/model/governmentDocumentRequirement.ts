@@ -14,43 +14,16 @@
 /**
  * Defines a certain document requirement reguarding a specific government instance.
  */
+
+    import { GovernmentDocumentRequirement<CAP>group<CAP> } from '../models/enums';
+
 export interface GovernmentDocumentRequirement { 
     /**
      * The document group.
      */
-    group?: GovernmentDocumentRequirement.GroupEnum;
+    group?: GovernmentDocumentRequirement<CAP>group<CAP>;
     /**
      * The documents type code.
      */
     documentTypeCode?: string;
-}
-export namespace GovernmentDocumentRequirement {
-    export type GroupEnum = 'Unknown' | 'AlienRegistrationCard' | 'PermanentResidentCard' | 'FacilitationDocument' | 'InsPass' | 'MilitaryId' | 'Passport' | 'ReEntryPermit' | 'CreditCard' | 'TravelVisa' | 'OaFrequentFlyer' | 'ParoleLetter' | 'NoticeOfAction' | 'TransportationLetter' | 'BorderCrossingCard' | 'PilotLicense' | 'UsNaturalizationCertificate' | 'RefugeeTravelDocument' | 'GovernmentId' | 'DriversLicense' | 'RedressNumber' | 'KnownTravelerId' | 'FormOfId' | 'Nexus' | 'SecondaryExempt';
-    export const GroupEnum = {
-        Unknown: 'Unknown' as GroupEnum,
-        AlienRegistrationCard: 'AlienRegistrationCard' as GroupEnum,
-        PermanentResidentCard: 'PermanentResidentCard' as GroupEnum,
-        FacilitationDocument: 'FacilitationDocument' as GroupEnum,
-        InsPass: 'InsPass' as GroupEnum,
-        MilitaryId: 'MilitaryId' as GroupEnum,
-        Passport: 'Passport' as GroupEnum,
-        ReEntryPermit: 'ReEntryPermit' as GroupEnum,
-        CreditCard: 'CreditCard' as GroupEnum,
-        TravelVisa: 'TravelVisa' as GroupEnum,
-        OaFrequentFlyer: 'OaFrequentFlyer' as GroupEnum,
-        ParoleLetter: 'ParoleLetter' as GroupEnum,
-        NoticeOfAction: 'NoticeOfAction' as GroupEnum,
-        TransportationLetter: 'TransportationLetter' as GroupEnum,
-        BorderCrossingCard: 'BorderCrossingCard' as GroupEnum,
-        PilotLicense: 'PilotLicense' as GroupEnum,
-        UsNaturalizationCertificate: 'UsNaturalizationCertificate' as GroupEnum,
-        RefugeeTravelDocument: 'RefugeeTravelDocument' as GroupEnum,
-        GovernmentId: 'GovernmentId' as GroupEnum,
-        DriversLicense: 'DriversLicense' as GroupEnum,
-        RedressNumber: 'RedressNumber' as GroupEnum,
-        KnownTravelerId: 'KnownTravelerId' as GroupEnum,
-        FormOfId: 'FormOfId' as GroupEnum,
-        Nexus: 'Nexus' as GroupEnum,
-        SecondaryExempt: 'SecondaryExempt' as GroupEnum
-    }
 }

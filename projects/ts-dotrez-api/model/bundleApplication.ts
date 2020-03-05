@@ -17,6 +17,7 @@ import { RegionFilter } from './regionFilter';
 /**
  * The bundle application model.
  */
+
 export interface BundleApplication { 
     /**
      * The bundle application key.

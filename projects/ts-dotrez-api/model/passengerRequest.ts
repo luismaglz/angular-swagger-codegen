@@ -20,6 +20,7 @@ import { TravelDocumentCreateRequest } from './travelDocumentCreateRequest';
 /**
  * Defines the passenger request details.
  */
+
 export interface PassengerRequest { 
     /**
      * The passenger customer number.

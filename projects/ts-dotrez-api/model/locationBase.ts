@@ -14,6 +14,7 @@
 /**
  * Defines base location details.
  */
+
 export interface LocationBase { 
     /**
      * The unique location code.

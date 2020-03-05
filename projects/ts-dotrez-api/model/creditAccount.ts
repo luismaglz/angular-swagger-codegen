@@ -14,6 +14,7 @@
 /**
  * Defines a credit account information.
  */
+
 export interface CreditAccount { 
     /**
      * The account reference.

@@ -15,6 +15,7 @@ import { MarketDesignator } from './marketDesignator';
 /**
  * SSR request for a Ssr designator request.
  */
+
 export interface SsrDesignatorRequest { 
     /**
      * The Ssr code.

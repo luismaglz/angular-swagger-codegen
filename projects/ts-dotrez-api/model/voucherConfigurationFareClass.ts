@@ -14,6 +14,7 @@
 /**
  * The voucher configuration model.
  */
+
 export interface VoucherConfigurationFareClass { 
     /**
      * The voucher configuration code.

@@ -16,6 +16,7 @@ import { SellKey } from './sellKey';
 /**
  * Trip sell request represents the data needed to sell journeys to a booking.
  */
+
 export interface TripSellRequest { 
     /**
      * Used to explicitly control support for flight overlaps. It works together with the ‘Allow Sell of Flight Overlap’  role setting.  Overlaps will be allowed only when PreventOverlaps is FALSE and the user has permissions to sell  overlaps.

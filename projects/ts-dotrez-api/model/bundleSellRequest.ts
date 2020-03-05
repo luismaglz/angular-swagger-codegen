@@ -15,6 +15,7 @@ import { SsrByKeysRequestv2 } from './ssrByKeysRequestv2';
 /**
  * The bundle sell request.
  */
+
 export interface BundleSellRequest { 
     /**
      * The bundle code to sell.

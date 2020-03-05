@@ -14,6 +14,10 @@
 /**
  * Describes the low fare availability filtering criteria.
  */
+
+    import { LowFareAvailabilityFilterCriteria<CAP>flightFilter<CAP> } from '../models/enums';
+    import { LowFareAvailabilityFilterCriteria<CAP>loyalty<CAP> } from '../models/enums';
+
 export interface LowFareAvailabilityFilterCriteria { 
     /**
      * Flag indicating to return only one low fare per date when multiple markets are requested.
@@ -22,11 +26,11 @@ export interface LowFareAvailabilityFilterCriteria {
     /**
      * Controls the flights that are included in a low fare availability response.
      */
-    flightFilter?: LowFareAvailabilityFilterCriteria.FlightFilterEnum;
+    flightFilter?: LowFareAvailabilityFilterCriteria<CAP>flightFilter<CAP>;
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: LowFareAvailabilityFilterCriteria.LoyaltyEnum;
+    loyalty?: LowFareAvailabilityFilterCriteria<CAP>loyalty<CAP>;
     /**
      * The list of booking classes to filter the results by.
      */
@@ -39,19 +43,4 @@ export interface LowFareAvailabilityFilterCriteria {
      * The list of fare types to filter the results by.
      */
     fareTypes?: Array<string>;
-}
-export namespace LowFareAvailabilityFilterCriteria {
-    export type FlightFilterEnum = 'NoFlights' | 'AllFlights' | 'SelectedFlight';
-    export const FlightFilterEnum = {
-        NoFlights: 'NoFlights' as FlightFilterEnum,
-        AllFlights: 'AllFlights' as FlightFilterEnum,
-        SelectedFlight: 'SelectedFlight' as FlightFilterEnum
-    }
-    export type LoyaltyEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyEnum
-    }
 }

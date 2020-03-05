@@ -15,6 +15,7 @@ import { City } from './city';
 /**
  * The province/state code model.
  */
+
 export interface ProvinceState { 
     /**
      * Gets or sets the list of cities associated with this province/state

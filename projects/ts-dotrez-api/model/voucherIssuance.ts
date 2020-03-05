@@ -15,6 +15,7 @@ import { VoucherMarketInformation } from './voucherMarketInformation';
 /**
  * The voucher issuance model.
  */
+
 export interface VoucherIssuance { 
     /**
      * The voucher issuance key.

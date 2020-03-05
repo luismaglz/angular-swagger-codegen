@@ -15,6 +15,7 @@ import { TimeZoneVariation } from './timeZoneVariation';
 /**
  * The timezone model.
  */
+
 export interface TimeZone { 
     /**
      * Gets or sets the inactive flag for this time zone.

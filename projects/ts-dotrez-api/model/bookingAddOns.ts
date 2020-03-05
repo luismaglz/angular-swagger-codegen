@@ -15,6 +15,7 @@ import { AddOn } from './addOn';
 /**
  * The list of components.
  */
+
 export interface BookingAddOns { 
     ?: AddOn;
 }

@@ -15,6 +15,7 @@ import { CodesSettingsPaymentFieldOverrides_ } from './codesSettingsPaymentField
 /**
  * A dictionary that map payment codes with a dictionary mapping payment fields to their requirement  rules.
  */
+
 export interface CodesSettingsPaymentFieldOverrides { 
     ?: CodesSettingsPaymentFieldOverrides_;
 }

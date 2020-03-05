@@ -16,6 +16,7 @@ import { SsrDetail } from './ssrDetail';
 /**
  * Model information for a sell service request (SSR) tied to a specific segment.
  */
+
 export interface SsrBySegment { 
     /**
      * The unique identifier of the segment of a journey.

@@ -16,6 +16,7 @@ import { SellTokenCatalogRequestParameters } from './sellTokenCatalogRequestPara
 /**
  * Defines a sell token catalog request. This request is used for selling a specific products product variation  catalog item.
  */
+
 export interface SellTokenCatalogRequest { 
     parameters?: SellTokenCatalogRequestParameters;
     /**

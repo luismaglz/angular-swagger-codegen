@@ -15,6 +15,7 @@ import { VoucherMarketInformation } from './voucherMarketInformation';
 /**
  * The voucher issuance request model.
  */
+
 export interface VoucherIssuanceRequest { 
     /**
      * The record locator.

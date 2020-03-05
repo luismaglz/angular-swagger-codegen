@@ -29,6 +29,7 @@ import { TypeOfSale } from './typeOfSale';
 /**
  * Represents a full booking object.
  */
+
 export interface Booking { 
     /**
      * The flag indicating whether self-service move is allowed.

@@ -15,6 +15,7 @@ import { SeatGroupInfo } from './seatGroupInfo';
 /**
  * The collection of seat group fees.
  */
+
 export interface PassengerSeatGroupInfoGroups { 
     ?: SeatGroupInfo;
 }

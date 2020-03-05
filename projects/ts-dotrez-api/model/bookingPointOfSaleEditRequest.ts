@@ -14,6 +14,7 @@
 /**
  * Model related to the booking point of sale edit request.  This is to be used for update operations only.
  */
+
 export interface BookingPointOfSaleEditRequest { 
     /**
      * Two character country code, optionally supplied in GDS message

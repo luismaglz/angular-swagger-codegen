@@ -14,6 +14,7 @@
 /**
  * Defines the person email create address.
  */
+
 export interface PersonEmailCreateRequest { 
     /**
      * The type code of the email address.

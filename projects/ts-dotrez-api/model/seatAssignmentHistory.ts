@@ -17,6 +17,7 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines a seat assignment history log entry.
  */
+
 export interface SeatAssignmentHistory { 
     /**
      * The market designator.

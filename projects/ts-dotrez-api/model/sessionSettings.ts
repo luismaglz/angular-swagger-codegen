@@ -14,6 +14,7 @@
 /**
  * The session settings.
  */
+
 export interface SessionSettings { 
     /**
      * The timeout interval for the session.

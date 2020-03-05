@@ -14,6 +14,7 @@
 /**
  * Model representing a settings category request.
  */
+
 export interface SettingsCategoryRequest { 
     /**
      * The path of the setting. Example: Web\\dotREZ\\MarketFilterSettings.

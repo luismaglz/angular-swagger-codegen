@@ -15,6 +15,7 @@ import { Contact } from './contact';
 /**
  * The contacts on the booking by unique the contact type code.
  */
+
 export interface BookingContacts { 
     ?: Contact;
 }

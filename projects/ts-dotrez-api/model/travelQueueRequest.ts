@@ -14,6 +14,7 @@
 /**
  * Defines a travel queue query.
  */
+
 export interface TravelQueueRequest { 
     /**
      * The required queue code.

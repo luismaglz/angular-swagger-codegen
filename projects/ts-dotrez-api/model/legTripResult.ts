@@ -15,6 +15,10 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Model data.
  */
+
+    import { LegTripResult<CAP>status<CAP> } from '../models/enums';
+    import { LegTripResult<CAP>liftStatus<CAP> } from '../models/enums';
+
 export interface LegTripResult { 
     /**
      * Transportation information.
@@ -35,11 +39,11 @@ export interface LegTripResult {
     /**
      * The leg's status.
      */
-    status?: LegTripResult.StatusEnum;
+    status?: LegTripResult<CAP>status<CAP>;
     /**
      * The lift status.
      */
-    liftStatus?: LegTripResult.LiftStatusEnum;
+    liftStatus?: LegTripResult<CAP>liftStatus<CAP>;
     /**
      * The departure time using the time variant in universal time.
      */
@@ -48,23 +52,4 @@ export interface LegTripResult {
      * The arrival time using the time variant in universal time.
      */
     arrivalTimeUtc?: Date;
-}
-export namespace LegTripResult {
-    export type StatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const StatusEnum = {
-        Normal: 'Normal' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        Canceled: 'Canceled' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        ClosedPending: 'ClosedPending' as StatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as StatusEnum,
-        Mishap: 'Mishap' as StatusEnum
-    }
-    export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    }
 }

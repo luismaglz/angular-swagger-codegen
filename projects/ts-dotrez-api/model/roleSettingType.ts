@@ -14,6 +14,7 @@
 /**
  * The role settings type model.
  */
+
 export interface RoleSettingType { 
     /**
      * The code for the role setting type.

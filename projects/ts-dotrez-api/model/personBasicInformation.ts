@@ -14,11 +14,14 @@
 /**
  * Defines the person's basic information.
  */
+
+    import { PersonBasicInformation<CAP>gender<CAP> } from '../models/enums';
+
 export interface PersonBasicInformation { 
     /**
      * The person's gender.
      */
-    gender?: PersonBasicInformation.GenderEnum;
+    gender?: PersonBasicInformation<CAP>gender<CAP>;
     /**
      * The person's date of birth.
      */
@@ -47,12 +50,4 @@ export interface PersonBasicInformation {
      * The person's national ID number.
      */
     nationalIdNumber?: string;
-}
-export namespace PersonBasicInformation {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

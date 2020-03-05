@@ -14,11 +14,14 @@
 /**
  * Defines a booking comment.
  */
+
+    import { BookingCommentRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface BookingCommentRequest { 
     /**
      * Indicates where the comment will be seen.
      */
-    type?: BookingCommentRequest.TypeEnum;
+    type?: BookingCommentRequest<CAP>type<CAP>;
     /**
      * The text of the comment.
      */
@@ -27,14 +30,4 @@ export interface BookingCommentRequest {
      * The created date of the comment.
      */
     createdDate?: Date;
-}
-export namespace BookingCommentRequest {
-    export type TypeEnum = 'Default' | 'Itinerary' | 'Manifest' | 'Alert' | 'Archive';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Itinerary: 'Itinerary' as TypeEnum,
-        Manifest: 'Manifest' as TypeEnum,
-        Alert: 'Alert' as TypeEnum,
-        Archive: 'Archive' as TypeEnum
-    }
 }

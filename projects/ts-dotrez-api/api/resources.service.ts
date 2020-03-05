@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { AccountTransactionCode } from '../model/accountTransactionCode';
 import { AddressType } from '../model/addressType';
 import { AgentSettingType } from '../model/agentSettingType';
@@ -113,8 +108,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class ResourcesService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Retrieves the specific account transaction code resource.
@@ -123,7 +123,9 @@ export class ResourcesService {
      * @param cultureCode 
      
      */
-    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet = (transactionCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<AccountTransactionCode>;
+    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<AccountTransactionCode>>;
+    public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!transactionCode){
             throw new Error('Required parameter transactionCode was null or undefined when calling apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet.');
         }
@@ -134,16 +136,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                transactionCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/AccountTransactionCodes/${encodeURIComponent(String(transactionCode))}',
-                method: 'get',
-                data: {
-                    transactionCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<AccountTransactionCode>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AccountTransactionCodes/${encodeURIComponent(String(transactionCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <AccountTransactionCode>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -157,7 +154,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesAccountTransactionCodesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<AccountTransactionCode>>;
+    public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<AccountTransactionCode>>>;
+    public apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAccountTransactionCodesGet.');
         }
@@ -180,16 +179,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/AccountTransactionCodes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<AccountTransactionCode>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AccountTransactionCodes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<AccountTransactionCode>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -202,7 +196,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesAddOnsLocationsGet = (type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Array<CommerceLocation>>;
+    public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<CommerceLocation>>>;
+    public apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!type){
             throw new Error('Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsLocationsGet.');
         }
@@ -222,16 +218,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/addOns/locations',
-                method: 'get',
-                data: {
-                    type,eTag,vendorCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<CommerceLocation>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/locations?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<CommerceLocation>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -244,7 +235,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesAddOnsParametersGet = (type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Array<DynamicParameter>>;
+    public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<DynamicParameter>>>;
+    public apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!type){
             throw new Error('Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsParametersGet.');
         }
@@ -264,16 +257,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/addOns/parameters',
-                method: 'get',
-                data: {
-                    type,eTag,vendorCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<DynamicParameter>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/parameters?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<DynamicParameter>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -286,7 +274,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesAddOnsParticipanttypesGet = (type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Array<ParticipantType>>;
+    public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ParticipantType>>>;
+    public apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!type){
             throw new Error('Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsParticipanttypesGet.');
         }
@@ -306,16 +296,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/addOns/participanttypes',
-                method: 'get',
-                data: {
-                    type,eTag,vendorCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ParticipantType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/participanttypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ParticipantType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -326,7 +311,9 @@ export class ResourcesService {
      * @param cultureCode 
      
      */
-    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet = (sourceCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Source>;
+    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Source>>;
+    public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!sourceCode){
             throw new Error('Required parameter sourceCode was null or undefined when calling apiNskV1ResourcesAddOnsSourcesBySourceCodeGet.');
         }
@@ -337,16 +324,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                sourceCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/addOns/sources/${encodeURIComponent(String(sourceCode))}',
-                method: 'get',
-                data: {
-                    sourceCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Source>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/sources/${encodeURIComponent(String(sourceCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Source>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -360,7 +342,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesAddOnsSourcesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Source>>;
+    public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Source>>>;
+    public apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAddOnsSourcesGet.');
         }
@@ -383,16 +367,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/addOns/sources',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Source>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/sources?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Source>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -404,7 +383,9 @@ export class ResourcesService {
      * @param eTag The cache eTag for this request.
      
      */
-    public apiNskV1ResourcesAddOnsVendorsGet = (type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, ) => {
+    public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<Vendor>>;
+    public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Vendor>>>;
+    public apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!type){
             throw new Error('Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsVendorsGet.');
         }
@@ -421,16 +402,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/addOns/vendors',
-                method: 'get',
-                data: {
-                    type,cultureCode,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Vendor>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/vendors?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Vendor>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -441,7 +417,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet = (addressTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<AddressType>;
+    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<AddressType>>;
+    public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!addressTypeCode){
             throw new Error('Required parameter addressTypeCode was null or undefined when calling apiNskV1ResourcesAddressTypesByAddressTypeCodeGet.');
         }
@@ -452,16 +430,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                addressTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/AddressTypes/${encodeURIComponent(String(addressTypeCode))}',
-                method: 'get',
-                data: {
-                    addressTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<AddressType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AddressTypes/${encodeURIComponent(String(addressTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <AddressType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -475,7 +448,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesAddressTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<AddressType>>;
+    public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<AddressType>>>;
+    public apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAddressTypesGet.');
         }
@@ -498,16 +473,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/AddressTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<AddressType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AddressTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<AddressType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -518,7 +488,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture.
      
      */
-    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet = (agentSettingTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<AgentSettingType>;
+    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<AgentSettingType>>;
+    public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!agentSettingTypeCode){
             throw new Error('Required parameter agentSettingTypeCode was null or undefined when calling apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet.');
         }
@@ -529,16 +501,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                agentSettingTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/AgentSettingTypes/${encodeURIComponent(String(agentSettingTypeCode))}',
-                method: 'get',
-                data: {
-                    agentSettingTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<AgentSettingType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AgentSettingTypes/${encodeURIComponent(String(agentSettingTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <AgentSettingType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -552,7 +519,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesAgentSettingTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<AgentSettingType>>;
+    public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<AgentSettingType>>>;
+    public apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAgentSettingTypesGet.');
         }
@@ -575,16 +544,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/AgentSettingTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<AgentSettingType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AgentSettingTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<AgentSettingType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -595,7 +559,9 @@ export class ResourcesService {
      * @param cultureCode The unique culture code.
      
      */
-    public apiNskV1ResourcesAreasByAreaCodeGet = (areaCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Area>;
+    public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Area>>;
+    public apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!areaCode){
             throw new Error('Required parameter areaCode was null or undefined when calling apiNskV1ResourcesAreasByAreaCodeGet.');
         }
@@ -606,16 +572,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                areaCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Areas/${encodeURIComponent(String(areaCode))}',
-                method: 'get',
-                data: {
-                    areaCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Area>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Areas/${encodeURIComponent(String(areaCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Area>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -629,7 +590,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesAreasGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Area>>;
+    public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Area>>>;
+    public apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAreasGet.');
         }
@@ -652,16 +615,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Areas',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Area>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Areas?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Area>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -672,7 +630,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet = (baggageTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<BaggageType>;
+    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<BaggageType>>;
+    public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!baggageTypeCode){
             throw new Error('Required parameter baggageTypeCode was null or undefined when calling apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet.');
         }
@@ -683,16 +643,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                baggageTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/BaggageTypes/${encodeURIComponent(String(baggageTypeCode))}',
-                method: 'get',
-                data: {
-                    baggageTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<BaggageType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/BaggageTypes/${encodeURIComponent(String(baggageTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <BaggageType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -706,7 +661,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesBaggageTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<BaggageType>>;
+    public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BaggageType>>>;
+    public apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBaggageTypesGet.');
         }
@@ -729,16 +686,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/BaggageTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<BaggageType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/BaggageTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<BaggageType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -750,7 +702,9 @@ export class ResourcesService {
      * @param eTag The cache eTag for this request.
      
      */
-    public apiNskV1ResourcesBundlesApplicationsGet = (bundleRuleCode: string, cultureCode?: string, eTag?: string, ) => {
+    public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<BundleApplication>>;
+    public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BundleApplication>>>;
+    public apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!bundleRuleCode){
             throw new Error('Required parameter bundleRuleCode was null or undefined when calling apiNskV1ResourcesBundlesApplicationsGet.');
         }
@@ -767,16 +721,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                bundleRuleCode: string, cultureCode?: string, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/bundles/applications',
-                method: 'get',
-                data: {
-                    bundleRuleCode,cultureCode,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<BundleApplication>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/applications?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<BundleApplication>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -787,7 +736,9 @@ export class ResourcesService {
      * @param cultureCode The culture code.
      
      */
-    public apiNskV1ResourcesBundlesByBundleCodeGet = (bundleCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<BundleConfiguration>;
+    public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<BundleConfiguration>>;
+    public apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!bundleCode){
             throw new Error('Required parameter bundleCode was null or undefined when calling apiNskV1ResourcesBundlesByBundleCodeGet.');
         }
@@ -798,16 +749,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                bundleCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/bundles/${encodeURIComponent(String(bundleCode))}',
-                method: 'get',
-                data: {
-                    bundleCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<BundleConfiguration>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/${encodeURIComponent(String(bundleCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <BundleConfiguration>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -821,7 +767,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesBundlesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<BundleConfiguration>>;
+    public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BundleConfiguration>>>;
+    public apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBundlesGet.');
         }
@@ -844,16 +792,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/bundles',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<BundleConfiguration>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<BundleConfiguration>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -863,23 +806,20 @@ export class ResourcesService {
      * @param eTag The unique etag ID.
      
      */
-    public apiNskV1ResourcesBundlesRulesGet = (eTag?: string, ) => {
+    public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<BundleRule>>;
+    public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BundleRule>>>;
+    public apiNskV1ResourcesBundlesRulesGet(eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (eTag !== undefined) {
             queryParameters.push("eTag="+encodeURIComponent(String(eTag)));
         }
 
 
-            const requestObj: Request<{
-                eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/bundles/rules',
-                method: 'get',
-                data: {
-                    eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<BundleRule>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/rules?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<BundleRule>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -893,7 +833,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesBundlesSetsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<BundleSet>>;
+    public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BundleSet>>>;
+    public apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBundlesSetsGet.');
         }
@@ -916,16 +858,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/bundles/sets',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<BundleSet>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/sets?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<BundleSet>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -937,7 +874,9 @@ export class ResourcesService {
      * @param eTag The cache eTag for this request.
      
      */
-    public apiNskV1ResourcesBundlesSsrsGet = (bundleCode: string, cultureCode?: string, eTag?: string, ) => {
+    public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<BundleSsrConfiguration>>;
+    public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BundleSsrConfiguration>>>;
+    public apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!bundleCode){
             throw new Error('Required parameter bundleCode was null or undefined when calling apiNskV1ResourcesBundlesSsrsGet.');
         }
@@ -954,16 +893,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                bundleCode: string, cultureCode?: string, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/bundles/ssrs',
-                method: 'get',
-                data: {
-                    bundleCode,cultureCode,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<BundleSsrConfiguration>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/ssrs?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<BundleSsrConfiguration>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -975,7 +909,9 @@ export class ResourcesService {
      * @param eTag The eTag.
      
      */
-    public apiNskV1ResourcesCarriersByCarrierCodeGet = (carrierCode: string, cultureCode?: string, eTag?: string, ) => {
+    public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe?: 'body', headers?: Headers): Observable<Carrier>;
+    public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Carrier>>;
+    public apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!carrierCode){
             throw new Error('Required parameter carrierCode was null or undefined when calling apiNskV1ResourcesCarriersByCarrierCodeGet.');
         }
@@ -989,16 +925,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                carrierCode: string, cultureCode?: string, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/carriers/${encodeURIComponent(String(carrierCode))}',
-                method: 'get',
-                data: {
-                    carrierCode,cultureCode,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Carrier>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/carriers/${encodeURIComponent(String(carrierCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Carrier>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1012,7 +943,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesCarriersGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<ResourceEntriesCarrier>;
+    public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResourceEntriesCarrier>>;
+    public apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCarriersGet.');
         }
@@ -1035,16 +968,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/carriers',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ResourceEntriesCarrier>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/carriers?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ResourceEntriesCarrier>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1055,7 +983,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesCitiesByCityCodeGet = (cityCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<City>;
+    public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<City>>;
+    public apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!cityCode){
             throw new Error('Required parameter cityCode was null or undefined when calling apiNskV1ResourcesCitiesByCityCodeGet.');
         }
@@ -1066,16 +996,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                cityCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Cities/${encodeURIComponent(String(cityCode))}',
-                method: 'get',
-                data: {
-                    cityCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<City>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Cities/${encodeURIComponent(String(cityCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <City>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1089,7 +1014,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesCitiesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<City>>;
+    public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<City>>>;
+    public apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCitiesGet.');
         }
@@ -1112,16 +1039,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Cities',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<City>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Cities?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<City>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1132,7 +1054,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet = (classOfServiceCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<ClassOfService>;
+    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ClassOfService>>;
+    public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!classOfServiceCode){
             throw new Error('Required parameter classOfServiceCode was null or undefined when calling apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet.');
         }
@@ -1143,16 +1067,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                classOfServiceCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/ClassOfServices/${encodeURIComponent(String(classOfServiceCode))}',
-                method: 'get',
-                data: {
-                    classOfServiceCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ClassOfService>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ClassOfServices/${encodeURIComponent(String(classOfServiceCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ClassOfService>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1166,7 +1085,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesClassOfServicesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<ClassOfService>>;
+    public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ClassOfService>>>;
+    public apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesClassOfServicesGet.');
         }
@@ -1189,16 +1110,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/ClassOfServices',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ClassOfService>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ClassOfServices?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ClassOfService>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1209,7 +1125,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet = (commissionRateCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<CommissionRate>;
+    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<CommissionRate>>;
+    public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!commissionRateCode){
             throw new Error('Required parameter commissionRateCode was null or undefined when calling apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet.');
         }
@@ -1220,16 +1138,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                commissionRateCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/CommissionRates/${encodeURIComponent(String(commissionRateCode))}',
-                method: 'get',
-                data: {
-                    commissionRateCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<CommissionRate>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CommissionRates/${encodeURIComponent(String(commissionRateCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <CommissionRate>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1243,7 +1156,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesCommissionRatesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<CommissionRate>>;
+    public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<CommissionRate>>>;
+    public apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCommissionRatesGet.');
         }
@@ -1266,16 +1181,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/CommissionRates',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<CommissionRate>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CommissionRates?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<CommissionRate>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1286,7 +1196,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesContactTypesByContactTypeCodeGet = (contactTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<ContactType>;
+    public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ContactType>>;
+    public apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!contactTypeCode){
             throw new Error('Required parameter contactTypeCode was null or undefined when calling apiNskV1ResourcesContactTypesByContactTypeCodeGet.');
         }
@@ -1297,16 +1209,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                contactTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/ContactTypes/${encodeURIComponent(String(contactTypeCode))}',
-                method: 'get',
-                data: {
-                    contactTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ContactType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ContactTypes/${encodeURIComponent(String(contactTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ContactType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1320,7 +1227,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesContactTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<ContactType>>;
+    public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ContactType>>>;
+    public apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesContactTypesGet.');
         }
@@ -1343,16 +1252,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/ContactTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ContactType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ContactTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ContactType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1364,7 +1268,9 @@ export class ResourcesService {
      * @param eTag ETag for caching.
      
      */
-    public apiNskV1ResourcesContentsByContentIdDataGet = (contentId: number, convertRtfToHtml?: boolean, eTag?: string, ) => {
+    public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'body', headers?: Headers): Observable<string>;
+    public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<string>>;
+    public apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!contentId){
             throw new Error('Required parameter contentId was null or undefined when calling apiNskV1ResourcesContentsByContentIdDataGet.');
         }
@@ -1378,16 +1284,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                contentId: number, convertRtfToHtml?: boolean, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/contents/${encodeURIComponent(String(contentId))}/data',
-                method: 'get',
-                data: {
-                    contentId,convertRtfToHtml,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<string>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/contents/${encodeURIComponent(String(contentId))}/data?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <string>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1399,7 +1300,9 @@ export class ResourcesService {
      * @param eTag ETag for caching.
      
      */
-    public apiNskV1ResourcesContentsByContentIdGet = (contentId: number, convertRtfToHtml?: boolean, eTag?: string, ) => {
+    public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'body', headers?: Headers): Observable<ResourceContentItem>;
+    public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResourceContentItem>>;
+    public apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!contentId){
             throw new Error('Required parameter contentId was null or undefined when calling apiNskV1ResourcesContentsByContentIdGet.');
         }
@@ -1413,16 +1316,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                contentId: number, convertRtfToHtml?: boolean, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/contents/${encodeURIComponent(String(contentId))}',
-                method: 'get',
-                data: {
-                    contentId,convertRtfToHtml,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ResourceContentItem>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/contents/${encodeURIComponent(String(contentId))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ResourceContentItem>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1436,7 +1334,9 @@ export class ResourcesService {
      * @param lastContentId Used to specify the last item of the page of the last set of records retrieved  when paging was performed. This is optional.
      
      */
-    public apiNskV1ResourcesContentsGet = (type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, ) => {
+    public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe?: 'body', headers?: Headers): Observable<Array<ResourceContentResult>>;
+    public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ResourceContentResult>>>;
+    public apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!type){
             throw new Error('Required parameter type was null or undefined when calling apiNskV1ResourcesContentsGet.');
         }
@@ -1459,16 +1359,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/contents',
-                method: 'get',
-                data: {
-                    type,name,containerId,pageSize,lastContentId,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ResourceContentResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/contents?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ResourceContentResult>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1479,7 +1374,9 @@ export class ResourcesService {
      * @param forCultureCode The for culture.
      
      */
-    public apiNskV1ResourcesCulturesByCultureCodeGet = (cultureCode: string, forCultureCode?: string, ) => {
+    public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe?: 'body', headers?: Headers): Observable<Culture>;
+    public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Culture>>;
+    public apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!cultureCode){
             throw new Error('Required parameter cultureCode was null or undefined when calling apiNskV1ResourcesCulturesByCultureCodeGet.');
         }
@@ -1490,16 +1387,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                cultureCode: string, forCultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/cultures/${encodeURIComponent(String(cultureCode))}',
-                method: 'get',
-                data: {
-                    cultureCode,forCultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Culture>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/cultures/${encodeURIComponent(String(cultureCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Culture>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1513,7 +1405,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesCulturesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Culture>>;
+    public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Culture>>>;
+    public apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCulturesGet.');
         }
@@ -1536,16 +1430,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/cultures',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Culture>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/cultures?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Culture>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1556,7 +1445,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet = (programCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<CustomerProgram>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<CustomerProgram>>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!programCode){
             throw new Error('Required parameter programCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeGet.');
         }
@@ -1567,16 +1458,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                programCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/CustomerPrograms/${encodeURIComponent(String(programCode))}',
-                method: 'get',
-                data: {
-                    programCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<CustomerProgram>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CustomerPrograms/${encodeURIComponent(String(programCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <CustomerProgram>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1588,7 +1474,9 @@ export class ResourcesService {
      * @param cultureCode The culture code.
      
      */
-    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet = (programCode: string, programLevelCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<CustomerProgramLevel>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<CustomerProgramLevel>>;
+    public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!programCode){
             throw new Error('Required parameter programCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet.');
         }
@@ -1603,16 +1491,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                programCode: string, programLevelCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/CustomerPrograms/${encodeURIComponent(String(programCode))}/levels/${encodeURIComponent(String(programLevelCode))}',
-                method: 'get',
-                data: {
-                    programCode,programLevelCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<CustomerProgramLevel>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CustomerPrograms/${encodeURIComponent(String(programCode))}/levels/${encodeURIComponent(String(programLevelCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <CustomerProgramLevel>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1626,7 +1509,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesCustomerProgramsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<CustomerProgram>>;
+    public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<CustomerProgram>>>;
+    public apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCustomerProgramsGet.');
         }
@@ -1649,16 +1534,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/CustomerPrograms',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<CustomerProgram>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CustomerPrograms?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<CustomerProgram>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1669,7 +1549,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesDelaysByDelayCodeGet = (delayCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Delay>;
+    public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Delay>>;
+    public apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!delayCode){
             throw new Error('Required parameter delayCode was null or undefined when calling apiNskV1ResourcesDelaysByDelayCodeGet.');
         }
@@ -1680,16 +1562,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                delayCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Delays/${encodeURIComponent(String(delayCode))}',
-                method: 'get',
-                data: {
-                    delayCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Delay>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Delays/${encodeURIComponent(String(delayCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Delay>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1703,7 +1580,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesDelaysGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Delay>>;
+    public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Delay>>>;
+    public apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDelaysGet.');
         }
@@ -1726,16 +1605,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Delays',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Delay>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Delays?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Delay>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1746,7 +1620,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet = (departmentCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Department>;
+    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Department>>;
+    public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!departmentCode){
             throw new Error('Required parameter departmentCode was null or undefined when calling apiNskV1ResourcesDepartmentsByDepartmentCodeGet.');
         }
@@ -1757,16 +1633,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                departmentCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Departments/${encodeURIComponent(String(departmentCode))}',
-                method: 'get',
-                data: {
-                    departmentCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Department>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Departments/${encodeURIComponent(String(departmentCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Department>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1780,7 +1651,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesDepartmentsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Department>>;
+    public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Department>>>;
+    public apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDepartmentsGet.');
         }
@@ -1803,16 +1676,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Departments',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Department>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Departments?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Department>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1825,7 +1693,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesDistributionOptionsGet = (cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<EnumResource>>;
+    public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (cultureCode !== undefined) {
             queryParameters.push("cultureCode="+encodeURIComponent(String(cultureCode)));
@@ -1841,16 +1711,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/distributionOptions',
-                method: 'get',
-                data: {
-                    cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/distributionOptions?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1861,7 +1726,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet = (documentTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<DocumentType>;
+    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<DocumentType>>;
+    public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!documentTypeCode){
             throw new Error('Required parameter documentTypeCode was null or undefined when calling apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet.');
         }
@@ -1872,16 +1739,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                documentTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/DocumentTypes/${encodeURIComponent(String(documentTypeCode))}',
-                method: 'get',
-                data: {
-                    documentTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<DocumentType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/DocumentTypes/${encodeURIComponent(String(documentTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <DocumentType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1895,7 +1757,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesDocumentTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<DocumentType>>;
+    public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<DocumentType>>>;
+    public apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDocumentTypesGet.');
         }
@@ -1918,16 +1782,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/DocumentTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<DocumentType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/DocumentTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<DocumentType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1937,22 +1796,19 @@ export class ResourcesService {
      * @param domainCode The unique domain code.
      
      */
-    public apiNskV1ResourcesDomainsByDomainCodeGet = (domainCode: string, ) => {
+    public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe?: 'body', headers?: Headers): Observable<Domain>;
+    public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Domain>>;
+    public apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!domainCode){
             throw new Error('Required parameter domainCode was null or undefined when calling apiNskV1ResourcesDomainsByDomainCodeGet.');
         }
 
 
-            const requestObj: Request<{
-                domainCode: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Domains/${encodeURIComponent(String(domainCode))}',
-                method: 'get',
-                data: {
-                    domainCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Domain>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Domains/${encodeURIComponent(String(domainCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Domain>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1962,23 +1818,20 @@ export class ResourcesService {
      * @param eTag The unique etag ID.
      
      */
-    public apiNskV1ResourcesDomainsGet = (eTag?: string, ) => {
+    public apiNskV1ResourcesDomainsGet(eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<Domain>>;
+    public apiNskV1ResourcesDomainsGet(eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Domain>>>;
+    public apiNskV1ResourcesDomainsGet(eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (eTag !== undefined) {
             queryParameters.push("eTag="+encodeURIComponent(String(eTag)));
         }
 
 
-            const requestObj: Request<{
-                eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Domains',
-                method: 'get',
-                data: {
-                    eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Domain>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Domains?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Domain>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -1989,7 +1842,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet = (emailTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<EmailType>;
+    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<EmailType>>;
+    public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!emailTypeCode){
             throw new Error('Required parameter emailTypeCode was null or undefined when calling apiNskV1ResourcesEmailTypesByEmailTypeCodeGet.');
         }
@@ -2000,16 +1855,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                emailTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/EmailTypes/${encodeURIComponent(String(emailTypeCode))}',
-                method: 'get',
-                data: {
-                    emailTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<EmailType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/EmailTypes/${encodeURIComponent(String(emailTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <EmailType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2023,7 +1873,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesEmailTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<EmailType>>;
+    public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<EmailType>>>;
+    public apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesEmailTypesGet.');
         }
@@ -2046,16 +1898,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/EmailTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<EmailType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/EmailTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<EmailType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2066,7 +1913,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesExternalRatesByRateIdGet = (rateId: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<ExternalRate>;
+    public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ExternalRate>>;
+    public apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!rateId){
             throw new Error('Required parameter rateId was null or undefined when calling apiNskV1ResourcesExternalRatesByRateIdGet.');
         }
@@ -2077,16 +1926,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                rateId: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/ExternalRates/${encodeURIComponent(String(rateId))}',
-                method: 'get',
-                data: {
-                    rateId,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ExternalRate>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ExternalRates/${encodeURIComponent(String(rateId))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ExternalRate>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2100,7 +1944,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesExternalRatesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<ExternalRate>>;
+    public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ExternalRate>>>;
+    public apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesExternalRatesGet.');
         }
@@ -2123,16 +1969,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/ExternalRates',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ExternalRate>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ExternalRates?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ExternalRate>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2143,7 +1984,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesFareTypesByFareTypeCodeGet = (fareTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<FareType>;
+    public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<FareType>>;
+    public apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!fareTypeCode){
             throw new Error('Required parameter fareTypeCode was null or undefined when calling apiNskV1ResourcesFareTypesByFareTypeCodeGet.');
         }
@@ -2154,16 +1997,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                fareTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/FareTypes/${encodeURIComponent(String(fareTypeCode))}',
-                method: 'get',
-                data: {
-                    fareTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<FareType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/FareTypes/${encodeURIComponent(String(fareTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <FareType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2177,7 +2015,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesFareTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<FareType>>;
+    public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<FareType>>>;
+    public apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesFareTypesGet.');
         }
@@ -2200,16 +2040,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/FareTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<FareType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/FareTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<FareType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2219,22 +2054,19 @@ export class ResourcesService {
      * @param feeCode The unique fee code.
      
      */
-    public apiNskV1ResourcesFeesByFeeCodeDetailsGet = (feeCode: string, ) => {
+    public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe?: 'body', headers?: Headers): Observable<Array<FeeDetail>>;
+    public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<FeeDetail>>>;
+    public apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!feeCode){
             throw new Error('Required parameter feeCode was null or undefined when calling apiNskV1ResourcesFeesByFeeCodeDetailsGet.');
         }
 
 
-            const requestObj: Request<{
-                feeCode: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/fees/${encodeURIComponent(String(feeCode))}/details',
-                method: 'get',
-                data: {
-                    feeCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<FeeDetail>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/fees/${encodeURIComponent(String(feeCode))}/details`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<FeeDetail>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2245,7 +2077,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesFeesByFeeCodeGet = (feeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Fee>;
+    public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Fee>>;
+    public apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!feeCode){
             throw new Error('Required parameter feeCode was null or undefined when calling apiNskV1ResourcesFeesByFeeCodeGet.');
         }
@@ -2256,16 +2090,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                feeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Fees/${encodeURIComponent(String(feeCode))}',
-                method: 'get',
-                data: {
-                    feeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Fee>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Fees/${encodeURIComponent(String(feeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Fee>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2279,7 +2108,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesFeesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Fee>>;
+    public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Fee>>>;
+    public apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesFeesGet.');
         }
@@ -2302,16 +2133,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Fees',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Fee>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Fees?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Fee>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2324,7 +2150,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesGendersGet = (cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<EnumResource>>;
+    public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (cultureCode !== undefined) {
             queryParameters.push("cultureCode="+encodeURIComponent(String(cultureCode)));
@@ -2340,16 +2168,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/genders',
-                method: 'get',
-                data: {
-                    cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/genders?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2360,7 +2183,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet = (hotCardReasonCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<HotCardReason>;
+    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<HotCardReason>>;
+    public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!hotCardReasonCode){
             throw new Error('Required parameter hotCardReasonCode was null or undefined when calling apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet.');
         }
@@ -2371,16 +2196,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                hotCardReasonCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/HotCardReasons/${encodeURIComponent(String(hotCardReasonCode))}',
-                method: 'get',
-                data: {
-                    hotCardReasonCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<HotCardReason>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/HotCardReasons/${encodeURIComponent(String(hotCardReasonCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <HotCardReason>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2394,7 +2214,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesHotCardReasonsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<HotCardReason>>;
+    public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<HotCardReason>>>;
+    public apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesHotCardReasonsGet.');
         }
@@ -2417,16 +2239,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/HotCardReasons',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<HotCardReason>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/HotCardReasons?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<HotCardReason>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2437,7 +2254,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet = (issuanceReasonCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<IssuanceReason>;
+    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IssuanceReason>>;
+    public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!issuanceReasonCode){
             throw new Error('Required parameter issuanceReasonCode was null or undefined when calling apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet.');
         }
@@ -2448,16 +2267,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                issuanceReasonCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/IssuanceReasons/${encodeURIComponent(String(issuanceReasonCode))}',
-                method: 'get',
-                data: {
-                    issuanceReasonCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IssuanceReason>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/IssuanceReasons/${encodeURIComponent(String(issuanceReasonCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IssuanceReason>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2471,7 +2285,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesIssuanceReasonsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<IssuanceReason>>;
+    public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<IssuanceReason>>>;
+    public apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesIssuanceReasonsGet.');
         }
@@ -2494,16 +2310,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/IssuanceReasons',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<IssuanceReason>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/IssuanceReasons?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<IssuanceReason>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2514,7 +2325,9 @@ export class ResourcesService {
      * @param cultureCode 
      
      */
-    public apiNskV1ResourcesLocationsByLocationCodeGet = (locationCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Location>;
+    public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Location>>;
+    public apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!locationCode){
             throw new Error('Required parameter locationCode was null or undefined when calling apiNskV1ResourcesLocationsByLocationCodeGet.');
         }
@@ -2525,16 +2338,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                locationCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Locations/${encodeURIComponent(String(locationCode))}',
-                method: 'get',
-                data: {
-                    locationCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Location>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Locations/${encodeURIComponent(String(locationCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Location>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2548,7 +2356,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesLocationsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Location>>;
+    public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Location>>>;
+    public apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesLocationsGet.');
         }
@@ -2571,16 +2381,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Locations',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Location>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Locations?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Location>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2590,22 +2395,19 @@ export class ResourcesService {
      * @param macCode The unique mac code.
      
      */
-    public apiNskV1ResourcesMacsByMacCodeGet = (macCode: string, ) => {
+    public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe?: 'body', headers?: Headers): Observable<Mac>;
+    public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Mac>>;
+    public apiNskV1ResourcesMacsByMacCodeGet(macCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!macCode){
             throw new Error('Required parameter macCode was null or undefined when calling apiNskV1ResourcesMacsByMacCodeGet.');
         }
 
 
-            const requestObj: Request<{
-                macCode: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Macs/${encodeURIComponent(String(macCode))}',
-                method: 'get',
-                data: {
-                    macCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Mac>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Macs/${encodeURIComponent(String(macCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Mac>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2615,23 +2417,20 @@ export class ResourcesService {
      * @param eTag The unique etag ID.
      
      */
-    public apiNskV1ResourcesMacsGet = (eTag?: string, ) => {
+    public apiNskV1ResourcesMacsGet(eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<Mac>>;
+    public apiNskV1ResourcesMacsGet(eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Mac>>>;
+    public apiNskV1ResourcesMacsGet(eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (eTag !== undefined) {
             queryParameters.push("eTag="+encodeURIComponent(String(eTag)));
         }
 
 
-            const requestObj: Request<{
-                eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Macs',
-                method: 'get',
-                data: {
-                    eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Mac>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Macs?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Mac>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2642,7 +2441,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet = (messageTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<MessageType>;
+    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<MessageType>>;
+    public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!messageTypeCode){
             throw new Error('Required parameter messageTypeCode was null or undefined when calling apiNskV1ResourcesMessageTypesByMessageTypeCodeGet.');
         }
@@ -2653,16 +2454,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                messageTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/MessageTypes/${encodeURIComponent(String(messageTypeCode))}',
-                method: 'get',
-                data: {
-                    messageTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<MessageType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/MessageTypes/${encodeURIComponent(String(messageTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <MessageType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2676,7 +2472,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesMessageTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<MessageType>>;
+    public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<MessageType>>>;
+    public apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesMessageTypesGet.');
         }
@@ -2699,16 +2497,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/MessageTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<MessageType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/MessageTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<MessageType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2721,7 +2514,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesOrganizationStatusesGet = (cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<EnumResource>>;
+    public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (cultureCode !== undefined) {
             queryParameters.push("cultureCode="+encodeURIComponent(String(cultureCode)));
@@ -2737,16 +2532,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/organizationStatuses',
-                method: 'get',
-                data: {
-                    cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/organizationStatuses?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2757,7 +2547,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet = (passengerDiscountCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<PassengerDiscount>;
+    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PassengerDiscount>>;
+    public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!passengerDiscountCode){
             throw new Error('Required parameter passengerDiscountCode was null or undefined when calling apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet.');
         }
@@ -2768,16 +2560,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                passengerDiscountCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/PassengerDiscounts/${encodeURIComponent(String(passengerDiscountCode))}',
-                method: 'get',
-                data: {
-                    passengerDiscountCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PassengerDiscount>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerDiscounts/${encodeURIComponent(String(passengerDiscountCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PassengerDiscount>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2791,7 +2578,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesPassengerDiscountsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<PassengerDiscount>>;
+    public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PassengerDiscount>>>;
+    public apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPassengerDiscountsGet.');
         }
@@ -2814,16 +2603,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/PassengerDiscounts',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PassengerDiscount>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerDiscounts?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PassengerDiscount>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2834,7 +2618,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet = (passengerTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<PassengerType>;
+    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PassengerType>>;
+    public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!passengerTypeCode){
             throw new Error('Required parameter passengerTypeCode was null or undefined when calling apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet.');
         }
@@ -2845,16 +2631,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                passengerTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/PassengerTypes/${encodeURIComponent(String(passengerTypeCode))}',
-                method: 'get',
-                data: {
-                    passengerTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PassengerType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerTypes/${encodeURIComponent(String(passengerTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PassengerType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2868,7 +2649,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesPassengerTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<PassengerType>>;
+    public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PassengerType>>>;
+    public apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPassengerTypesGet.');
         }
@@ -2891,16 +2674,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/PassengerTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PassengerType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PassengerType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2911,7 +2689,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet = (paymentMethodCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<PaymentMethod>;
+    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PaymentMethod>>;
+    public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!paymentMethodCode){
             throw new Error('Required parameter paymentMethodCode was null or undefined when calling apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet.');
         }
@@ -2922,16 +2702,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                paymentMethodCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/PaymentMethods/${encodeURIComponent(String(paymentMethodCode))}',
-                method: 'get',
-                data: {
-                    paymentMethodCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PaymentMethod>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PaymentMethods/${encodeURIComponent(String(paymentMethodCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PaymentMethod>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2945,7 +2720,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesPaymentMethodsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<PaymentMethod>>;
+    public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PaymentMethod>>>;
+    public apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPaymentMethodsGet.');
         }
@@ -2968,16 +2745,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/PaymentMethods',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PaymentMethod>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PaymentMethods?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PaymentMethod>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -2988,7 +2760,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet = (personAttachmentTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<PersonAttachmentType>;
+    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PersonAttachmentType>>;
+    public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!personAttachmentTypeCode){
             throw new Error('Required parameter personAttachmentTypeCode was null or undefined when calling apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet.');
         }
@@ -2999,16 +2773,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                personAttachmentTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/PersonAttachmentTypes/${encodeURIComponent(String(personAttachmentTypeCode))}',
-                method: 'get',
-                data: {
-                    personAttachmentTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PersonAttachmentType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonAttachmentTypes/${encodeURIComponent(String(personAttachmentTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PersonAttachmentType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3022,7 +2791,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesPersonAttachmentTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<ResourceEntriesPersonAttachmentType>;
+    public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResourceEntriesPersonAttachmentType>>;
+    public apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPersonAttachmentTypesGet.');
         }
@@ -3045,16 +2816,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/PersonAttachmentTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ResourceEntriesPersonAttachmentType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonAttachmentTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ResourceEntriesPersonAttachmentType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3065,7 +2831,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet = (personInformationTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<PersonInformationType>;
+    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PersonInformationType>>;
+    public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!personInformationTypeCode){
             throw new Error('Required parameter personInformationTypeCode was null or undefined when calling apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet.');
         }
@@ -3076,16 +2844,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                personInformationTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/PersonInformationTypes/${encodeURIComponent(String(personInformationTypeCode))}',
-                method: 'get',
-                data: {
-                    personInformationTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PersonInformationType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonInformationTypes/${encodeURIComponent(String(personInformationTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PersonInformationType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3099,7 +2862,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesPersonInformationTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<PersonInformationType>>;
+    public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PersonInformationType>>>;
+    public apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPersonInformationTypesGet.');
         }
@@ -3122,16 +2887,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/PersonInformationTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PersonInformationType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonInformationTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PersonInformationType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3142,7 +2902,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet = (phoneTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<PhoneType>;
+    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PhoneType>>;
+    public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!phoneTypeCode){
             throw new Error('Required parameter phoneTypeCode was null or undefined when calling apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet.');
         }
@@ -3153,16 +2915,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                phoneTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/PhoneTypes/${encodeURIComponent(String(phoneTypeCode))}',
-                method: 'get',
-                data: {
-                    phoneTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PhoneType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PhoneTypes/${encodeURIComponent(String(phoneTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PhoneType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3176,7 +2933,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesPhoneTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<PhoneType>>;
+    public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PhoneType>>>;
+    public apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPhoneTypesGet.');
         }
@@ -3199,16 +2958,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/PhoneTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PhoneType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PhoneTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PhoneType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3219,7 +2973,9 @@ export class ResourcesService {
      * @param cultureCode 
      
      */
-    public apiNskV1ResourcesProductClassesByProductClassCodeGet = (productClassCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<ProductClass>;
+    public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ProductClass>>;
+    public apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!productClassCode){
             throw new Error('Required parameter productClassCode was null or undefined when calling apiNskV1ResourcesProductClassesByProductClassCodeGet.');
         }
@@ -3230,16 +2986,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                productClassCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/ProductClasses/${encodeURIComponent(String(productClassCode))}',
-                method: 'get',
-                data: {
-                    productClassCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ProductClass>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProductClasses/${encodeURIComponent(String(productClassCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ProductClass>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3253,7 +3004,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesProductClassesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<ProductClass>>;
+    public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ProductClass>>>;
+    public apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesProductClassesGet.');
         }
@@ -3276,16 +3029,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/ProductClasses',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ProductClass>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProductClasses?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ProductClass>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3296,7 +3044,9 @@ export class ResourcesService {
      * @param cultureCode 
      
      */
-    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet = (promotionSettingsTypeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<PromotionSettingType>;
+    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PromotionSettingType>>;
+    public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!promotionSettingsTypeCode){
             throw new Error('Required parameter promotionSettingsTypeCode was null or undefined when calling apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet.');
         }
@@ -3307,16 +3057,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                promotionSettingsTypeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/PromotionSettingTypes/${encodeURIComponent(String(promotionSettingsTypeCode))}',
-                method: 'get',
-                data: {
-                    promotionSettingsTypeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PromotionSettingType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PromotionSettingTypes/${encodeURIComponent(String(promotionSettingsTypeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PromotionSettingType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3330,7 +3075,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesPromotionSettingTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<PromotionSettingType>>;
+    public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PromotionSettingType>>>;
+    public apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPromotionSettingTypesGet.');
         }
@@ -3353,16 +3100,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/PromotionSettingTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PromotionSettingType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PromotionSettingTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PromotionSettingType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3373,7 +3115,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet = (provinceStateCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<ProvinceState>;
+    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ProvinceState>>;
+    public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!provinceStateCode){
             throw new Error('Required parameter provinceStateCode was null or undefined when calling apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet.');
         }
@@ -3384,16 +3128,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                provinceStateCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/ProvinceStates/${encodeURIComponent(String(provinceStateCode))}',
-                method: 'get',
-                data: {
-                    provinceStateCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ProvinceState>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProvinceStates/${encodeURIComponent(String(provinceStateCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ProvinceState>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3407,7 +3146,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesProvinceStatesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<ProvinceState>>;
+    public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ProvinceState>>>;
+    public apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesProvinceStatesGet.');
         }
@@ -3430,16 +3171,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/ProvinceStates',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ProvinceState>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProvinceStates?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ProvinceState>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3450,7 +3186,9 @@ export class ResourcesService {
      * @param cultureCode [Optional] The culture code for the resources.
      
      */
-    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet = (queueCategoryCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<QueueCategory>;
+    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<QueueCategory>>;
+    public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!queueCategoryCode){
             throw new Error('Required parameter queueCategoryCode was null or undefined when calling apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet.');
         }
@@ -3461,16 +3199,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                queueCategoryCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/queue/categories/${encodeURIComponent(String(queueCategoryCode))}',
-                method: 'get',
-                data: {
-                    queueCategoryCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<QueueCategory>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/queue/categories/${encodeURIComponent(String(queueCategoryCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <QueueCategory>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3484,7 +3217,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesQueueCategoriesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<QueueCategory>>;
+    public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<QueueCategory>>>;
+    public apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesQueueCategoriesGet.');
         }
@@ -3507,16 +3242,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/queue/categories',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<QueueCategory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/queue/categories?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<QueueCategory>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3526,22 +3256,19 @@ export class ResourcesService {
      * @param timedEventType The timed event type.
      
      */
-    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet = (timedEventType: 'Departure' | 'Arrival', ) => {
+    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe?: 'body', headers?: Headers): Observable<ProvinceState>;
+    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe?: 'response', headers?: Headers): Observable<HttpResponse<ProvinceState>>;
+    public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival', observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!timedEventType){
             throw new Error('Required parameter timedEventType was null or undefined when calling apiNskV1ResourcesReminderTimesByTimedEventTypeGet.');
         }
 
 
-            const requestObj: Request<{
-                timedEventType: 'Departure' | 'Arrival', 
-            }> = {
-                url: '/api/nsk/v1/resources/reminderTimes/${encodeURIComponent(String(timedEventType))}',
-                method: 'get',
-                data: {
-                    timedEventType,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ProvinceState>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/reminderTimes/${encodeURIComponent(String(timedEventType))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ProvinceState>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3551,23 +3278,20 @@ export class ResourcesService {
      * @param eTag The unique etag ID.
      
      */
-    public apiNskV1ResourcesReminderTimesGet = (eTag?: string, ) => {
+    public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<ReminderTime>>;
+    public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ReminderTime>>>;
+    public apiNskV1ResourcesReminderTimesGet(eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (eTag !== undefined) {
             queryParameters.push("eTag="+encodeURIComponent(String(eTag)));
         }
 
 
-            const requestObj: Request<{
-                eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/reminderTimes',
-                method: 'get',
-                data: {
-                    eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ReminderTime>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/reminderTimes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ReminderTime>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3577,22 +3301,19 @@ export class ResourcesService {
      * @param roleSettingTypeCode The unique role setting type code.
      
      */
-    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet = (roleSettingTypeCode: string, ) => {
+    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe?: 'body', headers?: Headers): Observable<RoleSettingType>;
+    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<RoleSettingType>>;
+    public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!roleSettingTypeCode){
             throw new Error('Required parameter roleSettingTypeCode was null or undefined when calling apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet.');
         }
 
 
-            const requestObj: Request<{
-                roleSettingTypeCode: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/RoleSettingTypes/${encodeURIComponent(String(roleSettingTypeCode))}',
-                method: 'get',
-                data: {
-                    roleSettingTypeCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<RoleSettingType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/RoleSettingTypes/${encodeURIComponent(String(roleSettingTypeCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <RoleSettingType>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3606,7 +3327,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesRoleSettingTypesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<RoleSettingType>>;
+    public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<RoleSettingType>>>;
+    public apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesRoleSettingTypesGet.');
         }
@@ -3629,16 +3352,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/RoleSettingTypes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<RoleSettingType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/RoleSettingTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<RoleSettingType>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3648,22 +3366,19 @@ export class ResourcesService {
      * @param roleCode The unique role code.
      
      */
-    public apiNskV1ResourcesRolesByRoleCodeGet = (roleCode: string, ) => {
+    public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe?: 'body', headers?: Headers): Observable<Role>;
+    public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Role>>;
+    public apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!roleCode){
             throw new Error('Required parameter roleCode was null or undefined when calling apiNskV1ResourcesRolesByRoleCodeGet.');
         }
 
 
-            const requestObj: Request<{
-                roleCode: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/roles/${encodeURIComponent(String(roleCode))}',
-                method: 'get',
-                data: {
-                    roleCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Role>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/roles/${encodeURIComponent(String(roleCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Role>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3673,23 +3388,20 @@ export class ResourcesService {
      * @param eTag The unique etag ID.
      
      */
-    public apiNskV1ResourcesRolesGet = (eTag?: string, ) => {
+    public apiNskV1ResourcesRolesGet(eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<Role>>;
+    public apiNskV1ResourcesRolesGet(eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Role>>>;
+    public apiNskV1ResourcesRolesGet(eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (eTag !== undefined) {
             queryParameters.push("eTag="+encodeURIComponent(String(eTag)));
         }
 
 
-            const requestObj: Request<{
-                eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/roles',
-                method: 'get',
-                data: {
-                    eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Role>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/roles?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Role>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3702,7 +3414,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSearchTypesGet = (cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<EnumResource>>;
+    public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<EnumResource>>>;
+    public apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (cultureCode !== undefined) {
             queryParameters.push("cultureCode="+encodeURIComponent(String(cultureCode)));
@@ -3718,16 +3432,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/searchTypes',
-                method: 'get',
-                data: {
-                    cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/searchTypes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3738,23 +3447,20 @@ export class ResourcesService {
      * @param eTag ETag for caching.
      
      */
-    public apiNskV1ResourcesSettingsDataPost = (request?: SettingsCategoryRequest, eTag?: string, ) => {
+    public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'body', headers?: Headers): Observable<string>;
+    public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<string>>;
+    public apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (eTag !== undefined) {
             queryParameters.push("eTag="+encodeURIComponent(String(eTag)));
         }
 
 
-            const requestObj: Request<{
-                request?: SettingsCategoryRequest, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/settings/data',
-                method: 'post',
-                data: {
-                    request,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<string>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/resources/settings/data?${queryParameters.join('&')}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <string>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3765,23 +3471,20 @@ export class ResourcesService {
      * @param eTag ETag for caching.
      
      */
-    public apiNskV1ResourcesSettingsPost = (request?: SettingsCategoryRequest, eTag?: string, ) => {
+    public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'body', headers?: Headers): Observable<ResourceCategoryItem>;
+    public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResourceCategoryItem>>;
+    public apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (eTag !== undefined) {
             queryParameters.push("eTag="+encodeURIComponent(String(eTag)));
         }
 
 
-            const requestObj: Request<{
-                request?: SettingsCategoryRequest, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/settings',
-                method: 'post',
-                data: {
-                    request,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ResourceCategoryItem>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/resources/settings?${queryParameters.join('&')}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ResourceCategoryItem>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3792,7 +3495,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet = (shoppingAttributeGroupCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<ShoppingAttributeGroup>;
+    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ShoppingAttributeGroup>>;
+    public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!shoppingAttributeGroupCode){
             throw new Error('Required parameter shoppingAttributeGroupCode was null or undefined when calling apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet.');
         }
@@ -3803,16 +3508,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                shoppingAttributeGroupCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/ShoppingAttributeGroups/${encodeURIComponent(String(shoppingAttributeGroupCode))}',
-                method: 'get',
-                data: {
-                    shoppingAttributeGroupCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ShoppingAttributeGroup>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributeGroups/${encodeURIComponent(String(shoppingAttributeGroupCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ShoppingAttributeGroup>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3826,7 +3526,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesShoppingAttributeGroupsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<ShoppingAttributeGroup>>;
+    public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ShoppingAttributeGroup>>>;
+    public apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesShoppingAttributeGroupsGet.');
         }
@@ -3849,16 +3551,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/ShoppingAttributeGroups',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ShoppingAttributeGroup>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributeGroups?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ShoppingAttributeGroup>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3869,7 +3566,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet = (shoppingAttributeCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<ShoppingAttribute>;
+    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ShoppingAttribute>>;
+    public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!shoppingAttributeCode){
             throw new Error('Required parameter shoppingAttributeCode was null or undefined when calling apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet.');
         }
@@ -3880,16 +3579,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                shoppingAttributeCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/ShoppingAttributes/${encodeURIComponent(String(shoppingAttributeCode))}',
-                method: 'get',
-                data: {
-                    shoppingAttributeCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ShoppingAttribute>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributes/${encodeURIComponent(String(shoppingAttributeCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ShoppingAttribute>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3903,7 +3597,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesShoppingAttributesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<ShoppingAttribute>>;
+    public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<ShoppingAttribute>>>;
+    public apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesShoppingAttributesGet.');
         }
@@ -3926,16 +3622,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/ShoppingAttributes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<ShoppingAttribute>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<ShoppingAttribute>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3945,22 +3636,19 @@ export class ResourcesService {
      * @param providerName The single sign on provider name.
      
      */
-    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet = (providerName: string, ) => {
+    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe?: 'body', headers?: Headers): Observable<SingleSignOnProvider>;
+    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<SingleSignOnProvider>>;
+    public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!providerName){
             throw new Error('Required parameter providerName was null or undefined when calling apiNskV1ResourcesSingleSignOnProviderByProviderNameGet.');
         }
 
 
-            const requestObj: Request<{
-                providerName: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/singleSignOnProvider/${encodeURIComponent(String(providerName))}',
-                method: 'get',
-                data: {
-                    providerName,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<SingleSignOnProvider>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/singleSignOnProvider/${encodeURIComponent(String(providerName))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <SingleSignOnProvider>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -3974,7 +3662,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSingleSignOnProviderGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<SingleSignOnProvider>>;
+    public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SingleSignOnProvider>>>;
+    public apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSingleSignOnProviderGet.');
         }
@@ -3997,16 +3687,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/singleSignOnProvider',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<SingleSignOnProvider>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/singleSignOnProvider?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<SingleSignOnProvider>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4017,7 +3702,9 @@ export class ResourcesService {
      * @param cultureCode 
      
      */
-    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet = (ssrGroupCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<SsrGroup>;
+    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<SsrGroup>>;
+    public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrGroupCode){
             throw new Error('Required parameter ssrGroupCode was null or undefined when calling apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet.');
         }
@@ -4028,16 +3715,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                ssrGroupCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/SsrGroups/${encodeURIComponent(String(ssrGroupCode))}',
-                method: 'get',
-                data: {
-                    ssrGroupCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<SsrGroup>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrGroups/${encodeURIComponent(String(ssrGroupCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <SsrGroup>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4051,7 +3733,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSsrGroupsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<SsrGroup>>;
+    public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SsrGroup>>>;
+    public apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrGroupsGet.');
         }
@@ -4074,16 +3758,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/SsrGroups',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<SsrGroup>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrGroups?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<SsrGroup>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4094,7 +3773,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet = (ssrNestCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<SsrNest>;
+    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<SsrNest>>;
+    public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrNestCode){
             throw new Error('Required parameter ssrNestCode was null or undefined when calling apiNskV1ResourcesSsrNestsBySsrNestCodeGet.');
         }
@@ -4105,16 +3786,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                ssrNestCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/SsrNests/${encodeURIComponent(String(ssrNestCode))}',
-                method: 'get',
-                data: {
-                    ssrNestCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<SsrNest>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrNests/${encodeURIComponent(String(ssrNestCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <SsrNest>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4128,7 +3804,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSsrNestsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<SsrNest>>;
+    public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SsrNest>>>;
+    public apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrNestsGet.');
         }
@@ -4151,16 +3829,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/SsrNests',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<SsrNest>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrNests?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<SsrNest>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4171,7 +3844,9 @@ export class ResourcesService {
      * @param cultureCode The unique culture code.
      
      */
-    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet = (ssrRestrictionResultCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<SsrRestrictionResult>;
+    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<SsrRestrictionResult>>;
+    public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrRestrictionResultCode){
             throw new Error('Required parameter ssrRestrictionResultCode was null or undefined when calling apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet.');
         }
@@ -4182,16 +3857,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                ssrRestrictionResultCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/SsrRestrictionResults/${encodeURIComponent(String(ssrRestrictionResultCode))}',
-                method: 'get',
-                data: {
-                    ssrRestrictionResultCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<SsrRestrictionResult>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrRestrictionResults/${encodeURIComponent(String(ssrRestrictionResultCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <SsrRestrictionResult>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4205,7 +3875,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSsrRestrictionResultsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<SsrRestrictionResult>>;
+    public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SsrRestrictionResult>>>;
+    public apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrRestrictionResultsGet.');
         }
@@ -4228,16 +3900,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/SsrRestrictionResults',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<SsrRestrictionResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrRestrictionResults?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<SsrRestrictionResult>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4248,7 +3915,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesSsrsBySsrCodeGet = (ssrCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Ssr>;
+    public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Ssr>>;
+    public apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrCode){
             throw new Error('Required parameter ssrCode was null or undefined when calling apiNskV1ResourcesSsrsBySsrCodeGet.');
         }
@@ -4259,16 +3928,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                ssrCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Ssrs/${encodeURIComponent(String(ssrCode))}',
-                method: 'get',
-                data: {
-                    ssrCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Ssr>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Ssrs/${encodeURIComponent(String(ssrCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Ssr>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4282,7 +3946,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSsrsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Ssr>>;
+    public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Ssr>>>;
+    public apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrsGet.');
         }
@@ -4305,16 +3971,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Ssrs',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Ssr>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Ssrs?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Ssr>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4325,7 +3986,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet = (standByPriorityCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<StandByPriority>;
+    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<StandByPriority>>;
+    public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!standByPriorityCode){
             throw new Error('Required parameter standByPriorityCode was null or undefined when calling apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet.');
         }
@@ -4336,16 +3999,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                standByPriorityCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/StandByPriorities/${encodeURIComponent(String(standByPriorityCode))}',
-                method: 'get',
-                data: {
-                    standByPriorityCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<StandByPriority>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StandByPriorities/${encodeURIComponent(String(standByPriorityCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <StandByPriority>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4359,7 +4017,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesStandByPrioritiesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<StandByPriority>>;
+    public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<StandByPriority>>>;
+    public apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStandByPrioritiesGet.');
         }
@@ -4382,16 +4042,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/StandByPriorities',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<StandByPriority>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StandByPriorities?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<StandByPriority>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4402,7 +4057,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet = (stationCategoryCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<StationCategory>;
+    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<StationCategory>>;
+    public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!stationCategoryCode){
             throw new Error('Required parameter stationCategoryCode was null or undefined when calling apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet.');
         }
@@ -4413,16 +4070,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                stationCategoryCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/StationCategories/${encodeURIComponent(String(stationCategoryCode))}',
-                method: 'get',
-                data: {
-                    stationCategoryCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<StationCategory>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StationCategories/${encodeURIComponent(String(stationCategoryCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <StationCategory>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4436,7 +4088,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesStationCategoriesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<StationCategory>>;
+    public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<StationCategory>>>;
+    public apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationCategoriesGet.');
         }
@@ -4459,16 +4113,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/StationCategories',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<StationCategory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StationCategories?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<StationCategory>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4478,22 +4127,19 @@ export class ResourcesService {
      * @param stationCode The station code.
      
      */
-    public apiNskV1ResourcesStationsByStationCodeDetailsGet = (stationCode: string, ) => {
+    public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe?: 'body', headers?: Headers): Observable<ResourceEntriesStationDetail>;
+    public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResourceEntriesStationDetail>>;
+    public apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!stationCode){
             throw new Error('Required parameter stationCode was null or undefined when calling apiNskV1ResourcesStationsByStationCodeDetailsGet.');
         }
 
 
-            const requestObj: Request<{
-                stationCode: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/stations/${encodeURIComponent(String(stationCode))}/details',
-                method: 'get',
-                data: {
-                    stationCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ResourceEntriesStationDetail>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/stations/${encodeURIComponent(String(stationCode))}/details`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ResourceEntriesStationDetail>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4505,7 +4151,9 @@ export class ResourcesService {
      * @param eTag The eTag.
      
      */
-    public apiNskV1ResourcesStationsByStationCodeGet = (stationCode: string, cultureCode?: string, eTag?: string, ) => {
+    public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe?: 'body', headers?: Headers): Observable<Station>;
+    public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Station>>;
+    public apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!stationCode){
             throw new Error('Required parameter stationCode was null or undefined when calling apiNskV1ResourcesStationsByStationCodeGet.');
         }
@@ -4519,16 +4167,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                stationCode: string, cultureCode?: string, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Stations/${encodeURIComponent(String(stationCode))}',
-                method: 'get',
-                data: {
-                    stationCode,cultureCode,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Station>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Stations/${encodeURIComponent(String(stationCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Station>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4543,7 +4186,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet = (stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Station>>;
+    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Station>>>;
+    public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!stationCategoryCode){
             throw new Error('Required parameter stationCategoryCode was null or undefined when calling apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet.');
         }
@@ -4570,16 +4215,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/stations/category/${encodeURIComponent(String(stationCategoryCode))}',
-                method: 'get',
-                data: {
-                    stationCategoryCode,activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Station>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/stations/category/${encodeURIComponent(String(stationCategoryCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Station>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4593,7 +4233,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesStationsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Station>>;
+    public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Station>>>;
+    public apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationsGet.');
         }
@@ -4616,16 +4258,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Stations',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Station>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Stations?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Station>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4636,7 +4273,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesSubZonesBySubZoneCodeGet = (subZoneCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<SubZone>;
+    public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<SubZone>>;
+    public apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!subZoneCode){
             throw new Error('Required parameter subZoneCode was null or undefined when calling apiNskV1ResourcesSubZonesBySubZoneCodeGet.');
         }
@@ -4647,16 +4286,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                subZoneCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/SubZones/${encodeURIComponent(String(subZoneCode))}',
-                method: 'get',
-                data: {
-                    subZoneCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<SubZone>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SubZones/${encodeURIComponent(String(subZoneCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <SubZone>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4670,7 +4304,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSubZonesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<SubZone>>;
+    public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<SubZone>>>;
+    public apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSubZonesGet.');
         }
@@ -4693,16 +4329,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/SubZones',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<SubZone>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SubZones?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<SubZone>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4712,22 +4343,19 @@ export class ResourcesService {
      * @param suffixCode The unique suffix code.
      
      */
-    public apiNskV1ResourcesSuffixesBySuffixCodeGet = (suffixCode: string, ) => {
+    public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe?: 'body', headers?: Headers): Observable<Suffix>;
+    public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Suffix>>;
+    public apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!suffixCode){
             throw new Error('Required parameter suffixCode was null or undefined when calling apiNskV1ResourcesSuffixesBySuffixCodeGet.');
         }
 
 
-            const requestObj: Request<{
-                suffixCode: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Suffixes/${encodeURIComponent(String(suffixCode))}',
-                method: 'get',
-                data: {
-                    suffixCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Suffix>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Suffixes/${encodeURIComponent(String(suffixCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Suffix>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4741,7 +4369,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesSuffixesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Suffix>>;
+    public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Suffix>>>;
+    public apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSuffixesGet.');
         }
@@ -4764,16 +4394,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Suffixes',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Suffix>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Suffixes?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Suffix>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4785,7 +4410,9 @@ export class ResourcesService {
      * @param eTag The eTag.
      
      */
-    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet = (timeZoneCode: string, cultureCode?: string, eTag?: string, ) => {
+    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe?: 'body', headers?: Headers): Observable<TimeZone>;
+    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<TimeZone>>;
+    public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!timeZoneCode){
             throw new Error('Required parameter timeZoneCode was null or undefined when calling apiNskV1ResourcesTimeZonesByTimeZoneCodeGet.');
         }
@@ -4799,16 +4426,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                timeZoneCode: string, cultureCode?: string, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/TimeZones/${encodeURIComponent(String(timeZoneCode))}',
-                method: 'get',
-                data: {
-                    timeZoneCode,cultureCode,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TimeZone>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TimeZones/${encodeURIComponent(String(timeZoneCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TimeZone>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4822,7 +4444,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesTimeZonesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<TimeZone>>;
+    public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<TimeZone>>>;
+    public apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTimeZonesGet.');
         }
@@ -4845,16 +4469,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/TimeZones',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<TimeZone>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TimeZones?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<TimeZone>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4864,22 +4483,19 @@ export class ResourcesService {
      * @param titleKey The unique title key.
      
      */
-    public apiNskV1ResourcesTitlesByTitleKeyGet = (titleKey: string, ) => {
+    public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe?: 'body', headers?: Headers): Observable<Title>;
+    public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Title>>;
+    public apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!titleKey){
             throw new Error('Required parameter titleKey was null or undefined when calling apiNskV1ResourcesTitlesByTitleKeyGet.');
         }
 
 
-            const requestObj: Request<{
-                titleKey: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Titles/${encodeURIComponent(String(titleKey))}',
-                method: 'get',
-                data: {
-                    titleKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Title>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Titles/${encodeURIComponent(String(titleKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Title>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4893,7 +4509,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesTitlesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Title>>;
+    public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Title>>>;
+    public apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTitlesGet.');
         }
@@ -4916,16 +4534,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Titles',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Title>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Titles?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Title>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4936,7 +4549,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet = (travelClassCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<TravelClass>;
+    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<TravelClass>>;
+    public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!travelClassCode){
             throw new Error('Required parameter travelClassCode was null or undefined when calling apiNskV1ResourcesTravelClassesByTravelClassCodeGet.');
         }
@@ -4947,16 +4562,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                travelClassCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/TravelClasses/${encodeURIComponent(String(travelClassCode))}',
-                method: 'get',
-                data: {
-                    travelClassCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TravelClass>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TravelClasses/${encodeURIComponent(String(travelClassCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TravelClass>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -4970,7 +4580,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesTravelClassesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<TravelClass>>;
+    public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<TravelClass>>>;
+    public apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTravelClassesGet.');
         }
@@ -4993,16 +4605,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/TravelClasses',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<TravelClass>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TravelClasses?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<TravelClass>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5013,7 +4620,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV1ResourcesZonesByZoneCodeGet = (zoneCode: string, cultureCode?: string, ) => {
+    public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Zone>;
+    public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Zone>>;
+    public apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!zoneCode){
             throw new Error('Required parameter zoneCode was null or undefined when calling apiNskV1ResourcesZonesByZoneCodeGet.');
         }
@@ -5024,16 +4633,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                zoneCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/resources/Zones/${encodeURIComponent(String(zoneCode))}',
-                method: 'get',
-                data: {
-                    zoneCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Zone>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Zones/${encodeURIComponent(String(zoneCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Zone>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5047,7 +4651,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV1ResourcesZonesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Zone>>;
+    public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Zone>>>;
+    public apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesZonesGet.');
         }
@@ -5070,16 +4676,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v1/resources/Zones',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Zone>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Zones?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Zone>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5091,7 +4692,9 @@ export class ResourcesService {
      * @param eTag The cache eTag for this request.
      
      */
-    public apiNskV2ResourcesAddOnsVendorsGet = (type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, ) => {
+    public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'body', headers?: Headers): Observable<Array<Vendorv2>>;
+    public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Vendorv2>>>;
+    public apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!type){
             throw new Error('Required parameter type was null or undefined when calling apiNskV2ResourcesAddOnsVendorsGet.');
         }
@@ -5108,16 +4711,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string, 
-            }> = {
-                url: '/api/nsk/v2/resources/addOns/vendors',
-                method: 'get',
-                data: {
-                    type,cultureCode,eTag,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Vendorv2>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/addOns/vendors?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Vendorv2>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5128,7 +4726,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV2ResourcesCountriesByCountryCodeGet = (countryCode: string, cultureCode?: string, ) => {
+    public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Countryv2>;
+    public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Countryv2>>;
+    public apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!countryCode){
             throw new Error('Required parameter countryCode was null or undefined when calling apiNskV2ResourcesCountriesByCountryCodeGet.');
         }
@@ -5139,16 +4739,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                countryCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v2/resources/countries/${encodeURIComponent(String(countryCode))}',
-                method: 'get',
-                data: {
-                    countryCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Countryv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/countries/${encodeURIComponent(String(countryCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Countryv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5162,7 +4757,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV2ResourcesCountriesGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Countryv2>>;
+    public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Countryv2>>>;
+    public apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesCountriesGet.');
         }
@@ -5185,16 +4782,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v2/resources/countries',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Countryv2>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/countries?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Countryv2>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5205,7 +4797,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet = (currencyCode: string, cultureCode?: string, ) => {
+    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Currency>;
+    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Currency>>;
+    public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!currencyCode){
             throw new Error('Required parameter currencyCode was null or undefined when calling apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet.');
         }
@@ -5216,16 +4810,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                currencyCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v2/resources/CurrenciesControllerv2/${encodeURIComponent(String(currencyCode))}',
-                method: 'get',
-                data: {
-                    currencyCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Currency>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/CurrenciesControllerv2/${encodeURIComponent(String(currencyCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Currency>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5239,7 +4828,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV2ResourcesCurrenciesControllerv2Get = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<ResourceEntriesCurrencyv2>;
+    public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResourceEntriesCurrencyv2>>;
+    public apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesCurrenciesControllerv2Get.');
         }
@@ -5262,16 +4853,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v2/resources/CurrenciesControllerv2',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<ResourceEntriesCurrencyv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/CurrenciesControllerv2?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <ResourceEntriesCurrencyv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5283,7 +4869,9 @@ export class ResourcesService {
      * @param cultureCode 
      
      */
-    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet = (locationCode: string, travelLocationCode: string, cultureCode?: string, ) => {
+    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Market>;
+    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Market>>;
+    public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!locationCode){
             throw new Error('Required parameter locationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet.');
         }
@@ -5298,16 +4886,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                locationCode: string, travelLocationCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v2/resources/markets/${encodeURIComponent(String(locationCode))}/${encodeURIComponent(String(travelLocationCode))}',
-                method: 'get',
-                data: {
-                    locationCode,travelLocationCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Market>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/markets/${encodeURIComponent(String(locationCode))}/${encodeURIComponent(String(travelLocationCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Market>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5318,7 +4901,9 @@ export class ResourcesService {
      * @param cultureCode The specific culture code.
      
      */
-    public apiNskV2ResourcesMarketsByLocationCodeGet = (locationCode: string, cultureCode?: string, ) => {
+    public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'body', headers?: Headers): Observable<Array<Market>>;
+    public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Market>>>;
+    public apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!locationCode){
             throw new Error('Required parameter locationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeGet.');
         }
@@ -5329,16 +4914,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                locationCode: string, cultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v2/resources/markets/${encodeURIComponent(String(locationCode))}',
-                method: 'get',
-                data: {
-                    locationCode,cultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Market>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/markets/${encodeURIComponent(String(locationCode))}?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Market>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -5352,7 +4932,9 @@ export class ResourcesService {
      * @param itemCount The item count value for this request.
      
      */
-    public apiNskV2ResourcesMarketsGet = (activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, ) => {
+    public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'body', headers?: Headers): Observable<Array<Marketv2>>;
+    public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Marketv2>>>;
+    public apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!activeOnly){
             throw new Error('Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesMarketsGet.');
         }
@@ -5375,16 +4957,11 @@ export class ResourcesService {
         }
 
 
-            const requestObj: Request<{
-                activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number, 
-            }> = {
-                url: '/api/nsk/v2/resources/markets',
-                method: 'get',
-                data: {
-                    activeOnly,cultureCode,eTag,startIndex,itemCount,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Marketv2>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/markets?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Marketv2>>(httpResponse.response));
+        }
+        return response;
     }
 
 }

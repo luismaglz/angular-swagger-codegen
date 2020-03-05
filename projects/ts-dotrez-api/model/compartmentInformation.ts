@@ -15,6 +15,7 @@ import { UnitInformation } from './unitInformation';
 /**
  * Defines a compartment within an equipment -&gt; deck.
  */
+
 export interface CompartmentInformation { 
     /**
      * The number of available units in the compartment.

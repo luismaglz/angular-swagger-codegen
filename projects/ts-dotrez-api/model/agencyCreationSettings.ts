@@ -14,6 +14,10 @@
 /**
  * Settings for creating agencies.
  */
+
+    import { AgencyCreationSettings<CAP>channelType<CAP> } from '../models/enums';
+    import { AgencyCreationSettings<CAP>phoneType<CAP> } from '../models/enums';
+
 export interface AgencyCreationSettings { 
     /**
      * The default Department for new agency.
@@ -38,7 +42,7 @@ export interface AgencyCreationSettings {
     /**
      * The default channel type for new agency.
      */
-    channelType?: AgencyCreationSettings.ChannelTypeEnum;
+    channelType?: AgencyCreationSettings<CAP>channelType<CAP>;
     /**
      * The default notification email address for new agency.
      */
@@ -50,23 +54,5 @@ export interface AgencyCreationSettings {
     /**
      * The default phone type for the new agency.
      */
-    phoneType?: AgencyCreationSettings.PhoneTypeEnum;
-}
-export namespace AgencyCreationSettings {
-    export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    }
-    export type PhoneTypeEnum = 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax';
-    export const PhoneTypeEnum = {
-        Other: 'Other' as PhoneTypeEnum,
-        Home: 'Home' as PhoneTypeEnum,
-        Work: 'Work' as PhoneTypeEnum,
-        Mobile: 'Mobile' as PhoneTypeEnum,
-        Fax: 'Fax' as PhoneTypeEnum
-    }
+    phoneType?: AgencyCreationSettings<CAP>phoneType<CAP>;
 }

@@ -14,6 +14,7 @@
 /**
  * Represents the bundle program details model.
  */
+
 export interface BundleProgramDetails { 
     /**
      * The program code.

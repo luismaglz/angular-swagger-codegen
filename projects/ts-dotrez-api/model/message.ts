@@ -11,17 +11,12 @@
  */
 
 
+
+    import { Message<CAP>status<CAP> } from '../models/enums';
+
 export interface Message { 
     code?: string;
     type?: string;
     value?: string;
-    status?: Message.StatusEnum;
-}
-export namespace Message {
-    export type StatusEnum = 'General' | 'Warning' | 'Critical';
-    export const StatusEnum = {
-        General: 'General' as StatusEnum,
-        Warning: 'Warning' as StatusEnum,
-        Critical: 'Critical' as StatusEnum
-    }
+    status?: Message<CAP>status<CAP>;
 }

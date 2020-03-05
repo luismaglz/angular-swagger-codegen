@@ -25,6 +25,7 @@ import { Warning } from './warning';
 /**
  * Defines an availability search result.
  */
+
 export interface ActivityProduct { 
     /**
      * The unique product result key.

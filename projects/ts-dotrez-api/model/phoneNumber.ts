@@ -14,23 +14,16 @@
 /**
  * Defines a common phone number.
  */
+
+    import { PhoneNumber<CAP>type<CAP> } from '../models/enums';
+
 export interface PhoneNumber { 
     /**
      * The phone number type.
      */
-    type: PhoneNumber.TypeEnum;
+    type: PhoneNumber<CAP>type<CAP>;
     /**
      * The phone number without any formatting characters.
      */
     number: string;
-}
-export namespace PhoneNumber {
-    export type TypeEnum = 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax';
-    export const TypeEnum = {
-        Other: 'Other' as TypeEnum,
-        Home: 'Home' as TypeEnum,
-        Work: 'Work' as TypeEnum,
-        Mobile: 'Mobile' as TypeEnum,
-        Fax: 'Fax' as TypeEnum
-    }
 }

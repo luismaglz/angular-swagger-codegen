@@ -14,6 +14,9 @@
 /**
  * Defines a trip downgrade request.
  */
+
+    import { TripDowngradeRequest<CAP>inventoryControl<CAP> } from '../models/enums';
+
 export interface TripDowngradeRequest { 
     /**
      * The collection of segments that can be downgraded.
@@ -22,15 +25,5 @@ export interface TripDowngradeRequest {
     /**
      * The reserving inventory action of the upgrade once sold by the system.
      */
-    inventoryControl?: TripDowngradeRequest.InventoryControlEnum;
-}
-export namespace TripDowngradeRequest {
-    export type InventoryControlEnum = 'HoldSpace' | 'SoftHoldSpace' | 'ClaimSpace' | 'OversellSpace' | 'StandBy';
-    export const InventoryControlEnum = {
-        HoldSpace: 'HoldSpace' as InventoryControlEnum,
-        SoftHoldSpace: 'SoftHoldSpace' as InventoryControlEnum,
-        ClaimSpace: 'ClaimSpace' as InventoryControlEnum,
-        OversellSpace: 'OversellSpace' as InventoryControlEnum,
-        StandBy: 'StandBy' as InventoryControlEnum
-    }
+    inventoryControl?: TripDowngradeRequest<CAP>inventoryControl<CAP>;
 }

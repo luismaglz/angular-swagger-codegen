@@ -14,6 +14,7 @@
 /**
  * Describes the availability criteria code criteria.
  */
+
 export interface AvailabilityCodeCriteria { 
     /**
      * The currency code for the fares.

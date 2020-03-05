@@ -14,6 +14,7 @@
 /**
  * Defines a selected personalization.
  */
+
 export interface SelectedPersonalization { 
     /**
      * The unique personalization key selected.

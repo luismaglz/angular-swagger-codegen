@@ -14,6 +14,7 @@
 /**
  * The product class model.
  */
+
 export interface ProductClass { 
     /**
      * The product class.

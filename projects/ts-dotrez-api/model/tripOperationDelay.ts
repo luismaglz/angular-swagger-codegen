@@ -14,6 +14,7 @@
 /**
  * Represents the trip operation delay data.
  */
+
 export interface TripOperationDelay { 
     /**
      * The unique identification for the trip operation delay.

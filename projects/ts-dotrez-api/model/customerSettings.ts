@@ -14,197 +14,102 @@
 /**
  * Defines the order customers field validation levels.
  */
+
+    import { CustomerSettings<CAP>customerNumber<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>title<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>firstName<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>middleName<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>lastName<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>lineOne<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>lineTwo<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>city<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>postalCode<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>provinceState<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>countryCode<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>county<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>homePhone<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>workPhone<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>fax<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>email<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>type<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>companyName<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>birthDate<CAP> } from '../models/enums';
+
 export interface CustomerSettings { 
     /**
      * The field usage for the customer number.
      */
-    customerNumber?: CustomerSettings.CustomerNumberEnum;
+    customerNumber?: CustomerSettings<CAP>customerNumber<CAP>;
     /**
      * The title field usage.
      */
-    title?: CustomerSettings.TitleEnum;
+    title?: CustomerSettings<CAP>title<CAP>;
     /**
      * The first name field usage.
      */
-    firstName?: CustomerSettings.FirstNameEnum;
+    firstName?: CustomerSettings<CAP>firstName<CAP>;
     /**
      * The middle name field usage.
      */
-    middleName?: CustomerSettings.MiddleNameEnum;
+    middleName?: CustomerSettings<CAP>middleName<CAP>;
     /**
      * The last name field usage.
      */
-    lastName?: CustomerSettings.LastNameEnum;
+    lastName?: CustomerSettings<CAP>lastName<CAP>;
     /**
      * The address line one field usage.
      */
-    lineOne?: CustomerSettings.LineOneEnum;
+    lineOne?: CustomerSettings<CAP>lineOne<CAP>;
     /**
      * The address line two field usage.
      */
-    lineTwo?: CustomerSettings.LineTwoEnum;
+    lineTwo?: CustomerSettings<CAP>lineTwo<CAP>;
     /**
      * The address city field usage.
      */
-    city?: CustomerSettings.CityEnum;
+    city?: CustomerSettings<CAP>city<CAP>;
     /**
      * The address postal code field usage.
      */
-    postalCode?: CustomerSettings.PostalCodeEnum;
+    postalCode?: CustomerSettings<CAP>postalCode<CAP>;
     /**
      * The address province state field usage.
      */
-    provinceState?: CustomerSettings.ProvinceStateEnum;
+    provinceState?: CustomerSettings<CAP>provinceState<CAP>;
     /**
      * The address country code field usage.
      */
-    countryCode?: CustomerSettings.CountryCodeEnum;
+    countryCode?: CustomerSettings<CAP>countryCode<CAP>;
     /**
      * The address county field usage.
      */
-    county?: CustomerSettings.CountyEnum;
+    county?: CustomerSettings<CAP>county<CAP>;
     /**
      * The home phone number field usage.
      */
-    homePhone?: CustomerSettings.HomePhoneEnum;
+    homePhone?: CustomerSettings<CAP>homePhone<CAP>;
     /**
      * The work phone field usage.
      */
-    workPhone?: CustomerSettings.WorkPhoneEnum;
+    workPhone?: CustomerSettings<CAP>workPhone<CAP>;
     /**
      * The fax number field usage.
      */
-    fax?: CustomerSettings.FaxEnum;
+    fax?: CustomerSettings<CAP>fax<CAP>;
     /**
      * The email address field usage.
      */
-    email?: CustomerSettings.EmailEnum;
+    email?: CustomerSettings<CAP>email<CAP>;
     /**
      * The consumer type field usage.
      */
-    type?: CustomerSettings.TypeEnum;
+    type?: CustomerSettings<CAP>type<CAP>;
     /**
      * The company name field usage.
      */
-    companyName?: CustomerSettings.CompanyNameEnum;
+    companyName?: CustomerSettings<CAP>companyName<CAP>;
     /**
      * The date of birth field usage.
      */
-    birthDate?: CustomerSettings.BirthDateEnum;
-}
-export namespace CustomerSettings {
-    export type CustomerNumberEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CustomerNumberEnum = {
-        Prompt: 'Prompt' as CustomerNumberEnum,
-        DoNotPrompt: 'DoNotPrompt' as CustomerNumberEnum,
-        Required: 'Required' as CustomerNumberEnum
-    }
-    export type TitleEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TitleEnum = {
-        Prompt: 'Prompt' as TitleEnum,
-        DoNotPrompt: 'DoNotPrompt' as TitleEnum,
-        Required: 'Required' as TitleEnum
-    }
-    export type FirstNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const FirstNameEnum = {
-        Prompt: 'Prompt' as FirstNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as FirstNameEnum,
-        Required: 'Required' as FirstNameEnum
-    }
-    export type MiddleNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const MiddleNameEnum = {
-        Prompt: 'Prompt' as MiddleNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as MiddleNameEnum,
-        Required: 'Required' as MiddleNameEnum
-    }
-    export type LastNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LastNameEnum = {
-        Prompt: 'Prompt' as LastNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as LastNameEnum,
-        Required: 'Required' as LastNameEnum
-    }
-    export type LineOneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LineOneEnum = {
-        Prompt: 'Prompt' as LineOneEnum,
-        DoNotPrompt: 'DoNotPrompt' as LineOneEnum,
-        Required: 'Required' as LineOneEnum
-    }
-    export type LineTwoEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const LineTwoEnum = {
-        Prompt: 'Prompt' as LineTwoEnum,
-        DoNotPrompt: 'DoNotPrompt' as LineTwoEnum,
-        Required: 'Required' as LineTwoEnum
-    }
-    export type CityEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CityEnum = {
-        Prompt: 'Prompt' as CityEnum,
-        DoNotPrompt: 'DoNotPrompt' as CityEnum,
-        Required: 'Required' as CityEnum
-    }
-    export type PostalCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const PostalCodeEnum = {
-        Prompt: 'Prompt' as PostalCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as PostalCodeEnum,
-        Required: 'Required' as PostalCodeEnum
-    }
-    export type ProvinceStateEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const ProvinceStateEnum = {
-        Prompt: 'Prompt' as ProvinceStateEnum,
-        DoNotPrompt: 'DoNotPrompt' as ProvinceStateEnum,
-        Required: 'Required' as ProvinceStateEnum
-    }
-    export type CountryCodeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CountryCodeEnum = {
-        Prompt: 'Prompt' as CountryCodeEnum,
-        DoNotPrompt: 'DoNotPrompt' as CountryCodeEnum,
-        Required: 'Required' as CountryCodeEnum
-    }
-    export type CountyEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CountyEnum = {
-        Prompt: 'Prompt' as CountyEnum,
-        DoNotPrompt: 'DoNotPrompt' as CountyEnum,
-        Required: 'Required' as CountyEnum
-    }
-    export type HomePhoneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const HomePhoneEnum = {
-        Prompt: 'Prompt' as HomePhoneEnum,
-        DoNotPrompt: 'DoNotPrompt' as HomePhoneEnum,
-        Required: 'Required' as HomePhoneEnum
-    }
-    export type WorkPhoneEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const WorkPhoneEnum = {
-        Prompt: 'Prompt' as WorkPhoneEnum,
-        DoNotPrompt: 'DoNotPrompt' as WorkPhoneEnum,
-        Required: 'Required' as WorkPhoneEnum
-    }
-    export type FaxEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const FaxEnum = {
-        Prompt: 'Prompt' as FaxEnum,
-        DoNotPrompt: 'DoNotPrompt' as FaxEnum,
-        Required: 'Required' as FaxEnum
-    }
-    export type EmailEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const EmailEnum = {
-        Prompt: 'Prompt' as EmailEnum,
-        DoNotPrompt: 'DoNotPrompt' as EmailEnum,
-        Required: 'Required' as EmailEnum
-    }
-    export type TypeEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const TypeEnum = {
-        Prompt: 'Prompt' as TypeEnum,
-        DoNotPrompt: 'DoNotPrompt' as TypeEnum,
-        Required: 'Required' as TypeEnum
-    }
-    export type CompanyNameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CompanyNameEnum = {
-        Prompt: 'Prompt' as CompanyNameEnum,
-        DoNotPrompt: 'DoNotPrompt' as CompanyNameEnum,
-        Required: 'Required' as CompanyNameEnum
-    }
-    export type BirthDateEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const BirthDateEnum = {
-        Prompt: 'Prompt' as BirthDateEnum,
-        DoNotPrompt: 'DoNotPrompt' as BirthDateEnum,
-        Required: 'Required' as BirthDateEnum
-    }
+    birthDate?: CustomerSettings<CAP>birthDate<CAP>;
 }

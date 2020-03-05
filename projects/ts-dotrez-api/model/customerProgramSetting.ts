@@ -14,6 +14,7 @@
 /**
  * The customer program setting.
  */
+
 export interface CustomerProgramSetting { 
     /**
      * The program code.

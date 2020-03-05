@@ -14,6 +14,10 @@
 /**
  * The Title.
  */
+
+    import { Title<CAP>gender<CAP> } from '../models/enums';
+    import { Title<CAP>weightCategory<CAP> } from '../models/enums';
+
 export interface Title { 
     /**
      * The Title key.
@@ -26,27 +30,13 @@ export interface Title {
     /**
      * The gender.
      */
-    gender?: Title.GenderEnum;
+    gender?: Title<CAP>gender<CAP>;
     /**
      * The weight category.
      */
-    weightCategory?: Title.WeightCategoryEnum;
+    weightCategory?: Title<CAP>weightCategory<CAP>;
     /**
      * The InActive.
      */
     inActive?: boolean;
-}
-export namespace Title {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
-    export type WeightCategoryEnum = 'Male' | 'Female' | 'Child';
-    export const WeightCategoryEnum = {
-        Male: 'Male' as WeightCategoryEnum,
-        Female: 'Female' as WeightCategoryEnum,
-        Child: 'Child' as WeightCategoryEnum
-    }
 }

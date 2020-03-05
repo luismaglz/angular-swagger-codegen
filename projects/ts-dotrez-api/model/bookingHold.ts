@@ -14,6 +14,7 @@
 /**
  * Defines the booking hold expiration.
  */
+
 export interface BookingHold { 
     /**
      * Defines the hold date and time expiration.

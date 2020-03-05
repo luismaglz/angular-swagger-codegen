@@ -12,6 +12,7 @@
 import { FuncModelMetadataBoolean } from './funcModelMetadataBoolean';
 
 
+
 export interface IPropertyFilterProvider { 
     readonly propertyFilter?: FuncModelMetadataBoolean;
 }

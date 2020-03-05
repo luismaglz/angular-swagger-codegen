@@ -14,6 +14,7 @@
 /**
  * The bundle rule model.
  */
+
 export interface BundleRule { 
     /**
      * The bundle rule code.

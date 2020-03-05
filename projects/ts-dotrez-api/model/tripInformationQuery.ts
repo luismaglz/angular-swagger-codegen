@@ -15,11 +15,15 @@ import { EquipmentFilter } from './equipmentFilter';
 /**
  * The trip information query model contains data to perform a   trip information search.
  */
+
+    import { TripInformationQuery<CAP>daysOfWeek<CAP> } from '../models/enums';
+    import { TripInformationQuery<CAP>flightType<CAP> } from '../models/enums';
+
 export interface TripInformationQuery { 
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: Array<TripInformationQuery.DaysOfWeekEnum>;
+    daysOfWeek?: TripInformationQuery<CAP>daysOfWeek<CAP>;
     /**
      * The end date of the trip information search.
      */
@@ -59,7 +63,7 @@ export interface TripInformationQuery {
     /**
      * The flight type.
      */
-    flightType?: TripInformationQuery.FlightTypeEnum;
+    flightType?: TripInformationQuery<CAP>flightType<CAP>;
     /**
      * The operational suffix.
      */
@@ -76,25 +80,4 @@ export interface TripInformationQuery {
      * When set to null, there will be no limit to the number of journeys to be returned.
      */
     numberOfJourneys?: number;
-}
-export namespace TripInformationQuery {
-    export type DaysOfWeekEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const DaysOfWeekEnum = {
-        None: 'None' as DaysOfWeekEnum,
-        Monday: 'Monday' as DaysOfWeekEnum,
-        Tuesday: 'Tuesday' as DaysOfWeekEnum,
-        Wednesday: 'Wednesday' as DaysOfWeekEnum,
-        Thursday: 'Thursday' as DaysOfWeekEnum,
-        Friday: 'Friday' as DaysOfWeekEnum,
-        Saturday: 'Saturday' as DaysOfWeekEnum,
-        Sunday: 'Sunday' as DaysOfWeekEnum
-    }
-    export type FlightTypeEnum = 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect';
-    export const FlightTypeEnum = {
-        All: 'All' as FlightTypeEnum,
-        NonStop: 'NonStop' as FlightTypeEnum,
-        Through: 'Through' as FlightTypeEnum,
-        Direct: 'Direct' as FlightTypeEnum,
-        Connect: 'Connect' as FlightTypeEnum
-    }
 }

@@ -20,6 +20,9 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines the boarding pass leg details.
  */
+
+    import { BoardingPassLeg<CAP>liftStatus<CAP> } from '../models/enums';
+
 export interface BoardingPassLeg { 
     /**
      * The passengers assigned seats details.
@@ -36,7 +39,7 @@ export interface BoardingPassLeg {
     /**
      * The status of the leg for the passenger.
      */
-    liftStatus?: BoardingPassLeg.LiftStatusEnum;
+    liftStatus?: BoardingPassLeg<CAP>liftStatus<CAP>;
     /**
      * The legs operated by text.
      */
@@ -65,13 +68,4 @@ export interface BoardingPassLeg {
      * The collection of SSR's.
      */
     ssrs?: Array<SsrGlance>;
-}
-export namespace BoardingPassLeg {
-    export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    }
 }

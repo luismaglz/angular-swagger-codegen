@@ -15,6 +15,9 @@ import { Name } from './name';
 /**
  * The passenger seat assignment model.
  */
+
+    import { PassengerSeatAssignment<CAP>liftStatus<CAP> } from '../models/enums';
+
 export interface PassengerSeatAssignment { 
     /**
      * The passenger number.
@@ -51,7 +54,7 @@ export interface PassengerSeatAssignment {
     /**
      * The status of the flight leg.  It indicates whether the coupon has been used, and  if the passenger has been checked in, has boarded the flight or not.
      */
-    liftStatus?: PassengerSeatAssignment.LiftStatusEnum;
+    liftStatus?: PassengerSeatAssignment<CAP>liftStatus<CAP>;
     /**
      * The ticket type of the passenger.
      */
@@ -64,13 +67,4 @@ export interface PassengerSeatAssignment {
      * The list of SSR codes associated with this passenger.
      */
     ssrCodes?: Array<string>;
-}
-export namespace PassengerSeatAssignment {
-    export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    }
 }

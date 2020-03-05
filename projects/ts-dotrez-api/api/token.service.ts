@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { Credentials } from '../model/credentials';
 import { IJsonResponse } from '../model/iJsonResponse';
 import { NskSessionContext } from '../model/nskSessionContext';
@@ -40,8 +35,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class TokenService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Sets the culture code for the lifetime of the token.
@@ -49,23 +49,20 @@ export class TokenService {
      * @param defaultCultureCode 
      
      */
-    public apiNskV1TokenCulturePost = (defaultCultureCode?: string, ) => {
+    public apiNskV1TokenCulturePost(defaultCultureCode?: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1TokenCulturePost(defaultCultureCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TokenCulturePost(defaultCultureCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (defaultCultureCode !== undefined) {
             queryParameters.push("defaultCultureCode="+encodeURIComponent(String(defaultCultureCode)));
         }
 
 
-            const requestObj: Request<{
-                defaultCultureCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/token/culture',
-                method: 'post',
-                data: {
-                    defaultCultureCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/token/culture?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -74,18 +71,15 @@ export class TokenService {
      * 
      
      */
-    public apiNskV1TokenDelete = () => {
+    public apiNskV1TokenDelete(observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1TokenDelete(observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TokenDelete(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/nsk/v1/token',
-                method: 'delete',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/token`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -94,18 +88,15 @@ export class TokenService {
      * 
      
      */
-    public apiNskV1TokenGet = () => {
+    public apiNskV1TokenGet(observe?: 'body', headers?: Headers): Observable<NskSessionContext>;
+    public apiNskV1TokenGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<NskSessionContext>>;
+    public apiNskV1TokenGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/nsk/v1/token',
-                method: 'get',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<NskSessionContext>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/token`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <NskSessionContext>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -115,18 +106,15 @@ export class TokenService {
      * @param request The nsk token request.
      
      */
-    public apiNskV1TokenPost = (request?: NskTokenRequest, ) => {
+    public apiNskV1TokenPost(request?: NskTokenRequest, observe?: 'body', headers?: Headers): Observable<TokenResponse>;
+    public apiNskV1TokenPost(request?: NskTokenRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<TokenResponse>>;
+    public apiNskV1TokenPost(request?: NskTokenRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: NskTokenRequest, 
-            }> = {
-                url: '/api/nsk/v1/token',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TokenResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/token`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TokenResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -136,18 +124,15 @@ export class TokenService {
      * @param request 
      
      */
-    public apiNskV1TokenPut = (request?: Credentials, ) => {
+    public apiNskV1TokenPut(request?: Credentials, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1TokenPut(request?: Credentials, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TokenPut(request?: Credentials, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: Credentials, 
-            }> = {
-                url: '/api/nsk/v1/token',
-                method: 'put',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/token`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -157,18 +142,15 @@ export class TokenService {
      * @param request The server transfer request.
      
      */
-    public apiNskV1TokenServerTransferPost = (request?: ServerTransferRequest, ) => {
+    public apiNskV1TokenServerTransferPost(request?: ServerTransferRequest, observe?: 'body', headers?: Headers): Observable<TokenResponse>;
+    public apiNskV1TokenServerTransferPost(request?: ServerTransferRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<TokenResponse>>;
+    public apiNskV1TokenServerTransferPost(request?: ServerTransferRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: ServerTransferRequest, 
-            }> = {
-                url: '/api/nsk/v1/token/serverTransfer',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TokenResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/token/serverTransfer`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TokenResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -178,18 +160,15 @@ export class TokenService {
      * @param credentials The single sign on credentials.
      
      */
-    public apiNskV1TokenSingleSignOnPost = (credentials?: SingleSignOnCredentials, ) => {
+    public apiNskV1TokenSingleSignOnPost(credentials?: SingleSignOnCredentials, observe?: 'body', headers?: Headers): Observable<TokenResponse>;
+    public apiNskV1TokenSingleSignOnPost(credentials?: SingleSignOnCredentials, observe?: 'response', headers?: Headers): Observable<HttpResponse<TokenResponse>>;
+    public apiNskV1TokenSingleSignOnPost(credentials?: SingleSignOnCredentials, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                credentials?: SingleSignOnCredentials, 
-            }> = {
-                url: '/api/nsk/v1/token/singleSignOn',
-                method: 'post',
-                data: {
-                    credentials,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TokenResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/token/singleSignOn`, credentials , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TokenResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -199,18 +178,15 @@ export class TokenService {
      * @param credentials The single sign on credentials.
      
      */
-    public apiNskV1TokenSingleSignOnPut = (credentials?: SingleSignOnCredentials, ) => {
+    public apiNskV1TokenSingleSignOnPut(credentials?: SingleSignOnCredentials, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1TokenSingleSignOnPut(credentials?: SingleSignOnCredentials, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1TokenSingleSignOnPut(credentials?: SingleSignOnCredentials, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                credentials?: SingleSignOnCredentials, 
-            }> = {
-                url: '/api/nsk/v1/token/singleSignOn',
-                method: 'put',
-                data: {
-                    credentials,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/token/singleSignOn`, credentials , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -219,18 +195,15 @@ export class TokenService {
      * 
      
      */
-    public apiV1TokenDelete = () => {
+    public apiV1TokenDelete(observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiV1TokenDelete(observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiV1TokenDelete(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/v1/token',
-                method: 'delete',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/v1/token`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -240,18 +213,15 @@ export class TokenService {
      * @param request 
      
      */
-    public apiV1TokenPost = (request?: TokenRequest, ) => {
+    public apiV1TokenPost(request?: TokenRequest, observe?: 'body', headers?: Headers): Observable<TokenResponse>;
+    public apiV1TokenPost(request?: TokenRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<TokenResponse>>;
+    public apiV1TokenPost(request?: TokenRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: TokenRequest, 
-            }> = {
-                url: '/api/v1/token',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<TokenResponse>> = this.httpClient.post(`${this.basePath}/api/v1/token`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <TokenResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -260,18 +230,15 @@ export class TokenService {
      * 
      
      */
-    public apiV1TokenPut = () => {
+    public apiV1TokenPut(observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiV1TokenPut(observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiV1TokenPut(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/v1/token',
-                method: 'put',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/v1/token`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 }

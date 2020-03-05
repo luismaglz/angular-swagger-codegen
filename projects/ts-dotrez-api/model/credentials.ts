@@ -14,6 +14,9 @@
 /**
  * Defines the login credentials to gain access to a specific user.
  */
+
+    import { Credentials<CAP>channelType<CAP> } from '../models/enums';
+
 export interface Credentials { 
     /**
      * The unique username.
@@ -38,19 +41,9 @@ export interface Credentials {
     /**
      * The optional channel type invoking the communication with the server.
      */
-    channelType?: Credentials.ChannelTypeEnum;
+    channelType?: Credentials<CAP>channelType<CAP>;
     /**
      * The role to log in as.
      */
     loginRole?: string;
-}
-export namespace Credentials {
-    export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    }
 }

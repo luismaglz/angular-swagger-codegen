@@ -14,6 +14,9 @@
 /**
  * The passenger type model.
  */
+
+    import { PassengerType<CAP>typeIndicator<CAP> } from '../models/enums';
+
 export interface PassengerType { 
     /**
      * The non-adult for the passenger type.
@@ -38,7 +41,7 @@ export interface PassengerType {
     /**
      * The type indicator specifying the age group this belongs to.
      */
-    typeIndicator?: PassengerType.TypeIndicatorEnum;
+    typeIndicator?: PassengerType<CAP>typeIndicator<CAP>;
     /**
      * The minimum age for the passenger type.
      */
@@ -47,13 +50,4 @@ export interface PassengerType {
      * The maximum age for the passenger type.
      */
     maximumAge?: number;
-}
-export namespace PassengerType {
-    export type TypeIndicatorEnum = 'Adult' | 'Infant' | 'Child' | 'NonAdult';
-    export const TypeIndicatorEnum = {
-        Adult: 'Adult' as TypeIndicatorEnum,
-        Infant: 'Infant' as TypeIndicatorEnum,
-        Child: 'Child' as TypeIndicatorEnum,
-        NonAdult: 'NonAdult' as TypeIndicatorEnum
-    }
 }

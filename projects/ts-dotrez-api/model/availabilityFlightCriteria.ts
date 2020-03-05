@@ -14,6 +14,9 @@
 /**
  * The specific flight criteria for the availability criteria.
  */
+
+    import { AvailabilityFlightCriteria<CAP>type<CAP> } from '../models/enums';
+
 export interface AvailabilityFlightCriteria { 
     /**
      * The desired carrier code.
@@ -26,20 +29,9 @@ export interface AvailabilityFlightCriteria {
     /**
      * The flight type filtering based on connections.
      */
-    type?: AvailabilityFlightCriteria.TypeEnum;
+    type?: AvailabilityFlightCriteria<CAP>type<CAP>;
     /**
      * The number of max connecting flights.
      */
     maxConnectingFlights?: number;
-}
-export namespace AvailabilityFlightCriteria {
-    export type TypeEnum = 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        NonStop: 'NonStop' as TypeEnum,
-        Through: 'Through' as TypeEnum,
-        Direct: 'Direct' as TypeEnum,
-        Connect: 'Connect' as TypeEnum,
-        All: 'All' as TypeEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * Represents the gate information for the trip status model.  Consists  of actual gate information and estimated/scheduled gate information.
  */
+
 export interface GateInformation { 
     /**
      * Represents the estimated or scheduled gate of the trip mode.

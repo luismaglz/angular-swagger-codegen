@@ -14,6 +14,7 @@
 /**
  * Defines a products variation detail.
  */
+
 export interface ProductVariationDetail { 
     /**
      * The product variation detail code.

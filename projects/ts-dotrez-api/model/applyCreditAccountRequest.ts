@@ -14,6 +14,9 @@
 /**
  * Defines a request to apply credit for an account.
  */
+
+    import { ApplyCreditAccountRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface ApplyCreditAccountRequest { 
     /**
      * The amount of credit.
@@ -30,13 +33,5 @@ export interface ApplyCreditAccountRequest {
     /**
      * Defines the type of credit being applied.
      */
-    type?: ApplyCreditAccountRequest.TypeEnum;
-}
-export namespace ApplyCreditAccountRequest {
-    export type TypeEnum = 'Customer' | 'Booking' | 'Organization';
-    export const TypeEnum = {
-        Customer: 'Customer' as TypeEnum,
-        Booking: 'Booking' as TypeEnum,
-        Organization: 'Organization' as TypeEnum
-    }
+    type?: ApplyCreditAccountRequest<CAP>type<CAP>;
 }

@@ -14,6 +14,7 @@
 /**
  * Base class for all queue model objects
  */
+
 export interface Queue { 
     /**
      * QueueCode of the particular BookingQueue

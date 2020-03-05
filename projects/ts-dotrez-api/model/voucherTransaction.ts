@@ -14,6 +14,9 @@
 /**
  * The voucher transaction model.
  */
+
+    import { VoucherTransaction<CAP>type<CAP> } from '../models/enums';
+
 export interface VoucherTransaction { 
     /**
      * The voucher transaction key.
@@ -30,7 +33,7 @@ export interface VoucherTransaction {
     /**
      * The voucher transaction type.
      */
-    type?: VoucherTransaction.TypeEnum;
+    type?: VoucherTransaction<CAP>type<CAP>;
     /**
      * The amount of foreign currency.
      */
@@ -43,14 +46,4 @@ export interface VoucherTransaction {
      * The record locator associated with the voucher transaction.
      */
     recordLocator?: string;
-}
-export namespace VoucherTransaction {
-    export type TypeEnum = 'Debit' | 'Credit' | 'Void' | 'Reinstate' | 'Adjustment';
-    export const TypeEnum = {
-        Debit: 'Debit' as TypeEnum,
-        Credit: 'Credit' as TypeEnum,
-        Void: 'Void' as TypeEnum,
-        Reinstate: 'Reinstate' as TypeEnum,
-        Adjustment: 'Adjustment' as TypeEnum
-    }
 }

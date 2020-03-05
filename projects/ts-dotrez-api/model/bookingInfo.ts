@@ -14,23 +14,30 @@
 /**
  * Describes general booking details.
  */
+
+    import { BookingInfo<CAP>status<CAP> } from '../models/enums';
+    import { BookingInfo<CAP>paidStatus<CAP> } from '../models/enums';
+    import { BookingInfo<CAP>priceStatus<CAP> } from '../models/enums';
+    import { BookingInfo<CAP>profileStatus<CAP> } from '../models/enums';
+    import { BookingInfo<CAP>channelType<CAP> } from '../models/enums';
+
 export interface BookingInfo { 
     /**
      * The status of the entire booking.
      */
-    status?: BookingInfo.StatusEnum;
+    status?: BookingInfo<CAP>status<CAP>;
     /**
      * The status of the applied payments.
      */
-    paidStatus?: BookingInfo.PaidStatusEnum;
+    paidStatus?: BookingInfo<CAP>paidStatus<CAP>;
     /**
      * The pricing status of the booking.
      */
-    priceStatus?: BookingInfo.PriceStatusEnum;
+    priceStatus?: BookingInfo<CAP>priceStatus<CAP>;
     /**
      * The booking profiling status.
      */
-    profileStatus?: BookingInfo.ProfileStatusEnum;
+    profileStatus?: BookingInfo<CAP>profileStatus<CAP>;
     /**
      * Identifies the type (Default, GDS, CodeShare, ect) of the booking set during the commit process.
      */
@@ -38,7 +45,7 @@ export interface BookingInfo {
     /**
      * The channel that is responsible for created the booking.
      */
-    channelType?: BookingInfo.ChannelTypeEnum;
+    channelType?: BookingInfo<CAP>channelType<CAP>;
     /**
      * The UTC date and time the booking was originally created.
      */
@@ -71,47 +78,4 @@ export interface BookingInfo {
      * The flag indicating whether the booking can be changed.
      */
     changeAllowed?: boolean;
-}
-export namespace BookingInfo {
-    export type StatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Hold: 'Hold' as StatusEnum,
-        Confirmed: 'Confirmed' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        HoldCanceled: 'HoldCanceled' as StatusEnum,
-        PendingArchive: 'PendingArchive' as StatusEnum,
-        Archived: 'Archived' as StatusEnum
-    }
-    export type PaidStatusEnum = 'UnderPaid' | 'PaidInFull' | 'OverPaid';
-    export const PaidStatusEnum = {
-        UnderPaid: 'UnderPaid' as PaidStatusEnum,
-        PaidInFull: 'PaidInFull' as PaidStatusEnum,
-        OverPaid: 'OverPaid' as PaidStatusEnum
-    }
-    export type PriceStatusEnum = 'Invalid' | 'Override' | 'Valid';
-    export const PriceStatusEnum = {
-        Invalid: 'Invalid' as PriceStatusEnum,
-        Override: 'Override' as PriceStatusEnum,
-        Valid: 'Valid' as PriceStatusEnum
-    }
-    export type ProfileStatusEnum = 'Default' | 'KnownIndividual' | 'ResolutionGroup' | 'SelecteeGroup' | 'NotUsed' | 'FailureGroup' | 'RandomSelectee' | 'Exempt';
-    export const ProfileStatusEnum = {
-        Default: 'Default' as ProfileStatusEnum,
-        KnownIndividual: 'KnownIndividual' as ProfileStatusEnum,
-        ResolutionGroup: 'ResolutionGroup' as ProfileStatusEnum,
-        SelecteeGroup: 'SelecteeGroup' as ProfileStatusEnum,
-        NotUsed: 'NotUsed' as ProfileStatusEnum,
-        FailureGroup: 'FailureGroup' as ProfileStatusEnum,
-        RandomSelectee: 'RandomSelectee' as ProfileStatusEnum,
-        Exempt: 'Exempt' as ProfileStatusEnum
-    }
-    export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    }
 }

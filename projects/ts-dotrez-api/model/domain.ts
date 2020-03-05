@@ -15,6 +15,7 @@ import { RegularExpressionPolicy } from './regularExpressionPolicy';
 /**
  * The domain model.
  */
+
 export interface Domain { 
     /**
      * The domain code.

@@ -14,6 +14,7 @@
 /**
  * Defines the journey price breakdown base.
  */
+
 export interface JourneyPriceBreakdownBase { 
     /**
      * The journey price total.

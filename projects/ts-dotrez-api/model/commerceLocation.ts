@@ -15,6 +15,7 @@ import { Coordinate } from './coordinate';
 /**
  * Defines a travel commerce location.
  */
+
 export interface CommerceLocation { 
     /**
      * The unique location code.

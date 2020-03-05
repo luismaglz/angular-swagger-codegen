@@ -11,14 +11,9 @@
  */
 
 
+
+    import { CodesSettingsPaymentFieldOverrides_<CAP><CAP> } from '../models/enums';
+
 export interface CodesSettingsPaymentFieldOverrides_ { 
-    ?: CodesSettingsPaymentFieldOverrides_.Enum;
-}
-export namespace CodesSettingsPaymentFieldOverrides_ {
-    export type Enum = 'Required' | 'Optional' | 'NotAllowed';
-    export const Enum = {
-        Required: 'Required' as Enum,
-        Optional: 'Optional' as Enum,
-        NotAllowed: 'NotAllowed' as Enum
-    }
+    ?: CodesSettingsPaymentFieldOverrides_<CAP><CAP>;
 }

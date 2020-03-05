@@ -15,6 +15,7 @@ import { BoardingPassM2D } from './boardingPassM2D';
 /**
  * The collection of M2D boarding passes.
  */
+
 export interface BoardingPassesM2D { 
     /**
      * The collection of boarding passes with M2D bar codes.

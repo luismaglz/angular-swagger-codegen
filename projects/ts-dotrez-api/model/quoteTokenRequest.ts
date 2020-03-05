@@ -15,6 +15,7 @@ import { QuoteTokenCatalogRequest } from './quoteTokenCatalogRequest';
 /**
  * Defines a product quote token request.
  */
+
 export interface QuoteTokenRequest { 
     /**
      * The selected unique product variations catalog keys and quantities.

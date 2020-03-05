@@ -14,6 +14,9 @@
 /**
  * The account transaction code model.
  */
+
+    import { AccountTransactionCode<CAP>expirationType<CAP> } from '../models/enums';
+
 export interface AccountTransactionCode { 
     /**
      * The unique transaction code.
@@ -26,7 +29,7 @@ export interface AccountTransactionCode {
     /**
      * The expiration type.
      */
-    expirationType?: AccountTransactionCode.ExpirationTypeEnum;
+    expirationType?: AccountTransactionCode<CAP>expirationType<CAP>;
     /**
      * The expiration days.
      */
@@ -39,13 +42,4 @@ export interface AccountTransactionCode {
      * In active.
      */
     inActive?: boolean;
-}
-export namespace AccountTransactionCode {
-    export type ExpirationTypeEnum = 'None' | 'FixedAtIssuance' | 'FixedDate' | 'FixedAtBooking';
-    export const ExpirationTypeEnum = {
-        None: 'None' as ExpirationTypeEnum,
-        FixedAtIssuance: 'FixedAtIssuance' as ExpirationTypeEnum,
-        FixedDate: 'FixedDate' as ExpirationTypeEnum,
-        FixedAtBooking: 'FixedAtBooking' as ExpirationTypeEnum
-    }
 }

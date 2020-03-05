@@ -14,6 +14,7 @@
 /**
  * The booking payment settings.
  */
+
 export interface BookingPaymentSettingsv2 { 
     /**
      * The flag to allow approved external payment charge back.

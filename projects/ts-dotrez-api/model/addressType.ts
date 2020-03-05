@@ -14,6 +14,7 @@
 /**
  * The Address Type
  */
+
 export interface AddressType { 
     /**
      * The address type code.

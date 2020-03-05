@@ -12,6 +12,7 @@
 import { SafeWaitHandle } from './safeWaitHandle';
 
 
+
 export interface WaitHandle { 
     handle?: any;
     safeWaitHandle?: SafeWaitHandle;

@@ -15,6 +15,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines the a segments collection of missing SSR's.
  */
+
 export interface CheckinMissingSegmentRequiredSsr { 
     /**
      * The collection of SSR's missing.

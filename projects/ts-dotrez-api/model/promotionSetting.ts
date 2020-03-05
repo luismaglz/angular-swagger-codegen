@@ -14,6 +14,7 @@
 /**
  * Defines a promotion setting model.
  */
+
 export interface PromotionSetting { 
     /**
      * The promotion setting data version.

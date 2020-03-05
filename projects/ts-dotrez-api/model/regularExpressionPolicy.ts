@@ -14,6 +14,7 @@
 /**
  * The model describing regular expression policies for a string.
  */
+
 export interface RegularExpressionPolicy { 
     /**
      * The regular expression policy that will be evaluated.

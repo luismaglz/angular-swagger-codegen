@@ -14,6 +14,7 @@
 /**
  * Model representing a passenger program.
  */
+
 export interface PassengerProgram { 
     /**
      * The program code.

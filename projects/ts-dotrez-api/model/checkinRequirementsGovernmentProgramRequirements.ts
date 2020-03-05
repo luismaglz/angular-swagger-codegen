@@ -15,6 +15,7 @@ import { GovernmentProgramRequirements } from './governmentProgramRequirements';
 /**
  * The collection of government programs requirements.
  */
+
 export interface CheckinRequirementsGovernmentProgramRequirements { 
     ?: GovernmentProgramRequirements;
 }

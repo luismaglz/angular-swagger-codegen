@@ -15,6 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Model describing common fare availability information for an entire availability request.
  */
+
 export interface PassengerFareAvailability { 
     /**
      * The fare discount code.

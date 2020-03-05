@@ -14,6 +14,7 @@
 /**
  * Defines a promotion base model.
  */
+
 export interface PromotionBase { 
     /**
      * The promotion code.

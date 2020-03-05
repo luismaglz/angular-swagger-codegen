@@ -14,6 +14,7 @@
 /**
  * Defines the person email edit address.
  */
+
 export interface PersonEmailEditRequest { 
     /**
      * The email address value.

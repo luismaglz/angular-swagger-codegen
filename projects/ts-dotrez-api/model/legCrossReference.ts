@@ -15,6 +15,7 @@ import { MarketInformation } from './marketInformation';
 /**
  * Represents the inventory leg cross reference data.
  */
+
 export interface LegCrossReference { 
     /**
      * The key for the manifest leg.

@@ -14,6 +14,7 @@
 /**
  * Defines a common name.
  */
+
 export interface Name { 
     /**
      * The given first name.

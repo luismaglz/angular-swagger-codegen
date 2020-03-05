@@ -14,6 +14,7 @@
 /**
  * The create account request model.
  */
+
 export interface CreateAccountRequest { 
     /**
      * The currency code.

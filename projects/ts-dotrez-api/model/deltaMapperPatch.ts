@@ -11,6 +11,7 @@
  */
 
 
+
 export interface DeltaMapperPatch { 
     stringValue?: string;
     numericValue?: number;

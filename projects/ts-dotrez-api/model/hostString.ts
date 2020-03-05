@@ -11,6 +11,7 @@
  */
 
 
+
 export interface HostString { 
     readonly value?: string;
     readonly hasValue?: boolean;

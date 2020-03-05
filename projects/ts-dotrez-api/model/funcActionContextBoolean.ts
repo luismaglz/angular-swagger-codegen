@@ -12,6 +12,7 @@
 import { MethodInfo } from './methodInfo';
 
 
+
 export interface FuncActionContextBoolean { 
     readonly method?: MethodInfo;
     readonly target?: any;

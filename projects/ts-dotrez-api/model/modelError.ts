@@ -11,6 +11,7 @@
  */
 
 
+
 export interface ModelError { 
     readonly exception?: any;
     readonly errorMessage?: string;

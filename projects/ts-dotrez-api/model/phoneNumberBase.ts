@@ -14,6 +14,7 @@
 /**
  * Defines a common phone number base.
  */
+
 export interface PhoneNumberBase { 
     /**
      * The phone number without any formatting characters.

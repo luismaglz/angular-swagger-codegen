@@ -16,6 +16,9 @@ import { ParticipantCriteria } from './participantCriteria';
 /**
  * Defines the query for generic travel commerce activities.
  */
+
+    import { ActivitySimpleRequest<CAP>sort<CAP> } from '../models/enums';
+
 export interface ActivitySimpleRequest { 
     /**
      * The station code for this city.
@@ -48,7 +51,7 @@ export interface ActivitySimpleRequest {
     /**
      * The search sort order.
      */
-    sort?: ActivitySimpleRequest.SortEnum;
+    sort?: ActivitySimpleRequest<CAP>sort<CAP>;
     /**
      * The promotion code with which to search.
      */
@@ -98,17 +101,4 @@ export interface ActivitySimpleRequest {
      */
     quantity?: number;
     parameters?: ActivitySimpleRequestParameters;
-}
-export namespace ActivitySimpleRequest {
-    export type SortEnum = 'SupplierDefined' | 'Price' | 'Rating' | 'Name' | 'Category' | 'VendorDescription' | 'Preferred' | 'Relevance';
-    export const SortEnum = {
-        SupplierDefined: 'SupplierDefined' as SortEnum,
-        Price: 'Price' as SortEnum,
-        Rating: 'Rating' as SortEnum,
-        Name: 'Name' as SortEnum,
-        Category: 'Category' as SortEnum,
-        VendorDescription: 'VendorDescription' as SortEnum,
-        Preferred: 'Preferred' as SortEnum,
-        Relevance: 'Relevance' as SortEnum
-    }
 }

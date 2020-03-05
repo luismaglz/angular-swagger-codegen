@@ -12,6 +12,7 @@
 import { MccCurrencyInformationv2 } from './mccCurrencyInformationv2';
 
 
+
 export interface InlineResponse2009 { 
     ?: MccCurrencyInformationv2;
 }

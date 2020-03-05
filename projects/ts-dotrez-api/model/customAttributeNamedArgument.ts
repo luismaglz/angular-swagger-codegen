@@ -13,6 +13,7 @@ import { CustomAttributeTypedArgument } from './customAttributeTypedArgument';
 import { MemberInfo } from './memberInfo';
 
 
+
 export interface CustomAttributeNamedArgument { 
     readonly memberInfo?: MemberInfo;
     readonly typedValue?: CustomAttributeTypedArgument;

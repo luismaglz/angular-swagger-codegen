@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { IJsonResponse } from '../model/iJsonResponse';
 import { Promotion } from '../model/promotion';
 import { PromotionBase } from '../model/promotionBase';
@@ -35,8 +30,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class PromotionsService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Gets a promotion based on the promotion code.
@@ -44,22 +44,19 @@ export class PromotionsService {
      * @param promotionCode The promotion code.
      
      */
-    public apiNskV1PromotionsByPromotionCodeGet = (promotionCode: string, ) => {
+    public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe?: 'body', headers?: Headers): Observable<Promotion>;
+    public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Promotion>>;
+    public apiNskV1PromotionsByPromotionCodeGet(promotionCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!promotionCode){
             throw new Error('Required parameter promotionCode was null or undefined when calling apiNskV1PromotionsByPromotionCodeGet.');
         }
 
 
-            const requestObj: Request<{
-                promotionCode: string, 
-            }> = {
-                url: '/api/nsk/v1/promotions/${encodeURIComponent(String(promotionCode))}',
-                method: 'get',
-                data: {
-                    promotionCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Promotion>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/promotions/${encodeURIComponent(String(promotionCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Promotion>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -70,7 +67,9 @@ export class PromotionsService {
      * @param organizationCode The optional organization code.
      
      */
-    public apiNskV1PromotionsByPromotionCodeValidateGet = (promotionCode: string, organizationCode?: string, ) => {
+    public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!promotionCode){
             throw new Error('Required parameter promotionCode was null or undefined when calling apiNskV1PromotionsByPromotionCodeValidateGet.');
         }
@@ -81,16 +80,11 @@ export class PromotionsService {
         }
 
 
-            const requestObj: Request<{
-                promotionCode: string, organizationCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/promotions/${encodeURIComponent(String(promotionCode))}/validate',
-                method: 'get',
-                data: {
-                    promotionCode,organizationCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/promotions/${encodeURIComponent(String(promotionCode))}/validate?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -105,7 +99,9 @@ export class PromotionsService {
      * @param organizationCodeMatching The matching criteria for the organization code, by default if not set the criteria will be an exact match.
      
      */
-    public apiNskV1PromotionsGet = (promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', ) => {
+    public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'body', headers?: Headers): Observable<Array<PromotionBase>>;
+    public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PromotionBase>>>;
+    public apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (promotionCode !== undefined) {
             queryParameters.push("promotionCode="+encodeURIComponent(String(promotionCode)));
@@ -127,16 +123,11 @@ export class PromotionsService {
         }
 
 
-            const requestObj: Request<{
-                promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', 
-            }> = {
-                url: '/api/nsk/v1/promotions',
-                method: 'get',
-                data: {
-                    promotionCode,organizationCode,effectiveDate,cultureCode,promotionCodeMatching,organizationCodeMatching,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PromotionBase>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/promotions?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PromotionBase>>(httpResponse.response));
+        }
+        return response;
     }
 
 }

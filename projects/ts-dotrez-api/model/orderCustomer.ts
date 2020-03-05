@@ -16,6 +16,7 @@ import { Name } from './name';
 /**
  * Defines an order customer contact details.
  */
+
 export interface OrderCustomer { 
     /**
      * The unique customer key.

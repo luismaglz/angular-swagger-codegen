@@ -16,6 +16,7 @@ import { RecordLocator } from './recordLocator';
 /**
  * Defines the booking divide request.
  */
+
 export interface DivideRequestv2 { 
     /**
      * The CRS record locators.

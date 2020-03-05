@@ -18,6 +18,7 @@ import { CheckinPassengerRestriction } from './checkinPassengerRestriction';
 /**
  * Defines an individual passengers checkin requirements.
  */
+
 export interface CheckinPassengerRequirements { 
     /**
      * Flag indicating if the specific passenger checkin is valid.

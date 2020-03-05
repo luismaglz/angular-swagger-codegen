@@ -15,6 +15,7 @@ import { TripDateMarket } from './tripDateMarket';
 /**
  * The trip results represents a wrapper class for the potential collection of multiple selected dates (flex days or  range) selected on the availability request.
  */
+
 export interface TripResult { 
     /**
      * The collection of available trip by date that contain a collection of markets.

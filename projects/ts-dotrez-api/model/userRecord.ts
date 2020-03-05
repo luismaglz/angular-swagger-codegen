@@ -16,6 +16,9 @@ import { UserRole } from './userRole';
 /**
  * Defines a user record.
  */
+
+    import { UserRecord<CAP>status<CAP> } from '../models/enums';
+
 export interface UserRecord { 
     /**
      * The unique user key.
@@ -36,7 +39,7 @@ export interface UserRecord {
     /**
      * The status of the user.
      */
-    status?: UserRecord.StatusEnum;
+    status?: UserRecord<CAP>status<CAP>;
     /**
      * Flag indicating if the user is allowed.
      */
@@ -49,14 +52,4 @@ export interface UserRecord {
      * The organization the user exists in.
      */
     organizationCode?: string;
-}
-export namespace UserRecord {
-    export type StatusEnum = 'Default' | 'Active' | 'Pending' | 'Suspended' | 'Terminated';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum
-    }
 }

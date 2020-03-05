@@ -14,6 +14,9 @@
 /**
  * Model information about the baggage a passenger has on a segment.
  */
+
+    import { PassengerSegmentBag<CAP>status<CAP> } from '../models/enums';
+
 export interface PassengerSegmentBag { 
     /**
      * Unique key for the baggage.
@@ -30,7 +33,7 @@ export interface PassengerSegmentBag {
     /**
      * The bag status.
      */
-    status?: PassengerSegmentBag.StatusEnum;
+    status?: PassengerSegmentBag<CAP>status<CAP>;
     /**
      * The bag segment departure station.
      */
@@ -39,14 +42,4 @@ export interface PassengerSegmentBag {
      * The bag OS tag.
      */
     osTag?: string;
-}
-export namespace PassengerSegmentBag {
-    export type StatusEnum = 'Default' | 'Checked' | 'Removed' | 'Added' | 'AddedPrinted';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Checked: 'Checked' as StatusEnum,
-        Removed: 'Removed' as StatusEnum,
-        Added: 'Added' as StatusEnum,
-        AddedPrinted: 'AddedPrinted' as StatusEnum
-    }
 }

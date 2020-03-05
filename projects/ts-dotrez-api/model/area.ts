@@ -15,6 +15,7 @@ import { Zone } from './zone';
 /**
  * The area model.
  */
+
 export interface Area { 
     /**
      * Gets or sets the code for this area.

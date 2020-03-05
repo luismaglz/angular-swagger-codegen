@@ -16,6 +16,7 @@ import { BookingHold } from './bookingHold';
 /**
  * Represents version two of the booking commit request.
  */
+
 export interface CommitRequestv2 { 
     /**
      * The received by name.

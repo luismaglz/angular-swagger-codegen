@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { EnvironmentHealth } from '../model/environmentHealth';
 
 import { COLLECTION_FORMATS }  from '../variables';
@@ -33,26 +28,28 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class ConfigurationService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Performs the dotREZ NSK API configuration check.
      * 
      
      */
-    public apiNskV1ConfigurationCheckGet = () => {
+    public apiNskV1ConfigurationCheckGet(observe?: 'body', headers?: Headers): Observable<EnvironmentHealth>;
+    public apiNskV1ConfigurationCheckGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<EnvironmentHealth>>;
+    public apiNskV1ConfigurationCheckGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/nsk/v1/configuration/check',
-                method: 'get',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<EnvironmentHealth>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/configuration/check`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <EnvironmentHealth>(httpResponse.response));
+        }
+        return response;
     }
 
 }

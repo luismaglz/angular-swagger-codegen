@@ -19,6 +19,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Model data describing the leg which is a single travel leg from point a to b.
  */
+
 export interface Leg { 
     /**
      * The unique identifier for this leg sell information.

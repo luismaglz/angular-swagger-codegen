@@ -14,6 +14,9 @@
 /**
  * Defines the trip upgrade request.
  */
+
+    import { TripUpgradeRequest<CAP>inventoryControl<CAP> } from '../models/enums';
+
 export interface TripUpgradeRequest { 
     /**
      * The list of segment upgrades.
@@ -22,7 +25,7 @@ export interface TripUpgradeRequest {
     /**
      * The reserving inventory action of the upgrade once sold by the system.
      */
-    inventoryControl?: TripUpgradeRequest.InventoryControlEnum;
+    inventoryControl?: TripUpgradeRequest<CAP>inventoryControl<CAP>;
     /**
      * Flag indicating to override the fee if permissions allow it.
      */
@@ -31,14 +34,4 @@ export interface TripUpgradeRequest {
      * The option currency code if different than the bookings currency code.
      */
     collectedCurrencyCode?: string;
-}
-export namespace TripUpgradeRequest {
-    export type InventoryControlEnum = 'HoldSpace' | 'SoftHoldSpace' | 'ClaimSpace' | 'OversellSpace' | 'StandBy';
-    export const InventoryControlEnum = {
-        HoldSpace: 'HoldSpace' as InventoryControlEnum,
-        SoftHoldSpace: 'SoftHoldSpace' as InventoryControlEnum,
-        ClaimSpace: 'ClaimSpace' as InventoryControlEnum,
-        OversellSpace: 'OversellSpace' as InventoryControlEnum,
-        StandBy: 'StandBy' as InventoryControlEnum
-    }
 }

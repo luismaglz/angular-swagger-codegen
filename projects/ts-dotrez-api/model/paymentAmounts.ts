@@ -14,6 +14,7 @@
 /**
  * Defines the different applied payment amounts for a single payment.
  */
+
 export interface PaymentAmounts { 
     /**
      * The amount in the booking currency (based off the origin).

@@ -14,6 +14,7 @@
 /**
  * Represents a filter for equipment type.
  */
+
 export interface EquipmentFilter { 
     /**
      * The type of equipment for the journey.

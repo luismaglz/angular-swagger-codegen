@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { ChildAccountTransactionsRequest } from '../model/childAccountTransactionsRequest';
 import { CreateOrganizationAccountRequest } from '../model/createOrganizationAccountRequest';
 import { DeltaMapperOrganizationEditRequest } from '../model/deltaMapperOrganizationEditRequest';
@@ -49,8 +44,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class Organizations2Service {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Adjust the available amount of a child account.
@@ -59,22 +59,19 @@ export class Organizations2Service {
      * @param request The child account transaction request.
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost = (organizationCode: string, request?: ChildAccountTransactionsRequest, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: ChildAccountTransactionsRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/childAccountTransactions',
-                method: 'post',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/childAccountTransactions`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -85,22 +82,19 @@ export class Organizations2Service {
      * @param request The child account transaction request.
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut = (organizationCode: string, request?: ChildAccountTransactionsRequest, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: ChildAccountTransactionsRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/childAccountTransactions',
-                method: 'put',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/childAccountTransactions`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -110,22 +104,19 @@ export class Organizations2Service {
      * @param organizationCode The organization code.
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountGet = (organizationCode: string, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe?: 'body', headers?: Headers): Observable<OrganizationAccount>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<OrganizationAccount>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeAccountGet.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account',
-                method: 'get',
-                data: {
-                    organizationCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<OrganizationAccount>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <OrganizationAccount>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -136,22 +127,19 @@ export class Organizations2Service {
      * @param request The create organization account request.
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountPost = (organizationCode: string, request?: CreateOrganizationAccountRequest, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeAccountPost.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: CreateOrganizationAccountRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account',
-                method: 'post',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -162,7 +150,9 @@ export class Organizations2Service {
      * @param status The allowed account status.
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut = (organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', ) => {
+    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeAccountStatusPut.');
         }
@@ -177,16 +167,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown', 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/status',
-                method: 'put',
-                data: {
-                    organizationCode,status,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/status?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -201,7 +186,9 @@ export class Organizations2Service {
      * @param pageIndex Represents the index of the requested paged item.
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet = (organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', headers?: Headers): Observable<Array<Transaction>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Transaction>>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet.');
         }
@@ -232,16 +219,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/transactions',
-                method: 'get',
-                data: {
-                    organizationCode,startTime,sortByNewest,endTime,pageSize,pageIndex,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/transactions?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -252,22 +234,19 @@ export class Organizations2Service {
      * @param request The transaction request.
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost = (organizationCode: string, request?: OrganizationTransactionRequest, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: OrganizationTransactionRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/transactions',
-                method: 'post',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/transactions`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -278,7 +257,9 @@ export class Organizations2Service {
      * @param commissionRateCode 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete = (organizationCode: string, commissionRateCode: string, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete.');
         }
@@ -288,16 +269,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, commissionRateCode: string, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates/${encodeURIComponent(String(commissionRateCode))}',
-                method: 'delete',
-                data: {
-                    organizationCode,commissionRateCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates/${encodeURIComponent(String(commissionRateCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -308,7 +284,9 @@ export class Organizations2Service {
      * @param commissionRateCode 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet = (organizationCode: string, commissionRateCode: string, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe?: 'body', headers?: Headers): Observable<OrganizationCommissionRate>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<OrganizationCommissionRate>>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet.');
         }
@@ -318,16 +296,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, commissionRateCode: string, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates/${encodeURIComponent(String(commissionRateCode))}',
-                method: 'get',
-                data: {
-                    organizationCode,commissionRateCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<OrganizationCommissionRate>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates/${encodeURIComponent(String(commissionRateCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <OrganizationCommissionRate>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -338,22 +311,19 @@ export class Organizations2Service {
      * @param request 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost = (organizationCode: string, request?: OrganizationCommissionRate, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: OrganizationCommissionRate, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates',
-                method: 'post',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -364,7 +334,9 @@ export class Organizations2Service {
      * @param phoneNumberType 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete = (organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', ) => {
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete.');
         }
@@ -374,16 +346,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}',
-                method: 'delete',
-                data: {
-                    organizationCode,phoneNumberType,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -395,7 +362,9 @@ export class Organizations2Service {
      * @param request 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut = (organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut.');
         }
@@ -405,16 +374,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}',
-                method: 'put',
-                data: {
-                    organizationCode,phoneNumberType,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -425,22 +389,19 @@ export class Organizations2Service {
      * @param request 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost = (organizationCode: string, request?: PhoneNumber, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: PhoneNumber, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers',
-                method: 'post',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -451,7 +412,9 @@ export class Organizations2Service {
      * @param phoneNumberType 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete = (organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', ) => {
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete.');
         }
@@ -461,16 +424,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}',
-                method: 'delete',
-                data: {
-                    organizationCode,phoneNumberType,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -482,7 +440,9 @@ export class Organizations2Service {
      * @param request 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut = (organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut.');
         }
@@ -492,16 +452,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}',
-                method: 'put',
-                data: {
-                    organizationCode,phoneNumberType,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -512,22 +467,19 @@ export class Organizations2Service {
      * @param request 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost = (organizationCode: string, request?: PhoneNumber, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: PhoneNumber, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers',
-                method: 'post',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -538,7 +490,9 @@ export class Organizations2Service {
      * @param externalAccountKey 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete = (organizationCode: string, externalAccountKey: string, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete.');
         }
@@ -548,16 +502,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, externalAccountKey: string, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts/${encodeURIComponent(String(externalAccountKey))}',
-                method: 'delete',
-                data: {
-                    organizationCode,externalAccountKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts/${encodeURIComponent(String(externalAccountKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -568,7 +517,9 @@ export class Organizations2Service {
      * @param externalAccountKey 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet = (organizationCode: string, externalAccountKey: string, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe?: 'body', headers?: Headers): Observable<OrganizationExternalAccountv2>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<OrganizationExternalAccountv2>>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet.');
         }
@@ -578,16 +529,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, externalAccountKey: string, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts/${encodeURIComponent(String(externalAccountKey))}',
-                method: 'get',
-                data: {
-                    organizationCode,externalAccountKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<OrganizationExternalAccountv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts/${encodeURIComponent(String(externalAccountKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <OrganizationExternalAccountv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -598,22 +544,19 @@ export class Organizations2Service {
      * @param request 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost = (organizationCode: string, request?: OrganizationExternalAccountRequest, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: OrganizationExternalAccountRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts',
-                method: 'post',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -623,22 +566,19 @@ export class Organizations2Service {
      * @param organizationCode 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodeGet = (organizationCode: string, ) => {
+    public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe?: 'body', headers?: Headers): Observable<Organizationv2>;
+    public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodeGet.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}',
-                method: 'get',
-                data: {
-                    organizationCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -649,22 +589,19 @@ export class Organizations2Service {
      * @param createRequest 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodePatch = (organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, ) => {
+    public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe?: 'body', headers?: Headers): Observable<Organizationv2>;
+    public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodePatch.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}',
-                method: 'patch',
-                data: {
-                    organizationCode,createRequest,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}`, createRequest , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -675,22 +612,19 @@ export class Organizations2Service {
      * @param request 
      
      */
-    public apiNskV1Organizations2ByOrganizationCodePut = (organizationCode: string, request?: OrganizationEditRequest, ) => {
+    public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe?: 'body', headers?: Headers): Observable<Organizationv2>;
+    public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!organizationCode){
             throw new Error('Required parameter organizationCode was null or undefined when calling apiNskV1Organizations2ByOrganizationCodePut.');
         }
 
 
-            const requestObj: Request<{
-                organizationCode: string, request?: OrganizationEditRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}',
-                method: 'put',
-                data: {
-                    organizationCode,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -700,18 +634,15 @@ export class Organizations2Service {
      * @param createRequest 
      
      */
-    public apiNskV1Organizations2Post = (createRequest?: OrganizationCreateRequest, ) => {
+    public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe?: 'body', headers?: Headers): Observable<Organizationv2>;
+    public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                createRequest?: OrganizationCreateRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2',
-                method: 'post',
-                data: {
-                    createRequest,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2`, createRequest , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -721,18 +652,15 @@ export class Organizations2Service {
      * @param registerRequest 
      
      */
-    public apiNskV1Organizations2RegisterPost = (registerRequest?: OrganizationRegisterRequest, ) => {
+    public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe?: 'body', headers?: Headers): Observable<Organizationv2>;
+    public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<Organizationv2>>;
+    public apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                registerRequest?: OrganizationRegisterRequest, 
-            }> = {
-                url: '/api/nsk/v1/organizations2/register',
-                method: 'post',
-                data: {
-                    registerRequest,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/register`, registerRequest , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -755,7 +683,9 @@ export class Organizations2Service {
      * @param matchCriteriaPostalCode The  type of string search for organization company postal code.
      
      */
-    public apiNskV2Organizations2Get = (type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', ) => {
+    public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'body', headers?: Headers): Observable<Array<OrganizationRecord>>;
+    public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<OrganizationRecord>>>;
+    public apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!type){
             throw new Error('Required parameter type was null or undefined when calling apiNskV2Organizations2Get.');
         }
@@ -809,16 +739,11 @@ export class Organizations2Service {
         }
 
 
-            const requestObj: Request<{
-                type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', 
-            }> = {
-                url: '/api/nsk/v2/organizations2',
-                method: 'get',
-                data: {
-                    type,status,organizationCode,parentOrganizationCode,companyName,city,postalCode,pagedItemIndex,pageSize,matchCriteriaOrganizationCode,matchCriteriaParentOrganizationCode,matchCriteriaCompanyName,matchCriteriaCity,matchCriteriaPostalCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<OrganizationRecord>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/organizations2?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<OrganizationRecord>>(httpResponse.response));
+        }
+        return response;
     }
 
 }

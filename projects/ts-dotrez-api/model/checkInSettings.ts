@@ -14,23 +14,29 @@
 /**
  * The Booking Check-In Settings.
  */
+
+    import { CheckInSettings<CAP>allowApisCheckIn<CAP> } from '../models/enums';
+    import { CheckInSettings<CAP>allowIappCheckIn<CAP> } from '../models/enums';
+    import { CheckInSettings<CAP>domesticBagWeight<CAP> } from '../models/enums';
+    import { CheckInSettings<CAP>internationalBagWeight<CAP> } from '../models/enums';
+
 export interface CheckInSettings { 
     /**
      * Gets or sets the APIS rules for Check-In.
      */
-    allowApisCheckIn?: CheckInSettings.AllowApisCheckInEnum;
+    allowApisCheckIn?: CheckInSettings<CAP>allowApisCheckIn<CAP>;
     /**
      * Gets or sets the IAPP rules for Check-In.
      */
-    allowIappCheckIn?: CheckInSettings.AllowIappCheckInEnum;
+    allowIappCheckIn?: CheckInSettings<CAP>allowIappCheckIn<CAP>;
     /**
      * Gets or sets the Domestic bag weight rules for Check-In.
      */
-    domesticBagWeight?: CheckInSettings.DomesticBagWeightEnum;
+    domesticBagWeight?: CheckInSettings<CAP>domesticBagWeight<CAP>;
     /**
      * Gets or sets the International bag weight rules for Check-In.
      */
-    internationalBagWeight?: CheckInSettings.InternationalBagWeightEnum;
+    internationalBagWeight?: CheckInSettings<CAP>internationalBagWeight<CAP>;
     /**
      * Gets or sets the flag to allow APPS Checkin.
      */
@@ -119,32 +125,4 @@ export interface CheckInSettings {
      * Gets or sets a collection of required SSR codes for Check-In reference.
      */
     requiredSsrCodes?: Array<string>;
-}
-export namespace CheckInSettings {
-    export type AllowApisCheckInEnum = 'NotAllowed' | 'AllowedWithVerifiedDocument' | 'AllowedWithDocument' | 'AllowedWithoutVerifiedDocument';
-    export const AllowApisCheckInEnum = {
-        NotAllowed: 'NotAllowed' as AllowApisCheckInEnum,
-        AllowedWithVerifiedDocument: 'AllowedWithVerifiedDocument' as AllowApisCheckInEnum,
-        AllowedWithDocument: 'AllowedWithDocument' as AllowApisCheckInEnum,
-        AllowedWithoutVerifiedDocument: 'AllowedWithoutVerifiedDocument' as AllowApisCheckInEnum
-    }
-    export type AllowIappCheckInEnum = 'NotAllowed' | 'AllowedWithVerifiedDocument' | 'AllowedWithDocument' | 'AllowedWithoutVerifiedDocument';
-    export const AllowIappCheckInEnum = {
-        NotAllowed: 'NotAllowed' as AllowIappCheckInEnum,
-        AllowedWithVerifiedDocument: 'AllowedWithVerifiedDocument' as AllowIappCheckInEnum,
-        AllowedWithDocument: 'AllowedWithDocument' as AllowIappCheckInEnum,
-        AllowedWithoutVerifiedDocument: 'AllowedWithoutVerifiedDocument' as AllowIappCheckInEnum
-    }
-    export type DomesticBagWeightEnum = 'WeightNotRequired' | 'TotalWeightRequired' | 'IndividualWeightRequired';
-    export const DomesticBagWeightEnum = {
-        WeightNotRequired: 'WeightNotRequired' as DomesticBagWeightEnum,
-        TotalWeightRequired: 'TotalWeightRequired' as DomesticBagWeightEnum,
-        IndividualWeightRequired: 'IndividualWeightRequired' as DomesticBagWeightEnum
-    }
-    export type InternationalBagWeightEnum = 'WeightNotRequired' | 'TotalWeightRequired' | 'IndividualWeightRequired';
-    export const InternationalBagWeightEnum = {
-        WeightNotRequired: 'WeightNotRequired' as InternationalBagWeightEnum,
-        TotalWeightRequired: 'TotalWeightRequired' as InternationalBagWeightEnum,
-        IndividualWeightRequired: 'IndividualWeightRequired' as InternationalBagWeightEnum
-    }
 }

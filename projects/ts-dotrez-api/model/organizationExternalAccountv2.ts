@@ -14,6 +14,7 @@
 /**
  * The data for an organizations external account.
  */
+
 export interface OrganizationExternalAccountv2 { 
     /**
      * The unique key for the external account.

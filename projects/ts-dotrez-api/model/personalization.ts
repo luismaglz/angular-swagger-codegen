@@ -15,6 +15,9 @@ import { PersonalizationParameter } from './personalizationParameter';
 /**
  * Defines an available personalization for an add-on.
  */
+
+    import { Personalization<CAP>dataType<CAP> } from '../models/enums';
+
 export interface Personalization { 
     /**
      * The unique personalization key.
@@ -35,7 +38,7 @@ export interface Personalization {
     /**
      * The display data type.
      */
-    dataType?: Personalization.DataTypeEnum;
+    dataType?: Personalization<CAP>dataType<CAP>;
     /**
      * Flag indicating that user input is required.
      */
@@ -44,14 +47,4 @@ export interface Personalization {
      * The collection of personalization parameter options.
      */
     options?: Array<PersonalizationParameter>;
-}
-export namespace Personalization {
-    export type DataTypeEnum = 'Unknown' | 'Bool' | 'List' | 'Text' | 'Date';
-    export const DataTypeEnum = {
-        Unknown: 'Unknown' as DataTypeEnum,
-        Bool: 'Bool' as DataTypeEnum,
-        List: 'List' as DataTypeEnum,
-        Text: 'Text' as DataTypeEnum,
-        Date: 'Date' as DataTypeEnum
-    }
 }

@@ -15,6 +15,9 @@ import { MarketInformation } from './marketInformation';
 /**
  * The model for a passengers Ssr details.
  */
+
+    import { PassengerSsr<CAP>ssrDuration<CAP> } from '../models/enums';
+
 export interface PassengerSsr { 
     /**
      * The passenger SSR note.
@@ -23,7 +26,7 @@ export interface PassengerSsr {
     /**
      * The length of the Ssr duration.
      */
-    ssrDuration?: PassengerSsr.SsrDurationEnum;
+    ssrDuration?: PassengerSsr<CAP>ssrDuration<CAP>;
     /**
      * The key that uniquely identifies the Ssr, passenger, and leg or segment.
      */
@@ -60,12 +63,4 @@ export interface PassengerSsr {
      * The market for either the leg or segment depending on the Ssr type.
      */
     market?: MarketInformation;
-}
-export namespace PassengerSsr {
-    export type SsrDurationEnum = 'Segment' | 'Journey' | 'Leg';
-    export const SsrDurationEnum = {
-        Segment: 'Segment' as SsrDurationEnum,
-        Journey: 'Journey' as SsrDurationEnum,
-        Leg: 'Leg' as SsrDurationEnum
-    }
 }

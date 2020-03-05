@@ -14,6 +14,7 @@
 /**
  * Represents the operation counts model.
  */
+
 export interface OperationCounts { 
     /**
      * Represents the number of passengers that have boarded the trip equipment.

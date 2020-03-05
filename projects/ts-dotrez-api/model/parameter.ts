@@ -14,6 +14,7 @@
 /**
  * Defines a supplier parameter.
  */
+
 export interface Parameter { 
     /**
      * The unique code for a supplier parameter.

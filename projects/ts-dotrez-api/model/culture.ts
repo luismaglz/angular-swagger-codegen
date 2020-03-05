@@ -14,6 +14,7 @@
 /**
  * Defines a culture code.
  */
+
 export interface Culture { 
     /**
      * The unique code for the culture.

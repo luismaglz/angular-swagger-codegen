@@ -15,6 +15,7 @@ import { FlightMoveHistory } from './flightMoveHistory';
 /**
  * Defines a flight move history response.
  */
+
 export interface FlightMoveHistoryResponse { 
     /**
      * The flight move history list.

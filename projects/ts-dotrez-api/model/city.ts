@@ -14,6 +14,7 @@
 /**
  * The city model.
  */
+
 export interface City { 
     /**
      * Gets or sets the code for this city.

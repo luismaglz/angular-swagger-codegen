@@ -15,6 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Defines information needed for a generic payment requested with ThreeDSecure validation.
  */
+
 export interface ThreeDSecurePaymentMethodRequestv2 { 
     paReq?: string;
     paRes?: string;

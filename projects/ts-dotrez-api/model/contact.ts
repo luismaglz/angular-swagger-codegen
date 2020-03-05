@@ -17,6 +17,10 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * Contact model describing a person contact information.
  */
+
+    import { Contact<CAP>distributionOption<CAP> } from '../models/enums';
+    import { Contact<CAP>notificationPreference<CAP> } from '../models/enums';
+
 export interface Contact { 
     /**
      * The contact type code. There can only be one contact of a specific type on the booking.  Typically only one contact is used. Null values will be replaced by the primary contact type code.
@@ -49,11 +53,11 @@ export interface Contact {
     /**
      * The contact distribution option.
      */
-    distributionOption?: Contact.DistributionOptionEnum;
+    distributionOption?: Contact<CAP>distributionOption<CAP>;
     /**
      * The notification preference of the contact.
      */
-    notificationPreference?: Contact.NotificationPreferenceEnum;
+    notificationPreference?: Contact<CAP>notificationPreference<CAP>;
     /**
      * The company name.
      */
@@ -62,22 +66,4 @@ export interface Contact {
      * The contact's name.
      */
     name?: Name;
-}
-export namespace Contact {
-    export type DistributionOptionEnum = 'None' | 'Mail' | 'Email' | 'Fax' | 'MailFax' | 'Airport' | 'Hold' | 'Print';
-    export const DistributionOptionEnum = {
-        None: 'None' as DistributionOptionEnum,
-        Mail: 'Mail' as DistributionOptionEnum,
-        Email: 'Email' as DistributionOptionEnum,
-        Fax: 'Fax' as DistributionOptionEnum,
-        MailFax: 'MailFax' as DistributionOptionEnum,
-        Airport: 'Airport' as DistributionOptionEnum,
-        Hold: 'Hold' as DistributionOptionEnum,
-        Print: 'Print' as DistributionOptionEnum
-    }
-    export type NotificationPreferenceEnum = 'None' | 'Promotional';
-    export const NotificationPreferenceEnum = {
-        None: 'None' as NotificationPreferenceEnum,
-        Promotional: 'Promotional' as NotificationPreferenceEnum
-    }
 }

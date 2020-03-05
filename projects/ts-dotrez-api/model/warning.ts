@@ -14,6 +14,9 @@
 /**
  * Defines the product warning.
  */
+
+    import { Warning<CAP>chargeOrigin<CAP> } from '../models/enums';
+
 export interface Warning { 
     /**
      * The warning code.
@@ -30,13 +33,5 @@ export interface Warning {
     /**
      * The origin of the charge in Travel Commerce.
      */
-    chargeOrigin?: Warning.ChargeOriginEnum;
-}
-export namespace Warning {
-    export type ChargeOriginEnum = 'Internal' | 'External' | 'Unknown';
-    export const ChargeOriginEnum = {
-        Internal: 'Internal' as ChargeOriginEnum,
-        External: 'External' as ChargeOriginEnum,
-        Unknown: 'Unknown' as ChargeOriginEnum
-    }
+    chargeOrigin?: Warning<CAP>chargeOrigin<CAP>;
 }

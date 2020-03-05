@@ -16,6 +16,7 @@ import { SsrDetail } from './ssrDetail';
 /**
  * Model information for a sell service request (SSR) tied to a specific leg.
  */
+
 export interface SsrByLeg { 
     /**
      * The unique identifier of the leg of a segment.

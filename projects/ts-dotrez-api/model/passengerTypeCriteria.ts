@@ -15,6 +15,7 @@ import { PassengerSearchCriteria } from './passengerSearchCriteria';
 /**
  * Defines the availability criteria passenger types.
  */
+
 export interface PassengerTypeCriteria { 
     /**
      * The list of passenger types and counts.

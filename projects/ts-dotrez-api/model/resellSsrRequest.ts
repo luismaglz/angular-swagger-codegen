@@ -14,6 +14,7 @@
 /**
  * The resell Ssr request.
  */
+
 export interface ResellSsrRequest { 
     /**
      * Journey to resell the previously cancelled SSRs on.

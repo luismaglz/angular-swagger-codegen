@@ -14,6 +14,7 @@
 /**
  * The commission rate model.
  */
+
 export interface CommissionRate { 
     /**
      * The commission rate code.

@@ -15,6 +15,11 @@ import { AccountCollectionBase } from './accountCollectionBase';
 /**
  * The organization account model.
  */
+
+    import { OrganizationAccount<CAP>owner<CAP> } from '../models/enums';
+    import { OrganizationAccount<CAP>type<CAP> } from '../models/enums';
+    import { OrganizationAccount<CAP>status<CAP> } from '../models/enums';
+
 export interface OrganizationAccount { 
     /**
      * The organization account collection.
@@ -35,15 +40,15 @@ export interface OrganizationAccount {
     /**
      * The account owner type.
      */
-    owner?: OrganizationAccount.OwnerEnum;
+    owner?: OrganizationAccount<CAP>owner<CAP>;
     /**
      * The account type.
      */
-    type?: OrganizationAccount.TypeEnum;
+    type?: OrganizationAccount<CAP>type<CAP>;
     /**
      * The account status.
      */
-    status?: OrganizationAccount.StatusEnum;
+    status?: OrganizationAccount<CAP>status<CAP>;
     /**
      * The total amount.
      */
@@ -56,28 +61,4 @@ export interface OrganizationAccount {
      * The foreign currency code.
      */
     foreignCurrencyCode?: string;
-}
-export namespace OrganizationAccount {
-    export type OwnerEnum = 'Organization' | 'Personnal' | 'Booking' | 'Unknown';
-    export const OwnerEnum = {
-        Organization: 'Organization' as OwnerEnum,
-        Personnal: 'Personnal' as OwnerEnum,
-        Booking: 'Booking' as OwnerEnum,
-        Unknown: 'Unknown' as OwnerEnum
-    }
-    export type TypeEnum = 'Credit' | 'Prepaid' | 'Supplementary' | 'Dependent' | 'Unknown';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        Prepaid: 'Prepaid' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum,
-        Dependent: 'Dependent' as TypeEnum,
-        Unknown: 'Unknown' as TypeEnum
-    }
-    export type StatusEnum = 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown';
-    export const StatusEnum = {
-        Open: 'Open' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        AgencyInactive: 'AgencyInactive' as StatusEnum,
-        Unknown: 'Unknown' as StatusEnum
-    }
 }

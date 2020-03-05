@@ -14,11 +14,14 @@
 /**
  * Model representing a resource setting category item.
  */
+
+    import { ResourceCategoryItem<CAP>contentType<CAP> } from '../models/enums';
+
 export interface ResourceCategoryItem { 
     /**
      * The default content type.
      */
-    readonly contentType?: ResourceCategoryItem.ContentTypeEnum;
+    readonly contentType?: ResourceCategoryItem<CAP>contentType<CAP>;
     /**
      * The resource id.
      */
@@ -43,12 +46,4 @@ export interface ResourceCategoryItem {
      * The resource data.
      */
     data?: string;
-}
-export namespace ResourceCategoryItem {
-    export type ContentTypeEnum = 'Unknown' | 'Json' | 'Xml';
-    export const ContentTypeEnum = {
-        Unknown: 'Unknown' as ContentTypeEnum,
-        Json: 'Json' as ContentTypeEnum,
-        Xml: 'Xml' as ContentTypeEnum
-    }
 }

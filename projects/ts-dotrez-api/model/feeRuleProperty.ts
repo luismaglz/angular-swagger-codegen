@@ -14,6 +14,10 @@
 /**
  * Fee rule property model.
  */
+
+    import { FeeRuleProperty<CAP>operator<CAP> } from '../models/enums';
+    import { FeeRuleProperty<CAP>type<CAP> } from '../models/enums';
+
 export interface FeeRuleProperty { 
     /**
      * Gets or sets the fee property number of this fee rule property.
@@ -26,74 +30,13 @@ export interface FeeRuleProperty {
     /**
      * Gets or sets the property operator of this fee rule property.
      */
-    operator?: FeeRuleProperty.OperatorEnum;
+    operator?: FeeRuleProperty<CAP>operator<CAP>;
     /**
      * Gets or sets the property type of this fee rule property.
      */
-    type?: FeeRuleProperty.TypeEnum;
+    type?: FeeRuleProperty<CAP>type<CAP>;
     /**
      * Gets or sets the property value of this fee rule property.
      */
     propertyValue?: string;
-}
-export namespace FeeRuleProperty {
-    export type OperatorEnum = 'Default' | 'MustBe' | 'MustNotBe' | 'AllMustBe';
-    export const OperatorEnum = {
-        Default: 'Default' as OperatorEnum,
-        MustBe: 'MustBe' as OperatorEnum,
-        MustNotBe: 'MustNotBe' as OperatorEnum,
-        AllMustBe: 'AllMustBe' as OperatorEnum
-    }
-    export type TypeEnum = 'Default' | 'PassengerType' | 'FromStationClass' | 'FareClass' | 'PassengerResidentCountry' | 'FeeCode' | 'ToStationClass' | 'EventChannel' | 'OrganizationGroup' | 'OrganizationCode' | 'AgentRole' | 'BestCustomerProgramLevel' | 'WorstCustomerProgramLevel' | 'ExactCustomerProgramLevel' | 'CarrierCode' | 'SeatGroup' | 'FeeType' | 'ProductClass' | 'SystemCode' | 'TripType' | 'PaymentType' | 'TicketAccountingCode' | 'SoldChannel' | 'ItineraryFullyWithinCountry' | 'ChangeReasonCode' | 'GuestRecognitionLevel' | 'FlightType' | 'FareType' | 'DayOfWeek' | 'StartTimeOfDay' | 'EndTimeOfDay' | 'StartFlightNumberRange' | 'EndFlightNumberRange' | 'MinAdvancedPurchaseDays' | 'FareDiscount' | 'BookingStatus' | 'EarliestAdvancedPurchaseDays' | 'SalesStartTimeOfDay' | 'SalesEndTimeOfDay' | 'BookingCurrency' | 'CardSubType' | 'PaymentMethodCode' | 'ServiceBundle' | 'CreatedAgentRoleCode' | 'StartExtraBagRange' | 'EndExtraBagRange' | 'JourneyDepartureStation' | 'JourneyDepartureCountry' | 'GSTStateCode';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        PassengerType: 'PassengerType' as TypeEnum,
-        FromStationClass: 'FromStationClass' as TypeEnum,
-        FareClass: 'FareClass' as TypeEnum,
-        PassengerResidentCountry: 'PassengerResidentCountry' as TypeEnum,
-        FeeCode: 'FeeCode' as TypeEnum,
-        ToStationClass: 'ToStationClass' as TypeEnum,
-        EventChannel: 'EventChannel' as TypeEnum,
-        OrganizationGroup: 'OrganizationGroup' as TypeEnum,
-        OrganizationCode: 'OrganizationCode' as TypeEnum,
-        AgentRole: 'AgentRole' as TypeEnum,
-        BestCustomerProgramLevel: 'BestCustomerProgramLevel' as TypeEnum,
-        WorstCustomerProgramLevel: 'WorstCustomerProgramLevel' as TypeEnum,
-        ExactCustomerProgramLevel: 'ExactCustomerProgramLevel' as TypeEnum,
-        CarrierCode: 'CarrierCode' as TypeEnum,
-        SeatGroup: 'SeatGroup' as TypeEnum,
-        FeeType: 'FeeType' as TypeEnum,
-        ProductClass: 'ProductClass' as TypeEnum,
-        SystemCode: 'SystemCode' as TypeEnum,
-        TripType: 'TripType' as TypeEnum,
-        PaymentType: 'PaymentType' as TypeEnum,
-        TicketAccountingCode: 'TicketAccountingCode' as TypeEnum,
-        SoldChannel: 'SoldChannel' as TypeEnum,
-        ItineraryFullyWithinCountry: 'ItineraryFullyWithinCountry' as TypeEnum,
-        ChangeReasonCode: 'ChangeReasonCode' as TypeEnum,
-        GuestRecognitionLevel: 'GuestRecognitionLevel' as TypeEnum,
-        FlightType: 'FlightType' as TypeEnum,
-        FareType: 'FareType' as TypeEnum,
-        DayOfWeek: 'DayOfWeek' as TypeEnum,
-        StartTimeOfDay: 'StartTimeOfDay' as TypeEnum,
-        EndTimeOfDay: 'EndTimeOfDay' as TypeEnum,
-        StartFlightNumberRange: 'StartFlightNumberRange' as TypeEnum,
-        EndFlightNumberRange: 'EndFlightNumberRange' as TypeEnum,
-        MinAdvancedPurchaseDays: 'MinAdvancedPurchaseDays' as TypeEnum,
-        FareDiscount: 'FareDiscount' as TypeEnum,
-        BookingStatus: 'BookingStatus' as TypeEnum,
-        EarliestAdvancedPurchaseDays: 'EarliestAdvancedPurchaseDays' as TypeEnum,
-        SalesStartTimeOfDay: 'SalesStartTimeOfDay' as TypeEnum,
-        SalesEndTimeOfDay: 'SalesEndTimeOfDay' as TypeEnum,
-        BookingCurrency: 'BookingCurrency' as TypeEnum,
-        CardSubType: 'CardSubType' as TypeEnum,
-        PaymentMethodCode: 'PaymentMethodCode' as TypeEnum,
-        ServiceBundle: 'ServiceBundle' as TypeEnum,
-        CreatedAgentRoleCode: 'CreatedAgentRoleCode' as TypeEnum,
-        StartExtraBagRange: 'StartExtraBagRange' as TypeEnum,
-        EndExtraBagRange: 'EndExtraBagRange' as TypeEnum,
-        JourneyDepartureStation: 'JourneyDepartureStation' as TypeEnum,
-        JourneyDepartureCountry: 'JourneyDepartureCountry' as TypeEnum,
-        GSTStateCode: 'GSTStateCode' as TypeEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * Represents the base class for a country model.
  */
+
 export interface CountryBase { 
     /**
      * Are we required to check APIS documents.

@@ -15,6 +15,7 @@ import { StationDetail } from './stationDetail';
 /**
  * Model representing the resource entries.
  */
+
 export interface ResourceEntriesStationDetail { 
     /**
      * The expiration.

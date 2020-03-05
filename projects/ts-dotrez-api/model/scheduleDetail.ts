@@ -14,6 +14,7 @@
 /**
  * Market detail contains the abstracted market data describing the earliest and  latest STD.
  */
+
 export interface ScheduleDetail { 
     /**
      * Date this market detail corresponds to.

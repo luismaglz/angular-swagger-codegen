@@ -15,11 +15,14 @@ import { MarketInformation } from './marketInformation';
 /**
  * Represents the travel summary information.
  */
+
+    import { TravelSummary<CAP>status<CAP> } from '../models/enums';
+
 export interface TravelSummary { 
     /**
      * Status of the flight summary.
      */
-    status?: TravelSummary.StatusEnum;
+    status?: TravelSummary<CAP>status<CAP>;
     /**
      * Number of the flight.
      */
@@ -76,16 +79,4 @@ export interface TravelSummary {
      * InventoryLegKey about the flight.
      */
     market?: MarketInformation;
-}
-export namespace TravelSummary {
-    export type StatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const StatusEnum = {
-        Normal: 'Normal' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        Canceled: 'Canceled' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        ClosedPending: 'ClosedPending' as StatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as StatusEnum,
-        Mishap: 'Mishap' as StatusEnum
-    }
 }

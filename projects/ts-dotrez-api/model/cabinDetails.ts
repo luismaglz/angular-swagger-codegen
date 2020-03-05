@@ -14,6 +14,7 @@
 /**
  * Represents the cabin details model.
  */
+
 export interface CabinDetails { 
     /**
      * Represents the code for the cabin of service.

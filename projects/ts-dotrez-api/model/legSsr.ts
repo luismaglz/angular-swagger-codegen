@@ -14,6 +14,7 @@
 /**
  * A model representing a leg ssr summary.
  */
+
 export interface LegSsr { 
     /**
      * The number of Ssrs available.

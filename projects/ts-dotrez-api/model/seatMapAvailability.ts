@@ -17,6 +17,7 @@ import { SeatMapAvailabilitySsrLookup } from './seatMapAvailabilitySsrLookup';
 /**
  * Defines the equipment availability.
  */
+
 export interface SeatMapAvailability { 
     /**
      * The seat map.

@@ -14,6 +14,9 @@
 /**
  * Defines a direct currency conversion.
  */
+
+    import { DirectCurrencyConversion<CAP>status<CAP> } from '../models/enums';
+
 export interface DirectCurrencyConversion { 
     /**
      * The rate ID.
@@ -38,19 +41,9 @@ export interface DirectCurrencyConversion {
     /**
      * The conversion status.
      */
-    status?: DirectCurrencyConversion.StatusEnum;
+    status?: DirectCurrencyConversion<CAP>status<CAP>;
     /**
      * Flag indicating if DCC is applicable.
      */
     applicable?: boolean;
-}
-export namespace DirectCurrencyConversion {
-    export type StatusEnum = 'DccNotOffered' | 'DccOfferRejected' | 'DccOfferAccepted' | 'DccInitialValue' | 'MccInUse';
-    export const StatusEnum = {
-        DccNotOffered: 'DccNotOffered' as StatusEnum,
-        DccOfferRejected: 'DccOfferRejected' as StatusEnum,
-        DccOfferAccepted: 'DccOfferAccepted' as StatusEnum,
-        DccInitialValue: 'DccInitialValue' as StatusEnum,
-        MccInUse: 'MccInUse' as StatusEnum
-    }
 }

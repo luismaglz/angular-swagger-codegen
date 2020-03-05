@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { RedirectResult } from '../model/redirectResult';
 
 import { COLLECTION_FORMATS }  from '../variables';
@@ -33,8 +28,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class RedirectService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * 
@@ -53,7 +53,9 @@ export class RedirectService {
      * @param value4 
      
      */
-    public apiV1RedirectGet = (domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, ) => {
+    public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe?: 'body', headers?: Headers): Observable<any>;
+    public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (domain !== undefined) {
             queryParameters.push("domain="+encodeURIComponent(String(domain)));
@@ -93,16 +95,11 @@ export class RedirectService {
         }
 
 
-            const requestObj: Request<{
-                domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string, 
-            }> = {
-                url: '/api/v1/redirect',
-                method: 'get',
-                data: {
-                    domain,scheme,port,path,param1,value1,param2,value2,param3,value3,param4,value4,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<any>> = this.httpClient.get(`${this.basePath}/api/v1/redirect?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <any>(httpResponse.response));
+        }
+        return response;
     }
 
 }

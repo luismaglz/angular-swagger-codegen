@@ -12,6 +12,7 @@
 import { Passenger } from './passenger';
 
 
+
 export interface InlineResponse2005 { 
     ?: Passenger;
 }

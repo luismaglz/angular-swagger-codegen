@@ -15,6 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Defines a charge breakdown.
  */
+
 export interface ChargeBreakdown { 
     /**
      * The total amount.

@@ -14,11 +14,17 @@
 /**
  * The voucher market restriction model.
  */
+
+    import { VoucherMarketRestriction<CAP>restrictionType<CAP> } from '../models/enums';
+    import { VoucherMarketRestriction<CAP>directionality<CAP> } from '../models/enums';
+    import { VoucherMarketRestriction<CAP>regionType<CAP> } from '../models/enums';
+    import { VoucherMarketRestriction<CAP>travelRegionType<CAP> } from '../models/enums';
+
 export interface VoucherMarketRestriction { 
     /**
      * The market restriction type.
      */
-    restrictionType?: VoucherMarketRestriction.RestrictionTypeEnum;
+    restrictionType?: VoucherMarketRestriction<CAP>restrictionType<CAP>;
     /**
      * The voucher configuration code.
      */
@@ -26,7 +32,7 @@ export interface VoucherMarketRestriction {
     /**
      * The directionality of the voucher market restriction.
      */
-    directionality?: VoucherMarketRestriction.DirectionalityEnum;
+    directionality?: VoucherMarketRestriction<CAP>directionality<CAP>;
     /**
      * The sequence number of the voucher restriction.
      */
@@ -34,7 +40,7 @@ export interface VoucherMarketRestriction {
     /**
      * The region type.
      */
-    regionType?: VoucherMarketRestriction.RegionTypeEnum;
+    regionType?: VoucherMarketRestriction<CAP>regionType<CAP>;
     /**
      * The region code.
      */
@@ -42,49 +48,9 @@ export interface VoucherMarketRestriction {
     /**
      * The travel region type.
      */
-    travelRegionType?: VoucherMarketRestriction.TravelRegionTypeEnum;
+    travelRegionType?: VoucherMarketRestriction<CAP>travelRegionType<CAP>;
     /**
      * The travel region code.
      */
     travelRegionCode?: string;
-}
-export namespace VoucherMarketRestriction {
-    export type RestrictionTypeEnum = 'MustBeOne' | 'MustNot';
-    export const RestrictionTypeEnum = {
-        MustBeOne: 'MustBeOne' as RestrictionTypeEnum,
-        MustNot: 'MustNot' as RestrictionTypeEnum
-    }
-    export type DirectionalityEnum = 'None' | 'To' | 'From' | 'Between';
-    export const DirectionalityEnum = {
-        None: 'None' as DirectionalityEnum,
-        To: 'To' as DirectionalityEnum,
-        From: 'From' as DirectionalityEnum,
-        Between: 'Between' as DirectionalityEnum
-    }
-    export type RegionTypeEnum = 'Default' | 'Station' | 'City' | 'ProvinceState' | 'Country' | 'FeeZone' | 'SubZone' | 'Area' | 'All' | 'Mac';
-    export const RegionTypeEnum = {
-        Default: 'Default' as RegionTypeEnum,
-        Station: 'Station' as RegionTypeEnum,
-        City: 'City' as RegionTypeEnum,
-        ProvinceState: 'ProvinceState' as RegionTypeEnum,
-        Country: 'Country' as RegionTypeEnum,
-        FeeZone: 'FeeZone' as RegionTypeEnum,
-        SubZone: 'SubZone' as RegionTypeEnum,
-        Area: 'Area' as RegionTypeEnum,
-        All: 'All' as RegionTypeEnum,
-        Mac: 'Mac' as RegionTypeEnum
-    }
-    export type TravelRegionTypeEnum = 'Default' | 'Station' | 'City' | 'ProvinceState' | 'Country' | 'FeeZone' | 'SubZone' | 'Area' | 'All' | 'Mac';
-    export const TravelRegionTypeEnum = {
-        Default: 'Default' as TravelRegionTypeEnum,
-        Station: 'Station' as TravelRegionTypeEnum,
-        City: 'City' as TravelRegionTypeEnum,
-        ProvinceState: 'ProvinceState' as TravelRegionTypeEnum,
-        Country: 'Country' as TravelRegionTypeEnum,
-        FeeZone: 'FeeZone' as TravelRegionTypeEnum,
-        SubZone: 'SubZone' as TravelRegionTypeEnum,
-        Area: 'Area' as TravelRegionTypeEnum,
-        All: 'All' as TravelRegionTypeEnum,
-        Mac: 'Mac' as TravelRegionTypeEnum
-    }
 }

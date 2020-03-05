@@ -15,6 +15,7 @@ import { MarketInformation } from './marketInformation';
 /**
  * Represents an SSR availability request.
  */
+
 export interface SsrAvailabilityRequestv2 { 
     /**
      * Filter the trips requested.

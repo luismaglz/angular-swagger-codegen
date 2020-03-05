@@ -15,6 +15,7 @@ import { OrganizationRecordMinimum } from './organizationRecordMinimum';
 /**
  * The data for an organization group including details.
  */
+
 export interface OrganizationGroupDetails { 
     /**
      * The organizations included in the group.

@@ -15,6 +15,9 @@ import { Name } from './name';
 /**
  * Defines a create travel documents request.
  */
+
+    import { TravelDocumentCreateRequest<CAP>gender<CAP> } from '../models/enums';
+
 export interface TravelDocumentCreateRequest { 
     /**
      * The unique travel document type code.
@@ -51,17 +54,9 @@ export interface TravelDocumentCreateRequest {
     /**
      * The travel document holder's gender.
      */
-    gender?: TravelDocumentCreateRequest.GenderEnum;
+    gender?: TravelDocumentCreateRequest<CAP>gender<CAP>;
     /**
      * The person's date of birth.
      */
     dateOfBirth?: Date;
-}
-export namespace TravelDocumentCreateRequest {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

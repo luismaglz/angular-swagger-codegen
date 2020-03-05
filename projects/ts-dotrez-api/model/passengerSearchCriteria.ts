@@ -14,6 +14,7 @@
 /**
  * Model representing an passenger group type for availability search.
  */
+
 export interface PassengerSearchCriteria { 
     /**
      * The passenger type code.

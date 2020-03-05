@@ -17,6 +17,9 @@ import { PassengerTypeCriteria } from './passengerTypeCriteria';
 /**
  * Defines a availability request.
  */
+
+    import { AvailabilityRequestv2<CAP>taxesAndFees<CAP> } from '../models/enums';
+
 export interface AvailabilityRequestv2 { 
     /**
      * The list of passengers.
@@ -33,17 +36,9 @@ export interface AvailabilityRequestv2 {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: AvailabilityRequestv2.TaxesAndFeesEnum;
+    taxesAndFees?: AvailabilityRequestv2<CAP>taxesAndFees<CAP>;
     /**
      * The number of fares per journey to be returned. If not set it will use the default optimized values
      */
     numberOfFaresPerJourney?: number;
-}
-export namespace AvailabilityRequestv2 {
-    export type TaxesAndFeesEnum = 'None' | 'Taxes' | 'TaxesAndFees';
-    export const TaxesAndFeesEnum = {
-        None: 'None' as TaxesAndFeesEnum,
-        Taxes: 'Taxes' as TaxesAndFeesEnum,
-        TaxesAndFees: 'TaxesAndFees' as TaxesAndFeesEnum
-    }
 }

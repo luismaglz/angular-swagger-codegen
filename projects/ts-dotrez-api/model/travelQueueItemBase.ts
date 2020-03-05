@@ -15,6 +15,10 @@ import { MarketInformation } from './marketInformation';
 /**
  * Model representing the travel queue item without a unique key.
  */
+
+    import { TravelQueueItemBase<CAP>processStatus<CAP> } from '../models/enums';
+    import { TravelQueueItemBase<CAP>processState<CAP> } from '../models/enums';
+
 export interface TravelQueueItemBase { 
     /**
      * Market designator.
@@ -23,7 +27,7 @@ export interface TravelQueueItemBase {
     /**
      * Process status.
      */
-    processStatus?: TravelQueueItemBase.ProcessStatusEnum;
+    processStatus?: TravelQueueItemBase<CAP>processStatus<CAP>;
     /**
      * Notes.
      */
@@ -31,7 +35,7 @@ export interface TravelQueueItemBase {
     /**
      * Process state.
      */
-    processState?: TravelQueueItemBase.ProcessStateEnum;
+    processState?: TravelQueueItemBase<CAP>processState<CAP>;
     /**
      * Priority code.
      */
@@ -48,19 +52,4 @@ export interface TravelQueueItemBase {
      * Date status reset.
      */
     statusReset?: Date;
-}
-export namespace TravelQueueItemBase {
-    export type ProcessStatusEnum = 'Ready' | 'Pending';
-    export const ProcessStatusEnum = {
-        Ready: 'Ready' as ProcessStatusEnum,
-        Pending: 'Pending' as ProcessStatusEnum
-    }
-    export type ProcessStateEnum = 'Default' | 'SegmentsConfirmed' | 'BookingBalanced' | 'Other' | 'Complete';
-    export const ProcessStateEnum = {
-        Default: 'Default' as ProcessStateEnum,
-        SegmentsConfirmed: 'SegmentsConfirmed' as ProcessStateEnum,
-        BookingBalanced: 'BookingBalanced' as ProcessStateEnum,
-        Other: 'Other' as ProcessStateEnum,
-        Complete: 'Complete' as ProcessStateEnum
-    }
 }

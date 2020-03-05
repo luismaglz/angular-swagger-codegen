@@ -12,6 +12,7 @@
 import { Message } from './message';
 
 
+
 export interface IJsonResponse { 
     errors?: Array<any>;
     messages?: Array<Message>;

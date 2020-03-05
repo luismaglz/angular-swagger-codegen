@@ -14,6 +14,9 @@
 /**
  * A travel notification timed event.
  */
+
+    import { NotificationTimedEvent<CAP>type<CAP> } from '../models/enums';
+
 export interface NotificationTimedEvent { 
     /**
      * The created date of the travel notification.
@@ -26,12 +29,5 @@ export interface NotificationTimedEvent {
     /**
      * The travel notification timed event type.
      */
-    type: NotificationTimedEvent.TypeEnum;
-}
-export namespace NotificationTimedEvent {
-    export type TypeEnum = 'Departure' | 'Arrival';
-    export const TypeEnum = {
-        Departure: 'Departure' as TypeEnum,
-        Arrival: 'Arrival' as TypeEnum
-    }
+    type: NotificationTimedEvent<CAP>type<CAP>;
 }

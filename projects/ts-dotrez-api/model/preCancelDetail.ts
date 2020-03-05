@@ -15,6 +15,9 @@ import { OrderFee } from './orderFee';
 /**
  * Defines the pre cancel details for a specific component.
  */
+
+    import { PreCancelDetail<CAP>status<CAP> } from '../models/enums';
+
 export interface PreCancelDetail { 
     /**
      * The total fee cost.
@@ -31,21 +34,9 @@ export interface PreCancelDetail {
     /**
      * The status of the pre cancel.
      */
-    status?: PreCancelDetail.StatusEnum;
+    status?: PreCancelDetail<CAP>status<CAP>;
     /**
      * The pre cancel description.
      */
     description?: string;
-}
-export namespace PreCancelDetail {
-    export type StatusEnum = 'Unknown' | 'CancelAvailable' | 'ExternalCancelAvailable' | 'ImmediateCancel' | 'CancelDenied' | 'RemoveFromBooking' | 'CancelPending';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        CancelAvailable: 'CancelAvailable' as StatusEnum,
-        ExternalCancelAvailable: 'ExternalCancelAvailable' as StatusEnum,
-        ImmediateCancel: 'ImmediateCancel' as StatusEnum,
-        CancelDenied: 'CancelDenied' as StatusEnum,
-        RemoveFromBooking: 'RemoveFromBooking' as StatusEnum,
-        CancelPending: 'CancelPending' as StatusEnum
-    }
 }

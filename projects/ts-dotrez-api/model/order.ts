@@ -28,6 +28,9 @@ import { Term } from './term';
 /**
  * Defines a order.
  */
+
+    import { Order<CAP>paymentAction<CAP> } from '../models/enums';
+
 export interface Order { 
     /**
      * The orders address.
@@ -101,7 +104,7 @@ export interface Order {
     /**
      * The payment action.
      */
-    paymentAction?: Order.PaymentActionEnum;
+    paymentAction?: Order<CAP>paymentAction<CAP>;
     /**
      * The pricing breakdown.
      */
@@ -138,14 +141,4 @@ export interface Order {
      * The unique product order key.
      */
     productOrderKey?: string;
-}
-export namespace Order {
-    export type PaymentActionEnum = 'SellingSystemCollects' | 'PassThroughHold' | 'NoPaymentRequired' | 'ReferToSupplierMessage' | 'PassThroughCharge';
-    export const PaymentActionEnum = {
-        SellingSystemCollects: 'SellingSystemCollects' as PaymentActionEnum,
-        PassThroughHold: 'PassThroughHold' as PaymentActionEnum,
-        NoPaymentRequired: 'NoPaymentRequired' as PaymentActionEnum,
-        ReferToSupplierMessage: 'ReferToSupplierMessage' as PaymentActionEnum,
-        PassThroughCharge: 'PassThroughCharge' as PaymentActionEnum
-    }
 }

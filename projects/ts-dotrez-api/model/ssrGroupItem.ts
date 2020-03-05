@@ -14,6 +14,7 @@
 /**
  * The SSR group SSR model.
  */
+
 export interface SsrGroupItem { 
     /**
      * The SSR group Code.

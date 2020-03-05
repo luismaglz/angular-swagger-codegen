@@ -14,6 +14,24 @@
 /**
  * The booking customer account settings.
  */
+
+    import { CustomerAccountSettings<CAP>customerAccessControl<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>defaultCustomerNotificationPreference<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>defaultSeatPreference<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerAddress<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerCurrency<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerDateOfBirth<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerEmail<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerFax<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerLanguage<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerNationality<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerNotificationPreference<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerPayment<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerPhone<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerResidentCountry<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerTitle<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerType<CAP> } from '../models/enums';
+
 export interface CustomerAccountSettings { 
     /**
      * The flag allowing two different customer accounts to be combined into a single account.
@@ -30,194 +48,65 @@ export interface CustomerAccountSettings {
     /**
      * The restriction/permissions allowed by the current role.
      */
-    customerAccessControl?: CustomerAccountSettings.CustomerAccessControlEnum;
+    customerAccessControl?: CustomerAccountSettings<CAP>customerAccessControl<CAP>;
     /**
      * The default notification preferences of the customer.
      */
-    defaultCustomerNotificationPreference?: CustomerAccountSettings.DefaultCustomerNotificationPreferenceEnum;
+    defaultCustomerNotificationPreference?: CustomerAccountSettings<CAP>defaultCustomerNotificationPreference<CAP>;
     /**
      * The default seat preferences of the customer.
      */
-    defaultSeatPreference?: CustomerAccountSettings.DefaultSeatPreferenceEnum;
+    defaultSeatPreference?: CustomerAccountSettings<CAP>defaultSeatPreference<CAP>;
     /**
      * The restrictions on the customer address fields.
      */
-    disableCustomerAddress?: CustomerAccountSettings.DisableCustomerAddressEnum;
+    disableCustomerAddress?: CustomerAccountSettings<CAP>disableCustomerAddress<CAP>;
     /**
      * The restrictions on the customer currency fields.
      */
-    disableCustomerCurrency?: CustomerAccountSettings.DisableCustomerCurrencyEnum;
+    disableCustomerCurrency?: CustomerAccountSettings<CAP>disableCustomerCurrency<CAP>;
     /**
      * The restrictions on the customer date of birth fields.
      */
-    disableCustomerDateOfBirth?: CustomerAccountSettings.DisableCustomerDateOfBirthEnum;
+    disableCustomerDateOfBirth?: CustomerAccountSettings<CAP>disableCustomerDateOfBirth<CAP>;
     /**
      * The restrictions on the customer email fields.
      */
-    disableCustomerEmail?: CustomerAccountSettings.DisableCustomerEmailEnum;
+    disableCustomerEmail?: CustomerAccountSettings<CAP>disableCustomerEmail<CAP>;
     /**
      * The restrictions on the customer fax fields.
      */
-    disableCustomerFax?: CustomerAccountSettings.DisableCustomerFaxEnum;
+    disableCustomerFax?: CustomerAccountSettings<CAP>disableCustomerFax<CAP>;
     /**
      * The restrictions on the customer language fields.
      */
-    disableCustomerLanguage?: CustomerAccountSettings.DisableCustomerLanguageEnum;
+    disableCustomerLanguage?: CustomerAccountSettings<CAP>disableCustomerLanguage<CAP>;
     /**
      * The restrictions on the customer nationality fields.
      */
-    disableCustomerNationality?: CustomerAccountSettings.DisableCustomerNationalityEnum;
+    disableCustomerNationality?: CustomerAccountSettings<CAP>disableCustomerNationality<CAP>;
     /**
      * The restrictions on the customer notification preferences fields.
      */
-    disableCustomerNotificationPreference?: CustomerAccountSettings.DisableCustomerNotificationPreferenceEnum;
+    disableCustomerNotificationPreference?: CustomerAccountSettings<CAP>disableCustomerNotificationPreference<CAP>;
     /**
      * The restrictions on the customer payment fields.
      */
-    disableCustomerPayment?: CustomerAccountSettings.DisableCustomerPaymentEnum;
+    disableCustomerPayment?: CustomerAccountSettings<CAP>disableCustomerPayment<CAP>;
     /**
      * The restrictions on the customer phone number fields.
      */
-    disableCustomerPhone?: CustomerAccountSettings.DisableCustomerPhoneEnum;
+    disableCustomerPhone?: CustomerAccountSettings<CAP>disableCustomerPhone<CAP>;
     /**
      * The restrictions on the customer resident country fields.
      */
-    disableCustomerResidentCountry?: CustomerAccountSettings.DisableCustomerResidentCountryEnum;
+    disableCustomerResidentCountry?: CustomerAccountSettings<CAP>disableCustomerResidentCountry<CAP>;
     /**
      * The restrictions on the customer title fields.
      */
-    disableCustomerTitle?: CustomerAccountSettings.DisableCustomerTitleEnum;
+    disableCustomerTitle?: CustomerAccountSettings<CAP>disableCustomerTitle<CAP>;
     /**
      * The restrictions on the customer type fields.
      */
-    disableCustomerType?: CustomerAccountSettings.DisableCustomerTypeEnum;
-}
-export namespace CustomerAccountSettings {
-    export type CustomerAccessControlEnum = 'View' | 'CreateAndChange';
-    export const CustomerAccessControlEnum = {
-        View: 'View' as CustomerAccessControlEnum,
-        CreateAndChange: 'CreateAndChange' as CustomerAccessControlEnum
-    }
-    export type DefaultCustomerNotificationPreferenceEnum = 'None' | 'Promotional';
-    export const DefaultCustomerNotificationPreferenceEnum = {
-        None: 'None' as DefaultCustomerNotificationPreferenceEnum,
-        Promotional: 'Promotional' as DefaultCustomerNotificationPreferenceEnum
-    }
-    export type DefaultSeatPreferenceEnum = 'None' | 'Window' | 'Aisle' | 'NoPreference' | 'Front' | 'Rear' | 'WindowFront' | 'WindowRear' | 'AisleFront' | 'AisleRear';
-    export const DefaultSeatPreferenceEnum = {
-        None: 'None' as DefaultSeatPreferenceEnum,
-        Window: 'Window' as DefaultSeatPreferenceEnum,
-        Aisle: 'Aisle' as DefaultSeatPreferenceEnum,
-        NoPreference: 'NoPreference' as DefaultSeatPreferenceEnum,
-        Front: 'Front' as DefaultSeatPreferenceEnum,
-        Rear: 'Rear' as DefaultSeatPreferenceEnum,
-        WindowFront: 'WindowFront' as DefaultSeatPreferenceEnum,
-        WindowRear: 'WindowRear' as DefaultSeatPreferenceEnum,
-        AisleFront: 'AisleFront' as DefaultSeatPreferenceEnum,
-        AisleRear: 'AisleRear' as DefaultSeatPreferenceEnum
-    }
-    export type DisableCustomerAddressEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerAddressEnum = {
-        Required: 'Required' as DisableCustomerAddressEnum,
-        Optional: 'Optional' as DisableCustomerAddressEnum,
-        Disabled: 'Disabled' as DisableCustomerAddressEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerAddressEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerAddressEnum
-    }
-    export type DisableCustomerCurrencyEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerCurrencyEnum = {
-        Required: 'Required' as DisableCustomerCurrencyEnum,
-        Optional: 'Optional' as DisableCustomerCurrencyEnum,
-        Disabled: 'Disabled' as DisableCustomerCurrencyEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerCurrencyEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerCurrencyEnum
-    }
-    export type DisableCustomerDateOfBirthEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerDateOfBirthEnum = {
-        Required: 'Required' as DisableCustomerDateOfBirthEnum,
-        Optional: 'Optional' as DisableCustomerDateOfBirthEnum,
-        Disabled: 'Disabled' as DisableCustomerDateOfBirthEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerDateOfBirthEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerDateOfBirthEnum
-    }
-    export type DisableCustomerEmailEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerEmailEnum = {
-        Required: 'Required' as DisableCustomerEmailEnum,
-        Optional: 'Optional' as DisableCustomerEmailEnum,
-        Disabled: 'Disabled' as DisableCustomerEmailEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerEmailEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerEmailEnum
-    }
-    export type DisableCustomerFaxEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerFaxEnum = {
-        Required: 'Required' as DisableCustomerFaxEnum,
-        Optional: 'Optional' as DisableCustomerFaxEnum,
-        Disabled: 'Disabled' as DisableCustomerFaxEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerFaxEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerFaxEnum
-    }
-    export type DisableCustomerLanguageEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerLanguageEnum = {
-        Required: 'Required' as DisableCustomerLanguageEnum,
-        Optional: 'Optional' as DisableCustomerLanguageEnum,
-        Disabled: 'Disabled' as DisableCustomerLanguageEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerLanguageEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerLanguageEnum
-    }
-    export type DisableCustomerNationalityEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerNationalityEnum = {
-        Required: 'Required' as DisableCustomerNationalityEnum,
-        Optional: 'Optional' as DisableCustomerNationalityEnum,
-        Disabled: 'Disabled' as DisableCustomerNationalityEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerNationalityEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerNationalityEnum
-    }
-    export type DisableCustomerNotificationPreferenceEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerNotificationPreferenceEnum = {
-        Required: 'Required' as DisableCustomerNotificationPreferenceEnum,
-        Optional: 'Optional' as DisableCustomerNotificationPreferenceEnum,
-        Disabled: 'Disabled' as DisableCustomerNotificationPreferenceEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerNotificationPreferenceEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerNotificationPreferenceEnum
-    }
-    export type DisableCustomerPaymentEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerPaymentEnum = {
-        Required: 'Required' as DisableCustomerPaymentEnum,
-        Optional: 'Optional' as DisableCustomerPaymentEnum,
-        Disabled: 'Disabled' as DisableCustomerPaymentEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerPaymentEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerPaymentEnum
-    }
-    export type DisableCustomerPhoneEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerPhoneEnum = {
-        Required: 'Required' as DisableCustomerPhoneEnum,
-        Optional: 'Optional' as DisableCustomerPhoneEnum,
-        Disabled: 'Disabled' as DisableCustomerPhoneEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerPhoneEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerPhoneEnum
-    }
-    export type DisableCustomerResidentCountryEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerResidentCountryEnum = {
-        Required: 'Required' as DisableCustomerResidentCountryEnum,
-        Optional: 'Optional' as DisableCustomerResidentCountryEnum,
-        Disabled: 'Disabled' as DisableCustomerResidentCountryEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerResidentCountryEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerResidentCountryEnum
-    }
-    export type DisableCustomerTitleEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerTitleEnum = {
-        Required: 'Required' as DisableCustomerTitleEnum,
-        Optional: 'Optional' as DisableCustomerTitleEnum,
-        Disabled: 'Disabled' as DisableCustomerTitleEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerTitleEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerTitleEnum
-    }
-    export type DisableCustomerTypeEnum = 'Required' | 'Optional' | 'Disabled' | 'RequiredMasked' | 'OptionalMasked';
-    export const DisableCustomerTypeEnum = {
-        Required: 'Required' as DisableCustomerTypeEnum,
-        Optional: 'Optional' as DisableCustomerTypeEnum,
-        Disabled: 'Disabled' as DisableCustomerTypeEnum,
-        RequiredMasked: 'RequiredMasked' as DisableCustomerTypeEnum,
-        OptionalMasked: 'OptionalMasked' as DisableCustomerTypeEnum
-    }
+    disableCustomerType?: CustomerAccountSettings<CAP>disableCustomerType<CAP>;
 }

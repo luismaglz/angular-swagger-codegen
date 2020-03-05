@@ -14,6 +14,7 @@
 /**
  * Defines a payment attachment.
  */
+
 export interface PaymentAttachment { 
     /**
      * The attachment ID.

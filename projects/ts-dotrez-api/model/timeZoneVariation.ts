@@ -14,6 +14,7 @@
 /**
  * The time zone variation model.
  */
+
 export interface TimeZoneVariation { 
     /**
      * Gets or sets the End UTC time variation.

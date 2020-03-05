@@ -14,6 +14,9 @@
 /**
  * Defines the individual passenger checkin request.
  */
+
+    import { CheckinPassengerRequestv2<CAP>transitType<CAP> } from '../models/enums';
+
 export interface CheckinPassengerRequestv2 { 
     /**
      * The unique passenger key being checked in.
@@ -22,7 +25,7 @@ export interface CheckinPassengerRequestv2 {
     /**
      * The passengers transit type.
      */
-    transitType?: CheckinPassengerRequestv2.TransitTypeEnum;
+    transitType?: CheckinPassengerRequestv2<CAP>transitType<CAP>;
     /**
      * Flag indicating to process APPS.
      */
@@ -31,13 +34,4 @@ export interface CheckinPassengerRequestv2 {
      * The value specifying the verified travel document(s) associated with this checkin.
      */
     verifiedTravelDocumentKeys?: Array<string>;
-}
-export namespace CheckinPassengerRequestv2 {
-    export type TransitTypeEnum = 'Default' | 'Origin' | 'Destination' | 'Both';
-    export const TransitTypeEnum = {
-        Default: 'Default' as TransitTypeEnum,
-        Origin: 'Origin' as TransitTypeEnum,
-        Destination: 'Destination' as TransitTypeEnum,
-        Both: 'Both' as TransitTypeEnum
-    }
 }

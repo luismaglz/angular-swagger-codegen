@@ -17,6 +17,9 @@ import { UserSetting } from './userSetting';
 /**
  * Defines a unique user.
  */
+
+    import { User<CAP>status<CAP> } from '../models/enums';
+
 export interface User { 
     /**
      * The unique user key.
@@ -29,7 +32,7 @@ export interface User {
     /**
      * The status of the account.
      */
-    status?: User.StatusEnum;
+    status?: User<CAP>status<CAP>;
     /**
      * The unque person key associated to the user.
      */
@@ -90,14 +93,4 @@ export interface User {
      * Flag indicating if the password needs to be reset.
      */
     forcePasswordReset?: boolean;
-}
-export namespace User {
-    export type StatusEnum = 'Default' | 'Active' | 'Pending' | 'Suspended' | 'Terminated';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum
-    }
 }

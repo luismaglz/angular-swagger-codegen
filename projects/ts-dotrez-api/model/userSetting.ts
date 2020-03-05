@@ -14,6 +14,7 @@
 /**
  * Defines the agent setting configuration.
  */
+
 export interface UserSetting { 
     /**
      * The setting data.

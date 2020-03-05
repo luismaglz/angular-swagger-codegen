@@ -19,6 +19,11 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Segment model for an already booked flight.
  */
+
+    import { Segment<CAP>channelType<CAP> } from '../models/enums';
+    import { Segment<CAP>changeReasonCode<CAP> } from '../models/enums';
+    import { Segment<CAP>segmentType<CAP> } from '../models/enums';
+
 export interface Segment { 
     /**
      * Represents the stand by status of the segment.
@@ -64,7 +69,7 @@ export interface Segment {
     /**
      * The type of the channel from the user that added the segment.
      */
-    channelType?: Segment.ChannelTypeEnum;
+    channelType?: Segment<CAP>channelType<CAP>;
     /**
      * The cabin of service.
      */
@@ -80,11 +85,11 @@ export interface Segment {
     /**
      * The change reason code.
      */
-    changeReasonCode?: Segment.ChangeReasonCodeEnum;
+    changeReasonCode?: Segment<CAP>changeReasonCode<CAP>;
     /**
      * The type of the segment.
      */
-    segmentType?: Segment.SegmentTypeEnum;
+    segmentType?: Segment<CAP>segmentType<CAP>;
     /**
      * The segment sales date.
      */
@@ -101,33 +106,4 @@ export interface Segment {
      * The legs.
      */
     legs?: Array<Leg>;
-}
-export namespace Segment {
-    export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    }
-    export type ChangeReasonCodeEnum = 'NoChange' | 'Irop' | 'ScheduleChange' | 'Move' | 'VoluntaryFlyAhead' | 'InvoluntaryFlyAhead' | 'SelfServiceRebooking';
-    export const ChangeReasonCodeEnum = {
-        NoChange: 'NoChange' as ChangeReasonCodeEnum,
-        Irop: 'Irop' as ChangeReasonCodeEnum,
-        ScheduleChange: 'ScheduleChange' as ChangeReasonCodeEnum,
-        Move: 'Move' as ChangeReasonCodeEnum,
-        VoluntaryFlyAhead: 'VoluntaryFlyAhead' as ChangeReasonCodeEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as ChangeReasonCodeEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as ChangeReasonCodeEnum
-    }
-    export type SegmentTypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const SegmentTypeEnum = {
-        Normal: 'Normal' as SegmentTypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as SegmentTypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as SegmentTypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as SegmentTypeEnum,
-        InterlineInbound: 'InterlineInbound' as SegmentTypeEnum,
-        Passive: 'Passive' as SegmentTypeEnum
-    }
 }

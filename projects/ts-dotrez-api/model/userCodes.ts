@@ -14,6 +14,7 @@
 /**
  * Defines all the different user codes.
  */
+
 export interface UserCodes { 
     /**
      * The user's department code.

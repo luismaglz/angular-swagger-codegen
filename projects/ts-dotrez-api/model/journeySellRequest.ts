@@ -15,6 +15,7 @@ import { SellKey } from './sellKey';
 /**
  * Journey request represents the trip sell request but with only information needed for a booking sell.
  */
+
 export interface JourneySellRequest { 
     /**
      * The list of selected sell keys to be added to the booking.

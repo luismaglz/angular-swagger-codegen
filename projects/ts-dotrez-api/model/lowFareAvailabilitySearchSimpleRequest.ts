@@ -15,6 +15,9 @@ import { PassengerSearchCriteria } from './passengerSearchCriteria';
 /**
  * Model representing a low fare availability search simple request.
  */
+
+    import { LowFareAvailabilitySearchSimpleRequest<CAP>loyaltyFilter<CAP> } from '../models/enums';
+
 export interface LowFareAvailabilitySearchSimpleRequest { 
     /**
      * The origin station code.
@@ -47,7 +50,7 @@ export interface LowFareAvailabilitySearchSimpleRequest {
     /**
      * The loyalty fare filter.
      */
-    loyaltyFilter?: LowFareAvailabilitySearchSimpleRequest.LoyaltyFilterEnum;
+    loyaltyFilter?: LowFareAvailabilitySearchSimpleRequest<CAP>loyaltyFilter<CAP>;
     /**
      * The number of days to subtract from the begin/end date.
      */
@@ -56,13 +59,4 @@ export interface LowFareAvailabilitySearchSimpleRequest {
      * The number of days to add to the begin/end date.
      */
     daysToRight?: number;
-}
-export namespace LowFareAvailabilitySearchSimpleRequest {
-    export type LoyaltyFilterEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyFilterEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyFilterEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyFilterEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyFilterEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyFilterEnum
-    }
 }

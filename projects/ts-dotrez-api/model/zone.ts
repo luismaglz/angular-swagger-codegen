@@ -15,6 +15,7 @@ import { SubZone } from './subZone';
 /**
  * The zone model.
  */
+
 export interface Zone { 
     /**
      * Gets or sets the area code of this zone.

@@ -14,6 +14,7 @@
 /**
  * Summarized move data at the journey level.
  */
+
 export interface JourneyMove { 
     /**
      * The maximum number of days this flight can be moved backwards.

@@ -14,6 +14,9 @@
 /**
  * Model information about the baggage a passenger has.
  */
+
+    import { PassengerBag<CAP>weightType<CAP> } from '../models/enums';
+
 export interface PassengerBag { 
     /**
      * The unique transportation identifier.
@@ -58,13 +61,5 @@ export interface PassengerBag {
     /**
      * The WeightType in Bag object.
      */
-    weightType?: PassengerBag.WeightTypeEnum;
-}
-export namespace PassengerBag {
-    export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    }
+    weightType?: PassengerBag<CAP>weightType<CAP>;
 }

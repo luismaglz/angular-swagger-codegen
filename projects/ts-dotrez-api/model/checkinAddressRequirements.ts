@@ -14,6 +14,7 @@
 /**
  * Defines a passenger checkin address requirements.
  */
+
 export interface CheckinAddressRequirements { 
     /**
      * Flag indicating if the checkin address requirements are meet and ready/valid for checkin.

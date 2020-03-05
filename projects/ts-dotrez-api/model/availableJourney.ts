@@ -17,11 +17,14 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * The available journey represents a specific date, market journey that can be sold.
  */
+
+    import { AvailableJourney<CAP>flightType<CAP> } from '../models/enums';
+
 export interface AvailableJourney { 
     /**
      * The flight type of the journey.
      */
-    readonly flightType?: AvailableJourney.FlightTypeEnum;
+    readonly flightType?: AvailableJourney<CAP>flightType<CAP>;
     /**
      * The number of stops the journey will make.
      */
@@ -46,15 +49,4 @@ export interface AvailableJourney {
      * A value indicating whether the journey is for a general user.
      */
     notForGeneralUser?: boolean;
-}
-export namespace AvailableJourney {
-    export type FlightTypeEnum = 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All';
-    export const FlightTypeEnum = {
-        None: 'None' as FlightTypeEnum,
-        NonStop: 'NonStop' as FlightTypeEnum,
-        Through: 'Through' as FlightTypeEnum,
-        Direct: 'Direct' as FlightTypeEnum,
-        Connect: 'Connect' as FlightTypeEnum,
-        All: 'All' as FlightTypeEnum
-    }
 }

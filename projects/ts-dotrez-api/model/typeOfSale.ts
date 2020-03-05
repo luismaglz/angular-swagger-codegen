@@ -14,6 +14,7 @@
 /**
  * Defines the type of sale values.
  */
+
 export interface TypeOfSale { 
     /**
      * The resident country.

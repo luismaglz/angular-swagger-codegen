@@ -17,6 +17,9 @@ import { AvailabilityFareCriteria } from './availabilityFareCriteria';
 /**
  * Model representing a availability rebook search.
  */
+
+    import { AvailabilityRebookRequest<CAP>taxesAndFees<CAP> } from '../models/enums';
+
 export interface AvailabilityRebookRequest { 
     /**
      * The list of availability search criteria.
@@ -29,7 +32,7 @@ export interface AvailabilityRebookRequest {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: AvailabilityRebookRequest.TaxesAndFeesEnum;
+    taxesAndFees?: AvailabilityRebookRequest<CAP>taxesAndFees<CAP>;
     /**
      * The code criteria.
      */
@@ -38,12 +41,4 @@ export interface AvailabilityRebookRequest {
      * The flag indicating to search low fare mode (only returning the lowest fare).
      */
     lowFareMode?: boolean;
-}
-export namespace AvailabilityRebookRequest {
-    export type TaxesAndFeesEnum = 'None' | 'Taxes' | 'TaxesAndFees';
-    export const TaxesAndFeesEnum = {
-        None: 'None' as TaxesAndFeesEnum,
-        Taxes: 'Taxes' as TaxesAndFeesEnum,
-        TaxesAndFees: 'TaxesAndFees' as TaxesAndFeesEnum
-    }
 }

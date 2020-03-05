@@ -15,6 +15,11 @@ import { AccountCollection } from './accountCollection';
 /**
  * The account model.
  */
+
+    import { Account<CAP>owner<CAP> } from '../models/enums';
+    import { Account<CAP>type<CAP> } from '../models/enums';
+    import { Account<CAP>status<CAP> } from '../models/enums';
+
 export interface Account { 
     /**
      * The list of account collections.
@@ -35,15 +40,15 @@ export interface Account {
     /**
      * The account owner type.
      */
-    owner?: Account.OwnerEnum;
+    owner?: Account<CAP>owner<CAP>;
     /**
      * The account type.
      */
-    type?: Account.TypeEnum;
+    type?: Account<CAP>type<CAP>;
     /**
      * The account status.
      */
-    status?: Account.StatusEnum;
+    status?: Account<CAP>status<CAP>;
     /**
      * The total amount.
      */
@@ -56,28 +61,4 @@ export interface Account {
      * The foreign currency code.
      */
     foreignCurrencyCode?: string;
-}
-export namespace Account {
-    export type OwnerEnum = 'Organization' | 'Personnal' | 'Booking' | 'Unknown';
-    export const OwnerEnum = {
-        Organization: 'Organization' as OwnerEnum,
-        Personnal: 'Personnal' as OwnerEnum,
-        Booking: 'Booking' as OwnerEnum,
-        Unknown: 'Unknown' as OwnerEnum
-    }
-    export type TypeEnum = 'Credit' | 'Prepaid' | 'Supplementary' | 'Dependent' | 'Unknown';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        Prepaid: 'Prepaid' as TypeEnum,
-        Supplementary: 'Supplementary' as TypeEnum,
-        Dependent: 'Dependent' as TypeEnum,
-        Unknown: 'Unknown' as TypeEnum
-    }
-    export type StatusEnum = 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown';
-    export const StatusEnum = {
-        Open: 'Open' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        AgencyInactive: 'AgencyInactive' as StatusEnum,
-        Unknown: 'Unknown' as StatusEnum
-    }
 }

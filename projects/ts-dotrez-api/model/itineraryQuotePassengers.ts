@@ -15,6 +15,7 @@ import { Passenger } from './passenger';
 /**
  * The dictionary of passengers.
  */
+
 export interface ItineraryQuotePassengers { 
     ?: Passenger;
 }

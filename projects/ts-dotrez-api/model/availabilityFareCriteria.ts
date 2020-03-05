@@ -14,11 +14,15 @@
 /**
  * Defines a availability fare search criteria.
  */
+
+    import { AvailabilityFareCriteria<CAP>classControl<CAP> } from '../models/enums';
+    import { AvailabilityFareCriteria<CAP>loyalty<CAP> } from '../models/enums';
+
 export interface AvailabilityFareCriteria { 
     /**
      * The fare class control.
      */
-    classControl?: AvailabilityFareCriteria.ClassControlEnum;
+    classControl?: AvailabilityFareCriteria<CAP>classControl<CAP>;
     /**
      * The max fare price.
      */
@@ -30,7 +34,7 @@ export interface AvailabilityFareCriteria {
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: AvailabilityFareCriteria.LoyaltyEnum;
+    loyalty?: AvailabilityFareCriteria<CAP>loyalty<CAP>;
     /**
      * The list of fare types.
      */
@@ -39,19 +43,4 @@ export interface AvailabilityFareCriteria {
      * The list of fare classes.
      */
     classes?: Array<string>;
-}
-export namespace AvailabilityFareCriteria {
-    export type ClassControlEnum = 'LowestFareClass' | 'CompressByProductClass' | 'Default';
-    export const ClassControlEnum = {
-        LowestFareClass: 'LowestFareClass' as ClassControlEnum,
-        CompressByProductClass: 'CompressByProductClass' as ClassControlEnum,
-        Default: 'Default' as ClassControlEnum
-    }
-    export type LoyaltyEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyEnum
-    }
 }

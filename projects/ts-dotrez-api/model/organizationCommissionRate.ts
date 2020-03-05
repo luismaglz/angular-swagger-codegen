@@ -14,6 +14,7 @@
 /**
  * The commission rate details of an organization.
  */
+
 export interface OrganizationCommissionRate { 
     /**
      * Commission rate code.

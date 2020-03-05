@@ -14,6 +14,7 @@
 /**
  * Defines the request to retrieve a service fee.
  */
+
 export interface FeeRequestBase { 
     /**
      * The override amount.

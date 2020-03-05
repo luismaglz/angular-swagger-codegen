@@ -14,6 +14,7 @@
 /**
  * Represents the history of an trip operation.
  */
+
 export interface TripOperationHistory { 
     /**
      * The unique identification for the trip operation history.

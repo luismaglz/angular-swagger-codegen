@@ -16,6 +16,7 @@ import { FareReferenceTotals } from './fareReferenceTotals';
 /**
  * The fare reference represents a master reference of the full fare details.
  */
+
 export interface FareReference { 
     /**
      * The summed up totals for the collection of fares.

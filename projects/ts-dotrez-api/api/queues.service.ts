@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { BookingQueueItemBase } from '../model/bookingQueueItemBase';
 import { DeleteBookingQueueItemBaseRequest } from '../model/deleteBookingQueueItemBaseRequest';
 import { DequeueTravelSummary } from '../model/dequeueTravelSummary';
@@ -39,8 +34,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class QueuesService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Removes booking queue items from the specified queue.
@@ -50,7 +50,9 @@ export class QueuesService {
      * @param request 
      
      */
-    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete = (bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, ) => {
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!bookingQueueCode){
             throw new Error('Required parameter bookingQueueCode was null or undefined when calling apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete.');
         }
@@ -60,16 +62,11 @@ export class QueuesService {
         }
 
 
-            const requestObj: Request<{
-                bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest, 
-            }> = {
-                url: '/api/nsk/v1/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/items/${encodeURIComponent(String(bookingQueueItemKey))}',
-                method: 'delete',
-                data: {
-                    bookingQueueCode,bookingQueueItemKey,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/items/${encodeURIComponent(String(bookingQueueItemKey))}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -81,7 +78,9 @@ export class QueuesService {
      * @param request 
      
      */
-    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut = (bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, ) => {
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!bookingQueueCode){
             throw new Error('Required parameter bookingQueueCode was null or undefined when calling apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut.');
         }
@@ -91,16 +90,11 @@ export class QueuesService {
         }
 
 
-            const requestObj: Request<{
-                bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase, 
-            }> = {
-                url: '/api/nsk/v1/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/items/${encodeURIComponent(String(bookingQueueItemKey))}',
-                method: 'put',
-                data: {
-                    bookingQueueCode,bookingQueueItemKey,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/items/${encodeURIComponent(String(bookingQueueItemKey))}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -111,7 +105,9 @@ export class QueuesService {
      * @param subQueueCode Sub queue code.
      
      */
-    public apiNskV1QueuesTravelByTravelQueueCodeNextGet = (travelQueueCode: string, subQueueCode?: string, ) => {
+    public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe?: 'body', headers?: Headers): Observable<DequeueTravelSummary>;
+    public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<DequeueTravelSummary>>;
+    public apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!travelQueueCode){
             throw new Error('Required parameter travelQueueCode was null or undefined when calling apiNskV1QueuesTravelByTravelQueueCodeNextGet.');
         }
@@ -122,16 +118,11 @@ export class QueuesService {
         }
 
 
-            const requestObj: Request<{
-                travelQueueCode: string, subQueueCode?: string, 
-            }> = {
-                url: '/api/nsk/v1/queues/travel/${encodeURIComponent(String(travelQueueCode))}/next',
-                method: 'get',
-                data: {
-                    travelQueueCode,subQueueCode,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<DequeueTravelSummary>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/queues/travel/${encodeURIComponent(String(travelQueueCode))}/next?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <DequeueTravelSummary>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -141,18 +132,15 @@ export class QueuesService {
      * @param item 
      
      */
-    public apiNskV1QueuesTravelPost = (item?: TravelQueueItemRequest, ) => {
+    public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                item?: TravelQueueItemRequest, 
-            }> = {
-                url: '/api/nsk/v1/queues/travel',
-                method: 'post',
-                data: {
-                    item,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/queues/travel`, item , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -166,7 +154,9 @@ export class QueuesService {
      * @param password The Password needed to access the queue.  Required if queue  is set to password-protected in Sky Manager.
      
      */
-    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet = (bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, ) => {
+    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe?: 'body', headers?: Headers): Observable<Array<BookingQueueItemBase>>;
+    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingQueueItemBase>>>;
+    public apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!bookingQueueCode){
             throw new Error('Required parameter bookingQueueCode was null or undefined when calling apiNskV2QueuesBookingsByBookingQueueCodeNextGet.');
         }
@@ -186,16 +176,11 @@ export class QueuesService {
         }
 
 
-            const requestObj: Request<{
-                bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string, 
-            }> = {
-                url: '/api/nsk/v2/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/next',
-                method: 'get',
-                data: {
-                    bookingQueueCode,subQueueCode,startDate,endDate,password,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<BookingQueueItemBase>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/next?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<BookingQueueItemBase>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -209,7 +194,9 @@ export class QueuesService {
      * @param lastPageIndex Used to specify the index of the last set of records retrieved  when paging is performed. This is optional.
      
      */
-    public apiNskV2QueuesBookingsGet = (queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, ) => {
+    public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe?: 'body', headers?: Headers): Observable<QueueResults>;
+    public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<QueueResults>>;
+    public apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         let queryParameters: string[] = [];
         if (queueName !== undefined) {
             queryParameters.push("queueName="+encodeURIComponent(String(queueName)));
@@ -228,16 +215,11 @@ export class QueuesService {
         }
 
 
-            const requestObj: Request<{
-                queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number, 
-            }> = {
-                url: '/api/nsk/v2/queues/bookings',
-                method: 'get',
-                data: {
-                    queueName,queueCode,queueCategoryCode,pageSize,lastPageIndex,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<QueueResults>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/queues/bookings?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <QueueResults>(httpResponse.response));
+        }
+        return response;
     }
 
 }

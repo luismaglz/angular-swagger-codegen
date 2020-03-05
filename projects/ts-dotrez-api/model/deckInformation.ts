@@ -15,6 +15,7 @@ import { DeckInformationCompartments } from './deckInformationCompartments';
 /**
  * Defines a deck within an equipment.
  */
+
 export interface DeckInformation { 
     /**
      * The deck number.

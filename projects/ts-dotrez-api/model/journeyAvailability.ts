@@ -17,11 +17,14 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines a journey availability.
  */
+
+    import { JourneyAvailability<CAP>flightType<CAP> } from '../models/enums';
+
 export interface JourneyAvailability { 
     /**
      * Returns a flight type enumeration. (NonStop, Thru, etc.)
      */
-    readonly flightType?: JourneyAvailability.FlightTypeEnum;
+    readonly flightType?: JourneyAvailability<CAP>flightType<CAP>;
     /**
      * The total number of stops this flight takes.
      */
@@ -43,15 +46,4 @@ export interface JourneyAvailability {
      * A value indicating whether the journey is for a general user.
      */
     notForGeneralUser?: boolean;
-}
-export namespace JourneyAvailability {
-    export type FlightTypeEnum = 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All';
-    export const FlightTypeEnum = {
-        None: 'None' as FlightTypeEnum,
-        NonStop: 'NonStop' as FlightTypeEnum,
-        Through: 'Through' as FlightTypeEnum,
-        Direct: 'Direct' as FlightTypeEnum,
-        Connect: 'Connect' as FlightTypeEnum,
-        All: 'All' as FlightTypeEnum
-    }
 }

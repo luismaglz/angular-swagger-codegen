@@ -16,6 +16,7 @@ import { ConnectorType } from './connectorType';
 /**
  * Defines a supplier.
  */
+
 export interface Supplier { 
     /**
      * The unique supplier code.

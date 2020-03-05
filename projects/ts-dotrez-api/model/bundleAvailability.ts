@@ -15,6 +15,7 @@ import { BundleAvailabilityPricesByJourney } from './bundleAvailabilityPricesByJ
 /**
  * Model containing the bundle ssr availability information.
  */
+
 export interface BundleAvailability { 
     /**
      * Indicates if the bundle has a cost associated with it.

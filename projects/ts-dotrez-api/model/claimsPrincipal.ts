@@ -14,6 +14,7 @@ import { ClaimsIdentity } from './claimsIdentity';
 import { IIdentity } from './iIdentity';
 
 
+
 export interface ClaimsPrincipal { 
     readonly claims?: Array<Claim>;
     readonly identities?: Array<ClaimsIdentity>;

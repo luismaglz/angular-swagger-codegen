@@ -12,6 +12,7 @@
 import { AddOnAllowedPayments } from './addOnAllowedPayments';
 
 
+
 export interface InlineResponse2001 { 
     ?: AddOnAllowedPayments;
 }

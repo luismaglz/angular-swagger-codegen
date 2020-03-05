@@ -14,6 +14,7 @@
 /**
  * Defines an amount base price and total price.
  */
+
 export interface Amount { 
     /**
      * The base amount value.

@@ -14,11 +14,14 @@
 /**
  * Defines the person alias request.
  */
+
+    import { PersonAliasRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface PersonAliasRequest { 
     /**
      * The type of alias.
      */
-    type?: PersonAliasRequest.TypeEnum;
+    type?: PersonAliasRequest<CAP>type<CAP>;
     /**
      * The given first name.
      */
@@ -39,11 +42,4 @@ export interface PersonAliasRequest {
      * The suffix.
      */
     suffix?: string;
-}
-export namespace PersonAliasRequest {
-    export type TypeEnum = 'Alias' | 'Variant';
-    export const TypeEnum = {
-        Alias: 'Alias' as TypeEnum,
-        Variant: 'Variant' as TypeEnum
-    }
 }

@@ -15,6 +15,7 @@ import { SelectedPersonalization } from './selectedPersonalization';
 /**
  * Defines a product quote token request.
  */
+
 export interface QuoteHotelRequest { 
     /**
      * The desired quantity.

@@ -14,6 +14,11 @@
 /**
  * Describes the booking queue info.
  */
+
+    import { BookingQueueInfo<CAP>type<CAP> } from '../models/enums';
+    import { BookingQueueInfo<CAP>action<CAP> } from '../models/enums';
+    import { BookingQueueInfo<CAP>mode<CAP> } from '../models/enums';
+
 export interface BookingQueueInfo { 
     /**
      * The segment key.
@@ -50,104 +55,17 @@ export interface BookingQueueInfo {
     /**
      * The type of event that triggered placement of the booking in the queue.
      */
-    type?: BookingQueueInfo.TypeEnum;
+    type?: BookingQueueInfo<CAP>type<CAP>;
     /**
      * The action that will be taken as a result of the placement in the queue.
      */
-    action?: BookingQueueInfo.ActionEnum;
+    action?: BookingQueueInfo<CAP>action<CAP>;
     /**
      * The indicator if this entry was added or removed from the queue.
      */
-    mode?: BookingQueueInfo.ModeEnum;
+    mode?: BookingQueueInfo<CAP>mode<CAP>;
     /**
      * The flight reference.
      */
     flightReference?: string;
-}
-export namespace BookingQueueInfo {
-    export type TypeEnum = 'Default' | 'BookingBalanceDue' | 'BookingNegativeBalance' | 'BookingCustomerComment' | 'DeclinedPaymentInitial' | 'DeclinedPaymentChange' | 'FareOverride' | 'ScheduleTimeChange' | 'ScheduleTimeChangeMisconnect' | 'ScheduleCancellation' | 'FlightDesignatorChange' | 'ReaccommodationMove' | 'GdsCancelWithPendingPayment' | 'InvalidPriceStatusOverride' | 'FareRestrictionOverride' | 'HeldBookings' | 'InvalidPriceStatus' | 'Watchlist' | 'NonFlightServiceFee' | 'NotAllTicketNumbersReceived' | 'BookingSegmentOversold' | 'ReaccommodationCancel' | 'ExternalSsrAutoConfirmed' | 'OpCarrierSegUpdate' | 'OpCarrierSsrUpdate' | 'OpCarrierOtherUpdate' | 'NameChangeNotAllowed' | 'InboundAscNotProcessed' | 'OpCarrierInformationChange' | 'BookingComponentUpdate' | 'GroupBookings' | 'BankDirectPnrOutOfBalance' | 'NoSeatAssigned' | 'SeatNumberChange' | 'SsrNotSupportedOnNewSeat' | 'FewerSeatPreferencesMetOnNewSeat' | 'AosUnableToConfirmCancel' | 'ETicketIssue' | 'ETicketFollowup' | 'InvoluntaryFlyAhead' | 'ManualClearanceOnOutage' | 'UnbalancedPoints' | 'OpCarrierTimeChange' | 'OaCarrierTimeChange' | 'VoluntaryFlightChange' | 'InvoluntaryFlightChange' | 'HoldCancellationFailed' | 'ScheduleTimeChangeWithDynamicQueueCode' | 'ReaccommodationMoveWithDynamicQueueCode' | 'ItineraryIntegrity' | 'ReducePartyNotProcessed' | 'CheckedPassengerUpdate' | 'NameChangeWithinRule' | 'IncompletePassengerEMDCoupon' | 'ASVCUpdateFailed' | 'ScheduleTimeChangeMisconnectBelowMinimum' | 'ScheduleTimeChangeMisconnectAboveMaximum' | 'OpCarrierMisconnect' | 'InventoryQueuing' | 'SelfServiceAsm' | 'SelfServiceDelay' | 'SelfServiceFlightCancellation' | 'SelfServiceIrop' | 'SelfServiceScheduleChange' | 'SelfServiceTimeChange' | 'AosAddOrCancelNotSuccessful' | 'MissingGdsFareFamily' | 'ChangeCabinQueue';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        BookingBalanceDue: 'BookingBalanceDue' as TypeEnum,
-        BookingNegativeBalance: 'BookingNegativeBalance' as TypeEnum,
-        BookingCustomerComment: 'BookingCustomerComment' as TypeEnum,
-        DeclinedPaymentInitial: 'DeclinedPaymentInitial' as TypeEnum,
-        DeclinedPaymentChange: 'DeclinedPaymentChange' as TypeEnum,
-        FareOverride: 'FareOverride' as TypeEnum,
-        ScheduleTimeChange: 'ScheduleTimeChange' as TypeEnum,
-        ScheduleTimeChangeMisconnect: 'ScheduleTimeChangeMisconnect' as TypeEnum,
-        ScheduleCancellation: 'ScheduleCancellation' as TypeEnum,
-        FlightDesignatorChange: 'FlightDesignatorChange' as TypeEnum,
-        ReaccommodationMove: 'ReaccommodationMove' as TypeEnum,
-        GdsCancelWithPendingPayment: 'GdsCancelWithPendingPayment' as TypeEnum,
-        InvalidPriceStatusOverride: 'InvalidPriceStatusOverride' as TypeEnum,
-        FareRestrictionOverride: 'FareRestrictionOverride' as TypeEnum,
-        HeldBookings: 'HeldBookings' as TypeEnum,
-        InvalidPriceStatus: 'InvalidPriceStatus' as TypeEnum,
-        Watchlist: 'Watchlist' as TypeEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as TypeEnum,
-        NotAllTicketNumbersReceived: 'NotAllTicketNumbersReceived' as TypeEnum,
-        BookingSegmentOversold: 'BookingSegmentOversold' as TypeEnum,
-        ReaccommodationCancel: 'ReaccommodationCancel' as TypeEnum,
-        ExternalSsrAutoConfirmed: 'ExternalSsrAutoConfirmed' as TypeEnum,
-        OpCarrierSegUpdate: 'OpCarrierSegUpdate' as TypeEnum,
-        OpCarrierSsrUpdate: 'OpCarrierSsrUpdate' as TypeEnum,
-        OpCarrierOtherUpdate: 'OpCarrierOtherUpdate' as TypeEnum,
-        NameChangeNotAllowed: 'NameChangeNotAllowed' as TypeEnum,
-        InboundAscNotProcessed: 'InboundAscNotProcessed' as TypeEnum,
-        OpCarrierInformationChange: 'OpCarrierInformationChange' as TypeEnum,
-        BookingComponentUpdate: 'BookingComponentUpdate' as TypeEnum,
-        GroupBookings: 'GroupBookings' as TypeEnum,
-        BankDirectPnrOutOfBalance: 'BankDirectPnrOutOfBalance' as TypeEnum,
-        NoSeatAssigned: 'NoSeatAssigned' as TypeEnum,
-        SeatNumberChange: 'SeatNumberChange' as TypeEnum,
-        SsrNotSupportedOnNewSeat: 'SsrNotSupportedOnNewSeat' as TypeEnum,
-        FewerSeatPreferencesMetOnNewSeat: 'FewerSeatPreferencesMetOnNewSeat' as TypeEnum,
-        AosUnableToConfirmCancel: 'AosUnableToConfirmCancel' as TypeEnum,
-        ETicketIssue: 'ETicketIssue' as TypeEnum,
-        ETicketFollowup: 'ETicketFollowup' as TypeEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as TypeEnum,
-        ManualClearanceOnOutage: 'ManualClearanceOnOutage' as TypeEnum,
-        UnbalancedPoints: 'UnbalancedPoints' as TypeEnum,
-        OpCarrierTimeChange: 'OpCarrierTimeChange' as TypeEnum,
-        OaCarrierTimeChange: 'OaCarrierTimeChange' as TypeEnum,
-        VoluntaryFlightChange: 'VoluntaryFlightChange' as TypeEnum,
-        InvoluntaryFlightChange: 'InvoluntaryFlightChange' as TypeEnum,
-        HoldCancellationFailed: 'HoldCancellationFailed' as TypeEnum,
-        ScheduleTimeChangeWithDynamicQueueCode: 'ScheduleTimeChangeWithDynamicQueueCode' as TypeEnum,
-        ReaccommodationMoveWithDynamicQueueCode: 'ReaccommodationMoveWithDynamicQueueCode' as TypeEnum,
-        ItineraryIntegrity: 'ItineraryIntegrity' as TypeEnum,
-        ReducePartyNotProcessed: 'ReducePartyNotProcessed' as TypeEnum,
-        CheckedPassengerUpdate: 'CheckedPassengerUpdate' as TypeEnum,
-        NameChangeWithinRule: 'NameChangeWithinRule' as TypeEnum,
-        IncompletePassengerEMDCoupon: 'IncompletePassengerEMDCoupon' as TypeEnum,
-        ASVCUpdateFailed: 'ASVCUpdateFailed' as TypeEnum,
-        ScheduleTimeChangeMisconnectBelowMinimum: 'ScheduleTimeChangeMisconnectBelowMinimum' as TypeEnum,
-        ScheduleTimeChangeMisconnectAboveMaximum: 'ScheduleTimeChangeMisconnectAboveMaximum' as TypeEnum,
-        OpCarrierMisconnect: 'OpCarrierMisconnect' as TypeEnum,
-        InventoryQueuing: 'InventoryQueuing' as TypeEnum,
-        SelfServiceAsm: 'SelfServiceAsm' as TypeEnum,
-        SelfServiceDelay: 'SelfServiceDelay' as TypeEnum,
-        SelfServiceFlightCancellation: 'SelfServiceFlightCancellation' as TypeEnum,
-        SelfServiceIrop: 'SelfServiceIrop' as TypeEnum,
-        SelfServiceScheduleChange: 'SelfServiceScheduleChange' as TypeEnum,
-        SelfServiceTimeChange: 'SelfServiceTimeChange' as TypeEnum,
-        AosAddOrCancelNotSuccessful: 'AosAddOrCancelNotSuccessful' as TypeEnum,
-        MissingGdsFareFamily: 'MissingGdsFareFamily' as TypeEnum,
-        ChangeCabinQueue: 'ChangeCabinQueue' as TypeEnum
-    }
-    export type ActionEnum = 'Default' | 'Warning' | 'Lock' | 'DefaultAndNotify' | 'WarningAndNotify' | 'LockAndNotify';
-    export const ActionEnum = {
-        Default: 'Default' as ActionEnum,
-        Warning: 'Warning' as ActionEnum,
-        Lock: 'Lock' as ActionEnum,
-        DefaultAndNotify: 'DefaultAndNotify' as ActionEnum,
-        WarningAndNotify: 'WarningAndNotify' as ActionEnum,
-        LockAndNotify: 'LockAndNotify' as ActionEnum
-    }
-    export type ModeEnum = 'EnQueued' | 'DeQueued';
-    export const ModeEnum = {
-        EnQueued: 'EnQueued' as ModeEnum,
-        DeQueued: 'DeQueued' as ModeEnum
-    }
 }

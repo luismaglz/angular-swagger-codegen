@@ -14,6 +14,7 @@
 /**
  * Describes the different code criteria that can be set that can influence availability response.
  */
+
 export interface AvailabilityCodeCriteriav2 { 
     /**
      * The currency code for fare pricing.

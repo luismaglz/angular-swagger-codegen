@@ -14,6 +14,7 @@
 /**
  * Low fare passengers contains the passenger type specific data.
  */
+
 export interface LowFareAmount { 
     /**
      * Fare Amount for Passenger Type.

@@ -14,6 +14,7 @@
 /**
  * The bundle application details model.
  */
+
 export interface BundleApplicationDetails { 
     /**
      * The list of appplicable carrier codes.

@@ -14,6 +14,7 @@
 /**
  * Defines a user impersonate request.
  */
+
 export interface UserImpersonateRequest { 
     /**
      * The role to impersonate.

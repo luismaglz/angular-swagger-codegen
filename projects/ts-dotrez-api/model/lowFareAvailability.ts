@@ -15,6 +15,7 @@ import { LowFareDateMarket } from './lowFareDateMarket';
 /**
  * Low fare availability contains all information returned when requesting a low fare trip availability.
  */
+
 export interface LowFareAvailability { 
     /**
      * The collection of low fare results for a specific date and market.

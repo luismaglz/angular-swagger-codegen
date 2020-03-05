@@ -15,6 +15,9 @@ import { LegClass } from './legClass';
 /**
  * A model representing a leg nest.
  */
+
+    import { LegNest<CAP>nestType<CAP> } from '../models/enums';
+
 export interface LegNest { 
     /**
      * Gets or sets the adjusted capacity of the nest.
@@ -35,18 +38,9 @@ export interface LegNest {
     /**
      * Gets or sets the type of the nest.
      */
-    nestType?: LegNest.NestTypeEnum;
+    nestType?: LegNest<CAP>nestType<CAP>;
     /**
      * Gets or sets the nest leg classes.
      */
     legClasses?: Array<LegClass>;
-}
-export namespace LegNest {
-    export type NestTypeEnum = 'Default' | 'Net' | 'Serial' | 'OneBooking';
-    export const NestTypeEnum = {
-        Default: 'Default' as NestTypeEnum,
-        Net: 'Net' as NestTypeEnum,
-        Serial: 'Serial' as NestTypeEnum,
-        OneBooking: 'OneBooking' as NestTypeEnum
-    }
 }

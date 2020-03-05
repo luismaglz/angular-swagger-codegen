@@ -14,6 +14,9 @@
 /**
  * The available journey fare details represents a journeys fare availability.
  */
+
+    import { AvailableJourneyFareDetail<CAP>status<CAP> } from '../models/enums';
+
 export interface AvailableJourneyFareDetail { 
     /**
      * The availability left.
@@ -22,19 +25,9 @@ export interface AvailableJourneyFareDetail {
     /**
      * The classes status.
      */
-    status?: AvailableJourneyFareDetail.StatusEnum;
+    status?: AvailableJourneyFareDetail<CAP>status<CAP>;
     /**
      * The reference to the fare in the master fare collection.
      */
     reference?: string;
-}
-export namespace AvailableJourneyFareDetail {
-    export type StatusEnum = 'Active' | 'InActive' | 'AvsOpen' | 'AvsOnRequest' | 'AvsClosed';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        InActive: 'InActive' as StatusEnum,
-        AvsOpen: 'AvsOpen' as StatusEnum,
-        AvsOnRequest: 'AvsOnRequest' as StatusEnum,
-        AvsClosed: 'AvsClosed' as StatusEnum
-    }
 }

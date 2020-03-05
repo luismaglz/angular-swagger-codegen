@@ -14,6 +14,9 @@
 /**
  * Defines the user role create request.
  */
+
+    import { UserRoleCreateRequest<CAP>effectiveDays<CAP> } from '../models/enums';
+
 export interface UserRoleCreateRequest { 
     /**
      * The unique role code.
@@ -22,7 +25,7 @@ export interface UserRoleCreateRequest {
     /**
      * The days the role is effective.
      */
-    effectiveDays?: Array<UserRoleCreateRequest.EffectiveDaysEnum>;
+    effectiveDays?: UserRoleCreateRequest<CAP>effectiveDays<CAP>;
     /**
      * The date the role is effective after.
      */
@@ -31,17 +34,4 @@ export interface UserRoleCreateRequest {
      * The date the role is effective before.
      */
     effectiveBefore?: Date;
-}
-export namespace UserRoleCreateRequest {
-    export type EffectiveDaysEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const EffectiveDaysEnum = {
-        None: 'None' as EffectiveDaysEnum,
-        Monday: 'Monday' as EffectiveDaysEnum,
-        Tuesday: 'Tuesday' as EffectiveDaysEnum,
-        Wednesday: 'Wednesday' as EffectiveDaysEnum,
-        Thursday: 'Thursday' as EffectiveDaysEnum,
-        Friday: 'Friday' as EffectiveDaysEnum,
-        Saturday: 'Saturday' as EffectiveDaysEnum,
-        Sunday: 'Sunday' as EffectiveDaysEnum
-    }
 }

@@ -15,6 +15,7 @@ import { TripDateMarketJourneysAvailableByMarket } from './tripDateMarketJourney
 /**
  * The trip date market represents a specific dates collection of markets.
  */
+
 export interface TripDateMarket { 
     /**
      * Flag indicating if multiple origin stations exist in the journeys available by market dictionary.

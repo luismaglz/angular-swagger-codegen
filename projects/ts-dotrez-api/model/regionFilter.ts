@@ -15,6 +15,7 @@ import { RegionIdentifier } from './regionIdentifier';
 /**
  * The region filter model.
  */
+
 export interface RegionFilter { 
     /**
      * The details related to the region of origin for the bundle application.

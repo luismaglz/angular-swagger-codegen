@@ -16,6 +16,7 @@ import { SsrRequestByPassengerType } from './ssrRequestByPassengerType';
 /**
  * Ssrs by type model allows multiple Ssr requests for a specific type.
  */
+
 export interface SsrsStatelessRequest { 
     /**
      * Market for the segment.

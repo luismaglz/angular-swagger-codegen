@@ -14,6 +14,7 @@
 /**
  * Defines the type of sale values.
  */
+
 export interface TravelDocumentRequirements { 
     /**
      * True if at least one travel document code in the travel document type codes list  is required.

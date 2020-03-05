@@ -14,6 +14,7 @@
 /**
  * Defines a location.
  */
+
 export interface OrderLocation { 
     /**
      * The location description.

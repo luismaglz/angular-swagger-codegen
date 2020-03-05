@@ -16,6 +16,7 @@ import { ProvinceState } from './provinceState';
 /**
  * Represents the country model, version two.
  */
+
 export interface Countryv2 { 
     /**
      * Represents the two-digit country code.

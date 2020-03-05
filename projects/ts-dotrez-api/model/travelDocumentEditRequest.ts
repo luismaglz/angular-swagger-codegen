@@ -15,6 +15,9 @@ import { Name } from './name';
 /**
  * Defines the edit travel document request.
  */
+
+    import { TravelDocumentEditRequest<CAP>gender<CAP> } from '../models/enums';
+
 export interface TravelDocumentEditRequest { 
     /**
      * The BirthCountry property.
@@ -43,17 +46,9 @@ export interface TravelDocumentEditRequest {
     /**
      * The travel document holder's gender.
      */
-    gender?: TravelDocumentEditRequest.GenderEnum;
+    gender?: TravelDocumentEditRequest<CAP>gender<CAP>;
     /**
      * The person's date of birth.
      */
     dateOfBirth?: Date;
-}
-export namespace TravelDocumentEditRequest {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

@@ -15,6 +15,7 @@ import { Coordinate } from './coordinate';
 /**
  * Defines an address with GPS coordinates.
  */
+
 export interface OrderAddress { 
     /**
      * The GPS coordinates associated with this item address.

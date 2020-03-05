@@ -17,6 +17,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Represents a boarding pass for a specific passenger using the S2D barcode type.
  */
+
 export interface BoardingPassS2D { 
     /**
      * The collection of segments to display bar codes for.

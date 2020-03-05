@@ -14,6 +14,7 @@
 /**
  * Defines a connector type.
  */
+
 export interface ConnectorType { 
     /**
      * The unique code for this connector type.

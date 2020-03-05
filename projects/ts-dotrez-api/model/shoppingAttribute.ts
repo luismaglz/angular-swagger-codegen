@@ -14,6 +14,9 @@
 /**
  * Model for a shopping attribute.
  */
+
+    import { ShoppingAttribute<CAP>shoppingAttributeType<CAP> } from '../models/enums';
+
 export interface ShoppingAttribute { 
     /**
      * Gets or sets the flag for inactive for this shopping attribute.
@@ -38,14 +41,5 @@ export interface ShoppingAttribute {
     /**
      * Gets or sets the type of this shopping attribute.
      */
-    shoppingAttributeType?: ShoppingAttribute.ShoppingAttributeTypeEnum;
-}
-export namespace ShoppingAttribute {
-    export type ShoppingAttributeTypeEnum = 'None' | 'Destination' | 'Region' | 'Event';
-    export const ShoppingAttributeTypeEnum = {
-        None: 'None' as ShoppingAttributeTypeEnum,
-        Destination: 'Destination' as ShoppingAttributeTypeEnum,
-        Region: 'Region' as ShoppingAttributeTypeEnum,
-        Event: 'Event' as ShoppingAttributeTypeEnum
-    }
+    shoppingAttributeType?: ShoppingAttribute<CAP>shoppingAttributeType<CAP>;
 }

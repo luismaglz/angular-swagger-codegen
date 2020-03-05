@@ -14,6 +14,7 @@
 /**
  * Defines a order history transaction.
  */
+
 export interface OrderHistory { 
     /**
      * The status code.

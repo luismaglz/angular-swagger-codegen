@@ -15,6 +15,7 @@ import { Ssr } from './ssr';
 /**
  * The SSR nest model.
  */
+
 export interface SsrNest { 
     /**
      * The SSR nest code.

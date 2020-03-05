@@ -14,6 +14,7 @@
 /**
  * Defines the participant type information.
  */
+
 export interface ParticipantType { 
     /**
      * The participant's type code.

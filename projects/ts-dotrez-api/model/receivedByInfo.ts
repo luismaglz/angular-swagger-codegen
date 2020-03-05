@@ -14,6 +14,7 @@
 /**
  * Defines the received by information.
  */
+
 export interface ReceivedByInfo { 
     /**
      * The received by name.

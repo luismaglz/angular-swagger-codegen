@@ -14,6 +14,7 @@ import { FuncActionContextBoolean } from './funcActionContextBoolean';
 import { IPropertyFilterProvider } from './iPropertyFilterProvider';
 
 
+
 export interface BindingInfo { 
     bindingSource?: BindingSource;
     binderModelName?: string;

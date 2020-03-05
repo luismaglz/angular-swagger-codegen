@@ -15,6 +15,7 @@ import { Station } from './station';
 /**
  * The subzone model.
  */
+
 export interface SubZone { 
     /**
      * Gets or sets the area code for this subzone.

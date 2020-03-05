@@ -25,6 +25,11 @@ import { PersonTravelDocument } from './personTravelDocument';
 /**
  * Defines a person.
  */
+
+    import { Person<CAP>type<CAP> } from '../models/enums';
+    import { Person<CAP>status<CAP> } from '../models/enums';
+    import { Person<CAP>notificationPreference<CAP> } from '../models/enums';
+
 export interface Person { 
     /**
      * The unique person key.
@@ -41,7 +46,7 @@ export interface Person {
     /**
      * The type of person.
      */
-    type?: Person.TypeEnum;
+    type?: Person<CAP>type<CAP>;
     /**
      * The collection of registered email address.
      */
@@ -49,7 +54,7 @@ export interface Person {
     /**
      * The status of the person.
      */
-    status?: Person.StatusEnum;
+    status?: Person<CAP>status<CAP>;
     /**
      * The collection of registered phone numbers.
      */
@@ -65,7 +70,7 @@ export interface Person {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: Person.NotificationPreferenceEnum;
+    notificationPreference?: Person<CAP>notificationPreference<CAP>;
     /**
      * The collection of registered stored payments.
      */
@@ -90,23 +95,4 @@ export interface Person {
      * The collection of alternate names for the person.
      */
     aliases?: Array<PersonAlias>;
-}
-export namespace Person {
-    export type TypeEnum = 'None' | 'Customer' | 'Agent';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        Customer: 'Customer' as TypeEnum,
-        Agent: 'Agent' as TypeEnum
-    }
-    export type StatusEnum = 'Active' | 'Terminated' | 'Suspended';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum
-    }
-    export type NotificationPreferenceEnum = 'None' | 'Promotional';
-    export const NotificationPreferenceEnum = {
-        None: 'None' as NotificationPreferenceEnum,
-        Promotional: 'Promotional' as NotificationPreferenceEnum
-    }
 }

@@ -15,6 +15,7 @@ import { BookingHistory } from './bookingHistory';
 /**
  * Defines a booking history response.
  */
+
 export interface HistoryResponse { 
     /**
      * The booking history list.

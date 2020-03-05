@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { IJsonResponse } from '../model/iJsonResponse';
 import { Transaction } from '../model/transaction';
 
@@ -34,8 +29,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class CollectionService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Retrieves the credit transactions based on the account collection key and  the request data.
@@ -48,7 +48,9 @@ export class CollectionService {
      * @param pageIndex Represents the index of the requested paged item.
      
      */
-    public apiNskV1CollectionByAccountCollectionKeyTransactionsGet = (accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, ) => {
+    public apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'body', headers?: Headers): Observable<Array<Transaction>>;
+    public apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Transaction>>>;
+    public apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!accountCollectionKey){
             throw new Error('Required parameter accountCollectionKey was null or undefined when calling apiNskV1CollectionByAccountCollectionKeyTransactionsGet.');
         }
@@ -79,16 +81,11 @@ export class CollectionService {
         }
 
 
-            const requestObj: Request<{
-                accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number, 
-            }> = {
-                url: '/api/nsk/v1/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions',
-                method: 'get',
-                data: {
-                    accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions?${queryParameters.join('&')}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
+        }
+        return response;
     }
 
 }

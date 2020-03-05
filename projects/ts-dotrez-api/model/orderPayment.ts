@@ -17,6 +17,7 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * Defines a payment on an order.
  */
+
 export interface OrderPayment { 
     /**
      * The unique order payment key.

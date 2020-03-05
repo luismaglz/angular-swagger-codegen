@@ -14,6 +14,7 @@
 /**
  * Manifest Seat Property.
  */
+
 export interface ManifestSeatProperty { 
     /**
      * The preference status field contains the current met/unmet or unknown status.

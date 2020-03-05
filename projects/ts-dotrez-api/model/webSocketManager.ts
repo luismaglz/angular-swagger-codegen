@@ -11,6 +11,7 @@
  */
 
 
+
 export interface WebSocketManager { 
     readonly isWebSocketRequest?: boolean;
     readonly webSocketRequestedProtocols?: Array<string>;

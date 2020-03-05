@@ -17,6 +17,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Model data.
  */
+
 export interface SegmentTripResult { 
     /**
      * This is a summarry of all the legs on the segment. It will contain the details  of the transportation from the first and last leg.

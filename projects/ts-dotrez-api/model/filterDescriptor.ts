@@ -12,6 +12,7 @@
 import { IFilterMetadata } from './iFilterMetadata';
 
 
+
 export interface FilterDescriptor { 
     readonly filter?: IFilterMetadata;
     order?: number;

@@ -14,6 +14,7 @@
 /**
  * Defines a fare rule and its data.
  */
+
 export interface FareRule { 
     /**
      * The fare sell key that is in reference to the fare rule.

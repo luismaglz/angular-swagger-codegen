@@ -14,6 +14,7 @@
 /**
  * Defines a travel commerce source.
  */
+
 export interface Source { 
     /**
      * The unqiue source code.

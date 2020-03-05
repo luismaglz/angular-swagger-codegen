@@ -16,6 +16,7 @@ import { ExternalRate } from './externalRate';
 /**
  * Model with the Mcc curency and rate information.
  */
+
 export interface MccCurrencyInformationv2 { 
     /**
      * The external rate.

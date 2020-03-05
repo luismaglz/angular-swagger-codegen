@@ -18,6 +18,7 @@ import { QuotedOrder } from './quotedOrder';
 /**
  * Defines a quoted product and all of its containing orders.
  */
+
 export interface QuotedProduct { 
     /**
      * The quoted product key.

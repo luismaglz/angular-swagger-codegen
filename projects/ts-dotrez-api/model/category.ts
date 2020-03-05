@@ -14,6 +14,7 @@
 /**
  * Defines the product category.
  */
+
 export interface Category { 
     /**
      * The category code.

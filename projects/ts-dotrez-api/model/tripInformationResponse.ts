@@ -15,6 +15,7 @@ import { TripInformationJourney } from './tripInformationJourney';
 /**
  * A collection of journeys for a given departure date and market.
  */
+
 export interface TripInformationResponse { 
     /**
      * Represents the date for the journey response.

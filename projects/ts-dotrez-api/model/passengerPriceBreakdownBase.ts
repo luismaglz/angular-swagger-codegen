@@ -15,6 +15,7 @@ import { ChargeBreakdown } from './chargeBreakdown';
 /**
  * Defines the combined booking passengers pricing breakdown.
  */
+
 export interface PassengerPriceBreakdownBase { 
     /**
      * The charge breakdown of the service fees.

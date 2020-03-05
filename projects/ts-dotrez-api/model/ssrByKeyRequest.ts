@@ -14,6 +14,7 @@
 /**
  * SSR detail for a specific passenger number.
  */
+
 export interface SsrByKeyRequest { 
     /**
      * The Ssr key.

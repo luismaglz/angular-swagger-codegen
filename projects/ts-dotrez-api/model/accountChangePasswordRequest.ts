@@ -15,6 +15,7 @@ import { Credentials } from './credentials';
 /**
  * Defines a change password request.
  */
+
 export interface AccountChangePasswordRequest { 
     /**
      * The current credentials.

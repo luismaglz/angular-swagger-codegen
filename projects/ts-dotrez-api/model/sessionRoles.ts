@@ -15,6 +15,7 @@ import { RoleBase } from './roleBase';
 /**
  * Defines the roles being used within the session.
  */
+
 export interface SessionRoles { 
     /**
      * Flag indicating if in the base role.

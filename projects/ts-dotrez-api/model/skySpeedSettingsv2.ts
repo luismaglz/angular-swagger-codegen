@@ -14,6 +14,10 @@
 /**
  * Settings for Sky Speed.
  */
+
+    import { SkySpeedSettingsv2<CAP>manifestViewDate<CAP> } from '../models/enums';
+    import { SkySpeedSettingsv2<CAP>postalCodeLookup<CAP> } from '../models/enums';
+
 export interface SkySpeedSettingsv2 { 
     /**
      * Disables base currency when searching flights.
@@ -22,7 +26,7 @@ export interface SkySpeedSettingsv2 {
     /**
      * The value to indicate what type of date to display in the SkySpeed manifest view.
      */
-    manifestViewDate?: SkySpeedSettingsv2.ManifestViewDateEnum;
+    manifestViewDate?: SkySpeedSettingsv2<CAP>manifestViewDate<CAP>;
     /**
      * Disables outbound time when searching flights.
      */
@@ -38,7 +42,7 @@ export interface SkySpeedSettingsv2 {
     /**
      * The value to indicate the manner in which postal codes will be looked up  in SkySpeed.
      */
-    postalCodeLookup?: SkySpeedSettingsv2.PostalCodeLookupEnum;
+    postalCodeLookup?: SkySpeedSettingsv2<CAP>postalCodeLookup<CAP>;
     /**
      * Disables return time when searching flights.
      */
@@ -215,16 +219,4 @@ export interface SkySpeedSettingsv2 {
      * Pre-defined manifest comments.
      */
     manifestComments?: Array<string>;
-}
-export namespace SkySpeedSettingsv2 {
-    export type ManifestViewDateEnum = 'BookingDate' | 'SoldDate';
-    export const ManifestViewDateEnum = {
-        BookingDate: 'BookingDate' as ManifestViewDateEnum,
-        SoldDate: 'SoldDate' as ManifestViewDateEnum
-    }
-    export type PostalCodeLookupEnum = 'None' | 'UsZipCode';
-    export const PostalCodeLookupEnum = {
-        None: 'None' as PostalCodeLookupEnum,
-        UsZipCode: 'UsZipCode' as PostalCodeLookupEnum
-    }
 }

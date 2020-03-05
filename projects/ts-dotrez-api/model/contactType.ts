@@ -14,6 +14,7 @@
 /**
  * The booking contact type.
  */
+
 export interface ContactType { 
     /**
      * The type code.

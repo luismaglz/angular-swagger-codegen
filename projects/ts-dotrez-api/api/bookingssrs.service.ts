@@ -20,11 +20,6 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import * as Models from '../models';
-import { Dictionary } from '../models';
-import * as Enums from '../enums';
-import { getClient, Request } from '../helper';
-
 import { IJsonResponse } from '../model/iJsonResponse';
 import { PassengerSsr } from '../model/passengerSsr';
 import { PassengerSsrKey } from '../model/passengerSsrKey';
@@ -41,8 +36,13 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class BookingssrsService {
+    private basePath: string = 'https://localhost';
 
-    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
+    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
+        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
+        if(this.APIConfiguration.basePath)
+            this.basePath = this.APIConfiguration.basePath;
+    }
 
     /**
      * Deletes by the SSR passenger key provided by metadata.
@@ -50,22 +50,19 @@ export class BookingssrsService {
      * @param ssrKey Unique Ssr passenger identifier.
      
      */
-    public apiNskV1BookingSsrsBySsrKeyDelete = (ssrKey: string, ) => {
+    public apiNskV1BookingSsrsBySsrKeyDelete(ssrKey: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingSsrsBySsrKeyDelete(ssrKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSsrsBySsrKeyDelete(ssrKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrKey){
             throw new Error('Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyDelete.');
         }
 
 
-            const requestObj: Request<{
-                ssrKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/ssrs/${encodeURIComponent(String(ssrKey))}',
-                method: 'delete',
-                data: {
-                    ssrKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/ssrs/${encodeURIComponent(String(ssrKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -75,22 +72,19 @@ export class BookingssrsService {
      * @param ssrKey 
      
      */
-    public apiNskV1BookingSsrsBySsrKeyGet = (ssrKey: string, ) => {
+    public apiNskV1BookingSsrsBySsrKeyGet(ssrKey: string, observe?: 'body', headers?: Headers): Observable<PassengerSsr>;
+    public apiNskV1BookingSsrsBySsrKeyGet(ssrKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PassengerSsr>>;
+    public apiNskV1BookingSsrsBySsrKeyGet(ssrKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrKey){
             throw new Error('Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyGet.');
         }
 
 
-            const requestObj: Request<{
-                ssrKey: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/ssrs/${encodeURIComponent(String(ssrKey))}',
-                method: 'get',
-                data: {
-                    ssrKey,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<PassengerSsr>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/ssrs/${encodeURIComponent(String(ssrKey))}`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <PassengerSsr>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -101,22 +95,19 @@ export class BookingssrsService {
      * @param note The updated note.
      
      */
-    public apiNskV1BookingSsrsBySsrKeyPut = (ssrKey: string, note?: string, ) => {
+    public apiNskV1BookingSsrsBySsrKeyPut(ssrKey: string, note?: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingSsrsBySsrKeyPut(ssrKey: string, note?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSsrsBySsrKeyPut(ssrKey: string, note?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrKey){
             throw new Error('Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyPut.');
         }
 
 
-            const requestObj: Request<{
-                ssrKey: string, note?: string, 
-            }> = {
-                url: '/api/nsk/v1/booking/ssrs/${encodeURIComponent(String(ssrKey))}',
-                method: 'put',
-                data: {
-                    ssrKey,note,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/booking/ssrs/${encodeURIComponent(String(ssrKey))}`, note , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -125,18 +116,15 @@ export class BookingssrsService {
      * Requires a booking in state.
      
      */
-    public apiNskV1BookingSsrsGet = () => {
+    public apiNskV1BookingSsrsGet(observe?: 'body', headers?: Headers): Observable<Array<PassengerSsr>>;
+    public apiNskV1BookingSsrsGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PassengerSsr>>>;
+    public apiNskV1BookingSsrsGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                
-            }> = {
-                url: '/api/nsk/v1/booking/ssrs',
-                method: 'get',
-                data: {
-                    
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<Array<PassengerSsr>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/ssrs`, headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <Array<PassengerSsr>>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -146,18 +134,15 @@ export class BookingssrsService {
      * @param request Unique Ssr passenger information.
      
      */
-    public apiNskV1BookingSsrsManualDelete = (request?: PassengerSsrKey, ) => {
+    public apiNskV1BookingSsrsManualDelete(request?: PassengerSsrKey, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingSsrsManualDelete(request?: PassengerSsrKey, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSsrsManualDelete(request?: PassengerSsrKey, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: PassengerSsrKey, 
-            }> = {
-                url: '/api/nsk/v1/booking/ssrs/manual',
-                method: 'delete',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/ssrs/manual`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -167,18 +152,15 @@ export class BookingssrsService {
      * @param request 
      
      */
-    public apiNskV1BookingSsrsManualPost = (request?: SsrsRequest, ) => {
+    public apiNskV1BookingSsrsManualPost(request?: SsrsRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingSsrsManualPost(request?: SsrsRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSsrsManualPost(request?: SsrsRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: SsrsRequest, 
-            }> = {
-                url: '/api/nsk/v1/booking/ssrs/manual',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/ssrs/manual`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -188,18 +170,15 @@ export class BookingssrsService {
      * @param request The resell ssr request.
      
      */
-    public apiNskV1BookingSsrsResellPost = (request?: ResellSsrRequest, ) => {
+    public apiNskV1BookingSsrsResellPost(request?: ResellSsrRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV1BookingSsrsResellPost(request?: ResellSsrRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV1BookingSsrsResellPost(request?: ResellSsrRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: ResellSsrRequest, 
-            }> = {
-                url: '/api/nsk/v1/booking/ssrs/resell',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/ssrs/resell`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -209,18 +188,15 @@ export class BookingssrsService {
      * @param request Optional request filter.
      
      */
-    public apiNskV2BookingSsrsAvailabilityPost = (request?: SsrAvailabilityRequestv2, ) => {
+    public apiNskV2BookingSsrsAvailabilityPost(request?: SsrAvailabilityRequestv2, observe?: 'body', headers?: Headers): Observable<SsrAvailability>;
+    public apiNskV2BookingSsrsAvailabilityPost(request?: SsrAvailabilityRequestv2, observe?: 'response', headers?: Headers): Observable<HttpResponse<SsrAvailability>>;
+    public apiNskV2BookingSsrsAvailabilityPost(request?: SsrAvailabilityRequestv2, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: SsrAvailabilityRequestv2, 
-            }> = {
-                url: '/api/nsk/v2/booking/ssrs/availability',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<SsrAvailability>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/ssrs/availability`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <SsrAvailability>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -231,22 +207,19 @@ export class BookingssrsService {
      * @param request The single SSR by key request.
      
      */
-    public apiNskV2BookingSsrsBySsrKeyPost = (ssrKey: string, request?: SingleSsrByKeyRequestv2, ) => {
+    public apiNskV2BookingSsrsBySsrKeyPost(ssrKey: string, request?: SingleSsrByKeyRequestv2, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV2BookingSsrsBySsrKeyPost(ssrKey: string, request?: SingleSsrByKeyRequestv2, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingSsrsBySsrKeyPost(ssrKey: string, request?: SingleSsrByKeyRequestv2, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (!ssrKey){
             throw new Error('Required parameter ssrKey was null or undefined when calling apiNskV2BookingSsrsBySsrKeyPost.');
         }
 
 
-            const requestObj: Request<{
-                ssrKey: string, request?: SingleSsrByKeyRequestv2, 
-            }> = {
-                url: '/api/nsk/v2/booking/ssrs/${encodeURIComponent(String(ssrKey))}',
-                method: 'post',
-                data: {
-                    ssrKey,request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/ssrs/${encodeURIComponent(String(ssrKey))}`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 
@@ -256,18 +229,15 @@ export class BookingssrsService {
      * @param request The SSR by keys request.
      
      */
-    public apiNskV2BookingSsrsPost = (request?: SsrByKeysRequestv2, ) => {
+    public apiNskV2BookingSsrsPost(request?: SsrByKeysRequestv2, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
+    public apiNskV2BookingSsrsPost(request?: SsrByKeysRequestv2, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
+    public apiNskV2BookingSsrsPost(request?: SsrByKeysRequestv2, observe: any = 'body', headers: Headers = {}): Observable<any> {
 
-            const requestObj: Request<{
-                request?: SsrByKeysRequestv2, 
-            }> = {
-                url: '/api/nsk/v2/booking/ssrs',
-                method: 'post',
-                data: {
-                    request,
-                }
-            };
-            return this.client.makeRequest(requestObj);
+        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/ssrs`, request , headers);
+        if (observe == 'body') {
+               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+        }
+        return response;
     }
 
 }

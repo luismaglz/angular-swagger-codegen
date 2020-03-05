@@ -14,6 +14,7 @@
 /**
  * The record locator create request model.
  */
+
 export interface RecordLocatorCreateRequest { 
     /**
      * The system domain code.

@@ -14,6 +14,7 @@
 /**
  * The department model.
  */
+
 export interface Department { 
     /**
      * The department code.

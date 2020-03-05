@@ -14,6 +14,7 @@
 /**
  * Defines the options available when canceling a journey.
  */
+
 export interface CancelJourneyRequest { 
     /**
      * Flag indicating to waive penalty fees if role permitting.

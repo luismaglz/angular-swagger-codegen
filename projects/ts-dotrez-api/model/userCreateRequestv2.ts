@@ -17,6 +17,9 @@ import { UserSetting } from './userSetting';
 /**
  * Defines the v2 user create request.
  */
+
+    import { UserCreateRequestv2<CAP>status<CAP> } from '../models/enums';
+
 export interface UserCreateRequestv2 { 
     /**
      * The unique person key associated with the user.
@@ -29,7 +32,7 @@ export interface UserCreateRequestv2 {
     /**
      * The status of the account.
      */
-    status?: UserCreateRequestv2.StatusEnum;
+    status?: UserCreateRequestv2<CAP>status<CAP>;
     /**
      * The collection of user roles.
      */
@@ -74,14 +77,4 @@ export interface UserCreateRequestv2 {
      * Flag indicating if the password needs to be reset.
      */
     forcePasswordReset?: boolean;
-}
-export namespace UserCreateRequestv2 {
-    export type StatusEnum = 'Default' | 'Active' | 'Pending' | 'Suspended' | 'Terminated';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum
-    }
 }

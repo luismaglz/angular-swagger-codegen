@@ -14,6 +14,7 @@
 /**
  * Model information about the traveling arrival and destination details.
  */
+
 export interface TransportationDesignator { 
     /**
      * Gets or sets the leg arrival station.

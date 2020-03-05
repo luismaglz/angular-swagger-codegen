@@ -17,6 +17,7 @@ import { OriginDetails } from './originDetails';
 /**
  * Represents the trip status version two model.
  */
+
 export interface TripStatusv2 { 
     /**
      * Represents the trip status key.

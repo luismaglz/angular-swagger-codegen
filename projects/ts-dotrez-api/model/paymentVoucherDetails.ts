@@ -14,6 +14,7 @@
 /**
  * Payment voucher details. This describes a voucher applied to a payment.
  */
+
 export interface PaymentVoucherDetails { 
     /**
      * The voucher ID.

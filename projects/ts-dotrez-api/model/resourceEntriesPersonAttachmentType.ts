@@ -15,6 +15,7 @@ import { PersonAttachmentType } from './personAttachmentType';
 /**
  * Model representing the resource entries.
  */
+
 export interface ResourceEntriesPersonAttachmentType { 
     /**
      * The expiration.

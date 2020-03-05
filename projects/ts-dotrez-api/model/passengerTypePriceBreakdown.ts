@@ -15,6 +15,7 @@ import { ChargeBreakdown } from './chargeBreakdown';
 /**
  * Defines the unique passenger type level pricing breakdown.
  */
+
 export interface PassengerTypePriceBreakdown { 
     /**
      * The passenger type code.

@@ -14,6 +14,7 @@
 /**
  * Defines station details.
  */
+
 export interface StationDetail { 
     /**
      * The station categories by category code. If empty all categories are supported.

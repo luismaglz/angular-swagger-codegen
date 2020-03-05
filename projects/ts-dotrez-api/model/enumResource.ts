@@ -14,6 +14,7 @@
 /**
  * Provide localization information about an enumeration.
  */
+
 export interface EnumResource { 
     /**
      * The unique property code.

@@ -14,11 +14,15 @@
 /**
  * Manifest Comment.
  */
+
+    import { ManifestComment<CAP>commentType<CAP> } from '../models/enums';
+    import { ManifestComment<CAP>systemName<CAP> } from '../models/enums';
+
 export interface ManifestComment { 
     /**
      * The comment type.
      */
-    commentType?: ManifestComment.CommentTypeEnum;
+    commentType?: ManifestComment<CAP>commentType<CAP>;
     /**
      * The agentID.
      */
@@ -42,32 +46,5 @@ export interface ManifestComment {
     /**
      * The system type.
      */
-    systemName?: ManifestComment.SystemNameEnum;
-}
-export namespace ManifestComment {
-    export type CommentTypeEnum = 'Default' | 'Itinerary' | 'Manifest' | 'Alert' | 'Archive';
-    export const CommentTypeEnum = {
-        Default: 'Default' as CommentTypeEnum,
-        Itinerary: 'Itinerary' as CommentTypeEnum,
-        Manifest: 'Manifest' as CommentTypeEnum,
-        Alert: 'Alert' as CommentTypeEnum,
-        Archive: 'Archive' as CommentTypeEnum
-    }
-    export type SystemNameEnum = 'Default' | 'WinRez' | 'FareManager' | 'ScheduleManager' | 'WinManager' | 'ConsoleRez' | 'WebRez' | 'WebServicesApi' | 'WebServicesEsc' | 'InternalService' | 'WebReporting' | 'TaxAndFeeManager' | 'Dcs' | 'DCS_Kiosk';
-    export const SystemNameEnum = {
-        Default: 'Default' as SystemNameEnum,
-        WinRez: 'WinRez' as SystemNameEnum,
-        FareManager: 'FareManager' as SystemNameEnum,
-        ScheduleManager: 'ScheduleManager' as SystemNameEnum,
-        WinManager: 'WinManager' as SystemNameEnum,
-        ConsoleRez: 'ConsoleRez' as SystemNameEnum,
-        WebRez: 'WebRez' as SystemNameEnum,
-        WebServicesApi: 'WebServicesApi' as SystemNameEnum,
-        WebServicesEsc: 'WebServicesEsc' as SystemNameEnum,
-        InternalService: 'InternalService' as SystemNameEnum,
-        WebReporting: 'WebReporting' as SystemNameEnum,
-        TaxAndFeeManager: 'TaxAndFeeManager' as SystemNameEnum,
-        Dcs: 'Dcs' as SystemNameEnum,
-        DCSKiosk: 'DCS_Kiosk' as SystemNameEnum
-    }
+    systemName?: ManifestComment<CAP>systemName<CAP>;
 }

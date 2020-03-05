@@ -24,6 +24,7 @@ import { Warning } from './warning';
 /**
  * Defines a availability search result.
  */
+
 export interface HotelProduct { 
     /**
      * The unique product result key.

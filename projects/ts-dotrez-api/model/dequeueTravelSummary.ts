@@ -16,6 +16,10 @@ import { TravelSummary } from './travelSummary';
 /**
  * Represents an travel entry when dequeued.
  */
+
+    import { DequeueTravelSummary<CAP>processStatus<CAP> } from '../models/enums';
+    import { DequeueTravelSummary<CAP>processState<CAP> } from '../models/enums';
+
 export interface DequeueTravelSummary { 
     /**
      * Travel summary.
@@ -32,7 +36,7 @@ export interface DequeueTravelSummary {
     /**
      * Process status.
      */
-    processStatus?: DequeueTravelSummary.ProcessStatusEnum;
+    processStatus?: DequeueTravelSummary<CAP>processStatus<CAP>;
     /**
      * Notes.
      */
@@ -40,7 +44,7 @@ export interface DequeueTravelSummary {
     /**
      * Process state.
      */
-    processState?: DequeueTravelSummary.ProcessStateEnum;
+    processState?: DequeueTravelSummary<CAP>processState<CAP>;
     /**
      * Priority code.
      */
@@ -57,19 +61,4 @@ export interface DequeueTravelSummary {
      * Date status reset.
      */
     statusReset?: Date;
-}
-export namespace DequeueTravelSummary {
-    export type ProcessStatusEnum = 'Ready' | 'Pending';
-    export const ProcessStatusEnum = {
-        Ready: 'Ready' as ProcessStatusEnum,
-        Pending: 'Pending' as ProcessStatusEnum
-    }
-    export type ProcessStateEnum = 'Default' | 'SegmentsConfirmed' | 'BookingBalanced' | 'Other' | 'Complete';
-    export const ProcessStateEnum = {
-        Default: 'Default' as ProcessStateEnum,
-        SegmentsConfirmed: 'SegmentsConfirmed' as ProcessStateEnum,
-        BookingBalanced: 'BookingBalanced' as ProcessStateEnum,
-        Other: 'Other' as ProcessStateEnum,
-        Complete: 'Complete' as ProcessStateEnum
-    }
 }

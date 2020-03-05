@@ -12,6 +12,7 @@
 import { CheckinPassengerLiftStatus } from './checkinPassengerLiftStatus';
 
 
+
 export interface InlineResponse2003 { 
     ?: Array<CheckinPassengerLiftStatus>;
 }

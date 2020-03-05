@@ -15,6 +15,7 @@ import { RecordLocator } from './recordLocator';
 /**
  * Defines the bookings unique identifiers.
  */
+
 export interface BookingRecordLocators { 
     /**
      * The alphanumeric identifier generated when the booking is retrieved from the alphanumeric record locator value that  was assigned.

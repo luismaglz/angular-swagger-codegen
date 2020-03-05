@@ -12,6 +12,7 @@
 import { PaymentMethod } from './paymentMethod';
 
 
+
 export interface InlineResponse2008 { 
     ?: PaymentMethod;
 }

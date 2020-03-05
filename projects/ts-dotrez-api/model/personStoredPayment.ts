@@ -14,6 +14,9 @@
 /**
  * Defines a specific person's stored payment.
  */
+
+    import { PersonStoredPayment<CAP>paymentMethodType<CAP> } from '../models/enums';
+
 export interface PersonStoredPayment { 
     /**
      * The unique stored payment key.
@@ -26,7 +29,7 @@ export interface PersonStoredPayment {
     /**
      * The type of payment being added.
      */
-    paymentMethodType: PersonStoredPayment.PaymentMethodTypeEnum;
+    paymentMethodType: PersonStoredPayment<CAP>paymentMethodType<CAP>;
     /**
      * The name of the account.
      */
@@ -43,15 +46,4 @@ export interface PersonStoredPayment {
      * Indicates if the stored payment is the default.
      */
     _default?: boolean;
-}
-export namespace PersonStoredPayment {
-    export type PaymentMethodTypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const PaymentMethodTypeEnum = {
-        ExternalAccount: 'ExternalAccount' as PaymentMethodTypeEnum,
-        PrePaid: 'PrePaid' as PaymentMethodTypeEnum,
-        AgencyAccount: 'AgencyAccount' as PaymentMethodTypeEnum,
-        CustomerAccount: 'CustomerAccount' as PaymentMethodTypeEnum,
-        Voucher: 'Voucher' as PaymentMethodTypeEnum,
-        Loyalty: 'Loyalty' as PaymentMethodTypeEnum
-    }
 }

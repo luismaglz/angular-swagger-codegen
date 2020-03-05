@@ -14,6 +14,9 @@
 /**
  * Defines the availability criteria dates.
  */
+
+    import { AvailabilityDateCriteria<CAP>daysOfWeek<CAP> } from '../models/enums';
+
 export interface AvailabilityDateCriteria { 
     /**
      * The beginning date to include flights for.
@@ -34,18 +37,5 @@ export interface AvailabilityDateCriteria {
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: Array<AvailabilityDateCriteria.DaysOfWeekEnum>;
-}
-export namespace AvailabilityDateCriteria {
-    export type DaysOfWeekEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const DaysOfWeekEnum = {
-        None: 'None' as DaysOfWeekEnum,
-        Monday: 'Monday' as DaysOfWeekEnum,
-        Tuesday: 'Tuesday' as DaysOfWeekEnum,
-        Wednesday: 'Wednesday' as DaysOfWeekEnum,
-        Thursday: 'Thursday' as DaysOfWeekEnum,
-        Friday: 'Friday' as DaysOfWeekEnum,
-        Saturday: 'Saturday' as DaysOfWeekEnum,
-        Sunday: 'Sunday' as DaysOfWeekEnum
-    }
+    daysOfWeek?: AvailabilityDateCriteria<CAP>daysOfWeek<CAP>;
 }

@@ -14,6 +14,7 @@
 /**
  * Defines the search results different descriptions.
  */
+
 export interface Descriptions { 
     /**
      * The short description.

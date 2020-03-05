@@ -24,6 +24,12 @@ import { Program } from './program';
 /**
  * Manifest Passenger.
  */
+
+    import { ManifestPassenger<CAP>checkInType<CAP> } from '../models/enums';
+    import { ManifestPassenger<CAP>paidStatus<CAP> } from '../models/enums';
+    import { ManifestPassenger<CAP>profileStatus<CAP> } from '../models/enums';
+    import { ManifestPassenger<CAP>status<CAP> } from '../models/enums';
+
 export interface ManifestPassenger { 
     /**
      * If there is a balance due it returns true. This is the same as having an under paid, paid status.
@@ -40,7 +46,7 @@ export interface ManifestPassenger {
     /**
      * The type of flight that is being dealt with: Local = first leg of journey
      */
-    checkInType?: ManifestPassenger.CheckInTypeEnum;
+    checkInType?: ManifestPassenger<CAP>checkInType<CAP>;
     /**
      * Manifest comments attached to the booking.  Gets collection of ManifestComment
      */
@@ -72,7 +78,7 @@ export interface ManifestPassenger {
     /**
      * The PaidStatus property.
      */
-    paidStatus?: ManifestPassenger.PaidStatusEnum;
+    paidStatus?: ManifestPassenger<CAP>paidStatus<CAP>;
     /**
      * Travel documents for the passenger, i.e. Passports and Visas.  Navitaire.NewSkies.Messages.Manifest.ManifestPassengerAddress
      */
@@ -92,7 +98,7 @@ export interface ManifestPassenger {
     /**
      * The ProfileStatus property.
      */
-    profileStatus?: ManifestPassenger.ProfileStatusEnum;
+    profileStatus?: ManifestPassenger<CAP>profileStatus<CAP>;
     /**
      * The passenger program data.
      */
@@ -112,7 +118,7 @@ export interface ManifestPassenger {
     /**
      * The booking status.
      */
-    status?: ManifestPassenger.StatusEnum;
+    status?: ManifestPassenger<CAP>status<CAP>;
     /**
      * Additional passenger information details.
      */
@@ -125,41 +131,4 @@ export interface ManifestPassenger {
      * The passenger's type.
      */
     type?: string;
-}
-export namespace ManifestPassenger {
-    export type CheckInTypeEnum = 'Default' | 'Local' | 'Through' | 'Connecting' | 'NonLocal';
-    export const CheckInTypeEnum = {
-        Default: 'Default' as CheckInTypeEnum,
-        Local: 'Local' as CheckInTypeEnum,
-        Through: 'Through' as CheckInTypeEnum,
-        Connecting: 'Connecting' as CheckInTypeEnum,
-        NonLocal: 'NonLocal' as CheckInTypeEnum
-    }
-    export type PaidStatusEnum = 'UnderPaid' | 'PaidInFull' | 'OverPaid';
-    export const PaidStatusEnum = {
-        UnderPaid: 'UnderPaid' as PaidStatusEnum,
-        PaidInFull: 'PaidInFull' as PaidStatusEnum,
-        OverPaid: 'OverPaid' as PaidStatusEnum
-    }
-    export type ProfileStatusEnum = 'Default' | 'KnownIndividual' | 'ResolutionGroup' | 'SelecteeGroup' | 'NotUsed' | 'FailureGroup' | 'RandomSelectee' | 'Exempt';
-    export const ProfileStatusEnum = {
-        Default: 'Default' as ProfileStatusEnum,
-        KnownIndividual: 'KnownIndividual' as ProfileStatusEnum,
-        ResolutionGroup: 'ResolutionGroup' as ProfileStatusEnum,
-        SelecteeGroup: 'SelecteeGroup' as ProfileStatusEnum,
-        NotUsed: 'NotUsed' as ProfileStatusEnum,
-        FailureGroup: 'FailureGroup' as ProfileStatusEnum,
-        RandomSelectee: 'RandomSelectee' as ProfileStatusEnum,
-        Exempt: 'Exempt' as ProfileStatusEnum
-    }
-    export type StatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Hold: 'Hold' as StatusEnum,
-        Confirmed: 'Confirmed' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        HoldCanceled: 'HoldCanceled' as StatusEnum,
-        PendingArchive: 'PendingArchive' as StatusEnum,
-        Archived: 'Archived' as StatusEnum
-    }
 }

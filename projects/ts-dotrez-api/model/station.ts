@@ -15,6 +15,7 @@ import { StationLocationDetails } from './stationLocationDetails';
 /**
  * Defines a station.
  */
+
 export interface Station { 
     /**
      * The station unique code.

@@ -14,6 +14,7 @@
 /**
  * Dynamic field information used for validation related to the specific payment type.  See the PaymentMethodsAvailable view model / PaymentMethodFieldList
  */
+
 export interface DccRequestBasev2PaymentFields { 
     ?: string;
 }

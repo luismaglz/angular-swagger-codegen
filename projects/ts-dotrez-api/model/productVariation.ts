@@ -17,6 +17,7 @@ import { ProductVariationCatalog } from './productVariationCatalog';
 /**
  * Defines a product variation result.
  */
+
 export interface ProductVariation { 
     /**
      * The unique product variation key.

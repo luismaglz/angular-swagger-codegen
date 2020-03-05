@@ -16,6 +16,7 @@ import { AmountDue } from './amountDue';
 /**
  * Defines all the different order price breakdown.
  */
+
 export interface OrderPriceBreakdown { 
     /**
      * The display prices.

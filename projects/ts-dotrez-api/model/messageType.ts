@@ -14,6 +14,7 @@
 /**
  * The message type model.
  */
+
 export interface MessageType { 
     /**
      * The reason code.

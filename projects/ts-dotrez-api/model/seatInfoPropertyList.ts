@@ -14,6 +14,7 @@
 /**
  * The property list by type code and value.
  */
+
 export interface SeatInfoPropertyList { 
     ?: string;
 }

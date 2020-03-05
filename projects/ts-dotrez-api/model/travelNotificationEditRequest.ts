@@ -15,6 +15,7 @@ import { NotificationDestination } from './notificationDestination';
 /**
  * Request base for travel notifications.
  */
+
 export interface TravelNotificationEditRequest { 
     /**
      * The culture code.

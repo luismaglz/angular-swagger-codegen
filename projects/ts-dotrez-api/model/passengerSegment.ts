@@ -22,6 +22,11 @@ import { Ticket } from './ticket';
 /**
  * Model data for the passenger on the booking for the specific segment.
  */
+
+    import { PassengerSegment<CAP>baggageAllowanceWeightType<CAP> } from '../models/enums';
+    import { PassengerSegment<CAP>liftStatus<CAP> } from '../models/enums';
+    import { PassengerSegment<CAP>overBookIndicator<CAP> } from '../models/enums';
+
 export interface PassengerSegment { 
     /**
      * The seat details.
@@ -46,7 +51,7 @@ export interface PassengerSegment {
     /**
      * The type of passenger segment baggage allowance weight.
      */
-    baggageAllowanceWeightType?: PassengerSegment.BaggageAllowanceWeightTypeEnum;
+    baggageAllowanceWeightType?: PassengerSegment<CAP>baggageAllowanceWeightType<CAP>;
     /**
      * The passenger segment boarding sequence.
      */
@@ -58,7 +63,7 @@ export interface PassengerSegment {
     /**
      * The lift status.
      */
-    liftStatus?: PassengerSegment.LiftStatusEnum;
+    liftStatus?: PassengerSegment<CAP>liftStatus<CAP>;
     /**
      * The modified date.
      */
@@ -66,7 +71,7 @@ export interface PassengerSegment {
     /**
      * The over book indicator.
      */
-    overBookIndicator?: PassengerSegment.OverBookIndicatorEnum;
+    overBookIndicator?: PassengerSegment<CAP>overBookIndicator<CAP>;
     /**
      * The priority date.
      */
@@ -123,25 +128,4 @@ export interface PassengerSegment {
      * The travel document keys that have been verified at checkin.
      */
     verifiedTravelDocuments?: Array<string>;
-}
-export namespace PassengerSegment {
-    export type BaggageAllowanceWeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const BaggageAllowanceWeightTypeEnum = {
-        Default: 'Default' as BaggageAllowanceWeightTypeEnum,
-        Pounds: 'Pounds' as BaggageAllowanceWeightTypeEnum,
-        Kilograms: 'Kilograms' as BaggageAllowanceWeightTypeEnum
-    }
-    export type LiftStatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const LiftStatusEnum = {
-        Default: 'Default' as LiftStatusEnum,
-        CheckedIn: 'CheckedIn' as LiftStatusEnum,
-        Boarded: 'Boarded' as LiftStatusEnum,
-        NoShow: 'NoShow' as LiftStatusEnum
-    }
-    export type OverBookIndicatorEnum = 'NormalSell' | 'Oversold' | 'ClassOrCabinOversold';
-    export const OverBookIndicatorEnum = {
-        NormalSell: 'NormalSell' as OverBookIndicatorEnum,
-        Oversold: 'Oversold' as OverBookIndicatorEnum,
-        ClassOrCabinOversold: 'ClassOrCabinOversold' as OverBookIndicatorEnum
-    }
 }

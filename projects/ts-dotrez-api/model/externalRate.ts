@@ -14,6 +14,7 @@
 /**
  * External rate model.
  */
+
 export interface ExternalRate { 
     /**
      * The id for this external rate.

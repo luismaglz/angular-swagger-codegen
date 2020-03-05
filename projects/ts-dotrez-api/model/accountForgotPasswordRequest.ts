@@ -14,6 +14,7 @@
 /**
  * Defines the account forgot password request.
  */
+
 export interface AccountForgotPasswordRequest { 
     /**
      * The unique username.

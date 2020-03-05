@@ -14,6 +14,7 @@
 /**
  * The carrier model.
  */
+
 export interface Carrier { 
     /**
      * The carrier code for this carrier.

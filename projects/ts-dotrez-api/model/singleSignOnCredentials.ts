@@ -14,6 +14,9 @@
 /**
  * Defines the single sign on credentials.
  */
+
+    import { SingleSignOnCredentials<CAP>channelType<CAP> } from '../models/enums';
+
 export interface SingleSignOnCredentials { 
     /**
      * The optional name of the calling application
@@ -26,7 +29,7 @@ export interface SingleSignOnCredentials {
     /**
      * The optional channel type invoking the communication with the server.
      */
-    channelType?: SingleSignOnCredentials.ChannelTypeEnum;
+    channelType?: SingleSignOnCredentials<CAP>channelType<CAP>;
     /**
      * The unique single sign on provider key.
      */
@@ -35,14 +38,4 @@ export interface SingleSignOnCredentials {
      * The single sign on provider name.
      */
     providerName?: string;
-}
-export namespace SingleSignOnCredentials {
-    export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * The SSR Restriction Result model.
  */
+
 export interface SsrRestrictionResult { 
     /**
      * Gets or sets the inactive flag for this model.

@@ -14,6 +14,7 @@
 /**
  * Defines a person information create request.
  */
+
 export interface PersonInformationCreateRequest { 
     /**
      * The person information type code.

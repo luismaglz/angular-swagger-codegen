@@ -15,6 +15,7 @@ import { PromotionSetting } from './promotionSetting';
 /**
  * Defines a promotion model.
  */
+
 export interface Promotion { 
     /**
      * The list of organizations that have access to the promotion.

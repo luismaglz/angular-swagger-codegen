@@ -14,6 +14,9 @@
 /**
  * The leg class model information.
  */
+
+    import { LegClass<CAP>status<CAP> } from '../models/enums';
+
 export interface LegClass { 
     /**
      * The leg class nest.
@@ -54,19 +57,9 @@ export interface LegClass {
     /**
      * The status.
      */
-    status?: LegClass.StatusEnum;
+    status?: LegClass<CAP>status<CAP>;
     /**
      * The thru sold.
      */
     thruSold?: number;
-}
-export namespace LegClass {
-    export type StatusEnum = 'Active' | 'InActive' | 'AvsOpen' | 'AvsOnRequest' | 'AvsClosed';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        InActive: 'InActive' as StatusEnum,
-        AvsOpen: 'AvsOpen' as StatusEnum,
-        AvsOnRequest: 'AvsOnRequest' as StatusEnum,
-        AvsClosed: 'AvsClosed' as StatusEnum
-    }
 }

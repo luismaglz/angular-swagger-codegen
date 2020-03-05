@@ -15,6 +15,7 @@ import { Name } from './name';
 /**
  * Defines the participant criteria.
  */
+
 export interface ParticipantCriteria { 
     /**
      * The name of the participant.

@@ -14,6 +14,7 @@
 /**
  * The manifest passenger datails summary.
  */
+
 export interface PassengerDetailsSummary { 
     /**
      * The total number of confirmed male passengers.

@@ -14,6 +14,13 @@
 /**
  * Defines a component allowed payment type.
  */
+
+    import { ComponentPaymentType<CAP>modType<CAP> } from '../models/enums';
+    import { ComponentPaymentType<CAP>expiration<CAP> } from '../models/enums';
+    import { ComponentPaymentType<CAP>cvv<CAP> } from '../models/enums';
+    import { ComponentPaymentType<CAP>name<CAP> } from '../models/enums';
+    import { ComponentPaymentType<CAP>issueNumber<CAP> } from '../models/enums';
+
 export interface ComponentPaymentType { 
     /**
      * The payment method type code.
@@ -26,53 +33,21 @@ export interface ComponentPaymentType {
     /**
      * The modulus check to perform.
      */
-    modType?: ComponentPaymentType.ModTypeEnum;
+    modType?: ComponentPaymentType<CAP>modType<CAP>;
     /**
      * The field usage for expiration date.
      */
-    expiration?: ComponentPaymentType.ExpirationEnum;
+    expiration?: ComponentPaymentType<CAP>expiration<CAP>;
     /**
      * The field usage for CVV.
      */
-    cvv?: ComponentPaymentType.CvvEnum;
+    cvv?: ComponentPaymentType<CAP>cvv<CAP>;
     /**
      * The field usage for card holder name.
      */
-    name?: ComponentPaymentType.NameEnum;
+    name?: ComponentPaymentType<CAP>name<CAP>;
     /**
      * The field usage for issue number.
      */
-    issueNumber?: ComponentPaymentType.IssueNumberEnum;
-}
-export namespace ComponentPaymentType {
-    export type ModTypeEnum = 'None' | 'Mod10' | 'Mod11';
-    export const ModTypeEnum = {
-        None: 'None' as ModTypeEnum,
-        Mod10: 'Mod10' as ModTypeEnum,
-        Mod11: 'Mod11' as ModTypeEnum
-    }
-    export type ExpirationEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const ExpirationEnum = {
-        Prompt: 'Prompt' as ExpirationEnum,
-        DoNotPrompt: 'DoNotPrompt' as ExpirationEnum,
-        Required: 'Required' as ExpirationEnum
-    }
-    export type CvvEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const CvvEnum = {
-        Prompt: 'Prompt' as CvvEnum,
-        DoNotPrompt: 'DoNotPrompt' as CvvEnum,
-        Required: 'Required' as CvvEnum
-    }
-    export type NameEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const NameEnum = {
-        Prompt: 'Prompt' as NameEnum,
-        DoNotPrompt: 'DoNotPrompt' as NameEnum,
-        Required: 'Required' as NameEnum
-    }
-    export type IssueNumberEnum = 'Prompt' | 'DoNotPrompt' | 'Required';
-    export const IssueNumberEnum = {
-        Prompt: 'Prompt' as IssueNumberEnum,
-        DoNotPrompt: 'DoNotPrompt' as IssueNumberEnum,
-        Required: 'Required' as IssueNumberEnum
-    }
+    issueNumber?: ComponentPaymentType<CAP>issueNumber<CAP>;
 }

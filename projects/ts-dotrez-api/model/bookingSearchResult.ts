@@ -15,6 +15,10 @@ import { Name } from './name';
 /**
  * Booking model data.
  */
+
+    import { BookingSearchResult<CAP>bookingStatus<CAP> } from '../models/enums';
+    import { BookingSearchResult<CAP>channelType<CAP> } from '../models/enums';
+
 export interface BookingSearchResult { 
     /**
      * The booking key.
@@ -27,11 +31,11 @@ export interface BookingSearchResult {
     /**
      * The booking status.
      */
-    bookingStatus?: BookingSearchResult.BookingStatusEnum;
+    bookingStatus?: BookingSearchResult<CAP>bookingStatus<CAP>;
     /**
      * The type of the channel.
      */
-    channelType?: BookingSearchResult.ChannelTypeEnum;
+    channelType?: BookingSearchResult<CAP>channelType<CAP>;
     /**
      * Indicates whether this is editable.
      */
@@ -84,24 +88,4 @@ export interface BookingSearchResult {
      * The name on the booking.
      */
     name?: Name;
-}
-export namespace BookingSearchResult {
-    export type BookingStatusEnum = 'Default' | 'Hold' | 'Confirmed' | 'Closed' | 'HoldCanceled' | 'PendingArchive' | 'Archived';
-    export const BookingStatusEnum = {
-        Default: 'Default' as BookingStatusEnum,
-        Hold: 'Hold' as BookingStatusEnum,
-        Confirmed: 'Confirmed' as BookingStatusEnum,
-        Closed: 'Closed' as BookingStatusEnum,
-        HoldCanceled: 'HoldCanceled' as BookingStatusEnum,
-        PendingArchive: 'PendingArchive' as BookingStatusEnum,
-        Archived: 'Archived' as BookingStatusEnum
-    }
-    export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    }
 }

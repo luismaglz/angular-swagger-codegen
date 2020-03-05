@@ -14,6 +14,7 @@
 /**
  * Defines a person preference create request.
  */
+
 export interface PersonPreferenceCreateRequest { 
     /**
      * The preference code.

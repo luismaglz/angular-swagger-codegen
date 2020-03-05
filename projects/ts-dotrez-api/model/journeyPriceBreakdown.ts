@@ -14,6 +14,7 @@
 /**
  * Defines a specifics journey pricing breakdown.
  */
+
 export interface JourneyPriceBreakdown { 
     /**
      * The unique journey key.

@@ -14,6 +14,7 @@
 /**
  * The station category model.
  */
+
 export interface StationCategory { 
     /**
      * The station category code.

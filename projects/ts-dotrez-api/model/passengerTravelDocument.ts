@@ -15,6 +15,9 @@ import { Name } from './name';
 /**
  * Model representing a passenger travel document.
  */
+
+    import { PassengerTravelDocument<CAP>gender<CAP> } from '../models/enums';
+
 export interface PassengerTravelDocument { 
     /**
      * A key that  uniquely identifies a travel document in the context of a specific passenger.
@@ -55,17 +58,9 @@ export interface PassengerTravelDocument {
     /**
      * The travel document holder's gender.
      */
-    gender?: PassengerTravelDocument.GenderEnum;
+    gender?: PassengerTravelDocument<CAP>gender<CAP>;
     /**
      * The person's date of birth.
      */
     dateOfBirth?: Date;
-}
-export namespace PassengerTravelDocument {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

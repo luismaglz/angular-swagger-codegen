@@ -22,6 +22,7 @@ import { Warning } from './warning';
 /**
  * Defines an insurance product result.
  */
+
 export interface InsuranceProduct { 
     /**
      * Flag indicating if the insurance product is a group offer.

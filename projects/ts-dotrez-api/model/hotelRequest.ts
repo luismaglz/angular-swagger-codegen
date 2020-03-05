@@ -16,6 +16,9 @@ import { ParticipantCriteria } from './participantCriteria';
 /**
  * Defines the query for a single station used for hotel travel commerce.
  */
+
+    import { HotelRequest<CAP>sort<CAP> } from '../models/enums';
+
 export interface HotelRequest { 
     /**
      * The station code for the city.
@@ -48,7 +51,7 @@ export interface HotelRequest {
     /**
      * The search sort order.
      */
-    sort?: HotelRequest.SortEnum;
+    sort?: HotelRequest<CAP>sort<CAP>;
     /**
      * The promotion code with which to search.
      */
@@ -98,17 +101,4 @@ export interface HotelRequest {
      */
     quantity?: number;
     parameters?: ActivitySimpleRequestParameters;
-}
-export namespace HotelRequest {
-    export type SortEnum = 'SupplierDefined' | 'Price' | 'Rating' | 'Name' | 'Category' | 'VendorDescription' | 'Preferred' | 'Relevance';
-    export const SortEnum = {
-        SupplierDefined: 'SupplierDefined' as SortEnum,
-        Price: 'Price' as SortEnum,
-        Rating: 'Rating' as SortEnum,
-        Name: 'Name' as SortEnum,
-        Category: 'Category' as SortEnum,
-        VendorDescription: 'VendorDescription' as SortEnum,
-        Preferred: 'Preferred' as SortEnum,
-        Relevance: 'Relevance' as SortEnum
-    }
 }

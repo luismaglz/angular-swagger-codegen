@@ -14,6 +14,7 @@
 /**
  * Defines a personalization parameter. A parameter is used for display purposes to show what is considered an  acceptable  respone.
  */
+
 export interface PersonalizationParameter { 
     /**
      * The unique parameter key.

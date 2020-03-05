@@ -11,6 +11,7 @@
  */
 
 
+
 export interface SafeWaitHandle { 
     readonly isInvalid?: boolean;
     readonly isClosed?: boolean;

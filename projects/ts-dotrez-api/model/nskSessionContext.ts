@@ -17,6 +17,9 @@ import { UserIdentity } from './userIdentity';
 /**
  * Defines the nsk current session context.
  */
+
+    import { NskSessionContext<CAP>type<CAP> } from '../models/enums';
+
 export interface NskSessionContext { 
     /**
      * Flag indicating if the session is pending login.
@@ -49,18 +52,9 @@ export interface NskSessionContext {
     /**
      * The type of session permissions based on the logged in user.
      */
-    type?: NskSessionContext.TypeEnum;
+    type?: NskSessionContext<CAP>type<CAP>;
     /**
      * True if the booking exists in NewSkies for the session.
      */
     hasBookingInState?: boolean;
-}
-export namespace NskSessionContext {
-    export type TypeEnum = 'Unknown' | 'Customer' | 'Anonymous' | 'Agent';
-    export const TypeEnum = {
-        Unknown: 'Unknown' as TypeEnum,
-        Customer: 'Customer' as TypeEnum,
-        Anonymous: 'Anonymous' as TypeEnum,
-        Agent: 'Agent' as TypeEnum
-    }
 }

@@ -11,18 +11,12 @@
  */
 
 
+
+    import { HealthInformation<CAP>status<CAP> } from '../models/enums';
+
 export interface HealthInformation { 
     component?: string;
     componentType?: string;
     details?: string;
-    status?: HealthInformation.StatusEnum;
-}
-export namespace HealthInformation {
-    export type StatusEnum = 'Unknown' | 'Ok' | 'Warning' | 'Error';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        Ok: 'Ok' as StatusEnum,
-        Warning: 'Warning' as StatusEnum,
-        Error: 'Error' as StatusEnum
-    }
+    status?: HealthInformation<CAP>status<CAP>;
 }

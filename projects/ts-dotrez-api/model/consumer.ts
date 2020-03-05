@@ -16,6 +16,7 @@ import { Name } from './name';
 /**
  * Defines a consumer.
  */
+
 export interface Consumer { 
     /**
      * The name of the consumer.

@@ -15,6 +15,7 @@ import { PassengerPriceBreakdown } from './passengerPriceBreakdown';
 /**
  * The individual collection of passenger price breakdowns.
  */
+
 export interface BookingPriceBreakdownPassengers { 
     ?: PassengerPriceBreakdown;
 }

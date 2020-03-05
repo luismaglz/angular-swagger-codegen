@@ -14,6 +14,7 @@
 /**
  * The collection of additional search input parameters.
  */
+
 export interface ActivitySimpleRequestParameters { 
     ?: string;
 }

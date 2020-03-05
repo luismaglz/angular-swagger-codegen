@@ -14,6 +14,9 @@
 /**
  * Defines a user role.
  */
+
+    import { UserRole<CAP>effectiveDays<CAP> } from '../models/enums';
+
 export interface UserRole { 
     /**
      * The user role key.
@@ -30,7 +33,7 @@ export interface UserRole {
     /**
      * The days the role is effective.
      */
-    effectiveDays?: Array<UserRole.EffectiveDaysEnum>;
+    effectiveDays?: UserRole<CAP>effectiveDays<CAP>;
     /**
      * The date the role is effective after.
      */
@@ -43,17 +46,4 @@ export interface UserRole {
      * The date the role is effective before.
      */
     effectiveBefore?: Date;
-}
-export namespace UserRole {
-    export type EffectiveDaysEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const EffectiveDaysEnum = {
-        None: 'None' as EffectiveDaysEnum,
-        Monday: 'Monday' as EffectiveDaysEnum,
-        Tuesday: 'Tuesday' as EffectiveDaysEnum,
-        Wednesday: 'Wednesday' as EffectiveDaysEnum,
-        Thursday: 'Thursday' as EffectiveDaysEnum,
-        Friday: 'Friday' as EffectiveDaysEnum,
-        Saturday: 'Saturday' as EffectiveDaysEnum,
-        Sunday: 'Sunday' as EffectiveDaysEnum
-    }
 }

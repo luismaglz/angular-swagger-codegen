@@ -12,19 +12,13 @@
 import { HealthInformation } from './healthInformation';
 
 
+
+    import { EnvironmentHealth<CAP>status<CAP> } from '../models/enums';
+
 export interface EnvironmentHealth { 
     nodes?: Array<HealthInformation>;
     component?: string;
     componentType?: string;
     details?: string;
-    status?: EnvironmentHealth.StatusEnum;
-}
-export namespace EnvironmentHealth {
-    export type StatusEnum = 'Unknown' | 'Ok' | 'Warning' | 'Error';
-    export const StatusEnum = {
-        Unknown: 'Unknown' as StatusEnum,
-        Ok: 'Ok' as StatusEnum,
-        Warning: 'Warning' as StatusEnum,
-        Error: 'Error' as StatusEnum
-    }
+    status?: EnvironmentHealth<CAP>status<CAP>;
 }

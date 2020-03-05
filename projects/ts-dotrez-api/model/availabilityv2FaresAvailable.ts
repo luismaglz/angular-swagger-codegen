@@ -15,6 +15,7 @@ import { FareReference } from './fareReference';
 /**
  * The aggregate collection of fares available for all the provided journeys.
  */
+
 export interface Availabilityv2FaresAvailable { 
     ?: FareReference;
 }

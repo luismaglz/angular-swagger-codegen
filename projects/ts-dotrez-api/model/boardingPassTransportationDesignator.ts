@@ -14,6 +14,7 @@
 /**
  * Defines a boarding pass transportation designator.
  */
+
 export interface BoardingPassTransportationDesignator { 
     /**
      * The destination stations localized name.

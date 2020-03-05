@@ -15,6 +15,9 @@ import { BundleDiscountAmount } from './bundleDiscountAmount';
 /**
  * The bundle ssr configuration model.
  */
+
+    import { BundleSsrConfiguration<CAP>bundleSsrType<CAP> } from '../models/enums';
+
 export interface BundleSsrConfiguration { 
     /**
      * The service bundle code.
@@ -35,7 +38,7 @@ export interface BundleSsrConfiguration {
     /**
      * The bundle ssr type.
      */
-    bundleSsrType?: BundleSsrConfiguration.BundleSsrTypeEnum;
+    bundleSsrType?: BundleSsrConfiguration<CAP>bundleSsrType<CAP>;
     /**
      * The discount percent.
      */
@@ -52,12 +55,4 @@ export interface BundleSsrConfiguration {
      * The service bundle SSR discount amounts.
      */
     amounts?: Array<BundleDiscountAmount>;
-}
-export namespace BundleSsrConfiguration {
-    export type BundleSsrTypeEnum = 'InBundle' | 'InBundleUpgrade' | 'NotInBundle';
-    export const BundleSsrTypeEnum = {
-        InBundle: 'InBundle' as BundleSsrTypeEnum,
-        InBundleUpgrade: 'InBundleUpgrade' as BundleSsrTypeEnum,
-        NotInBundle: 'NotInBundle' as BundleSsrTypeEnum
-    }
 }

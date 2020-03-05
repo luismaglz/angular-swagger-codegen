@@ -17,6 +17,9 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Model representing an infant with a passenger.
  */
+
+    import { PassengerInfant<CAP>gender<CAP> } from '../models/enums';
+
 export interface PassengerInfant { 
     /**
      * The collection of infant fees.
@@ -41,17 +44,9 @@ export interface PassengerInfant {
     /**
      * The gender of the passenger.
      */
-    gender?: PassengerInfant.GenderEnum;
+    gender?: PassengerInfant<CAP>gender<CAP>;
     /**
      * The name of the passenger.
      */
     name?: Name;
-}
-export namespace PassengerInfant {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

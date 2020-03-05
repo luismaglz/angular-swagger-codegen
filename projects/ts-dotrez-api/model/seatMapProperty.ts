@@ -14,6 +14,7 @@
 /**
  * Defines a property of a equipment unit.
  */
+
 export interface SeatMapProperty { 
     /**
      * The dynamic equipment property code.

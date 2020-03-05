@@ -15,6 +15,7 @@ import { Discount } from './discount';
 /**
  * Defines a product variation catalog calculated amounts.
  */
+
 export interface ProductVariationCatalogAmounts { 
     /**
      * The base price.

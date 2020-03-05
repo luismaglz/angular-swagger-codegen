@@ -14,6 +14,7 @@
 /**
  * The issuance reason model.
  */
+
 export interface IssuanceReason { 
     /**
      * The reason code.

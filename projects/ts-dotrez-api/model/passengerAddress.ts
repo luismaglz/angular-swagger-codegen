@@ -14,11 +14,14 @@
 /**
  * Passenger address information. This contains more data then the base address class.
  */
+
+    import { PassengerAddress<CAP>status<CAP> } from '../models/enums';
+
 export interface PassengerAddress { 
     /**
      * The addresses APIS status.
      */
-    status?: PassengerAddress.StatusEnum;
+    status?: PassengerAddress<CAP>status<CAP>;
     /**
      * Company name associated with this address.
      */
@@ -67,13 +70,4 @@ export interface PassengerAddress {
      * The postal code.
      */
     postalCode?: string;
-}
-export namespace PassengerAddress {
-    export type StatusEnum = 'Residence' | 'InCountry' | 'Emergency' | 'Contact';
-    export const StatusEnum = {
-        Residence: 'Residence' as StatusEnum,
-        InCountry: 'InCountry' as StatusEnum,
-        Emergency: 'Emergency' as StatusEnum,
-        Contact: 'Contact' as StatusEnum
-    }
 }

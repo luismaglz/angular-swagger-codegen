@@ -14,6 +14,7 @@
 /**
  * The hot card reason model.
  */
+
 export interface HotCardReason { 
     /**
      * The reason code.

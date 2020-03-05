@@ -14,6 +14,7 @@
 /**
  * The suffix model.
  */
+
 export interface Suffix { 
     /**
      * The suffix code.

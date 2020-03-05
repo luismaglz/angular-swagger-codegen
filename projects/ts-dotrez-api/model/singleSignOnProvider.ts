@@ -14,6 +14,7 @@
 /**
  * Defines the single sign on credentials.
  */
+
 export interface SingleSignOnProvider { 
     /**
      * The single sign on provider name.

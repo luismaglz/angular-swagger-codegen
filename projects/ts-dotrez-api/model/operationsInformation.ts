@@ -16,6 +16,10 @@ import { GateInformation } from './gateInformation';
 /**
  * Model describing the operations information.
  */
+
+    import { OperationsInformation<CAP>arrivalStatus<CAP> } from '../models/enums';
+    import { OperationsInformation<CAP>departureStatus<CAP> } from '../models/enums';
+
 export interface OperationsInformation { 
     /**
      * The arrival gate information.
@@ -52,7 +56,7 @@ export interface OperationsInformation {
     /**
      * The arrival status.
      */
-    arrivalStatus?: OperationsInformation.ArrivalStatusEnum;
+    arrivalStatus?: OperationsInformation<CAP>arrivalStatus<CAP>;
     /**
      * The baggage claim.
      */
@@ -64,7 +68,7 @@ export interface OperationsInformation {
     /**
      * The departure status.
      */
-    departureStatus?: OperationsInformation.DepartureStatusEnum;
+    departureStatus?: OperationsInformation<CAP>departureStatus<CAP>;
     /**
      * The departure time information.
      */
@@ -77,23 +81,4 @@ export interface OperationsInformation {
      * The tail number.
      */
     tailNumber?: string;
-}
-export namespace OperationsInformation {
-    export type ArrivalStatusEnum = 'Default' | 'Cancelled' | 'Arrived' | 'SeeAgent' | 'Delayed';
-    export const ArrivalStatusEnum = {
-        Default: 'Default' as ArrivalStatusEnum,
-        Cancelled: 'Cancelled' as ArrivalStatusEnum,
-        Arrived: 'Arrived' as ArrivalStatusEnum,
-        SeeAgent: 'SeeAgent' as ArrivalStatusEnum,
-        Delayed: 'Delayed' as ArrivalStatusEnum
-    }
-    export type DepartureStatusEnum = 'Default' | 'Cancelled' | 'Boarding' | 'SeeAgent' | 'Delayed' | 'Departed';
-    export const DepartureStatusEnum = {
-        Default: 'Default' as DepartureStatusEnum,
-        Cancelled: 'Cancelled' as DepartureStatusEnum,
-        Boarding: 'Boarding' as DepartureStatusEnum,
-        SeeAgent: 'SeeAgent' as DepartureStatusEnum,
-        Delayed: 'Delayed' as DepartureStatusEnum,
-        Departed: 'Departed' as DepartureStatusEnum
-    }
 }

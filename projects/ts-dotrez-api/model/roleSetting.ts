@@ -15,6 +15,7 @@ import { RoleSettingType } from './roleSettingType';
 /**
  * The role settings model.
  */
+
 export interface RoleSetting { 
     /**
      * The number version of the data associated with this setting.

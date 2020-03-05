@@ -16,6 +16,7 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * The contact details for an organization.
  */
+
 export interface ContactDetails { 
     /**
      * The contact name.

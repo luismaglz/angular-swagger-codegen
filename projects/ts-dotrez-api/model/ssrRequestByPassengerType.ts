@@ -15,6 +15,7 @@ import { SsrDesignatorRequest } from './ssrDesignatorRequest';
 /**
  * SSR request for a single passenger type.
  */
+
 export interface SsrRequestByPassengerType { 
     /**
      * The passenger type.

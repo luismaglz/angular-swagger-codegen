@@ -14,6 +14,7 @@
 /**
  * The phone type.
  */
+
 export interface PhoneType { 
     /**
      * The type code.

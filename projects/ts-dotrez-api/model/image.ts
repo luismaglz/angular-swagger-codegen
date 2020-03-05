@@ -14,6 +14,7 @@
 /**
  * Defines an available image.
  */
+
 export interface Image { 
     /**
      * The unique key for this image.

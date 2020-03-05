@@ -14,6 +14,7 @@
 /**
  * Defines a boarding pass transportation identifier.
  */
+
 export interface BoardingPassTransportationIdentifier { 
     /**
      * The carriers name.

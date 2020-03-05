@@ -24,6 +24,7 @@ import { Warning } from './warning';
 /**
  * Defines a car product result.
  */
+
 export interface CarProduct { 
     /**
      * The unique product result key.

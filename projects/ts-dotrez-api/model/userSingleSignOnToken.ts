@@ -14,6 +14,7 @@
 /**
  * Defines a user's single sign on token.
  */
+
 export interface UserSingleSignOnToken { 
     /**
      * The single sign on token.

@@ -14,6 +14,7 @@
 /**
  * Defines the terms and conditions of an order.
  */
+
 export interface Term { 
     /**
      * The terms and conditions code.

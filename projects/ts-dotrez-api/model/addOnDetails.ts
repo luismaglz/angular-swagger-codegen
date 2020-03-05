@@ -14,6 +14,7 @@
 /**
  * Defines a booking add on base details.
  */
+
 export interface AddOnDetails { 
     /**
      * The created agent code.

@@ -15,6 +15,12 @@ import { PaymentMethodPaymentMethodFields } from './paymentMethodPaymentMethodFi
 /**
  * The payment method model.
  */
+
+    import { PaymentMethod<CAP>dccType<CAP> } from '../models/enums';
+    import { PaymentMethod<CAP>paymentMethodType<CAP> } from '../models/enums';
+    import { PaymentMethod<CAP>paymentRefundType<CAP> } from '../models/enums';
+    import { PaymentMethod<CAP>refundCurrencyControl<CAP> } from '../models/enums';
+
 export interface PaymentMethod { 
     /**
      * The payment method code for this payment method.
@@ -39,7 +45,7 @@ export interface PaymentMethod {
     /**
      * The DCC type for this payment method.
      */
-    dccType?: PaymentMethod.DccTypeEnum;
+    dccType?: PaymentMethod<CAP>dccType<CAP>;
     /**
      * The disallow partial refund flag for this payment method.
      */
@@ -64,11 +70,11 @@ export interface PaymentMethod {
     /**
      * The payment method type for this payment method.
      */
-    paymentMethodType?: PaymentMethod.PaymentMethodTypeEnum;
+    paymentMethodType?: PaymentMethod<CAP>paymentMethodType<CAP>;
     /**
      * The payment refund type for this payment method.
      */
-    paymentRefundType?: PaymentMethod.PaymentRefundTypeEnum;
+    paymentRefundType?: PaymentMethod<CAP>paymentRefundType<CAP>;
     /**
      * The proportional refund flag for this payment method.
      */
@@ -80,7 +86,7 @@ export interface PaymentMethod {
     /**
      * The refund currency control for this payment method.
      */
-    refundCurrencyControl?: PaymentMethod.RefundCurrencyControlEnum;
+    refundCurrencyControl?: PaymentMethod<CAP>refundCurrencyControl<CAP>;
     /**
      * The hours of restriction for this payment method.
      */
@@ -97,33 +103,4 @@ export interface PaymentMethod {
      * The validation required flag for this payment method.
      */
     validationRequired?: boolean;
-}
-export namespace PaymentMethod {
-    export type DccTypeEnum = 'None' | 'ZeroRate' | 'FullAmount';
-    export const DccTypeEnum = {
-        None: 'None' as DccTypeEnum,
-        ZeroRate: 'ZeroRate' as DccTypeEnum,
-        FullAmount: 'FullAmount' as DccTypeEnum
-    }
-    export type PaymentMethodTypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const PaymentMethodTypeEnum = {
-        ExternalAccount: 'ExternalAccount' as PaymentMethodTypeEnum,
-        PrePaid: 'PrePaid' as PaymentMethodTypeEnum,
-        AgencyAccount: 'AgencyAccount' as PaymentMethodTypeEnum,
-        CustomerAccount: 'CustomerAccount' as PaymentMethodTypeEnum,
-        Voucher: 'Voucher' as PaymentMethodTypeEnum,
-        Loyalty: 'Loyalty' as PaymentMethodTypeEnum
-    }
-    export type PaymentRefundTypeEnum = 'NotAllowed' | 'LineItemLevel' | 'AccountLevel' | 'BookingLevel';
-    export const PaymentRefundTypeEnum = {
-        NotAllowed: 'NotAllowed' as PaymentRefundTypeEnum,
-        LineItemLevel: 'LineItemLevel' as PaymentRefundTypeEnum,
-        AccountLevel: 'AccountLevel' as PaymentRefundTypeEnum,
-        BookingLevel: 'BookingLevel' as PaymentRefundTypeEnum
-    }
-    export type RefundCurrencyControlEnum = 'UseCollectedCurrency' | 'UseQuotedCurrency';
-    export const RefundCurrencyControlEnum = {
-        UseCollectedCurrency: 'UseCollectedCurrency' as RefundCurrencyControlEnum,
-        UseQuotedCurrency: 'UseQuotedCurrency' as RefundCurrencyControlEnum
-    }
 }

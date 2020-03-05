@@ -14,6 +14,7 @@
 /**
  * Represents a single seat preference.
  */
+
 export interface SeatPreference { 
     /**
      * The seat map code (ex. 'SMOKING').

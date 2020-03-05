@@ -12,6 +12,7 @@
 import { Claim } from './claim';
 
 
+
 export interface ClaimsIdentity { 
     readonly authenticationType?: string;
     readonly isAuthenticated?: boolean;

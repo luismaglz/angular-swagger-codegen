@@ -14,6 +14,7 @@
 /**
  * Defines a fare override.
  */
+
 export interface FareOverrideRequest { 
     /**
      * The new fare amount.

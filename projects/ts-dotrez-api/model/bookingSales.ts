@@ -16,6 +16,7 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines the different point of sale information.
  */
+
 export interface BookingSales { 
     /**
      * Contains the details about the agent and organization information that created this booking.

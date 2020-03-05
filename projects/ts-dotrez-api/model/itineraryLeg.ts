@@ -15,6 +15,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines a single instance of non-stop travel between two stations.
  */
+
 export interface ItineraryLeg { 
     /**
      * The unique identifier for this leg sell information.

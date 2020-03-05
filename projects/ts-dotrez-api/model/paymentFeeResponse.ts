@@ -15,6 +15,7 @@ import { PassengerFee } from './passengerFee';
 /**
  * Defines information for the payment fee response.
  */
+
 export interface PaymentFeeResponse { 
     /**
      * The amount being payed.

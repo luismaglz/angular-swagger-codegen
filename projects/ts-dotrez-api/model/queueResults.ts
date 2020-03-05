@@ -15,6 +15,7 @@ import { Queue } from './queue';
 /**
  * Base class for all queue model objects
  */
+
 export interface QueueResults { 
     /**
      * Queues.

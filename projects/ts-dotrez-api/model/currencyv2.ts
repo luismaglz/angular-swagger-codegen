@@ -14,6 +14,7 @@
 /**
  * The currency model.
  */
+
 export interface Currencyv2 { 
     /**
      * The unique currency code of currency.

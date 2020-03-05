@@ -14,6 +14,7 @@
 /**
  * Defines a consumer address.
  */
+
 export interface ConsumerAddress { 
     /**
      * The address country.

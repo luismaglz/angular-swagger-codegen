@@ -16,6 +16,10 @@ import { ContactDetails } from './contactDetails';
 /**
  * The data on the user related agent's organization.
  */
+
+    import { OrganizationRecord<CAP>type<CAP> } from '../models/enums';
+    import { OrganizationRecord<CAP>status<CAP> } from '../models/enums';
+
 export interface OrganizationRecord { 
     /**
      * The organization code.
@@ -24,7 +28,7 @@ export interface OrganizationRecord {
     /**
      * Organization type.
      */
-    type?: OrganizationRecord.TypeEnum;
+    type?: OrganizationRecord<CAP>type<CAP>;
     /**
      * The company details.
      */
@@ -36,26 +40,9 @@ export interface OrganizationRecord {
     /**
      * The organization status.
      */
-    status?: OrganizationRecord.StatusEnum;
+    status?: OrganizationRecord<CAP>status<CAP>;
     /**
      * The parent organization code.
      */
     parentOrganizationCode?: string;
-}
-export namespace OrganizationRecord {
-    export type TypeEnum = 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Master: 'Master' as TypeEnum,
-        Carrier: 'Carrier' as TypeEnum,
-        TravelAgency: 'TravelAgency' as TypeEnum,
-        ThirdParty: 'ThirdParty' as TypeEnum
-    }
-    export type StatusEnum = 'Default' | 'Active' | 'Cancelled' | 'Pending';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Pending: 'Pending' as StatusEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * Defines the single sign on token request.
  */
+
 export interface SingleSignOnTokenRequest { 
     /**
      * The single sign on token.

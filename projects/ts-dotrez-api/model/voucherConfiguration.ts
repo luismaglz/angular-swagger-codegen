@@ -17,6 +17,19 @@ import { VoucherTravelRestriction } from './voucherTravelRestriction';
 /**
  * The voucher configuration model.
  */
+
+    import { VoucherConfiguration<CAP>type<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>issuanceType<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>usageTypes<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>tripType<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>expirationControl<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>expirationType<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>amountControl<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>calculatedAmountControl<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>travelDowRestriction<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>nameRestriction<CAP> } from '../models/enums';
+    import { VoucherConfiguration<CAP>issuanceControl<CAP> } from '../models/enums';
+
 export interface VoucherConfiguration { 
     /**
      * The voucher configuration code.
@@ -37,27 +50,27 @@ export interface VoucherConfiguration {
     /**
      * The voucher type.
      */
-    type: VoucherConfiguration.TypeEnum;
+    type: VoucherConfiguration<CAP>type<CAP>;
     /**
      * The issuance type.
      */
-    issuanceType: VoucherConfiguration.IssuanceTypeEnum;
+    issuanceType: VoucherConfiguration<CAP>issuanceType<CAP>;
     /**
      * The voucher usage types.
      */
-    usageTypes?: Array<VoucherConfiguration.UsageTypesEnum>;
+    usageTypes?: VoucherConfiguration<CAP>usageTypes<CAP>;
     /**
      * The voucher trip type.
      */
-    tripType?: VoucherConfiguration.TripTypeEnum;
+    tripType?: VoucherConfiguration<CAP>tripType<CAP>;
     /**
      * The voucher expiration control.
      */
-    expirationControl?: VoucherConfiguration.ExpirationControlEnum;
+    expirationControl?: VoucherConfiguration<CAP>expirationControl<CAP>;
     /**
      * The voucher expiration type.
      */
-    expirationType: VoucherConfiguration.ExpirationTypeEnum;
+    expirationType: VoucherConfiguration<CAP>expirationType<CAP>;
     /**
      * The voucher expiration days.
      */
@@ -65,11 +78,11 @@ export interface VoucherConfiguration {
     /**
      * The voucher amount control.
      */
-    amountControl?: VoucherConfiguration.AmountControlEnum;
+    amountControl?: VoucherConfiguration<CAP>amountControl<CAP>;
     /**
      * The voucher calculated amount control.
      */
-    calculatedAmountControl?: VoucherConfiguration.CalculatedAmountControlEnum;
+    calculatedAmountControl?: VoucherConfiguration<CAP>calculatedAmountControl<CAP>;
     /**
      * The voucher maximum passenger total.
      */
@@ -81,11 +94,11 @@ export interface VoucherConfiguration {
     /**
      * The voucher day of week travel restrictions.
      */
-    travelDowRestriction?: Array<VoucherConfiguration.TravelDowRestrictionEnum>;
+    travelDowRestriction?: VoucherConfiguration<CAP>travelDowRestriction<CAP>;
     /**
      * The voucher name restriction.
      */
-    nameRestriction?: VoucherConfiguration.NameRestrictionEnum;
+    nameRestriction?: VoucherConfiguration<CAP>nameRestriction<CAP>;
     /**
      * The flag to indicate if a record locator is required.
      */
@@ -109,7 +122,7 @@ export interface VoucherConfiguration {
     /**
      * The voucher issuance control.
      */
-    issuanceControl?: VoucherConfiguration.IssuanceControlEnum;
+    issuanceControl?: VoucherConfiguration<CAP>issuanceControl<CAP>;
     /**
      * The voucher configuration fare classes.
      */
@@ -134,97 +147,4 @@ export interface VoucherConfiguration {
      * The maximum voucher amount.
      */
     maximumAmount?: number;
-}
-export namespace VoucherConfiguration {
-    export type TypeEnum = 'Credit' | 'SingleUseCredit' | 'Service' | 'SingleUse' | 'MultiUse' | 'SingleUseNegativeAdjustment';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        SingleUseCredit: 'SingleUseCredit' as TypeEnum,
-        Service: 'Service' as TypeEnum,
-        SingleUse: 'SingleUse' as TypeEnum,
-        MultiUse: 'MultiUse' as TypeEnum,
-        SingleUseNegativeAdjustment: 'SingleUseNegativeAdjustment' as TypeEnum
-    }
-    export type IssuanceTypeEnum = 'Individual' | 'Batch' | 'FlightBatch' | 'HighVolumeBatch' | 'OdBatch';
-    export const IssuanceTypeEnum = {
-        Individual: 'Individual' as IssuanceTypeEnum,
-        Batch: 'Batch' as IssuanceTypeEnum,
-        FlightBatch: 'FlightBatch' as IssuanceTypeEnum,
-        HighVolumeBatch: 'HighVolumeBatch' as IssuanceTypeEnum,
-        OdBatch: 'OdBatch' as IssuanceTypeEnum
-    }
-    export type UsageTypesEnum = 'None' | 'Fares' | 'Taxes' | 'TravelFees' | 'ServiceFees' | 'PenaltyFees' | 'SsrFees' | 'NonFlightServiceFees' | 'UpgradeFees' | 'SeatFees' | 'SpoilageFees' | 'NameChangeFees' | 'ConvenienceFees' | 'Car' | 'Hotel' | 'Insurance' | 'Activities';
-    export const UsageTypesEnum = {
-        None: 'None' as UsageTypesEnum,
-        Fares: 'Fares' as UsageTypesEnum,
-        Taxes: 'Taxes' as UsageTypesEnum,
-        TravelFees: 'TravelFees' as UsageTypesEnum,
-        ServiceFees: 'ServiceFees' as UsageTypesEnum,
-        PenaltyFees: 'PenaltyFees' as UsageTypesEnum,
-        SsrFees: 'SsrFees' as UsageTypesEnum,
-        NonFlightServiceFees: 'NonFlightServiceFees' as UsageTypesEnum,
-        UpgradeFees: 'UpgradeFees' as UsageTypesEnum,
-        SeatFees: 'SeatFees' as UsageTypesEnum,
-        SpoilageFees: 'SpoilageFees' as UsageTypesEnum,
-        NameChangeFees: 'NameChangeFees' as UsageTypesEnum,
-        ConvenienceFees: 'ConvenienceFees' as UsageTypesEnum,
-        Car: 'Car' as UsageTypesEnum,
-        Hotel: 'Hotel' as UsageTypesEnum,
-        Insurance: 'Insurance' as UsageTypesEnum,
-        Activities: 'Activities' as UsageTypesEnum
-    }
-    export type TripTypeEnum = 'Any' | 'OneWay' | 'RoundTrip' | 'None';
-    export const TripTypeEnum = {
-        Any: 'Any' as TripTypeEnum,
-        OneWay: 'OneWay' as TripTypeEnum,
-        RoundTrip: 'RoundTrip' as TripTypeEnum,
-        None: 'None' as TripTypeEnum
-    }
-    export type ExpirationControlEnum = 'None' | 'Fixed' | 'FixedAtIssuance' | 'Calculated';
-    export const ExpirationControlEnum = {
-        None: 'None' as ExpirationControlEnum,
-        Fixed: 'Fixed' as ExpirationControlEnum,
-        FixedAtIssuance: 'FixedAtIssuance' as ExpirationControlEnum,
-        Calculated: 'Calculated' as ExpirationControlEnum
-    }
-    export type ExpirationTypeEnum = 'TravelBy' | 'TravelCompleteBy' | 'BookingBy';
-    export const ExpirationTypeEnum = {
-        TravelBy: 'TravelBy' as ExpirationTypeEnum,
-        TravelCompleteBy: 'TravelCompleteBy' as ExpirationTypeEnum,
-        BookingBy: 'BookingBy' as ExpirationTypeEnum
-    }
-    export type AmountControlEnum = 'Fixed' | 'FixedAtIssuance' | 'Calculated';
-    export const AmountControlEnum = {
-        Fixed: 'Fixed' as AmountControlEnum,
-        FixedAtIssuance: 'FixedAtIssuance' as AmountControlEnum,
-        Calculated: 'Calculated' as AmountControlEnum
-    }
-    export type CalculatedAmountControlEnum = 'Default' | 'Fares' | 'FaresPlusTaxes';
-    export const CalculatedAmountControlEnum = {
-        Default: 'Default' as CalculatedAmountControlEnum,
-        Fares: 'Fares' as CalculatedAmountControlEnum,
-        FaresPlusTaxes: 'FaresPlusTaxes' as CalculatedAmountControlEnum
-    }
-    export type TravelDowRestrictionEnum = 'None' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
-    export const TravelDowRestrictionEnum = {
-        None: 'None' as TravelDowRestrictionEnum,
-        Monday: 'Monday' as TravelDowRestrictionEnum,
-        Tuesday: 'Tuesday' as TravelDowRestrictionEnum,
-        Wednesday: 'Wednesday' as TravelDowRestrictionEnum,
-        Thursday: 'Thursday' as TravelDowRestrictionEnum,
-        Friday: 'Friday' as TravelDowRestrictionEnum,
-        Saturday: 'Saturday' as TravelDowRestrictionEnum,
-        Sunday: 'Sunday' as TravelDowRestrictionEnum
-    }
-    export type NameRestrictionEnum = 'None' | 'MustBePassenger' | 'MustBePassengerOrContact';
-    export const NameRestrictionEnum = {
-        None: 'None' as NameRestrictionEnum,
-        MustBePassenger: 'MustBePassenger' as NameRestrictionEnum,
-        MustBePassengerOrContact: 'MustBePassengerOrContact' as NameRestrictionEnum
-    }
-    export type IssuanceControlEnum = 'IssuedToPassengers' | 'IssuedToContact';
-    export const IssuanceControlEnum = {
-        IssuedToPassengers: 'IssuedToPassengers' as IssuanceControlEnum,
-        IssuedToContact: 'IssuedToContact' as IssuanceControlEnum
-    }
 }

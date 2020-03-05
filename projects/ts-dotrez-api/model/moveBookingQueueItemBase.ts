@@ -14,6 +14,7 @@
 /**
  * Defines a move booking queue item request
  */
+
 export interface MoveBookingQueueItemBase { 
     /**
      * The existing booking key.

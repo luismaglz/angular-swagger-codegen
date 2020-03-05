@@ -16,6 +16,7 @@ import { LowFarePassengers } from './lowFarePassengers';
 /**
  * Low fare contains the information for a specific flight.
  */
+
 export interface LowFare { 
     passengers?: LowFarePassengers;
     /**

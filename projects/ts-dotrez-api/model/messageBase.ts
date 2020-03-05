@@ -14,6 +14,7 @@
 /**
  * The message base model.
  */
+
 export interface MessageBase { 
     /**
      * The message type code of the message queue.

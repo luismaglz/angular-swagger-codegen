@@ -15,6 +15,9 @@ import { FeeRuleProperty } from './feeRuleProperty';
 /**
  * Fee rule model.
  */
+
+    import { FeeRule<CAP>operator<CAP> } from '../models/enums';
+
 export interface FeeRule { 
     /**
      * Gets or sets the fee option number for this fee rule.
@@ -31,13 +34,5 @@ export interface FeeRule {
     /**
      * Gets or sets the fee rule operator for this fee rule.
      */
-    operator?: FeeRule.OperatorEnum;
-}
-export namespace FeeRule {
-    export type OperatorEnum = 'Default' | 'MustBe' | 'MustNotBe';
-    export const OperatorEnum = {
-        Default: 'Default' as OperatorEnum,
-        MustBe: 'MustBe' as OperatorEnum,
-        MustNotBe: 'MustNotBe' as OperatorEnum
-    }
+    operator?: FeeRule<CAP>operator<CAP>;
 }

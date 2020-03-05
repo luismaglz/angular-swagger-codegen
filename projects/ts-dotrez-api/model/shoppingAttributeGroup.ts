@@ -14,6 +14,7 @@
 /**
  * Model for a shopping attribute groups.
  */
+
 export interface ShoppingAttributeGroup { 
     /**
      * Gets or sets the inactive flag for this shopping attribute group.

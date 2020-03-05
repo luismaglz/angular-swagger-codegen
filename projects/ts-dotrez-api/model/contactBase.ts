@@ -16,6 +16,10 @@ import { Name } from './name';
 /**
  * Contact model describing a primary contact information.
  */
+
+    import { ContactBase<CAP>distributionOption<CAP> } from '../models/enums';
+    import { ContactBase<CAP>notificationPreference<CAP> } from '../models/enums';
+
 export interface ContactBase { 
     /**
      * The culture code.
@@ -40,11 +44,11 @@ export interface ContactBase {
     /**
      * The contact distribution option.
      */
-    distributionOption?: ContactBase.DistributionOptionEnum;
+    distributionOption?: ContactBase<CAP>distributionOption<CAP>;
     /**
      * The notification preference of the contact.
      */
-    notificationPreference?: ContactBase.NotificationPreferenceEnum;
+    notificationPreference?: ContactBase<CAP>notificationPreference<CAP>;
     /**
      * The company name.
      */
@@ -53,22 +57,4 @@ export interface ContactBase {
      * The contact's name.
      */
     name?: Name;
-}
-export namespace ContactBase {
-    export type DistributionOptionEnum = 'None' | 'Mail' | 'Email' | 'Fax' | 'MailFax' | 'Airport' | 'Hold' | 'Print';
-    export const DistributionOptionEnum = {
-        None: 'None' as DistributionOptionEnum,
-        Mail: 'Mail' as DistributionOptionEnum,
-        Email: 'Email' as DistributionOptionEnum,
-        Fax: 'Fax' as DistributionOptionEnum,
-        MailFax: 'MailFax' as DistributionOptionEnum,
-        Airport: 'Airport' as DistributionOptionEnum,
-        Hold: 'Hold' as DistributionOptionEnum,
-        Print: 'Print' as DistributionOptionEnum
-    }
-    export type NotificationPreferenceEnum = 'None' | 'Promotional';
-    export const NotificationPreferenceEnum = {
-        None: 'None' as NotificationPreferenceEnum,
-        Promotional: 'Promotional' as NotificationPreferenceEnum
-    }
 }

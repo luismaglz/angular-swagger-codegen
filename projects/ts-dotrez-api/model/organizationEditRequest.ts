@@ -17,6 +17,10 @@ import { OrganizationConfigurationv2 } from './organizationConfigurationv2';
 /**
  * The base data on the organization.
  */
+
+    import { OrganizationEditRequest<CAP>type<CAP> } from '../models/enums';
+    import { OrganizationEditRequest<CAP>status<CAP> } from '../models/enums';
+
 export interface OrganizationEditRequest { 
     /**
      * The company details.
@@ -33,7 +37,7 @@ export interface OrganizationEditRequest {
     /**
      * Organization type.
      */
-    type?: OrganizationEditRequest.TypeEnum;
+    type?: OrganizationEditRequest<CAP>type<CAP>;
     /**
      * Advanced configuration values.
      */
@@ -41,7 +45,7 @@ export interface OrganizationEditRequest {
     /**
      * The organization status.
      */
-    status?: OrganizationEditRequest.StatusEnum;
+    status?: OrganizationEditRequest<CAP>status<CAP>;
     /**
      * The parent organization code.
      */
@@ -54,21 +58,4 @@ export interface OrganizationEditRequest {
      * The last statement date.
      */
     lastStatementDate?: Date;
-}
-export namespace OrganizationEditRequest {
-    export type TypeEnum = 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Master: 'Master' as TypeEnum,
-        Carrier: 'Carrier' as TypeEnum,
-        TravelAgency: 'TravelAgency' as TypeEnum,
-        ThirdParty: 'ThirdParty' as TypeEnum
-    }
-    export type StatusEnum = 'Default' | 'Active' | 'Cancelled' | 'Pending';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Pending: 'Pending' as StatusEnum
-    }
 }

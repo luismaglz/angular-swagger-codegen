@@ -14,6 +14,7 @@
 /**
  * Low fare leg information.
  */
+
 export interface LowFareLeg { 
     /**
      * The arrival date and time.

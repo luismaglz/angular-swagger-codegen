@@ -15,6 +15,7 @@ import { CustomerProgramSetting } from './customerProgramSetting';
 /**
  * The customer program level.
  */
+
 export interface CustomerProgramLevel { 
     /**
      * The program code.

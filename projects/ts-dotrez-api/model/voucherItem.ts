@@ -14,6 +14,9 @@
 /**
  * The voucher item model.
  */
+
+    import { VoucherItem<CAP>status<CAP> } from '../models/enums';
+
 export interface VoucherItem { 
     /**
      * The created date for the voucher item.
@@ -46,7 +49,7 @@ export interface VoucherItem {
     /**
      * The voucher status.
      */
-    status?: VoucherItem.StatusEnum;
+    status?: VoucherItem<CAP>status<CAP>;
     /**
      * The availability count of the voucher.
      */
@@ -67,13 +70,4 @@ export interface VoucherItem {
      * The voucher issuance key.
      */
     voucherIssuanceKey?: string;
-}
-export namespace VoucherItem {
-    export type StatusEnum = 'Available' | 'Void' | 'Redeemed' | 'Expired';
-    export const StatusEnum = {
-        Available: 'Available' as StatusEnum,
-        Void: 'Void' as StatusEnum,
-        Redeemed: 'Redeemed' as StatusEnum,
-        Expired: 'Expired' as StatusEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * The bundle configuration model.
  */
+
 export interface BundleConfiguration { 
     /**
      * The service bundle code.

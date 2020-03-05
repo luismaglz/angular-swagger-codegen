@@ -22,6 +22,9 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * The flight manifest model.
  */
+
+    import { Manifest<CAP>legStatus<CAP> } from '../models/enums';
+
 export interface Manifest { 
     /**
      * Information about the destination country regarding APIS and APPS.
@@ -42,7 +45,7 @@ export interface Manifest {
     /**
      * The Status in Manifest object.
      */
-    legStatus?: Manifest.LegStatusEnum;
+    legStatus?: Manifest<CAP>legStatus<CAP>;
     /**
      * Collection of InventoryLegCrossReference objects.
      */
@@ -99,16 +102,4 @@ export interface Manifest {
      * Has this flight been verified for international travel?
      */
     verified?: boolean;
-}
-export namespace Manifest {
-    export type LegStatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const LegStatusEnum = {
-        Normal: 'Normal' as LegStatusEnum,
-        Closed: 'Closed' as LegStatusEnum,
-        Canceled: 'Canceled' as LegStatusEnum,
-        Suspended: 'Suspended' as LegStatusEnum,
-        ClosedPending: 'ClosedPending' as LegStatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as LegStatusEnum,
-        Mishap: 'Mishap' as LegStatusEnum
-    }
 }

@@ -15,6 +15,7 @@ import { JourneyPriceBreakdown } from './journeyPriceBreakdown';
 /**
  * The individual collection of journey price breakdown.
  */
+
 export interface BookingPriceBreakdownJourneys { 
     ?: JourneyPriceBreakdown;
 }

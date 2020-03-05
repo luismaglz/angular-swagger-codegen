@@ -14,6 +14,7 @@
 /**
  * The data for a simple organization record.
  */
+
 export interface OrganizationRecordMinimum { 
     /**
      * The organization group code.

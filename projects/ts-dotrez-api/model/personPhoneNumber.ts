@@ -14,6 +14,9 @@
 /**
  * Defines a unique person phone number.
  */
+
+    import { PersonPhoneNumber<CAP>type<CAP> } from '../models/enums';
+
 export interface PersonPhoneNumber { 
     /**
      * The unique key for the phone number.
@@ -26,19 +29,9 @@ export interface PersonPhoneNumber {
     /**
      * The phone number type.
      */
-    type: PersonPhoneNumber.TypeEnum;
+    type: PersonPhoneNumber<CAP>type<CAP>;
     /**
      * The phone number without any formatting characters.
      */
     number: string;
-}
-export namespace PersonPhoneNumber {
-    export type TypeEnum = 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax';
-    export const TypeEnum = {
-        Other: 'Other' as TypeEnum,
-        Home: 'Home' as TypeEnum,
-        Work: 'Work' as TypeEnum,
-        Mobile: 'Mobile' as TypeEnum,
-        Fax: 'Fax' as TypeEnum
-    }
 }

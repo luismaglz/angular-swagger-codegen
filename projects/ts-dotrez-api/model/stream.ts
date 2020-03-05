@@ -11,6 +11,7 @@
  */
 
 
+
 export interface Stream { 
     readonly canRead?: boolean;
     readonly canSeek?: boolean;

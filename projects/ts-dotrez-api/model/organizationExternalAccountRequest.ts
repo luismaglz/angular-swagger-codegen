@@ -14,6 +14,7 @@
 /**
  * The data for an organizations external account.
  */
+
 export interface OrganizationExternalAccountRequest { 
     /**
      * The name of the external account.

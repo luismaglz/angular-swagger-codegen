@@ -15,6 +15,7 @@ import { VoucherSummary } from './voucherSummary';
 /**
  * The voucher by date search response item.
  */
+
 export interface VouchersSummaryResponse { 
     /**
      * The key for the last item returned from paging.

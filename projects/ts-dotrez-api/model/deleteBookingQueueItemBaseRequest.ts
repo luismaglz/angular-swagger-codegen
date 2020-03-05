@@ -14,6 +14,7 @@
 /**
  * API request object used to delete a booking queue item.
  */
+
 export interface DeleteBookingQueueItemBaseRequest { 
     /**
      * Information about who authorized the deletion of the booking queue item.

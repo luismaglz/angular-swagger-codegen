@@ -14,6 +14,7 @@
 /**
  * Defines a passenger address edit request.
  */
+
 export interface PassengerAddressEditRequest { 
     /**
      * Company name associated with this address.

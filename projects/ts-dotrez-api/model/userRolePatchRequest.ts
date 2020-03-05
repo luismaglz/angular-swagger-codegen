@@ -14,6 +14,7 @@
 /**
  * Defines the user role patch request.
  */
+
 export interface UserRolePatchRequest { 
     /**
      * The date the role is effective after.

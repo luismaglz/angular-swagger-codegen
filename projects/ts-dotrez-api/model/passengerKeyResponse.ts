@@ -14,6 +14,7 @@
 /**
  * Model representing passenger's old and new key in the event of a key change.
  */
+
 export interface PassengerKeyResponse { 
     /**
      * The old passenger key.

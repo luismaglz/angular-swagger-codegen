@@ -14,6 +14,7 @@
 /**
  * Model related to the point of sale.
  */
+
 export interface BookingPointOfSale { 
     /**
      * Two character country code, optionally supplied in GDS message

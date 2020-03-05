@@ -19,6 +19,10 @@ import { OrganizationExternalAccountRequest } from './organizationExternalAccoun
 /**
  * The data on the organization.
  */
+
+    import { OrganizationCreateRequest<CAP>type<CAP> } from '../models/enums';
+    import { OrganizationCreateRequest<CAP>status<CAP> } from '../models/enums';
+
 export interface OrganizationCreateRequest { 
     /**
      * Send agency activation notification.
@@ -35,7 +39,7 @@ export interface OrganizationCreateRequest {
     /**
      * Organization type.
      */
-    type?: OrganizationCreateRequest.TypeEnum;
+    type?: OrganizationCreateRequest<CAP>type<CAP>;
     /**
      * Commission rates.
      */
@@ -51,7 +55,7 @@ export interface OrganizationCreateRequest {
     /**
      * The organization status.
      */
-    status?: OrganizationCreateRequest.StatusEnum;
+    status?: OrganizationCreateRequest<CAP>status<CAP>;
     /**
      * The contact details.
      */
@@ -68,21 +72,4 @@ export interface OrganizationCreateRequest {
      * The last statement date.
      */
     lastStatementDate?: Date;
-}
-export namespace OrganizationCreateRequest {
-    export type TypeEnum = 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Master: 'Master' as TypeEnum,
-        Carrier: 'Carrier' as TypeEnum,
-        TravelAgency: 'TravelAgency' as TypeEnum,
-        ThirdParty: 'ThirdParty' as TypeEnum
-    }
-    export type StatusEnum = 'Default' | 'Active' | 'Cancelled' | 'Pending';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Cancelled: 'Cancelled' as StatusEnum,
-        Pending: 'Pending' as StatusEnum
-    }
 }

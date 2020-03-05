@@ -17,6 +17,9 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Available segment represents an available segment on a available journey.
  */
+
+    import { AvailableSegment<CAP>segmentType<CAP> } from '../models/enums';
+
 export interface AvailableSegment { 
     /**
      * Flag indicating if the segment is a change of gauge.
@@ -61,20 +64,9 @@ export interface AvailableSegment {
     /**
      * The type of the segment.
      */
-    segmentType?: AvailableSegment.SegmentTypeEnum;
+    segmentType?: AvailableSegment<CAP>segmentType<CAP>;
     /**
      * The collection of legs on the segment.
      */
     legs?: Array<Leg>;
-}
-export namespace AvailableSegment {
-    export type SegmentTypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const SegmentTypeEnum = {
-        Normal: 'Normal' as SegmentTypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as SegmentTypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as SegmentTypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as SegmentTypeEnum,
-        InterlineInbound: 'InterlineInbound' as SegmentTypeEnum,
-        Passive: 'Passive' as SegmentTypeEnum
-    }
 }

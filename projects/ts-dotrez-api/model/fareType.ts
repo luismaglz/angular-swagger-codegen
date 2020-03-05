@@ -14,6 +14,7 @@
 /**
  * The fare type model.
  */
+
 export interface FareType { 
     /**
      * The fare type code.

@@ -14,6 +14,9 @@
 /**
  * The currency model.
  */
+
+    import { Currency<CAP>displayDigits<CAP> } from '../models/enums';
+
 export interface Currency { 
     /**
      * The unique currency code of currency.
@@ -30,7 +33,7 @@ export interface Currency {
     /**
      * The display digits of currency.
      */
-    displayDigits?: Currency.DisplayDigitsEnum;
+    displayDigits?: Currency<CAP>displayDigits<CAP>;
     /**
      * The digit prefix of currency.
      */
@@ -43,12 +46,4 @@ export interface Currency {
      * The flag indicating if the currency is inactive.
      */
     inActive?: boolean;
-}
-export namespace Currency {
-    export type DisplayDigitsEnum = 'ZeroDigits' | 'TwoDigits' | 'ThreeDigits';
-    export const DisplayDigitsEnum = {
-        ZeroDigits: 'ZeroDigits' as DisplayDigitsEnum,
-        TwoDigits: 'TwoDigits' as DisplayDigitsEnum,
-        ThreeDigits: 'ThreeDigits' as DisplayDigitsEnum
-    }
 }

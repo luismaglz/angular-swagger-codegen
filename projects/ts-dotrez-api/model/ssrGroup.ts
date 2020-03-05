@@ -15,6 +15,7 @@ import { SsrGroupItem } from './ssrGroupItem';
 /**
  * The sell service request (SSR) group model.
  */
+
 export interface SsrGroup { 
     /**
      * The SSR group Code.

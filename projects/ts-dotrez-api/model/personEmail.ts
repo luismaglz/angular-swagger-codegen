@@ -14,6 +14,7 @@
 /**
  * Defines a specific person email.
  */
+
 export interface PersonEmail { 
     /**
      * The unique email key.

@@ -14,6 +14,7 @@
 /**
  * Defines a person's customer program.
  */
+
 export interface PersonCustomerProgram { 
     /**
      * The unique person customer program key.

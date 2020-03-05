@@ -18,11 +18,15 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
 /**
  * Defines the availability move request.
  */
+
+    import { AvailabilityMoveRequest<CAP>passengerMoveType<CAP> } from '../models/enums';
+    import { AvailabilityMoveRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface AvailabilityMoveRequest { 
     /**
      * The passenger move type.
      */
-    passengerMoveType?: AvailabilityMoveRequest.PassengerMoveTypeEnum;
+    passengerMoveType?: AvailabilityMoveRequest<CAP>passengerMoveType<CAP>;
     /**
      * The filtering criteria.
      */
@@ -46,24 +50,5 @@ export interface AvailabilityMoveRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: AvailabilityMoveRequest.TypeEnum;
-}
-export namespace AvailabilityMoveRequest {
-    export type PassengerMoveTypeEnum = 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking';
-    export const PassengerMoveTypeEnum = {
-        None: 'None' as PassengerMoveTypeEnum,
-        Irop: 'Irop' as PassengerMoveTypeEnum,
-        Diversion: 'Diversion' as PassengerMoveTypeEnum,
-        FlightClose: 'FlightClose' as PassengerMoveTypeEnum,
-        FlyAhead: 'FlyAhead' as PassengerMoveTypeEnum,
-        SplitJourney: 'SplitJourney' as PassengerMoveTypeEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as PassengerMoveTypeEnum
-    }
-    export type TypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Standby: 'Standby' as TypeEnum,
-        Overbook: 'Overbook' as TypeEnum,
-        NoPricing: 'NoPricing' as TypeEnum
-    }
+    type?: AvailabilityMoveRequest<CAP>type<CAP>;
 }

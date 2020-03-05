@@ -15,6 +15,7 @@ import { ComponentPaymentType } from './componentPaymentType';
 /**
  * Defines a components allowed payment types.
  */
+
 export interface AddOnAllowedPayments { 
     /**
      * The unique component key.

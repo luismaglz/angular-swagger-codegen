@@ -17,6 +17,7 @@ import { NotificationTimedEvent } from './notificationTimedEvent';
 /**
  * A travel notification.
  */
+
 export interface TravelNotification { 
     /**
      * The expiration date.

@@ -15,6 +15,11 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Represents a booking queue history item.
  */
+
+    import { BookingQueueHistory<CAP>historyEvent<CAP> } from '../models/enums';
+    import { BookingQueueHistory<CAP>queueAction<CAP> } from '../models/enums';
+    import { BookingQueueHistory<CAP>queueType<CAP> } from '../models/enums';
+
 export interface BookingQueueHistory { 
     /**
      * The alternate passenger key.
@@ -27,7 +32,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue history event type.
      */
-    historyEvent?: BookingQueueHistory.HistoryEventEnum;
+    historyEvent?: BookingQueueHistory<CAP>historyEvent<CAP>;
     /**
      * The booking queue code.
      */
@@ -51,7 +56,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue action.
      */
-    queueAction?: BookingQueueHistory.QueueActionEnum;
+    queueAction?: BookingQueueHistory<CAP>queueAction<CAP>;
     /**
      * The booking queue domain code.
      */
@@ -67,7 +72,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue item event type.
      */
-    queueType?: BookingQueueHistory.QueueTypeEnum;
+    queueType?: BookingQueueHistory<CAP>queueType<CAP>;
     /**
      * The booking queue item point of sale.
      */
@@ -80,93 +85,4 @@ export interface BookingQueueHistory {
      * The watch list ID of the booking queue entry.
      */
     watchListId?: number;
-}
-export namespace BookingQueueHistory {
-    export type HistoryEventEnum = 'Unknown' | 'Add' | 'Remove' | 'Update';
-    export const HistoryEventEnum = {
-        Unknown: 'Unknown' as HistoryEventEnum,
-        Add: 'Add' as HistoryEventEnum,
-        Remove: 'Remove' as HistoryEventEnum,
-        Update: 'Update' as HistoryEventEnum
-    }
-    export type QueueActionEnum = 'Default' | 'Warning' | 'Lock' | 'DefaultAndNotify' | 'WarningAndNotify' | 'LockAndNotify';
-    export const QueueActionEnum = {
-        Default: 'Default' as QueueActionEnum,
-        Warning: 'Warning' as QueueActionEnum,
-        Lock: 'Lock' as QueueActionEnum,
-        DefaultAndNotify: 'DefaultAndNotify' as QueueActionEnum,
-        WarningAndNotify: 'WarningAndNotify' as QueueActionEnum,
-        LockAndNotify: 'LockAndNotify' as QueueActionEnum
-    }
-    export type QueueTypeEnum = 'Default' | 'BookingBalanceDue' | 'BookingNegativeBalance' | 'BookingCustomerComment' | 'DeclinedPaymentInitial' | 'DeclinedPaymentChange' | 'FareOverride' | 'ScheduleTimeChange' | 'ScheduleTimeChangeMisconnect' | 'ScheduleCancellation' | 'FlightDesignatorChange' | 'ReaccommodationMove' | 'GdsCancelWithPendingPayment' | 'InvalidPriceStatusOverride' | 'FareRestrictionOverride' | 'HeldBookings' | 'InvalidPriceStatus' | 'Watchlist' | 'NonFlightServiceFee' | 'NotAllTicketNumbersReceived' | 'BookingSegmentOversold' | 'ReaccommodationCancel' | 'ExternalSsrAutoConfirmed' | 'OpCarrierSegUpdate' | 'OpCarrierSsrUpdate' | 'OpCarrierOtherUpdate' | 'NameChangeNotAllowed' | 'InboundAscNotProcessed' | 'OpCarrierInformationChange' | 'BookingComponentUpdate' | 'GroupBookings' | 'BankDirectPnrOutOfBalance' | 'NoSeatAssigned' | 'SeatNumberChange' | 'SsrNotSupportedOnNewSeat' | 'FewerSeatPreferencesMetOnNewSeat' | 'AosUnableToConfirmCancel' | 'ETicketIssue' | 'ETicketFollowup' | 'InvoluntaryFlyAhead' | 'ManualClearanceOnOutage' | 'UnbalancedPoints' | 'OpCarrierTimeChange' | 'OaCarrierTimeChange' | 'VoluntaryFlightChange' | 'InvoluntaryFlightChange' | 'HoldCancellationFailed' | 'ScheduleTimeChangeWithDynamicQueueCode' | 'ReaccommodationMoveWithDynamicQueueCode' | 'ItineraryIntegrity' | 'ReducePartyNotProcessed' | 'CheckedPassengerUpdate' | 'NameChangeWithinRule' | 'IncompletePassengerEMDCoupon' | 'ASVCUpdateFailed' | 'ScheduleTimeChangeMisconnectBelowMinimum' | 'ScheduleTimeChangeMisconnectAboveMaximum' | 'OpCarrierMisconnect' | 'InventoryQueuing' | 'SelfServiceAsm' | 'SelfServiceDelay' | 'SelfServiceFlightCancellation' | 'SelfServiceIrop' | 'SelfServiceScheduleChange' | 'SelfServiceTimeChange' | 'AosAddOrCancelNotSuccessful' | 'MissingGdsFareFamily' | 'ChangeCabinQueue';
-    export const QueueTypeEnum = {
-        Default: 'Default' as QueueTypeEnum,
-        BookingBalanceDue: 'BookingBalanceDue' as QueueTypeEnum,
-        BookingNegativeBalance: 'BookingNegativeBalance' as QueueTypeEnum,
-        BookingCustomerComment: 'BookingCustomerComment' as QueueTypeEnum,
-        DeclinedPaymentInitial: 'DeclinedPaymentInitial' as QueueTypeEnum,
-        DeclinedPaymentChange: 'DeclinedPaymentChange' as QueueTypeEnum,
-        FareOverride: 'FareOverride' as QueueTypeEnum,
-        ScheduleTimeChange: 'ScheduleTimeChange' as QueueTypeEnum,
-        ScheduleTimeChangeMisconnect: 'ScheduleTimeChangeMisconnect' as QueueTypeEnum,
-        ScheduleCancellation: 'ScheduleCancellation' as QueueTypeEnum,
-        FlightDesignatorChange: 'FlightDesignatorChange' as QueueTypeEnum,
-        ReaccommodationMove: 'ReaccommodationMove' as QueueTypeEnum,
-        GdsCancelWithPendingPayment: 'GdsCancelWithPendingPayment' as QueueTypeEnum,
-        InvalidPriceStatusOverride: 'InvalidPriceStatusOverride' as QueueTypeEnum,
-        FareRestrictionOverride: 'FareRestrictionOverride' as QueueTypeEnum,
-        HeldBookings: 'HeldBookings' as QueueTypeEnum,
-        InvalidPriceStatus: 'InvalidPriceStatus' as QueueTypeEnum,
-        Watchlist: 'Watchlist' as QueueTypeEnum,
-        NonFlightServiceFee: 'NonFlightServiceFee' as QueueTypeEnum,
-        NotAllTicketNumbersReceived: 'NotAllTicketNumbersReceived' as QueueTypeEnum,
-        BookingSegmentOversold: 'BookingSegmentOversold' as QueueTypeEnum,
-        ReaccommodationCancel: 'ReaccommodationCancel' as QueueTypeEnum,
-        ExternalSsrAutoConfirmed: 'ExternalSsrAutoConfirmed' as QueueTypeEnum,
-        OpCarrierSegUpdate: 'OpCarrierSegUpdate' as QueueTypeEnum,
-        OpCarrierSsrUpdate: 'OpCarrierSsrUpdate' as QueueTypeEnum,
-        OpCarrierOtherUpdate: 'OpCarrierOtherUpdate' as QueueTypeEnum,
-        NameChangeNotAllowed: 'NameChangeNotAllowed' as QueueTypeEnum,
-        InboundAscNotProcessed: 'InboundAscNotProcessed' as QueueTypeEnum,
-        OpCarrierInformationChange: 'OpCarrierInformationChange' as QueueTypeEnum,
-        BookingComponentUpdate: 'BookingComponentUpdate' as QueueTypeEnum,
-        GroupBookings: 'GroupBookings' as QueueTypeEnum,
-        BankDirectPnrOutOfBalance: 'BankDirectPnrOutOfBalance' as QueueTypeEnum,
-        NoSeatAssigned: 'NoSeatAssigned' as QueueTypeEnum,
-        SeatNumberChange: 'SeatNumberChange' as QueueTypeEnum,
-        SsrNotSupportedOnNewSeat: 'SsrNotSupportedOnNewSeat' as QueueTypeEnum,
-        FewerSeatPreferencesMetOnNewSeat: 'FewerSeatPreferencesMetOnNewSeat' as QueueTypeEnum,
-        AosUnableToConfirmCancel: 'AosUnableToConfirmCancel' as QueueTypeEnum,
-        ETicketIssue: 'ETicketIssue' as QueueTypeEnum,
-        ETicketFollowup: 'ETicketFollowup' as QueueTypeEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as QueueTypeEnum,
-        ManualClearanceOnOutage: 'ManualClearanceOnOutage' as QueueTypeEnum,
-        UnbalancedPoints: 'UnbalancedPoints' as QueueTypeEnum,
-        OpCarrierTimeChange: 'OpCarrierTimeChange' as QueueTypeEnum,
-        OaCarrierTimeChange: 'OaCarrierTimeChange' as QueueTypeEnum,
-        VoluntaryFlightChange: 'VoluntaryFlightChange' as QueueTypeEnum,
-        InvoluntaryFlightChange: 'InvoluntaryFlightChange' as QueueTypeEnum,
-        HoldCancellationFailed: 'HoldCancellationFailed' as QueueTypeEnum,
-        ScheduleTimeChangeWithDynamicQueueCode: 'ScheduleTimeChangeWithDynamicQueueCode' as QueueTypeEnum,
-        ReaccommodationMoveWithDynamicQueueCode: 'ReaccommodationMoveWithDynamicQueueCode' as QueueTypeEnum,
-        ItineraryIntegrity: 'ItineraryIntegrity' as QueueTypeEnum,
-        ReducePartyNotProcessed: 'ReducePartyNotProcessed' as QueueTypeEnum,
-        CheckedPassengerUpdate: 'CheckedPassengerUpdate' as QueueTypeEnum,
-        NameChangeWithinRule: 'NameChangeWithinRule' as QueueTypeEnum,
-        IncompletePassengerEMDCoupon: 'IncompletePassengerEMDCoupon' as QueueTypeEnum,
-        ASVCUpdateFailed: 'ASVCUpdateFailed' as QueueTypeEnum,
-        ScheduleTimeChangeMisconnectBelowMinimum: 'ScheduleTimeChangeMisconnectBelowMinimum' as QueueTypeEnum,
-        ScheduleTimeChangeMisconnectAboveMaximum: 'ScheduleTimeChangeMisconnectAboveMaximum' as QueueTypeEnum,
-        OpCarrierMisconnect: 'OpCarrierMisconnect' as QueueTypeEnum,
-        InventoryQueuing: 'InventoryQueuing' as QueueTypeEnum,
-        SelfServiceAsm: 'SelfServiceAsm' as QueueTypeEnum,
-        SelfServiceDelay: 'SelfServiceDelay' as QueueTypeEnum,
-        SelfServiceFlightCancellation: 'SelfServiceFlightCancellation' as QueueTypeEnum,
-        SelfServiceIrop: 'SelfServiceIrop' as QueueTypeEnum,
-        SelfServiceScheduleChange: 'SelfServiceScheduleChange' as QueueTypeEnum,
-        SelfServiceTimeChange: 'SelfServiceTimeChange' as QueueTypeEnum,
-        AosAddOrCancelNotSuccessful: 'AosAddOrCancelNotSuccessful' as QueueTypeEnum,
-        MissingGdsFareFamily: 'MissingGdsFareFamily' as QueueTypeEnum,
-        ChangeCabinQueue: 'ChangeCabinQueue' as QueueTypeEnum
-    }
 }

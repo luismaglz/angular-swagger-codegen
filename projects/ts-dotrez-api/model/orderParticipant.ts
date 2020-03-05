@@ -17,6 +17,7 @@ import { ParticipantDocument } from './participantDocument';
 /**
  * Defines a orders participant.
  */
+
 export interface OrderParticipant { 
     /**
      * The unique participant key.

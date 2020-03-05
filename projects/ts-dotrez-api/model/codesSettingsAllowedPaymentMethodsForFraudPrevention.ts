@@ -14,6 +14,7 @@
 /**
  * A dictionary that map payment method codes to a boolean representing whether it is allowed for fraud  prevention.
  */
+
 export interface CodesSettingsAllowedPaymentMethodsForFraudPrevention { 
     ?: boolean;
 }

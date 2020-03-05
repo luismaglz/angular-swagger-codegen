@@ -14,6 +14,7 @@
 /**
  * Defines the details about an order if the order is not available.
  */
+
 export interface AddOnOrderSummary { 
     /**
      * The total price of the order.

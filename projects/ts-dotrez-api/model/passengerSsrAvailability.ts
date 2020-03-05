@@ -14,6 +14,7 @@
 /**
  * Model containing the details about the availability and price of the Ssr for a specific passenger.
  */
+
 export interface PassengerSsrAvailability { 
     /**
      * The Ssr key that identifies the ssr, passenger and trip information.

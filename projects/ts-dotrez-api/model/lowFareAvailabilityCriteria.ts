@@ -14,6 +14,7 @@
 /**
  * Defines the low fare availability search criteria.
  */
+
 export interface LowFareAvailabilityCriteria { 
     /**
      * The Arrival Station Codes.

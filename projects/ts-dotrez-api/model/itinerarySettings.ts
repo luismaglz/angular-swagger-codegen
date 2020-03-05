@@ -14,6 +14,7 @@
 /**
  * Settings for the premium services.
  */
+
 export interface ItinerarySettings { 
     /**
      * Indicates if the user is allowed to specify/update the contact email of both the original  and the new bookings during the divide process.

@@ -14,15 +14,24 @@
 /**
  * Defines all the different ways the availability response can be filtered.
  */
+
+    import { AvailabilityCriteriaFilter<CAP>fareInclusionType<CAP> } from '../models/enums';
+    import { AvailabilityCriteriaFilter<CAP>compressionType<CAP> } from '../models/enums';
+    import { AvailabilityCriteriaFilter<CAP>loyalty<CAP> } from '../models/enums';
+    import { AvailabilityCriteriaFilter<CAP>exclusionType<CAP> } from '../models/enums';
+    import { AvailabilityCriteriaFilter<CAP>sortOptions<CAP> } from '../models/enums';
+    import { AvailabilityCriteriaFilter<CAP>type<CAP> } from '../models/enums';
+    import { AvailabilityCriteriaFilter<CAP>connectionType<CAP> } from '../models/enums';
+
 export interface AvailabilityCriteriaFilter { 
     /**
      * Defines the type of fares to be included in the response.
      */
-    fareInclusionType?: AvailabilityCriteriaFilter.FareInclusionTypeEnum;
+    fareInclusionType?: AvailabilityCriteriaFilter<CAP>fareInclusionType<CAP>;
     /**
      * The class compression type.
      */
-    compressionType?: AvailabilityCriteriaFilter.CompressionTypeEnum;
+    compressionType?: AvailabilityCriteriaFilter<CAP>compressionType<CAP>;
     /**
      * The max fare price.
      */
@@ -34,7 +43,7 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: AvailabilityCriteriaFilter.LoyaltyEnum;
+    loyalty?: AvailabilityCriteriaFilter<CAP>loyalty<CAP>;
     /**
      * Flag indicating to include allotted fare classes of service.
      */
@@ -42,11 +51,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters the type of journeys to return.
      */
-    exclusionType?: AvailabilityCriteriaFilter.ExclusionTypeEnum;
+    exclusionType?: AvailabilityCriteriaFilter<CAP>exclusionType<CAP>;
     /**
      * The list of inventory journey sort options, used for filtering journeys on the response.
      */
-    sortOptions?: Array<AvailabilityCriteriaFilter.SortOptionsEnum>;
+    sortOptions?: AvailabilityCriteriaFilter<CAP>sortOptions<CAP>;
     /**
      * The list of product class codes to filter with.
      */
@@ -74,72 +83,13 @@ export interface AvailabilityCriteriaFilter {
     /**
      * The type filtering based on connections.
      */
-    type?: AvailabilityCriteriaFilter.TypeEnum;
+    type?: AvailabilityCriteriaFilter<CAP>type<CAP>;
     /**
      * Specifies the type of sold as connection when segment connects with passive segment.
      */
-    connectionType?: AvailabilityCriteriaFilter.ConnectionTypeEnum;
+    connectionType?: AvailabilityCriteriaFilter<CAP>connectionType<CAP>;
     /**
      * The number of max connections.
      */
     maxConnections?: number;
-}
-export namespace AvailabilityCriteriaFilter {
-    export type FareInclusionTypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const FareInclusionTypeEnum = {
-        Default: 'Default' as FareInclusionTypeEnum,
-        Standby: 'Standby' as FareInclusionTypeEnum,
-        Overbook: 'Overbook' as FareInclusionTypeEnum,
-        NoPricing: 'NoPricing' as FareInclusionTypeEnum
-    }
-    export type CompressionTypeEnum = 'LowestFareClass' | 'CompressByProductClass' | 'Default';
-    export const CompressionTypeEnum = {
-        LowestFareClass: 'LowestFareClass' as CompressionTypeEnum,
-        CompressByProductClass: 'CompressByProductClass' as CompressionTypeEnum,
-        Default: 'Default' as CompressionTypeEnum
-    }
-    export type LoyaltyEnum = 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent';
-    export const LoyaltyEnum = {
-        MonetaryOnly: 'MonetaryOnly' as LoyaltyEnum,
-        PointsOnly: 'PointsOnly' as LoyaltyEnum,
-        PointsAndMonetary: 'PointsAndMonetary' as LoyaltyEnum,
-        PreserveCurrent: 'PreserveCurrent' as LoyaltyEnum
-    }
-    export type ExclusionTypeEnum = 'Default' | 'ExcludeDeparted' | 'ExcludeImminent' | 'ExcludeUnavailable';
-    export const ExclusionTypeEnum = {
-        Default: 'Default' as ExclusionTypeEnum,
-        ExcludeDeparted: 'ExcludeDeparted' as ExclusionTypeEnum,
-        ExcludeImminent: 'ExcludeImminent' as ExclusionTypeEnum,
-        ExcludeUnavailable: 'ExcludeUnavailable' as ExclusionTypeEnum
-    }
-    export type SortOptionsEnum = 'ServiceType' | 'ShortestTravelTime' | 'LowestFare' | 'HighestFare' | 'EarliestDeparture' | 'LatestDeparture' | 'EarliestArrival' | 'LatestArrival' | 'NoSort' | 'BiasOnlineCommercialDuplicates' | 'JourneyNumber';
-    export const SortOptionsEnum = {
-        ServiceType: 'ServiceType' as SortOptionsEnum,
-        ShortestTravelTime: 'ShortestTravelTime' as SortOptionsEnum,
-        LowestFare: 'LowestFare' as SortOptionsEnum,
-        HighestFare: 'HighestFare' as SortOptionsEnum,
-        EarliestDeparture: 'EarliestDeparture' as SortOptionsEnum,
-        LatestDeparture: 'LatestDeparture' as SortOptionsEnum,
-        EarliestArrival: 'EarliestArrival' as SortOptionsEnum,
-        LatestArrival: 'LatestArrival' as SortOptionsEnum,
-        NoSort: 'NoSort' as SortOptionsEnum,
-        BiasOnlineCommercialDuplicates: 'BiasOnlineCommercialDuplicates' as SortOptionsEnum,
-        JourneyNumber: 'JourneyNumber' as SortOptionsEnum
-    }
-    export type TypeEnum = 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        NonStop: 'NonStop' as TypeEnum,
-        Through: 'Through' as TypeEnum,
-        Direct: 'Direct' as TypeEnum,
-        Connect: 'Connect' as TypeEnum,
-        All: 'All' as TypeEnum
-    }
-    export type ConnectionTypeEnum = 'None' | 'Domestic' | 'International' | 'Both';
-    export const ConnectionTypeEnum = {
-        None: 'None' as ConnectionTypeEnum,
-        Domestic: 'Domestic' as ConnectionTypeEnum,
-        International: 'International' as ConnectionTypeEnum,
-        Both: 'Both' as ConnectionTypeEnum
-    }
 }

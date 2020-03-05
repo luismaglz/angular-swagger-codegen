@@ -17,6 +17,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Defines the top level boarding pass details.
  */
+
 export interface BoardingPassv2 { 
     /**
      * The passenger details.

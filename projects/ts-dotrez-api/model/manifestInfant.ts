@@ -16,6 +16,9 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Manifest Infant.
  */
+
+    import { ManifestInfant<CAP>gender<CAP> } from '../models/enums';
+
 export interface ManifestInfant { 
     /**
      * The collection of travel documents.
@@ -36,17 +39,9 @@ export interface ManifestInfant {
     /**
      * The gender of the passenger.
      */
-    gender?: ManifestInfant.GenderEnum;
+    gender?: ManifestInfant<CAP>gender<CAP>;
     /**
      * The name of the passenger.
      */
     name?: Name;
-}
-export namespace ManifestInfant {
-    export type GenderEnum = 'XX' | 'Male' | 'Female';
-    export const GenderEnum = {
-        XX: 'XX' as GenderEnum,
-        Male: 'Male' as GenderEnum,
-        Female: 'Female' as GenderEnum
-    }
 }

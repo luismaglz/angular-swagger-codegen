@@ -15,6 +15,7 @@ import { PassengerSegment } from './passengerSegment';
 /**
  * Passengers on this segment by passenger key.
  */
+
 export interface SegmentPassengerSegment { 
     ?: PassengerSegment;
 }

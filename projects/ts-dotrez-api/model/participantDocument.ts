@@ -14,6 +14,7 @@
 /**
  * Defines a consumer document.
  */
+
 export interface ParticipantDocument { 
     /**
      * The documents number.

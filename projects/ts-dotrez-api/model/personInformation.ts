@@ -14,6 +14,7 @@
 /**
  * Defines the a person information.
  */
+
 export interface PersonInformation { 
     /**
      * The unique person information key.

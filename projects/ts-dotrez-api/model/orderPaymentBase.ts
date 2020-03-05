@@ -17,6 +17,7 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * Defines the order payment base details.
  */
+
 export interface OrderPaymentBase { 
     /**
      * The payment type.

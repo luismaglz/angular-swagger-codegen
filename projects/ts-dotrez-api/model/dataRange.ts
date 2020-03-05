@@ -14,6 +14,7 @@
 /**
  * The data range model.
  */
+
 export interface DataRange { 
     /**
      * The minimum range.

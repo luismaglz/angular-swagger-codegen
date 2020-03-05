@@ -15,6 +15,7 @@ import { BoardingPassS2D } from './boardingPassS2D';
 /**
  * Represents a collection of boarding passes following the S2D bar code format.
  */
+
 export interface BoardingPassesS2D { 
     /**
      * The collection of boarding passes using S2D bar codes.

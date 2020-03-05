@@ -16,6 +16,9 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines a flight move history log entry.
  */
+
+    import { FlightMoveHistory<CAP>changeReason<CAP> } from '../models/enums';
+
 export interface FlightMoveHistory { 
     /**
      * The previous market designator for the journey the passenger   was moved from.
@@ -48,7 +51,7 @@ export interface FlightMoveHistory {
     /**
      * The reason for the move operation.
      */
-    changeReason?: FlightMoveHistory.ChangeReasonEnum;
+    changeReason?: FlightMoveHistory<CAP>changeReason<CAP>;
     /**
      * The received by reference number.
      */
@@ -57,16 +60,4 @@ export interface FlightMoveHistory {
      * The the history entry was created.
      */
     createdDate?: Date;
-}
-export namespace FlightMoveHistory {
-    export type ChangeReasonEnum = 'NoChange' | 'Irop' | 'ScheduleChange' | 'Move' | 'VoluntaryFlyAhead' | 'InvoluntaryFlyAhead' | 'SelfServiceRebooking';
-    export const ChangeReasonEnum = {
-        NoChange: 'NoChange' as ChangeReasonEnum,
-        Irop: 'Irop' as ChangeReasonEnum,
-        ScheduleChange: 'ScheduleChange' as ChangeReasonEnum,
-        Move: 'Move' as ChangeReasonEnum,
-        VoluntaryFlyAhead: 'VoluntaryFlyAhead' as ChangeReasonEnum,
-        InvoluntaryFlyAhead: 'InvoluntaryFlyAhead' as ChangeReasonEnum,
-        SelfServiceRebooking: 'SelfServiceRebooking' as ChangeReasonEnum
-    }
 }

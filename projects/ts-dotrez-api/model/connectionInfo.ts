@@ -12,6 +12,7 @@
 import { IPAddress } from './iPAddress';
 
 
+
 export interface ConnectionInfo { 
     id?: string;
     remoteIpAddress?: IPAddress;

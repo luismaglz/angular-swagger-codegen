@@ -17,6 +17,9 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Represents the operation between board station and any subsequent off station  within the same flight.
  */
+
+    import { ItinerarySegment<CAP>segmentType<CAP> } from '../models/enums';
+
 export interface ItinerarySegment { 
     /**
      * This is a summarry of all the legs on the segment. It will contain the details  of the transportation from the first and last leg.
@@ -45,16 +48,5 @@ export interface ItinerarySegment {
     /**
      * The type of the segment.
      */
-    segmentType?: ItinerarySegment.SegmentTypeEnum;
-}
-export namespace ItinerarySegment {
-    export type SegmentTypeEnum = 'Normal' | 'CodeShareOperating' | 'CodeShareMarketing' | 'InterlineOutbound' | 'InterlineInbound' | 'Passive';
-    export const SegmentTypeEnum = {
-        Normal: 'Normal' as SegmentTypeEnum,
-        CodeShareOperating: 'CodeShareOperating' as SegmentTypeEnum,
-        CodeShareMarketing: 'CodeShareMarketing' as SegmentTypeEnum,
-        InterlineOutbound: 'InterlineOutbound' as SegmentTypeEnum,
-        InterlineInbound: 'InterlineInbound' as SegmentTypeEnum,
-        Passive: 'Passive' as SegmentTypeEnum
-    }
+    segmentType?: ItinerarySegment<CAP>segmentType<CAP>;
 }

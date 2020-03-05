@@ -17,6 +17,7 @@ import { JourneySellRequest } from './journeySellRequest';
 /**
  * Trip sell request represents the data needed to sell journeys to a booking.
  */
+
 export interface BookingSellRequest { 
     /**
      * The journey information.

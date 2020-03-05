@@ -14,6 +14,7 @@
 /**
  * Defines a products order criteria.
  */
+
 export interface OrderCriteria { 
     /**
      * The catalog code.

@@ -14,6 +14,7 @@
 /**
  * The promotion setting type model.
  */
+
 export interface PromotionSettingType { 
     /**
      * The promotion setting type code.

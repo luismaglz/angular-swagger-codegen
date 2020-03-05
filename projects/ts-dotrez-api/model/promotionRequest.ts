@@ -14,6 +14,7 @@
 /**
  * Defines the simple request to apply a promotion code.
  */
+
 export interface PromotionRequest { 
     /**
      * The promotion code to be applied.

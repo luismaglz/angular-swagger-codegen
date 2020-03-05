@@ -14,6 +14,7 @@
 /**
  * Defines a change password request base.
  */
+
 export interface UserChangePasswordRequestBase { 
     /**
      * The new password.

@@ -14,6 +14,9 @@
 /**
  * Defines a person's alternate name that they go by.
  */
+
+    import { PersonAlias<CAP>type<CAP> } from '../models/enums';
+
 export interface PersonAlias { 
     /**
      * The unique person alias key.
@@ -22,7 +25,7 @@ export interface PersonAlias {
     /**
      * The type of alias.
      */
-    type?: PersonAlias.TypeEnum;
+    type?: PersonAlias<CAP>type<CAP>;
     /**
      * The given first name.
      */
@@ -43,11 +46,4 @@ export interface PersonAlias {
      * The suffix.
      */
     suffix?: string;
-}
-export namespace PersonAlias {
-    export type TypeEnum = 'Alias' | 'Variant';
-    export const TypeEnum = {
-        Alias: 'Alias' as TypeEnum,
-        Variant: 'Variant' as TypeEnum
-    }
 }

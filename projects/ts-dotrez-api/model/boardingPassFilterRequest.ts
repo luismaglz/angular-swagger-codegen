@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass request that is responsible for filtering the boarding pass response.
  */
+
 export interface BoardingPassFilterRequest { 
     /**
      * The selected segment keys to be returned. If null all segments will be returned that have been checked into.

@@ -14,6 +14,7 @@
 /**
  * Defines a unique locator for reference.
  */
+
 export interface RecordLocator { 
     /**
      * The unique record locator key.

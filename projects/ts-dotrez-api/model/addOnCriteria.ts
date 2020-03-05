@@ -14,6 +14,7 @@
 /**
  * Defines the product results criteria returned.
  */
+
 export interface AddOnCriteria { 
     /**
      * The department code.

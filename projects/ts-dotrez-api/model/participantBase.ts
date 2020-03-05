@@ -14,6 +14,7 @@
 /**
  * Defines the stored participant information.
  */
+
 export interface ParticipantBase { 
     /**
      * The participant's type code.

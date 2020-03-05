@@ -16,6 +16,10 @@ import { ProductVariationCatalogAmounts } from './productVariationCatalogAmounts
 /**
  * Defines a product variations catalog results.
  */
+
+    import { ProductVariationCatalog<CAP>inventoryGrouping<CAP> } from '../models/enums';
+    import { ProductVariationCatalog<CAP>paymentAction<CAP> } from '../models/enums';
+
 export interface ProductVariationCatalog { 
     /**
      * The unique catalog key.
@@ -40,7 +44,7 @@ export interface ProductVariationCatalog {
     /**
      * Determines how the inventory quantity is counted.
      */
-    inventoryGrouping?: ProductVariationCatalog.InventoryGroupingEnum;
+    inventoryGrouping?: ProductVariationCatalog<CAP>inventoryGrouping<CAP>;
     /**
      * The actual number available.
      */
@@ -56,20 +60,5 @@ export interface ProductVariationCatalog {
     /**
      * The configured payment action.
      */
-    paymentAction?: ProductVariationCatalog.PaymentActionEnum;
-}
-export namespace ProductVariationCatalog {
-    export type InventoryGroupingEnum = 'Existing' | 'Total';
-    export const InventoryGroupingEnum = {
-        Existing: 'Existing' as InventoryGroupingEnum,
-        Total: 'Total' as InventoryGroupingEnum
-    }
-    export type PaymentActionEnum = 'SellingSystemCollects' | 'PassThroughHold' | 'NoPaymentRequired' | 'ReferToSupplierMessage' | 'PassThroughCharge';
-    export const PaymentActionEnum = {
-        SellingSystemCollects: 'SellingSystemCollects' as PaymentActionEnum,
-        PassThroughHold: 'PassThroughHold' as PaymentActionEnum,
-        NoPaymentRequired: 'NoPaymentRequired' as PaymentActionEnum,
-        ReferToSupplierMessage: 'ReferToSupplierMessage' as PaymentActionEnum,
-        PassThroughCharge: 'PassThroughCharge' as PaymentActionEnum
-    }
+    paymentAction?: ProductVariationCatalog<CAP>paymentAction<CAP>;
 }

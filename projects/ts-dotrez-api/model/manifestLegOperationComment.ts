@@ -14,11 +14,14 @@
 /**
  * Manifest leg operations comment model.
  */
+
+    import { ManifestLegOperationComment<CAP>commentType<CAP> } from '../models/enums';
+
 export interface ManifestLegOperationComment { 
     /**
      * The comment type.
      */
-    commentType?: ManifestLegOperationComment.CommentTypeEnum;
+    commentType?: ManifestLegOperationComment<CAP>commentType<CAP>;
     /**
      * The agentID.
      */
@@ -31,16 +34,4 @@ export interface ManifestLegOperationComment {
      * The comment text.
      */
     comment?: string;
-}
-export namespace ManifestLegOperationComment {
-    export type CommentTypeEnum = 'Default' | 'Reservation' | 'Operation' | 'PitLoad' | 'Irop' | 'AppsOverride' | 'ManualAppsOverride';
-    export const CommentTypeEnum = {
-        Default: 'Default' as CommentTypeEnum,
-        Reservation: 'Reservation' as CommentTypeEnum,
-        Operation: 'Operation' as CommentTypeEnum,
-        PitLoad: 'PitLoad' as CommentTypeEnum,
-        Irop: 'Irop' as CommentTypeEnum,
-        AppsOverride: 'AppsOverride' as CommentTypeEnum,
-        ManualAppsOverride: 'ManualAppsOverride' as CommentTypeEnum
-    }
 }

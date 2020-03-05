@@ -14,6 +14,7 @@
 /**
  * The booking queue history request model.
  */
+
 export interface BookingQueueHistoryRequest { 
     /**
      * The password needed to access the queue.  Required if queue  is set to password-protected in Sky Manager.

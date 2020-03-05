@@ -14,6 +14,7 @@
 /**
  * Represents the flight operation time events for an estimated,  actual, and forced time event.
  */
+
 export interface TripOperationEvents { 
     /**
      * Represents the forced time for this event type.

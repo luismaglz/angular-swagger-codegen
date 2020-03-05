@@ -16,6 +16,7 @@ import { TripResult } from './tripResult';
 /**
  * Availabilityv2 represents the availability response based on the search criteria.
  */
+
 export interface Availabilityv2 { 
     /**
      * The collection of trip results based on date and markets.

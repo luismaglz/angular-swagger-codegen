@@ -1,0 +1,9 @@
+{{#hasEnums}}
+
+export namespace {{classname}} {
+{{#vars}}
+    {{#isEnum}}
+   "this is enum"
+    {{/isEnum}}
+{{/vars}}
+}{{/hasEnums}}

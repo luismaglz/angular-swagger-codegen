@@ -14,6 +14,7 @@
 /**
  * The class of service model.
  */
+
 export interface ClassOfService { 
     /**
      * The class of service code.

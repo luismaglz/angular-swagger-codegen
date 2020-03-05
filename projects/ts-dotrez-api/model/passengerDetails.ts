@@ -16,6 +16,7 @@ import { PassengerDetailsSummary } from './passengerDetailsSummary';
 /**
  * The passenger details model.
  */
+
 export interface PassengerDetails { 
     /**
      * The list of passenger detail information.

@@ -15,22 +15,16 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Defines a single passengers checkin status for a specific segment.
  */
+
+    import { CheckinPassengerLiftStatus<CAP>status<CAP> } from '../models/enums';
+
 export interface CheckinPassengerLiftStatus { 
     /**
      * The lift status of the passenger for a specific segment.
      */
-    status?: CheckinPassengerLiftStatus.StatusEnum;
+    status?: CheckinPassengerLiftStatus<CAP>status<CAP>;
     /**
      * The transportation identifier.
      */
     identifier?: TransportationIdentifier;
-}
-export namespace CheckinPassengerLiftStatus {
-    export type StatusEnum = 'Default' | 'CheckedIn' | 'Boarded' | 'NoShow';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        CheckedIn: 'CheckedIn' as StatusEnum,
-        Boarded: 'Boarded' as StatusEnum,
-        NoShow: 'NoShow' as StatusEnum
-    }
 }

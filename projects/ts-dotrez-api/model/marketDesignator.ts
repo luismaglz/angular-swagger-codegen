@@ -14,6 +14,7 @@
 /**
  * Model information about the date market which identifies a market and the departure date.
  */
+
 export interface MarketDesignator { 
     /**
      * Gets or sets the leg arrival station.

@@ -14,6 +14,7 @@
 /**
  * Defines a specific item in an insurance request.
  */
+
 export interface SellInsuranceRequest { 
     /**
      * The unique code for the specific catalog in the item.

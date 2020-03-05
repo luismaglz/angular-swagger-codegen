@@ -14,6 +14,7 @@
 /**
  * Defines a request to apply credit from state.
  */
+
 export interface ApplyCreditRequest { 
     /**
      * The amount of credit.

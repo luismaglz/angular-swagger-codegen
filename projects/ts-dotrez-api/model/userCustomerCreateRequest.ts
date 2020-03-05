@@ -15,6 +15,7 @@ import { PersonCreateRequest } from './personCreateRequest';
 /**
  * Defines the user customer create request that will be setup with the defiend default customer creation parameters.
  */
+
 export interface UserCustomerCreateRequest { 
     /**
      * The person record to be associated with the customer.

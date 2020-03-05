@@ -15,6 +15,7 @@ import { Name } from './name';
 /**
  * The contact details for an organization.
  */
+
 export interface ContactEditDetails { 
     /**
      * The contact name.

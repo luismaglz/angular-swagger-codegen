@@ -14,6 +14,9 @@
 /**
  * Defines baggage usage details.
  */
+
+    import { BaggageUsageDetails<CAP>weightType<CAP> } from '../models/enums';
+
 export interface BaggageUsageDetails { 
     /**
      * The baggage allowance key.
@@ -30,13 +33,5 @@ export interface BaggageUsageDetails {
     /**
      * The weight type for RemainingTotalWeight.
      */
-    weightType?: BaggageUsageDetails.WeightTypeEnum;
-}
-export namespace BaggageUsageDetails {
-    export type WeightTypeEnum = 'Default' | 'Pounds' | 'Kilograms';
-    export const WeightTypeEnum = {
-        Default: 'Default' as WeightTypeEnum,
-        Pounds: 'Pounds' as WeightTypeEnum,
-        Kilograms: 'Kilograms' as WeightTypeEnum
-    }
+    weightType?: BaggageUsageDetails<CAP>weightType<CAP>;
 }

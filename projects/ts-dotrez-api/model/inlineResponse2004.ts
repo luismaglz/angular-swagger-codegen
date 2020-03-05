@@ -12,6 +12,7 @@
 import { Contact } from './contact';
 
 
+
 export interface InlineResponse2004 { 
     ?: Contact;
 }

@@ -14,6 +14,7 @@
 /**
  * The Queue Category model.
  */
+
 export interface QueueCategory { 
     /**
      * The queue category code of queue category.

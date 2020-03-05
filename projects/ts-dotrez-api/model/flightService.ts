@@ -15,6 +15,7 @@ import { ManifestSegment } from './manifestSegment';
 /**
  * Flight Service.
  */
+
 export interface FlightService { 
     /**
      * The GuestValueLevelCode property.

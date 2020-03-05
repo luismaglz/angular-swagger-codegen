@@ -14,6 +14,7 @@
 /**
  * Defines a discount.
  */
+
 export interface Discount { 
     /**
      * The discount code.

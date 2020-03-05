@@ -14,6 +14,7 @@
 /**
  * Model related to the point of sale.  This is for readonly operations.
  */
+
 export interface PointOfSale { 
     /**
      * The point of sale agent code.

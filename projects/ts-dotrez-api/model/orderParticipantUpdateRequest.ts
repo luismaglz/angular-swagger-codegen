@@ -17,6 +17,7 @@ import { ParticipantDocument } from './participantDocument';
 /**
  * Represents changes that can be made to a component order participant.
  */
+
 export interface OrderParticipantUpdateRequest { 
     /**
      * The name of the participant.

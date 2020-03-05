@@ -15,33 +15,21 @@ import { SeatPreference } from './seatPreference';
 /**
  * Represents the seating preferences base model.
  */
+
+    import { SeatPreferences<CAP>seat<CAP> } from '../models/enums';
+    import { SeatPreferences<CAP>travelClass<CAP> } from '../models/enums';
+
 export interface SeatPreferences { 
     /**
      * The simple seating preference.
      */
-    seat?: SeatPreferences.SeatEnum;
+    seat?: SeatPreferences<CAP>seat<CAP>;
     /**
      * The prefered travel class of service.
      */
-    travelClass?: SeatPreferences.TravelClassEnum;
+    travelClass?: SeatPreferences<CAP>travelClass<CAP>;
     /**
      * The advanced seating preferences.
      */
     advancedPreferences?: Array<SeatPreference>;
-}
-export namespace SeatPreferences {
-    export type SeatEnum = 'None' | 'Window' | 'Aisle' | 'Other';
-    export const SeatEnum = {
-        None: 'None' as SeatEnum,
-        Window: 'Window' as SeatEnum,
-        Aisle: 'Aisle' as SeatEnum,
-        Other: 'Other' as SeatEnum
-    }
-    export type TravelClassEnum = 'None' | 'Business' | 'Economy' | 'FirstClass';
-    export const TravelClassEnum = {
-        None: 'None' as TravelClassEnum,
-        Business: 'Business' as TravelClassEnum,
-        Economy: 'Economy' as TravelClassEnum,
-        FirstClass: 'FirstClass' as TravelClassEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * Defines a parameter with data input.
  */
+
 export interface InputedParameter { 
     /**
      * The parameters value.

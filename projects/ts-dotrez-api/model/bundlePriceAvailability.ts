@@ -18,6 +18,7 @@ import { UpgradableSsrAvailability } from './upgradableSsrAvailability';
 /**
  * The bundle price availability model.
  */
+
 export interface BundlePriceAvailability { 
     /**
      * The included ssr availability.

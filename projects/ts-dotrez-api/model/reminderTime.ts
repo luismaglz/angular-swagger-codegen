@@ -14,20 +14,16 @@
 /**
  * The reminder time for a notification timed event.
  */
+
+    import { ReminderTime<CAP>type<CAP> } from '../models/enums';
+
 export interface ReminderTime { 
     /**
      * The notification timed event type.
      */
-    type?: ReminderTime.TypeEnum;
+    type?: ReminderTime<CAP>type<CAP>;
     /**
      * The list of acceptable reminder times.
      */
     times?: Array<number>;
-}
-export namespace ReminderTime {
-    export type TypeEnum = 'Departure' | 'Arrival';
-    export const TypeEnum = {
-        Departure: 'Departure' as TypeEnum,
-        Arrival: 'Arrival' as TypeEnum
-    }
 }

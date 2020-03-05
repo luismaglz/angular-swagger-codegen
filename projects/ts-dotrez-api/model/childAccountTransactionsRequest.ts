@@ -14,6 +14,7 @@
 /**
  * The organization account transaction request.
  */
+
 export interface ChildAccountTransactionsRequest { 
     /**
      * The amount to adjust on the account.

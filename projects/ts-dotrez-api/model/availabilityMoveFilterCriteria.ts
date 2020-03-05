@@ -14,36 +14,17 @@
 /**
  * Filter criteria filters the move availability responses results.
  */
+
+    import { AvailabilityMoveFilterCriteria<CAP>filter<CAP> } from '../models/enums';
+    import { AvailabilityMoveFilterCriteria<CAP>sortKeys<CAP> } from '../models/enums';
+
 export interface AvailabilityMoveFilterCriteria { 
     /**
      * Filters the type of journeys to return.
      */
-    filter?: AvailabilityMoveFilterCriteria.FilterEnum;
+    filter?: AvailabilityMoveFilterCriteria<CAP>filter<CAP>;
     /**
      * The list of inventory journey sort keys. Used for filtering journeys on the response.
      */
-    sortKeys?: Array<AvailabilityMoveFilterCriteria.SortKeysEnum>;
-}
-export namespace AvailabilityMoveFilterCriteria {
-    export type FilterEnum = 'Default' | 'ExcludeDeparted' | 'ExcludeImminent' | 'ExcludeUnavailable';
-    export const FilterEnum = {
-        Default: 'Default' as FilterEnum,
-        ExcludeDeparted: 'ExcludeDeparted' as FilterEnum,
-        ExcludeImminent: 'ExcludeImminent' as FilterEnum,
-        ExcludeUnavailable: 'ExcludeUnavailable' as FilterEnum
-    }
-    export type SortKeysEnum = 'ServiceType' | 'ShortestTravelTime' | 'LowestFare' | 'HighestFare' | 'EarliestDeparture' | 'LatestDeparture' | 'EarliestArrival' | 'LatestArrival' | 'NoSort' | 'BiasOnlineCommercialDuplicates' | 'JourneyNumber';
-    export const SortKeysEnum = {
-        ServiceType: 'ServiceType' as SortKeysEnum,
-        ShortestTravelTime: 'ShortestTravelTime' as SortKeysEnum,
-        LowestFare: 'LowestFare' as SortKeysEnum,
-        HighestFare: 'HighestFare' as SortKeysEnum,
-        EarliestDeparture: 'EarliestDeparture' as SortKeysEnum,
-        LatestDeparture: 'LatestDeparture' as SortKeysEnum,
-        EarliestArrival: 'EarliestArrival' as SortKeysEnum,
-        LatestArrival: 'LatestArrival' as SortKeysEnum,
-        NoSort: 'NoSort' as SortKeysEnum,
-        BiasOnlineCommercialDuplicates: 'BiasOnlineCommercialDuplicates' as SortKeysEnum,
-        JourneyNumber: 'JourneyNumber' as SortKeysEnum
-    }
+    sortKeys?: AvailabilityMoveFilterCriteria<CAP>sortKeys<CAP>;
 }

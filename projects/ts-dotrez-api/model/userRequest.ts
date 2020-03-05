@@ -15,11 +15,14 @@ import { UserCodes } from './userCodes';
 /**
  * Defines the user request.
  */
+
+    import { UserRequest<CAP>status<CAP> } from '../models/enums';
+
 export interface UserRequest { 
     /**
      * The status of the account.
      */
-    status?: UserRequest.StatusEnum;
+    status?: UserRequest<CAP>status<CAP>;
     /**
      * The unique username.
      */
@@ -52,14 +55,4 @@ export interface UserRequest {
      * Flag indicating if the password needs to be reset.
      */
     forcePasswordReset?: boolean;
-}
-export namespace UserRequest {
-    export type StatusEnum = 'Default' | 'Active' | 'Pending' | 'Suspended' | 'Terminated';
-    export const StatusEnum = {
-        Default: 'Default' as StatusEnum,
-        Active: 'Active' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum
-    }
 }

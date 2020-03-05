@@ -15,6 +15,7 @@ import { SelectedPersonalization } from './selectedPersonalization';
 /**
  * Defines a product quote item request used for a singular catalog item.
  */
+
 export interface QuoteCarRequest { 
     /**
      * The selected unique product variations catalog key.

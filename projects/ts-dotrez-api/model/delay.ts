@@ -14,6 +14,9 @@
 /**
  * The delay model.
  */
+
+    import { Delay<CAP>delayType<CAP> } from '../models/enums';
+
 export interface Delay { 
     /**
      * The delay code.
@@ -22,7 +25,7 @@ export interface Delay {
     /**
      * The delay type.
      */
-    delayType?: Delay.DelayTypeEnum;
+    delayType?: Delay<CAP>delayType<CAP>;
     /**
      * The Name.
      */
@@ -31,26 +34,4 @@ export interface Delay {
      * The InActive of Delay.
      */
     inActive?: boolean;
-}
-export namespace Delay {
-    export type DelayTypeEnum = 'Unknown' | 'AirlineInternalCodes' | 'Others' | 'Schedules' | 'PassengerAndBaggage' | 'CargoAndMail' | 'MailOnly' | 'AircraftAndRampHandling' | 'TechnicalAndAircraftEquipment' | 'DamageToAircraft' | 'EdpAutomatedEquipmentFailure' | 'FlightOperationsAndCrewing' | 'Weather' | 'AirTrafficFlowManagement' | 'AirportAndGovernmentalAuthorities' | 'Reactionary' | 'Miscellaneous';
-    export const DelayTypeEnum = {
-        Unknown: 'Unknown' as DelayTypeEnum,
-        AirlineInternalCodes: 'AirlineInternalCodes' as DelayTypeEnum,
-        Others: 'Others' as DelayTypeEnum,
-        Schedules: 'Schedules' as DelayTypeEnum,
-        PassengerAndBaggage: 'PassengerAndBaggage' as DelayTypeEnum,
-        CargoAndMail: 'CargoAndMail' as DelayTypeEnum,
-        MailOnly: 'MailOnly' as DelayTypeEnum,
-        AircraftAndRampHandling: 'AircraftAndRampHandling' as DelayTypeEnum,
-        TechnicalAndAircraftEquipment: 'TechnicalAndAircraftEquipment' as DelayTypeEnum,
-        DamageToAircraft: 'DamageToAircraft' as DelayTypeEnum,
-        EdpAutomatedEquipmentFailure: 'EdpAutomatedEquipmentFailure' as DelayTypeEnum,
-        FlightOperationsAndCrewing: 'FlightOperationsAndCrewing' as DelayTypeEnum,
-        Weather: 'Weather' as DelayTypeEnum,
-        AirTrafficFlowManagement: 'AirTrafficFlowManagement' as DelayTypeEnum,
-        AirportAndGovernmentalAuthorities: 'AirportAndGovernmentalAuthorities' as DelayTypeEnum,
-        Reactionary: 'Reactionary' as DelayTypeEnum,
-        Miscellaneous: 'Miscellaneous' as DelayTypeEnum
-    }
 }

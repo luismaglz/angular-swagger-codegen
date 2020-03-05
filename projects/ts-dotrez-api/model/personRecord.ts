@@ -16,6 +16,10 @@ import { Name } from './name';
 /**
  * Defines the person record.
  */
+
+    import { PersonRecord<CAP>type<CAP> } from '../models/enums';
+    import { PersonRecord<CAP>status<CAP> } from '../models/enums';
+
 export interface PersonRecord { 
     /**
      * The unique person key.
@@ -24,11 +28,11 @@ export interface PersonRecord {
     /**
      * The person's type.
      */
-    type?: PersonRecord.TypeEnum;
+    type?: PersonRecord<CAP>type<CAP>;
     /**
      * The person's status.
      */
-    status?: PersonRecord.StatusEnum;
+    status?: PersonRecord<CAP>status<CAP>;
     /**
      * The person's customer number.
      */
@@ -49,18 +53,4 @@ export interface PersonRecord {
      * The person's default address.
      */
     address?: Address;
-}
-export namespace PersonRecord {
-    export type TypeEnum = 'None' | 'Customer' | 'Agent';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        Customer: 'Customer' as TypeEnum,
-        Agent: 'Agent' as TypeEnum
-    }
-    export type StatusEnum = 'Active' | 'Terminated' | 'Suspended';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum
-    }
 }

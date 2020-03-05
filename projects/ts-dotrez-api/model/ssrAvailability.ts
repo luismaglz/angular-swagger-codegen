@@ -17,6 +17,7 @@ import { SsrBySegment } from './ssrBySegment';
 /**
  * Model containing all Ssr information.
  */
+
 export interface SsrAvailability { 
     /**
      * Journey Ssrs.

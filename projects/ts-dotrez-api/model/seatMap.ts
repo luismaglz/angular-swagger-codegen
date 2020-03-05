@@ -15,6 +15,9 @@ import { SeatMapDecks } from './seatMapDecks';
 /**
  * Defines a single equipment type and all it's units.
  */
+
+    import { SeatMap<CAP>category<CAP> } from '../models/enums';
+
 export interface SeatMap { 
     /**
      * The name of the equipment.
@@ -43,7 +46,7 @@ export interface SeatMap {
     /**
      * The categorization of the equipment.
      */
-    category?: SeatMap.CategoryEnum;
+    category?: SeatMap<CAP>category<CAP>;
     /**
      * Number of available units on the inventory equipment.
      */
@@ -53,18 +56,4 @@ export interface SeatMap {
      * The reference identifying what seatmap the leg is in associated to.
      */
     seatmapReference?: string;
-}
-export namespace SeatMap {
-    export type CategoryEnum = 'None' | 'JetAircraft' | 'PistonAircraft' | 'TurbopropAircraft' | 'Helicopter' | 'Surface' | 'Train' | 'Bus' | 'AllCategories';
-    export const CategoryEnum = {
-        None: 'None' as CategoryEnum,
-        JetAircraft: 'JetAircraft' as CategoryEnum,
-        PistonAircraft: 'PistonAircraft' as CategoryEnum,
-        TurbopropAircraft: 'TurbopropAircraft' as CategoryEnum,
-        Helicopter: 'Helicopter' as CategoryEnum,
-        Surface: 'Surface' as CategoryEnum,
-        Train: 'Train' as CategoryEnum,
-        Bus: 'Bus' as CategoryEnum,
-        AllCategories: 'AllCategories' as CategoryEnum
-    }
 }

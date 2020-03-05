@@ -14,6 +14,7 @@
 /**
  * The MAC station model defines areas of related stations by region. //todo: Document and expand the MAC acronym
  */
+
 export interface Mac { 
     /**
      * The inactive flag for this MAC station.

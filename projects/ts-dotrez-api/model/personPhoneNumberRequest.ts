@@ -14,6 +14,9 @@
 /**
  * Defines the the person phone number.
  */
+
+    import { PersonPhoneNumberRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface PersonPhoneNumberRequest { 
     /**
      * Flag indicating if this phone number is the default.
@@ -22,19 +25,9 @@ export interface PersonPhoneNumberRequest {
     /**
      * The phone number type.
      */
-    type: PersonPhoneNumberRequest.TypeEnum;
+    type: PersonPhoneNumberRequest<CAP>type<CAP>;
     /**
      * The phone number without any formatting characters.
      */
     number: string;
-}
-export namespace PersonPhoneNumberRequest {
-    export type TypeEnum = 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax';
-    export const TypeEnum = {
-        Other: 'Other' as TypeEnum,
-        Home: 'Home' as TypeEnum,
-        Work: 'Work' as TypeEnum,
-        Mobile: 'Mobile' as TypeEnum,
-        Fax: 'Fax' as TypeEnum
-    }
 }

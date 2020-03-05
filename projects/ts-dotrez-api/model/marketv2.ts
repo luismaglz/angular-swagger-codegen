@@ -14,6 +14,12 @@
 /**
  * The market model, version 2.
  */
+
+    import { Marketv2<CAP>includesTaxesAndFees<CAP> } from '../models/enums';
+    import { Marketv2<CAP>locationType<CAP> } from '../models/enums';
+    import { Marketv2<CAP>travelLocationType<CAP> } from '../models/enums';
+    import { Marketv2<CAP>travelLocationsRequired<CAP> } from '../models/enums';
+
 export interface Marketv2 { 
     /**
      * The starting location code for this market.
@@ -34,7 +40,7 @@ export interface Marketv2 {
     /**
      * The directions where taxes and fees are included in this market.
      */
-    includesTaxesAndFees?: Marketv2.IncludesTaxesAndFeesEnum;
+    includesTaxesAndFees?: Marketv2<CAP>includesTaxesAndFees<CAP>;
     /**
      * The latest check in from travel location for this market.
      */
@@ -46,7 +52,7 @@ export interface Marketv2 {
     /**
      * The location type of the starting location for this market.
      */
-    locationType?: Marketv2.LocationTypeEnum;
+    locationType?: Marketv2<CAP>locationType<CAP>;
     /**
      * The ending location code for this market.
      */
@@ -54,37 +60,9 @@ export interface Marketv2 {
     /**
      * The location type of the ending location for this market.
      */
-    travelLocationType?: Marketv2.TravelLocationTypeEnum;
+    travelLocationType?: Marketv2<CAP>travelLocationType<CAP>;
     /**
      * The market rules for requiring travel documents for this market.
      */
-    travelLocationsRequired?: Marketv2.TravelLocationsRequiredEnum;
-}
-export namespace Marketv2 {
-    export type IncludesTaxesAndFeesEnum = 'None' | 'To' | 'From' | 'Between';
-    export const IncludesTaxesAndFeesEnum = {
-        None: 'None' as IncludesTaxesAndFeesEnum,
-        To: 'To' as IncludesTaxesAndFeesEnum,
-        From: 'From' as IncludesTaxesAndFeesEnum,
-        Between: 'Between' as IncludesTaxesAndFeesEnum
-    }
-    export type LocationTypeEnum = 'Undefined' | 'Station' | 'Mac';
-    export const LocationTypeEnum = {
-        Undefined: 'Undefined' as LocationTypeEnum,
-        Station: 'Station' as LocationTypeEnum,
-        Mac: 'Mac' as LocationTypeEnum
-    }
-    export type TravelLocationTypeEnum = 'Undefined' | 'Station' | 'Mac';
-    export const TravelLocationTypeEnum = {
-        Undefined: 'Undefined' as TravelLocationTypeEnum,
-        Station: 'Station' as TravelLocationTypeEnum,
-        Mac: 'Mac' as TravelLocationTypeEnum
-    }
-    export type TravelLocationsRequiredEnum = 'None' | 'FromTravel' | 'ToTravel' | 'BothTravel';
-    export const TravelLocationsRequiredEnum = {
-        None: 'None' as TravelLocationsRequiredEnum,
-        FromTravel: 'FromTravel' as TravelLocationsRequiredEnum,
-        ToTravel: 'ToTravel' as TravelLocationsRequiredEnum,
-        BothTravel: 'BothTravel' as TravelLocationsRequiredEnum
-    }
+    travelLocationsRequired?: Marketv2<CAP>travelLocationsRequired<CAP>;
 }

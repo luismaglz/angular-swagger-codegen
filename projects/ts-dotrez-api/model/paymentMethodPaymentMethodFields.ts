@@ -15,6 +15,7 @@ import { PaymentMethodField } from './paymentMethodField';
 /**
  * The payment method fields for this payment method.
  */
+
 export interface PaymentMethodPaymentMethodFields { 
     ?: PaymentMethodField;
 }

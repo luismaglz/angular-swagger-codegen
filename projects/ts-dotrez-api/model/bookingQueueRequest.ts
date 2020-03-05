@@ -14,6 +14,7 @@
 /**
  * The booking request base model.
  */
+
 export interface BookingQueueRequest { 
     /**
      * The code for the booking queue.

@@ -14,6 +14,9 @@
 /**
  * Manifest Queue.
  */
+
+    import { ManifestQueue<CAP>queueAction<CAP> } from '../models/enums';
+
 export interface ManifestQueue { 
     /**
      * Represents the unique identifier for the manifest queue model.
@@ -22,7 +25,7 @@ export interface ManifestQueue {
     /**
      * The action that will be taken as a result of the placement in.
      */
-    queueAction?: ManifestQueue.QueueActionEnum;
+    queueAction?: ManifestQueue<CAP>queueAction<CAP>;
     /**
      * The QueueCategoryCode property.
      */
@@ -35,15 +38,4 @@ export interface ManifestQueue {
      * The name for the queue where the booking is placed.
      */
     queueName?: string;
-}
-export namespace ManifestQueue {
-    export type QueueActionEnum = 'Default' | 'Warning' | 'Lock' | 'DefaultAndNotify' | 'WarningAndNotify' | 'LockAndNotify';
-    export const QueueActionEnum = {
-        Default: 'Default' as QueueActionEnum,
-        Warning: 'Warning' as QueueActionEnum,
-        Lock: 'Lock' as QueueActionEnum,
-        DefaultAndNotify: 'DefaultAndNotify' as QueueActionEnum,
-        WarningAndNotify: 'WarningAndNotify' as QueueActionEnum,
-        LockAndNotify: 'LockAndNotify' as QueueActionEnum
-    }
 }

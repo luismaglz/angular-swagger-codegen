@@ -14,6 +14,7 @@
 /**
  * The create transaction request.
  */
+
 export interface TransactionRequest { 
     /**
      * The credit account transaction amount.

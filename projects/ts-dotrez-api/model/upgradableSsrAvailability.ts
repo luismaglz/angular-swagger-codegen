@@ -18,6 +18,7 @@ import { BundleSegmentSsr } from './bundleSegmentSsr';
 /**
  * The upgradable bundle ssr availability model.
  */
+
 export interface UpgradableSsrAvailability { 
     /**
      * The available bundle leg ssrs.

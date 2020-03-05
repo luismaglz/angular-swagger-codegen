@@ -14,16 +14,12 @@
 /**
  * The voucher update request.
  */
+
+    import { VoucherUpdateRequest<CAP>status<CAP> } from '../models/enums';
+
 export interface VoucherUpdateRequest { 
     /**
      * The status to update the voucher to.
      */
-    status: VoucherUpdateRequest.StatusEnum;
-}
-export namespace VoucherUpdateRequest {
-    export type StatusEnum = 'Reinstate' | 'Void';
-    export const StatusEnum = {
-        Reinstate: 'Reinstate' as StatusEnum,
-        Void: 'Void' as StatusEnum
-    }
+    status: VoucherUpdateRequest<CAP>status<CAP>;
 }

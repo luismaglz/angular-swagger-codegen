@@ -17,6 +17,7 @@ import { PassengerProgram } from './passengerProgram';
 /**
  * Defines the base passenger details.
  */
+
 export interface PassengerBase { 
     /**
      * The passenger customer number.

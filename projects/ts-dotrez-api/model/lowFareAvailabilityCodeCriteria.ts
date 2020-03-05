@@ -14,6 +14,7 @@
 /**
  * Describes the low fare availability code criteria.
  */
+
 export interface LowFareAvailabilityCodeCriteria { 
     /**
      * The currency code is which to return the results.

@@ -15,6 +15,7 @@ import { Ssr } from './ssr';
 /**
  * The list of SSR's available.
  */
+
 export interface SeatMapAvailabilitySsrLookup { 
     ?: Ssr;
 }

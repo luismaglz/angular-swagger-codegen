@@ -16,6 +16,7 @@ import { TravelQueueRequest } from './travelQueueRequest';
 /**
  * API request object used to enqueue a new travel queue item.
  */
+
 export interface TravelQueueItemRequest { 
     /**
      * Flight queue item to enqueue on the matching flight queues.

@@ -17,6 +17,7 @@ import { SsrsStatelessRequest } from './ssrsStatelessRequest';
 /**
  * Defines the itinerary booking quote request.
  */
+
 export interface ItineraryQuoteRequest { 
     /**
      * Sell service requests to quote.

@@ -14,6 +14,9 @@
 /**
  * Defines a person comment.
  */
+
+    import { PersonComment<CAP>type<CAP> } from '../models/enums';
+
 export interface PersonComment { 
     /**
      * The unique person comment key.
@@ -26,15 +29,5 @@ export interface PersonComment {
     /**
      * The comment type.
      */
-    type?: PersonComment.TypeEnum;
-}
-export namespace PersonComment {
-    export type TypeEnum = 'Default' | 'Itinerary' | 'Manifest' | 'Alert' | 'Archive';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Itinerary: 'Itinerary' as TypeEnum,
-        Manifest: 'Manifest' as TypeEnum,
-        Alert: 'Alert' as TypeEnum,
-        Archive: 'Archive' as TypeEnum
-    }
+    type?: PersonComment<CAP>type<CAP>;
 }

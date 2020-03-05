@@ -17,6 +17,7 @@ import { NotificationTimedEventCreateRequest } from './notificationTimedEventCre
 /**
  * Create request for travel notifications.
  */
+
 export interface TravelNotificationCreateRequest { 
     /**
      * The list of travel notification event.

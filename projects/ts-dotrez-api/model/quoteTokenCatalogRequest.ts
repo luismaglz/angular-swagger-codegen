@@ -15,6 +15,7 @@ import { SelectedPersonalization } from './selectedPersonalization';
 /**
  * Defines a quote token catalog request. This request is used for quoting a specific products product variation  catalog item.
  */
+
 export interface QuoteTokenCatalogRequest { 
     /**
      * The selected unique product variations catalog key.

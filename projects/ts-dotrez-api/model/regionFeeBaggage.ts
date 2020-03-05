@@ -14,6 +14,7 @@
 /**
  * Region rate model.
  */
+
 export interface RegionFeeBaggage { 
     /**
      * Divisor value for weight in Kilograms.

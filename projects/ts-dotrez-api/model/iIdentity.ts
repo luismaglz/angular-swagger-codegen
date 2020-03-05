@@ -11,6 +11,7 @@
  */
 
 
+
 export interface IIdentity { 
     readonly name?: string;
     readonly authenticationType?: string;

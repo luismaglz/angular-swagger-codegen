@@ -18,6 +18,7 @@ import { QueryString } from './queryString';
 import { Stream } from './stream';
 
 
+
 export interface HttpRequest { 
     readonly httpContext?: HttpContext;
     method?: string;

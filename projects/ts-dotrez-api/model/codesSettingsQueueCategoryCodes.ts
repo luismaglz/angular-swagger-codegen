@@ -14,6 +14,7 @@
 /**
  * A dictionary that maps queue category codes.
  */
+
 export interface CodesSettingsQueueCategoryCodes { 
     ?: number;
 }

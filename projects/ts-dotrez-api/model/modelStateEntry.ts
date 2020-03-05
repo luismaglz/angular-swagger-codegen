@@ -12,20 +12,14 @@
 import { ModelError } from './modelError';
 
 
+
+    import { ModelStateEntry<CAP>validationState<CAP> } from '../models/enums';
+
 export interface ModelStateEntry { 
     rawValue?: any;
     attemptedValue?: string;
     readonly errors?: Array<ModelError>;
-    validationState?: ModelStateEntry.ValidationStateEnum;
+    validationState?: ModelStateEntry<CAP>validationState<CAP>;
     readonly isContainerNode?: boolean;
     readonly children?: Array<ModelStateEntry>;
-}
-export namespace ModelStateEntry {
-    export type ValidationStateEnum = 'Unvalidated' | 'Invalid' | 'Valid' | 'Skipped';
-    export const ValidationStateEnum = {
-        Unvalidated: 'Unvalidated' as ValidationStateEnum,
-        Invalid: 'Invalid' as ValidationStateEnum,
-        Valid: 'Valid' as ValidationStateEnum,
-        Skipped: 'Skipped' as ValidationStateEnum
-    }
 }

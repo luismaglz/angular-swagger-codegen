@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass request that is responsible for filtering what passengers to retrieve passes for.
  */
+
 export interface BoardingPassPassengerFilterRequest { 
     /**
      * The selected passenger keys to be returned. If null all passengers will be returned that have been checked in.

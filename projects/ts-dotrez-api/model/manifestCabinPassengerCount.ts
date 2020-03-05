@@ -14,6 +14,7 @@
 /**
  * Manifest Cabin Passenger Count.
  */
+
 export interface ManifestCabinPassengerCount { 
     /**
      * The cabin class rank.

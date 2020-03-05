@@ -15,6 +15,7 @@ import { SeatInfoPropertyList } from './seatInfoPropertyList';
 /**
  * The model for the seat information such as deck, seat properties, etc.
  */
+
 export interface SeatInfo { 
     /**
      * Gets or sets the deck.

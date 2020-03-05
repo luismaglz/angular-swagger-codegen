@@ -16,6 +16,11 @@ import { PersonBasicInformation } from './personBasicInformation';
 /**
  * Defines the person create request.
  */
+
+    import { PersonEditRequest<CAP>type<CAP> } from '../models/enums';
+    import { PersonEditRequest<CAP>status<CAP> } from '../models/enums';
+    import { PersonEditRequest<CAP>notificationPreference<CAP> } from '../models/enums';
+
 export interface PersonEditRequest { 
     /**
      * The persons true name.
@@ -24,11 +29,11 @@ export interface PersonEditRequest {
     /**
      * The type of person.
      */
-    type?: PersonEditRequest.TypeEnum;
+    type?: PersonEditRequest<CAP>type<CAP>;
     /**
      * The status of the person.
      */
-    status?: PersonEditRequest.StatusEnum;
+    status?: PersonEditRequest<CAP>status<CAP>;
     /**
      * The person's basic information.
      */
@@ -36,24 +41,5 @@ export interface PersonEditRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: PersonEditRequest.NotificationPreferenceEnum;
-}
-export namespace PersonEditRequest {
-    export type TypeEnum = 'None' | 'Customer' | 'Agent';
-    export const TypeEnum = {
-        None: 'None' as TypeEnum,
-        Customer: 'Customer' as TypeEnum,
-        Agent: 'Agent' as TypeEnum
-    }
-    export type StatusEnum = 'Active' | 'Terminated' | 'Suspended';
-    export const StatusEnum = {
-        Active: 'Active' as StatusEnum,
-        Terminated: 'Terminated' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum
-    }
-    export type NotificationPreferenceEnum = 'None' | 'Promotional';
-    export const NotificationPreferenceEnum = {
-        None: 'None' as NotificationPreferenceEnum,
-        Promotional: 'Promotional' as NotificationPreferenceEnum
-    }
+    notificationPreference?: PersonEditRequest<CAP>notificationPreference<CAP>;
 }

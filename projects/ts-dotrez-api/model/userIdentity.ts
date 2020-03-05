@@ -14,6 +14,7 @@
 /**
  * Defines the logged in users identity.
  */
+
 export interface UserIdentity { 
     /**
      * The unique user key.

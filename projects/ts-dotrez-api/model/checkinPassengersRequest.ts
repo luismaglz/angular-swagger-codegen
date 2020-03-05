@@ -15,6 +15,7 @@ import { CheckinPassengerRequest } from './checkinPassengerRequest';
 /**
  * Defines the checkin passengers request.
  */
+
 export interface CheckinPassengersRequest { 
     /**
      * The collection of passengers to checkin.

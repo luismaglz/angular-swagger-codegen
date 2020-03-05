@@ -15,6 +15,7 @@ import { Credentials } from './credentials';
 /**
  * Defines the nsk token request to gain access to the API.
  */
+
 export interface NskTokenRequest { 
     /**
      * The nsk user login credentials.

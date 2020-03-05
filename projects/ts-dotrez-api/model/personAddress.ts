@@ -14,6 +14,7 @@
 /**
  * Defines a unique person address.
  */
+
 export interface PersonAddress { 
     /**
      * The unique person address key.

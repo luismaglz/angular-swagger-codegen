@@ -22,6 +22,9 @@ import { TripOperationTimes } from './tripOperationTimes';
 /**
  * Represents the operation details model.
  */
+
+    import { OperationDetails<CAP>status<CAP> } from '../models/enums';
+
 export interface OperationDetails { 
     /**
      * Represents the tail number for the aircraft.
@@ -38,7 +41,7 @@ export interface OperationDetails {
     /**
      * Represents the trip status.
      */
-    status?: OperationDetails.StatusEnum;
+    status?: OperationDetails<CAP>status<CAP>;
     /**
      * Represents the transportation identifier.
      */
@@ -71,16 +74,4 @@ export interface OperationDetails {
      * Represents the history of this trip operation.
      */
     historyList?: Array<TripOperationHistory>;
-}
-export namespace OperationDetails {
-    export type StatusEnum = 'Normal' | 'Closed' | 'Canceled' | 'Suspended' | 'ClosedPending' | 'BlockAllActivities' | 'Mishap';
-    export const StatusEnum = {
-        Normal: 'Normal' as StatusEnum,
-        Closed: 'Closed' as StatusEnum,
-        Canceled: 'Canceled' as StatusEnum,
-        Suspended: 'Suspended' as StatusEnum,
-        ClosedPending: 'ClosedPending' as StatusEnum,
-        BlockAllActivities: 'BlockAllActivities' as StatusEnum,
-        Mishap: 'Mishap' as StatusEnum
-    }
 }

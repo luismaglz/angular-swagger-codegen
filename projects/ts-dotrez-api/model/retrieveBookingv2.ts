@@ -14,6 +14,7 @@
 /**
  * Model representing the retrieve booking data.
  */
+
 export interface RetrieveBookingv2 { 
     /**
      * Record locator being requested.

@@ -14,6 +14,7 @@
 /**
  * Defines the product variation attribute result.
  */
+
 export interface ProductVariationAttribute { 
     /**
      * The product variation attribute code.

@@ -16,6 +16,7 @@ import { ParticipantSettings } from './participantSettings';
 /**
  * Defines a add ons field validation requirements.
  */
+
 export interface AddOnSettings { 
     /**
      * The unique add on key.

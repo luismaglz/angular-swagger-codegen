@@ -14,6 +14,9 @@
 /**
  * The Manifest Passenger Address.
  */
+
+    import { ManifestPassengerAddress<CAP>status<CAP> } from '../models/enums';
+
 export interface ManifestPassengerAddress { 
     /**
      * The CountryName property.
@@ -22,7 +25,7 @@ export interface ManifestPassengerAddress {
     /**
      * The addresses APIS status.
      */
-    status?: ManifestPassengerAddress.StatusEnum;
+    status?: ManifestPassengerAddress<CAP>status<CAP>;
     /**
      * Company name associated with this address.
      */
@@ -75,13 +78,4 @@ export interface ManifestPassengerAddress {
      * The postal code.
      */
     postalCode?: string;
-}
-export namespace ManifestPassengerAddress {
-    export type StatusEnum = 'Residence' | 'InCountry' | 'Emergency' | 'Contact';
-    export const StatusEnum = {
-        Residence: 'Residence' as StatusEnum,
-        InCountry: 'InCountry' as StatusEnum,
-        Emergency: 'Emergency' as StatusEnum,
-        Contact: 'Contact' as StatusEnum
-    }
 }

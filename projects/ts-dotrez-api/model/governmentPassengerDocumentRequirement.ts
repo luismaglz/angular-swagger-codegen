@@ -15,6 +15,7 @@ import { GovernmentDocumentRequirement } from './governmentDocumentRequirement';
 /**
  * Defines a specific government document requirements for a specific passenger.
  */
+
 export interface GovernmentPassengerDocumentRequirement { 
     /**
      * Identifies which instance of government security is associated with these specific requirements.

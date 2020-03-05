@@ -11,6 +11,7 @@
  */
 
 
+
 export interface QueryString { 
     readonly value?: string;
     readonly hasValue?: boolean;

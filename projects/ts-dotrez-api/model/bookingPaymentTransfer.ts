@@ -14,6 +14,7 @@
 /**
  * Defines a booking payment transfer transaction
  */
+
 export interface BookingPaymentTransfer { 
     /**
      * The booking payment id to transfer.

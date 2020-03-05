@@ -17,6 +17,7 @@ import { BundleSegmentSsr } from './bundleSegmentSsr';
 /**
  * The included ssr availability model.
  */
+
 export interface IncludedSsrAvailability { 
     /**
      * The ssr code for the in-bundle ssr availability.

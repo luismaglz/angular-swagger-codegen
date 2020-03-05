@@ -21,6 +21,12 @@ import { ThreeDSecure } from './threeDSecure';
 /**
  * Defines an applied payment on the booking.
  */
+
+    import { Payment<CAP>authorizationStatus<CAP> } from '../models/enums';
+    import { Payment<CAP>type<CAP> } from '../models/enums';
+    import { Payment<CAP>status<CAP> } from '../models/enums';
+    import { Payment<CAP>channelType<CAP> } from '../models/enums';
+
 export interface Payment { 
     /**
      * The payment key that uniquely identifies the payment.
@@ -49,7 +55,7 @@ export interface Payment {
     /**
      * The real payment status that should never be exposed to the end user unless a agent.
      */
-    authorizationStatus?: Payment.AuthorizationStatusEnum;
+    authorizationStatus?: Payment<CAP>authorizationStatus<CAP>;
     /**
      * The date restriction for a payment (when funds will be there).
      */
@@ -81,11 +87,11 @@ export interface Payment {
     /**
      * The payment method type.
      */
-    type?: Payment.TypeEnum;
+    type?: Payment<CAP>type<CAP>;
     /**
      * The status of the booking (this is the safe status).
      */
-    status?: Payment.StatusEnum;
+    status?: Payment<CAP>status<CAP>;
     /**
      * Flag that indicates if the payment is a result of a divide.
      */
@@ -93,7 +99,7 @@ export interface Payment {
     /**
      * The channel type that the payment was made through.
      */
-    channelType?: Payment.ChannelTypeEnum;
+    channelType?: Payment<CAP>channelType<CAP>;
     /**
      * The payments point of sale information.
      */
@@ -130,55 +136,4 @@ export interface Payment {
      * The reference to the payment.
      */
     reference?: number;
-}
-export namespace Payment {
-    export type AuthorizationStatusEnum = 'Unknown' | 'Acknowledged' | 'Pending' | 'InProcess' | 'Approved' | 'Declined' | 'Referral' | 'PickUpCard' | 'HotCard' | 'Voided' | 'Retrieval' | 'ChargedBack' | 'Error' | 'ValidationFailed' | 'Address' | 'VerificationCode' | 'FraudPrevention' | 'ForcedApproval' | 'ForcedDecline';
-    export const AuthorizationStatusEnum = {
-        Unknown: 'Unknown' as AuthorizationStatusEnum,
-        Acknowledged: 'Acknowledged' as AuthorizationStatusEnum,
-        Pending: 'Pending' as AuthorizationStatusEnum,
-        InProcess: 'InProcess' as AuthorizationStatusEnum,
-        Approved: 'Approved' as AuthorizationStatusEnum,
-        Declined: 'Declined' as AuthorizationStatusEnum,
-        Referral: 'Referral' as AuthorizationStatusEnum,
-        PickUpCard: 'PickUpCard' as AuthorizationStatusEnum,
-        HotCard: 'HotCard' as AuthorizationStatusEnum,
-        Voided: 'Voided' as AuthorizationStatusEnum,
-        Retrieval: 'Retrieval' as AuthorizationStatusEnum,
-        ChargedBack: 'ChargedBack' as AuthorizationStatusEnum,
-        Error: 'Error' as AuthorizationStatusEnum,
-        ValidationFailed: 'ValidationFailed' as AuthorizationStatusEnum,
-        Address: 'Address' as AuthorizationStatusEnum,
-        VerificationCode: 'VerificationCode' as AuthorizationStatusEnum,
-        FraudPrevention: 'FraudPrevention' as AuthorizationStatusEnum,
-        ForcedApproval: 'ForcedApproval' as AuthorizationStatusEnum,
-        ForcedDecline: 'ForcedDecline' as AuthorizationStatusEnum
-    }
-    export type TypeEnum = 'ExternalAccount' | 'PrePaid' | 'AgencyAccount' | 'CustomerAccount' | 'Voucher' | 'Loyalty';
-    export const TypeEnum = {
-        ExternalAccount: 'ExternalAccount' as TypeEnum,
-        PrePaid: 'PrePaid' as TypeEnum,
-        AgencyAccount: 'AgencyAccount' as TypeEnum,
-        CustomerAccount: 'CustomerAccount' as TypeEnum,
-        Voucher: 'Voucher' as TypeEnum,
-        Loyalty: 'Loyalty' as TypeEnum
-    }
-    export type StatusEnum = 'New' | 'Received' | 'Pending' | 'Approved' | 'Declined' | 'Unknown' | 'PendingCustomerAction';
-    export const StatusEnum = {
-        New: 'New' as StatusEnum,
-        Received: 'Received' as StatusEnum,
-        Pending: 'Pending' as StatusEnum,
-        Approved: 'Approved' as StatusEnum,
-        Declined: 'Declined' as StatusEnum,
-        Unknown: 'Unknown' as StatusEnum,
-        PendingCustomerAction: 'PendingCustomerAction' as StatusEnum
-    }
-    export type ChannelTypeEnum = 'Default' | 'Direct' | 'Web' | 'Gds' | 'Api';
-    export const ChannelTypeEnum = {
-        Default: 'Default' as ChannelTypeEnum,
-        Direct: 'Direct' as ChannelTypeEnum,
-        Web: 'Web' as ChannelTypeEnum,
-        Gds: 'Gds' as ChannelTypeEnum,
-        Api: 'Api' as ChannelTypeEnum
-    }
 }

@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass passenger score.
  */
+
 export interface BoardingPassPassengerScore { 
     /**
      * The score name.

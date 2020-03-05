@@ -14,6 +14,7 @@
 /**
  * Defines a passenger score.
  */
+
 export interface PassengerScore { 
     /**
      * The guest value code.

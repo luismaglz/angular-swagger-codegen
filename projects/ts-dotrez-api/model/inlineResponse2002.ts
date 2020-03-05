@@ -12,6 +12,7 @@
 import { BaggageAllowance } from './baggageAllowance';
 
 
+
 export interface InlineResponse2002 { 
     ?: Array<BaggageAllowance>;
 }

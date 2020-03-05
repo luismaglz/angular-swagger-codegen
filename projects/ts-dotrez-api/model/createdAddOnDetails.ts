@@ -14,6 +14,7 @@
 /**
  * Defines a component details.
  */
+
 export interface CreatedAddOnDetails { 
     /**
      * The agent key.

@@ -15,6 +15,7 @@ import { DeckInformation } from './deckInformation';
 /**
  * The collection of decks/levels for the equipment.
  */
+
 export interface SeatMapDecks { 
     ?: DeckInformation;
 }

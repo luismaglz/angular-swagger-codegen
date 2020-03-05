@@ -15,6 +15,11 @@ import { VoucherTransaction } from './voucherTransaction';
 /**
  * Voucher information. This model describes a voucher information after being queried by the voucher code.
  */
+
+    import { VoucherInformation<CAP>type<CAP> } from '../models/enums';
+    import { VoucherInformation<CAP>status<CAP> } from '../models/enums';
+    import { VoucherInformation<CAP>nameRestriction<CAP> } from '../models/enums';
+
 export interface VoucherInformation { 
     /**
      * The total amount of the booking that is payable by the voucher.
@@ -59,7 +64,7 @@ export interface VoucherInformation {
     /**
      * The voucher type.
      */
-    type?: VoucherInformation.TypeEnum;
+    type?: VoucherInformation<CAP>type<CAP>;
     /**
      * The voucher configuration code.
      */
@@ -75,7 +80,7 @@ export interface VoucherInformation {
     /**
      * The voucher status.
      */
-    status?: VoucherInformation.StatusEnum;
+    status?: VoucherInformation<CAP>status<CAP>;
     /**
      * Returns the original available amount of the voucher, converted to a foreign currency.  Used if the booking and voucher are in different currencies.
      */
@@ -91,7 +96,7 @@ export interface VoucherInformation {
     /**
      * The name restriction for the voucher.
      */
-    nameRestriction?: VoucherInformation.NameRestrictionEnum;
+    nameRestriction?: VoucherInformation<CAP>nameRestriction<CAP>;
     /**
      * The voucher transactions.
      */
@@ -124,28 +129,4 @@ export interface VoucherInformation {
      * The voucher issuance key.
      */
     voucherIssuanceKey?: string;
-}
-export namespace VoucherInformation {
-    export type TypeEnum = 'Credit' | 'SingleUseCredit' | 'Service' | 'SingleUse' | 'MultiUse' | 'SingleUseNegativeAdjustment';
-    export const TypeEnum = {
-        Credit: 'Credit' as TypeEnum,
-        SingleUseCredit: 'SingleUseCredit' as TypeEnum,
-        Service: 'Service' as TypeEnum,
-        SingleUse: 'SingleUse' as TypeEnum,
-        MultiUse: 'MultiUse' as TypeEnum,
-        SingleUseNegativeAdjustment: 'SingleUseNegativeAdjustment' as TypeEnum
-    }
-    export type StatusEnum = 'Available' | 'Void' | 'Redeemed' | 'Expired';
-    export const StatusEnum = {
-        Available: 'Available' as StatusEnum,
-        Void: 'Void' as StatusEnum,
-        Redeemed: 'Redeemed' as StatusEnum,
-        Expired: 'Expired' as StatusEnum
-    }
-    export type NameRestrictionEnum = 'None' | 'MustBePassenger' | 'MustBePassengerOrContact';
-    export const NameRestrictionEnum = {
-        None: 'None' as NameRestrictionEnum,
-        MustBePassenger: 'MustBePassenger' as NameRestrictionEnum,
-        MustBePassengerOrContact: 'MustBePassengerOrContact' as NameRestrictionEnum
-    }
 }

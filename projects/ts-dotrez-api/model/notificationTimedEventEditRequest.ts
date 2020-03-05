@@ -14,6 +14,7 @@
 /**
  * A travel notification timed event edit request.
  */
+
 export interface NotificationTimedEventEditRequest { 
     /**
      * The minutes to the event.

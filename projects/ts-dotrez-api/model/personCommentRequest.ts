@@ -14,6 +14,9 @@
 /**
  * Defines a person comment request.
  */
+
+    import { PersonCommentRequest<CAP>type<CAP> } from '../models/enums';
+
 export interface PersonCommentRequest { 
     /**
      * The comments text.
@@ -22,15 +25,5 @@ export interface PersonCommentRequest {
     /**
      * The comment type.
      */
-    type?: PersonCommentRequest.TypeEnum;
-}
-export namespace PersonCommentRequest {
-    export type TypeEnum = 'Default' | 'Itinerary' | 'Manifest' | 'Alert' | 'Archive';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Itinerary: 'Itinerary' as TypeEnum,
-        Manifest: 'Manifest' as TypeEnum,
-        Alert: 'Alert' as TypeEnum,
-        Archive: 'Archive' as TypeEnum
-    }
+    type?: PersonCommentRequest<CAP>type<CAP>;
 }

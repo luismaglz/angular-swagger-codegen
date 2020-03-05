@@ -14,11 +14,14 @@
 /**
  * The voucher configuration model.
  */
+
+    import { VoucherTravelRestriction<CAP>restrictionType<CAP> } from '../models/enums';
+
 export interface VoucherTravelRestriction { 
     /**
      * The travel restriction type.
      */
-    restrictionType?: VoucherTravelRestriction.RestrictionTypeEnum;
+    restrictionType?: VoucherTravelRestriction<CAP>restrictionType<CAP>;
     /**
      * The voucher configuration code.
      */
@@ -35,12 +38,4 @@ export interface VoucherTravelRestriction {
      * The ending travel date.
      */
     endTravelDate?: Date;
-}
-export namespace VoucherTravelRestriction {
-    export type RestrictionTypeEnum = 'Default' | 'Blackout' | 'Season';
-    export const RestrictionTypeEnum = {
-        Default: 'Default' as RestrictionTypeEnum,
-        Blackout: 'Blackout' as RestrictionTypeEnum,
-        Season: 'Season' as RestrictionTypeEnum
-    }
 }

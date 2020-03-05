@@ -15,6 +15,9 @@ import { CustomerProgramLevel } from './customerProgramLevel';
 /**
  * The customer program such as loyalty programs.
  */
+
+    import { CustomerProgram<CAP>programType<CAP> } from '../models/enums';
+
 export interface CustomerProgram { 
     /**
      * The program code.
@@ -27,7 +30,7 @@ export interface CustomerProgram {
     /**
      * The program type.
      */
-    programType?: CustomerProgram.ProgramTypeEnum;
+    programType?: CustomerProgram<CAP>programType<CAP>;
     /**
      * The validation type.
      */
@@ -52,12 +55,4 @@ export interface CustomerProgram {
      * The customer program levels.
      */
     customerProgramLevels?: Array<CustomerProgramLevel>;
-}
-export namespace CustomerProgram {
-    export type ProgramTypeEnum = 'Default' | 'Internal' | 'External';
-    export const ProgramTypeEnum = {
-        Default: 'Default' as ProgramTypeEnum,
-        Internal: 'Internal' as ProgramTypeEnum,
-        External: 'External' as ProgramTypeEnum
-    }
 }

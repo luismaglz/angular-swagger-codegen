@@ -14,6 +14,7 @@
 /**
  * Model to request a voucher payment.
  */
+
 export interface VoucherPaymentRequest { 
     /**
      * The voucher reference code.

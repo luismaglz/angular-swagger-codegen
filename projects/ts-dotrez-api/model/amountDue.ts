@@ -14,6 +14,7 @@
 /**
  * Defines the amounts due for an order.
  */
+
 export interface AmountDue { 
     /**
      * The pre tax total.

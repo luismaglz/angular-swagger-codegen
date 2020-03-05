@@ -18,6 +18,10 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
 /**
  * Defines a availability rebook criteria search which includes all the previous passengers on the booking.
  */
+
+    import { AvailabilityByTrip<CAP>ssrCollectionsMode<CAP> } from '../models/enums';
+    import { AvailabilityByTrip<CAP>type<CAP> } from '../models/enums';
+
 export interface AvailabilityByTrip { 
     /**
      * The filtering criteria.
@@ -38,7 +42,7 @@ export interface AvailabilityByTrip {
     /**
      * Determines how and when to return the Ssr nest information.
      */
-    ssrCollectionsMode?: AvailabilityByTrip.SsrCollectionsModeEnum;
+    ssrCollectionsMode?: AvailabilityByTrip<CAP>ssrCollectionsMode<CAP>;
     /**
      * The flight search criteria.
      */
@@ -46,19 +50,5 @@ export interface AvailabilityByTrip {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: AvailabilityByTrip.TypeEnum;
-}
-export namespace AvailabilityByTrip {
-    export type SsrCollectionsModeEnum = 'None' | 'Leg';
-    export const SsrCollectionsModeEnum = {
-        None: 'None' as SsrCollectionsModeEnum,
-        Leg: 'Leg' as SsrCollectionsModeEnum
-    }
-    export type TypeEnum = 'Default' | 'Standby' | 'Overbook' | 'NoPricing';
-    export const TypeEnum = {
-        Default: 'Default' as TypeEnum,
-        Standby: 'Standby' as TypeEnum,
-        Overbook: 'Overbook' as TypeEnum,
-        NoPricing: 'NoPricing' as TypeEnum
-    }
+    type?: AvailabilityByTrip<CAP>type<CAP>;
 }
