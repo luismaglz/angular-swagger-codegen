@@ -2,8 +2,7 @@
 /* tslint:disable:no-unused-variable member-ordering */
 
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { map, toPromise } from "rxjs";
 import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
 import { IAPIConfiguration } from "../IAPIConfiguration";
