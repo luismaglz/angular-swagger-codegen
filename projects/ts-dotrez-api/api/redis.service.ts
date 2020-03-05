@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { IJsonResponse } from '../model/iJsonResponse';
 
 import { COLLECTION_FORMATS }  from '../variables';
@@ -28,13 +33,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class RedisService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * 
@@ -42,20 +42,22 @@ export class RedisService {
      * @param name 
      
      */
-    public apiV1RedisByNameDelete(name: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiV1RedisByNameDelete(name: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiV1RedisByNameDelete(name: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiV1RedisByNameDelete = (name: string, ) => {
         if (!name){
             throw new Error('Required parameter name was null or undefined when calling apiV1RedisByNameDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/v1/redis/${encodeURIComponent(String(name))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                name: string, 
+            }> = {
+                url: '/api/v1/redis/${encodeURIComponent(String(name))}',
+                method: 'delete',
+                data: {
+                    name,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -64,16 +66,18 @@ export class RedisService {
      * 
      
      */
-    public apiV1RedisDelete(observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiV1RedisDelete(observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiV1RedisDelete(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiV1RedisDelete = () => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/v1/redis`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/v1/redis',
+                method: 'delete',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -82,16 +86,18 @@ export class RedisService {
      * 
      
      */
-    public apiV1RedisGet(observe?: 'body', headers?: Headers): Observable<Array<string>>;
-    public apiV1RedisGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<string>>>;
-    public apiV1RedisGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiV1RedisGet = () => {
 
-        const response: Observable<HttpResponse<Array<string>>> = this.httpClient.get(`${this.basePath}/api/v1/redis`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<string>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/v1/redis',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

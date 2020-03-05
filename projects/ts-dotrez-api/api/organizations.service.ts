@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { IJsonResponse } from '../model/iJsonResponse';
 import { OrganizationGroup } from '../model/organizationGroup';
 import { OrganizationGroupDetails } from '../model/organizationGroupDetails';
@@ -30,13 +35,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class OrganizationsService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Retrieves the details of an organization group.
@@ -44,20 +44,22 @@ export class OrganizationsService {
      * @param organizationGroupCode 
      
      */
-    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe?: 'body', headers?: Headers): Observable<OrganizationGroupDetails>;
-    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<OrganizationGroupDetails>>;
-    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet = (organizationGroupCode: string, ) => {
         if (!organizationGroupCode){
             throw new Error('Required parameter organizationGroupCode was null or undefined when calling apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<OrganizationGroupDetails>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations/groups/${encodeURIComponent(String(organizationGroupCode))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <OrganizationGroupDetails>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                organizationGroupCode: string, 
+            }> = {
+                url: '/api/nsk/v1/organizations/groups/${encodeURIComponent(String(organizationGroupCode))}',
+                method: 'get',
+                data: {
+                    organizationGroupCode,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -66,16 +68,18 @@ export class OrganizationsService {
      * 
      
      */
-    public apiNskV1OrganizationsGroupsGet(observe?: 'body', headers?: Headers): Observable<Array<OrganizationGroup>>;
-    public apiNskV1OrganizationsGroupsGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<OrganizationGroup>>>;
-    public apiNskV1OrganizationsGroupsGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1OrganizationsGroupsGet = () => {
 
-        const response: Observable<HttpResponse<Array<OrganizationGroup>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations/groups`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<OrganizationGroup>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/organizations/groups',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

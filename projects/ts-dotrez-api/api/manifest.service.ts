@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { IJsonResponse } from '../model/iJsonResponse';
 import { Manifest } from '../model/manifest';
 import { ManifestRequestBase } from '../model/manifestRequestBase';
@@ -33,13 +38,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class ManifestService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Gets the passenger details for the specified leg.
@@ -47,20 +47,22 @@ export class ManifestService {
      * @param legKey The leg key.
      
      */
-    public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe?: 'body', headers?: Headers): Observable<PassengerDetails>;
-    public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<PassengerDetails>>;
-    public apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1ManifestByLegKeyPassengerDetailsGet = (legKey: string, ) => {
         if (!legKey){
             throw new Error('Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPassengerDetailsGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<PassengerDetails>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}/passengerDetails`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <PassengerDetails>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                legKey: string, 
+            }> = {
+                url: '/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}/passengerDetails',
+                method: 'get',
+                data: {
+                    legKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -70,20 +72,22 @@ export class ManifestService {
      * @param legKey The leg key.
      
      */
-    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe?: 'body', headers?: Headers): Observable<Array<PassengerSeatAssignment>>;
-    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PassengerSeatAssignment>>>;
-    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet = (legKey: string, ) => {
         if (!legKey){
             throw new Error('Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<PassengerSeatAssignment>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}/passengerSeatAssignments`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<PassengerSeatAssignment>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                legKey: string, 
+            }> = {
+                url: '/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}/passengerSeatAssignments',
+                method: 'get',
+                data: {
+                    legKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -94,21 +98,22 @@ export class ManifestService {
      * @param request The manifest request
      
      */
-    public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe?: 'body', headers?: Headers): Observable<Manifest>;
-    public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<Manifest>>;
-    public apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1ManifestByLegKeyPost = (legKey: string, request?: ManifestRequestBase, ) => {
         if (!legKey){
             throw new Error('Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<Manifest>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Manifest>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                legKey: string, request?: ManifestRequestBase, 
+            }> = {
+                url: '/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}',
+                method: 'post',
+                data: {
+                    legKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -123,9 +128,7 @@ export class ManifestService {
      * @param flightType The flight type.
      
      */
-    public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'body', headers?: Headers): Observable<TripInformationResponse>;
-    public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe?: 'response', headers?: Headers): Observable<HttpResponse<TripInformationResponse>>;
-    public apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1ManifestGet = (beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', ) => {
         if (!beginDate){
             throw new Error('Required parameter beginDate was null or undefined when calling apiNskV1ManifestGet.');
         }
@@ -150,13 +153,17 @@ export class ManifestService {
             queryParameters.push("flightType="+encodeURIComponent(String(flightType)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<TripInformationResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/manifest?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <TripInformationResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect', 
+            }> = {
+                url: '/api/nsk/v1/manifest',
+                method: 'get',
+                data: {
+                    beginDate,origin,destination,identifier,carrierCode,flightType,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

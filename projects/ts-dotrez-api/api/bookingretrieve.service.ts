@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { Booking } from '../model/booking';
 import { IJsonResponse } from '../model/iJsonResponse';
 
@@ -29,13 +34,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class BookingretrieveService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Gets a specific booking by key and stores it in state.
@@ -43,20 +43,22 @@ export class BookingretrieveService {
      * @param bookingKey The booking key.
      
      */
-    public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe?: 'body', headers?: Headers): Observable<Booking>;
-    public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Booking>>;
-    public apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingRetrieveByBookingKeyGet = (bookingKey: string, ) => {
         if (!bookingKey){
             throw new Error('Required parameter bookingKey was null or undefined when calling apiNskV1BookingRetrieveByBookingKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/retrieve/${encodeURIComponent(String(bookingKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                bookingKey: string, 
+            }> = {
+                url: '/api/nsk/v1/booking/retrieve/${encodeURIComponent(String(bookingKey))}',
+                method: 'get',
+                data: {
+                    bookingKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -66,20 +68,22 @@ export class BookingretrieveService {
      * @param recordLocator The booking record locator.
      
      */
-    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe?: 'body', headers?: Headers): Observable<Booking>;
-    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Booking>>;
-    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet = (recordLocator: string, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/retrieve/byRecordLocator/${encodeURIComponent(String(recordLocator))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, 
+            }> = {
+                url: '/api/nsk/v1/booking/retrieve/byRecordLocator/${encodeURIComponent(String(recordLocator))}',
+                method: 'get',
+                data: {
+                    recordLocator,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -95,9 +99,7 @@ export class BookingretrieveService {
      * @param departureDate The first journeys departure date.
      
      */
-    public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'body', headers?: Headers): Observable<Booking>;
-    public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe?: 'response', headers?: Headers): Observable<HttpResponse<Booking>>;
-    public apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV2BookingRetrieveGet = (recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, ) => {
         if (!recordLocator){
             throw new Error('Required parameter recordLocator was null or undefined when calling apiNskV2BookingRetrieveGet.');
         }
@@ -125,13 +127,17 @@ export class BookingretrieveService {
            queryParameters.push("departureDate="+encodeURIComponent(<any>departureDate.toISOString()));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/booking/retrieve?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date, 
+            }> = {
+                url: '/api/nsk/v2/booking/retrieve',
+                method: 'get',
+                data: {
+                    recordLocator,emailAddress,origin,firstName,lastName,customerNumber,departureDate,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

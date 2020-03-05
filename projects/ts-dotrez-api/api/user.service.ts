@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { BookingSearchResult } from '../model/bookingSearchResult';
 import { BookingTripResult } from '../model/bookingTripResult';
 import { DeltaMapperSingleSignOnTokenRequest } from '../model/deltaMapperSingleSignOnTokenRequest';
@@ -45,13 +50,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class UserService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Searches the logged in user booking upcoming and past bookings.
@@ -60,9 +60,7 @@ export class UserService {
      * @param endDate Booking end search date.
      
      */
-    public apiNskV1UserBookingsByPassengerGet(startDate?: Date, endDate?: Date, observe?: 'body', headers?: Headers): Observable<Array<BookingTripResult>>;
-    public apiNskV1UserBookingsByPassengerGet(startDate?: Date, endDate?: Date, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingTripResult>>>;
-    public apiNskV1UserBookingsByPassengerGet(startDate?: Date, endDate?: Date, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserBookingsByPassengerGet = (startDate?: Date, endDate?: Date, ) => {
         let queryParameters: string[] = [];
         if (startDate !== undefined) {
            queryParameters.push("startDate="+encodeURIComponent(<any>startDate.toISOString()));
@@ -71,13 +69,17 @@ export class UserService {
            queryParameters.push("endDate="+encodeURIComponent(<any>endDate.toISOString()));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingTripResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/bookingsByPassenger?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingTripResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                startDate?: Date, endDate?: Date, 
+            }> = {
+                url: '/api/nsk/v1/user/bookingsByPassenger',
+                method: 'get',
+                data: {
+                    startDate,endDate,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -99,9 +101,7 @@ export class UserService {
      * @param lastBookingKey The last booking key (used for paging).
      
      */
-    public apiNskV1UserBookingsGet(returnCount: number, associatedFirstName?: string, associatedLastName?: string, phoneticSearch?: boolean, tripIdentifier?: string, origin?: string, destination?: string, searchArchive?: boolean, tripDate?: Date, startDate?: Date, endDate?: Date, searchByCustomerNumber?: boolean, lastBookingKey?: string, observe?: 'body', headers?: Headers): Observable<Array<BookingSearchResult>>;
-    public apiNskV1UserBookingsGet(returnCount: number, associatedFirstName?: string, associatedLastName?: string, phoneticSearch?: boolean, tripIdentifier?: string, origin?: string, destination?: string, searchArchive?: boolean, tripDate?: Date, startDate?: Date, endDate?: Date, searchByCustomerNumber?: boolean, lastBookingKey?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<BookingSearchResult>>>;
-    public apiNskV1UserBookingsGet(returnCount: number, associatedFirstName?: string, associatedLastName?: string, phoneticSearch?: boolean, tripIdentifier?: string, origin?: string, destination?: string, searchArchive?: boolean, tripDate?: Date, startDate?: Date, endDate?: Date, searchByCustomerNumber?: boolean, lastBookingKey?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserBookingsGet = (returnCount: number, associatedFirstName?: string, associatedLastName?: string, phoneticSearch?: boolean, tripIdentifier?: string, origin?: string, destination?: string, searchArchive?: boolean, tripDate?: Date, startDate?: Date, endDate?: Date, searchByCustomerNumber?: boolean, lastBookingKey?: string, ) => {
         if (!returnCount){
             throw new Error('Required parameter returnCount was null or undefined when calling apiNskV1UserBookingsGet.');
         }
@@ -147,13 +147,17 @@ export class UserService {
             queryParameters.push("lastBookingKey="+encodeURIComponent(String(lastBookingKey)));
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/bookings?${queryParameters.join('&')}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                returnCount: number, associatedFirstName?: string, associatedLastName?: string, phoneticSearch?: boolean, tripIdentifier?: string, origin?: string, destination?: string, searchArchive?: boolean, tripDate?: Date, startDate?: Date, endDate?: Date, searchByCustomerNumber?: boolean, lastBookingKey?: string, 
+            }> = {
+                url: '/api/nsk/v1/user/bookings',
+                method: 'get',
+                data: {
+                    returnCount,associatedFirstName,associatedLastName,phoneticSearch,tripIdentifier,origin,destination,searchArchive,tripDate,startDate,endDate,searchByCustomerNumber,lastBookingKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -162,16 +166,18 @@ export class UserService {
      * 
      
      */
-    public apiNskV1UserGet(observe?: 'body', headers?: Headers): Observable<User>;
-    public apiNskV1UserGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<User>>;
-    public apiNskV1UserGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1UserGet = () => {
 
-        const response: Observable<HttpResponse<User>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <User>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/user',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -180,16 +186,18 @@ export class UserService {
      * 
      
      */
-    public apiNskV1UserImpersonateDelete(observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserImpersonateDelete(observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserImpersonateDelete(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1UserImpersonateDelete = () => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/user/impersonate`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/user/impersonate',
+                method: 'delete',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -198,16 +206,18 @@ export class UserService {
      * 
      
      */
-    public apiNskV1UserImpersonateGet(observe?: 'body', headers?: Headers): Observable<SessionRoles>;
-    public apiNskV1UserImpersonateGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<SessionRoles>>;
-    public apiNskV1UserImpersonateGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1UserImpersonateGet = () => {
 
-        const response: Observable<HttpResponse<SessionRoles>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/impersonate`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <SessionRoles>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/user/impersonate',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -217,17 +227,18 @@ export class UserService {
      * @param request The user impersonate request.
      
      */
-    public apiNskV1UserImpersonatePost(request?: UserImpersonateRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserImpersonatePost(request?: UserImpersonateRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserImpersonatePost(request?: UserImpersonateRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1UserImpersonatePost = (request?: UserImpersonateRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/user/impersonate`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: UserImpersonateRequest, 
+            }> = {
+                url: '/api/nsk/v1/user/impersonate',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -237,17 +248,18 @@ export class UserService {
      * @param request The change password request.
      
      */
-    public apiNskV1UserPasswordChangePost(request?: UserChangePasswordRequestBase, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserPasswordChangePost(request?: UserChangePasswordRequestBase, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserPasswordChangePost(request?: UserChangePasswordRequestBase, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1UserPasswordChangePost = (request?: UserChangePasswordRequestBase, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/user/password/change`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: UserChangePasswordRequestBase, 
+            }> = {
+                url: '/api/nsk/v1/user/password/change',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -257,17 +269,18 @@ export class UserService {
      * @param request The user patch request.
      
      */
-    public apiNskV1UserPatch(request?: DeltaMapperUserRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserPatch(request?: DeltaMapperUserRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserPatch(request?: DeltaMapperUserRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1UserPatch = (request?: DeltaMapperUserRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/user`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: DeltaMapperUserRequest, 
+            }> = {
+                url: '/api/nsk/v1/user',
+                method: 'patch',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -277,17 +290,18 @@ export class UserService {
      * @param request The user customer create request.
      
      */
-    public apiNskV1UserPost(request?: UserCustomerCreateRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserPost(request?: UserCustomerCreateRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserPost(request?: UserCustomerCreateRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1UserPost = (request?: UserCustomerCreateRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/user`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: UserCustomerCreateRequest, 
+            }> = {
+                url: '/api/nsk/v1/user',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -297,17 +311,18 @@ export class UserService {
      * @param request The user edit request.
      
      */
-    public apiNskV1UserPut(request?: UserRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserPut(request?: UserRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserPut(request?: UserRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1UserPut = (request?: UserRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/user`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: UserRequest, 
+            }> = {
+                url: '/api/nsk/v1/user',
+                method: 'put',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -317,20 +332,22 @@ export class UserService {
      * @param userRoleKey The unique user role key.
      
      */
-    public apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserRolesByUserRoleKeyDelete = (userRoleKey: string, ) => {
         if (!userRoleKey){
             throw new Error('Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                userRoleKey: string, 
+            }> = {
+                url: '/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}',
+                method: 'delete',
+                data: {
+                    userRoleKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -340,20 +357,22 @@ export class UserService {
      * @param userRoleKey The unique user role key
      
      */
-    public apiNskV1UserRolesByUserRoleKeyGet(userRoleKey: string, observe?: 'body', headers?: Headers): Observable<UserRole>;
-    public apiNskV1UserRolesByUserRoleKeyGet(userRoleKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<UserRole>>;
-    public apiNskV1UserRolesByUserRoleKeyGet(userRoleKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserRolesByUserRoleKeyGet = (userRoleKey: string, ) => {
         if (!userRoleKey){
             throw new Error('Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<UserRole>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <UserRole>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                userRoleKey: string, 
+            }> = {
+                url: '/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}',
+                method: 'get',
+                data: {
+                    userRoleKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -364,21 +383,22 @@ export class UserService {
      * @param request The patched role.
      
      */
-    public apiNskV1UserRolesByUserRoleKeyPatch(userRoleKey: string, request?: DeltaMapperUserRolePatchRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserRolesByUserRoleKeyPatch(userRoleKey: string, request?: DeltaMapperUserRolePatchRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserRolesByUserRoleKeyPatch(userRoleKey: string, request?: DeltaMapperUserRolePatchRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserRolesByUserRoleKeyPatch = (userRoleKey: string, request?: DeltaMapperUserRolePatchRequest, ) => {
         if (!userRoleKey){
             throw new Error('Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyPatch.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                userRoleKey: string, request?: DeltaMapperUserRolePatchRequest, 
+            }> = {
+                url: '/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}',
+                method: 'patch',
+                data: {
+                    userRoleKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -389,21 +409,22 @@ export class UserService {
      * @param request The modified role.
      
      */
-    public apiNskV1UserRolesByUserRoleKeyPut(userRoleKey: string, request?: UserRoleEditRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserRolesByUserRoleKeyPut(userRoleKey: string, request?: UserRoleEditRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserRolesByUserRoleKeyPut(userRoleKey: string, request?: UserRoleEditRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserRolesByUserRoleKeyPut = (userRoleKey: string, request?: UserRoleEditRequest, ) => {
         if (!userRoleKey){
             throw new Error('Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyPut.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                userRoleKey: string, request?: UserRoleEditRequest, 
+            }> = {
+                url: '/api/nsk/v1/user/roles/${encodeURIComponent(String(userRoleKey))}',
+                method: 'put',
+                data: {
+                    userRoleKey,request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -412,16 +433,18 @@ export class UserService {
      * 
      
      */
-    public apiNskV1UserRolesGet(observe?: 'body', headers?: Headers): Observable<Array<UserRole>>;
-    public apiNskV1UserRolesGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<UserRole>>>;
-    public apiNskV1UserRolesGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1UserRolesGet = () => {
 
-        const response: Observable<HttpResponse<Array<UserRole>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/roles`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<UserRole>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/user/roles',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -431,17 +454,18 @@ export class UserService {
      * @param request The new role.
      
      */
-    public apiNskV1UserRolesPost(request?: UserRoleCreateRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserRolesPost(request?: UserRoleCreateRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserRolesPost(request?: UserRoleCreateRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1UserRolesPost = (request?: UserRoleCreateRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/user/roles`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: UserRoleCreateRequest, 
+            }> = {
+                url: '/api/nsk/v1/user/roles',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -451,20 +475,22 @@ export class UserService {
      * @param providerKey The single sign on provider key.
      
      */
-    public apiNskV1UserSingleSignOnTokenByProviderKeyDelete(providerKey: string, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyDelete(providerKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyDelete(providerKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserSingleSignOnTokenByProviderKeyDelete = (providerKey: string, ) => {
         if (!providerKey){
             throw new Error('Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyDelete.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                providerKey: string, 
+            }> = {
+                url: '/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}',
+                method: 'delete',
+                data: {
+                    providerKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -474,20 +500,22 @@ export class UserService {
      * @param providerKey The single sign on provider key.
      
      */
-    public apiNskV1UserSingleSignOnTokenByProviderKeyGet(providerKey: string, observe?: 'body', headers?: Headers): Observable<UserSingleSignOnToken>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyGet(providerKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<UserSingleSignOnToken>>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyGet(providerKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserSingleSignOnTokenByProviderKeyGet = (providerKey: string, ) => {
         if (!providerKey){
             throw new Error('Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<UserSingleSignOnToken>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <UserSingleSignOnToken>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                providerKey: string, 
+            }> = {
+                url: '/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}',
+                method: 'get',
+                data: {
+                    providerKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -498,21 +526,22 @@ export class UserService {
      * @param tokenRequest The single sign on token request.
      
      */
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPatch(providerKey: string, tokenRequest?: DeltaMapperSingleSignOnTokenRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPatch(providerKey: string, tokenRequest?: DeltaMapperSingleSignOnTokenRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPatch(providerKey: string, tokenRequest?: DeltaMapperSingleSignOnTokenRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserSingleSignOnTokenByProviderKeyPatch = (providerKey: string, tokenRequest?: DeltaMapperSingleSignOnTokenRequest, ) => {
         if (!providerKey){
             throw new Error('Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPatch.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}`, tokenRequest , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                providerKey: string, tokenRequest?: DeltaMapperSingleSignOnTokenRequest, 
+            }> = {
+                url: '/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}',
+                method: 'patch',
+                data: {
+                    providerKey,tokenRequest,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -523,21 +552,22 @@ export class UserService {
      * @param tokenRequest The single sign on token request.
      
      */
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPost(providerKey: string, tokenRequest?: SingleSignOnTokenRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPost(providerKey: string, tokenRequest?: SingleSignOnTokenRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPost(providerKey: string, tokenRequest?: SingleSignOnTokenRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserSingleSignOnTokenByProviderKeyPost = (providerKey: string, tokenRequest?: SingleSignOnTokenRequest, ) => {
         if (!providerKey){
             throw new Error('Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPost.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}`, tokenRequest , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                providerKey: string, tokenRequest?: SingleSignOnTokenRequest, 
+            }> = {
+                url: '/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}',
+                method: 'post',
+                data: {
+                    providerKey,tokenRequest,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -548,21 +578,22 @@ export class UserService {
      * @param tokenRequest The single sign on token request.
      
      */
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPut(providerKey: string, tokenRequest?: SingleSignOnTokenRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPut(providerKey: string, tokenRequest?: SingleSignOnTokenRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1UserSingleSignOnTokenByProviderKeyPut(providerKey: string, tokenRequest?: SingleSignOnTokenRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1UserSingleSignOnTokenByProviderKeyPut = (providerKey: string, tokenRequest?: SingleSignOnTokenRequest, ) => {
         if (!providerKey){
             throw new Error('Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPut.');
         }
 
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}`, tokenRequest , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                providerKey: string, tokenRequest?: SingleSignOnTokenRequest, 
+            }> = {
+                url: '/api/nsk/v1/user/singleSignOnToken/${encodeURIComponent(String(providerKey))}',
+                method: 'put',
+                data: {
+                    providerKey,tokenRequest,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -571,16 +602,18 @@ export class UserService {
      * 
      
      */
-    public apiNskV1UserSingleSignOnTokenGet(observe?: 'body', headers?: Headers): Observable<Array<UserSingleSignOnToken>>;
-    public apiNskV1UserSingleSignOnTokenGet(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<UserSingleSignOnToken>>>;
-    public apiNskV1UserSingleSignOnTokenGet(observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
+    public apiNskV1UserSingleSignOnTokenGet = () => {
 
-        const response: Observable<HttpResponse<Array<UserSingleSignOnToken>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/singleSignOnToken`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <Array<UserSingleSignOnToken>>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                
+            }> = {
+                url: '/api/nsk/v1/user/singleSignOnToken',
+                method: 'get',
+                data: {
+                    
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -590,17 +623,18 @@ export class UserService {
      * @param request The user customer create request v2.
      
      */
-    public apiNskV2UserPost(request?: UserCustomerCreateRequestv2, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV2UserPost(request?: UserCustomerCreateRequestv2, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV2UserPost(request?: UserCustomerCreateRequestv2, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV2UserPost = (request?: UserCustomerCreateRequestv2, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/user`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: UserCustomerCreateRequestv2, 
+            }> = {
+                url: '/api/nsk/v2/user',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }

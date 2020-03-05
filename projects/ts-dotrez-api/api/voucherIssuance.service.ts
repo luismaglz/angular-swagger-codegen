@@ -20,6 +20,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
+import * as Models from '../models';
+import { Dictionary } from '../models';
+import * as Enums from '../enums';
+import { getClient, Request } from '../helper';
+
 import { IJsonResponse } from '../model/iJsonResponse';
 import { VoucherIssuance } from '../model/voucherIssuance';
 import { VoucherIssuanceRequest } from '../model/voucherIssuanceRequest';
@@ -30,13 +35,8 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class VoucherIssuanceService {
-    private basePath: string = 'https://localhost';
 
-    constructor(@inject("IApiHttpClient") private httpClient: IHttpClient,
-        @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration ) {
-        if(this.APIConfiguration.basePath)
-            this.basePath = this.APIConfiguration.basePath;
-    }
+    constructor(@inject(HTTP_CLIENT) protected client: ApiHttpClient) {}
 
     /**
      * Gets a voucher issuance based upon the voucher issuance key.
@@ -44,20 +44,22 @@ export class VoucherIssuanceService {
      * @param voucherIssuanceKey The voucher issuance key.
      
      */
-    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'body', headers?: Headers): Observable<VoucherIssuance>;
-    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<VoucherIssuance>>;
-    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet = (voucherIssuanceKey: string, ) => {
         if (!voucherIssuanceKey){
             throw new Error('Required parameter voucherIssuanceKey was null or undefined when calling apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet.');
         }
 
-        headers['Accept'] = 'text/plain';
 
-        const response: Observable<HttpResponse<VoucherIssuance>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/voucherIssuance/${encodeURIComponent(String(voucherIssuanceKey))}`, headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <VoucherIssuance>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                voucherIssuanceKey: string, 
+            }> = {
+                url: '/api/nsk/v1/voucherIssuance/${encodeURIComponent(String(voucherIssuanceKey))}',
+                method: 'get',
+                data: {
+                    voucherIssuanceKey,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 
@@ -67,17 +69,18 @@ export class VoucherIssuanceService {
      * @param request The voucher issuance request.
      
      */
-    public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe?: 'body', headers?: Headers): Observable<IJsonResponse>;
-    public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe?: 'response', headers?: Headers): Observable<HttpResponse<IJsonResponse>>;
-    public apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        headers['Accept'] = 'text/plain';
-        headers['Content-Type'] = 'application/json-patch+json';
+    public apiNskV1VoucherIssuancePost = (request?: VoucherIssuanceRequest, ) => {
 
-        const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/voucherIssuance`, request , headers);
-        if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
-        }
-        return response;
+            const requestObj: Request<{
+                request?: VoucherIssuanceRequest, 
+            }> = {
+                url: '/api/nsk/v1/voucherIssuance',
+                method: 'post',
+                data: {
+                    request,
+                }
+            };
+            return this.client.makeRequest(requestObj);
     }
 
 }
