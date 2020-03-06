@@ -18,17 +18,17 @@ import { Program } from './program';
  * The passenger detail model.
  */
 
-    import { PassengerDetail<CAP>status</CAP> } from '../models/enums';
-    import { PassengerDetail<CAP>profileStatus</CAP> } from '../models/enums';
-    import { PassengerDetail<CAP>weightCategory</CAP> } from '../models/enums';
-    import { PassengerDetail<CAP>tripType</CAP> } from '../models/enums';
-    import { PassengerDetail<CAP>paidStatus</CAP> } from '../models/enums';
+    import { PassengerDetailStatus } from '../types/enums';
+    import { PassengerDetailProfileStatus } from '../types/enums';
+    import { PassengerDetailWeightCategory } from '../types/enums';
+    import { PassengerDetailTripType } from '../types/enums';
+    import { PassengerDetailPaidStatus } from '../types/enums';
 
 export interface PassengerDetail { 
     /**
      * The current status of the booking.
      */
-    status?: PassengerDetail<CAP>status</CAP>;
+    status?: PassengerDetailStatus;
     /**
      * The record locator.
      */
@@ -44,7 +44,7 @@ export interface PassengerDetail {
     /**
      * The profile status on the booking.
      */
-    profileStatus?: PassengerDetail<CAP>profileStatus</CAP>;
+    profileStatus?: PassengerDetailProfileStatus;
     /**
      * The ticket number of the infant with the passenger.
      */
@@ -60,7 +60,7 @@ export interface PassengerDetail {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: PassengerDetail<CAP>weightCategory</CAP>;
+    weightCategory?: PassengerDetailWeightCategory;
     /**
      * The ticket type of the passenger.
      */
@@ -80,7 +80,7 @@ export interface PassengerDetail {
     /**
      * The current assigned trip type.
      */
-    tripType?: PassengerDetail<CAP>tripType</CAP>;
+    tripType?: PassengerDetailTripType;
     /**
      * The passenger segment booking status.
      */
@@ -124,5 +124,5 @@ export interface PassengerDetail {
     /**
      * The paid status for the passenger.
      */
-    paidStatus?: PassengerDetail<CAP>paidStatus</CAP>;
+    paidStatus?: PassengerDetailPaidStatus;
 }

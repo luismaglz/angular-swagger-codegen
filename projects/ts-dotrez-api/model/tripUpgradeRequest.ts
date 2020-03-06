@@ -15,7 +15,7 @@
  * Defines the trip upgrade request.
  */
 
-    import { TripUpgradeRequest<CAP>inventoryControl</CAP> } from '../models/enums';
+    import { TripUpgradeRequestInventoryControl } from '../types/enums';
 
 export interface TripUpgradeRequest { 
     /**
@@ -25,7 +25,7 @@ export interface TripUpgradeRequest {
     /**
      * The reserving inventory action of the upgrade once sold by the system.
      */
-    inventoryControl?: TripUpgradeRequest<CAP>inventoryControl</CAP>;
+    inventoryControl?: TripUpgradeRequestInventoryControl;
     /**
      * Flag indicating to override the fee if permissions allow it.
      */

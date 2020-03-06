@@ -15,13 +15,13 @@
  * Defines the peron's stored payment create request.
  */
 
-    import { PersonStoredPaymentUpdateRequest<CAP>paymentMethodType</CAP> } from '../models/enums';
+    import { PersonStoredPaymentUpdateRequestPaymentMethodType } from '../types/enums';
 
 export interface PersonStoredPaymentUpdateRequest { 
     /**
      * The type of payment being added.
      */
-    paymentMethodType: PersonStoredPaymentUpdateRequest<CAP>paymentMethodType</CAP>;
+    paymentMethodType: PersonStoredPaymentUpdateRequestPaymentMethodType;
     /**
      * The name of the account.
      */

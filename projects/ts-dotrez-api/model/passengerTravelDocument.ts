@@ -16,7 +16,7 @@ import { Name } from './name';
  * Model representing a passenger travel document.
  */
 
-    import { PassengerTravelDocument<CAP>gender</CAP> } from '../models/enums';
+    import { PassengerTravelDocumentGender } from '../types/enums';
 
 export interface PassengerTravelDocument { 
     /**
@@ -58,7 +58,7 @@ export interface PassengerTravelDocument {
     /**
      * The travel document holder's gender.
      */
-    gender?: PassengerTravelDocument<CAP>gender</CAP>;
+    gender?: PassengerTravelDocumentGender;
     /**
      * The person's date of birth.
      */

@@ -18,17 +18,17 @@ import { VoucherTravelRestriction } from './voucherTravelRestriction';
  * The voucher configuration model.
  */
 
-    import { VoucherConfiguration<CAP>type</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>issuanceType</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>usageTypes</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>tripType</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>expirationControl</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>expirationType</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>amountControl</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>calculatedAmountControl</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>travelDowRestriction</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>nameRestriction</CAP> } from '../models/enums';
-    import { VoucherConfiguration<CAP>issuanceControl</CAP> } from '../models/enums';
+    import { VoucherConfigurationType } from '../types/enums';
+    import { VoucherConfigurationIssuanceType } from '../types/enums';
+    import { VoucherConfigurationUsageTypes } from '../types/enums';
+    import { VoucherConfigurationTripType } from '../types/enums';
+    import { VoucherConfigurationExpirationControl } from '../types/enums';
+    import { VoucherConfigurationExpirationType } from '../types/enums';
+    import { VoucherConfigurationAmountControl } from '../types/enums';
+    import { VoucherConfigurationCalculatedAmountControl } from '../types/enums';
+    import { VoucherConfigurationTravelDowRestriction } from '../types/enums';
+    import { VoucherConfigurationNameRestriction } from '../types/enums';
+    import { VoucherConfigurationIssuanceControl } from '../types/enums';
 
 export interface VoucherConfiguration { 
     /**
@@ -50,27 +50,27 @@ export interface VoucherConfiguration {
     /**
      * The voucher type.
      */
-    type: VoucherConfiguration<CAP>type</CAP>;
+    type: VoucherConfigurationType;
     /**
      * The issuance type.
      */
-    issuanceType: VoucherConfiguration<CAP>issuanceType</CAP>;
+    issuanceType: VoucherConfigurationIssuanceType;
     /**
      * The voucher usage types.
      */
-    usageTypes?: VoucherConfiguration<CAP>usageTypes</CAP>;
+    usageTypes?: VoucherConfigurationUsageTypes;
     /**
      * The voucher trip type.
      */
-    tripType?: VoucherConfiguration<CAP>tripType</CAP>;
+    tripType?: VoucherConfigurationTripType;
     /**
      * The voucher expiration control.
      */
-    expirationControl?: VoucherConfiguration<CAP>expirationControl</CAP>;
+    expirationControl?: VoucherConfigurationExpirationControl;
     /**
      * The voucher expiration type.
      */
-    expirationType: VoucherConfiguration<CAP>expirationType</CAP>;
+    expirationType: VoucherConfigurationExpirationType;
     /**
      * The voucher expiration days.
      */
@@ -78,11 +78,11 @@ export interface VoucherConfiguration {
     /**
      * The voucher amount control.
      */
-    amountControl?: VoucherConfiguration<CAP>amountControl</CAP>;
+    amountControl?: VoucherConfigurationAmountControl;
     /**
      * The voucher calculated amount control.
      */
-    calculatedAmountControl?: VoucherConfiguration<CAP>calculatedAmountControl</CAP>;
+    calculatedAmountControl?: VoucherConfigurationCalculatedAmountControl;
     /**
      * The voucher maximum passenger total.
      */
@@ -94,11 +94,11 @@ export interface VoucherConfiguration {
     /**
      * The voucher day of week travel restrictions.
      */
-    travelDowRestriction?: VoucherConfiguration<CAP>travelDowRestriction</CAP>;
+    travelDowRestriction?: VoucherConfigurationTravelDowRestriction;
     /**
      * The voucher name restriction.
      */
-    nameRestriction?: VoucherConfiguration<CAP>nameRestriction</CAP>;
+    nameRestriction?: VoucherConfigurationNameRestriction;
     /**
      * The flag to indicate if a record locator is required.
      */
@@ -122,7 +122,7 @@ export interface VoucherConfiguration {
     /**
      * The voucher issuance control.
      */
-    issuanceControl?: VoucherConfiguration<CAP>issuanceControl</CAP>;
+    issuanceControl?: VoucherConfigurationIssuanceControl;
     /**
      * The voucher configuration fare classes.
      */

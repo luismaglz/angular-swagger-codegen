@@ -18,7 +18,7 @@ import { UserSetting } from './userSetting';
  * Defines the v2 user create request.
  */
 
-    import { UserCreateRequestv2<CAP>status</CAP> } from '../models/enums';
+    import { UserCreateRequestv2Status } from '../types/enums';
 
 export interface UserCreateRequestv2 { 
     /**
@@ -32,7 +32,7 @@ export interface UserCreateRequestv2 {
     /**
      * The status of the account.
      */
-    status?: UserCreateRequestv2<CAP>status</CAP>;
+    status?: UserCreateRequestv2Status;
     /**
      * The collection of user roles.
      */

@@ -26,9 +26,9 @@ import { PersonTravelDocument } from './personTravelDocument';
  * Defines a person.
  */
 
-    import { Person<CAP>type</CAP> } from '../models/enums';
-    import { Person<CAP>status</CAP> } from '../models/enums';
-    import { Person<CAP>notificationPreference</CAP> } from '../models/enums';
+    import { PersonType } from '../types/enums';
+    import { PersonStatus } from '../types/enums';
+    import { PersonNotificationPreference } from '../types/enums';
 
 export interface Person { 
     /**
@@ -46,7 +46,7 @@ export interface Person {
     /**
      * The type of person.
      */
-    type?: Person<CAP>type</CAP>;
+    type?: PersonType;
     /**
      * The collection of registered email address.
      */
@@ -54,7 +54,7 @@ export interface Person {
     /**
      * The status of the person.
      */
-    status?: Person<CAP>status</CAP>;
+    status?: PersonStatus;
     /**
      * The collection of registered phone numbers.
      */
@@ -70,7 +70,7 @@ export interface Person {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: Person<CAP>notificationPreference</CAP>;
+    notificationPreference?: PersonNotificationPreference;
     /**
      * The collection of registered stored payments.
      */

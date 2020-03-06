@@ -15,11 +15,11 @@
  * A travel notification event create request.
  */
 
-    import { NotificationEventCreateRequest<CAP>type</CAP> } from '../models/enums';
+    import { NotificationEventCreateRequestType } from '../types/enums';
 
 export interface NotificationEventCreateRequest { 
     /**
      * The travel notification event type.
      */
-    type: NotificationEventCreateRequest<CAP>type</CAP>;
+    type: NotificationEventCreateRequestType;
 }

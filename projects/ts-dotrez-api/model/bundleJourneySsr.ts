@@ -17,8 +17,8 @@ import { MarketInformation } from './marketInformation';
  * Model information for a bundle sell service request (SSR) tied to a specific journey.
  */
 
-    import { BundleJourneySsr<CAP>ssrType</CAP> } from '../models/enums';
-    import { BundleJourneySsr<CAP>seatRestriction</CAP> } from '../models/enums';
+    import { BundleJourneySsrSsrType } from '../types/enums';
+    import { BundleJourneySsrSeatRestriction } from '../types/enums';
 
 export interface BundleJourneySsr { 
     /**
@@ -37,7 +37,7 @@ export interface BundleJourneySsr {
     /**
      * Gets the SSR type.
      */
-    ssrType?: BundleJourneySsr<CAP>ssrType</CAP>;
+    ssrType?: BundleJourneySsrSsrType;
     /**
      * Gets the SSR name.
      */
@@ -69,5 +69,5 @@ export interface BundleJourneySsr {
     /**
      * Gets the seat restriction.
      */
-    seatRestriction?: BundleJourneySsr<CAP>seatRestriction</CAP>;
+    seatRestriction?: BundleJourneySsrSeatRestriction;
 }

@@ -16,9 +16,9 @@ import { AccountCollection } from './accountCollection';
  * The account model.
  */
 
-    import { Account<CAP>owner</CAP> } from '../models/enums';
-    import { Account<CAP>type</CAP> } from '../models/enums';
-    import { Account<CAP>status</CAP> } from '../models/enums';
+    import { AccountOwner } from '../types/enums';
+    import { AccountType } from '../types/enums';
+    import { AccountStatus } from '../types/enums';
 
 export interface Account { 
     /**
@@ -40,15 +40,15 @@ export interface Account {
     /**
      * The account owner type.
      */
-    owner?: Account<CAP>owner</CAP>;
+    owner?: AccountOwner;
     /**
      * The account type.
      */
-    type?: Account<CAP>type</CAP>;
+    type?: AccountType;
     /**
      * The account status.
      */
-    status?: Account<CAP>status</CAP>;
+    status?: AccountStatus;
     /**
      * The total amount.
      */

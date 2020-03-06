@@ -16,8 +16,8 @@ import { TransportationDesignator } from './transportationDesignator';
  * Model data.
  */
 
-    import { LegTripResult<CAP>status</CAP> } from '../models/enums';
-    import { LegTripResult<CAP>liftStatus</CAP> } from '../models/enums';
+    import { LegTripResultStatus } from '../types/enums';
+    import { LegTripResultLiftStatus } from '../types/enums';
 
 export interface LegTripResult { 
     /**
@@ -39,11 +39,11 @@ export interface LegTripResult {
     /**
      * The leg's status.
      */
-    status?: LegTripResult<CAP>status</CAP>;
+    status?: LegTripResultStatus;
     /**
      * The lift status.
      */
-    liftStatus?: LegTripResult<CAP>liftStatus</CAP>;
+    liftStatus?: LegTripResultLiftStatus;
     /**
      * The departure time using the time variant in universal time.
      */

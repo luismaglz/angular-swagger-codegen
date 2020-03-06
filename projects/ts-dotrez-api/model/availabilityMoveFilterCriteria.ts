@@ -15,16 +15,16 @@
  * Filter criteria filters the move availability responses results.
  */
 
-    import { AvailabilityMoveFilterCriteria<CAP>filter</CAP> } from '../models/enums';
-    import { AvailabilityMoveFilterCriteria<CAP>sortKeys</CAP> } from '../models/enums';
+    import { AvailabilityMoveFilterCriteriaFilter } from '../types/enums';
+    import { AvailabilityMoveFilterCriteriaSortKeys } from '../types/enums';
 
 export interface AvailabilityMoveFilterCriteria { 
     /**
      * Filters the type of journeys to return.
      */
-    filter?: AvailabilityMoveFilterCriteria<CAP>filter</CAP>;
+    filter?: AvailabilityMoveFilterCriteriaFilter;
     /**
      * The list of inventory journey sort keys. Used for filtering journeys on the response.
      */
-    sortKeys?: AvailabilityMoveFilterCriteria<CAP>sortKeys</CAP>;
+    sortKeys?: AvailabilityMoveFilterCriteriaSortKeys;
 }

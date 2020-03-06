@@ -15,7 +15,7 @@
  * The leg class model information.
  */
 
-    import { LegClass<CAP>status</CAP> } from '../models/enums';
+    import { LegClassStatus } from '../types/enums';
 
 export interface LegClass { 
     /**
@@ -57,7 +57,7 @@ export interface LegClass {
     /**
      * The status.
      */
-    status?: LegClass<CAP>status</CAP>;
+    status?: LegClassStatus;
     /**
      * The thru sold.
      */

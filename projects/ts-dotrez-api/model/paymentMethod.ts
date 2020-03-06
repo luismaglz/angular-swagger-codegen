@@ -16,10 +16,10 @@ import { PaymentMethodPaymentMethodFields } from './paymentMethodPaymentMethodFi
  * The payment method model.
  */
 
-    import { PaymentMethod<CAP>dccType</CAP> } from '../models/enums';
-    import { PaymentMethod<CAP>paymentMethodType</CAP> } from '../models/enums';
-    import { PaymentMethod<CAP>paymentRefundType</CAP> } from '../models/enums';
-    import { PaymentMethod<CAP>refundCurrencyControl</CAP> } from '../models/enums';
+    import { PaymentMethodDccType } from '../types/enums';
+    import { PaymentMethodPaymentMethodType } from '../types/enums';
+    import { PaymentMethodPaymentRefundType } from '../types/enums';
+    import { PaymentMethodRefundCurrencyControl } from '../types/enums';
 
 export interface PaymentMethod { 
     /**
@@ -45,7 +45,7 @@ export interface PaymentMethod {
     /**
      * The DCC type for this payment method.
      */
-    dccType?: PaymentMethod<CAP>dccType</CAP>;
+    dccType?: PaymentMethodDccType;
     /**
      * The disallow partial refund flag for this payment method.
      */
@@ -70,11 +70,11 @@ export interface PaymentMethod {
     /**
      * The payment method type for this payment method.
      */
-    paymentMethodType?: PaymentMethod<CAP>paymentMethodType</CAP>;
+    paymentMethodType?: PaymentMethodPaymentMethodType;
     /**
      * The payment refund type for this payment method.
      */
-    paymentRefundType?: PaymentMethod<CAP>paymentRefundType</CAP>;
+    paymentRefundType?: PaymentMethodPaymentRefundType;
     /**
      * The proportional refund flag for this payment method.
      */
@@ -86,7 +86,7 @@ export interface PaymentMethod {
     /**
      * The refund currency control for this payment method.
      */
-    refundCurrencyControl?: PaymentMethod<CAP>refundCurrencyControl</CAP>;
+    refundCurrencyControl?: PaymentMethodRefundCurrencyControl;
     /**
      * The hours of restriction for this payment method.
      */

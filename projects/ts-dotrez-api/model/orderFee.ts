@@ -16,7 +16,7 @@ import { Amount } from './amount';
  * Defines a order fee.
  */
 
-    import { OrderFee<CAP>type</CAP> } from '../models/enums';
+    import { OrderFeeType } from '../types/enums';
 
 export interface OrderFee { 
     /**
@@ -42,7 +42,7 @@ export interface OrderFee {
     /**
      * The type of fee applied.
      */
-    type?: OrderFee<CAP>type</CAP>;
+    type?: OrderFeeType;
     /**
      * Flag indicating if they specific fee is waiveable.
      */

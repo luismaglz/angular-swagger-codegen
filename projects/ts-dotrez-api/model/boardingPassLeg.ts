@@ -21,7 +21,7 @@ import { TransportationDesignator } from './transportationDesignator';
  * Defines the boarding pass leg details.
  */
 
-    import { BoardingPassLeg<CAP>liftStatus</CAP> } from '../models/enums';
+    import { BoardingPassLegLiftStatus } from '../types/enums';
 
 export interface BoardingPassLeg { 
     /**
@@ -39,7 +39,7 @@ export interface BoardingPassLeg {
     /**
      * The status of the leg for the passenger.
      */
-    liftStatus?: BoardingPassLeg<CAP>liftStatus</CAP>;
+    liftStatus?: BoardingPassLegLiftStatus;
     /**
      * The legs operated by text.
      */

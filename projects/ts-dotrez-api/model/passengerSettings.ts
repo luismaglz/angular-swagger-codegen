@@ -15,108 +15,108 @@
  * The booking passenger settings.
  */
 
-    import { PassengerSettings<CAP>passengerTitle</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerFirstName</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerMiddleName</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerLastName</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerSuffix</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerCustomerNumber</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerGender</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerDateOfBirth</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerNationality</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>passengerResidentCountry</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantTitle</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantFirstName</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantMiddleName</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantLastName</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantSuffix</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantGender</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantDateOfBirth</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantNationality</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>infantResidentCountry</CAP> } from '../models/enums';
-    import { PassengerSettings<CAP>tbaPassengersAllowed</CAP> } from '../models/enums';
+    import { PassengerSettingsPassengerTitle } from '../types/enums';
+    import { PassengerSettingsPassengerFirstName } from '../types/enums';
+    import { PassengerSettingsPassengerMiddleName } from '../types/enums';
+    import { PassengerSettingsPassengerLastName } from '../types/enums';
+    import { PassengerSettingsPassengerSuffix } from '../types/enums';
+    import { PassengerSettingsPassengerCustomerNumber } from '../types/enums';
+    import { PassengerSettingsPassengerGender } from '../types/enums';
+    import { PassengerSettingsPassengerDateOfBirth } from '../types/enums';
+    import { PassengerSettingsPassengerNationality } from '../types/enums';
+    import { PassengerSettingsPassengerResidentCountry } from '../types/enums';
+    import { PassengerSettingsInfantTitle } from '../types/enums';
+    import { PassengerSettingsInfantFirstName } from '../types/enums';
+    import { PassengerSettingsInfantMiddleName } from '../types/enums';
+    import { PassengerSettingsInfantLastName } from '../types/enums';
+    import { PassengerSettingsInfantSuffix } from '../types/enums';
+    import { PassengerSettingsInfantGender } from '../types/enums';
+    import { PassengerSettingsInfantDateOfBirth } from '../types/enums';
+    import { PassengerSettingsInfantNationality } from '../types/enums';
+    import { PassengerSettingsInfantResidentCountry } from '../types/enums';
+    import { PassengerSettingsTbaPassengersAllowed } from '../types/enums';
 
 export interface PassengerSettings { 
     /**
      * Passenger title field validation control.
      */
-    passengerTitle?: PassengerSettings<CAP>passengerTitle</CAP>;
+    passengerTitle?: PassengerSettingsPassengerTitle;
     /**
      * Passenger first name field validation control.
      */
-    passengerFirstName?: PassengerSettings<CAP>passengerFirstName</CAP>;
+    passengerFirstName?: PassengerSettingsPassengerFirstName;
     /**
      * Passenger middle name field validation control.
      */
-    passengerMiddleName?: PassengerSettings<CAP>passengerMiddleName</CAP>;
+    passengerMiddleName?: PassengerSettingsPassengerMiddleName;
     /**
      * Passenger last name field validation control.
      */
-    passengerLastName?: PassengerSettings<CAP>passengerLastName</CAP>;
+    passengerLastName?: PassengerSettingsPassengerLastName;
     /**
      * Passenger suffix field validation control.
      */
-    passengerSuffix?: PassengerSettings<CAP>passengerSuffix</CAP>;
+    passengerSuffix?: PassengerSettingsPassengerSuffix;
     /**
      * Passenger customer number field validation control.
      */
-    passengerCustomerNumber?: PassengerSettings<CAP>passengerCustomerNumber</CAP>;
+    passengerCustomerNumber?: PassengerSettingsPassengerCustomerNumber;
     /**
      * Passenger gender field validation control.
      */
-    passengerGender?: PassengerSettings<CAP>passengerGender</CAP>;
+    passengerGender?: PassengerSettingsPassengerGender;
     /**
      * Passenger date of birth field validation control.
      */
-    passengerDateOfBirth?: PassengerSettings<CAP>passengerDateOfBirth</CAP>;
+    passengerDateOfBirth?: PassengerSettingsPassengerDateOfBirth;
     /**
      * Passenger nationality field validation control.
      */
-    passengerNationality?: PassengerSettings<CAP>passengerNationality</CAP>;
+    passengerNationality?: PassengerSettingsPassengerNationality;
     /**
      * Passenger resident country field validation control.
      */
-    passengerResidentCountry?: PassengerSettings<CAP>passengerResidentCountry</CAP>;
+    passengerResidentCountry?: PassengerSettingsPassengerResidentCountry;
     /**
      * Infant title field validation control.
      */
-    infantTitle?: PassengerSettings<CAP>infantTitle</CAP>;
+    infantTitle?: PassengerSettingsInfantTitle;
     /**
      * Infant first name field validation control.
      */
-    infantFirstName?: PassengerSettings<CAP>infantFirstName</CAP>;
+    infantFirstName?: PassengerSettingsInfantFirstName;
     /**
      * Infant middle name field validation control.
      */
-    infantMiddleName?: PassengerSettings<CAP>infantMiddleName</CAP>;
+    infantMiddleName?: PassengerSettingsInfantMiddleName;
     /**
      * Infant last name field validation control.
      */
-    infantLastName?: PassengerSettings<CAP>infantLastName</CAP>;
+    infantLastName?: PassengerSettingsInfantLastName;
     /**
      * Infant suffix field validation control.
      */
-    infantSuffix?: PassengerSettings<CAP>infantSuffix</CAP>;
+    infantSuffix?: PassengerSettingsInfantSuffix;
     /**
      * Infant gender field validation control.
      */
-    infantGender?: PassengerSettings<CAP>infantGender</CAP>;
+    infantGender?: PassengerSettingsInfantGender;
     /**
      * Infant date of birth field validation control.
      */
-    infantDateOfBirth?: PassengerSettings<CAP>infantDateOfBirth</CAP>;
+    infantDateOfBirth?: PassengerSettingsInfantDateOfBirth;
     /**
      * Infant nationality field validation control.
      */
-    infantNationality?: PassengerSettings<CAP>infantNationality</CAP>;
+    infantNationality?: PassengerSettingsInfantNationality;
     /**
      * Infant resident country field validation control.
      */
-    infantResidentCountry?: PassengerSettings<CAP>infantResidentCountry</CAP>;
+    infantResidentCountry?: PassengerSettingsInfantResidentCountry;
     /**
      * TBA passenger will allow users to enter passengers with information \"To Be Determined\".
      */
-    tbaPassengersAllowed?: PassengerSettings<CAP>tbaPassengersAllowed</CAP>;
+    tbaPassengersAllowed?: PassengerSettingsTbaPassengersAllowed;
     /**
      * Flag to indicate if passenger customer programs are allowed.
      */

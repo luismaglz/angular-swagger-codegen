@@ -20,7 +20,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Represents a boarding pass segment following the S2D barcode type. When using S2D format each segment will have a  barcode.
  */
 
-    import { BoardingPassS2DSegment<CAP>type</CAP> } from '../models/enums';
+    import { BoardingPassS2DSegmentType } from '../types/enums';
 
 export interface BoardingPassS2DSegment { 
     /**
@@ -46,7 +46,7 @@ export interface BoardingPassS2DSegment {
     /**
      * The type of the current segment.
      */
-    type?: BoardingPassS2DSegment<CAP>type</CAP>;
+    type?: BoardingPassS2DSegmentType;
     /**
      * Flag indicating if the segment is international.
      */

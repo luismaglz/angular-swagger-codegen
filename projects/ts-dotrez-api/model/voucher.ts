@@ -16,8 +16,8 @@ import { VoucherTransaction } from './voucherTransaction';
  * The voucher model.
  */
 
-    import { Voucher<CAP>type</CAP> } from '../models/enums';
-    import { Voucher<CAP>status</CAP> } from '../models/enums';
+    import { VoucherType } from '../types/enums';
+    import { VoucherStatus } from '../types/enums';
 
 export interface Voucher { 
     /**
@@ -51,7 +51,7 @@ export interface Voucher {
     /**
      * The voucher type.
      */
-    type?: Voucher<CAP>type</CAP>;
+    type?: VoucherType;
     /**
      * The voucher configuration code.
      */
@@ -63,7 +63,7 @@ export interface Voucher {
     /**
      * The voucher status.
      */
-    status?: Voucher<CAP>status</CAP>;
+    status?: VoucherStatus;
     /**
      * The record locator associated with the voucher.
      */

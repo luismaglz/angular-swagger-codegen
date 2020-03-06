@@ -15,8 +15,8 @@
  * Fee rule property model.
  */
 
-    import { FeeRuleProperty<CAP>operator</CAP> } from '../models/enums';
-    import { FeeRuleProperty<CAP>type</CAP> } from '../models/enums';
+    import { FeeRulePropertyOperator } from '../types/enums';
+    import { FeeRulePropertyType } from '../types/enums';
 
 export interface FeeRuleProperty { 
     /**
@@ -30,11 +30,11 @@ export interface FeeRuleProperty {
     /**
      * Gets or sets the property operator of this fee rule property.
      */
-    operator?: FeeRuleProperty<CAP>operator</CAP>;
+    operator?: FeeRulePropertyOperator;
     /**
      * Gets or sets the property type of this fee rule property.
      */
-    type?: FeeRuleProperty<CAP>type</CAP>;
+    type?: FeeRulePropertyType;
     /**
      * Gets or sets the property value of this fee rule property.
      */

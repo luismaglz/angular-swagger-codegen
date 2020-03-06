@@ -15,8 +15,8 @@
  * Filter criteria filters the availability responses results.
  */
 
-    import { AvailabilityFilterCriteria<CAP>filter</CAP> } from '../models/enums';
-    import { AvailabilityFilterCriteria<CAP>sortKeys</CAP> } from '../models/enums';
+    import { AvailabilityFilterCriteriaFilter } from '../types/enums';
+    import { AvailabilityFilterCriteriaSortKeys } from '../types/enums';
 
 export interface AvailabilityFilterCriteria { 
     /**
@@ -26,11 +26,11 @@ export interface AvailabilityFilterCriteria {
     /**
      * Filters the type of journeys to return.
      */
-    filter?: AvailabilityFilterCriteria<CAP>filter</CAP>;
+    filter?: AvailabilityFilterCriteriaFilter;
     /**
      * The list of inventory journey sort keys. Used for filtering journeys on the response.
      */
-    sortKeys?: AvailabilityFilterCriteria<CAP>sortKeys</CAP>;
+    sortKeys?: AvailabilityFilterCriteriaSortKeys;
     /**
      * The list of product class codes to filter with.
      */

@@ -16,9 +16,9 @@ import { AccountCollectionBase } from './accountCollectionBase';
  * The organization account model.
  */
 
-    import { OrganizationAccount<CAP>owner</CAP> } from '../models/enums';
-    import { OrganizationAccount<CAP>type</CAP> } from '../models/enums';
-    import { OrganizationAccount<CAP>status</CAP> } from '../models/enums';
+    import { OrganizationAccountOwner } from '../types/enums';
+    import { OrganizationAccountType } from '../types/enums';
+    import { OrganizationAccountStatus } from '../types/enums';
 
 export interface OrganizationAccount { 
     /**
@@ -40,15 +40,15 @@ export interface OrganizationAccount {
     /**
      * The account owner type.
      */
-    owner?: OrganizationAccount<CAP>owner</CAP>;
+    owner?: OrganizationAccountOwner;
     /**
      * The account type.
      */
-    type?: OrganizationAccount<CAP>type</CAP>;
+    type?: OrganizationAccountType;
     /**
      * The account status.
      */
-    status?: OrganizationAccount<CAP>status</CAP>;
+    status?: OrganizationAccountStatus;
     /**
      * The total amount.
      */

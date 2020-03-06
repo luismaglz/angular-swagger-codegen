@@ -15,8 +15,8 @@
  * Model for a ticket applied to a passenger.
  */
 
-    import { Ticket<CAP>ticketIndicator</CAP> } from '../models/enums';
-    import { Ticket<CAP>ticketStatus</CAP> } from '../models/enums';
+    import { TicketTicketIndicator } from '../types/enums';
+    import { TicketTicketStatus } from '../types/enums';
 
 export interface Ticket { 
     /**
@@ -30,11 +30,11 @@ export interface Ticket {
     /**
      * The ticket indicator.
      */
-    ticketIndicator?: Ticket<CAP>ticketIndicator</CAP>;
+    ticketIndicator?: TicketTicketIndicator;
     /**
      * The ticket status.
      */
-    ticketStatus?: Ticket<CAP>ticketStatus</CAP>;
+    ticketStatus?: TicketTicketStatus;
     /**
      * The passenger key the ticket is associated with.
      */

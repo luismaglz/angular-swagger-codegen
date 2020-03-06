@@ -16,7 +16,7 @@ import { LegClass } from './legClass';
  * A model representing a leg nest.
  */
 
-    import { LegNest<CAP>nestType</CAP> } from '../models/enums';
+    import { LegNestNestType } from '../types/enums';
 
 export interface LegNest { 
     /**
@@ -38,7 +38,7 @@ export interface LegNest {
     /**
      * Gets or sets the type of the nest.
      */
-    nestType?: LegNest<CAP>nestType</CAP>;
+    nestType?: LegNestNestType;
     /**
      * Gets or sets the nest leg classes.
      */

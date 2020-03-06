@@ -16,7 +16,7 @@ import { SeatMapDecks } from './seatMapDecks';
  * Defines a single equipment type and all it's units.
  */
 
-    import { SeatMap<CAP>category</CAP> } from '../models/enums';
+    import { SeatMapCategory } from '../types/enums';
 
 export interface SeatMap { 
     /**
@@ -46,7 +46,7 @@ export interface SeatMap {
     /**
      * The categorization of the equipment.
      */
-    category?: SeatMap<CAP>category</CAP>;
+    category?: SeatMapCategory;
     /**
      * Number of available units on the inventory equipment.
      */

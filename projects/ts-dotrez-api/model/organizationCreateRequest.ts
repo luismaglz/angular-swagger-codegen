@@ -20,8 +20,8 @@ import { OrganizationExternalAccountRequest } from './organizationExternalAccoun
  * The data on the organization.
  */
 
-    import { OrganizationCreateRequest<CAP>type</CAP> } from '../models/enums';
-    import { OrganizationCreateRequest<CAP>status</CAP> } from '../models/enums';
+    import { OrganizationCreateRequestType } from '../types/enums';
+    import { OrganizationCreateRequestStatus } from '../types/enums';
 
 export interface OrganizationCreateRequest { 
     /**
@@ -39,7 +39,7 @@ export interface OrganizationCreateRequest {
     /**
      * Organization type.
      */
-    type?: OrganizationCreateRequest<CAP>type</CAP>;
+    type?: OrganizationCreateRequestType;
     /**
      * Commission rates.
      */
@@ -55,7 +55,7 @@ export interface OrganizationCreateRequest {
     /**
      * The organization status.
      */
-    status?: OrganizationCreateRequest<CAP>status</CAP>;
+    status?: OrganizationCreateRequestStatus;
     /**
      * The contact details.
      */

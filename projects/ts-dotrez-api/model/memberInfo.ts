@@ -13,10 +13,10 @@ import { CustomAttributeData } from './customAttributeData';
 
 
 
-    import { MemberInfo<CAP>memberType</CAP> } from '../models/enums';
+    import { MemberInfoMemberType } from '../types/enums';
 
 export interface MemberInfo { 
-    readonly memberType?: MemberInfo<CAP>memberType</CAP>;
+    readonly memberType?: MemberInfoMemberType;
     readonly name?: string;
     readonly declaringType?: string;
     readonly reflectedType?: string;

@@ -20,9 +20,9 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Segment model for an already booked flight.
  */
 
-    import { Segment<CAP>channelType</CAP> } from '../models/enums';
-    import { Segment<CAP>changeReasonCode</CAP> } from '../models/enums';
-    import { Segment<CAP>segmentType</CAP> } from '../models/enums';
+    import { SegmentChannelType } from '../types/enums';
+    import { SegmentChangeReasonCode } from '../types/enums';
+    import { SegmentSegmentType } from '../types/enums';
 
 export interface Segment { 
     /**
@@ -69,7 +69,7 @@ export interface Segment {
     /**
      * The type of the channel from the user that added the segment.
      */
-    channelType?: Segment<CAP>channelType</CAP>;
+    channelType?: SegmentChannelType;
     /**
      * The cabin of service.
      */
@@ -85,11 +85,11 @@ export interface Segment {
     /**
      * The change reason code.
      */
-    changeReasonCode?: Segment<CAP>changeReasonCode</CAP>;
+    changeReasonCode?: SegmentChangeReasonCode;
     /**
      * The type of the segment.
      */
-    segmentType?: Segment<CAP>segmentType</CAP>;
+    segmentType?: SegmentSegmentType;
     /**
      * The segment sales date.
      */

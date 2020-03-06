@@ -20,8 +20,8 @@ import { OrganizationExternalAccountv2 } from './organizationExternalAccountv2';
  * The base data on the organization.
  */
 
-    import { Organizationv2<CAP>type</CAP> } from '../models/enums';
-    import { Organizationv2<CAP>status</CAP> } from '../models/enums';
+    import { Organizationv2Type } from '../types/enums';
+    import { Organizationv2Status } from '../types/enums';
 
 export interface Organizationv2 { 
     /**
@@ -39,7 +39,7 @@ export interface Organizationv2 {
     /**
      * Organization type.
      */
-    type?: Organizationv2<CAP>type</CAP>;
+    type?: Organizationv2Type;
     /**
      * The company details.
      */
@@ -55,7 +55,7 @@ export interface Organizationv2 {
     /**
      * The organization status.
      */
-    status?: Organizationv2<CAP>status</CAP>;
+    status?: Organizationv2Status;
     /**
      * The parent organization code.
      */

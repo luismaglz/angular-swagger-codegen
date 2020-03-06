@@ -15,14 +15,14 @@
  * Defines a booking add ons charge.
  */
 
-    import { AddOnCharge<CAP>type</CAP> } from '../models/enums';
-    import { AddOnCharge<CAP>collection</CAP> } from '../models/enums';
+    import { AddOnChargeType } from '../types/enums';
+    import { AddOnChargeCollection } from '../types/enums';
 
 export interface AddOnCharge { 
     /**
      * The charge type.
      */
-    type?: AddOnCharge<CAP>type</CAP>;
+    type?: AddOnChargeType;
     /**
      * The charge code.
      */
@@ -34,7 +34,7 @@ export interface AddOnCharge {
     /**
      * The charge collection type.
      */
-    collection?: AddOnCharge<CAP>collection</CAP>;
+    collection?: AddOnChargeCollection;
     /**
      * The currency code.
      */

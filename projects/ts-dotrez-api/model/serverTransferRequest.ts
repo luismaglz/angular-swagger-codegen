@@ -15,7 +15,7 @@
  * Represents a server transfer request.
  */
 
-    import { ServerTransferRequest<CAP>channel</CAP> } from '../models/enums';
+    import { ServerTransferRequestChannel } from '../types/enums';
 
 export interface ServerTransferRequest { 
     /**
@@ -29,5 +29,5 @@ export interface ServerTransferRequest {
     /**
      * The transferred server's channel type.
      */
-    channel?: ServerTransferRequest<CAP>channel</CAP>;
+    channel?: ServerTransferRequestChannel;
 }

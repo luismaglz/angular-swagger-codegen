@@ -15,13 +15,13 @@
  * The organization account transaction request.
  */
 
-    import { OrganizationTransactionRequest<CAP>type</CAP> } from '../models/enums';
+    import { OrganizationTransactionRequestType } from '../types/enums';
 
 export interface OrganizationTransactionRequest { 
     /**
      * The transaction types for an organization account.
      */
-    type?: OrganizationTransactionRequest<CAP>type</CAP>;
+    type?: OrganizationTransactionRequestType;
     /**
      * The credit account transaction amount.
      */

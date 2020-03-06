@@ -15,8 +15,8 @@
  * Defines a government programs document requirements.
  */
 
-    import { GovernmentProgramRequirements<CAP>requiredDocumentFields</CAP> } from '../models/enums';
-    import { GovernmentProgramRequirements<CAP>additionalDataRequired</CAP> } from '../models/enums';
+    import { GovernmentProgramRequirementsRequiredDocumentFields } from '../types/enums';
+    import { GovernmentProgramRequirementsAdditionalDataRequired } from '../types/enums';
 
 export interface GovernmentProgramRequirements { 
     /**
@@ -26,9 +26,9 @@ export interface GovernmentProgramRequirements {
     /**
      * The collection of required document fields to be collected.
      */
-    requiredDocumentFields?: GovernmentProgramRequirements<CAP>requiredDocumentFields</CAP>;
+    requiredDocumentFields?: GovernmentProgramRequirementsRequiredDocumentFields;
     /**
      * The collection of additional data that is required that are not related to documents.
      */
-    additionalDataRequired?: GovernmentProgramRequirements<CAP>additionalDataRequired</CAP>;
+    additionalDataRequired?: GovernmentProgramRequirementsAdditionalDataRequired;
 }

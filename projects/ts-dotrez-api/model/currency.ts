@@ -15,7 +15,7 @@
  * The currency model.
  */
 
-    import { Currency<CAP>displayDigits</CAP> } from '../models/enums';
+    import { CurrencyDisplayDigits } from '../types/enums';
 
 export interface Currency { 
     /**
@@ -33,7 +33,7 @@ export interface Currency {
     /**
      * The display digits of currency.
      */
-    displayDigits?: Currency<CAP>displayDigits</CAP>;
+    displayDigits?: CurrencyDisplayDigits;
     /**
      * The digit prefix of currency.
      */

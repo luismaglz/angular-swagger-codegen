@@ -16,14 +16,14 @@ import { PointOfSale } from './pointOfSale';
  * Defines a booking history log entry.
  */
 
-    import { BookingHistory<CAP>historyCategory</CAP> } from '../models/enums';
-    import { BookingHistory<CAP>event</CAP> } from '../models/enums';
+    import { BookingHistoryHistoryCategory } from '../types/enums';
+    import { BookingHistoryEvent } from '../types/enums';
 
 export interface BookingHistory { 
     /**
      * The booking history report category.
      */
-    readonly historyCategory?: BookingHistory<CAP>historyCategory</CAP>;
+    readonly historyCategory?: BookingHistoryHistoryCategory;
     /**
      * The the history report data.
      */
@@ -31,7 +31,7 @@ export interface BookingHistory {
     /**
      * The specific history code.
      */
-    event?: BookingHistory<CAP>event</CAP>;
+    event?: BookingHistoryEvent;
     /**
      * The point of sale.
      */

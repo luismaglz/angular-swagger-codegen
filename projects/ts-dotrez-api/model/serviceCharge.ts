@@ -15,8 +15,8 @@
  * Model that represents the fare service charge information.
  */
 
-    import { ServiceCharge<CAP>type</CAP> } from '../models/enums';
-    import { ServiceCharge<CAP>collectType</CAP> } from '../models/enums';
+    import { ServiceChargeType } from '../types/enums';
+    import { ServiceChargeCollectType } from '../types/enums';
 
 export interface ServiceCharge { 
     /**
@@ -34,11 +34,11 @@ export interface ServiceCharge {
     /**
      * The service charge type.
      */
-    type?: ServiceCharge<CAP>type</CAP>;
+    type?: ServiceChargeType;
     /**
      * The service charge collect type.
      */
-    collectType?: ServiceCharge<CAP>collectType</CAP>;
+    collectType?: ServiceChargeCollectType;
     /**
      * The service charge currency code.
      */

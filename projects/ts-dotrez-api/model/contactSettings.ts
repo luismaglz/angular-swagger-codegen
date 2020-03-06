@@ -15,96 +15,96 @@
  * The booking contact settings.
  */
 
-    import { ContactSettings<CAP>title</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>firstName</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>middleName</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>lastName</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>suffix</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>addressLineOne</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>addressLineTwo</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>addressLineThree</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>city</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>state</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>postalCode</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>country</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>email</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>homePhoneNumber</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>workPhoneNumber</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>otherPhoneNumber</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>faxNumber</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>defaultItineraryDistribution</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>notificationPreference</CAP> } from '../models/enums';
-    import { ContactSettings<CAP>defaultNotificationPreference</CAP> } from '../models/enums';
+    import { ContactSettingsTitle } from '../types/enums';
+    import { ContactSettingsFirstName } from '../types/enums';
+    import { ContactSettingsMiddleName } from '../types/enums';
+    import { ContactSettingsLastName } from '../types/enums';
+    import { ContactSettingsSuffix } from '../types/enums';
+    import { ContactSettingsAddressLineOne } from '../types/enums';
+    import { ContactSettingsAddressLineTwo } from '../types/enums';
+    import { ContactSettingsAddressLineThree } from '../types/enums';
+    import { ContactSettingsCity } from '../types/enums';
+    import { ContactSettingsState } from '../types/enums';
+    import { ContactSettingsPostalCode } from '../types/enums';
+    import { ContactSettingsCountry } from '../types/enums';
+    import { ContactSettingsEmail } from '../types/enums';
+    import { ContactSettingsHomePhoneNumber } from '../types/enums';
+    import { ContactSettingsWorkPhoneNumber } from '../types/enums';
+    import { ContactSettingsOtherPhoneNumber } from '../types/enums';
+    import { ContactSettingsFaxNumber } from '../types/enums';
+    import { ContactSettingsDefaultItineraryDistribution } from '../types/enums';
+    import { ContactSettingsNotificationPreference } from '../types/enums';
+    import { ContactSettingsDefaultNotificationPreference } from '../types/enums';
 
 export interface ContactSettings { 
     /**
      * Title field validation control.
      */
-    title?: ContactSettings<CAP>title</CAP>;
+    title?: ContactSettingsTitle;
     /**
      * First name field validation control.
      */
-    firstName?: ContactSettings<CAP>firstName</CAP>;
+    firstName?: ContactSettingsFirstName;
     /**
      * Middle name field validation control.
      */
-    middleName?: ContactSettings<CAP>middleName</CAP>;
+    middleName?: ContactSettingsMiddleName;
     /**
      * Last name field validation control.
      */
-    lastName?: ContactSettings<CAP>lastName</CAP>;
+    lastName?: ContactSettingsLastName;
     /**
      * Suffix field validation control.
      */
-    suffix?: ContactSettings<CAP>suffix</CAP>;
+    suffix?: ContactSettingsSuffix;
     /**
      * Address line one field validation control.
      */
-    addressLineOne?: ContactSettings<CAP>addressLineOne</CAP>;
+    addressLineOne?: ContactSettingsAddressLineOne;
     /**
      * Address line two field validation control.
      */
-    addressLineTwo?: ContactSettings<CAP>addressLineTwo</CAP>;
+    addressLineTwo?: ContactSettingsAddressLineTwo;
     /**
      * Address line three field validation control.
      */
-    addressLineThree?: ContactSettings<CAP>addressLineThree</CAP>;
+    addressLineThree?: ContactSettingsAddressLineThree;
     /**
      * Address city field validation control.
      */
-    city?: ContactSettings<CAP>city</CAP>;
+    city?: ContactSettingsCity;
     /**
      * Address state field validation control.
      */
-    state?: ContactSettings<CAP>state</CAP>;
+    state?: ContactSettingsState;
     /**
      * Address postal code field validation control.
      */
-    postalCode?: ContactSettings<CAP>postalCode</CAP>;
+    postalCode?: ContactSettingsPostalCode;
     /**
      * Address country field validation control.
      */
-    country?: ContactSettings<CAP>country</CAP>;
+    country?: ContactSettingsCountry;
     /**
      * Email field validation control.
      */
-    email?: ContactSettings<CAP>email</CAP>;
+    email?: ContactSettingsEmail;
     /**
      * Home phone number field validation control.
      */
-    homePhoneNumber?: ContactSettings<CAP>homePhoneNumber</CAP>;
+    homePhoneNumber?: ContactSettingsHomePhoneNumber;
     /**
      * Work phone number field validation control.
      */
-    workPhoneNumber?: ContactSettings<CAP>workPhoneNumber</CAP>;
+    workPhoneNumber?: ContactSettingsWorkPhoneNumber;
     /**
      * Other phone number field validation control.
      */
-    otherPhoneNumber?: ContactSettings<CAP>otherPhoneNumber</CAP>;
+    otherPhoneNumber?: ContactSettingsOtherPhoneNumber;
     /**
      * Fax number field validation control.
      */
-    faxNumber?: ContactSettings<CAP>faxNumber</CAP>;
+    faxNumber?: ContactSettingsFaxNumber;
     /**
      * Flag indicating to disable phone number formatting.
      */
@@ -112,15 +112,15 @@ export interface ContactSettings {
     /**
      * The default itinerary distribution option.
      */
-    defaultItineraryDistribution?: ContactSettings<CAP>defaultItineraryDistribution</CAP>;
+    defaultItineraryDistribution?: ContactSettingsDefaultItineraryDistribution;
     /**
      * Notification preference field validation control.
      */
-    notificationPreference?: ContactSettings<CAP>notificationPreference</CAP>;
+    notificationPreference?: ContactSettingsNotificationPreference;
     /**
      * The default notification preference.
      */
-    defaultNotificationPreference?: ContactSettings<CAP>defaultNotificationPreference</CAP>;
+    defaultNotificationPreference?: ContactSettingsDefaultNotificationPreference;
     /**
      * Flag indicating to default the customer preferences to the contact.
      */

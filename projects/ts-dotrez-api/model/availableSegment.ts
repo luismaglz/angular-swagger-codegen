@@ -18,7 +18,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Available segment represents an available segment on a available journey.
  */
 
-    import { AvailableSegment<CAP>segmentType</CAP> } from '../models/enums';
+    import { AvailableSegmentSegmentType } from '../types/enums';
 
 export interface AvailableSegment { 
     /**
@@ -64,7 +64,7 @@ export interface AvailableSegment {
     /**
      * The type of the segment.
      */
-    segmentType?: AvailableSegment<CAP>segmentType</CAP>;
+    segmentType?: AvailableSegmentSegmentType;
     /**
      * The collection of legs on the segment.
      */

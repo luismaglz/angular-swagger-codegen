@@ -29,7 +29,7 @@ import { Term } from './term';
  * Defines a order.
  */
 
-    import { Order<CAP>paymentAction</CAP> } from '../models/enums';
+    import { OrderPaymentAction } from '../types/enums';
 
 export interface Order { 
     /**
@@ -104,7 +104,7 @@ export interface Order {
     /**
      * The payment action.
      */
-    paymentAction?: Order<CAP>paymentAction</CAP>;
+    paymentAction?: OrderPaymentAction;
     /**
      * The pricing breakdown.
      */

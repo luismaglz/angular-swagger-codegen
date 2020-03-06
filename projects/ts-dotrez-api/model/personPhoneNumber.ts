@@ -15,7 +15,7 @@
  * Defines a unique person phone number.
  */
 
-    import { PersonPhoneNumber<CAP>type</CAP> } from '../models/enums';
+    import { PersonPhoneNumberType } from '../types/enums';
 
 export interface PersonPhoneNumber { 
     /**
@@ -29,7 +29,7 @@ export interface PersonPhoneNumber {
     /**
      * The phone number type.
      */
-    type: PersonPhoneNumber<CAP>type</CAP>;
+    type: PersonPhoneNumberType;
     /**
      * The phone number without any formatting characters.
      */

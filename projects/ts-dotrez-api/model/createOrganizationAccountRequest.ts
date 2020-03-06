@@ -15,7 +15,7 @@
  * The create organization account request model.
  */
 
-    import { CreateOrganizationAccountRequest<CAP>type</CAP> } from '../models/enums';
+    import { CreateOrganizationAccountRequestType } from '../types/enums';
 
 export interface CreateOrganizationAccountRequest { 
     /**
@@ -29,7 +29,7 @@ export interface CreateOrganizationAccountRequest {
     /**
      * The allowed account types for account creation.
      */
-    type?: CreateOrganizationAccountRequest<CAP>type</CAP>;
+    type?: CreateOrganizationAccountRequestType;
     /**
      * The optional note to associate with the account creation.
      */

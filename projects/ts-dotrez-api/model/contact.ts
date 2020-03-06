@@ -18,8 +18,8 @@ import { PhoneNumber } from './phoneNumber';
  * Contact model describing a person contact information.
  */
 
-    import { Contact<CAP>distributionOption</CAP> } from '../models/enums';
-    import { Contact<CAP>notificationPreference</CAP> } from '../models/enums';
+    import { ContactDistributionOption } from '../types/enums';
+    import { ContactNotificationPreference } from '../types/enums';
 
 export interface Contact { 
     /**
@@ -53,11 +53,11 @@ export interface Contact {
     /**
      * The contact distribution option.
      */
-    distributionOption?: Contact<CAP>distributionOption</CAP>;
+    distributionOption?: ContactDistributionOption;
     /**
      * The notification preference of the contact.
      */
-    notificationPreference?: Contact<CAP>notificationPreference</CAP>;
+    notificationPreference?: ContactNotificationPreference;
     /**
      * The company name.
      */

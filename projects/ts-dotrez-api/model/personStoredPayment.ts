@@ -15,7 +15,7 @@
  * Defines a specific person's stored payment.
  */
 
-    import { PersonStoredPayment<CAP>paymentMethodType</CAP> } from '../models/enums';
+    import { PersonStoredPaymentPaymentMethodType } from '../types/enums';
 
 export interface PersonStoredPayment { 
     /**
@@ -29,7 +29,7 @@ export interface PersonStoredPayment {
     /**
      * The type of payment being added.
      */
-    paymentMethodType: PersonStoredPayment<CAP>paymentMethodType</CAP>;
+    paymentMethodType: PersonStoredPaymentPaymentMethodType;
     /**
      * The name of the account.
      */

@@ -15,8 +15,8 @@
  * Model describing the detailed leg information.
  */
 
-    import { LegInformation<CAP>codeShareIndicator</CAP> } from '../models/enums';
-    import { LegInformation<CAP>status</CAP> } from '../models/enums';
+    import { LegInformationCodeShareIndicator } from '../types/enums';
+    import { LegInformationStatus } from '../types/enums';
 
 export interface LegInformation { 
     /**
@@ -54,7 +54,7 @@ export interface LegInformation {
     /**
      * The leg code share indicator.
      */
-    codeShareIndicator?: LegInformation<CAP>codeShareIndicator</CAP>;
+    codeShareIndicator?: LegInformationCodeShareIndicator;
     /**
      * The leg departure terminal.
      */
@@ -138,7 +138,7 @@ export interface LegInformation {
     /**
      * The legs status.
      */
-    status?: LegInformation<CAP>status</CAP>;
+    status?: LegInformationStatus;
     /**
      * A value indicating whether the leg is subject to government approval.
      */

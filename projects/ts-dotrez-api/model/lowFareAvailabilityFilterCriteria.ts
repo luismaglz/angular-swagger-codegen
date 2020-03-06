@@ -15,8 +15,8 @@
  * Describes the low fare availability filtering criteria.
  */
 
-    import { LowFareAvailabilityFilterCriteria<CAP>flightFilter</CAP> } from '../models/enums';
-    import { LowFareAvailabilityFilterCriteria<CAP>loyalty</CAP> } from '../models/enums';
+    import { LowFareAvailabilityFilterCriteriaFlightFilter } from '../types/enums';
+    import { LowFareAvailabilityFilterCriteriaLoyalty } from '../types/enums';
 
 export interface LowFareAvailabilityFilterCriteria { 
     /**
@@ -26,11 +26,11 @@ export interface LowFareAvailabilityFilterCriteria {
     /**
      * Controls the flights that are included in a low fare availability response.
      */
-    flightFilter?: LowFareAvailabilityFilterCriteria<CAP>flightFilter</CAP>;
+    flightFilter?: LowFareAvailabilityFilterCriteriaFlightFilter;
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: LowFareAvailabilityFilterCriteria<CAP>loyalty</CAP>;
+    loyalty?: LowFareAvailabilityFilterCriteriaLoyalty;
     /**
      * The list of booking classes to filter the results by.
      */

@@ -15,11 +15,11 @@
  * Defines a component allowed payment type.
  */
 
-    import { ComponentPaymentType<CAP>modType</CAP> } from '../models/enums';
-    import { ComponentPaymentType<CAP>expiration</CAP> } from '../models/enums';
-    import { ComponentPaymentType<CAP>cvv</CAP> } from '../models/enums';
-    import { ComponentPaymentType<CAP>name</CAP> } from '../models/enums';
-    import { ComponentPaymentType<CAP>issueNumber</CAP> } from '../models/enums';
+    import { ComponentPaymentTypeModType } from '../types/enums';
+    import { ComponentPaymentTypeExpiration } from '../types/enums';
+    import { ComponentPaymentTypeCvv } from '../types/enums';
+    import { ComponentPaymentTypeName } from '../types/enums';
+    import { ComponentPaymentTypeIssueNumber } from '../types/enums';
 
 export interface ComponentPaymentType { 
     /**
@@ -33,21 +33,21 @@ export interface ComponentPaymentType {
     /**
      * The modulus check to perform.
      */
-    modType?: ComponentPaymentType<CAP>modType</CAP>;
+    modType?: ComponentPaymentTypeModType;
     /**
      * The field usage for expiration date.
      */
-    expiration?: ComponentPaymentType<CAP>expiration</CAP>;
+    expiration?: ComponentPaymentTypeExpiration;
     /**
      * The field usage for CVV.
      */
-    cvv?: ComponentPaymentType<CAP>cvv</CAP>;
+    cvv?: ComponentPaymentTypeCvv;
     /**
      * The field usage for card holder name.
      */
-    name?: ComponentPaymentType<CAP>name</CAP>;
+    name?: ComponentPaymentTypeName;
     /**
      * The field usage for issue number.
      */
-    issueNumber?: ComponentPaymentType<CAP>issueNumber</CAP>;
+    issueNumber?: ComponentPaymentTypeIssueNumber;
 }

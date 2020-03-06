@@ -17,7 +17,7 @@ import { ParticipantCriteria } from './participantCriteria';
  * Defines the query for a single station used for hotel travel commerce.
  */
 
-    import { HotelRequest<CAP>sort</CAP> } from '../models/enums';
+    import { HotelRequestSort } from '../types/enums';
 
 export interface HotelRequest { 
     /**
@@ -51,7 +51,7 @@ export interface HotelRequest {
     /**
      * The search sort order.
      */
-    sort?: HotelRequest<CAP>sort</CAP>;
+    sort?: HotelRequestSort;
     /**
      * The promotion code with which to search.
      */

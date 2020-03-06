@@ -15,7 +15,7 @@
  * A model for a request to update the passenger type code.
  */
 
-    import { PassengerTypeCodeEditRequest<CAP>gender</CAP> } from '../models/enums';
+    import { PassengerTypeCodeEditRequestGender } from '../types/enums';
 
 export interface PassengerTypeCodeEditRequest { 
     /**
@@ -29,5 +29,5 @@ export interface PassengerTypeCodeEditRequest {
     /**
      * The new gender of the passenger.  Only required if GDPR is enabled.
      */
-    gender?: PassengerTypeCodeEditRequest<CAP>gender</CAP>;
+    gender?: PassengerTypeCodeEditRequestGender;
 }

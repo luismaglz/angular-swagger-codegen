@@ -15,13 +15,13 @@
  * Defines a passenger address create request.
  */
 
-    import { PassengerAddressCreateRequest<CAP>status</CAP> } from '../models/enums';
+    import { PassengerAddressCreateRequestStatus } from '../types/enums';
 
 export interface PassengerAddressCreateRequest { 
     /**
      * The addresses APIS status.
      */
-    status?: PassengerAddressCreateRequest<CAP>status</CAP>;
+    status?: PassengerAddressCreateRequestStatus;
     /**
      * Company name associated with this address.
      */

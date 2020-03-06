@@ -15,7 +15,7 @@
  * Defines a user role.
  */
 
-    import { UserRole<CAP>effectiveDays</CAP> } from '../models/enums';
+    import { UserRoleEffectiveDays } from '../types/enums';
 
 export interface UserRole { 
     /**
@@ -33,7 +33,7 @@ export interface UserRole {
     /**
      * The days the role is effective.
      */
-    effectiveDays?: UserRole<CAP>effectiveDays</CAP>;
+    effectiveDays?: UserRoleEffectiveDays;
     /**
      * The date the role is effective after.
      */

@@ -16,7 +16,7 @@ import { OrderFee } from './orderFee';
  * Defines the pre cancel details for a specific component.
  */
 
-    import { PreCancelDetail<CAP>status</CAP> } from '../models/enums';
+    import { PreCancelDetailStatus } from '../types/enums';
 
 export interface PreCancelDetail { 
     /**
@@ -34,7 +34,7 @@ export interface PreCancelDetail {
     /**
      * The status of the pre cancel.
      */
-    status?: PreCancelDetail<CAP>status</CAP>;
+    status?: PreCancelDetailStatus;
     /**
      * The pre cancel description.
      */

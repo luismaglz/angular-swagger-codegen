@@ -15,7 +15,7 @@
  * The passenger type model.
  */
 
-    import { PassengerType<CAP>typeIndicator</CAP> } from '../models/enums';
+    import { PassengerTypeTypeIndicator } from '../types/enums';
 
 export interface PassengerType { 
     /**
@@ -41,7 +41,7 @@ export interface PassengerType {
     /**
      * The type indicator specifying the age group this belongs to.
      */
-    typeIndicator?: PassengerType<CAP>typeIndicator</CAP>;
+    typeIndicator?: PassengerTypeTypeIndicator;
     /**
      * The minimum age for the passenger type.
      */

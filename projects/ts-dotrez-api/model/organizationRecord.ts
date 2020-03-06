@@ -17,8 +17,8 @@ import { ContactDetails } from './contactDetails';
  * The data on the user related agent's organization.
  */
 
-    import { OrganizationRecord<CAP>type</CAP> } from '../models/enums';
-    import { OrganizationRecord<CAP>status</CAP> } from '../models/enums';
+    import { OrganizationRecordType } from '../types/enums';
+    import { OrganizationRecordStatus } from '../types/enums';
 
 export interface OrganizationRecord { 
     /**
@@ -28,7 +28,7 @@ export interface OrganizationRecord {
     /**
      * Organization type.
      */
-    type?: OrganizationRecord<CAP>type</CAP>;
+    type?: OrganizationRecordType;
     /**
      * The company details.
      */
@@ -40,7 +40,7 @@ export interface OrganizationRecord {
     /**
      * The organization status.
      */
-    status?: OrganizationRecord<CAP>status</CAP>;
+    status?: OrganizationRecordStatus;
     /**
      * The parent organization code.
      */

@@ -17,8 +17,8 @@ import { MarketInformation } from './marketInformation';
  * Model information for a bundle sell service request (SSR) tied to a specific leg.
  */
 
-    import { BundleLegSsr<CAP>ssrType</CAP> } from '../models/enums';
-    import { BundleLegSsr<CAP>seatRestriction</CAP> } from '../models/enums';
+    import { BundleLegSsrSsrType } from '../types/enums';
+    import { BundleLegSsrSeatRestriction } from '../types/enums';
 
 export interface BundleLegSsr { 
     /**
@@ -37,7 +37,7 @@ export interface BundleLegSsr {
     /**
      * Gets the SSR type.
      */
-    ssrType?: BundleLegSsr<CAP>ssrType</CAP>;
+    ssrType?: BundleLegSsrSsrType;
     /**
      * Gets the SSR name.
      */
@@ -69,5 +69,5 @@ export interface BundleLegSsr {
     /**
      * Gets the seat restriction.
      */
-    seatRestriction?: BundleLegSsr<CAP>seatRestriction</CAP>;
+    seatRestriction?: BundleLegSsrSeatRestriction;
 }

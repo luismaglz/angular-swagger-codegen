@@ -18,8 +18,8 @@ import { PhoneNumber } from './phoneNumber';
  * Defines a contact create request.
  */
 
-    import { ContactRequest<CAP>distributionOption</CAP> } from '../models/enums';
-    import { ContactRequest<CAP>notificationPreference</CAP> } from '../models/enums';
+    import { ContactRequestDistributionOption } from '../types/enums';
+    import { ContactRequestNotificationPreference } from '../types/enums';
 
 export interface ContactRequest { 
     /**
@@ -49,11 +49,11 @@ export interface ContactRequest {
     /**
      * The contact distribution option.
      */
-    distributionOption?: ContactRequest<CAP>distributionOption</CAP>;
+    distributionOption?: ContactRequestDistributionOption;
     /**
      * The notification preference of the contact.
      */
-    notificationPreference?: ContactRequest<CAP>notificationPreference</CAP>;
+    notificationPreference?: ContactRequestNotificationPreference;
     /**
      * The company name.
      */

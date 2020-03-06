@@ -15,7 +15,7 @@
  * The baggage type model.
  */
 
-    import { BaggageType<CAP>bagWeightType</CAP> } from '../models/enums';
+    import { BaggageTypeBagWeightType } from '../types/enums';
 
 export interface BaggageType { 
     /**
@@ -25,7 +25,7 @@ export interface BaggageType {
     /**
      * Gets or sets the bag weight type.
      */
-    bagWeightType?: BaggageType<CAP>bagWeightType</CAP>;
+    bagWeightType?: BaggageTypeBagWeightType;
     /**
      * Gets or sets the free bag flag.
      */

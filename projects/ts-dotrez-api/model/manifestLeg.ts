@@ -18,7 +18,7 @@ import { SsrGlance } from './ssrGlance';
  * Manifest Leg.
  */
 
-    import { ManifestLeg<CAP>liftStatus</CAP> } from '../models/enums';
+    import { ManifestLegLiftStatus } from '../types/enums';
 
 export interface ManifestLeg { 
     /**
@@ -56,7 +56,7 @@ export interface ManifestLeg {
     /**
      * The LiftStatus property.
      */
-    liftStatus?: ManifestLeg<CAP>liftStatus</CAP>;
+    liftStatus?: ManifestLegLiftStatus;
     /**
      * The ManifestOrigin property.
      */

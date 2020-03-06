@@ -15,7 +15,7 @@
  * The region identifier model.
  */
 
-    import { RegionIdentifier<CAP>regionType</CAP> } from '../models/enums';
+    import { RegionIdentifierRegionType } from '../types/enums';
 
 export interface RegionIdentifier { 
     /**
@@ -25,7 +25,7 @@ export interface RegionIdentifier {
     /**
      * The region type.
      */
-    regionType?: RegionIdentifier<CAP>regionType</CAP>;
+    regionType?: RegionIdentifierRegionType;
     /**
      * The flag to indicate if this is not in the travel region.
      */

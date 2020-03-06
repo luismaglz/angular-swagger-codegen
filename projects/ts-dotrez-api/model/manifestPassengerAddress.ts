@@ -15,7 +15,7 @@
  * The Manifest Passenger Address.
  */
 
-    import { ManifestPassengerAddress<CAP>status</CAP> } from '../models/enums';
+    import { ManifestPassengerAddressStatus } from '../types/enums';
 
 export interface ManifestPassengerAddress { 
     /**
@@ -25,7 +25,7 @@ export interface ManifestPassengerAddress {
     /**
      * The addresses APIS status.
      */
-    status?: ManifestPassengerAddress<CAP>status</CAP>;
+    status?: ManifestPassengerAddressStatus;
     /**
      * Company name associated with this address.
      */

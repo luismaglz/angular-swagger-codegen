@@ -15,7 +15,7 @@
  * A one time notification event.
  */
 
-    import { OneTimeNotificationEvent<CAP>type</CAP> } from '../models/enums';
+    import { OneTimeNotificationEventType } from '../types/enums';
 
 export interface OneTimeNotificationEvent { 
     /**
@@ -25,5 +25,5 @@ export interface OneTimeNotificationEvent {
     /**
      * The one time travel notification event type.
      */
-    type: OneTimeNotificationEvent<CAP>type</CAP>;
+    type: OneTimeNotificationEventType;
 }

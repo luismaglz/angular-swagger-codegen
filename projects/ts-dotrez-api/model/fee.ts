@@ -15,13 +15,13 @@
  * Fee Model.
  */
 
-    import { Fee<CAP>chargeLimitMode</CAP> } from '../models/enums';
-    import { Fee<CAP>chargeLimitTravelComponent</CAP> } from '../models/enums';
-    import { Fee<CAP>feeApplication</CAP> } from '../models/enums';
-    import { Fee<CAP>feeOptionMode</CAP> } from '../models/enums';
-    import { Fee<CAP>feeType</CAP> } from '../models/enums';
-    import { Fee<CAP>taxApplication</CAP> } from '../models/enums';
-    import { Fee<CAP>travelComponent</CAP> } from '../models/enums';
+    import { FeeChargeLimitMode } from '../types/enums';
+    import { FeeChargeLimitTravelComponent } from '../types/enums';
+    import { FeeFeeApplication } from '../types/enums';
+    import { FeeFeeOptionMode } from '../types/enums';
+    import { FeeFeeType } from '../types/enums';
+    import { FeeTaxApplication } from '../types/enums';
+    import { FeeTravelComponent } from '../types/enums';
 
 export interface Fee { 
     /**
@@ -47,11 +47,11 @@ export interface Fee {
     /**
      * Gets or sets when the charge limit is applied to this fee.
      */
-    chargeLimitMode?: Fee<CAP>chargeLimitMode</CAP>;
+    chargeLimitMode?: FeeChargeLimitMode;
     /**
      * Gets or sets the charge limit for the travel component associated with this fee.
      */
-    chargeLimitTravelComponent?: Fee<CAP>chargeLimitTravelComponent</CAP>;
+    chargeLimitTravelComponent?: FeeChargeLimitTravelComponent;
     /**
      * Gets or sets the commissionable flag for this fee.
      */
@@ -71,7 +71,7 @@ export interface Fee {
     /**
      * Gets or sets how this fee is applied.
      */
-    feeApplication?: Fee<CAP>feeApplication</CAP>;
+    feeApplication?: FeeFeeApplication;
     /**
      * Gets or sets the code for this fee.
      */
@@ -79,11 +79,11 @@ export interface Fee {
     /**
      * Gets or sets the fee option mode for this fee.
      */
-    feeOptionMode?: Fee<CAP>feeOptionMode</CAP>;
+    feeOptionMode?: FeeFeeOptionMode;
     /**
      * Gets or sets the fee type for this fee.
      */
-    feeType?: Fee<CAP>feeType</CAP>;
+    feeType?: FeeFeeType;
     /**
      * Gets or sets the inactive flag for this fee.
      */
@@ -107,7 +107,7 @@ export interface Fee {
     /**
      * Gets or sets how the taxes are applied for this fee.
      */
-    taxApplication?: Fee<CAP>taxApplication</CAP>;
+    taxApplication?: FeeTaxApplication;
     /**
      * Gets or sets the ticketable flag for this fee.
      */
@@ -115,5 +115,5 @@ export interface Fee {
     /**
      * Gets or sets the travel component associated with this fee.
      */
-    travelComponent?: Fee<CAP>travelComponent</CAP>;
+    travelComponent?: FeeTravelComponent;
 }

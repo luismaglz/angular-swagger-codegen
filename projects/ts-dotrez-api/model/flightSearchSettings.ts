@@ -15,12 +15,12 @@
  * The Booking flight search settings.
  */
 
-    import { FlightSearchSettings<CAP>primarySortKey</CAP> } from '../models/enums';
-    import { FlightSearchSettings<CAP>secondarySortKey</CAP> } from '../models/enums';
-    import { FlightSearchSettings<CAP>displayLowerFares</CAP> } from '../models/enums';
-    import { FlightSearchSettings<CAP>fareClassControl</CAP> } from '../models/enums';
-    import { FlightSearchSettings<CAP>fareSorting</CAP> } from '../models/enums';
-    import { FlightSearchSettings<CAP>lowFareCacheStatus</CAP> } from '../models/enums';
+    import { FlightSearchSettingsPrimarySortKey } from '../types/enums';
+    import { FlightSearchSettingsSecondarySortKey } from '../types/enums';
+    import { FlightSearchSettingsDisplayLowerFares } from '../types/enums';
+    import { FlightSearchSettingsFareClassControl } from '../types/enums';
+    import { FlightSearchSettingsFareSorting } from '../types/enums';
+    import { FlightSearchSettingsLowFareCacheStatus } from '../types/enums';
 
 export interface FlightSearchSettings { 
     /**
@@ -46,11 +46,11 @@ export interface FlightSearchSettings {
     /**
      * The primary sort to be used on availability response.
      */
-    primarySortKey?: FlightSearchSettings<CAP>primarySortKey</CAP>;
+    primarySortKey?: FlightSearchSettingsPrimarySortKey;
     /**
      * The secondary sort to be used on the availability response.
      */
-    secondarySortKey?: FlightSearchSettings<CAP>secondarySortKey</CAP>;
+    secondarySortKey?: FlightSearchSettingsSecondarySortKey;
     /**
      * The maximum number of days between the begin and end date for regular availability.
      */
@@ -62,11 +62,11 @@ export interface FlightSearchSettings {
     /**
      * Display setting for low fares (used in change flow).
      */
-    displayLowerFares?: FlightSearchSettings<CAP>displayLowerFares</CAP>;
+    displayLowerFares?: FlightSearchSettingsDisplayLowerFares;
     /**
      * The fare class filtering when returning journeys during availability.
      */
-    fareClassControl?: FlightSearchSettings<CAP>fareClassControl</CAP>;
+    fareClassControl?: FlightSearchSettingsFareClassControl;
     /**
      * The flag indicating whether to allow anticipated sales taxes and travel fees when processing the availability  request.
      */
@@ -74,9 +74,9 @@ export interface FlightSearchSettings {
     /**
      * Fare filtering options.
      */
-    fareSorting?: FlightSearchSettings<CAP>fareSorting</CAP>;
+    fareSorting?: FlightSearchSettingsFareSorting;
     /**
      * The status of the low fare cache.
      */
-    lowFareCacheStatus?: FlightSearchSettings<CAP>lowFareCacheStatus</CAP>;
+    lowFareCacheStatus?: FlightSearchSettingsLowFareCacheStatus;
 }

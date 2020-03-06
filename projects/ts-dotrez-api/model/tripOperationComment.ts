@@ -15,7 +15,7 @@
  * Represents a comment for a trip operation.
  */
 
-    import { TripOperationComment<CAP>type</CAP> } from '../models/enums';
+    import { TripOperationCommentType } from '../types/enums';
 
 export interface TripOperationComment { 
     /**
@@ -29,5 +29,5 @@ export interface TripOperationComment {
     /**
      * Represents the comment type.
      */
-    type?: TripOperationComment<CAP>type</CAP>;
+    type?: TripOperationCommentType;
 }

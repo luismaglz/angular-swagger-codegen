@@ -15,29 +15,29 @@
  * Describes general booking details.
  */
 
-    import { BookingInfo<CAP>status</CAP> } from '../models/enums';
-    import { BookingInfo<CAP>paidStatus</CAP> } from '../models/enums';
-    import { BookingInfo<CAP>priceStatus</CAP> } from '../models/enums';
-    import { BookingInfo<CAP>profileStatus</CAP> } from '../models/enums';
-    import { BookingInfo<CAP>channelType</CAP> } from '../models/enums';
+    import { BookingInfoStatus } from '../types/enums';
+    import { BookingInfoPaidStatus } from '../types/enums';
+    import { BookingInfoPriceStatus } from '../types/enums';
+    import { BookingInfoProfileStatus } from '../types/enums';
+    import { BookingInfoChannelType } from '../types/enums';
 
 export interface BookingInfo { 
     /**
      * The status of the entire booking.
      */
-    status?: BookingInfo<CAP>status</CAP>;
+    status?: BookingInfoStatus;
     /**
      * The status of the applied payments.
      */
-    paidStatus?: BookingInfo<CAP>paidStatus</CAP>;
+    paidStatus?: BookingInfoPaidStatus;
     /**
      * The pricing status of the booking.
      */
-    priceStatus?: BookingInfo<CAP>priceStatus</CAP>;
+    priceStatus?: BookingInfoPriceStatus;
     /**
      * The booking profiling status.
      */
-    profileStatus?: BookingInfo<CAP>profileStatus</CAP>;
+    profileStatus?: BookingInfoProfileStatus;
     /**
      * Identifies the type (Default, GDS, CodeShare, ect) of the booking set during the commit process.
      */
@@ -45,7 +45,7 @@ export interface BookingInfo {
     /**
      * The channel that is responsible for created the booking.
      */
-    channelType?: BookingInfo<CAP>channelType</CAP>;
+    channelType?: BookingInfoChannelType;
     /**
      * The UTC date and time the booking was originally created.
      */

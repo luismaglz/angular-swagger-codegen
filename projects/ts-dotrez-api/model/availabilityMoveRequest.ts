@@ -19,14 +19,14 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
  * Defines the availability move request.
  */
 
-    import { AvailabilityMoveRequest<CAP>passengerMoveType</CAP> } from '../models/enums';
-    import { AvailabilityMoveRequest<CAP>type</CAP> } from '../models/enums';
+    import { AvailabilityMoveRequestPassengerMoveType } from '../types/enums';
+    import { AvailabilityMoveRequestType } from '../types/enums';
 
 export interface AvailabilityMoveRequest { 
     /**
      * The passenger move type.
      */
-    passengerMoveType?: AvailabilityMoveRequest<CAP>passengerMoveType</CAP>;
+    passengerMoveType?: AvailabilityMoveRequestPassengerMoveType;
     /**
      * The filtering criteria.
      */
@@ -50,5 +50,5 @@ export interface AvailabilityMoveRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: AvailabilityMoveRequest<CAP>type</CAP>;
+    type?: AvailabilityMoveRequestType;
 }

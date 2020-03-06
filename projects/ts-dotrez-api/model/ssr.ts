@@ -15,8 +15,8 @@
  * The sell service request (SSR) model.
  */
 
-    import { Ssr<CAP>ssrType</CAP> } from '../models/enums';
-    import { Ssr<CAP>seatRestriction</CAP> } from '../models/enums';
+    import { SsrSsrType } from '../types/enums';
+    import { SsrSeatRestriction } from '../types/enums';
 
 export interface Ssr { 
     /**
@@ -42,7 +42,7 @@ export interface Ssr {
     /**
      * The Ssr type.
      */
-    ssrType?: Ssr<CAP>ssrType</CAP>;
+    ssrType?: SsrSsrType;
     /**
      * The in active.
      */
@@ -70,7 +70,7 @@ export interface Ssr {
     /**
      * The seat restriction.
      */
-    seatRestriction?: Ssr<CAP>seatRestriction</CAP>;
+    seatRestriction?: SsrSeatRestriction;
     /**
      * The rule set name.
      */

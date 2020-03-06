@@ -25,10 +25,10 @@ import { Program } from './program';
  * Manifest Passenger.
  */
 
-    import { ManifestPassenger<CAP>checkInType</CAP> } from '../models/enums';
-    import { ManifestPassenger<CAP>paidStatus</CAP> } from '../models/enums';
-    import { ManifestPassenger<CAP>profileStatus</CAP> } from '../models/enums';
-    import { ManifestPassenger<CAP>status</CAP> } from '../models/enums';
+    import { ManifestPassengerCheckInType } from '../types/enums';
+    import { ManifestPassengerPaidStatus } from '../types/enums';
+    import { ManifestPassengerProfileStatus } from '../types/enums';
+    import { ManifestPassengerStatus } from '../types/enums';
 
 export interface ManifestPassenger { 
     /**
@@ -46,7 +46,7 @@ export interface ManifestPassenger {
     /**
      * The type of flight that is being dealt with: Local = first leg of journey
      */
-    checkInType?: ManifestPassenger<CAP>checkInType</CAP>;
+    checkInType?: ManifestPassengerCheckInType;
     /**
      * Manifest comments attached to the booking.  Gets collection of ManifestComment
      */
@@ -78,7 +78,7 @@ export interface ManifestPassenger {
     /**
      * The PaidStatus property.
      */
-    paidStatus?: ManifestPassenger<CAP>paidStatus</CAP>;
+    paidStatus?: ManifestPassengerPaidStatus;
     /**
      * Travel documents for the passenger, i.e. Passports and Visas.  Navitaire.NewSkies.Messages.Manifest.ManifestPassengerAddress
      */
@@ -98,7 +98,7 @@ export interface ManifestPassenger {
     /**
      * The ProfileStatus property.
      */
-    profileStatus?: ManifestPassenger<CAP>profileStatus</CAP>;
+    profileStatus?: ManifestPassengerProfileStatus;
     /**
      * The passenger program data.
      */
@@ -118,7 +118,7 @@ export interface ManifestPassenger {
     /**
      * The booking status.
      */
-    status?: ManifestPassenger<CAP>status</CAP>;
+    status?: ManifestPassengerStatus;
     /**
      * Additional passenger information details.
      */

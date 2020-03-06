@@ -12,11 +12,11 @@
 
 
 
-    import { Message<CAP>status</CAP> } from '../models/enums';
+    import { MessageStatus } from '../types/enums';
 
 export interface Message { 
     code?: string;
     type?: string;
     value?: string;
-    status?: Message<CAP>status</CAP>;
+    status?: MessageStatus;
 }

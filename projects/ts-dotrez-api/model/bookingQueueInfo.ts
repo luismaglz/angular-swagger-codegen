@@ -15,9 +15,9 @@
  * Describes the booking queue info.
  */
 
-    import { BookingQueueInfo<CAP>type</CAP> } from '../models/enums';
-    import { BookingQueueInfo<CAP>action</CAP> } from '../models/enums';
-    import { BookingQueueInfo<CAP>mode</CAP> } from '../models/enums';
+    import { BookingQueueInfoType } from '../types/enums';
+    import { BookingQueueInfoAction } from '../types/enums';
+    import { BookingQueueInfoMode } from '../types/enums';
 
 export interface BookingQueueInfo { 
     /**
@@ -55,15 +55,15 @@ export interface BookingQueueInfo {
     /**
      * The type of event that triggered placement of the booking in the queue.
      */
-    type?: BookingQueueInfo<CAP>type</CAP>;
+    type?: BookingQueueInfoType;
     /**
      * The action that will be taken as a result of the placement in the queue.
      */
-    action?: BookingQueueInfo<CAP>action</CAP>;
+    action?: BookingQueueInfoAction;
     /**
      * The indicator if this entry was added or removed from the queue.
      */
-    mode?: BookingQueueInfo<CAP>mode</CAP>;
+    mode?: BookingQueueInfoMode;
     /**
      * The flight reference.
      */

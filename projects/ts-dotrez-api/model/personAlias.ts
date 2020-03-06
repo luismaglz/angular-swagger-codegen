@@ -15,7 +15,7 @@
  * Defines a person's alternate name that they go by.
  */
 
-    import { PersonAlias<CAP>type</CAP> } from '../models/enums';
+    import { PersonAliasType } from '../types/enums';
 
 export interface PersonAlias { 
     /**
@@ -25,7 +25,7 @@ export interface PersonAlias {
     /**
      * The type of alias.
      */
-    type?: PersonAlias<CAP>type</CAP>;
+    type?: PersonAliasType;
     /**
      * The given first name.
      */

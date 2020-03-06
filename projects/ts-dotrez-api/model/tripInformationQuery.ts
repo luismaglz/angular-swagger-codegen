@@ -16,14 +16,14 @@ import { EquipmentFilter } from './equipmentFilter';
  * The trip information query model contains data to perform a   trip information search.
  */
 
-    import { TripInformationQuery<CAP>daysOfWeek</CAP> } from '../models/enums';
-    import { TripInformationQuery<CAP>flightType</CAP> } from '../models/enums';
+    import { TripInformationQueryDaysOfWeek } from '../types/enums';
+    import { TripInformationQueryFlightType } from '../types/enums';
 
 export interface TripInformationQuery { 
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: TripInformationQuery<CAP>daysOfWeek</CAP>;
+    daysOfWeek?: TripInformationQueryDaysOfWeek;
     /**
      * The end date of the trip information search.
      */
@@ -63,7 +63,7 @@ export interface TripInformationQuery {
     /**
      * The flight type.
      */
-    flightType?: TripInformationQuery<CAP>flightType</CAP>;
+    flightType?: TripInformationQueryFlightType;
     /**
      * The operational suffix.
      */

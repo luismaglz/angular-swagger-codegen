@@ -12,11 +12,11 @@
 
 
 
-    import { HealthInformation<CAP>status</CAP> } from '../models/enums';
+    import { HealthInformationStatus } from '../types/enums';
 
 export interface HealthInformation { 
     component?: string;
     componentType?: string;
     details?: string;
-    status?: HealthInformation<CAP>status</CAP>;
+    status?: HealthInformationStatus;
 }

@@ -15,14 +15,14 @@
  * Defines a availability fare search criteria.
  */
 
-    import { AvailabilityFareCriteria<CAP>classControl</CAP> } from '../models/enums';
-    import { AvailabilityFareCriteria<CAP>loyalty</CAP> } from '../models/enums';
+    import { AvailabilityFareCriteriaClassControl } from '../types/enums';
+    import { AvailabilityFareCriteriaLoyalty } from '../types/enums';
 
 export interface AvailabilityFareCriteria { 
     /**
      * The fare class control.
      */
-    classControl?: AvailabilityFareCriteria<CAP>classControl</CAP>;
+    classControl?: AvailabilityFareCriteriaClassControl;
     /**
      * The max fare price.
      */
@@ -34,7 +34,7 @@ export interface AvailabilityFareCriteria {
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: AvailabilityFareCriteria<CAP>loyalty</CAP>;
+    loyalty?: AvailabilityFareCriteriaLoyalty;
     /**
      * The list of fare types.
      */

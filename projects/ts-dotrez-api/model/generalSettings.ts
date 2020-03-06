@@ -15,17 +15,17 @@
  * The booking general settings.
  */
 
-    import { GeneralSettings<CAP>allowSeatAssignment</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>bookingAccessControl</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>viewBookingsByControl</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>editBookingsByControl</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>highlightFareOverride</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>highlightIrop</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>highlightScheduleChange</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>highlightStandby</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>highlightUpgrade</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>reassignSeatingBehavior</CAP> } from '../models/enums';
-    import { GeneralSettings<CAP>timeDisplay</CAP> } from '../models/enums';
+    import { GeneralSettingsAllowSeatAssignment } from '../types/enums';
+    import { GeneralSettingsBookingAccessControl } from '../types/enums';
+    import { GeneralSettingsViewBookingsByControl } from '../types/enums';
+    import { GeneralSettingsEditBookingsByControl } from '../types/enums';
+    import { GeneralSettingsHighlightFareOverride } from '../types/enums';
+    import { GeneralSettingsHighlightIrop } from '../types/enums';
+    import { GeneralSettingsHighlightScheduleChange } from '../types/enums';
+    import { GeneralSettingsHighlightStandby } from '../types/enums';
+    import { GeneralSettingsHighlightUpgrade } from '../types/enums';
+    import { GeneralSettingsReassignSeatingBehavior } from '../types/enums';
+    import { GeneralSettingsTimeDisplay } from '../types/enums';
 
 export interface GeneralSettings { 
     /**
@@ -87,19 +87,19 @@ export interface GeneralSettings {
     /**
      * The seat assignment rules for this role.
      */
-    allowSeatAssignment?: GeneralSettings<CAP>allowSeatAssignment</CAP>;
+    allowSeatAssignment?: GeneralSettingsAllowSeatAssignment;
     /**
      * The booking access allowed on this role.
      */
-    bookingAccessControl?: GeneralSettings<CAP>bookingAccessControl</CAP>;
+    bookingAccessControl?: GeneralSettingsBookingAccessControl;
     /**
      * The highest organization that the role can view bookings for.
      */
-    viewBookingsByControl?: GeneralSettings<CAP>viewBookingsByControl</CAP>;
+    viewBookingsByControl?: GeneralSettingsViewBookingsByControl;
     /**
      * The highest organization that the role can edit bookings for.
      */
-    editBookingsByControl?: GeneralSettings<CAP>editBookingsByControl</CAP>;
+    editBookingsByControl?: GeneralSettingsEditBookingsByControl;
     /**
      * The mandatory booking comment.
      */
@@ -119,23 +119,23 @@ export interface GeneralSettings {
     /**
      * The option to highlight the fare override on this role.
      */
-    highlightFareOverride?: GeneralSettings<CAP>highlightFareOverride</CAP>;
+    highlightFareOverride?: GeneralSettingsHighlightFareOverride;
     /**
      * The option to highlight IROP information on this role.
      */
-    highlightIrop?: GeneralSettings<CAP>highlightIrop</CAP>;
+    highlightIrop?: GeneralSettingsHighlightIrop;
     /**
      * The option to highlight schedule changes on this role.
      */
-    highlightScheduleChange?: GeneralSettings<CAP>highlightScheduleChange</CAP>;
+    highlightScheduleChange?: GeneralSettingsHighlightScheduleChange;
     /**
      * The option to highlight standbys on this role.
      */
-    highlightStandby?: GeneralSettings<CAP>highlightStandby</CAP>;
+    highlightStandby?: GeneralSettingsHighlightStandby;
     /**
      * The option to highlight upgrades on this role.
      */
-    highlightUpgrade?: GeneralSettings<CAP>highlightUpgrade</CAP>;
+    highlightUpgrade?: GeneralSettingsHighlightUpgrade;
     /**
      * The flag to allow managing passive segments on this role.
      */
@@ -143,7 +143,7 @@ export interface GeneralSettings {
     /**
      * The reassign seat behavior for this role.
      */
-    reassignSeatingBehavior?: GeneralSettings<CAP>reassignSeatingBehavior</CAP>;
+    reassignSeatingBehavior?: GeneralSettingsReassignSeatingBehavior;
     /**
      * Gets or sets a list of restricted external system codes for this role.
      */
@@ -151,7 +151,7 @@ export interface GeneralSettings {
     /**
      * The time display style for this role.
      */
-    timeDisplay?: GeneralSettings<CAP>timeDisplay</CAP>;
+    timeDisplay?: GeneralSettingsTimeDisplay;
     /**
      * The allow seat group restriction override flag.
      */

@@ -20,7 +20,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Defines the boarding pass segment details.
  */
 
-    import { BoardingPassSegment<CAP>type</CAP> } from '../models/enums';
+    import { BoardingPassSegmentType } from '../types/enums';
 
 export interface BoardingPassSegment { 
     /**
@@ -42,7 +42,7 @@ export interface BoardingPassSegment {
     /**
      * The type of the current segment.
      */
-    type?: BoardingPassSegment<CAP>type</CAP>;
+    type?: BoardingPassSegmentType;
     /**
      * Flag indicating if the segment is international.
      */

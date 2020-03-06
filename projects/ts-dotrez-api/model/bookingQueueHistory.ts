@@ -16,9 +16,9 @@ import { PointOfSale } from './pointOfSale';
  * Represents a booking queue history item.
  */
 
-    import { BookingQueueHistory<CAP>historyEvent</CAP> } from '../models/enums';
-    import { BookingQueueHistory<CAP>queueAction</CAP> } from '../models/enums';
-    import { BookingQueueHistory<CAP>queueType</CAP> } from '../models/enums';
+    import { BookingQueueHistoryHistoryEvent } from '../types/enums';
+    import { BookingQueueHistoryQueueAction } from '../types/enums';
+    import { BookingQueueHistoryQueueType } from '../types/enums';
 
 export interface BookingQueueHistory { 
     /**
@@ -32,7 +32,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue history event type.
      */
-    historyEvent?: BookingQueueHistory<CAP>historyEvent</CAP>;
+    historyEvent?: BookingQueueHistoryHistoryEvent;
     /**
      * The booking queue code.
      */
@@ -56,7 +56,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue action.
      */
-    queueAction?: BookingQueueHistory<CAP>queueAction</CAP>;
+    queueAction?: BookingQueueHistoryQueueAction;
     /**
      * The booking queue domain code.
      */
@@ -72,7 +72,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue item event type.
      */
-    queueType?: BookingQueueHistory<CAP>queueType</CAP>;
+    queueType?: BookingQueueHistoryQueueType;
     /**
      * The booking queue item point of sale.
      */

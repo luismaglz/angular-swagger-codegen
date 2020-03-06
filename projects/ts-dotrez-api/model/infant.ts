@@ -16,7 +16,7 @@ import { Name } from './name';
  * Model representing an infant.
  */
 
-    import { Infant<CAP>gender</CAP> } from '../models/enums';
+    import { InfantGender } from '../types/enums';
 
 export interface Infant { 
     /**
@@ -34,7 +34,7 @@ export interface Infant {
     /**
      * The gender of the passenger.
      */
-    gender?: Infant<CAP>gender</CAP>;
+    gender?: InfantGender;
     /**
      * The name of the passenger.
      */

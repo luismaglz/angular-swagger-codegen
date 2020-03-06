@@ -15,7 +15,7 @@
  * Defines a person comment.
  */
 
-    import { PersonComment<CAP>type</CAP> } from '../models/enums';
+    import { PersonCommentType } from '../types/enums';
 
 export interface PersonComment { 
     /**
@@ -29,5 +29,5 @@ export interface PersonComment {
     /**
      * The comment type.
      */
-    type?: PersonComment<CAP>type</CAP>;
+    type?: PersonCommentType;
 }

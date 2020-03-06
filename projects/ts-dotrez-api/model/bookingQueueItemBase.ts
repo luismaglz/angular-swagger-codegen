@@ -16,10 +16,10 @@ import { Name } from './name';
  * Defines a Booking Queue item.
  */
 
-    import { BookingQueueItemBase<CAP>processStatus</CAP> } from '../models/enums';
-    import { BookingQueueItemBase<CAP>processState</CAP> } from '../models/enums';
-    import { BookingQueueItemBase<CAP>eventType</CAP> } from '../models/enums';
-    import { BookingQueueItemBase<CAP>restriction</CAP> } from '../models/enums';
+    import { BookingQueueItemBaseProcessStatus } from '../types/enums';
+    import { BookingQueueItemBaseProcessState } from '../types/enums';
+    import { BookingQueueItemBaseEventType } from '../types/enums';
+    import { BookingQueueItemBaseRestriction } from '../types/enums';
 
 export interface BookingQueueItemBase { 
     /**
@@ -29,7 +29,7 @@ export interface BookingQueueItemBase {
     /**
      * Process status.
      */
-    processStatus?: BookingQueueItemBase<CAP>processStatus</CAP>;
+    processStatus?: BookingQueueItemBaseProcessStatus;
     /**
      * The segment key of the flight associated with the booking queue entry.
      */
@@ -37,7 +37,7 @@ export interface BookingQueueItemBase {
     /**
      * Process state.
      */
-    processState?: BookingQueueItemBase<CAP>processState</CAP>;
+    processState?: BookingQueueItemBaseProcessState;
     /**
      * The WatchList Id of the booking queue entry.
      */
@@ -73,11 +73,11 @@ export interface BookingQueueItemBase {
     /**
      * The booking queue event type that caused the booking queue entry to be created.
      */
-    eventType?: BookingQueueItemBase<CAP>eventType</CAP>;
+    eventType?: BookingQueueItemBaseEventType;
     /**
      * The restrictions associated with the booking queue.
      */
-    restriction?: BookingQueueItemBase<CAP>restriction</CAP>;
+    restriction?: BookingQueueItemBaseRestriction;
     /**
      * The booking record locator associated with the booking queue entry.
      */

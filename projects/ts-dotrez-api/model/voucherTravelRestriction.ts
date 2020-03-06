@@ -15,13 +15,13 @@
  * The voucher configuration model.
  */
 
-    import { VoucherTravelRestriction<CAP>restrictionType</CAP> } from '../models/enums';
+    import { VoucherTravelRestrictionRestrictionType } from '../types/enums';
 
 export interface VoucherTravelRestriction { 
     /**
      * The travel restriction type.
      */
-    restrictionType?: VoucherTravelRestriction<CAP>restrictionType</CAP>;
+    restrictionType?: VoucherTravelRestrictionRestrictionType;
     /**
      * The voucher configuration code.
      */

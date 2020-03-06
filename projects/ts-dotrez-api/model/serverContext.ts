@@ -15,8 +15,8 @@
  * Defines the server context.
  */
 
-    import { ServerContext<CAP>systemName</CAP> } from '../models/enums';
-    import { ServerContext<CAP>channel</CAP> } from '../models/enums';
+    import { ServerContextSystemName } from '../types/enums';
+    import { ServerContextChannel } from '../types/enums';
 
 export interface ServerContext { 
     /**
@@ -30,9 +30,9 @@ export interface ServerContext {
     /**
      * The acting system name.
      */
-    systemName?: ServerContext<CAP>systemName</CAP>;
+    systemName?: ServerContextSystemName;
     /**
      * The acting channel type.
      */
-    channel?: ServerContext<CAP>channel</CAP>;
+    channel?: ServerContextChannel;
 }

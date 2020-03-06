@@ -16,7 +16,7 @@ import { PersonalizationParameter } from './personalizationParameter';
  * Defines an available personalization for an add-on.
  */
 
-    import { Personalization<CAP>dataType</CAP> } from '../models/enums';
+    import { PersonalizationDataType } from '../types/enums';
 
 export interface Personalization { 
     /**
@@ -38,7 +38,7 @@ export interface Personalization {
     /**
      * The display data type.
      */
-    dataType?: Personalization<CAP>dataType</CAP>;
+    dataType?: PersonalizationDataType;
     /**
      * Flag indicating that user input is required.
      */

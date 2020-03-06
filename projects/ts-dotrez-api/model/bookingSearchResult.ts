@@ -16,8 +16,8 @@ import { Name } from './name';
  * Booking model data.
  */
 
-    import { BookingSearchResult<CAP>bookingStatus</CAP> } from '../models/enums';
-    import { BookingSearchResult<CAP>channelType</CAP> } from '../models/enums';
+    import { BookingSearchResultBookingStatus } from '../types/enums';
+    import { BookingSearchResultChannelType } from '../types/enums';
 
 export interface BookingSearchResult { 
     /**
@@ -31,11 +31,11 @@ export interface BookingSearchResult {
     /**
      * The booking status.
      */
-    bookingStatus?: BookingSearchResult<CAP>bookingStatus</CAP>;
+    bookingStatus?: BookingSearchResultBookingStatus;
     /**
      * The type of the channel.
      */
-    channelType?: BookingSearchResult<CAP>channelType</CAP>;
+    channelType?: BookingSearchResultChannelType;
     /**
      * Indicates whether this is editable.
      */

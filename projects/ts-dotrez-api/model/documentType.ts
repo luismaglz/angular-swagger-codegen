@@ -15,7 +15,7 @@
  * The document type model.
  */
 
-    import { DocumentType<CAP>group</CAP> } from '../models/enums';
+    import { DocumentTypeGroup } from '../types/enums';
 
 export interface DocumentType { 
     /**
@@ -29,7 +29,7 @@ export interface DocumentType {
     /**
      * The document group.
      */
-    group?: DocumentType<CAP>group</CAP>;
+    group?: DocumentTypeGroup;
     /**
      * Indicates if an expiration date is required.
      */
