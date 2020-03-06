@@ -17,7 +17,7 @@ import { UserRole } from './userRole';
  * Defines a user record.
  */
 
-    import { UserRecord<CAP>status<CAP> } from '../models/enums';
+    import { UserRecord<CAP>status</CAP> } from '../models/enums';
 
 export interface UserRecord { 
     /**
@@ -39,7 +39,7 @@ export interface UserRecord {
     /**
      * The status of the user.
      */
-    status?: UserRecord<CAP>status<CAP>;
+    status?: UserRecord<CAP>status</CAP>;
     /**
      * Flag indicating if the user is allowed.
      */

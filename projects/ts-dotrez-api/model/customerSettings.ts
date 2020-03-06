@@ -15,101 +15,101 @@
  * Defines the order customers field validation levels.
  */
 
-    import { CustomerSettings<CAP>customerNumber<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>title<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>firstName<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>middleName<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>lastName<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>lineOne<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>lineTwo<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>city<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>postalCode<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>provinceState<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>countryCode<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>county<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>homePhone<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>workPhone<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>fax<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>email<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>type<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>companyName<CAP> } from '../models/enums';
-    import { CustomerSettings<CAP>birthDate<CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>customerNumber</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>title</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>firstName</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>middleName</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>lastName</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>lineOne</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>lineTwo</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>city</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>postalCode</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>provinceState</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>countryCode</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>county</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>homePhone</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>workPhone</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>fax</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>email</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>type</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>companyName</CAP> } from '../models/enums';
+    import { CustomerSettings<CAP>birthDate</CAP> } from '../models/enums';
 
 export interface CustomerSettings { 
     /**
      * The field usage for the customer number.
      */
-    customerNumber?: CustomerSettings<CAP>customerNumber<CAP>;
+    customerNumber?: CustomerSettings<CAP>customerNumber</CAP>;
     /**
      * The title field usage.
      */
-    title?: CustomerSettings<CAP>title<CAP>;
+    title?: CustomerSettings<CAP>title</CAP>;
     /**
      * The first name field usage.
      */
-    firstName?: CustomerSettings<CAP>firstName<CAP>;
+    firstName?: CustomerSettings<CAP>firstName</CAP>;
     /**
      * The middle name field usage.
      */
-    middleName?: CustomerSettings<CAP>middleName<CAP>;
+    middleName?: CustomerSettings<CAP>middleName</CAP>;
     /**
      * The last name field usage.
      */
-    lastName?: CustomerSettings<CAP>lastName<CAP>;
+    lastName?: CustomerSettings<CAP>lastName</CAP>;
     /**
      * The address line one field usage.
      */
-    lineOne?: CustomerSettings<CAP>lineOne<CAP>;
+    lineOne?: CustomerSettings<CAP>lineOne</CAP>;
     /**
      * The address line two field usage.
      */
-    lineTwo?: CustomerSettings<CAP>lineTwo<CAP>;
+    lineTwo?: CustomerSettings<CAP>lineTwo</CAP>;
     /**
      * The address city field usage.
      */
-    city?: CustomerSettings<CAP>city<CAP>;
+    city?: CustomerSettings<CAP>city</CAP>;
     /**
      * The address postal code field usage.
      */
-    postalCode?: CustomerSettings<CAP>postalCode<CAP>;
+    postalCode?: CustomerSettings<CAP>postalCode</CAP>;
     /**
      * The address province state field usage.
      */
-    provinceState?: CustomerSettings<CAP>provinceState<CAP>;
+    provinceState?: CustomerSettings<CAP>provinceState</CAP>;
     /**
      * The address country code field usage.
      */
-    countryCode?: CustomerSettings<CAP>countryCode<CAP>;
+    countryCode?: CustomerSettings<CAP>countryCode</CAP>;
     /**
      * The address county field usage.
      */
-    county?: CustomerSettings<CAP>county<CAP>;
+    county?: CustomerSettings<CAP>county</CAP>;
     /**
      * The home phone number field usage.
      */
-    homePhone?: CustomerSettings<CAP>homePhone<CAP>;
+    homePhone?: CustomerSettings<CAP>homePhone</CAP>;
     /**
      * The work phone field usage.
      */
-    workPhone?: CustomerSettings<CAP>workPhone<CAP>;
+    workPhone?: CustomerSettings<CAP>workPhone</CAP>;
     /**
      * The fax number field usage.
      */
-    fax?: CustomerSettings<CAP>fax<CAP>;
+    fax?: CustomerSettings<CAP>fax</CAP>;
     /**
      * The email address field usage.
      */
-    email?: CustomerSettings<CAP>email<CAP>;
+    email?: CustomerSettings<CAP>email</CAP>;
     /**
      * The consumer type field usage.
      */
-    type?: CustomerSettings<CAP>type<CAP>;
+    type?: CustomerSettings<CAP>type</CAP>;
     /**
      * The company name field usage.
      */
-    companyName?: CustomerSettings<CAP>companyName<CAP>;
+    companyName?: CustomerSettings<CAP>companyName</CAP>;
     /**
      * The date of birth field usage.
      */
-    birthDate?: CustomerSettings<CAP>birthDate<CAP>;
+    birthDate?: CustomerSettings<CAP>birthDate</CAP>;
 }

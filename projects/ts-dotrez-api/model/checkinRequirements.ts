@@ -17,7 +17,7 @@ import { CheckinRequirementsPassengers } from './checkinRequirementsPassengers';
  * Defines the pre checkin requirements.
  */
 
-    import { CheckinRequirements<CAP>restrictions<CAP> } from '../models/enums';
+    import { CheckinRequirements<CAP>restrictions</CAP> } from '../models/enums';
 
 export interface CheckinRequirements { 
     /**
@@ -29,5 +29,5 @@ export interface CheckinRequirements {
     /**
      *     The list of any non passenger related checkin restrictions that will restrict the desired segments to be checked in.   The checkin restriction type = ('Closed', 'NotOpened', 'PnrLocked', 'MarketingCodeShareNotAllowed', 'NotPaidInFull', 'PaymentsPending',   'PaymentsPendingCustomerAction', 'RestrictedOnAnotherSystem', 'NotAllowed', 'ApisNotAllowed', 'AppsNotAllowed', 'SegmentNotFound', 'InvalidPrice').
      */
-    restrictions?: CheckinRequirements<CAP>restrictions<CAP>;
+    restrictions?: CheckinRequirements<CAP>restrictions</CAP>;
 }

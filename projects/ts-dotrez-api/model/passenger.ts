@@ -23,7 +23,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
  * Model information representing a passenger on a journey.
  */
 
-    import { Passenger<CAP>weightCategory<CAP> } from '../models/enums';
+    import { Passenger<CAP>weightCategory</CAP> } from '../models/enums';
 
 export interface Passenger { 
     /**
@@ -81,5 +81,5 @@ export interface Passenger {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: Passenger<CAP>weightCategory<CAP>;
+    weightCategory?: Passenger<CAP>weightCategory</CAP>;
 }

@@ -16,13 +16,13 @@ import { PointOfSale } from './pointOfSale';
  * Defines a booking comment.
  */
 
-    import { BookingComment<CAP>type<CAP> } from '../models/enums';
+    import { BookingComment<CAP>type</CAP> } from '../models/enums';
 
 export interface BookingComment { 
     /**
      * Indicates where the comment will be seen.
      */
-    type?: BookingComment<CAP>type<CAP>;
+    type?: BookingComment<CAP>type</CAP>;
     /**
      * The point of sale for the comment.
      */

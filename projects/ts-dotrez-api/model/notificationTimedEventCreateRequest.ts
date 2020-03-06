@@ -15,7 +15,7 @@
  * A travel notification timed event create request.
  */
 
-    import { NotificationTimedEventCreateRequest<CAP>type<CAP> } from '../models/enums';
+    import { NotificationTimedEventCreateRequest<CAP>type</CAP> } from '../models/enums';
 
 export interface NotificationTimedEventCreateRequest { 
     /**
@@ -25,5 +25,5 @@ export interface NotificationTimedEventCreateRequest {
     /**
      * The travel notification timed event type.
      */
-    type: NotificationTimedEventCreateRequest<CAP>type<CAP>;
+    type: NotificationTimedEventCreateRequest<CAP>type</CAP>;
 }

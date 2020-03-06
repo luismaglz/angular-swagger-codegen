@@ -15,8 +15,8 @@
  * Settings for Sky Speed.
  */
 
-    import { SkySpeedSettingsv2<CAP>manifestViewDate<CAP> } from '../models/enums';
-    import { SkySpeedSettingsv2<CAP>postalCodeLookup<CAP> } from '../models/enums';
+    import { SkySpeedSettingsv2<CAP>manifestViewDate</CAP> } from '../models/enums';
+    import { SkySpeedSettingsv2<CAP>postalCodeLookup</CAP> } from '../models/enums';
 
 export interface SkySpeedSettingsv2 { 
     /**
@@ -26,7 +26,7 @@ export interface SkySpeedSettingsv2 {
     /**
      * The value to indicate what type of date to display in the SkySpeed manifest view.
      */
-    manifestViewDate?: SkySpeedSettingsv2<CAP>manifestViewDate<CAP>;
+    manifestViewDate?: SkySpeedSettingsv2<CAP>manifestViewDate</CAP>;
     /**
      * Disables outbound time when searching flights.
      */
@@ -42,7 +42,7 @@ export interface SkySpeedSettingsv2 {
     /**
      * The value to indicate the manner in which postal codes will be looked up  in SkySpeed.
      */
-    postalCodeLookup?: SkySpeedSettingsv2<CAP>postalCodeLookup<CAP>;
+    postalCodeLookup?: SkySpeedSettingsv2<CAP>postalCodeLookup</CAP>;
     /**
      * Disables return time when searching flights.
      */

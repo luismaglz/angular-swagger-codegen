@@ -16,13 +16,13 @@ import { MarketInformation } from './marketInformation';
  * The model for the data needed to identify a passenger ssr key.
  */
 
-    import { PassengerSsrKey<CAP>ssrDuration<CAP> } from '../models/enums';
+    import { PassengerSsrKey<CAP>ssrDuration</CAP> } from '../models/enums';
 
 export interface PassengerSsrKey { 
     /**
      * The length of the Ssr duration.
      */
-    ssrDuration?: PassengerSsrKey<CAP>ssrDuration<CAP>;
+    ssrDuration?: PassengerSsrKey<CAP>ssrDuration</CAP>;
     /**
      * The passenger SSR code.
      */

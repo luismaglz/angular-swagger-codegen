@@ -16,9 +16,9 @@ import { VoucherTransaction } from './voucherTransaction';
  * Voucher information. This model describes a voucher information after being queried by the voucher code.
  */
 
-    import { VoucherInformation<CAP>type<CAP> } from '../models/enums';
-    import { VoucherInformation<CAP>status<CAP> } from '../models/enums';
-    import { VoucherInformation<CAP>nameRestriction<CAP> } from '../models/enums';
+    import { VoucherInformation<CAP>type</CAP> } from '../models/enums';
+    import { VoucherInformation<CAP>status</CAP> } from '../models/enums';
+    import { VoucherInformation<CAP>nameRestriction</CAP> } from '../models/enums';
 
 export interface VoucherInformation { 
     /**
@@ -64,7 +64,7 @@ export interface VoucherInformation {
     /**
      * The voucher type.
      */
-    type?: VoucherInformation<CAP>type<CAP>;
+    type?: VoucherInformation<CAP>type</CAP>;
     /**
      * The voucher configuration code.
      */
@@ -80,7 +80,7 @@ export interface VoucherInformation {
     /**
      * The voucher status.
      */
-    status?: VoucherInformation<CAP>status<CAP>;
+    status?: VoucherInformation<CAP>status</CAP>;
     /**
      * Returns the original available amount of the voucher, converted to a foreign currency.  Used if the booking and voucher are in different currencies.
      */
@@ -96,7 +96,7 @@ export interface VoucherInformation {
     /**
      * The name restriction for the voucher.
      */
-    nameRestriction?: VoucherInformation<CAP>nameRestriction<CAP>;
+    nameRestriction?: VoucherInformation<CAP>nameRestriction</CAP>;
     /**
      * The voucher transactions.
      */

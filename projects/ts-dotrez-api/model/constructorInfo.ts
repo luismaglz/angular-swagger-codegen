@@ -13,17 +13,17 @@ import { CustomAttributeData } from './customAttributeData';
 
 
 
-    import { ConstructorInfo<CAP>memberType<CAP> } from '../models/enums';
-    import { ConstructorInfo<CAP>methodImplementationFlags<CAP> } from '../models/enums';
-    import { ConstructorInfo<CAP>attributes<CAP> } from '../models/enums';
-    import { ConstructorInfo<CAP>callingConvention<CAP> } from '../models/enums';
+    import { ConstructorInfo<CAP>memberType</CAP> } from '../models/enums';
+    import { ConstructorInfo<CAP>methodImplementationFlags</CAP> } from '../models/enums';
+    import { ConstructorInfo<CAP>attributes</CAP> } from '../models/enums';
+    import { ConstructorInfo<CAP>callingConvention</CAP> } from '../models/enums';
 
 export interface ConstructorInfo { 
-    readonly memberType?: ConstructorInfo<CAP>memberType<CAP>;
-    readonly methodImplementationFlags?: ConstructorInfo<CAP>methodImplementationFlags<CAP>;
+    readonly memberType?: ConstructorInfo<CAP>memberType</CAP>;
+    readonly methodImplementationFlags?: ConstructorInfo<CAP>methodImplementationFlags</CAP>;
     readonly methodHandle?: any;
-    readonly attributes?: ConstructorInfo<CAP>attributes<CAP>;
-    readonly callingConvention?: ConstructorInfo<CAP>callingConvention<CAP>;
+    readonly attributes?: ConstructorInfo<CAP>attributes</CAP>;
+    readonly callingConvention?: ConstructorInfo<CAP>callingConvention</CAP>;
     readonly isGenericMethodDefinition?: boolean;
     readonly containsGenericParameters?: boolean;
     readonly isGenericMethod?: boolean;

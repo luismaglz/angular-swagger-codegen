@@ -17,8 +17,8 @@ import { Name } from './name';
  * Contact model describing a primary contact information.
  */
 
-    import { ContactBase<CAP>distributionOption<CAP> } from '../models/enums';
-    import { ContactBase<CAP>notificationPreference<CAP> } from '../models/enums';
+    import { ContactBase<CAP>distributionOption</CAP> } from '../models/enums';
+    import { ContactBase<CAP>notificationPreference</CAP> } from '../models/enums';
 
 export interface ContactBase { 
     /**
@@ -44,11 +44,11 @@ export interface ContactBase {
     /**
      * The contact distribution option.
      */
-    distributionOption?: ContactBase<CAP>distributionOption<CAP>;
+    distributionOption?: ContactBase<CAP>distributionOption</CAP>;
     /**
      * The notification preference of the contact.
      */
-    notificationPreference?: ContactBase<CAP>notificationPreference<CAP>;
+    notificationPreference?: ContactBase<CAP>notificationPreference</CAP>;
     /**
      * The company name.
      */

@@ -16,7 +16,7 @@ import { Name } from './name';
  * The base class for the infant.
  */
 
-    import { InfantBase<CAP>gender<CAP> } from '../models/enums';
+    import { InfantBase<CAP>gender</CAP> } from '../models/enums';
 
 export interface InfantBase { 
     /**
@@ -26,7 +26,7 @@ export interface InfantBase {
     /**
      * The gender of the passenger.
      */
-    gender?: InfantBase<CAP>gender<CAP>;
+    gender?: InfantBase<CAP>gender</CAP>;
     /**
      * The name of the passenger.
      */

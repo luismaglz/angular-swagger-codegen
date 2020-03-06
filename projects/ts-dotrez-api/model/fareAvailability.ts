@@ -16,9 +16,9 @@ import { PassengerFareAvailability } from './passengerFareAvailability';
  * Model describing common fare availability information for an entire availability request.
  */
 
-    import { FareAvailability<CAP>fareApplicationType<CAP> } from '../models/enums';
-    import { FareAvailability<CAP>fareStatus<CAP> } from '../models/enums';
-    import { FareAvailability<CAP>inboundOutBound<CAP> } from '../models/enums';
+    import { FareAvailability<CAP>fareApplicationType</CAP> } from '../models/enums';
+    import { FareAvailability<CAP>fareStatus</CAP> } from '../models/enums';
+    import { FareAvailability<CAP>inboundOutBound</CAP> } from '../models/enums';
 
 export interface FareAvailability { 
     /**
@@ -52,7 +52,7 @@ export interface FareAvailability {
     /**
      * The type of the fare application.
      */
-    fareApplicationType?: FareAvailability<CAP>fareApplicationType<CAP>;
+    fareApplicationType?: FareAvailability<CAP>fareApplicationType</CAP>;
     /**
      * The fare class of service.
      */
@@ -64,11 +64,11 @@ export interface FareAvailability {
     /**
      * The fare status.
      */
-    fareStatus?: FareAvailability<CAP>fareStatus<CAP>;
+    fareStatus?: FareAvailability<CAP>fareStatus</CAP>;
     /**
      * The inbound and outbound.
      */
-    inboundOutBound?: FareAvailability<CAP>inboundOutBound<CAP>;
+    inboundOutBound?: FareAvailability<CAP>inboundOutBound</CAP>;
     /**
      * Gets or sets a value indicating whether this fare is an allotment marker.
      */

@@ -15,7 +15,7 @@
  * Defines a booking notification history.
  */
 
-    import { BookingNotificationHistory<CAP>eventTypeCode<CAP> } from '../models/enums';
+    import { BookingNotificationHistory<CAP>eventTypeCode</CAP> } from '../models/enums';
 
 export interface BookingNotificationHistory { 
     /**
@@ -29,7 +29,7 @@ export interface BookingNotificationHistory {
     /**
      * Event type code of the notification.
      */
-    eventTypeCode?: BookingNotificationHistory<CAP>eventTypeCode<CAP>;
+    eventTypeCode?: BookingNotificationHistory<CAP>eventTypeCode</CAP>;
     /**
      * Delivery method code of the notification.
      */

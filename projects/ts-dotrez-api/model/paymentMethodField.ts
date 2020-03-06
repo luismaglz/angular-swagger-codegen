@@ -15,11 +15,11 @@
  * The payment method field model.
  */
 
-    import { PaymentMethodField<CAP>bookingPaymentField<CAP> } from '../models/enums';
-    import { PaymentMethodField<CAP>paymentMethodType<CAP> } from '../models/enums';
-    import { PaymentMethodField<CAP>refundUiState<CAP> } from '../models/enums';
-    import { PaymentMethodField<CAP>requiredType<CAP> } from '../models/enums';
-    import { PaymentMethodField<CAP>valueType<CAP> } from '../models/enums';
+    import { PaymentMethodField<CAP>bookingPaymentField</CAP> } from '../models/enums';
+    import { PaymentMethodField<CAP>paymentMethodType</CAP> } from '../models/enums';
+    import { PaymentMethodField<CAP>refundUiState</CAP> } from '../models/enums';
+    import { PaymentMethodField<CAP>requiredType</CAP> } from '../models/enums';
+    import { PaymentMethodField<CAP>valueType</CAP> } from '../models/enums';
 
 export interface PaymentMethodField { 
     /**
@@ -29,7 +29,7 @@ export interface PaymentMethodField {
     /**
      * The field category for this payment field.
      */
-    bookingPaymentField?: PaymentMethodField<CAP>bookingPaymentField<CAP>;
+    bookingPaymentField?: PaymentMethodField<CAP>bookingPaymentField</CAP>;
     /**
      * The name of this payment field
      */
@@ -45,7 +45,7 @@ export interface PaymentMethodField {
     /**
      * The payment method type for this payment field.
      */
-    paymentMethodType?: PaymentMethodField<CAP>paymentMethodType<CAP>;
+    paymentMethodType?: PaymentMethodField<CAP>paymentMethodType</CAP>;
     /**
      * The persist data flag for this payment field.
      */
@@ -53,11 +53,11 @@ export interface PaymentMethodField {
     /**
      * The refund ui state for this payment field.
      */
-    refundUiState?: PaymentMethodField<CAP>refundUiState<CAP>;
+    refundUiState?: PaymentMethodField<CAP>refundUiState</CAP>;
     /**
      * The required type for this payment field.
      */
-    requiredType?: PaymentMethodField<CAP>requiredType<CAP>;
+    requiredType?: PaymentMethodField<CAP>requiredType</CAP>;
     /**
      * The value max length for this payment field.
      */
@@ -73,5 +73,5 @@ export interface PaymentMethodField {
     /**
      * The value type for this payment field.
      */
-    valueType?: PaymentMethodField<CAP>valueType<CAP>;
+    valueType?: PaymentMethodField<CAP>valueType</CAP>;
 }

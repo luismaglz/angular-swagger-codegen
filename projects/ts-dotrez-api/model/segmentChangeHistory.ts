@@ -17,13 +17,13 @@ import { PointOfSale } from './pointOfSale';
  * Defines a segment change history log entry.
  */
 
-    import { SegmentChangeHistory<CAP>daysOfWeek<CAP> } from '../models/enums';
+    import { SegmentChangeHistory<CAP>daysOfWeek</CAP> } from '../models/enums';
 
 export interface SegmentChangeHistory { 
     /**
      * The days of the week of the operation.
      */
-    daysOfWeek?: SegmentChangeHistory<CAP>daysOfWeek<CAP>;
+    daysOfWeek?: SegmentChangeHistory<CAP>daysOfWeek</CAP>;
     /**
      * The segment number.
      */

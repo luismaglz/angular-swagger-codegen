@@ -15,7 +15,7 @@
  * The delay model.
  */
 
-    import { Delay<CAP>delayType<CAP> } from '../models/enums';
+    import { Delay<CAP>delayType</CAP> } from '../models/enums';
 
 export interface Delay { 
     /**
@@ -25,7 +25,7 @@ export interface Delay {
     /**
      * The delay type.
      */
-    delayType?: Delay<CAP>delayType<CAP>;
+    delayType?: Delay<CAP>delayType</CAP>;
     /**
      * The Name.
      */

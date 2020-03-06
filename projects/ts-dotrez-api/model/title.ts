@@ -15,8 +15,8 @@
  * The Title.
  */
 
-    import { Title<CAP>gender<CAP> } from '../models/enums';
-    import { Title<CAP>weightCategory<CAP> } from '../models/enums';
+    import { Title<CAP>gender</CAP> } from '../models/enums';
+    import { Title<CAP>weightCategory</CAP> } from '../models/enums';
 
 export interface Title { 
     /**
@@ -30,11 +30,11 @@ export interface Title {
     /**
      * The gender.
      */
-    gender?: Title<CAP>gender<CAP>;
+    gender?: Title<CAP>gender</CAP>;
     /**
      * The weight category.
      */
-    weightCategory?: Title<CAP>weightCategory<CAP>;
+    weightCategory?: Title<CAP>weightCategory</CAP>;
     /**
      * The InActive.
      */

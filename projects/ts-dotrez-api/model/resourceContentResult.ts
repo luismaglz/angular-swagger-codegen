@@ -15,7 +15,7 @@
  * Model representing a resource content item.
  */
 
-    import { ResourceContentResult<CAP>type<CAP> } from '../models/enums';
+    import { ResourceContentResult<CAP>type</CAP> } from '../models/enums';
 
 export interface ResourceContentResult { 
     /**
@@ -33,5 +33,5 @@ export interface ResourceContentResult {
     /**
      * Specific content type.
      */
-    type?: ResourceContentResult<CAP>type<CAP>;
+    type?: ResourceContentResult<CAP>type</CAP>;
 }

@@ -15,8 +15,8 @@
  * Settings for creating agencies.
  */
 
-    import { AgencyCreationSettings<CAP>channelType<CAP> } from '../models/enums';
-    import { AgencyCreationSettings<CAP>phoneType<CAP> } from '../models/enums';
+    import { AgencyCreationSettings<CAP>channelType</CAP> } from '../models/enums';
+    import { AgencyCreationSettings<CAP>phoneType</CAP> } from '../models/enums';
 
 export interface AgencyCreationSettings { 
     /**
@@ -42,7 +42,7 @@ export interface AgencyCreationSettings {
     /**
      * The default channel type for new agency.
      */
-    channelType?: AgencyCreationSettings<CAP>channelType<CAP>;
+    channelType?: AgencyCreationSettings<CAP>channelType</CAP>;
     /**
      * The default notification email address for new agency.
      */
@@ -54,5 +54,5 @@ export interface AgencyCreationSettings {
     /**
      * The default phone type for the new agency.
      */
-    phoneType?: AgencyCreationSettings<CAP>phoneType<CAP>;
+    phoneType?: AgencyCreationSettings<CAP>phoneType</CAP>;
 }

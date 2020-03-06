@@ -16,7 +16,7 @@ import { PassengerSearchCriteria } from './passengerSearchCriteria';
  * Model representing a low fare availability search simple request.
  */
 
-    import { LowFareAvailabilitySearchSimpleRequest<CAP>loyaltyFilter<CAP> } from '../models/enums';
+    import { LowFareAvailabilitySearchSimpleRequest<CAP>loyaltyFilter</CAP> } from '../models/enums';
 
 export interface LowFareAvailabilitySearchSimpleRequest { 
     /**
@@ -50,7 +50,7 @@ export interface LowFareAvailabilitySearchSimpleRequest {
     /**
      * The loyalty fare filter.
      */
-    loyaltyFilter?: LowFareAvailabilitySearchSimpleRequest<CAP>loyaltyFilter<CAP>;
+    loyaltyFilter?: LowFareAvailabilitySearchSimpleRequest<CAP>loyaltyFilter</CAP>;
     /**
      * The number of days to subtract from the begin/end date.
      */

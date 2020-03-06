@@ -15,20 +15,20 @@ import { ParameterInfo } from './parameterInfo';
 
 
 
-    import { MethodInfo<CAP>memberType<CAP> } from '../models/enums';
-    import { MethodInfo<CAP>methodImplementationFlags<CAP> } from '../models/enums';
-    import { MethodInfo<CAP>attributes<CAP> } from '../models/enums';
-    import { MethodInfo<CAP>callingConvention<CAP> } from '../models/enums';
+    import { MethodInfo<CAP>memberType</CAP> } from '../models/enums';
+    import { MethodInfo<CAP>methodImplementationFlags</CAP> } from '../models/enums';
+    import { MethodInfo<CAP>attributes</CAP> } from '../models/enums';
+    import { MethodInfo<CAP>callingConvention</CAP> } from '../models/enums';
 
 export interface MethodInfo { 
-    readonly memberType?: MethodInfo<CAP>memberType<CAP>;
+    readonly memberType?: MethodInfo<CAP>memberType</CAP>;
     readonly returnType?: string;
     readonly returnParameter?: ParameterInfo;
     readonly returnTypeCustomAttributes?: ICustomAttributeProvider;
-    readonly methodImplementationFlags?: MethodInfo<CAP>methodImplementationFlags<CAP>;
+    readonly methodImplementationFlags?: MethodInfo<CAP>methodImplementationFlags</CAP>;
     readonly methodHandle?: any;
-    readonly attributes?: MethodInfo<CAP>attributes<CAP>;
-    readonly callingConvention?: MethodInfo<CAP>callingConvention<CAP>;
+    readonly attributes?: MethodInfo<CAP>attributes</CAP>;
+    readonly callingConvention?: MethodInfo<CAP>callingConvention</CAP>;
     readonly isGenericMethodDefinition?: boolean;
     readonly containsGenericParameters?: boolean;
     readonly isGenericMethod?: boolean;

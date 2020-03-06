@@ -16,8 +16,8 @@ import { BaggageUsageDetails } from './baggageUsageDetails';
  * Defines a baggage allowance.
  */
 
-    import { BaggageAllowance<CAP>behavior<CAP> } from '../models/enums';
-    import { BaggageAllowance<CAP>weightType<CAP> } from '../models/enums';
+    import { BaggageAllowance<CAP>behavior</CAP> } from '../models/enums';
+    import { BaggageAllowance<CAP>weightType</CAP> } from '../models/enums';
 
 export interface BaggageAllowance { 
     /**
@@ -39,7 +39,7 @@ export interface BaggageAllowance {
     /**
      * The allowance behavior.
      */
-    behavior?: BaggageAllowance<CAP>behavior<CAP>;
+    behavior?: BaggageAllowance<CAP>behavior</CAP>;
     /**
      * The list of baggage type codes.
      */
@@ -59,7 +59,7 @@ export interface BaggageAllowance {
     /**
      * The weight type for MaximumWeightPerPiece and TotalWeight.
      */
-    weightType?: BaggageAllowance<CAP>weightType<CAP>;
+    weightType?: BaggageAllowance<CAP>weightType</CAP>;
     /**
      * The associated baggage usage details.
      */

@@ -15,14 +15,14 @@
  * Manifest Comment.
  */
 
-    import { ManifestComment<CAP>commentType<CAP> } from '../models/enums';
-    import { ManifestComment<CAP>systemName<CAP> } from '../models/enums';
+    import { ManifestComment<CAP>commentType</CAP> } from '../models/enums';
+    import { ManifestComment<CAP>systemName</CAP> } from '../models/enums';
 
 export interface ManifestComment { 
     /**
      * The comment type.
      */
-    commentType?: ManifestComment<CAP>commentType<CAP>;
+    commentType?: ManifestComment<CAP>commentType</CAP>;
     /**
      * The agentID.
      */
@@ -46,5 +46,5 @@ export interface ManifestComment {
     /**
      * The system type.
      */
-    systemName?: ManifestComment<CAP>systemName<CAP>;
+    systemName?: ManifestComment<CAP>systemName</CAP>;
 }

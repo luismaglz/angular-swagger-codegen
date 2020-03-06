@@ -16,13 +16,13 @@ import { UserCodes } from './userCodes';
  * Defines the user request.
  */
 
-    import { UserRequest<CAP>status<CAP> } from '../models/enums';
+    import { UserRequest<CAP>status</CAP> } from '../models/enums';
 
 export interface UserRequest { 
     /**
      * The status of the account.
      */
-    status?: UserRequest<CAP>status<CAP>;
+    status?: UserRequest<CAP>status</CAP>;
     /**
      * The unique username.
      */

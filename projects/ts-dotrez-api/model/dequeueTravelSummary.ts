@@ -17,8 +17,8 @@ import { TravelSummary } from './travelSummary';
  * Represents an travel entry when dequeued.
  */
 
-    import { DequeueTravelSummary<CAP>processStatus<CAP> } from '../models/enums';
-    import { DequeueTravelSummary<CAP>processState<CAP> } from '../models/enums';
+    import { DequeueTravelSummary<CAP>processStatus</CAP> } from '../models/enums';
+    import { DequeueTravelSummary<CAP>processState</CAP> } from '../models/enums';
 
 export interface DequeueTravelSummary { 
     /**
@@ -36,7 +36,7 @@ export interface DequeueTravelSummary {
     /**
      * Process status.
      */
-    processStatus?: DequeueTravelSummary<CAP>processStatus<CAP>;
+    processStatus?: DequeueTravelSummary<CAP>processStatus</CAP>;
     /**
      * Notes.
      */
@@ -44,7 +44,7 @@ export interface DequeueTravelSummary {
     /**
      * Process state.
      */
-    processState?: DequeueTravelSummary<CAP>processState<CAP>;
+    processState?: DequeueTravelSummary<CAP>processState</CAP>;
     /**
      * Priority code.
      */

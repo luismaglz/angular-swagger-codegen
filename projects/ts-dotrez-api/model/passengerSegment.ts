@@ -23,9 +23,9 @@ import { Ticket } from './ticket';
  * Model data for the passenger on the booking for the specific segment.
  */
 
-    import { PassengerSegment<CAP>baggageAllowanceWeightType<CAP> } from '../models/enums';
-    import { PassengerSegment<CAP>liftStatus<CAP> } from '../models/enums';
-    import { PassengerSegment<CAP>overBookIndicator<CAP> } from '../models/enums';
+    import { PassengerSegment<CAP>baggageAllowanceWeightType</CAP> } from '../models/enums';
+    import { PassengerSegment<CAP>liftStatus</CAP> } from '../models/enums';
+    import { PassengerSegment<CAP>overBookIndicator</CAP> } from '../models/enums';
 
 export interface PassengerSegment { 
     /**
@@ -51,7 +51,7 @@ export interface PassengerSegment {
     /**
      * The type of passenger segment baggage allowance weight.
      */
-    baggageAllowanceWeightType?: PassengerSegment<CAP>baggageAllowanceWeightType<CAP>;
+    baggageAllowanceWeightType?: PassengerSegment<CAP>baggageAllowanceWeightType</CAP>;
     /**
      * The passenger segment boarding sequence.
      */
@@ -63,7 +63,7 @@ export interface PassengerSegment {
     /**
      * The lift status.
      */
-    liftStatus?: PassengerSegment<CAP>liftStatus<CAP>;
+    liftStatus?: PassengerSegment<CAP>liftStatus</CAP>;
     /**
      * The modified date.
      */
@@ -71,7 +71,7 @@ export interface PassengerSegment {
     /**
      * The over book indicator.
      */
-    overBookIndicator?: PassengerSegment<CAP>overBookIndicator<CAP>;
+    overBookIndicator?: PassengerSegment<CAP>overBookIndicator</CAP>;
     /**
      * The priority date.
      */

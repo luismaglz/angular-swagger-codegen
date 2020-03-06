@@ -15,7 +15,7 @@
  * Model for a shopping attribute.
  */
 
-    import { ShoppingAttribute<CAP>shoppingAttributeType<CAP> } from '../models/enums';
+    import { ShoppingAttribute<CAP>shoppingAttributeType</CAP> } from '../models/enums';
 
 export interface ShoppingAttribute { 
     /**
@@ -41,5 +41,5 @@ export interface ShoppingAttribute {
     /**
      * Gets or sets the type of this shopping attribute.
      */
-    shoppingAttributeType?: ShoppingAttribute<CAP>shoppingAttributeType<CAP>;
+    shoppingAttributeType?: ShoppingAttribute<CAP>shoppingAttributeType</CAP>;
 }

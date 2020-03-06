@@ -16,8 +16,8 @@ import { PassengerFareAvailability } from './passengerFareAvailability';
  * The fare availability represents a master fare reference with all the fare details.
  */
 
-    import { FareAvailabilityv2<CAP>fareApplicationType<CAP> } from '../models/enums';
-    import { FareAvailabilityv2<CAP>fareStatus<CAP> } from '../models/enums';
+    import { FareAvailabilityv2<CAP>fareApplicationType</CAP> } from '../models/enums';
+    import { FareAvailabilityv2<CAP>fareStatus</CAP> } from '../models/enums';
 
 export interface FareAvailabilityv2 { 
     /**
@@ -39,11 +39,11 @@ export interface FareAvailabilityv2 {
     /**
      * The fare application type.
      */
-    fareApplicationType?: FareAvailabilityv2<CAP>fareApplicationType<CAP>;
+    fareApplicationType?: FareAvailabilityv2<CAP>fareApplicationType</CAP>;
     /**
      * The fare status.
      */
-    fareStatus?: FareAvailabilityv2<CAP>fareStatus<CAP>;
+    fareStatus?: FareAvailabilityv2<CAP>fareStatus</CAP>;
     /**
      * The fare product class.
      */

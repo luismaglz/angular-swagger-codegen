@@ -16,8 +16,8 @@ import { MarketInformation } from './marketInformation';
  * Model representing the travel queue item without a unique key.
  */
 
-    import { TravelQueueItemBase<CAP>processStatus<CAP> } from '../models/enums';
-    import { TravelQueueItemBase<CAP>processState<CAP> } from '../models/enums';
+    import { TravelQueueItemBase<CAP>processStatus</CAP> } from '../models/enums';
+    import { TravelQueueItemBase<CAP>processState</CAP> } from '../models/enums';
 
 export interface TravelQueueItemBase { 
     /**
@@ -27,7 +27,7 @@ export interface TravelQueueItemBase {
     /**
      * Process status.
      */
-    processStatus?: TravelQueueItemBase<CAP>processStatus<CAP>;
+    processStatus?: TravelQueueItemBase<CAP>processStatus</CAP>;
     /**
      * Notes.
      */
@@ -35,7 +35,7 @@ export interface TravelQueueItemBase {
     /**
      * Process state.
      */
-    processState?: TravelQueueItemBase<CAP>processState<CAP>;
+    processState?: TravelQueueItemBase<CAP>processState</CAP>;
     /**
      * Priority code.
      */

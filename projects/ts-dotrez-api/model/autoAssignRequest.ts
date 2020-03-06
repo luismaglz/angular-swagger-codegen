@@ -16,8 +16,8 @@ import { SeatPreferences } from './seatPreferences';
  * Defines the auto assign seat request.
  */
 
-    import { AutoAssignRequest<CAP>inventoryControl<CAP> } from '../models/enums';
-    import { AutoAssignRequest<CAP>seatAssignmentMode<CAP> } from '../models/enums';
+    import { AutoAssignRequest<CAP>inventoryControl</CAP> } from '../models/enums';
+    import { AutoAssignRequest<CAP>seatAssignmentMode</CAP> } from '../models/enums';
 
 export interface AutoAssignRequest { 
     /**
@@ -35,9 +35,9 @@ export interface AutoAssignRequest {
     /**
      * Indicates the type of hold placed on a unit.
      */
-    inventoryControl?: AutoAssignRequest<CAP>inventoryControl<CAP>;
+    inventoryControl?: AutoAssignRequest<CAP>inventoryControl</CAP>;
     /**
      * The seat assignment mode.
      */
-    seatAssignmentMode?: AutoAssignRequest<CAP>seatAssignmentMode<CAP>;
+    seatAssignmentMode?: AutoAssignRequest<CAP>seatAssignmentMode</CAP>;
 }

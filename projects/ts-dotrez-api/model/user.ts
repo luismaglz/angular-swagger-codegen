@@ -18,7 +18,7 @@ import { UserSetting } from './userSetting';
  * Defines a unique user.
  */
 
-    import { User<CAP>status<CAP> } from '../models/enums';
+    import { User<CAP>status</CAP> } from '../models/enums';
 
 export interface User { 
     /**
@@ -32,7 +32,7 @@ export interface User {
     /**
      * The status of the account.
      */
-    status?: User<CAP>status<CAP>;
+    status?: User<CAP>status</CAP>;
     /**
      * The unque person key associated to the user.
      */

@@ -15,13 +15,13 @@
  * Defines the user role edit request.
  */
 
-    import { UserRoleEditRequest<CAP>effectiveDays<CAP> } from '../models/enums';
+    import { UserRoleEditRequest<CAP>effectiveDays</CAP> } from '../models/enums';
 
 export interface UserRoleEditRequest { 
     /**
      * The days the role is effective.
      */
-    effectiveDays?: UserRoleEditRequest<CAP>effectiveDays<CAP>;
+    effectiveDays?: UserRoleEditRequest<CAP>effectiveDays</CAP>;
     /**
      * The date the role is effective after.
      */

@@ -25,6 +25,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "replace": "replace-in-file --configFile=script-config/convert-to-dictionary",
+    "capitalize": "replace-in-file --configFile=script-config/capitalize",
     "pretty": "prettier --write ./projects/dotrez-api/src/lib/model/*.ts",
     "build:dotrez-api": "ng build dotrez-api",
     "config:angular": "java -jar ./swagger-gen/swagger-codegen-cli.jar config-help -l typescript-angular",

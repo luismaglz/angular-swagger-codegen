@@ -16,7 +16,7 @@ import { Name } from './name';
  * The passenger seat assignment model.
  */
 
-    import { PassengerSeatAssignment<CAP>liftStatus<CAP> } from '../models/enums';
+    import { PassengerSeatAssignment<CAP>liftStatus</CAP> } from '../models/enums';
 
 export interface PassengerSeatAssignment { 
     /**
@@ -54,7 +54,7 @@ export interface PassengerSeatAssignment {
     /**
      * The status of the flight leg.  It indicates whether the coupon has been used, and  if the passenger has been checked in, has boarded the flight or not.
      */
-    liftStatus?: PassengerSeatAssignment<CAP>liftStatus<CAP>;
+    liftStatus?: PassengerSeatAssignment<CAP>liftStatus</CAP>;
     /**
      * The ticket type of the passenger.
      */

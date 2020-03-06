@@ -17,7 +17,7 @@ import { ParticipantCriteria } from './participantCriteria';
  * Defines the query for generic travel commerce activities.
  */
 
-    import { ActivitySimpleRequest<CAP>sort<CAP> } from '../models/enums';
+    import { ActivitySimpleRequest<CAP>sort</CAP> } from '../models/enums';
 
 export interface ActivitySimpleRequest { 
     /**
@@ -51,7 +51,7 @@ export interface ActivitySimpleRequest {
     /**
      * The search sort order.
      */
-    sort?: ActivitySimpleRequest<CAP>sort<CAP>;
+    sort?: ActivitySimpleRequest<CAP>sort</CAP>;
     /**
      * The promotion code with which to search.
      */

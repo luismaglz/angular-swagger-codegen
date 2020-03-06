@@ -22,10 +22,10 @@ import { ThreeDSecure } from './threeDSecure';
  * Defines an applied payment on the booking.
  */
 
-    import { Payment<CAP>authorizationStatus<CAP> } from '../models/enums';
-    import { Payment<CAP>type<CAP> } from '../models/enums';
-    import { Payment<CAP>status<CAP> } from '../models/enums';
-    import { Payment<CAP>channelType<CAP> } from '../models/enums';
+    import { Payment<CAP>authorizationStatus</CAP> } from '../models/enums';
+    import { Payment<CAP>type</CAP> } from '../models/enums';
+    import { Payment<CAP>status</CAP> } from '../models/enums';
+    import { Payment<CAP>channelType</CAP> } from '../models/enums';
 
 export interface Payment { 
     /**
@@ -55,7 +55,7 @@ export interface Payment {
     /**
      * The real payment status that should never be exposed to the end user unless a agent.
      */
-    authorizationStatus?: Payment<CAP>authorizationStatus<CAP>;
+    authorizationStatus?: Payment<CAP>authorizationStatus</CAP>;
     /**
      * The date restriction for a payment (when funds will be there).
      */
@@ -87,11 +87,11 @@ export interface Payment {
     /**
      * The payment method type.
      */
-    type?: Payment<CAP>type<CAP>;
+    type?: Payment<CAP>type</CAP>;
     /**
      * The status of the booking (this is the safe status).
      */
-    status?: Payment<CAP>status<CAP>;
+    status?: Payment<CAP>status</CAP>;
     /**
      * Flag that indicates if the payment is a result of a divide.
      */
@@ -99,7 +99,7 @@ export interface Payment {
     /**
      * The channel type that the payment was made through.
      */
-    channelType?: Payment<CAP>channelType<CAP>;
+    channelType?: Payment<CAP>channelType</CAP>;
     /**
      * The payments point of sale information.
      */

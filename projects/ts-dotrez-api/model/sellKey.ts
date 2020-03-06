@@ -15,7 +15,7 @@
  * Sell key represents the journey and the fare sell keys to combine to what journey and fare will be sold.
  */
 
-    import { SellKey<CAP>inventoryControl<CAP> } from '../models/enums';
+    import { SellKey<CAP>inventoryControl</CAP> } from '../models/enums';
 
 export interface SellKey { 
     /**
@@ -33,5 +33,5 @@ export interface SellKey {
     /**
      * The reserving inventory action of the journey once sold by the system.
      */
-    inventoryControl?: SellKey<CAP>inventoryControl<CAP>;
+    inventoryControl?: SellKey<CAP>inventoryControl</CAP>;
 }

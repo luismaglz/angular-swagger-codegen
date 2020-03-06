@@ -18,8 +18,8 @@ import { PassengerTypeCriteria } from './passengerTypeCriteria';
  * Model representing an availability simple request v2.
  */
 
-    import { AvailabilitySimpleRequestv2<CAP>taxesAndFees<CAP> } from '../models/enums';
-    import { AvailabilitySimpleRequestv2<CAP>ssrCollectionsMode<CAP> } from '../models/enums';
+    import { AvailabilitySimpleRequestv2<CAP>taxesAndFees</CAP> } from '../models/enums';
+    import { AvailabilitySimpleRequestv2<CAP>ssrCollectionsMode</CAP> } from '../models/enums';
 
 export interface AvailabilitySimpleRequestv2 { 
     /**
@@ -61,7 +61,7 @@ export interface AvailabilitySimpleRequestv2 {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: AvailabilitySimpleRequestv2<CAP>taxesAndFees<CAP>;
+    taxesAndFees?: AvailabilitySimpleRequestv2<CAP>taxesAndFees</CAP>;
     /**
      * Used to validate that the low fare prices retrieved from the low fare endpoint is valid.
      */
@@ -69,7 +69,7 @@ export interface AvailabilitySimpleRequestv2 {
     /**
      * Determines if SSR nest information will be returned on the legs for each available journey segments.
      */
-    ssrCollectionsMode?: AvailabilitySimpleRequestv2<CAP>ssrCollectionsMode<CAP>;
+    ssrCollectionsMode?: AvailabilitySimpleRequestv2<CAP>ssrCollectionsMode</CAP>;
     /**
      * The number of fares per journey to be returned. If not set it will use the default optimized values
      */

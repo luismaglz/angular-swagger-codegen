@@ -12,8 +12,8 @@
 
 
 
-    import { CodesSettingsPaymentFieldOverrides_<CAP><CAP> } from '../models/enums';
+    import { CodesSettingsPaymentFieldOverrides_<CAP></CAP> } from '../models/enums';
 
 export interface CodesSettingsPaymentFieldOverrides_ { 
-    ?: CodesSettingsPaymentFieldOverrides_<CAP><CAP>;
+    ?: CodesSettingsPaymentFieldOverrides_<CAP></CAP>;
 }

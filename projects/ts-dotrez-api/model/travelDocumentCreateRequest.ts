@@ -16,7 +16,7 @@ import { Name } from './name';
  * Defines a create travel documents request.
  */
 
-    import { TravelDocumentCreateRequest<CAP>gender<CAP> } from '../models/enums';
+    import { TravelDocumentCreateRequest<CAP>gender</CAP> } from '../models/enums';
 
 export interface TravelDocumentCreateRequest { 
     /**
@@ -54,7 +54,7 @@ export interface TravelDocumentCreateRequest {
     /**
      * The travel document holder's gender.
      */
-    gender?: TravelDocumentCreateRequest<CAP>gender<CAP>;
+    gender?: TravelDocumentCreateRequest<CAP>gender</CAP>;
     /**
      * The person's date of birth.
      */

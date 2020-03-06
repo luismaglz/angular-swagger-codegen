@@ -16,13 +16,13 @@ import { ServiceCharge } from './serviceCharge';
  * Model representing passenger fee information.
  */
 
-    import { PassengerFee<CAP>type<CAP> } from '../models/enums';
+    import { PassengerFee<CAP>type</CAP> } from '../models/enums';
 
 export interface PassengerFee { 
     /**
      * The fee type.
      */
-    type?: PassengerFee<CAP>type<CAP>;
+    type?: PassengerFee<CAP>type</CAP>;
     /**
      * The SSR code.
      */

@@ -19,7 +19,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
  * Represents a boarding pass passenger detail base, containing all the important passenger details for the boarding  pass.
  */
 
-    import { BoardingPassPassengerDetailsBase<CAP>gender<CAP> } from '../models/enums';
+    import { BoardingPassPassengerDetailsBase<CAP>gender</CAP> } from '../models/enums';
 
 export interface BoardingPassPassengerDetailsBase { 
     /**
@@ -53,7 +53,7 @@ export interface BoardingPassPassengerDetailsBase {
     /**
      * The gender.
      */
-    gender?: BoardingPassPassengerDetailsBase<CAP>gender<CAP>;
+    gender?: BoardingPassPassengerDetailsBase<CAP>gender</CAP>;
     /**
      * The passengers infant details if an infant exists.
      */

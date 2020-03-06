@@ -23,8 +23,8 @@ import { Term } from './term';
  * Defines a product order.
  */
 
-    import { QuotedOrder<CAP>type<CAP> } from '../models/enums';
-    import { QuotedOrder<CAP>paymentAction<CAP> } from '../models/enums';
+    import { QuotedOrder<CAP>type</CAP> } from '../models/enums';
+    import { QuotedOrder<CAP>paymentAction</CAP> } from '../models/enums';
 
 export interface QuotedOrder { 
     /**
@@ -38,7 +38,7 @@ export interface QuotedOrder {
     /**
      * The product type code.
      */
-    type?: QuotedOrder<CAP>type<CAP>;
+    type?: QuotedOrder<CAP>type</CAP>;
     /**
      * Flag indicating if the order is active.
      */
@@ -102,7 +102,7 @@ export interface QuotedOrder {
     /**
      * The payment action.
      */
-    paymentAction?: QuotedOrder<CAP>paymentAction<CAP>;
+    paymentAction?: QuotedOrder<CAP>paymentAction</CAP>;
     /**
      * The pricing breakdown.
      */

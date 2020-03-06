@@ -15,8 +15,8 @@
  * Defines update seat request.
  */
 
-    import { AddSeatRequest<CAP>inventoryControl<CAP> } from '../models/enums';
-    import { AddSeatRequest<CAP>seatAssignmentMode<CAP> } from '../models/enums';
+    import { AddSeatRequest<CAP>inventoryControl</CAP> } from '../models/enums';
+    import { AddSeatRequest<CAP>seatAssignmentMode</CAP> } from '../models/enums';
 
 export interface AddSeatRequest { 
     journeyKey?: string;
@@ -31,7 +31,7 @@ export interface AddSeatRequest {
     /**
      * Indicates the type of hold placed on a unit.
      */
-    inventoryControl?: AddSeatRequest<CAP>inventoryControl<CAP>;
+    inventoryControl?: AddSeatRequest<CAP>inventoryControl</CAP>;
     /**
      * Flag indicating whether to ignore seat SSR's.
      */
@@ -39,5 +39,5 @@ export interface AddSeatRequest {
     /**
      * The seat assignment mode.
      */
-    seatAssignmentMode?: AddSeatRequest<CAP>seatAssignmentMode<CAP>;
+    seatAssignmentMode?: AddSeatRequest<CAP>seatAssignmentMode</CAP>;
 }

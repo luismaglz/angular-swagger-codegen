@@ -18,8 +18,8 @@ import { OrganizationConfigurationv2 } from './organizationConfigurationv2';
  * The base data on the organization.
  */
 
-    import { OrganizationEditRequest<CAP>type<CAP> } from '../models/enums';
-    import { OrganizationEditRequest<CAP>status<CAP> } from '../models/enums';
+    import { OrganizationEditRequest<CAP>type</CAP> } from '../models/enums';
+    import { OrganizationEditRequest<CAP>status</CAP> } from '../models/enums';
 
 export interface OrganizationEditRequest { 
     /**
@@ -37,7 +37,7 @@ export interface OrganizationEditRequest {
     /**
      * Organization type.
      */
-    type?: OrganizationEditRequest<CAP>type<CAP>;
+    type?: OrganizationEditRequest<CAP>type</CAP>;
     /**
      * Advanced configuration values.
      */
@@ -45,7 +45,7 @@ export interface OrganizationEditRequest {
     /**
      * The organization status.
      */
-    status?: OrganizationEditRequest<CAP>status<CAP>;
+    status?: OrganizationEditRequest<CAP>status</CAP>;
     /**
      * The parent organization code.
      */

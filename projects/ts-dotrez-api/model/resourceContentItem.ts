@@ -15,8 +15,8 @@
  * Model representing a resource content item.
  */
 
-    import { ResourceContentItem<CAP>type<CAP> } from '../models/enums';
-    import { ResourceContentItem<CAP>dataType<CAP> } from '../models/enums';
+    import { ResourceContentItem<CAP>type</CAP> } from '../models/enums';
+    import { ResourceContentItem<CAP>dataType</CAP> } from '../models/enums';
 
 export interface ResourceContentItem { 
     /**
@@ -42,11 +42,11 @@ export interface ResourceContentItem {
     /**
      * Specific content type.
      */
-    type?: ResourceContentItem<CAP>type<CAP>;
+    type?: ResourceContentItem<CAP>type</CAP>;
     /**
      * Content data type.
      */
-    dataType?: ResourceContentItem<CAP>dataType<CAP>;
+    dataType?: ResourceContentItem<CAP>dataType</CAP>;
     /**
      * Data bytes.
      */

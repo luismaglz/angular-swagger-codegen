@@ -15,13 +15,13 @@
  * The reminder time for a notification timed event.
  */
 
-    import { ReminderTime<CAP>type<CAP> } from '../models/enums';
+    import { ReminderTime<CAP>type</CAP> } from '../models/enums';
 
 export interface ReminderTime { 
     /**
      * The notification timed event type.
      */
-    type?: ReminderTime<CAP>type<CAP>;
+    type?: ReminderTime<CAP>type</CAP>;
     /**
      * The list of acceptable reminder times.
      */

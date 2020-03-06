@@ -15,16 +15,16 @@
  * The voucher market restriction model.
  */
 
-    import { VoucherMarketRestriction<CAP>restrictionType<CAP> } from '../models/enums';
-    import { VoucherMarketRestriction<CAP>directionality<CAP> } from '../models/enums';
-    import { VoucherMarketRestriction<CAP>regionType<CAP> } from '../models/enums';
-    import { VoucherMarketRestriction<CAP>travelRegionType<CAP> } from '../models/enums';
+    import { VoucherMarketRestriction<CAP>restrictionType</CAP> } from '../models/enums';
+    import { VoucherMarketRestriction<CAP>directionality</CAP> } from '../models/enums';
+    import { VoucherMarketRestriction<CAP>regionType</CAP> } from '../models/enums';
+    import { VoucherMarketRestriction<CAP>travelRegionType</CAP> } from '../models/enums';
 
 export interface VoucherMarketRestriction { 
     /**
      * The market restriction type.
      */
-    restrictionType?: VoucherMarketRestriction<CAP>restrictionType<CAP>;
+    restrictionType?: VoucherMarketRestriction<CAP>restrictionType</CAP>;
     /**
      * The voucher configuration code.
      */
@@ -32,7 +32,7 @@ export interface VoucherMarketRestriction {
     /**
      * The directionality of the voucher market restriction.
      */
-    directionality?: VoucherMarketRestriction<CAP>directionality<CAP>;
+    directionality?: VoucherMarketRestriction<CAP>directionality</CAP>;
     /**
      * The sequence number of the voucher restriction.
      */
@@ -40,7 +40,7 @@ export interface VoucherMarketRestriction {
     /**
      * The region type.
      */
-    regionType?: VoucherMarketRestriction<CAP>regionType<CAP>;
+    regionType?: VoucherMarketRestriction<CAP>regionType</CAP>;
     /**
      * The region code.
      */
@@ -48,7 +48,7 @@ export interface VoucherMarketRestriction {
     /**
      * The travel region type.
      */
-    travelRegionType?: VoucherMarketRestriction<CAP>travelRegionType<CAP>;
+    travelRegionType?: VoucherMarketRestriction<CAP>travelRegionType</CAP>;
     /**
      * The travel region code.
      */

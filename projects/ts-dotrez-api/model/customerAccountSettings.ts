@@ -15,22 +15,22 @@
  * The booking customer account settings.
  */
 
-    import { CustomerAccountSettings<CAP>customerAccessControl<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>defaultCustomerNotificationPreference<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>defaultSeatPreference<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerAddress<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerCurrency<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerDateOfBirth<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerEmail<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerFax<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerLanguage<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerNationality<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerNotificationPreference<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerPayment<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerPhone<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerResidentCountry<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerTitle<CAP> } from '../models/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerType<CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>customerAccessControl</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>defaultCustomerNotificationPreference</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>defaultSeatPreference</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerAddress</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerCurrency</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerDateOfBirth</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerEmail</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerFax</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerLanguage</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerNationality</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerNotificationPreference</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerPayment</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerPhone</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerResidentCountry</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerTitle</CAP> } from '../models/enums';
+    import { CustomerAccountSettings<CAP>disableCustomerType</CAP> } from '../models/enums';
 
 export interface CustomerAccountSettings { 
     /**
@@ -48,65 +48,65 @@ export interface CustomerAccountSettings {
     /**
      * The restriction/permissions allowed by the current role.
      */
-    customerAccessControl?: CustomerAccountSettings<CAP>customerAccessControl<CAP>;
+    customerAccessControl?: CustomerAccountSettings<CAP>customerAccessControl</CAP>;
     /**
      * The default notification preferences of the customer.
      */
-    defaultCustomerNotificationPreference?: CustomerAccountSettings<CAP>defaultCustomerNotificationPreference<CAP>;
+    defaultCustomerNotificationPreference?: CustomerAccountSettings<CAP>defaultCustomerNotificationPreference</CAP>;
     /**
      * The default seat preferences of the customer.
      */
-    defaultSeatPreference?: CustomerAccountSettings<CAP>defaultSeatPreference<CAP>;
+    defaultSeatPreference?: CustomerAccountSettings<CAP>defaultSeatPreference</CAP>;
     /**
      * The restrictions on the customer address fields.
      */
-    disableCustomerAddress?: CustomerAccountSettings<CAP>disableCustomerAddress<CAP>;
+    disableCustomerAddress?: CustomerAccountSettings<CAP>disableCustomerAddress</CAP>;
     /**
      * The restrictions on the customer currency fields.
      */
-    disableCustomerCurrency?: CustomerAccountSettings<CAP>disableCustomerCurrency<CAP>;
+    disableCustomerCurrency?: CustomerAccountSettings<CAP>disableCustomerCurrency</CAP>;
     /**
      * The restrictions on the customer date of birth fields.
      */
-    disableCustomerDateOfBirth?: CustomerAccountSettings<CAP>disableCustomerDateOfBirth<CAP>;
+    disableCustomerDateOfBirth?: CustomerAccountSettings<CAP>disableCustomerDateOfBirth</CAP>;
     /**
      * The restrictions on the customer email fields.
      */
-    disableCustomerEmail?: CustomerAccountSettings<CAP>disableCustomerEmail<CAP>;
+    disableCustomerEmail?: CustomerAccountSettings<CAP>disableCustomerEmail</CAP>;
     /**
      * The restrictions on the customer fax fields.
      */
-    disableCustomerFax?: CustomerAccountSettings<CAP>disableCustomerFax<CAP>;
+    disableCustomerFax?: CustomerAccountSettings<CAP>disableCustomerFax</CAP>;
     /**
      * The restrictions on the customer language fields.
      */
-    disableCustomerLanguage?: CustomerAccountSettings<CAP>disableCustomerLanguage<CAP>;
+    disableCustomerLanguage?: CustomerAccountSettings<CAP>disableCustomerLanguage</CAP>;
     /**
      * The restrictions on the customer nationality fields.
      */
-    disableCustomerNationality?: CustomerAccountSettings<CAP>disableCustomerNationality<CAP>;
+    disableCustomerNationality?: CustomerAccountSettings<CAP>disableCustomerNationality</CAP>;
     /**
      * The restrictions on the customer notification preferences fields.
      */
-    disableCustomerNotificationPreference?: CustomerAccountSettings<CAP>disableCustomerNotificationPreference<CAP>;
+    disableCustomerNotificationPreference?: CustomerAccountSettings<CAP>disableCustomerNotificationPreference</CAP>;
     /**
      * The restrictions on the customer payment fields.
      */
-    disableCustomerPayment?: CustomerAccountSettings<CAP>disableCustomerPayment<CAP>;
+    disableCustomerPayment?: CustomerAccountSettings<CAP>disableCustomerPayment</CAP>;
     /**
      * The restrictions on the customer phone number fields.
      */
-    disableCustomerPhone?: CustomerAccountSettings<CAP>disableCustomerPhone<CAP>;
+    disableCustomerPhone?: CustomerAccountSettings<CAP>disableCustomerPhone</CAP>;
     /**
      * The restrictions on the customer resident country fields.
      */
-    disableCustomerResidentCountry?: CustomerAccountSettings<CAP>disableCustomerResidentCountry<CAP>;
+    disableCustomerResidentCountry?: CustomerAccountSettings<CAP>disableCustomerResidentCountry</CAP>;
     /**
      * The restrictions on the customer title fields.
      */
-    disableCustomerTitle?: CustomerAccountSettings<CAP>disableCustomerTitle<CAP>;
+    disableCustomerTitle?: CustomerAccountSettings<CAP>disableCustomerTitle</CAP>;
     /**
      * The restrictions on the customer type fields.
      */
-    disableCustomerType?: CustomerAccountSettings<CAP>disableCustomerType<CAP>;
+    disableCustomerType?: CustomerAccountSettings<CAP>disableCustomerType</CAP>;
 }

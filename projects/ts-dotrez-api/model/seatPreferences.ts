@@ -16,18 +16,18 @@ import { SeatPreference } from './seatPreference';
  * Represents the seating preferences base model.
  */
 
-    import { SeatPreferences<CAP>seat<CAP> } from '../models/enums';
-    import { SeatPreferences<CAP>travelClass<CAP> } from '../models/enums';
+    import { SeatPreferences<CAP>seat</CAP> } from '../models/enums';
+    import { SeatPreferences<CAP>travelClass</CAP> } from '../models/enums';
 
 export interface SeatPreferences { 
     /**
      * The simple seating preference.
      */
-    seat?: SeatPreferences<CAP>seat<CAP>;
+    seat?: SeatPreferences<CAP>seat</CAP>;
     /**
      * The prefered travel class of service.
      */
-    travelClass?: SeatPreferences<CAP>travelClass<CAP>;
+    travelClass?: SeatPreferences<CAP>travelClass</CAP>;
     /**
      * The advanced seating preferences.
      */

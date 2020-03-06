@@ -15,7 +15,7 @@
  * The transaction model.
  */
 
-    import { Transaction<CAP>type<CAP> } from '../models/enums';
+    import { Transaction<CAP>type</CAP> } from '../models/enums';
 
 export interface Transaction { 
     /**
@@ -53,7 +53,7 @@ export interface Transaction {
     /**
      * The transaction type.
      */
-    type?: Transaction<CAP>type<CAP>;
+    type?: Transaction<CAP>type</CAP>;
     /**
      * The payment ID of the transaction. This will only be non zero on refunded booking payments. A zero signifies that  no payment ID is found.
      */

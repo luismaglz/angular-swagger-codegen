@@ -16,8 +16,8 @@ import { SeatMapProperty } from './seatMapProperty';
  * Defines a unit within an equipment -&gt; decks -&gt; compartment.
  */
 
-    import { UnitInformation<CAP>availability<CAP> } from '../models/enums';
-    import { UnitInformation<CAP>type<CAP> } from '../models/enums';
+    import { UnitInformation<CAP>availability</CAP> } from '../models/enums';
+    import { UnitInformation<CAP>type</CAP> } from '../models/enums';
 
 export interface UnitInformation { 
     /**
@@ -31,7 +31,7 @@ export interface UnitInformation {
     /**
      * The availability of the seat.
      */
-    availability?: UnitInformation<CAP>availability<CAP>;
+    availability?: UnitInformation<CAP>availability</CAP>;
     /**
      * Defines compartment designator of the compartment to which unit belongs to.
      */
@@ -43,7 +43,7 @@ export interface UnitInformation {
     /**
      * The type of the unit.
      */
-    type?: UnitInformation<CAP>type<CAP>;
+    type?: UnitInformation<CAP>type</CAP>;
     /**
      * The designated travel class code.
      */

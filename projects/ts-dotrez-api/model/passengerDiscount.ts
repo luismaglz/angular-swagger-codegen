@@ -15,7 +15,7 @@
  * The passenger discount model.
  */
 
-    import { PassengerDiscount<CAP>passengerDiscountType<CAP> } from '../models/enums';
+    import { PassengerDiscount<CAP>passengerDiscountType</CAP> } from '../models/enums';
 
 export interface PassengerDiscount { 
     /**
@@ -29,7 +29,7 @@ export interface PassengerDiscount {
     /**
      * The passenger discount type.
      */
-    passengerDiscountType?: PassengerDiscount<CAP>passengerDiscountType<CAP>;
+    passengerDiscountType?: PassengerDiscount<CAP>passengerDiscountType</CAP>;
     /**
      * The in active.
      */

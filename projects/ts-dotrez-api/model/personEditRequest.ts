@@ -17,9 +17,9 @@ import { PersonBasicInformation } from './personBasicInformation';
  * Defines the person create request.
  */
 
-    import { PersonEditRequest<CAP>type<CAP> } from '../models/enums';
-    import { PersonEditRequest<CAP>status<CAP> } from '../models/enums';
-    import { PersonEditRequest<CAP>notificationPreference<CAP> } from '../models/enums';
+    import { PersonEditRequest<CAP>type</CAP> } from '../models/enums';
+    import { PersonEditRequest<CAP>status</CAP> } from '../models/enums';
+    import { PersonEditRequest<CAP>notificationPreference</CAP> } from '../models/enums';
 
 export interface PersonEditRequest { 
     /**
@@ -29,11 +29,11 @@ export interface PersonEditRequest {
     /**
      * The type of person.
      */
-    type?: PersonEditRequest<CAP>type<CAP>;
+    type?: PersonEditRequest<CAP>type</CAP>;
     /**
      * The status of the person.
      */
-    status?: PersonEditRequest<CAP>status<CAP>;
+    status?: PersonEditRequest<CAP>status</CAP>;
     /**
      * The person's basic information.
      */
@@ -41,5 +41,5 @@ export interface PersonEditRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: PersonEditRequest<CAP>notificationPreference<CAP>;
+    notificationPreference?: PersonEditRequest<CAP>notificationPreference</CAP>;
 }

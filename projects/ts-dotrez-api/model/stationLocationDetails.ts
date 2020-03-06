@@ -16,7 +16,7 @@ import { Coordinate } from './coordinate';
  * Defines the station location details.
  */
 
-    import { StationLocationDetails<CAP>weightType<CAP> } from '../models/enums';
+    import { StationLocationDetails<CAP>weightType</CAP> } from '../models/enums';
 
 export interface StationLocationDetails { 
     /**
@@ -58,5 +58,5 @@ export interface StationLocationDetails {
     /**
      * The stations configured weight units of measurement.
      */
-    weightType?: StationLocationDetails<CAP>weightType<CAP>;
+    weightType?: StationLocationDetails<CAP>weightType</CAP>;
 }

@@ -15,116 +15,116 @@
  * Defines the order participant field validation levels.
  */
 
-    import { ParticipantSettings<CAP>typeCode<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>title<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>documentNumber<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>firstName<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>documentIssueBy<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>middleName<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>documentTypeCode<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>lastName<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>lineOne<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>lineTwo<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>city<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>postalCode<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>provinceState<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>countryCode<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>county<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>homePhone<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>workPhone<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>fax<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>email<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>type<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>companyName<CAP> } from '../models/enums';
-    import { ParticipantSettings<CAP>birthDate<CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>typeCode</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>title</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>documentNumber</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>firstName</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>documentIssueBy</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>middleName</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>documentTypeCode</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>lastName</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>lineOne</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>lineTwo</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>city</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>postalCode</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>provinceState</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>countryCode</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>county</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>homePhone</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>workPhone</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>fax</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>email</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>type</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>companyName</CAP> } from '../models/enums';
+    import { ParticipantSettings<CAP>birthDate</CAP> } from '../models/enums';
 
 export interface ParticipantSettings { 
     /**
      * The field usage for the type code.
      */
-    typeCode?: ParticipantSettings<CAP>typeCode<CAP>;
+    typeCode?: ParticipantSettings<CAP>typeCode</CAP>;
     /**
      * The title field usage.
      */
-    title?: ParticipantSettings<CAP>title<CAP>;
+    title?: ParticipantSettings<CAP>title</CAP>;
     /**
      * The field usage for the document number.
      */
-    documentNumber?: ParticipantSettings<CAP>documentNumber<CAP>;
+    documentNumber?: ParticipantSettings<CAP>documentNumber</CAP>;
     /**
      * The first name field usage.
      */
-    firstName?: ParticipantSettings<CAP>firstName<CAP>;
+    firstName?: ParticipantSettings<CAP>firstName</CAP>;
     /**
      * The field usage for the document issue by.
      */
-    documentIssueBy?: ParticipantSettings<CAP>documentIssueBy<CAP>;
+    documentIssueBy?: ParticipantSettings<CAP>documentIssueBy</CAP>;
     /**
      * The middle name field usage.
      */
-    middleName?: ParticipantSettings<CAP>middleName<CAP>;
+    middleName?: ParticipantSettings<CAP>middleName</CAP>;
     /**
      * The field usage for the document type code.
      */
-    documentTypeCode?: ParticipantSettings<CAP>documentTypeCode<CAP>;
+    documentTypeCode?: ParticipantSettings<CAP>documentTypeCode</CAP>;
     /**
      * The last name field usage.
      */
-    lastName?: ParticipantSettings<CAP>lastName<CAP>;
+    lastName?: ParticipantSettings<CAP>lastName</CAP>;
     /**
      * The address line one field usage.
      */
-    lineOne?: ParticipantSettings<CAP>lineOne<CAP>;
+    lineOne?: ParticipantSettings<CAP>lineOne</CAP>;
     /**
      * The address line two field usage.
      */
-    lineTwo?: ParticipantSettings<CAP>lineTwo<CAP>;
+    lineTwo?: ParticipantSettings<CAP>lineTwo</CAP>;
     /**
      * The address city field usage.
      */
-    city?: ParticipantSettings<CAP>city<CAP>;
+    city?: ParticipantSettings<CAP>city</CAP>;
     /**
      * The address postal code field usage.
      */
-    postalCode?: ParticipantSettings<CAP>postalCode<CAP>;
+    postalCode?: ParticipantSettings<CAP>postalCode</CAP>;
     /**
      * The address province state field usage.
      */
-    provinceState?: ParticipantSettings<CAP>provinceState<CAP>;
+    provinceState?: ParticipantSettings<CAP>provinceState</CAP>;
     /**
      * The address country code field usage.
      */
-    countryCode?: ParticipantSettings<CAP>countryCode<CAP>;
+    countryCode?: ParticipantSettings<CAP>countryCode</CAP>;
     /**
      * The address county field usage.
      */
-    county?: ParticipantSettings<CAP>county<CAP>;
+    county?: ParticipantSettings<CAP>county</CAP>;
     /**
      * The home phone number field usage.
      */
-    homePhone?: ParticipantSettings<CAP>homePhone<CAP>;
+    homePhone?: ParticipantSettings<CAP>homePhone</CAP>;
     /**
      * The work phone field usage.
      */
-    workPhone?: ParticipantSettings<CAP>workPhone<CAP>;
+    workPhone?: ParticipantSettings<CAP>workPhone</CAP>;
     /**
      * The fax number field usage.
      */
-    fax?: ParticipantSettings<CAP>fax<CAP>;
+    fax?: ParticipantSettings<CAP>fax</CAP>;
     /**
      * The email address field usage.
      */
-    email?: ParticipantSettings<CAP>email<CAP>;
+    email?: ParticipantSettings<CAP>email</CAP>;
     /**
      * The consumer type field usage.
      */
-    type?: ParticipantSettings<CAP>type<CAP>;
+    type?: ParticipantSettings<CAP>type</CAP>;
     /**
      * The company name field usage.
      */
-    companyName?: ParticipantSettings<CAP>companyName<CAP>;
+    companyName?: ParticipantSettings<CAP>companyName</CAP>;
     /**
      * The date of birth field usage.
      */
-    birthDate?: ParticipantSettings<CAP>birthDate<CAP>;
+    birthDate?: ParticipantSettings<CAP>birthDate</CAP>;
 }

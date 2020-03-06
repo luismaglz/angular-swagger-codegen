@@ -18,8 +18,8 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Availability segment defines segment information before being booked.
  */
 
-    import { AvailabilitySegment<CAP>changeReasonCode<CAP> } from '../models/enums';
-    import { AvailabilitySegment<CAP>segmentType<CAP> } from '../models/enums';
+    import { AvailabilitySegment<CAP>changeReasonCode</CAP> } from '../models/enums';
+    import { AvailabilitySegment<CAP>segmentType</CAP> } from '../models/enums';
 
 export interface AvailabilitySegment { 
     /**
@@ -61,11 +61,11 @@ export interface AvailabilitySegment {
     /**
      * The change reason code.
      */
-    changeReasonCode?: AvailabilitySegment<CAP>changeReasonCode<CAP>;
+    changeReasonCode?: AvailabilitySegment<CAP>changeReasonCode</CAP>;
     /**
      * The type of the segment.
      */
-    segmentType?: AvailabilitySegment<CAP>segmentType<CAP>;
+    segmentType?: AvailabilitySegment<CAP>segmentType</CAP>;
     /**
      * The value indicating if this segment is international.
      */

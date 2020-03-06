@@ -15,7 +15,7 @@
  * A model for a request to update the passenger bags.
  */
 
-    import { PassengerBagRequest<CAP>weightType<CAP> } from '../models/enums';
+    import { PassengerBagRequest<CAP>weightType</CAP> } from '../models/enums';
 
 export interface PassengerBagRequest { 
     /**
@@ -33,7 +33,7 @@ export interface PassengerBagRequest {
     /**
      * Type of weight for the baggage weight.
      */
-    weightType?: PassengerBagRequest<CAP>weightType<CAP>;
+    weightType?: PassengerBagRequest<CAP>weightType</CAP>;
     /**
      * The baggage weight.
      */

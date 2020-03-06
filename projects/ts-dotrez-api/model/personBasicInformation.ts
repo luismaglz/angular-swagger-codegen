@@ -15,13 +15,13 @@
  * Defines the person's basic information.
  */
 
-    import { PersonBasicInformation<CAP>gender<CAP> } from '../models/enums';
+    import { PersonBasicInformation<CAP>gender</CAP> } from '../models/enums';
 
 export interface PersonBasicInformation { 
     /**
      * The person's gender.
      */
-    gender?: PersonBasicInformation<CAP>gender<CAP>;
+    gender?: PersonBasicInformation<CAP>gender</CAP>;
     /**
      * The person's date of birth.
      */

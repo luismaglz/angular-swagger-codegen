@@ -19,8 +19,8 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
  * Defines a availability rebook criteria search which includes all the previous passengers on the booking.
  */
 
-    import { AvailabilityByTrip<CAP>ssrCollectionsMode<CAP> } from '../models/enums';
-    import { AvailabilityByTrip<CAP>type<CAP> } from '../models/enums';
+    import { AvailabilityByTrip<CAP>ssrCollectionsMode</CAP> } from '../models/enums';
+    import { AvailabilityByTrip<CAP>type</CAP> } from '../models/enums';
 
 export interface AvailabilityByTrip { 
     /**
@@ -42,7 +42,7 @@ export interface AvailabilityByTrip {
     /**
      * Determines how and when to return the Ssr nest information.
      */
-    ssrCollectionsMode?: AvailabilityByTrip<CAP>ssrCollectionsMode<CAP>;
+    ssrCollectionsMode?: AvailabilityByTrip<CAP>ssrCollectionsMode</CAP>;
     /**
      * The flight search criteria.
      */
@@ -50,5 +50,5 @@ export interface AvailabilityByTrip {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: AvailabilityByTrip<CAP>type<CAP>;
+    type?: AvailabilityByTrip<CAP>type</CAP>;
 }

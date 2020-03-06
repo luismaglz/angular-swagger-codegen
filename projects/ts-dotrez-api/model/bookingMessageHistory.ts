@@ -15,13 +15,13 @@
  * Defines a booking message history log entry.
  */
 
-    import { BookingMessageHistory<CAP>type<CAP> } from '../models/enums';
+    import { BookingMessageHistory<CAP>type</CAP> } from '../models/enums';
 
 export interface BookingMessageHistory { 
     /**
      * The message history type.
      */
-    type?: BookingMessageHistory<CAP>type<CAP>;
+    type?: BookingMessageHistory<CAP>type</CAP>;
     /**
      * The message.
      */

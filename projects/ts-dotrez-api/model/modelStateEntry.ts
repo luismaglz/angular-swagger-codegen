@@ -13,13 +13,13 @@ import { ModelError } from './modelError';
 
 
 
-    import { ModelStateEntry<CAP>validationState<CAP> } from '../models/enums';
+    import { ModelStateEntry<CAP>validationState</CAP> } from '../models/enums';
 
 export interface ModelStateEntry { 
     rawValue?: any;
     attemptedValue?: string;
     readonly errors?: Array<ModelError>;
-    validationState?: ModelStateEntry<CAP>validationState<CAP>;
+    validationState?: ModelStateEntry<CAP>validationState</CAP>;
     readonly isContainerNode?: boolean;
     readonly children?: Array<ModelStateEntry>;
 }

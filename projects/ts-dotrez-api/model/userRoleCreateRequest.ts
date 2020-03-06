@@ -15,7 +15,7 @@
  * Defines the user role create request.
  */
 
-    import { UserRoleCreateRequest<CAP>effectiveDays<CAP> } from '../models/enums';
+    import { UserRoleCreateRequest<CAP>effectiveDays</CAP> } from '../models/enums';
 
 export interface UserRoleCreateRequest { 
     /**
@@ -25,7 +25,7 @@ export interface UserRoleCreateRequest {
     /**
      * The days the role is effective.
      */
-    effectiveDays?: UserRoleCreateRequest<CAP>effectiveDays<CAP>;
+    effectiveDays?: UserRoleCreateRequest<CAP>effectiveDays</CAP>;
     /**
      * The date the role is effective after.
      */

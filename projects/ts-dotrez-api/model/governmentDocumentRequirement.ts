@@ -15,13 +15,13 @@
  * Defines a certain document requirement reguarding a specific government instance.
  */
 
-    import { GovernmentDocumentRequirement<CAP>group<CAP> } from '../models/enums';
+    import { GovernmentDocumentRequirement<CAP>group</CAP> } from '../models/enums';
 
 export interface GovernmentDocumentRequirement { 
     /**
      * The document group.
      */
-    group?: GovernmentDocumentRequirement<CAP>group<CAP>;
+    group?: GovernmentDocumentRequirement<CAP>group</CAP>;
     /**
      * The documents type code.
      */

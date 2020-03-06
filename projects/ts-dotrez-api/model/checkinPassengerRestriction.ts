@@ -15,13 +15,13 @@
  * Defines a passengers restriction for the current segment trying to be checked into.
  */
 
-    import { CheckinPassengerRestriction<CAP>restriction<CAP> } from '../models/enums';
+    import { CheckinPassengerRestriction<CAP>restriction</CAP> } from '../models/enums';
 
 export interface CheckinPassengerRestriction { 
     /**
      * The passenger restriction type.
      */
-    restriction?: CheckinPassengerRestriction<CAP>restriction<CAP>;
+    restriction?: CheckinPassengerRestriction<CAP>restriction</CAP>;
     /**
      * The description of the restriction.
      */

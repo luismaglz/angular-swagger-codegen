@@ -12,11 +12,11 @@
 
 
 
-    import { IPAddress<CAP>addressFamily<CAP> } from '../models/enums';
+    import { IPAddress<CAP>addressFamily</CAP> } from '../models/enums';
 
 export interface IPAddress { 
     address?: number;
-    readonly addressFamily?: IPAddress<CAP>addressFamily<CAP>;
+    readonly addressFamily?: IPAddress<CAP>addressFamily</CAP>;
     scopeId?: number;
     readonly isIPv6Multicast?: boolean;
     readonly isIPv6LinkLocal?: boolean;

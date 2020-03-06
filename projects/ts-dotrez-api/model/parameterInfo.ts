@@ -14,7 +14,7 @@ import { MemberInfo } from './memberInfo';
 
 
 
-    import { ParameterInfo<CAP>attributes<CAP> } from '../models/enums';
+    import { ParameterInfo<CAP>attributes</CAP> } from '../models/enums';
 
 export interface ParameterInfo { 
     readonly parameterType?: string;
@@ -23,7 +23,7 @@ export interface ParameterInfo {
     readonly defaultValue?: any;
     readonly rawDefaultValue?: any;
     readonly position?: number;
-    readonly attributes?: ParameterInfo<CAP>attributes<CAP>;
+    readonly attributes?: ParameterInfo<CAP>attributes</CAP>;
     readonly member?: MemberInfo;
     readonly isIn?: boolean;
     readonly isOut?: boolean;

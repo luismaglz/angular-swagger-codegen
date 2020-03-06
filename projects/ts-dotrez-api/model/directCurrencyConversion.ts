@@ -15,7 +15,7 @@
  * Defines a direct currency conversion.
  */
 
-    import { DirectCurrencyConversion<CAP>status<CAP> } from '../models/enums';
+    import { DirectCurrencyConversion<CAP>status</CAP> } from '../models/enums';
 
 export interface DirectCurrencyConversion { 
     /**
@@ -41,7 +41,7 @@ export interface DirectCurrencyConversion {
     /**
      * The conversion status.
      */
-    status?: DirectCurrencyConversion<CAP>status<CAP>;
+    status?: DirectCurrencyConversion<CAP>status</CAP>;
     /**
      * Flag indicating if DCC is applicable.
      */

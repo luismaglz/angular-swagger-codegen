@@ -15,7 +15,7 @@
  * Model representing additional passenger information.
  */
 
-    import { PassengerInformation<CAP>gender<CAP> } from '../models/enums';
+    import { PassengerInformation<CAP>gender</CAP> } from '../models/enums';
 
 export interface PassengerInformation { 
     /**
@@ -29,7 +29,7 @@ export interface PassengerInformation {
     /**
      * Gets or sets passenger gender.
      */
-    gender?: PassengerInformation<CAP>gender<CAP>;
+    gender?: PassengerInformation<CAP>gender</CAP>;
     /**
      * The passenger's date of birth.
      */

@@ -17,9 +17,9 @@ import { RegionFee } from './regionFee';
  * Fee detail model.
  */
 
-    import { FeeDetail<CAP>taxApplicationOverride<CAP> } from '../models/enums';
-    import { FeeDetail<CAP>travelComponentOverride<CAP> } from '../models/enums';
-    import { FeeDetail<CAP>feeApplicationOverride<CAP> } from '../models/enums';
+    import { FeeDetail<CAP>taxApplicationOverride</CAP> } from '../models/enums';
+    import { FeeDetail<CAP>travelComponentOverride</CAP> } from '../models/enums';
+    import { FeeDetail<CAP>feeApplicationOverride</CAP> } from '../models/enums';
 
 export interface FeeDetail { 
     /**
@@ -41,11 +41,11 @@ export interface FeeDetail {
     /**
      * Gets or sets the override of how to apply the taxes.
      */
-    taxApplicationOverride?: FeeDetail<CAP>taxApplicationOverride<CAP>;
+    taxApplicationOverride?: FeeDetail<CAP>taxApplicationOverride</CAP>;
     /**
      * Gets or sets the override for the travel component.
      */
-    travelComponentOverride?: FeeDetail<CAP>travelComponentOverride<CAP>;
+    travelComponentOverride?: FeeDetail<CAP>travelComponentOverride</CAP>;
     /**
      * Gets or sets the flag for using the overrides.
      */
@@ -53,5 +53,5 @@ export interface FeeDetail {
     /**
      * Gets or sets the override for where to apply this fee option.
      */
-    feeApplicationOverride?: FeeDetail<CAP>feeApplicationOverride<CAP>;
+    feeApplicationOverride?: FeeDetail<CAP>feeApplicationOverride</CAP>;
 }

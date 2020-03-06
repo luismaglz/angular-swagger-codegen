@@ -15,10 +15,10 @@
  * The market model, version 2.
  */
 
-    import { Marketv2<CAP>includesTaxesAndFees<CAP> } from '../models/enums';
-    import { Marketv2<CAP>locationType<CAP> } from '../models/enums';
-    import { Marketv2<CAP>travelLocationType<CAP> } from '../models/enums';
-    import { Marketv2<CAP>travelLocationsRequired<CAP> } from '../models/enums';
+    import { Marketv2<CAP>includesTaxesAndFees</CAP> } from '../models/enums';
+    import { Marketv2<CAP>locationType</CAP> } from '../models/enums';
+    import { Marketv2<CAP>travelLocationType</CAP> } from '../models/enums';
+    import { Marketv2<CAP>travelLocationsRequired</CAP> } from '../models/enums';
 
 export interface Marketv2 { 
     /**
@@ -40,7 +40,7 @@ export interface Marketv2 {
     /**
      * The directions where taxes and fees are included in this market.
      */
-    includesTaxesAndFees?: Marketv2<CAP>includesTaxesAndFees<CAP>;
+    includesTaxesAndFees?: Marketv2<CAP>includesTaxesAndFees</CAP>;
     /**
      * The latest check in from travel location for this market.
      */
@@ -52,7 +52,7 @@ export interface Marketv2 {
     /**
      * The location type of the starting location for this market.
      */
-    locationType?: Marketv2<CAP>locationType<CAP>;
+    locationType?: Marketv2<CAP>locationType</CAP>;
     /**
      * The ending location code for this market.
      */
@@ -60,9 +60,9 @@ export interface Marketv2 {
     /**
      * The location type of the ending location for this market.
      */
-    travelLocationType?: Marketv2<CAP>travelLocationType<CAP>;
+    travelLocationType?: Marketv2<CAP>travelLocationType</CAP>;
     /**
      * The market rules for requiring travel documents for this market.
      */
-    travelLocationsRequired?: Marketv2<CAP>travelLocationsRequired<CAP>;
+    travelLocationsRequired?: Marketv2<CAP>travelLocationsRequired</CAP>;
 }
