@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "importHelpers": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2015",
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["dom", "es2015", "es2016"],
+    "allowJs": true
+  },
+  "files": ["./map-enums.ts"],
+  "exclude": ["node_modules", "dist"]
+}
