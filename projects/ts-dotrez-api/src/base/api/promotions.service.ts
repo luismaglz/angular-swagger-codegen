@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -55,7 +55,7 @@ export class PromotionsService {
 
         const response: Observable<HttpResponse<Promotion>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/promotions/${encodeURIComponent(String(promotionCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Promotion>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Promotion>(httpResponse.response)));
         }
         return response;
     }
@@ -83,7 +83,7 @@ export class PromotionsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/promotions/${encodeURIComponent(String(promotionCode))}/validate?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -126,7 +126,7 @@ export class PromotionsService {
 
         const response: Observable<HttpResponse<Array<PromotionBase>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/promotions?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PromotionBase>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PromotionBase>>(httpResponse.response)));
         }
         return response;
     }

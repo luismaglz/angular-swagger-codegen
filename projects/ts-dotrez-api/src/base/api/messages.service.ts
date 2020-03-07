@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -54,7 +54,7 @@ export class MessagesService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/messages/${encodeURIComponent(String(messageKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -76,7 +76,7 @@ export class MessagesService {
 
         const response: Observable<HttpResponse<MessageBase>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/messages/${encodeURIComponent(String(messageKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <MessageBase>(httpResponse.response));
+               return response.pipe(map(httpResponse => <MessageBase>(httpResponse.response)));
         }
         return response;
     }
@@ -127,7 +127,7 @@ export class MessagesService {
 
         const response: Observable<HttpResponse<Array<MessageBase>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/messages?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<MessageBase>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<MessageBase>>(httpResponse.response)));
         }
         return response;
     }
@@ -145,7 +145,7 @@ export class MessagesService {
 
         const response: Observable<HttpResponse<MessageBase>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/messages`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <MessageBase>(httpResponse.response));
+               return response.pipe(map(httpResponse => <MessageBase>(httpResponse.response)));
         }
         return response;
     }

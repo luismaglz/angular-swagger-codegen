@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -43,7 +43,7 @@ export class StoreVoucherIssuanceService {
      */
     public async store_apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string,  headers?: Headers): Promise<VoucherIssuance>
     {
-        const response = await apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey,'body', headers);
+        const response = await apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -56,7 +56,7 @@ export class StoreVoucherIssuanceService {
      */
     public async store_apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1VoucherIssuancePost(request,'body', headers);
+        const response = await apiNskV1VoucherIssuancePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1VoucherIssuancePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

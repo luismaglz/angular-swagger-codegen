@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -41,7 +41,7 @@ export class StoreFareRulesService {
      */
     public async store_apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string,  headers?: Headers): Promise<FareRule>
     {
-        const response = await apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey,'body', headers);
+        const response = await apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1FareRulesByFareAvailabilityKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

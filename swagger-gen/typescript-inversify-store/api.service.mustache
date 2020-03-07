@@ -1,10 +1,10 @@
 {{>licenseInfo}}
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -53,7 +53,7 @@ export class Store{{classname}} {
      */
     public async store_{{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}} headers?: Headers): Promise<{{#returnType}}{{{returnType}}}{{#isResponseTypeFile}}|undefined{{/isResponseTypeFile}}{{/returnType}}{{^returnType}}any{{/returnType}}>
     {
-        const response = await {{nickname}}({{#allParams}}{{paramName}},{{/allParams}}'body', headers);
+        const response = await {{nickname}}({{#allParams}}{{paramName}},{{/allParams}}'body', headers).toPromise();
         // TODO: Implement {{nickname}}
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

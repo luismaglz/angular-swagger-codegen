@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -57,7 +57,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenCulturePost(defaultCultureCode?: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TokenCulturePost(defaultCultureCode,'body', headers);
+        const response = await apiNskV1TokenCulturePost(defaultCultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1TokenCulturePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -70,7 +70,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TokenDelete('body', headers);
+        const response = await apiNskV1TokenDelete('body', headers).toPromise();
         // TODO: Implement apiNskV1TokenDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -83,7 +83,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenGet( headers?: Headers): Promise<NskSessionContext>
     {
-        const response = await apiNskV1TokenGet('body', headers);
+        const response = await apiNskV1TokenGet('body', headers).toPromise();
         // TODO: Implement apiNskV1TokenGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -96,7 +96,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenPost(request?: NskTokenRequest,  headers?: Headers): Promise<TokenResponse>
     {
-        const response = await apiNskV1TokenPost(request,'body', headers);
+        const response = await apiNskV1TokenPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TokenPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -109,7 +109,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenPut(request?: Credentials,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TokenPut(request,'body', headers);
+        const response = await apiNskV1TokenPut(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TokenPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -122,7 +122,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenServerTransferPost(request?: ServerTransferRequest,  headers?: Headers): Promise<TokenResponse>
     {
-        const response = await apiNskV1TokenServerTransferPost(request,'body', headers);
+        const response = await apiNskV1TokenServerTransferPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TokenServerTransferPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -135,7 +135,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenSingleSignOnPost(credentials?: SingleSignOnCredentials,  headers?: Headers): Promise<TokenResponse>
     {
-        const response = await apiNskV1TokenSingleSignOnPost(credentials,'body', headers);
+        const response = await apiNskV1TokenSingleSignOnPost(credentials,'body', headers).toPromise();
         // TODO: Implement apiNskV1TokenSingleSignOnPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -148,7 +148,7 @@ export class StoreTokenService {
      */
     public async store_apiNskV1TokenSingleSignOnPut(credentials?: SingleSignOnCredentials,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TokenSingleSignOnPut(credentials,'body', headers);
+        const response = await apiNskV1TokenSingleSignOnPut(credentials,'body', headers).toPromise();
         // TODO: Implement apiNskV1TokenSingleSignOnPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -161,7 +161,7 @@ export class StoreTokenService {
      */
     public async store_apiV1TokenDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiV1TokenDelete('body', headers);
+        const response = await apiV1TokenDelete('body', headers).toPromise();
         // TODO: Implement apiV1TokenDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -174,7 +174,7 @@ export class StoreTokenService {
      */
     public async store_apiV1TokenPost(request?: TokenRequest,  headers?: Headers): Promise<TokenResponse>
     {
-        const response = await apiV1TokenPost(request,'body', headers);
+        const response = await apiV1TokenPost(request,'body', headers).toPromise();
         // TODO: Implement apiV1TokenPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -187,7 +187,7 @@ export class StoreTokenService {
      */
     public async store_apiV1TokenPut( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiV1TokenPut('body', headers);
+        const response = await apiV1TokenPut('body', headers).toPromise();
         // TODO: Implement apiV1TokenPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -55,7 +55,7 @@ export class OrganizationsService {
 
         const response: Observable<HttpResponse<OrganizationGroupDetails>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations/groups/${encodeURIComponent(String(organizationGroupCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <OrganizationGroupDetails>(httpResponse.response));
+               return response.pipe(map(httpResponse => <OrganizationGroupDetails>(httpResponse.response)));
         }
         return response;
     }
@@ -72,7 +72,7 @@ export class OrganizationsService {
 
         const response: Observable<HttpResponse<Array<OrganizationGroup>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations/groups`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<OrganizationGroup>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<OrganizationGroup>>(httpResponse.response)));
         }
         return response;
     }

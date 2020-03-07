@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -48,7 +48,7 @@ export class StoreManifestService {
      */
     public async store_apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey: string,  headers?: Headers): Promise<PassengerDetails>
     {
-        const response = await apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey,'body', headers);
+        const response = await apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1ManifestByLegKeyPassengerDetailsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -61,7 +61,7 @@ export class StoreManifestService {
      */
     public async store_apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey: string,  headers?: Headers): Promise<Array<PassengerSeatAssignment>>
     {
-        const response = await apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey,'body', headers);
+        const response = await apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(legKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -74,7 +74,7 @@ export class StoreManifestService {
      */
     public async store_apiNskV1ManifestByLegKeyPost(legKey: string, request?: ManifestRequestBase,  headers?: Headers): Promise<Manifest>
     {
-        const response = await apiNskV1ManifestByLegKeyPost(legKey,request,'body', headers);
+        const response = await apiNskV1ManifestByLegKeyPost(legKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1ManifestByLegKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -87,7 +87,7 @@ export class StoreManifestService {
      */
     public async store_apiNskV1ManifestGet(beginDate: Date, origin?: string, destination?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',  headers?: Headers): Promise<TripInformationResponse>
     {
-        const response = await apiNskV1ManifestGet(beginDate,origin,destination,identifier,carrierCode,flightType,'body', headers);
+        const response = await apiNskV1ManifestGet(beginDate,origin,destination,identifier,carrierCode,flightType,'body', headers).toPromise();
         // TODO: Implement apiNskV1ManifestGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

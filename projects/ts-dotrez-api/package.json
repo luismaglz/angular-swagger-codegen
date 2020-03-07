@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "inversify": "^5.0.1",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "tslib": "^1.10.0",

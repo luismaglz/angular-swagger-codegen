@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -87,7 +87,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey,'body', headers);
+        const response = await apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPaymentsByPaymentKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -100,7 +100,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string,  headers?: Headers): Promise<Payment>
     {
-        const response = await apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey,'body', headers);
+        const response = await apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPaymentsByPaymentKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -113,7 +113,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV1BookingPaymentsGet( headers?: Headers): Promise<Array<Payment>>
     {
-        const response = await apiNskV1BookingPaymentsGet('body', headers);
+        const response = await apiNskV1BookingPaymentsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPaymentsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -126,7 +126,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV1BookingPaymentsRefundsGet( headers?: Headers): Promise<InlineResponse2008>
     {
-        const response = await apiNskV1BookingPaymentsRefundsGet('body', headers);
+        const response = await apiNskV1BookingPaymentsRefundsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPaymentsRefundsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -139,7 +139,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request,'body', headers);
+        const response = await apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPaymentsRefundsOrganizationCreditPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -152,7 +152,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference,'body', headers);
+        const response = await apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -165,7 +165,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean,  headers?: Headers): Promise<VoucherInformation>
     {
-        const response = await apiNskV1BookingPaymentsVoucherGet(referenceCode,overrideRestrictions,'body', headers);
+        const response = await apiNskV1BookingPaymentsVoucherGet(referenceCode,overrideRestrictions,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPaymentsVoucherGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -178,7 +178,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsAvailableGet( headers?: Headers): Promise<InlineResponse2008>
     {
-        const response = await apiNskV2BookingPaymentsAvailableGet('body', headers);
+        const response = await apiNskV2BookingPaymentsAvailableGet('body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsAvailableGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -191,7 +191,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date,  headers?: Headers): Promise<CreditAccount>
     {
-        const response = await apiNskV2BookingPaymentsBookingCreditGet(recordLocator,currencyCode,emailAddress,origin,firstName,lastName,customerNumber,departureDate,'body', headers);
+        const response = await apiNskV2BookingPaymentsBookingCreditGet(recordLocator,currencyCode,emailAddress,origin,firstName,lastName,customerNumber,departureDate,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsBookingCreditGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -204,7 +204,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingPaymentsBookingCreditPost(request,'body', headers);
+        const response = await apiNskV2BookingPaymentsBookingCreditPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsBookingCreditPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -217,7 +217,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
     {
-        const response = await apiNskV2BookingPaymentsCreditGet(referenceNumber,type,currencyCode,'body', headers);
+        const response = await apiNskV2BookingPaymentsCreditGet(referenceNumber,type,currencyCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsCreditGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -230,7 +230,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingPaymentsCreditPost(request,'body', headers);
+        const response = await apiNskV2BookingPaymentsCreditPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsCreditPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -243,7 +243,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
     {
-        const response = await apiNskV2BookingPaymentsCustomerCreditGet(currencyCode,'body', headers);
+        const response = await apiNskV2BookingPaymentsCustomerCreditGet(currencyCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsCustomerCreditGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -256,7 +256,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingPaymentsCustomerCreditPost(request,'body', headers);
+        const response = await apiNskV2BookingPaymentsCustomerCreditPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsCustomerCreditPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -269,7 +269,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
     {
-        const response = await apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode,'body', headers);
+        const response = await apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsOrganizationCreditGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -282,7 +282,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingPaymentsOrganizationCreditPost(request,'body', headers);
+        const response = await apiNskV2BookingPaymentsOrganizationCreditPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsOrganizationCreditPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -295,7 +295,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingPaymentsPost(request,termUrl,'body', headers);
+        const response = await apiNskV2BookingPaymentsPost(request,termUrl,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -308,7 +308,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingPaymentsRefundsCustomerCreditPost(request,'body', headers);
+        const response = await apiNskV2BookingPaymentsRefundsCustomerCreditPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsRefundsCustomerCreditPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -321,7 +321,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference,'body', headers);
+        const response = await apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -334,7 +334,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string,  headers?: Headers): Promise<DirectCurrencyConversionAvailability>
     {
-        const response = await apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod,amount,accountNumber,quotedCurrencyCode,'body', headers);
+        const response = await apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod,amount,accountNumber,quotedCurrencyCode,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsByPaymentMethodDccGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -347,7 +347,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string,  headers?: Headers): Promise<PaymentFeeResponse>
     {
-        const response = await apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode,amount,currencyCode,collectedCurrencyCode,'body', headers);
+        const response = await apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode,amount,currencyCode,collectedCurrencyCode,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsFeesByFeeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -360,7 +360,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode,request,'body', headers);
+        const response = await apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsMccByCurrencyCodePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -373,7 +373,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode,storedPaymentKey,request,'body', headers);
+        const response = await apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode,storedPaymentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -386,7 +386,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsMccGet( headers?: Headers): Promise<InlineResponse2009>
     {
-        const response = await apiNskV3BookingPaymentsMccGet('body', headers);
+        const response = await apiNskV3BookingPaymentsMccGet('body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsMccGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -399,7 +399,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPaymentsRefundsPost(request,'body', headers);
+        const response = await apiNskV3BookingPaymentsRefundsPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsRefundsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -412,7 +412,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey,request,'body', headers);
+        const response = await apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -425,7 +425,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPaymentsThreeDSecurePost(request,termUrl,'body', headers);
+        const response = await apiNskV3BookingPaymentsThreeDSecurePost(request,termUrl,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsThreeDSecurePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -438,7 +438,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPaymentsVoucherPost(request,'body', headers);
+        const response = await apiNskV3BookingPaymentsVoucherPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPaymentsVoucherPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -451,7 +451,7 @@ export class StoreBookingpaymentsService {
      */
     public async store_apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV4BookingPaymentsDccByDccKeyPost(dccKey,request,'body', headers);
+        const response = await apiNskV4BookingPaymentsDccByDccKeyPost(dccKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV4BookingPaymentsDccByDccKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

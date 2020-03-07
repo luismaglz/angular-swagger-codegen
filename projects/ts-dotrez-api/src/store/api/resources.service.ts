@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -260,7 +260,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode: string, cultureCode?: string,  headers?: Headers): Promise<AccountTransactionCode>
     {
-        const response = await apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(transactionCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -273,7 +273,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAccountTransactionCodesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<AccountTransactionCode>>
     {
-        const response = await apiNskV1ResourcesAccountTransactionCodesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesAccountTransactionCodesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAccountTransactionCodesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -286,7 +286,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddOnsLocationsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<CommerceLocation>>
     {
-        const response = await apiNskV1ResourcesAddOnsLocationsGet(type,eTag,vendorCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAddOnsLocationsGet(type,eTag,vendorCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddOnsLocationsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -299,7 +299,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddOnsParametersGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<DynamicParameter>>
     {
-        const response = await apiNskV1ResourcesAddOnsParametersGet(type,eTag,vendorCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAddOnsParametersGet(type,eTag,vendorCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddOnsParametersGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -312,7 +312,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddOnsParticipanttypesGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', eTag?: string, vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<ParticipantType>>
     {
-        const response = await apiNskV1ResourcesAddOnsParticipanttypesGet(type,eTag,vendorCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAddOnsParticipanttypesGet(type,eTag,vendorCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddOnsParticipanttypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -325,7 +325,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode: string, cultureCode?: string,  headers?: Headers): Promise<Source>
     {
-        const response = await apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(sourceCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddOnsSourcesBySourceCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -338,7 +338,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddOnsSourcesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Source>>
     {
-        const response = await apiNskV1ResourcesAddOnsSourcesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesAddOnsSourcesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddOnsSourcesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -351,7 +351,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string,  headers?: Headers): Promise<Array<Vendor>>
     {
-        const response = await apiNskV1ResourcesAddOnsVendorsGet(type,cultureCode,eTag,'body', headers);
+        const response = await apiNskV1ResourcesAddOnsVendorsGet(type,cultureCode,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddOnsVendorsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -364,7 +364,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<AddressType>
     {
-        const response = await apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(addressTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddressTypesByAddressTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -377,7 +377,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAddressTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<AddressType>>
     {
-        const response = await apiNskV1ResourcesAddressTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesAddressTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAddressTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -390,7 +390,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<AgentSettingType>
     {
-        const response = await apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(agentSettingTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -403,7 +403,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAgentSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<AgentSettingType>>
     {
-        const response = await apiNskV1ResourcesAgentSettingTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesAgentSettingTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAgentSettingTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -416,7 +416,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAreasByAreaCodeGet(areaCode: string, cultureCode?: string,  headers?: Headers): Promise<Area>
     {
-        const response = await apiNskV1ResourcesAreasByAreaCodeGet(areaCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesAreasByAreaCodeGet(areaCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAreasByAreaCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -429,7 +429,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesAreasGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Area>>
     {
-        const response = await apiNskV1ResourcesAreasGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesAreasGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesAreasGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -442,7 +442,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<BaggageType>
     {
-        const response = await apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(baggageTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -455,7 +455,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBaggageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<BaggageType>>
     {
-        const response = await apiNskV1ResourcesBaggageTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesBaggageTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBaggageTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -468,7 +468,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode: string, cultureCode?: string, eTag?: string,  headers?: Headers): Promise<Array<BundleApplication>>
     {
-        const response = await apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode,cultureCode,eTag,'body', headers);
+        const response = await apiNskV1ResourcesBundlesApplicationsGet(bundleRuleCode,cultureCode,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBundlesApplicationsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -481,7 +481,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode: string, cultureCode?: string,  headers?: Headers): Promise<BundleConfiguration>
     {
-        const response = await apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesBundlesByBundleCodeGet(bundleCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBundlesByBundleCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -494,7 +494,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBundlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<BundleConfiguration>>
     {
-        const response = await apiNskV1ResourcesBundlesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesBundlesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBundlesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -507,7 +507,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBundlesRulesGet(eTag?: string,  headers?: Headers): Promise<Array<BundleRule>>
     {
-        const response = await apiNskV1ResourcesBundlesRulesGet(eTag,'body', headers);
+        const response = await apiNskV1ResourcesBundlesRulesGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBundlesRulesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -520,7 +520,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBundlesSetsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<BundleSet>>
     {
-        const response = await apiNskV1ResourcesBundlesSetsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesBundlesSetsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBundlesSetsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -533,7 +533,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesBundlesSsrsGet(bundleCode: string, cultureCode?: string, eTag?: string,  headers?: Headers): Promise<Array<BundleSsrConfiguration>>
     {
-        const response = await apiNskV1ResourcesBundlesSsrsGet(bundleCode,cultureCode,eTag,'body', headers);
+        const response = await apiNskV1ResourcesBundlesSsrsGet(bundleCode,cultureCode,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesBundlesSsrsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -546,7 +546,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode: string, cultureCode?: string, eTag?: string,  headers?: Headers): Promise<Carrier>
     {
-        const response = await apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode,cultureCode,eTag,'body', headers);
+        const response = await apiNskV1ResourcesCarriersByCarrierCodeGet(carrierCode,cultureCode,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCarriersByCarrierCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -559,7 +559,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCarriersGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<ResourceEntriesCarrier>
     {
-        const response = await apiNskV1ResourcesCarriersGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesCarriersGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCarriersGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -572,7 +572,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCitiesByCityCodeGet(cityCode: string, cultureCode?: string,  headers?: Headers): Promise<City>
     {
-        const response = await apiNskV1ResourcesCitiesByCityCodeGet(cityCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesCitiesByCityCodeGet(cityCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCitiesByCityCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -585,7 +585,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCitiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<City>>
     {
-        const response = await apiNskV1ResourcesCitiesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesCitiesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCitiesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -598,7 +598,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode: string, cultureCode?: string,  headers?: Headers): Promise<ClassOfService>
     {
-        const response = await apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(classOfServiceCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -611,7 +611,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesClassOfServicesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<ClassOfService>>
     {
-        const response = await apiNskV1ResourcesClassOfServicesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesClassOfServicesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesClassOfServicesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -624,7 +624,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode: string, cultureCode?: string,  headers?: Headers): Promise<CommissionRate>
     {
-        const response = await apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(commissionRateCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -637,7 +637,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCommissionRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<CommissionRate>>
     {
-        const response = await apiNskV1ResourcesCommissionRatesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesCommissionRatesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCommissionRatesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -650,7 +650,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<ContactType>
     {
-        const response = await apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesContactTypesByContactTypeCodeGet(contactTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesContactTypesByContactTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -663,7 +663,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesContactTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<ContactType>>
     {
-        const response = await apiNskV1ResourcesContactTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesContactTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesContactTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -676,7 +676,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesContentsByContentIdDataGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string,  headers?: Headers): Promise<string>
     {
-        const response = await apiNskV1ResourcesContentsByContentIdDataGet(contentId,convertRtfToHtml,eTag,'body', headers);
+        const response = await apiNskV1ResourcesContentsByContentIdDataGet(contentId,convertRtfToHtml,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesContentsByContentIdDataGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -689,7 +689,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesContentsByContentIdGet(contentId: number, convertRtfToHtml?: boolean, eTag?: string,  headers?: Headers): Promise<ResourceContentItem>
     {
-        const response = await apiNskV1ResourcesContentsByContentIdGet(contentId,convertRtfToHtml,eTag,'body', headers);
+        const response = await apiNskV1ResourcesContentsByContentIdGet(contentId,convertRtfToHtml,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesContentsByContentIdGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -702,7 +702,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesContentsGet(type: 'GeneralReference' | 'News' | 'ConsoleHelp' | 'FareRuleReference' | 'ReviewWithCustomer' | 'Notices' | 'Literature' | 'Links' | 'Image' | 'PromotionReference' | 'SubscriptionReference', name?: string, containerId?: number, pageSize?: number, lastContentId?: number,  headers?: Headers): Promise<Array<ResourceContentResult>>
     {
-        const response = await apiNskV1ResourcesContentsGet(type,name,containerId,pageSize,lastContentId,'body', headers);
+        const response = await apiNskV1ResourcesContentsGet(type,name,containerId,pageSize,lastContentId,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesContentsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -715,7 +715,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode: string, forCultureCode?: string,  headers?: Headers): Promise<Culture>
     {
-        const response = await apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode,forCultureCode,'body', headers);
+        const response = await apiNskV1ResourcesCulturesByCultureCodeGet(cultureCode,forCultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCulturesByCultureCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -728,7 +728,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCulturesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Culture>>
     {
-        const response = await apiNskV1ResourcesCulturesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesCulturesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCulturesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -741,7 +741,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode: string, cultureCode?: string,  headers?: Headers): Promise<CustomerProgram>
     {
-        const response = await apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesCustomerProgramsByProgramCodeGet(programCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCustomerProgramsByProgramCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -754,7 +754,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode: string, programLevelCode: string, cultureCode?: string,  headers?: Headers): Promise<CustomerProgramLevel>
     {
-        const response = await apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode,programLevelCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(programCode,programLevelCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -767,7 +767,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesCustomerProgramsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<CustomerProgram>>
     {
-        const response = await apiNskV1ResourcesCustomerProgramsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesCustomerProgramsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesCustomerProgramsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -780,7 +780,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDelaysByDelayCodeGet(delayCode: string, cultureCode?: string,  headers?: Headers): Promise<Delay>
     {
-        const response = await apiNskV1ResourcesDelaysByDelayCodeGet(delayCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesDelaysByDelayCodeGet(delayCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDelaysByDelayCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -793,7 +793,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDelaysGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Delay>>
     {
-        const response = await apiNskV1ResourcesDelaysGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesDelaysGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDelaysGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -806,7 +806,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode: string, cultureCode?: string,  headers?: Headers): Promise<Department>
     {
-        const response = await apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesDepartmentsByDepartmentCodeGet(departmentCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDepartmentsByDepartmentCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -819,7 +819,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDepartmentsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Department>>
     {
-        const response = await apiNskV1ResourcesDepartmentsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesDepartmentsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDepartmentsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -832,7 +832,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDistributionOptionsGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<EnumResource>>
     {
-        const response = await apiNskV1ResourcesDistributionOptionsGet(cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesDistributionOptionsGet(cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDistributionOptionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -845,7 +845,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<DocumentType>
     {
-        const response = await apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(documentTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -858,7 +858,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDocumentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<DocumentType>>
     {
-        const response = await apiNskV1ResourcesDocumentTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesDocumentTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDocumentTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -871,7 +871,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDomainsByDomainCodeGet(domainCode: string,  headers?: Headers): Promise<Domain>
     {
-        const response = await apiNskV1ResourcesDomainsByDomainCodeGet(domainCode,'body', headers);
+        const response = await apiNskV1ResourcesDomainsByDomainCodeGet(domainCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDomainsByDomainCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -884,7 +884,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesDomainsGet(eTag?: string,  headers?: Headers): Promise<Array<Domain>>
     {
-        const response = await apiNskV1ResourcesDomainsGet(eTag,'body', headers);
+        const response = await apiNskV1ResourcesDomainsGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesDomainsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -897,7 +897,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<EmailType>
     {
-        const response = await apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(emailTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesEmailTypesByEmailTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -910,7 +910,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesEmailTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<EmailType>>
     {
-        const response = await apiNskV1ResourcesEmailTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesEmailTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesEmailTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -923,7 +923,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesExternalRatesByRateIdGet(rateId: string, cultureCode?: string,  headers?: Headers): Promise<ExternalRate>
     {
-        const response = await apiNskV1ResourcesExternalRatesByRateIdGet(rateId,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesExternalRatesByRateIdGet(rateId,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesExternalRatesByRateIdGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -936,7 +936,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesExternalRatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<ExternalRate>>
     {
-        const response = await apiNskV1ResourcesExternalRatesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesExternalRatesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesExternalRatesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -949,7 +949,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<FareType>
     {
-        const response = await apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesFareTypesByFareTypeCodeGet(fareTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesFareTypesByFareTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -962,7 +962,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesFareTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<FareType>>
     {
-        const response = await apiNskV1ResourcesFareTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesFareTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesFareTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -975,7 +975,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode: string,  headers?: Headers): Promise<Array<FeeDetail>>
     {
-        const response = await apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode,'body', headers);
+        const response = await apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesFeesByFeeCodeDetailsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -988,7 +988,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesFeesByFeeCodeGet(feeCode: string, cultureCode?: string,  headers?: Headers): Promise<Fee>
     {
-        const response = await apiNskV1ResourcesFeesByFeeCodeGet(feeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesFeesByFeeCodeGet(feeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesFeesByFeeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1001,7 +1001,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesFeesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Fee>>
     {
-        const response = await apiNskV1ResourcesFeesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesFeesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesFeesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1014,7 +1014,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesGendersGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<EnumResource>>
     {
-        const response = await apiNskV1ResourcesGendersGet(cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesGendersGet(cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesGendersGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1027,7 +1027,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode: string, cultureCode?: string,  headers?: Headers): Promise<HotCardReason>
     {
-        const response = await apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(hotCardReasonCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1040,7 +1040,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesHotCardReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<HotCardReason>>
     {
-        const response = await apiNskV1ResourcesHotCardReasonsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesHotCardReasonsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesHotCardReasonsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1053,7 +1053,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode: string, cultureCode?: string,  headers?: Headers): Promise<IssuanceReason>
     {
-        const response = await apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(issuanceReasonCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1066,7 +1066,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesIssuanceReasonsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<IssuanceReason>>
     {
-        const response = await apiNskV1ResourcesIssuanceReasonsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesIssuanceReasonsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesIssuanceReasonsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1079,7 +1079,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesLocationsByLocationCodeGet(locationCode: string, cultureCode?: string,  headers?: Headers): Promise<Location>
     {
-        const response = await apiNskV1ResourcesLocationsByLocationCodeGet(locationCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesLocationsByLocationCodeGet(locationCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesLocationsByLocationCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1092,7 +1092,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesLocationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Location>>
     {
-        const response = await apiNskV1ResourcesLocationsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesLocationsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesLocationsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1105,7 +1105,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesMacsByMacCodeGet(macCode: string,  headers?: Headers): Promise<Mac>
     {
-        const response = await apiNskV1ResourcesMacsByMacCodeGet(macCode,'body', headers);
+        const response = await apiNskV1ResourcesMacsByMacCodeGet(macCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesMacsByMacCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1118,7 +1118,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesMacsGet(eTag?: string,  headers?: Headers): Promise<Array<Mac>>
     {
-        const response = await apiNskV1ResourcesMacsGet(eTag,'body', headers);
+        const response = await apiNskV1ResourcesMacsGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesMacsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1131,7 +1131,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<MessageType>
     {
-        const response = await apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(messageTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesMessageTypesByMessageTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1144,7 +1144,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesMessageTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<MessageType>>
     {
-        const response = await apiNskV1ResourcesMessageTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesMessageTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesMessageTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1157,7 +1157,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesOrganizationStatusesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<EnumResource>>
     {
-        const response = await apiNskV1ResourcesOrganizationStatusesGet(cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesOrganizationStatusesGet(cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesOrganizationStatusesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1170,7 +1170,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode: string, cultureCode?: string,  headers?: Headers): Promise<PassengerDiscount>
     {
-        const response = await apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(passengerDiscountCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1183,7 +1183,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPassengerDiscountsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<PassengerDiscount>>
     {
-        const response = await apiNskV1ResourcesPassengerDiscountsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesPassengerDiscountsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPassengerDiscountsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1196,7 +1196,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<PassengerType>
     {
-        const response = await apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(passengerTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1209,7 +1209,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPassengerTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<PassengerType>>
     {
-        const response = await apiNskV1ResourcesPassengerTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesPassengerTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPassengerTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1222,7 +1222,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode: string, cultureCode?: string,  headers?: Headers): Promise<PaymentMethod>
     {
-        const response = await apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(paymentMethodCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1235,7 +1235,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPaymentMethodsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<PaymentMethod>>
     {
-        const response = await apiNskV1ResourcesPaymentMethodsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesPaymentMethodsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPaymentMethodsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1248,7 +1248,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<PersonAttachmentType>
     {
-        const response = await apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(personAttachmentTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1261,7 +1261,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<ResourceEntriesPersonAttachmentType>
     {
-        const response = await apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesPersonAttachmentTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPersonAttachmentTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1274,7 +1274,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<PersonInformationType>
     {
-        const response = await apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(personInformationTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1287,7 +1287,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPersonInformationTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<PersonInformationType>>
     {
-        const response = await apiNskV1ResourcesPersonInformationTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesPersonInformationTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPersonInformationTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1300,7 +1300,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<PhoneType>
     {
-        const response = await apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(phoneTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1313,7 +1313,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPhoneTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<PhoneType>>
     {
-        const response = await apiNskV1ResourcesPhoneTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesPhoneTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPhoneTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1326,7 +1326,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode: string, cultureCode?: string,  headers?: Headers): Promise<ProductClass>
     {
-        const response = await apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesProductClassesByProductClassCodeGet(productClassCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesProductClassesByProductClassCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1339,7 +1339,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesProductClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<ProductClass>>
     {
-        const response = await apiNskV1ResourcesProductClassesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesProductClassesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesProductClassesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1352,7 +1352,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode: string, cultureCode?: string,  headers?: Headers): Promise<PromotionSettingType>
     {
-        const response = await apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(promotionSettingsTypeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1365,7 +1365,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesPromotionSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<PromotionSettingType>>
     {
-        const response = await apiNskV1ResourcesPromotionSettingTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesPromotionSettingTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesPromotionSettingTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1378,7 +1378,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode: string, cultureCode?: string,  headers?: Headers): Promise<ProvinceState>
     {
-        const response = await apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(provinceStateCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1391,7 +1391,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesProvinceStatesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<ProvinceState>>
     {
-        const response = await apiNskV1ResourcesProvinceStatesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesProvinceStatesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesProvinceStatesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1404,7 +1404,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode: string, cultureCode?: string,  headers?: Headers): Promise<QueueCategory>
     {
-        const response = await apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(queueCategoryCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1417,7 +1417,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesQueueCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<QueueCategory>>
     {
-        const response = await apiNskV1ResourcesQueueCategoriesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesQueueCategoriesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesQueueCategoriesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1430,7 +1430,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType: 'Departure' | 'Arrival',  headers?: Headers): Promise<ProvinceState>
     {
-        const response = await apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType,'body', headers);
+        const response = await apiNskV1ResourcesReminderTimesByTimedEventTypeGet(timedEventType,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesReminderTimesByTimedEventTypeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1443,7 +1443,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesReminderTimesGet(eTag?: string,  headers?: Headers): Promise<Array<ReminderTime>>
     {
-        const response = await apiNskV1ResourcesReminderTimesGet(eTag,'body', headers);
+        const response = await apiNskV1ResourcesReminderTimesGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesReminderTimesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1456,7 +1456,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode: string,  headers?: Headers): Promise<RoleSettingType>
     {
-        const response = await apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode,'body', headers);
+        const response = await apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(roleSettingTypeCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1469,7 +1469,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesRoleSettingTypesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<RoleSettingType>>
     {
-        const response = await apiNskV1ResourcesRoleSettingTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesRoleSettingTypesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesRoleSettingTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1482,7 +1482,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesRolesByRoleCodeGet(roleCode: string,  headers?: Headers): Promise<Role>
     {
-        const response = await apiNskV1ResourcesRolesByRoleCodeGet(roleCode,'body', headers);
+        const response = await apiNskV1ResourcesRolesByRoleCodeGet(roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesRolesByRoleCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1495,7 +1495,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesRolesGet(eTag?: string,  headers?: Headers): Promise<Array<Role>>
     {
-        const response = await apiNskV1ResourcesRolesGet(eTag,'body', headers);
+        const response = await apiNskV1ResourcesRolesGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesRolesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1508,7 +1508,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSearchTypesGet(cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<EnumResource>>
     {
-        const response = await apiNskV1ResourcesSearchTypesGet(cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSearchTypesGet(cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSearchTypesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1521,7 +1521,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSettingsDataPost(request?: SettingsCategoryRequest, eTag?: string,  headers?: Headers): Promise<string>
     {
-        const response = await apiNskV1ResourcesSettingsDataPost(request,eTag,'body', headers);
+        const response = await apiNskV1ResourcesSettingsDataPost(request,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSettingsDataPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1534,7 +1534,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSettingsPost(request?: SettingsCategoryRequest, eTag?: string,  headers?: Headers): Promise<ResourceCategoryItem>
     {
-        const response = await apiNskV1ResourcesSettingsPost(request,eTag,'body', headers);
+        const response = await apiNskV1ResourcesSettingsPost(request,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSettingsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1547,7 +1547,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode: string, cultureCode?: string,  headers?: Headers): Promise<ShoppingAttributeGroup>
     {
-        const response = await apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(shoppingAttributeGroupCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1560,7 +1560,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<ShoppingAttributeGroup>>
     {
-        const response = await apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesShoppingAttributeGroupsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesShoppingAttributeGroupsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1573,7 +1573,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode: string, cultureCode?: string,  headers?: Headers): Promise<ShoppingAttribute>
     {
-        const response = await apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(shoppingAttributeCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1586,7 +1586,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesShoppingAttributesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<ShoppingAttribute>>
     {
-        const response = await apiNskV1ResourcesShoppingAttributesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesShoppingAttributesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesShoppingAttributesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1599,7 +1599,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName: string,  headers?: Headers): Promise<SingleSignOnProvider>
     {
-        const response = await apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName,'body', headers);
+        const response = await apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(providerName,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSingleSignOnProviderByProviderNameGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1612,7 +1612,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSingleSignOnProviderGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<SingleSignOnProvider>>
     {
-        const response = await apiNskV1ResourcesSingleSignOnProviderGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSingleSignOnProviderGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSingleSignOnProviderGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1625,7 +1625,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode: string, cultureCode?: string,  headers?: Headers): Promise<SsrGroup>
     {
-        const response = await apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(ssrGroupCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1638,7 +1638,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrGroupsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<SsrGroup>>
     {
-        const response = await apiNskV1ResourcesSsrGroupsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSsrGroupsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrGroupsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1651,7 +1651,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode: string, cultureCode?: string,  headers?: Headers): Promise<SsrNest>
     {
-        const response = await apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesSsrNestsBySsrNestCodeGet(ssrNestCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrNestsBySsrNestCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1664,7 +1664,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrNestsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<SsrNest>>
     {
-        const response = await apiNskV1ResourcesSsrNestsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSsrNestsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrNestsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1677,7 +1677,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode: string, cultureCode?: string,  headers?: Headers): Promise<SsrRestrictionResult>
     {
-        const response = await apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(ssrRestrictionResultCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1690,7 +1690,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<SsrRestrictionResult>>
     {
-        const response = await apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSsrRestrictionResultsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrRestrictionResultsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1703,7 +1703,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode: string, cultureCode?: string,  headers?: Headers): Promise<Ssr>
     {
-        const response = await apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrsBySsrCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1716,7 +1716,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSsrsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Ssr>>
     {
-        const response = await apiNskV1ResourcesSsrsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSsrsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSsrsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1729,7 +1729,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode: string, cultureCode?: string,  headers?: Headers): Promise<StandByPriority>
     {
-        const response = await apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(standByPriorityCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1742,7 +1742,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStandByPrioritiesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<StandByPriority>>
     {
-        const response = await apiNskV1ResourcesStandByPrioritiesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesStandByPrioritiesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStandByPrioritiesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1755,7 +1755,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode: string, cultureCode?: string,  headers?: Headers): Promise<StationCategory>
     {
-        const response = await apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(stationCategoryCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1768,7 +1768,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStationCategoriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<StationCategory>>
     {
-        const response = await apiNskV1ResourcesStationCategoriesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesStationCategoriesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStationCategoriesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1781,7 +1781,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode: string,  headers?: Headers): Promise<ResourceEntriesStationDetail>
     {
-        const response = await apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode,'body', headers);
+        const response = await apiNskV1ResourcesStationsByStationCodeDetailsGet(stationCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStationsByStationCodeDetailsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1794,7 +1794,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStationsByStationCodeGet(stationCode: string, cultureCode?: string, eTag?: string,  headers?: Headers): Promise<Station>
     {
-        const response = await apiNskV1ResourcesStationsByStationCodeGet(stationCode,cultureCode,eTag,'body', headers);
+        const response = await apiNskV1ResourcesStationsByStationCodeGet(stationCode,cultureCode,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStationsByStationCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1807,7 +1807,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode: string, activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Station>>
     {
-        const response = await apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode,activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(stationCategoryCode,activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1820,7 +1820,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesStationsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Station>>
     {
-        const response = await apiNskV1ResourcesStationsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesStationsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesStationsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1833,7 +1833,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode: string, cultureCode?: string,  headers?: Headers): Promise<SubZone>
     {
-        const response = await apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesSubZonesBySubZoneCodeGet(subZoneCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSubZonesBySubZoneCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1846,7 +1846,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSubZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<SubZone>>
     {
-        const response = await apiNskV1ResourcesSubZonesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSubZonesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSubZonesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1859,7 +1859,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode: string,  headers?: Headers): Promise<Suffix>
     {
-        const response = await apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode,'body', headers);
+        const response = await apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSuffixesBySuffixCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1872,7 +1872,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesSuffixesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Suffix>>
     {
-        const response = await apiNskV1ResourcesSuffixesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesSuffixesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesSuffixesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1885,7 +1885,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode: string, cultureCode?: string, eTag?: string,  headers?: Headers): Promise<TimeZone>
     {
-        const response = await apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode,cultureCode,eTag,'body', headers);
+        const response = await apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(timeZoneCode,cultureCode,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesTimeZonesByTimeZoneCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1898,7 +1898,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesTimeZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<TimeZone>>
     {
-        const response = await apiNskV1ResourcesTimeZonesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesTimeZonesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesTimeZonesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1911,7 +1911,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesTitlesByTitleKeyGet(titleKey: string,  headers?: Headers): Promise<Title>
     {
-        const response = await apiNskV1ResourcesTitlesByTitleKeyGet(titleKey,'body', headers);
+        const response = await apiNskV1ResourcesTitlesByTitleKeyGet(titleKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesTitlesByTitleKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1924,7 +1924,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesTitlesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Title>>
     {
-        const response = await apiNskV1ResourcesTitlesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesTitlesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesTitlesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1937,7 +1937,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode: string, cultureCode?: string,  headers?: Headers): Promise<TravelClass>
     {
-        const response = await apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesTravelClassesByTravelClassCodeGet(travelClassCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesTravelClassesByTravelClassCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1950,7 +1950,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesTravelClassesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<TravelClass>>
     {
-        const response = await apiNskV1ResourcesTravelClassesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesTravelClassesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesTravelClassesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1963,7 +1963,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesZonesByZoneCodeGet(zoneCode: string, cultureCode?: string,  headers?: Headers): Promise<Zone>
     {
-        const response = await apiNskV1ResourcesZonesByZoneCodeGet(zoneCode,cultureCode,'body', headers);
+        const response = await apiNskV1ResourcesZonesByZoneCodeGet(zoneCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesZonesByZoneCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1976,7 +1976,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV1ResourcesZonesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Zone>>
     {
-        const response = await apiNskV1ResourcesZonesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV1ResourcesZonesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV1ResourcesZonesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1989,7 +1989,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesAddOnsVendorsGet(type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car', cultureCode?: string, eTag?: string,  headers?: Headers): Promise<Array<Vendorv2>>
     {
-        const response = await apiNskV2ResourcesAddOnsVendorsGet(type,cultureCode,eTag,'body', headers);
+        const response = await apiNskV2ResourcesAddOnsVendorsGet(type,cultureCode,eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesAddOnsVendorsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -2002,7 +2002,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesCountriesByCountryCodeGet(countryCode: string, cultureCode?: string,  headers?: Headers): Promise<Countryv2>
     {
-        const response = await apiNskV2ResourcesCountriesByCountryCodeGet(countryCode,cultureCode,'body', headers);
+        const response = await apiNskV2ResourcesCountriesByCountryCodeGet(countryCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesCountriesByCountryCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -2015,7 +2015,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesCountriesGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Countryv2>>
     {
-        const response = await apiNskV2ResourcesCountriesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV2ResourcesCountriesGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesCountriesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -2028,7 +2028,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode: string, cultureCode?: string,  headers?: Headers): Promise<Currency>
     {
-        const response = await apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode,cultureCode,'body', headers);
+        const response = await apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(currencyCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -2041,7 +2041,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<ResourceEntriesCurrencyv2>
     {
-        const response = await apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV2ResourcesCurrenciesControllerv2Get(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesCurrenciesControllerv2Get
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -2054,7 +2054,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode: string, travelLocationCode: string, cultureCode?: string,  headers?: Headers): Promise<Market>
     {
-        const response = await apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode,travelLocationCode,cultureCode,'body', headers);
+        const response = await apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(locationCode,travelLocationCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -2067,7 +2067,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesMarketsByLocationCodeGet(locationCode: string, cultureCode?: string,  headers?: Headers): Promise<Array<Market>>
     {
-        const response = await apiNskV2ResourcesMarketsByLocationCodeGet(locationCode,cultureCode,'body', headers);
+        const response = await apiNskV2ResourcesMarketsByLocationCodeGet(locationCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesMarketsByLocationCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -2080,7 +2080,7 @@ export class StoreResourcesService {
      */
     public async store_apiNskV2ResourcesMarketsGet(activeOnly: boolean, cultureCode?: string, eTag?: string, startIndex?: number, itemCount?: number,  headers?: Headers): Promise<Array<Marketv2>>
     {
-        const response = await apiNskV2ResourcesMarketsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers);
+        const response = await apiNskV2ResourcesMarketsGet(activeOnly,cultureCode,eTag,startIndex,itemCount,'body', headers).toPromise();
         // TODO: Implement apiNskV2ResourcesMarketsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -44,7 +44,7 @@ export class StorePromotionsService {
      */
     public async store_apiNskV1PromotionsByPromotionCodeGet(promotionCode: string,  headers?: Headers): Promise<Promotion>
     {
-        const response = await apiNskV1PromotionsByPromotionCodeGet(promotionCode,'body', headers);
+        const response = await apiNskV1PromotionsByPromotionCodeGet(promotionCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1PromotionsByPromotionCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -57,7 +57,7 @@ export class StorePromotionsService {
      */
     public async store_apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode,organizationCode,'body', headers);
+        const response = await apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode,organizationCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1PromotionsByPromotionCodeValidateGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -70,7 +70,7 @@ export class StorePromotionsService {
      */
     public async store_apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',  headers?: Headers): Promise<Array<PromotionBase>>
     {
-        const response = await apiNskV1PromotionsGet(promotionCode,organizationCode,effectiveDate,cultureCode,promotionCodeMatching,organizationCodeMatching,'body', headers);
+        const response = await apiNskV1PromotionsGet(promotionCode,organizationCode,effectiveDate,cultureCode,promotionCodeMatching,organizationCodeMatching,'body', headers).toPromise();
         // TODO: Implement apiNskV1PromotionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

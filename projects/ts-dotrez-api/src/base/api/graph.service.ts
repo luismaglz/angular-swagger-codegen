@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -65,7 +65,7 @@ export class GraphService {
 
         const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/graph/${encodeURIComponent(String(queryName))}?${queryParameters.join('&')}`, variables , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <any>(httpResponse.response));
+               return response.pipe(map(httpResponse => <any>(httpResponse.response)));
         }
         return response;
     }
@@ -83,7 +83,7 @@ export class GraphService {
 
         const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.basePath}/api/v1/graph`, query , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <any>(httpResponse.response));
+               return response.pipe(map(httpResponse => <any>(httpResponse.response)));
         }
         return response;
     }
@@ -106,7 +106,7 @@ export class GraphService {
 
         const response: Observable<HttpResponse<any>> = this.httpClient.post(`${this.basePath}/api/v2/graph/${encodeURIComponent(String(queryName))}`, query , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <any>(httpResponse.response));
+               return response.pipe(map(httpResponse => <any>(httpResponse.response)));
         }
         return response;
     }

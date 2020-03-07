@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -139,7 +139,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<AccountTransactionCode>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AccountTransactionCodes/${encodeURIComponent(String(transactionCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <AccountTransactionCode>(httpResponse.response));
+               return response.pipe(map(httpResponse => <AccountTransactionCode>(httpResponse.response)));
         }
         return response;
     }
@@ -182,7 +182,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<AccountTransactionCode>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AccountTransactionCodes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<AccountTransactionCode>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<AccountTransactionCode>>(httpResponse.response)));
         }
         return response;
     }
@@ -221,7 +221,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<CommerceLocation>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/locations?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<CommerceLocation>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<CommerceLocation>>(httpResponse.response)));
         }
         return response;
     }
@@ -260,7 +260,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<DynamicParameter>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/parameters?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<DynamicParameter>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<DynamicParameter>>(httpResponse.response)));
         }
         return response;
     }
@@ -299,7 +299,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ParticipantType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/participanttypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ParticipantType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ParticipantType>>(httpResponse.response)));
         }
         return response;
     }
@@ -327,7 +327,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Source>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/sources/${encodeURIComponent(String(sourceCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Source>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Source>(httpResponse.response)));
         }
         return response;
     }
@@ -370,7 +370,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Source>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/sources?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Source>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Source>>(httpResponse.response)));
         }
         return response;
     }
@@ -405,7 +405,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Vendor>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/addOns/vendors?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Vendor>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Vendor>>(httpResponse.response)));
         }
         return response;
     }
@@ -433,7 +433,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<AddressType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AddressTypes/${encodeURIComponent(String(addressTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <AddressType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <AddressType>(httpResponse.response)));
         }
         return response;
     }
@@ -476,7 +476,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<AddressType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AddressTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<AddressType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<AddressType>>(httpResponse.response)));
         }
         return response;
     }
@@ -504,7 +504,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<AgentSettingType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AgentSettingTypes/${encodeURIComponent(String(agentSettingTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <AgentSettingType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <AgentSettingType>(httpResponse.response)));
         }
         return response;
     }
@@ -547,7 +547,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<AgentSettingType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/AgentSettingTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<AgentSettingType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<AgentSettingType>>(httpResponse.response)));
         }
         return response;
     }
@@ -575,7 +575,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Area>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Areas/${encodeURIComponent(String(areaCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Area>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Area>(httpResponse.response)));
         }
         return response;
     }
@@ -618,7 +618,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Area>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Areas?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Area>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Area>>(httpResponse.response)));
         }
         return response;
     }
@@ -646,7 +646,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<BaggageType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/BaggageTypes/${encodeURIComponent(String(baggageTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BaggageType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BaggageType>(httpResponse.response)));
         }
         return response;
     }
@@ -689,7 +689,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<BaggageType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/BaggageTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BaggageType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BaggageType>>(httpResponse.response)));
         }
         return response;
     }
@@ -724,7 +724,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<BundleApplication>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/applications?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BundleApplication>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BundleApplication>>(httpResponse.response)));
         }
         return response;
     }
@@ -752,7 +752,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<BundleConfiguration>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/${encodeURIComponent(String(bundleCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BundleConfiguration>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BundleConfiguration>(httpResponse.response)));
         }
         return response;
     }
@@ -795,7 +795,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<BundleConfiguration>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BundleConfiguration>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BundleConfiguration>>(httpResponse.response)));
         }
         return response;
     }
@@ -818,7 +818,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<BundleRule>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/rules?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BundleRule>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BundleRule>>(httpResponse.response)));
         }
         return response;
     }
@@ -861,7 +861,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<BundleSet>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/sets?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BundleSet>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BundleSet>>(httpResponse.response)));
         }
         return response;
     }
@@ -896,7 +896,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<BundleSsrConfiguration>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/bundles/ssrs?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BundleSsrConfiguration>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BundleSsrConfiguration>>(httpResponse.response)));
         }
         return response;
     }
@@ -928,7 +928,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Carrier>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/carriers/${encodeURIComponent(String(carrierCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Carrier>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Carrier>(httpResponse.response)));
         }
         return response;
     }
@@ -971,7 +971,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ResourceEntriesCarrier>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/carriers?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResourceEntriesCarrier>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ResourceEntriesCarrier>(httpResponse.response)));
         }
         return response;
     }
@@ -999,7 +999,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<City>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Cities/${encodeURIComponent(String(cityCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <City>(httpResponse.response));
+               return response.pipe(map(httpResponse => <City>(httpResponse.response)));
         }
         return response;
     }
@@ -1042,7 +1042,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<City>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Cities?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<City>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<City>>(httpResponse.response)));
         }
         return response;
     }
@@ -1070,7 +1070,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ClassOfService>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ClassOfServices/${encodeURIComponent(String(classOfServiceCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ClassOfService>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ClassOfService>(httpResponse.response)));
         }
         return response;
     }
@@ -1113,7 +1113,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ClassOfService>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ClassOfServices?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ClassOfService>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ClassOfService>>(httpResponse.response)));
         }
         return response;
     }
@@ -1141,7 +1141,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<CommissionRate>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CommissionRates/${encodeURIComponent(String(commissionRateCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CommissionRate>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CommissionRate>(httpResponse.response)));
         }
         return response;
     }
@@ -1184,7 +1184,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<CommissionRate>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CommissionRates?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<CommissionRate>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<CommissionRate>>(httpResponse.response)));
         }
         return response;
     }
@@ -1212,7 +1212,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ContactType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ContactTypes/${encodeURIComponent(String(contactTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ContactType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ContactType>(httpResponse.response)));
         }
         return response;
     }
@@ -1255,7 +1255,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ContactType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ContactTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ContactType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ContactType>>(httpResponse.response)));
         }
         return response;
     }
@@ -1287,7 +1287,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<string>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/contents/${encodeURIComponent(String(contentId))}/data?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <string>(httpResponse.response));
+               return response.pipe(map(httpResponse => <string>(httpResponse.response)));
         }
         return response;
     }
@@ -1319,7 +1319,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ResourceContentItem>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/contents/${encodeURIComponent(String(contentId))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResourceContentItem>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ResourceContentItem>(httpResponse.response)));
         }
         return response;
     }
@@ -1362,7 +1362,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ResourceContentResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/contents?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ResourceContentResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ResourceContentResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1390,7 +1390,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Culture>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/cultures/${encodeURIComponent(String(cultureCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Culture>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Culture>(httpResponse.response)));
         }
         return response;
     }
@@ -1433,7 +1433,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Culture>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/cultures?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Culture>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Culture>>(httpResponse.response)));
         }
         return response;
     }
@@ -1461,7 +1461,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<CustomerProgram>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CustomerPrograms/${encodeURIComponent(String(programCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CustomerProgram>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CustomerProgram>(httpResponse.response)));
         }
         return response;
     }
@@ -1494,7 +1494,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<CustomerProgramLevel>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CustomerPrograms/${encodeURIComponent(String(programCode))}/levels/${encodeURIComponent(String(programLevelCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CustomerProgramLevel>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CustomerProgramLevel>(httpResponse.response)));
         }
         return response;
     }
@@ -1537,7 +1537,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<CustomerProgram>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/CustomerPrograms?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<CustomerProgram>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<CustomerProgram>>(httpResponse.response)));
         }
         return response;
     }
@@ -1565,7 +1565,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Delay>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Delays/${encodeURIComponent(String(delayCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Delay>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Delay>(httpResponse.response)));
         }
         return response;
     }
@@ -1608,7 +1608,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Delay>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Delays?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Delay>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Delay>>(httpResponse.response)));
         }
         return response;
     }
@@ -1636,7 +1636,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Department>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Departments/${encodeURIComponent(String(departmentCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Department>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Department>(httpResponse.response)));
         }
         return response;
     }
@@ -1679,7 +1679,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Department>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Departments?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Department>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Department>>(httpResponse.response)));
         }
         return response;
     }
@@ -1714,7 +1714,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/distributionOptions?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<EnumResource>>(httpResponse.response)));
         }
         return response;
     }
@@ -1742,7 +1742,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<DocumentType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/DocumentTypes/${encodeURIComponent(String(documentTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <DocumentType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <DocumentType>(httpResponse.response)));
         }
         return response;
     }
@@ -1785,7 +1785,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<DocumentType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/DocumentTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<DocumentType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<DocumentType>>(httpResponse.response)));
         }
         return response;
     }
@@ -1807,7 +1807,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Domain>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Domains/${encodeURIComponent(String(domainCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Domain>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Domain>(httpResponse.response)));
         }
         return response;
     }
@@ -1830,7 +1830,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Domain>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Domains?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Domain>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Domain>>(httpResponse.response)));
         }
         return response;
     }
@@ -1858,7 +1858,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<EmailType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/EmailTypes/${encodeURIComponent(String(emailTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <EmailType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <EmailType>(httpResponse.response)));
         }
         return response;
     }
@@ -1901,7 +1901,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<EmailType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/EmailTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<EmailType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<EmailType>>(httpResponse.response)));
         }
         return response;
     }
@@ -1929,7 +1929,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ExternalRate>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ExternalRates/${encodeURIComponent(String(rateId))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ExternalRate>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ExternalRate>(httpResponse.response)));
         }
         return response;
     }
@@ -1972,7 +1972,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ExternalRate>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ExternalRates?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ExternalRate>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ExternalRate>>(httpResponse.response)));
         }
         return response;
     }
@@ -2000,7 +2000,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<FareType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/FareTypes/${encodeURIComponent(String(fareTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <FareType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <FareType>(httpResponse.response)));
         }
         return response;
     }
@@ -2043,7 +2043,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<FareType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/FareTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<FareType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<FareType>>(httpResponse.response)));
         }
         return response;
     }
@@ -2065,7 +2065,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<FeeDetail>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/fees/${encodeURIComponent(String(feeCode))}/details`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<FeeDetail>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<FeeDetail>>(httpResponse.response)));
         }
         return response;
     }
@@ -2093,7 +2093,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Fee>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Fees/${encodeURIComponent(String(feeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Fee>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Fee>(httpResponse.response)));
         }
         return response;
     }
@@ -2136,7 +2136,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Fee>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Fees?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Fee>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Fee>>(httpResponse.response)));
         }
         return response;
     }
@@ -2171,7 +2171,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/genders?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<EnumResource>>(httpResponse.response)));
         }
         return response;
     }
@@ -2199,7 +2199,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<HotCardReason>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/HotCardReasons/${encodeURIComponent(String(hotCardReasonCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <HotCardReason>(httpResponse.response));
+               return response.pipe(map(httpResponse => <HotCardReason>(httpResponse.response)));
         }
         return response;
     }
@@ -2242,7 +2242,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<HotCardReason>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/HotCardReasons?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<HotCardReason>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<HotCardReason>>(httpResponse.response)));
         }
         return response;
     }
@@ -2270,7 +2270,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<IssuanceReason>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/IssuanceReasons/${encodeURIComponent(String(issuanceReasonCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IssuanceReason>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IssuanceReason>(httpResponse.response)));
         }
         return response;
     }
@@ -2313,7 +2313,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<IssuanceReason>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/IssuanceReasons?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<IssuanceReason>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<IssuanceReason>>(httpResponse.response)));
         }
         return response;
     }
@@ -2341,7 +2341,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Location>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Locations/${encodeURIComponent(String(locationCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Location>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Location>(httpResponse.response)));
         }
         return response;
     }
@@ -2384,7 +2384,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Location>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Locations?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Location>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Location>>(httpResponse.response)));
         }
         return response;
     }
@@ -2406,7 +2406,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Mac>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Macs/${encodeURIComponent(String(macCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Mac>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Mac>(httpResponse.response)));
         }
         return response;
     }
@@ -2429,7 +2429,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Mac>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Macs?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Mac>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Mac>>(httpResponse.response)));
         }
         return response;
     }
@@ -2457,7 +2457,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<MessageType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/MessageTypes/${encodeURIComponent(String(messageTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <MessageType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <MessageType>(httpResponse.response)));
         }
         return response;
     }
@@ -2500,7 +2500,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<MessageType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/MessageTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<MessageType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<MessageType>>(httpResponse.response)));
         }
         return response;
     }
@@ -2535,7 +2535,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/organizationStatuses?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<EnumResource>>(httpResponse.response)));
         }
         return response;
     }
@@ -2563,7 +2563,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<PassengerDiscount>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerDiscounts/${encodeURIComponent(String(passengerDiscountCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PassengerDiscount>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PassengerDiscount>(httpResponse.response)));
         }
         return response;
     }
@@ -2606,7 +2606,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<PassengerDiscount>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerDiscounts?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PassengerDiscount>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PassengerDiscount>>(httpResponse.response)));
         }
         return response;
     }
@@ -2634,7 +2634,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<PassengerType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerTypes/${encodeURIComponent(String(passengerTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PassengerType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PassengerType>(httpResponse.response)));
         }
         return response;
     }
@@ -2677,7 +2677,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<PassengerType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PassengerTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PassengerType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PassengerType>>(httpResponse.response)));
         }
         return response;
     }
@@ -2705,7 +2705,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<PaymentMethod>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PaymentMethods/${encodeURIComponent(String(paymentMethodCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PaymentMethod>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PaymentMethod>(httpResponse.response)));
         }
         return response;
     }
@@ -2748,7 +2748,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<PaymentMethod>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PaymentMethods?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PaymentMethod>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PaymentMethod>>(httpResponse.response)));
         }
         return response;
     }
@@ -2776,7 +2776,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<PersonAttachmentType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonAttachmentTypes/${encodeURIComponent(String(personAttachmentTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonAttachmentType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonAttachmentType>(httpResponse.response)));
         }
         return response;
     }
@@ -2819,7 +2819,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ResourceEntriesPersonAttachmentType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonAttachmentTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResourceEntriesPersonAttachmentType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ResourceEntriesPersonAttachmentType>(httpResponse.response)));
         }
         return response;
     }
@@ -2847,7 +2847,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<PersonInformationType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonInformationTypes/${encodeURIComponent(String(personInformationTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonInformationType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonInformationType>(httpResponse.response)));
         }
         return response;
     }
@@ -2890,7 +2890,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<PersonInformationType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PersonInformationTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonInformationType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonInformationType>>(httpResponse.response)));
         }
         return response;
     }
@@ -2918,7 +2918,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<PhoneType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PhoneTypes/${encodeURIComponent(String(phoneTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PhoneType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PhoneType>(httpResponse.response)));
         }
         return response;
     }
@@ -2961,7 +2961,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<PhoneType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PhoneTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PhoneType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PhoneType>>(httpResponse.response)));
         }
         return response;
     }
@@ -2989,7 +2989,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ProductClass>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProductClasses/${encodeURIComponent(String(productClassCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ProductClass>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ProductClass>(httpResponse.response)));
         }
         return response;
     }
@@ -3032,7 +3032,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ProductClass>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProductClasses?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ProductClass>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ProductClass>>(httpResponse.response)));
         }
         return response;
     }
@@ -3060,7 +3060,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<PromotionSettingType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PromotionSettingTypes/${encodeURIComponent(String(promotionSettingsTypeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PromotionSettingType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PromotionSettingType>(httpResponse.response)));
         }
         return response;
     }
@@ -3103,7 +3103,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<PromotionSettingType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/PromotionSettingTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PromotionSettingType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PromotionSettingType>>(httpResponse.response)));
         }
         return response;
     }
@@ -3131,7 +3131,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ProvinceState>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProvinceStates/${encodeURIComponent(String(provinceStateCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ProvinceState>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ProvinceState>(httpResponse.response)));
         }
         return response;
     }
@@ -3174,7 +3174,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ProvinceState>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ProvinceStates?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ProvinceState>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ProvinceState>>(httpResponse.response)));
         }
         return response;
     }
@@ -3202,7 +3202,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<QueueCategory>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/queue/categories/${encodeURIComponent(String(queueCategoryCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <QueueCategory>(httpResponse.response));
+               return response.pipe(map(httpResponse => <QueueCategory>(httpResponse.response)));
         }
         return response;
     }
@@ -3245,7 +3245,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<QueueCategory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/queue/categories?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<QueueCategory>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<QueueCategory>>(httpResponse.response)));
         }
         return response;
     }
@@ -3267,7 +3267,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ProvinceState>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/reminderTimes/${encodeURIComponent(String(timedEventType))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ProvinceState>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ProvinceState>(httpResponse.response)));
         }
         return response;
     }
@@ -3290,7 +3290,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ReminderTime>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/reminderTimes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ReminderTime>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ReminderTime>>(httpResponse.response)));
         }
         return response;
     }
@@ -3312,7 +3312,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<RoleSettingType>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/RoleSettingTypes/${encodeURIComponent(String(roleSettingTypeCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <RoleSettingType>(httpResponse.response));
+               return response.pipe(map(httpResponse => <RoleSettingType>(httpResponse.response)));
         }
         return response;
     }
@@ -3355,7 +3355,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<RoleSettingType>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/RoleSettingTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<RoleSettingType>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<RoleSettingType>>(httpResponse.response)));
         }
         return response;
     }
@@ -3377,7 +3377,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Role>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/roles/${encodeURIComponent(String(roleCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Role>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Role>(httpResponse.response)));
         }
         return response;
     }
@@ -3400,7 +3400,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Role>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/roles?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Role>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Role>>(httpResponse.response)));
         }
         return response;
     }
@@ -3435,7 +3435,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<EnumResource>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/searchTypes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<EnumResource>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<EnumResource>>(httpResponse.response)));
         }
         return response;
     }
@@ -3459,7 +3459,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<string>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/resources/settings/data?${queryParameters.join('&')}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <string>(httpResponse.response));
+               return response.pipe(map(httpResponse => <string>(httpResponse.response)));
         }
         return response;
     }
@@ -3483,7 +3483,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ResourceCategoryItem>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/resources/settings?${queryParameters.join('&')}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResourceCategoryItem>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ResourceCategoryItem>(httpResponse.response)));
         }
         return response;
     }
@@ -3511,7 +3511,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ShoppingAttributeGroup>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributeGroups/${encodeURIComponent(String(shoppingAttributeGroupCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ShoppingAttributeGroup>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ShoppingAttributeGroup>(httpResponse.response)));
         }
         return response;
     }
@@ -3554,7 +3554,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ShoppingAttributeGroup>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributeGroups?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ShoppingAttributeGroup>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ShoppingAttributeGroup>>(httpResponse.response)));
         }
         return response;
     }
@@ -3582,7 +3582,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ShoppingAttribute>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributes/${encodeURIComponent(String(shoppingAttributeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ShoppingAttribute>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ShoppingAttribute>(httpResponse.response)));
         }
         return response;
     }
@@ -3625,7 +3625,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<ShoppingAttribute>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/ShoppingAttributes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ShoppingAttribute>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ShoppingAttribute>>(httpResponse.response)));
         }
         return response;
     }
@@ -3647,7 +3647,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<SingleSignOnProvider>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/singleSignOnProvider/${encodeURIComponent(String(providerName))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SingleSignOnProvider>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SingleSignOnProvider>(httpResponse.response)));
         }
         return response;
     }
@@ -3690,7 +3690,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<SingleSignOnProvider>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/singleSignOnProvider?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<SingleSignOnProvider>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<SingleSignOnProvider>>(httpResponse.response)));
         }
         return response;
     }
@@ -3718,7 +3718,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<SsrGroup>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrGroups/${encodeURIComponent(String(ssrGroupCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SsrGroup>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SsrGroup>(httpResponse.response)));
         }
         return response;
     }
@@ -3761,7 +3761,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<SsrGroup>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrGroups?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<SsrGroup>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<SsrGroup>>(httpResponse.response)));
         }
         return response;
     }
@@ -3789,7 +3789,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<SsrNest>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrNests/${encodeURIComponent(String(ssrNestCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SsrNest>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SsrNest>(httpResponse.response)));
         }
         return response;
     }
@@ -3832,7 +3832,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<SsrNest>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrNests?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<SsrNest>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<SsrNest>>(httpResponse.response)));
         }
         return response;
     }
@@ -3860,7 +3860,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<SsrRestrictionResult>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrRestrictionResults/${encodeURIComponent(String(ssrRestrictionResultCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SsrRestrictionResult>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SsrRestrictionResult>(httpResponse.response)));
         }
         return response;
     }
@@ -3903,7 +3903,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<SsrRestrictionResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SsrRestrictionResults?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<SsrRestrictionResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<SsrRestrictionResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -3931,7 +3931,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Ssr>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Ssrs/${encodeURIComponent(String(ssrCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Ssr>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Ssr>(httpResponse.response)));
         }
         return response;
     }
@@ -3974,7 +3974,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Ssr>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Ssrs?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Ssr>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Ssr>>(httpResponse.response)));
         }
         return response;
     }
@@ -4002,7 +4002,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<StandByPriority>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StandByPriorities/${encodeURIComponent(String(standByPriorityCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <StandByPriority>(httpResponse.response));
+               return response.pipe(map(httpResponse => <StandByPriority>(httpResponse.response)));
         }
         return response;
     }
@@ -4045,7 +4045,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<StandByPriority>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StandByPriorities?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<StandByPriority>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<StandByPriority>>(httpResponse.response)));
         }
         return response;
     }
@@ -4073,7 +4073,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<StationCategory>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StationCategories/${encodeURIComponent(String(stationCategoryCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <StationCategory>(httpResponse.response));
+               return response.pipe(map(httpResponse => <StationCategory>(httpResponse.response)));
         }
         return response;
     }
@@ -4116,7 +4116,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<StationCategory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/StationCategories?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<StationCategory>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<StationCategory>>(httpResponse.response)));
         }
         return response;
     }
@@ -4138,7 +4138,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ResourceEntriesStationDetail>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/stations/${encodeURIComponent(String(stationCode))}/details`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResourceEntriesStationDetail>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ResourceEntriesStationDetail>(httpResponse.response)));
         }
         return response;
     }
@@ -4170,7 +4170,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Station>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Stations/${encodeURIComponent(String(stationCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Station>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Station>(httpResponse.response)));
         }
         return response;
     }
@@ -4218,7 +4218,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Station>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/stations/category/${encodeURIComponent(String(stationCategoryCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Station>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Station>>(httpResponse.response)));
         }
         return response;
     }
@@ -4261,7 +4261,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Station>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Stations?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Station>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Station>>(httpResponse.response)));
         }
         return response;
     }
@@ -4289,7 +4289,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<SubZone>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SubZones/${encodeURIComponent(String(subZoneCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SubZone>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SubZone>(httpResponse.response)));
         }
         return response;
     }
@@ -4332,7 +4332,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<SubZone>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/SubZones?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<SubZone>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<SubZone>>(httpResponse.response)));
         }
         return response;
     }
@@ -4354,7 +4354,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Suffix>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Suffixes/${encodeURIComponent(String(suffixCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Suffix>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Suffix>(httpResponse.response)));
         }
         return response;
     }
@@ -4397,7 +4397,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Suffix>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Suffixes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Suffix>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Suffix>>(httpResponse.response)));
         }
         return response;
     }
@@ -4429,7 +4429,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<TimeZone>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TimeZones/${encodeURIComponent(String(timeZoneCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <TimeZone>(httpResponse.response));
+               return response.pipe(map(httpResponse => <TimeZone>(httpResponse.response)));
         }
         return response;
     }
@@ -4472,7 +4472,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<TimeZone>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TimeZones?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<TimeZone>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<TimeZone>>(httpResponse.response)));
         }
         return response;
     }
@@ -4494,7 +4494,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Title>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Titles/${encodeURIComponent(String(titleKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Title>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Title>(httpResponse.response)));
         }
         return response;
     }
@@ -4537,7 +4537,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Title>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Titles?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Title>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Title>>(httpResponse.response)));
         }
         return response;
     }
@@ -4565,7 +4565,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<TravelClass>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TravelClasses/${encodeURIComponent(String(travelClassCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <TravelClass>(httpResponse.response));
+               return response.pipe(map(httpResponse => <TravelClass>(httpResponse.response)));
         }
         return response;
     }
@@ -4608,7 +4608,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<TravelClass>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/TravelClasses?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<TravelClass>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<TravelClass>>(httpResponse.response)));
         }
         return response;
     }
@@ -4636,7 +4636,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Zone>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Zones/${encodeURIComponent(String(zoneCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Zone>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Zone>(httpResponse.response)));
         }
         return response;
     }
@@ -4679,7 +4679,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Zone>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/resources/Zones?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Zone>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Zone>>(httpResponse.response)));
         }
         return response;
     }
@@ -4714,7 +4714,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Vendorv2>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/addOns/vendors?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Vendorv2>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Vendorv2>>(httpResponse.response)));
         }
         return response;
     }
@@ -4742,7 +4742,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Countryv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/countries/${encodeURIComponent(String(countryCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Countryv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Countryv2>(httpResponse.response)));
         }
         return response;
     }
@@ -4785,7 +4785,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Countryv2>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/countries?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Countryv2>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Countryv2>>(httpResponse.response)));
         }
         return response;
     }
@@ -4813,7 +4813,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Currency>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/CurrenciesControllerv2/${encodeURIComponent(String(currencyCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Currency>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Currency>(httpResponse.response)));
         }
         return response;
     }
@@ -4856,7 +4856,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<ResourceEntriesCurrencyv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/CurrenciesControllerv2?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResourceEntriesCurrencyv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ResourceEntriesCurrencyv2>(httpResponse.response)));
         }
         return response;
     }
@@ -4889,7 +4889,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Market>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/markets/${encodeURIComponent(String(locationCode))}/${encodeURIComponent(String(travelLocationCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Market>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Market>(httpResponse.response)));
         }
         return response;
     }
@@ -4917,7 +4917,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Market>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/markets/${encodeURIComponent(String(locationCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Market>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Market>>(httpResponse.response)));
         }
         return response;
     }
@@ -4960,7 +4960,7 @@ export class ResourcesService {
 
         const response: Observable<HttpResponse<Array<Marketv2>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/resources/markets?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Marketv2>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Marketv2>>(httpResponse.response)));
         }
         return response;
     }

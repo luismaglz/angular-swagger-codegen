@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -155,7 +155,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
-        const response = await apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
+        const response = await apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -168,7 +168,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAccountGet( headers?: Headers): Promise<Account>
     {
-        const response = await apiNskV1BookingAccountGet('body', headers);
+        const response = await apiNskV1BookingAccountGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAccountGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -181,7 +181,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
-        const response = await apiNskV1BookingAccountTransactionsGet(startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
+        const response = await apiNskV1BookingAccountTransactionsGet(startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAccountTransactionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -194,7 +194,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<ActivityProduct>>
     {
-        const response = await apiNskV1BookingAddOnsActivitiesGet(vendorCode,cultureCode,'body', headers);
+        const response = await apiNskV1BookingAddOnsActivitiesGet(vendorCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddOnsActivitiesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -207,7 +207,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<CarProduct>>
     {
-        const response = await apiNskV1BookingAddOnsCarsGet(vendorCode,cultureCode,'body', headers);
+        const response = await apiNskV1BookingAddOnsCarsGet(vendorCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddOnsCarsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -220,7 +220,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<HotelProduct>>
     {
-        const response = await apiNskV1BookingAddOnsHotelsGet(vendorCode,cultureCode,'body', headers);
+        const response = await apiNskV1BookingAddOnsHotelsGet(vendorCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddOnsHotelsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -233,7 +233,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<InsuranceProduct>>
     {
-        const response = await apiNskV1BookingAddOnsInsuranceGet(vendorCode,cultureCode,'body', headers);
+        const response = await apiNskV1BookingAddOnsInsuranceGet(vendorCode,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddOnsInsuranceGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -246,7 +246,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest,  headers?: Headers): Promise<IActionResult>
     {
-        const response = await apiNskV1BookingAddOnsInsurancePost(request,'body', headers);
+        const response = await apiNskV1BookingAddOnsInsurancePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddOnsInsurancePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -259,7 +259,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey,request,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyCustomerPatch
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -272,7 +272,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey,request,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyCustomerPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -285,7 +285,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -298,7 +298,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string,  headers?: Headers): Promise<AddOn>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyGet(addOnKey,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyGet(addOnKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -311,7 +311,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey,participantKey,request,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey,participantKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -324,7 +324,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey,participantKey,request,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey,participantKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -337,7 +337,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string,  headers?: Headers): Promise<AddOnAllowedPayments>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyPaymentsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -350,7 +350,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey,request,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyPaymentsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -363,7 +363,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string,  headers?: Headers): Promise<PreCancelDetail>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyPreCancelGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -376,7 +376,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeySyncPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -389,7 +389,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string,  headers?: Headers): Promise<AddOnSettings>
     {
-        const response = await apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey,'body', headers);
+        const response = await apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyValidationGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -402,7 +402,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsGet( headers?: Headers): Promise<InlineResponse200>
     {
-        const response = await apiNskV1BookingAddonsGet('body', headers);
+        const response = await apiNskV1BookingAddonsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -415,7 +415,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingAddonsPaymentsGet( headers?: Headers): Promise<InlineResponse2001>
     {
-        const response = await apiNskV1BookingAddonsPaymentsGet('body', headers);
+        const response = await apiNskV1BookingAddonsPaymentsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingAddonsPaymentsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -428,7 +428,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean,  headers?: Headers): Promise<InlineResponse2002>
     {
-        const response = await apiNskV1BookingBaggageAllowancesGet(includeUsageDetails,'body', headers);
+        const response = await apiNskV1BookingBaggageAllowancesGet(includeUsageDetails,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingBaggageAllowancesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -441,7 +441,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest,  headers?: Headers): Promise<Array<BundleAvailability>>
     {
-        const response = await apiNskV1BookingBundleAvailabilityPost(request,'body', headers);
+        const response = await apiNskV1BookingBundleAvailabilityPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingBundleAvailabilityPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -454,7 +454,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingCommentsGet( headers?: Headers): Promise<Array<BookingComment>>
     {
-        const response = await apiNskV1BookingCommentsGet('body', headers);
+        const response = await apiNskV1BookingCommentsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingCommentsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -467,7 +467,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey,request,'body', headers);
+        const response = await apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFareOverrideJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -480,7 +480,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string,  headers?: Headers): Promise<FareRule>
     {
-        const response = await apiNskV1BookingFareRulesFareByFareKeyGet(fareKey,'body', headers);
+        const response = await apiNskV1BookingFareRulesFareByFareKeyGet(fareKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFareRulesFareByFareKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -493,7 +493,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFareRulesGet( headers?: Headers): Promise<Array<FareRule>>
     {
-        const response = await apiNskV1BookingFareRulesGet('body', headers);
+        const response = await apiNskV1BookingFareRulesGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFareRulesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -506,7 +506,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Array<FareRule>>
     {
-        const response = await apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey,'body', headers);
+        const response = await apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFareRulesJourneyByJourneyKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -519,7 +519,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string,  headers?: Headers): Promise<Array<FareRule>>
     {
-        const response = await apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey,'body', headers);
+        const response = await apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFareRulesSegmentBySegmentKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -532,7 +532,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFeeByFeeKeyDelete(feeKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingFeeByFeeKeyDelete(feeKey,'body', headers);
+        const response = await apiNskV1BookingFeeByFeeKeyDelete(feeKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFeeByFeeKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -545,7 +545,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingFeeByFeeKeyPut(feeKey,request,'body', headers);
+        const response = await apiNskV1BookingFeeByFeeKeyPut(feeKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFeeByFeeKeyPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -558,7 +558,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string,  headers?: Headers): Promise<Array<ServiceCharge>>
     {
-        const response = await apiNskV1BookingFeeGet(feeCode,passengerKey,origin,collectedCurrencyCode,'body', headers);
+        const response = await apiNskV1BookingFeeGet(feeCode,passengerKey,origin,collectedCurrencyCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFeeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -571,7 +571,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingFeePost(request,'body', headers);
+        const response = await apiNskV1BookingFeePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingFeePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -584,7 +584,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingGet( headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV1BookingGet('body', headers);
+        const response = await apiNskV1BookingGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -597,7 +597,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<FlightMoveHistoryResponse>
     {
-        const response = await apiNskV1BookingHistoryFlightMoveGet(lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingHistoryFlightMoveGet(lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingHistoryFlightMoveGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -610,7 +610,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<HistoryResponse>
     {
-        const response = await apiNskV1BookingHistoryGet(event,lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingHistoryGet(event,lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingHistoryGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -623,7 +623,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingHistoryMessageGet( headers?: Headers): Promise<Array<BookingMessageHistory>>
     {
-        const response = await apiNskV1BookingHistoryMessageGet('body', headers);
+        const response = await apiNskV1BookingHistoryMessageGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingHistoryMessageGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -636,7 +636,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingHistoryNotificationGet( headers?: Headers): Promise<Array<BookingNotificationHistory>>
     {
-        const response = await apiNskV1BookingHistoryNotificationGet('body', headers);
+        const response = await apiNskV1BookingHistoryNotificationGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingHistoryNotificationGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -649,7 +649,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SeatAssignmentHistoryResponse>
     {
-        const response = await apiNskV1BookingHistorySeatAssignmentGet(event,lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingHistorySeatAssignmentGet(event,lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingHistorySeatAssignmentGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -662,7 +662,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SegmentChangeHistoryResponse>
     {
-        const response = await apiNskV1BookingHistorySegmentChangeGet(event,lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingHistorySegmentChangeGet(event,lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingHistorySegmentChangeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -675,7 +675,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingPointOfSalePatch(request,'body', headers);
+        const response = await apiNskV1BookingPointOfSalePatch(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPointOfSalePatch
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -688,7 +688,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingPointOfSalePut(request,'body', headers);
+        const response = await apiNskV1BookingPointOfSalePut(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPointOfSalePut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -701,7 +701,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingPromotionDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingPromotionDelete('body', headers);
+        const response = await apiNskV1BookingPromotionDelete('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPromotionDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -714,7 +714,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingPromotionPost(request?: PromotionRequest,  headers?: Headers): Promise<any>
     {
-        const response = await apiNskV1BookingPromotionPost(request,'body', headers);
+        const response = await apiNskV1BookingPromotionPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPromotionPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -727,7 +727,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingPromotionPut(request?: PromotionRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingPromotionPut(request,'body', headers);
+        const response = await apiNskV1BookingPromotionPut(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingPromotionPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -740,7 +740,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingQueueDelete(request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingQueueDelete(request,'body', headers);
+        const response = await apiNskV1BookingQueueDelete(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingQueueDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -753,7 +753,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingQueuePost(request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingQueuePost(request,'body', headers);
+        const response = await apiNskV1BookingQueuePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingQueuePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -766,7 +766,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey,'body', headers);
+        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -779,7 +779,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string,  headers?: Headers): Promise<RecordLocator>
     {
-        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey,'body', headers);
+        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -792,7 +792,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey,request,'body', headers);
+        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -805,7 +805,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey,request,'body', headers);
+        const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -818,7 +818,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingRecordLocatorsDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingRecordLocatorsDelete('body', headers);
+        const response = await apiNskV1BookingRecordLocatorsDelete('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRecordLocatorsDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -831,7 +831,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingRecordLocatorsGet( headers?: Headers): Promise<Array<RecordLocator>>
     {
-        const response = await apiNskV1BookingRecordLocatorsGet('body', headers);
+        const response = await apiNskV1BookingRecordLocatorsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRecordLocatorsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -844,7 +844,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingRecordLocatorsPost(request,'body', headers);
+        const response = await apiNskV1BookingRecordLocatorsPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRecordLocatorsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -857,7 +857,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingResetDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingResetDelete('body', headers);
+        const response = await apiNskV1BookingResetDelete('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingResetDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -870,7 +870,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api',  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingSalesChannelPut(channelType,'body', headers);
+        const response = await apiNskV1BookingSalesChannelPut(channelType,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingSalesChannelPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -883,7 +883,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey,journeyKey,request,'body', headers);
+        const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey,journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -896,7 +896,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey,request,'body', headers);
+        const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -909,7 +909,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey,segmentKey,request,'body', headers);
+        const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey,segmentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -922,7 +922,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey,'body', headers);
+        const response = await apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingSegmentsBySegmentKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -935,7 +935,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingCommentsByCommentKeyDelete(commentKey,'body', headers);
+        const response = await apiNskV2BookingCommentsByCommentKeyDelete(commentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingCommentsByCommentKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -948,7 +948,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV2BookingDividePost(request?: DivideRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingDividePost(request,'body', headers);
+        const response = await apiNskV2BookingDividePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingDividePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -961,7 +961,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV2BookingHoldAvailableGet( headers?: Headers): Promise<Date>
     {
-        const response = await apiNskV2BookingHoldAvailableGet('body', headers);
+        const response = await apiNskV2BookingHoldAvailableGet('body', headers).toPromise();
         // TODO: Implement apiNskV2BookingHoldAvailableGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -974,7 +974,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
     {
-        const response = await apiNskV2BookingSeatmapsGet(includePropertyLookup,cultureCode,'body', headers);
+        const response = await apiNskV2BookingSeatmapsGet(includePropertyLookup,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingSeatmapsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -987,7 +987,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
     {
-        const response = await apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey,includePropertyLookup,cultureCode,'body', headers);
+        const response = await apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey,includePropertyLookup,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingSeatmapsSegmentBySegmentKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1000,7 +1000,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV2BookingStatusGet( headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV2BookingStatusGet('body', headers);
+        const response = await apiNskV2BookingStatusGet('body', headers).toPromise();
         // TODO: Implement apiNskV2BookingStatusGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1013,7 +1013,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV3BookingPost(request?: CommitRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPost(request,'body', headers);
+        const response = await apiNskV3BookingPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1026,7 +1026,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV3BookingPut(request?: CommitRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingPut(request,'body', headers);
+        const response = await apiNskV3BookingPut(request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -1039,7 +1039,7 @@ export class StoreBookingService {
      */
     public async store_apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
     {
-        const response = await apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey,includePropertyLookup,cultureCode,'body', headers);
+        const response = await apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey,includePropertyLookup,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingSeatmapsJourneyByJourneyKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

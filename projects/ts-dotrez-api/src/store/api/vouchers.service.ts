@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -52,7 +52,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date,  headers?: Headers): Promise<VouchersSummaryResponse>
     {
-        const response = await apiNskV1VouchersByDateGet(beginDate,pageSize,lastPageKey,endDate,'body', headers);
+        const response = await apiNskV1VouchersByDateGet(beginDate,pageSize,lastPageKey,endDate,'body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersByDateGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -65,7 +65,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string,  headers?: Headers): Promise<Array<VoucherItem>>
     {
-        const response = await apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey,'body', headers);
+        const response = await apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -78,7 +78,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string,  headers?: Headers): Promise<Array<VoucherItem>>
     {
-        const response = await apiNskV1VouchersByMarketGet(destination,origin,departureDate,identifier,carrierCode,opSuffix,'body', headers);
+        const response = await apiNskV1VouchersByMarketGet(destination,origin,departureDate,identifier,carrierCode,opSuffix,'body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersByMarketGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -91,7 +91,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersByVoucherKeyGet(voucherKey: string,  headers?: Headers): Promise<Voucher>
     {
-        const response = await apiNskV1VouchersByVoucherKeyGet(voucherKey,'body', headers);
+        const response = await apiNskV1VouchersByVoucherKeyGet(voucherKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersByVoucherKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -104,7 +104,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1VouchersByVoucherKeyPut(voucherKey,request,'body', headers);
+        const response = await apiNskV1VouchersByVoucherKeyPut(voucherKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersByVoucherKeyPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -117,7 +117,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string,  headers?: Headers): Promise<VoucherConfiguration>
     {
-        const response = await apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode,'body', headers);
+        const response = await apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersConfigurationByConfigurationCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -130,7 +130,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersConfigurationGet( headers?: Headers): Promise<Array<VoucherConfiguration>>
     {
-        const response = await apiNskV1VouchersConfigurationGet('body', headers);
+        const response = await apiNskV1VouchersConfigurationGet('body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersConfigurationGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -143,7 +143,7 @@ export class StoreVouchersService {
      */
     public async store_apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string,  headers?: Headers): Promise<Array<VoucherItem>>
     {
-        const response = await apiNskV1VouchersGet(customerNameFirstName,customerNameLastName,activeOnly,recordLocator,customerNumber,cultureCode,'body', headers);
+        const response = await apiNskV1VouchersGet(customerNameFirstName,customerNameLastName,activeOnly,recordLocator,customerNumber,cultureCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1VouchersGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

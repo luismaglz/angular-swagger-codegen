@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -64,7 +64,7 @@ export class SeatmapsService {
 
         const response: Observable<HttpResponse<Array<SeatMapAvailability>>> = this.httpClient.get(`${this.basePath}/api/nsk/v3/seatmaps/${encodeURIComponent(String(journeyKey))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<SeatMapAvailability>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<SeatMapAvailability>>(httpResponse.response)));
         }
         return response;
     }

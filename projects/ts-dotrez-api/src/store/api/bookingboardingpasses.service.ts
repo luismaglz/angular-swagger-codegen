@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -48,7 +48,7 @@ export class StoreBookingboardingpassesService {
      */
     public async store_apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest,  headers?: Headers): Promise<BoardingPassesM2D>
     {
-        const response = await apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey,request,'body', headers);
+        const response = await apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -61,7 +61,7 @@ export class StoreBookingboardingpassesService {
      */
     public async store_apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassPassengerFilterRequest,  headers?: Headers): Promise<BoardingPassesS2D>
     {
-        const response = await apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey,request,'body', headers);
+        const response = await apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -74,7 +74,7 @@ export class StoreBookingboardingpassesService {
      */
     public async store_apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey: string, request?: BoardingPassFilterRequest,  headers?: Headers): Promise<BoardingPassesCollectionv2>
     {
-        const response = await apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey,request,'body', headers);
+        const response = await apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -87,7 +87,7 @@ export class StoreBookingboardingpassesService {
      */
     public async store_apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey: string, request?: BoardingPassPassengerFilterRequest,  headers?: Headers): Promise<BoardingPassesCollectionv2>
     {
-        const response = await apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey,request,'body', headers);
+        const response = await apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(segmentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

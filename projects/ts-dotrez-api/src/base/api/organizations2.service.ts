@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -70,7 +70,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/childAccountTransactions`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -93,7 +93,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/childAccountTransactions`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -115,7 +115,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<OrganizationAccount>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <OrganizationAccount>(httpResponse.response));
+               return response.pipe(map(httpResponse => <OrganizationAccount>(httpResponse.response)));
         }
         return response;
     }
@@ -138,7 +138,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -170,7 +170,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/status?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -222,7 +222,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/transactions?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Transaction>>(httpResponse.response)));
         }
         return response;
     }
@@ -245,7 +245,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/account/transactions`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -272,7 +272,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates/${encodeURIComponent(String(commissionRateCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -299,7 +299,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<OrganizationCommissionRate>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates/${encodeURIComponent(String(commissionRateCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <OrganizationCommissionRate>(httpResponse.response));
+               return response.pipe(map(httpResponse => <OrganizationCommissionRate>(httpResponse.response)));
         }
         return response;
     }
@@ -322,7 +322,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/commissionRates`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -349,7 +349,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -377,7 +377,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -400,7 +400,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/company/phoneNumbers`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -427,7 +427,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -455,7 +455,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -478,7 +478,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/contact/phoneNumbers`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -505,7 +505,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts/${encodeURIComponent(String(externalAccountKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -532,7 +532,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<OrganizationExternalAccountv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts/${encodeURIComponent(String(externalAccountKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <OrganizationExternalAccountv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <OrganizationExternalAccountv2>(httpResponse.response)));
         }
         return response;
     }
@@ -555,7 +555,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}/externalAccounts`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -577,7 +577,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Organizationv2>(httpResponse.response)));
         }
         return response;
     }
@@ -600,7 +600,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}`, createRequest , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Organizationv2>(httpResponse.response)));
         }
         return response;
     }
@@ -623,7 +623,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/organizations2/${encodeURIComponent(String(organizationCode))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Organizationv2>(httpResponse.response)));
         }
         return response;
     }
@@ -641,7 +641,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2`, createRequest , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Organizationv2>(httpResponse.response)));
         }
         return response;
     }
@@ -659,7 +659,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<Organizationv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/organizations2/register`, registerRequest , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Organizationv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Organizationv2>(httpResponse.response)));
         }
         return response;
     }
@@ -742,7 +742,7 @@ export class Organizations2Service {
 
         const response: Observable<HttpResponse<Array<OrganizationRecord>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/organizations2?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<OrganizationRecord>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<OrganizationRecord>>(httpResponse.response)));
         }
         return response;
     }

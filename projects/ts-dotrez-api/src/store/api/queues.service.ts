@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -51,7 +51,7 @@ export class StoreQueuesService {
      */
     public async store_apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode,bookingQueueItemKey,request,'body', headers);
+        const response = await apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode,bookingQueueItemKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -64,7 +64,7 @@ export class StoreQueuesService {
      */
     public async store_apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode,bookingQueueItemKey,request,'body', headers);
+        const response = await apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode,bookingQueueItemKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -77,7 +77,7 @@ export class StoreQueuesService {
      */
     public async store_apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string,  headers?: Headers): Promise<DequeueTravelSummary>
     {
-        const response = await apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode,subQueueCode,'body', headers);
+        const response = await apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode,subQueueCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1QueuesTravelByTravelQueueCodeNextGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -90,7 +90,7 @@ export class StoreQueuesService {
      */
     public async store_apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1QueuesTravelPost(item,'body', headers);
+        const response = await apiNskV1QueuesTravelPost(item,'body', headers).toPromise();
         // TODO: Implement apiNskV1QueuesTravelPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -103,7 +103,7 @@ export class StoreQueuesService {
      */
     public async store_apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string,  headers?: Headers): Promise<Array<BookingQueueItemBase>>
     {
-        const response = await apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode,subQueueCode,startDate,endDate,password,'body', headers);
+        const response = await apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode,subQueueCode,startDate,endDate,password,'body', headers).toPromise();
         // TODO: Implement apiNskV2QueuesBookingsByBookingQueueCodeNextGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -116,7 +116,7 @@ export class StoreQueuesService {
      */
     public async store_apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number,  headers?: Headers): Promise<QueueResults>
     {
-        const response = await apiNskV2QueuesBookingsGet(queueName,queueCode,queueCategoryCode,pageSize,lastPageIndex,'body', headers);
+        const response = await apiNskV2QueuesBookingsGet(queueName,queueCode,queueCategoryCode,pageSize,lastPageIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV2QueuesBookingsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -76,7 +76,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripDowngradePost(request?: TripDowngradeRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TripDowngradePost(request,'body', headers);
+        const response = await apiNskV1TripDowngradePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripDowngradePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -89,7 +89,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Trip>
     {
-        const response = await apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey,'body', headers);
+        const response = await apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -102,7 +102,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest,  headers?: Headers): Promise<Trip>
     {
-        const response = await apiNskV1TripFlyAheadAvailabilityPost(request,'body', headers);
+        const response = await apiNskV1TripFlyAheadAvailabilityPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripFlyAheadAvailabilityPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -115,7 +115,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripInfoByLegKeyDetailsGet(legKey: string,  headers?: Headers): Promise<TripDetails>
     {
-        const response = await apiNskV1TripInfoByLegKeyDetailsGet(legKey,'body', headers);
+        const response = await apiNskV1TripInfoByLegKeyDetailsGet(legKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripInfoByLegKeyDetailsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -128,7 +128,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripInfoPost(request?: TripInformationQuery,  headers?: Headers): Promise<Array<TripInformationResponse>>
     {
-        const response = await apiNskV1TripInfoPost(request,'body', headers);
+        const response = await apiNskV1TripInfoPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripInfoPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -141,7 +141,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',  headers?: Headers): Promise<Array<TripInformationResponse>>
     {
-        const response = await apiNskV1TripInfoSimpleGet(beginDate,numberOfJourneys,origin,destination,endDate,startTimeInterval,endTimeInterval,identifier,carrierCode,flightType,'body', headers);
+        const response = await apiNskV1TripInfoSimpleGet(beginDate,numberOfJourneys,origin,destination,endDate,startTimeInterval,endTimeInterval,identifier,carrierCode,flightType,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripInfoSimpleGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -154,7 +154,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripMoveAvailabilitySelfServiceGet( headers?: Headers): Promise<Availability>
     {
-        const response = await apiNskV1TripMoveAvailabilitySelfServiceGet('body', headers);
+        const response = await apiNskV1TripMoveAvailabilitySelfServiceGet('body', headers).toPromise();
         // TODO: Implement apiNskV1TripMoveAvailabilitySelfServiceGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -167,7 +167,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripMovePost(request?: MoveRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TripMovePost(request,'body', headers);
+        const response = await apiNskV1TripMovePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripMovePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -180,7 +180,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All',  headers?: Headers): Promise<Array<ScheduleDetail>>
     {
-        const response = await apiNskV1TripScheduleGet(origin,destination,beginDate,endDate,type,'body', headers);
+        const response = await apiNskV1TripScheduleGet(origin,destination,beginDate,endDate,type,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripScheduleGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -193,7 +193,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey,request,'body', headers);
+        const response = await apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripUpgradeByUpgradeKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -206,7 +206,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripUpgradeGet( headers?: Headers): Promise<Array<UpgradeSegment>>
     {
-        const response = await apiNskV1TripUpgradeGet('body', headers);
+        const response = await apiNskV1TripUpgradeGet('body', headers).toPromise();
         // TODO: Implement apiNskV1TripUpgradeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -219,7 +219,7 @@ export class StoreTripService {
      */
     public async store_apiNskV1TripUpgradePost(request?: TripUpgradeRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1TripUpgradePost(request,'body', headers);
+        const response = await apiNskV1TripUpgradePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1TripUpgradePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -232,7 +232,7 @@ export class StoreTripService {
      */
     public async store_apiNskV2TripInfoByLegKeyStatusGet(legKey: string,  headers?: Headers): Promise<TripStatusv2>
     {
-        const response = await apiNskV2TripInfoByLegKeyStatusGet(legKey,'body', headers);
+        const response = await apiNskV2TripInfoByLegKeyStatusGet(legKey,'body', headers).toPromise();
         // TODO: Implement apiNskV2TripInfoByLegKeyStatusGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -245,7 +245,7 @@ export class StoreTripService {
      */
     public async store_apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string,  headers?: Headers): Promise<Availability>
     {
-        const response = await apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey,passengerMoveType,beginDate,origin,destination,'body', headers);
+        const response = await apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey,passengerMoveType,beginDate,origin,destination,'body', headers).toPromise();
         // TODO: Implement apiNskV2TripMoveAvailabilityByJourneyKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -258,7 +258,7 @@ export class StoreTripService {
      */
     public async store_apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest,  headers?: Headers): Promise<Availability>
     {
-        const response = await apiNskV2TripMoveAvailabilityPost(request,'body', headers);
+        const response = await apiNskV2TripMoveAvailabilityPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2TripMoveAvailabilityPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -271,7 +271,7 @@ export class StoreTripService {
      */
     public async store_apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest,  headers?: Headers): Promise<Availability>
     {
-        const response = await apiNskV3TripRebookAvailabilityPost(request,'body', headers);
+        const response = await apiNskV3TripRebookAvailabilityPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV3TripRebookAvailabilityPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -284,7 +284,7 @@ export class StoreTripService {
      */
     public async store_apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent',  headers?: Headers): Promise<Availability>
     {
-        const response = await apiNskV3TripRebookAvailabilitySimpleGet(origin,destination,beginDate,endDate,loyaltyFilter,'body', headers);
+        const response = await apiNskV3TripRebookAvailabilitySimpleGet(origin,destination,beginDate,endDate,loyaltyFilter,'body', headers).toPromise();
         // TODO: Implement apiNskV3TripRebookAvailabilitySimpleGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -297,7 +297,7 @@ export class StoreTripService {
      */
     public async store_apiNskV4TripPost(request?: BookingSellRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV4TripPost(request,'body', headers);
+        const response = await apiNskV4TripPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV4TripPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -310,7 +310,7 @@ export class StoreTripService {
      */
     public async store_apiNskV4TripSellPost(request?: TripSellRequest,  headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV4TripSellPost(request,'body', headers);
+        const response = await apiNskV4TripSellPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV4TripSellPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

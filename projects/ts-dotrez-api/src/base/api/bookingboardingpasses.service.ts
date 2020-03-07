@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -59,7 +59,7 @@ export class BookingboardingpassesService {
 
         const response: Observable<HttpResponse<BoardingPassesM2D>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/boardingpasses/m2d/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BoardingPassesM2D>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BoardingPassesM2D>(httpResponse.response)));
         }
         return response;
     }
@@ -82,7 +82,7 @@ export class BookingboardingpassesService {
 
         const response: Observable<HttpResponse<BoardingPassesS2D>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/boardingpasses/s2d/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BoardingPassesS2D>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BoardingPassesS2D>(httpResponse.response)));
         }
         return response;
     }
@@ -105,7 +105,7 @@ export class BookingboardingpassesService {
 
         const response: Observable<HttpResponse<BoardingPassesCollectionv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/boardingpasses/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BoardingPassesCollectionv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BoardingPassesCollectionv2>(httpResponse.response)));
         }
         return response;
     }
@@ -128,7 +128,7 @@ export class BookingboardingpassesService {
 
         const response: Observable<HttpResponse<BoardingPassesCollectionv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/boardingpasses/segment/${encodeURIComponent(String(segmentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BoardingPassesCollectionv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BoardingPassesCollectionv2>(httpResponse.response)));
         }
         return response;
     }

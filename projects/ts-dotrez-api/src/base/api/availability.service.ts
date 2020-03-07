@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -57,7 +57,7 @@ export class AvailabilityService {
 
         const response: Observable<HttpResponse<LowFareCacheAvailability>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/availability/lowfare/beta`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <LowFareCacheAvailability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <LowFareCacheAvailability>(httpResponse.response)));
         }
         return response;
     }
@@ -75,7 +75,7 @@ export class AvailabilityService {
 
         const response: Observable<HttpResponse<LowFareAvailability>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/availability/lowfare`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <LowFareAvailability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <LowFareAvailability>(httpResponse.response)));
         }
         return response;
     }
@@ -93,7 +93,7 @@ export class AvailabilityService {
 
         const response: Observable<HttpResponse<LowFareAvailability>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/availability/lowfare/simple`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <LowFareAvailability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <LowFareAvailability>(httpResponse.response)));
         }
         return response;
     }
@@ -111,7 +111,7 @@ export class AvailabilityService {
 
         const response: Observable<HttpResponse<Availabilityv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v4/availability/search`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Availabilityv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Availabilityv2>(httpResponse.response)));
         }
         return response;
     }
@@ -129,7 +129,7 @@ export class AvailabilityService {
 
         const response: Observable<HttpResponse<Availabilityv2>> = this.httpClient.post(`${this.basePath}/api/nsk/v4/availability/search/simple`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Availabilityv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Availabilityv2>(httpResponse.response)));
         }
         return response;
     }

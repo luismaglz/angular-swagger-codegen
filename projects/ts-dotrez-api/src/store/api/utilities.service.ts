@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -40,7 +40,7 @@ export class StoreUtilitiesService {
      */
     public async store_apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string,  headers?: Headers): Promise<Date>
     {
-        const response = await apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode,'body', headers);
+        const response = await apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1UtilitiesStationLocalTimeByStationCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

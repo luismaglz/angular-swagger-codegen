@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -43,7 +43,7 @@ export class StoreBookingretrieveService {
      */
     public async store_apiNskV1BookingRetrieveByBookingKeyGet(bookingKey: string,  headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV1BookingRetrieveByBookingKeyGet(bookingKey,'body', headers);
+        const response = await apiNskV1BookingRetrieveByBookingKeyGet(bookingKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRetrieveByBookingKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -56,7 +56,7 @@ export class StoreBookingretrieveService {
      */
     public async store_apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator: string,  headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator,'body', headers);
+        const response = await apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(recordLocator,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -69,7 +69,7 @@ export class StoreBookingretrieveService {
      */
     public async store_apiNskV2BookingRetrieveGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date,  headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV2BookingRetrieveGet(recordLocator,emailAddress,origin,firstName,lastName,customerNumber,departureDate,'body', headers);
+        const response = await apiNskV2BookingRetrieveGet(recordLocator,emailAddress,origin,firstName,lastName,customerNumber,departureDate,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingRetrieveGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -46,7 +46,7 @@ export class StoreApoService {
      */
     public async store_apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1ApoByInputParameterKeyDelete(inputParameterKey,'body', headers);
+        const response = await apiNskV1ApoByInputParameterKeyDelete(inputParameterKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1ApoByInputParameterKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -59,7 +59,7 @@ export class StoreApoService {
      */
     public async store_apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1ApoByInputParameterKeyPut(inputParameterKey,inputParameterValue,'body', headers);
+        const response = await apiNskV1ApoByInputParameterKeyPut(inputParameterKey,inputParameterValue,'body', headers).toPromise();
         // TODO: Implement apiNskV1ApoByInputParameterKeyPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -72,7 +72,7 @@ export class StoreApoService {
      */
     public async store_apiNskV1ApoDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1ApoDelete('body', headers);
+        const response = await apiNskV1ApoDelete('body', headers).toPromise();
         // TODO: Implement apiNskV1ApoDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -85,7 +85,7 @@ export class StoreApoService {
      */
     public async store_apiNskV1ApoGet( headers?: Headers): Promise<AncillaryPricingOptionsContext>
     {
-        const response = await apiNskV1ApoGet('body', headers);
+        const response = await apiNskV1ApoGet('body', headers).toPromise();
         // TODO: Implement apiNskV1ApoGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -98,7 +98,7 @@ export class StoreApoService {
      */
     public async store_apiNskV1ApoPost(inputParameters?: InputParameters,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1ApoPost(inputParameters,'body', headers);
+        const response = await apiNskV1ApoPost(inputParameters,'body', headers).toPromise();
         // TODO: Implement apiNskV1ApoPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

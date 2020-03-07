@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -55,7 +55,7 @@ export class VoucherIssuanceService {
 
         const response: Observable<HttpResponse<VoucherIssuance>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/voucherIssuance/${encodeURIComponent(String(voucherIssuanceKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <VoucherIssuance>(httpResponse.response));
+               return response.pipe(map(httpResponse => <VoucherIssuance>(httpResponse.response)));
         }
         return response;
     }
@@ -73,7 +73,7 @@ export class VoucherIssuanceService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/voucherIssuance`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }

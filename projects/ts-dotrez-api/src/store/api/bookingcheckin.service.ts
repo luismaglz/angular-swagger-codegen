@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -52,7 +52,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV1BookingCheckinJourneyByJourneyKeyDelete(journeyKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingCheckinJourneyByJourneyKeyDelete(journeyKey,request,'body', headers);
+        const response = await apiNskV1BookingCheckinJourneyByJourneyKeyDelete(journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingCheckinJourneyByJourneyKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -65,7 +65,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet(journeyKey: string,  headers?: Headers): Promise<CheckinRequirements>
     {
-        const response = await apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet(journeyKey,'body', headers);
+        const response = await apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet(journeyKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -78,7 +78,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet(journeyKey: string,  headers?: Headers): Promise<Array<CheckinPassengerLiftStatus>>
     {
-        const response = await apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet(journeyKey,'body', headers);
+        const response = await apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet(journeyKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -91,7 +91,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV1BookingCheckinSegmentBySegmentKeyDelete(segmentKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingCheckinSegmentBySegmentKeyDelete(segmentKey,request,'body', headers);
+        const response = await apiNskV1BookingCheckinSegmentBySegmentKeyDelete(segmentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingCheckinSegmentBySegmentKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -104,7 +104,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet(segmentKey: string,  headers?: Headers): Promise<CheckinRequirements>
     {
-        const response = await apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet(segmentKey,'body', headers);
+        const response = await apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet(segmentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -117,7 +117,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet(segmentKey: string,  headers?: Headers): Promise<InlineResponse2003>
     {
-        const response = await apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet(segmentKey,'body', headers);
+        const response = await apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet(segmentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -130,7 +130,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV3BookingCheckinJourneyByJourneyKeyPost(journeyKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingCheckinJourneyByJourneyKeyPost(journeyKey,request,'body', headers);
+        const response = await apiNskV3BookingCheckinJourneyByJourneyKeyPost(journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingCheckinJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -143,7 +143,7 @@ export class StoreBookingcheckinService {
      */
     public async store_apiNskV3BookingCheckinSegmentBySegmentKeyPost(segmentKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingCheckinSegmentBySegmentKeyPost(segmentKey,request,'body', headers);
+        const response = await apiNskV3BookingCheckinSegmentBySegmentKeyPost(segmentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingCheckinSegmentBySegmentKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

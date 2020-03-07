@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -43,7 +43,7 @@ export class StoreGraphService {
      */
     public async store_apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any,  headers?: Headers): Promise<any>
     {
-        const response = await apiNskV1GraphByQueryNamePost(queryName,cachedResults,variables,'body', headers);
+        const response = await apiNskV1GraphByQueryNamePost(queryName,cachedResults,variables,'body', headers).toPromise();
         // TODO: Implement apiNskV1GraphByQueryNamePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -56,7 +56,7 @@ export class StoreGraphService {
      */
     public async store_apiV1GraphPost(query?: GraphQlQuery,  headers?: Headers): Promise<any>
     {
-        const response = await apiV1GraphPost(query,'body', headers);
+        const response = await apiV1GraphPost(query,'body', headers).toPromise();
         // TODO: Implement apiV1GraphPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -69,7 +69,7 @@ export class StoreGraphService {
      */
     public async store_apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2,  headers?: Headers): Promise<any>
     {
-        const response = await apiV2GraphByQueryNamePost(queryName,query,'body', headers);
+        const response = await apiV2GraphByQueryNamePost(queryName,query,'body', headers).toPromise();
         // TODO: Implement apiV2GraphByQueryNamePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

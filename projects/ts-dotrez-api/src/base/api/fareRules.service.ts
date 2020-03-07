@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -54,7 +54,7 @@ export class FareRulesService {
 
         const response: Observable<HttpResponse<FareRule>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/fareRules/${encodeURIComponent(String(fareAvailabilityKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <FareRule>(httpResponse.response));
+               return response.pipe(map(httpResponse => <FareRule>(httpResponse.response)));
         }
         return response;
     }

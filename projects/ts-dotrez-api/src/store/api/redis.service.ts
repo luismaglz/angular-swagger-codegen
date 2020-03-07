@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -42,7 +42,7 @@ export class StoreRedisService {
      */
     public async store_apiV1RedisByNameDelete(name: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiV1RedisByNameDelete(name,'body', headers);
+        const response = await apiV1RedisByNameDelete(name,'body', headers).toPromise();
         // TODO: Implement apiV1RedisByNameDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -55,7 +55,7 @@ export class StoreRedisService {
      */
     public async store_apiV1RedisDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiV1RedisDelete('body', headers);
+        const response = await apiV1RedisDelete('body', headers).toPromise();
         // TODO: Implement apiV1RedisDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -68,7 +68,7 @@ export class StoreRedisService {
      */
     public async store_apiV1RedisGet( headers?: Headers): Promise<Array<string>>
     {
-        const response = await apiV1RedisGet('body', headers);
+        const response = await apiV1RedisGet('body', headers).toPromise();
         // TODO: Implement apiV1RedisGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

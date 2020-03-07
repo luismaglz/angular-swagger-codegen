@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -43,7 +43,7 @@ export class StoreOrganizationsService {
      */
     public async store_apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string,  headers?: Headers): Promise<OrganizationGroupDetails>
     {
-        const response = await apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode,'body', headers);
+        const response = await apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -56,7 +56,7 @@ export class StoreOrganizationsService {
      */
     public async store_apiNskV1OrganizationsGroupsGet( headers?: Headers): Promise<Array<OrganizationGroup>>
     {
-        const response = await apiNskV1OrganizationsGroupsGet('body', headers);
+        const response = await apiNskV1OrganizationsGroupsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1OrganizationsGroupsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

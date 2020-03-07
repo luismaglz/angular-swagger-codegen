@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -61,7 +61,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest,  headers?: Headers): Promise<Array<ActivityProduct>>
     {
-        const response = await apiNskV1AddOnsActivitiesAvailablePost(request,'body', headers);
+        const response = await apiNskV1AddOnsActivitiesAvailablePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsActivitiesAvailablePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -74,7 +74,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest,  headers?: Headers): Promise<AddOn>
     {
-        const response = await apiNskV1AddOnsActivitiesPost(request,'body', headers);
+        const response = await apiNskV1AddOnsActivitiesPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsActivitiesPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -87,7 +87,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest,  headers?: Headers): Promise<QuotedProduct>
     {
-        const response = await apiNskV1AddOnsActivitiesQuotePost(request,'body', headers);
+        const response = await apiNskV1AddOnsActivitiesQuotePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsActivitiesQuotePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -100,7 +100,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest,  headers?: Headers): Promise<Array<CarProduct>>
     {
-        const response = await apiNskV1AddOnsCarsAvailablePost(request,'body', headers);
+        const response = await apiNskV1AddOnsCarsAvailablePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsCarsAvailablePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -113,7 +113,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsCarsPost(request?: SellCarRequest,  headers?: Headers): Promise<AddOn>
     {
-        const response = await apiNskV1AddOnsCarsPost(request,'body', headers);
+        const response = await apiNskV1AddOnsCarsPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsCarsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -126,7 +126,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest,  headers?: Headers): Promise<QuotedProduct>
     {
-        const response = await apiNskV1AddOnsCarsQuotePost(request,'body', headers);
+        const response = await apiNskV1AddOnsCarsQuotePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsCarsQuotePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -139,7 +139,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest,  headers?: Headers): Promise<Array<HotelProduct>>
     {
-        const response = await apiNskV1AddOnsHotelsAvailablePost(request,'body', headers);
+        const response = await apiNskV1AddOnsHotelsAvailablePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsHotelsAvailablePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -152,7 +152,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsHotelsPost(request?: SellHotelRequest,  headers?: Headers): Promise<AddOn>
     {
-        const response = await apiNskV1AddOnsHotelsPost(request,'body', headers);
+        const response = await apiNskV1AddOnsHotelsPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsHotelsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -165,7 +165,7 @@ export class StoreAddOnsService {
      */
     public async store_apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest,  headers?: Headers): Promise<QuotedProduct>
     {
-        const response = await apiNskV1AddOnsHotelsQuotePost(request,'body', headers);
+        const response = await apiNskV1AddOnsHotelsQuotePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AddOnsHotelsQuotePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

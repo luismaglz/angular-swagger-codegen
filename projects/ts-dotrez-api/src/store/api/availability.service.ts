@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -52,7 +52,7 @@ export class StoreAvailabilityService {
      */
     public async store_apiNskV1AvailabilityLowfareBetaPost(request?: LowFareCacheRequest,  headers?: Headers): Promise<LowFareCacheAvailability>
     {
-        const response = await apiNskV1AvailabilityLowfareBetaPost(request,'body', headers);
+        const response = await apiNskV1AvailabilityLowfareBetaPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AvailabilityLowfareBetaPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -65,7 +65,7 @@ export class StoreAvailabilityService {
      */
     public async store_apiNskV2AvailabilityLowfarePost(request?: LowFareAvailabilityRequest,  headers?: Headers): Promise<LowFareAvailability>
     {
-        const response = await apiNskV2AvailabilityLowfarePost(request,'body', headers);
+        const response = await apiNskV2AvailabilityLowfarePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2AvailabilityLowfarePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -78,7 +78,7 @@ export class StoreAvailabilityService {
      */
     public async store_apiNskV2AvailabilityLowfareSimplePost(request?: LowFareAvailabilitySearchSimpleRequest,  headers?: Headers): Promise<LowFareAvailability>
     {
-        const response = await apiNskV2AvailabilityLowfareSimplePost(request,'body', headers);
+        const response = await apiNskV2AvailabilityLowfareSimplePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2AvailabilityLowfareSimplePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -91,7 +91,7 @@ export class StoreAvailabilityService {
      */
     public async store_apiNskV4AvailabilitySearchPost(request?: AvailabilityRequestv2,  headers?: Headers): Promise<Availabilityv2>
     {
-        const response = await apiNskV4AvailabilitySearchPost(request,'body', headers);
+        const response = await apiNskV4AvailabilitySearchPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV4AvailabilitySearchPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -104,7 +104,7 @@ export class StoreAvailabilityService {
      */
     public async store_apiNskV4AvailabilitySearchSimplePost(request?: AvailabilitySimpleRequestv2,  headers?: Headers): Promise<Availabilityv2>
     {
-        const response = await apiNskV4AvailabilitySearchSimplePost(request,'body', headers);
+        const response = await apiNskV4AvailabilitySearchSimplePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV4AvailabilitySearchSimplePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

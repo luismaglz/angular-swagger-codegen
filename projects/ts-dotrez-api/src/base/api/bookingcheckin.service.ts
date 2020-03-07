@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -59,7 +59,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/checkin/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -81,7 +81,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<CheckinRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/checkin/journey/${encodeURIComponent(String(journeyKey))}/requirements`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CheckinRequirements>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CheckinRequirements>(httpResponse.response)));
         }
         return response;
     }
@@ -103,7 +103,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<Array<CheckinPassengerLiftStatus>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/checkin/journey/${encodeURIComponent(String(journeyKey))}/status`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<CheckinPassengerLiftStatus>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<CheckinPassengerLiftStatus>>(httpResponse.response)));
         }
         return response;
     }
@@ -126,7 +126,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/checkin/segment/${encodeURIComponent(String(segmentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -148,7 +148,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<CheckinRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/checkin/segment/${encodeURIComponent(String(segmentKey))}/requirements`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CheckinRequirements>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CheckinRequirements>(httpResponse.response)));
         }
         return response;
     }
@@ -170,7 +170,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<InlineResponse2003>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/checkin/segment/${encodeURIComponent(String(segmentKey))}/status`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2003>(httpResponse.response));
+               return response.pipe(map(httpResponse => <InlineResponse2003>(httpResponse.response)));
         }
         return response;
     }
@@ -193,7 +193,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/checkin/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -216,7 +216,7 @@ export class BookingcheckinService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/checkin/segment/${encodeURIComponent(String(segmentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }

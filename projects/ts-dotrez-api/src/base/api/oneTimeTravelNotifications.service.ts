@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -55,7 +55,7 @@ export class OneTimeTravelNotificationsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/oneTimeTravelNotifications/${encodeURIComponent(String(oneTimeTravelNotificationKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -77,7 +77,7 @@ export class OneTimeTravelNotificationsService {
 
         const response: Observable<HttpResponse<OneTimeTravelNotification>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/oneTimeTravelNotifications/${encodeURIComponent(String(oneTimeTravelNotificationKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <OneTimeTravelNotification>(httpResponse.response));
+               return response.pipe(map(httpResponse => <OneTimeTravelNotification>(httpResponse.response)));
         }
         return response;
     }
@@ -95,7 +95,7 @@ export class OneTimeTravelNotificationsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/oneTimeTravelNotifications`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }

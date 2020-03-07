@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -65,7 +65,7 @@ export class QueuesService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/items/${encodeURIComponent(String(bookingQueueItemKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -93,7 +93,7 @@ export class QueuesService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/items/${encodeURIComponent(String(bookingQueueItemKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -121,7 +121,7 @@ export class QueuesService {
 
         const response: Observable<HttpResponse<DequeueTravelSummary>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/queues/travel/${encodeURIComponent(String(travelQueueCode))}/next?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <DequeueTravelSummary>(httpResponse.response));
+               return response.pipe(map(httpResponse => <DequeueTravelSummary>(httpResponse.response)));
         }
         return response;
     }
@@ -139,7 +139,7 @@ export class QueuesService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/queues/travel`, item , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -179,7 +179,7 @@ export class QueuesService {
 
         const response: Observable<HttpResponse<Array<BookingQueueItemBase>>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/queues/bookings/${encodeURIComponent(String(bookingQueueCode))}/next?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingQueueItemBase>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingQueueItemBase>>(httpResponse.response)));
         }
         return response;
     }
@@ -218,7 +218,7 @@ export class QueuesService {
 
         const response: Observable<HttpResponse<QueueResults>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/queues/bookings?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <QueueResults>(httpResponse.response));
+               return response.pipe(map(httpResponse => <QueueResults>(httpResponse.response)));
         }
         return response;
     }

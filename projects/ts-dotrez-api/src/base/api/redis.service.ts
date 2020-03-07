@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -53,7 +53,7 @@ export class RedisService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/v1/redis/${encodeURIComponent(String(name))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -70,7 +70,7 @@ export class RedisService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/v1/redis`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -87,7 +87,7 @@ export class RedisService {
 
         const response: Observable<HttpResponse<Array<string>>> = this.httpClient.get(`${this.basePath}/api/v1/redis`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<string>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<string>>(httpResponse.response)));
         }
         return response;
     }

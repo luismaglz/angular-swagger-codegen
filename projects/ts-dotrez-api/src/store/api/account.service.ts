@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -43,7 +43,7 @@ export class StoreAccountService {
      */
     public async store_apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1AccountPasswordChangePost(request,'body', headers);
+        const response = await apiNskV1AccountPasswordChangePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AccountPasswordChangePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -56,7 +56,7 @@ export class StoreAccountService {
      */
     public async store_apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1AccountPasswordResetPost(request,'body', headers);
+        const response = await apiNskV1AccountPasswordResetPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1AccountPasswordResetPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

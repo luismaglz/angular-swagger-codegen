@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -56,7 +56,7 @@ export class BundlesService {
 
         const response: Observable<HttpResponse<BundleApplicationDetails>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bundles/applications/${encodeURIComponent(String(bundleApplicationKey))}/details`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BundleApplicationDetails>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BundleApplicationDetails>(httpResponse.response)));
         }
         return response;
     }
@@ -78,7 +78,7 @@ export class BundlesService {
 
         const response: Observable<HttpResponse<Array<BundleApplication>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bundles/rules/${encodeURIComponent(String(bundleRuleCode))}/details`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BundleApplication>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BundleApplication>>(httpResponse.response)));
         }
         return response;
     }
@@ -100,7 +100,7 @@ export class BundlesService {
 
         const response: Observable<HttpResponse<BundleSetDetails>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bundles/sets/${encodeURIComponent(String(bundleSetCode))}/details`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BundleSetDetails>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BundleSetDetails>(httpResponse.response)));
         }
         return response;
     }

@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -75,7 +75,7 @@ export class CurrencyService {
 
         const response: Observable<HttpResponse<CurrencyConversion>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/currency/converter?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CurrencyConversion>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CurrencyConversion>(httpResponse.response)));
         }
         return response;
     }

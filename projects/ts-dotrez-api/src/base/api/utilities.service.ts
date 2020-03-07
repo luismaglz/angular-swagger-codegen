@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -53,7 +53,7 @@ export class UtilitiesService {
 
         const response: Observable<HttpResponse<Date>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/utilities/stationLocalTime/${encodeURIComponent(String(stationCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Date>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Date>(httpResponse.response)));
         }
         return response;
     }

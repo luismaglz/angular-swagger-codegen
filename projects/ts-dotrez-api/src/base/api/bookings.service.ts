@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -86,7 +86,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<SeatAssignmentHistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/flightMove?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SeatAssignmentHistoryResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SeatAssignmentHistoryResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -122,7 +122,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<HistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <HistoryResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <HistoryResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -144,7 +144,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingMessageHistory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/message`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingMessageHistory>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingMessageHistory>>(httpResponse.response)));
         }
         return response;
     }
@@ -166,7 +166,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingNotificationHistory>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/notification`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingNotificationHistory>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingNotificationHistory>>(httpResponse.response)));
         }
         return response;
     }
@@ -206,7 +206,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<SeatAssignmentHistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/seatAssignment?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SeatAssignmentHistoryResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SeatAssignmentHistoryResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -246,7 +246,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<SegmentChangeHistoryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/history/segmentChange?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SegmentChangeHistoryResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SegmentChangeHistoryResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -269,7 +269,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -292,7 +292,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingQueueHistory>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue/history`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingQueueHistory>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingQueueHistory>>(httpResponse.response)));
         }
         return response;
     }
@@ -315,7 +315,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(bookingKey))}/queue`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -372,7 +372,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Transaction>>(httpResponse.response)));
         }
         return response;
     }
@@ -400,7 +400,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -423,7 +423,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/collection`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -445,7 +445,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Account>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Account>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Account>(httpResponse.response)));
         }
         return response;
     }
@@ -468,7 +468,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -500,7 +500,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/status?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -552,7 +552,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/account/transactions?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Transaction>>(httpResponse.response)));
         }
         return response;
     }
@@ -575,7 +575,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/comments`, comments , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -597,7 +597,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/email`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -625,7 +625,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}/fareOverride/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -647,7 +647,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(String(recordLocator))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Booking>(httpResponse.response)));
         }
         return response;
     }
@@ -675,7 +675,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -702,7 +702,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<CheckinRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}/requirements`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CheckinRequirements>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CheckinRequirements>(httpResponse.response)));
         }
         return response;
     }
@@ -729,7 +729,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<InlineResponse2003>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}/status`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2003>(httpResponse.response));
+               return response.pipe(map(httpResponse => <InlineResponse2003>(httpResponse.response)));
         }
         return response;
     }
@@ -757,7 +757,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -784,7 +784,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<CheckinRequirements>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}/requirements`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CheckinRequirements>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CheckinRequirements>(httpResponse.response)));
         }
         return response;
     }
@@ -811,7 +811,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<InlineResponse2003>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}/status`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2003>(httpResponse.response));
+               return response.pipe(map(httpResponse => <InlineResponse2003>(httpResponse.response)));
         }
         return response;
     }
@@ -886,7 +886,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByAgency?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -969,7 +969,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByAgentCode?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1044,7 +1044,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByAgent?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1099,7 +1099,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByBagTag?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1170,7 +1170,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByContactCustomerNumber?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1233,7 +1233,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByContact?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1304,7 +1304,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByCreditCard?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1375,7 +1375,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByCustomerNumber?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1446,7 +1446,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByDate?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1517,7 +1517,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByDocument?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1588,7 +1588,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByEmail?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1659,7 +1659,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByLastName?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1730,7 +1730,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByPhone?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1777,7 +1777,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByRecordLocator?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1840,7 +1840,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Array<BookingSearchResult>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/bookings/searchByThirdPartyRecordLocator?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<BookingSearchResult>>(httpResponse.response)));
         }
         return response;
     }
@@ -1862,7 +1862,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/bookings/${encodeURIComponent(String(recordLocator))}/notification`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1913,7 +1913,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/bookings?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Booking>(httpResponse.response)));
         }
         return response;
     }
@@ -1931,7 +1931,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<ItineraryQuote>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/bookings/quote`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ItineraryQuote>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ItineraryQuote>(httpResponse.response)));
         }
         return response;
     }
@@ -1959,7 +1959,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/bookings/checkin/${encodeURIComponent(String(recordLocator))}/journey/${encodeURIComponent(String(journeyKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1987,7 +1987,7 @@ export class BookingsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/bookings/checkin/${encodeURIComponent(String(recordLocator))}/segment/${encodeURIComponent(String(segmentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }

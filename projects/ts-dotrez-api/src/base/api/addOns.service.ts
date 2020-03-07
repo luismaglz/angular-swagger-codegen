@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -62,7 +62,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<Array<ActivityProduct>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/activities/available`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ActivityProduct>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ActivityProduct>>(httpResponse.response)));
         }
         return response;
     }
@@ -80,7 +80,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/activities`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <AddOn>(httpResponse.response));
+               return response.pipe(map(httpResponse => <AddOn>(httpResponse.response)));
         }
         return response;
     }
@@ -98,7 +98,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<QuotedProduct>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/activities/quote`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <QuotedProduct>(httpResponse.response));
+               return response.pipe(map(httpResponse => <QuotedProduct>(httpResponse.response)));
         }
         return response;
     }
@@ -116,7 +116,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<Array<CarProduct>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/cars/available`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<CarProduct>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<CarProduct>>(httpResponse.response)));
         }
         return response;
     }
@@ -134,7 +134,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/cars`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <AddOn>(httpResponse.response));
+               return response.pipe(map(httpResponse => <AddOn>(httpResponse.response)));
         }
         return response;
     }
@@ -152,7 +152,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<QuotedProduct>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/cars/quote`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <QuotedProduct>(httpResponse.response));
+               return response.pipe(map(httpResponse => <QuotedProduct>(httpResponse.response)));
         }
         return response;
     }
@@ -170,7 +170,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<Array<HotelProduct>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/hotels/available`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<HotelProduct>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<HotelProduct>>(httpResponse.response)));
         }
         return response;
     }
@@ -188,7 +188,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/hotels`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <AddOn>(httpResponse.response));
+               return response.pipe(map(httpResponse => <AddOn>(httpResponse.response)));
         }
         return response;
     }
@@ -206,7 +206,7 @@ export class AddOnsService {
 
         const response: Observable<HttpResponse<QuotedProduct>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/addOns/hotels/quote`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <QuotedProduct>(httpResponse.response));
+               return response.pipe(map(httpResponse => <QuotedProduct>(httpResponse.response)));
         }
         return response;
     }

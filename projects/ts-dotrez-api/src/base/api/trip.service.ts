@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -67,7 +67,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/trip/downgrade`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -89,7 +89,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Trip>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/trip/flyAhead/availability/${encodeURIComponent(String(journeyKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Trip>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Trip>(httpResponse.response)));
         }
         return response;
     }
@@ -107,7 +107,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Trip>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/trip/flyAhead/availability`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Trip>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Trip>(httpResponse.response)));
         }
         return response;
     }
@@ -129,7 +129,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<TripDetails>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/trip/info/${encodeURIComponent(String(legKey))}/details`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <TripDetails>(httpResponse.response));
+               return response.pipe(map(httpResponse => <TripDetails>(httpResponse.response)));
         }
         return response;
     }
@@ -147,7 +147,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Array<TripInformationResponse>>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/trip/info`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<TripInformationResponse>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<TripInformationResponse>>(httpResponse.response)));
         }
         return response;
     }
@@ -210,7 +210,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Array<TripInformationResponse>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/trip/info/simple?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<TripInformationResponse>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<TripInformationResponse>>(httpResponse.response)));
         }
         return response;
     }
@@ -227,7 +227,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Availability>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/trip/move/availability/selfService`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Availability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Availability>(httpResponse.response)));
         }
         return response;
     }
@@ -245,7 +245,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/trip/move`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -300,7 +300,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Array<ScheduleDetail>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/trip/schedule?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<ScheduleDetail>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<ScheduleDetail>>(httpResponse.response)));
         }
         return response;
     }
@@ -323,7 +323,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/trip/upgrade/${encodeURIComponent(String(upgradeKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -340,7 +340,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Array<UpgradeSegment>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/trip/upgrade`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<UpgradeSegment>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<UpgradeSegment>>(httpResponse.response)));
         }
         return response;
     }
@@ -358,7 +358,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/trip/upgrade`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -380,7 +380,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<TripStatusv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/trip/info/${encodeURIComponent(String(legKey))}/status`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <TripStatusv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <TripStatusv2>(httpResponse.response)));
         }
         return response;
     }
@@ -424,7 +424,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Availability>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/trip/move/availability/${encodeURIComponent(String(journeyKey))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Availability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Availability>(httpResponse.response)));
         }
         return response;
     }
@@ -442,7 +442,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Availability>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/trip/move/availability`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Availability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Availability>(httpResponse.response)));
         }
         return response;
     }
@@ -460,7 +460,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Availability>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/trip/rebook/availability`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Availability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Availability>(httpResponse.response)));
         }
         return response;
     }
@@ -511,7 +511,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Availability>> = this.httpClient.get(`${this.basePath}/api/nsk/v3/trip/rebook/availability/simple?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Availability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Availability>(httpResponse.response)));
         }
         return response;
     }
@@ -529,7 +529,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v4/trip`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -547,7 +547,7 @@ export class TripService {
 
         const response: Observable<HttpResponse<Booking>> = this.httpClient.post(`${this.basePath}/api/nsk/v4/trip/sell`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Booking>(httpResponse.response)));
         }
         return response;
     }

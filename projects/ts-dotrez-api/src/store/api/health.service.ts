@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -40,7 +40,7 @@ export class StoreHealthService {
      */
     public async store_apiV1HealthGet( headers?: Headers): Promise<EnvironmentHealth>
     {
-        const response = await apiV1HealthGet('body', headers);
+        const response = await apiV1HealthGet('body', headers).toPromise();
         // TODO: Implement apiV1HealthGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

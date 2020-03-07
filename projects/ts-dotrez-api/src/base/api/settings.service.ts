@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -76,7 +76,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<CheckInSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking/checkin?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CheckInSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CheckInSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -103,7 +103,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<ContactSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking/contact?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ContactSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ContactSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -130,7 +130,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<CustomerAccountSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking/customerAccount?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CustomerAccountSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CustomerAccountSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -157,7 +157,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<FeeSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking/fee?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <FeeSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <FeeSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -184,7 +184,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<FlightSearchSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking/flightSearch?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <FlightSearchSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <FlightSearchSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -211,7 +211,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<GeneralSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <GeneralSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <GeneralSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -238,7 +238,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<PassengerSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking/passenger?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PassengerSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PassengerSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -265,7 +265,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<ReserveFlightsSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/booking/reserveFlights?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ReserveFlightsSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ReserveFlightsSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -292,7 +292,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<LogonSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/general/applicationLogon?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <LogonSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <LogonSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -319,7 +319,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<CodesSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/general/codes?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CodesSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CodesSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -346,7 +346,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<SessionSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/general/session?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SessionSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SessionSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -369,7 +369,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<ItinerarySettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/itinerary?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ItinerarySettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <ItinerarySettings>(httpResponse.response)));
         }
         return response;
     }
@@ -392,7 +392,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<PaymentSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/payment?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PaymentSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PaymentSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -415,7 +415,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<AgencyCreationSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/user/agencyCreation?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <AgencyCreationSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <AgencyCreationSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -438,7 +438,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<CustomerCreationSettings>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/settings/user/customerCreation?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CustomerCreationSettings>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CustomerCreationSettings>(httpResponse.response)));
         }
         return response;
     }
@@ -465,7 +465,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<BookingPaymentSettingsv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/settings/booking/payment?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <BookingPaymentSettingsv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <BookingPaymentSettingsv2>(httpResponse.response)));
         }
         return response;
     }
@@ -488,7 +488,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<PremiumServicesSettingsv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/settings/premiumServices?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PremiumServicesSettingsv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PremiumServicesSettingsv2>(httpResponse.response)));
         }
         return response;
     }
@@ -515,7 +515,7 @@ export class SettingsService {
 
         const response: Observable<HttpResponse<SkySpeedSettingsv2>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/settings/skySpeed?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <SkySpeedSettingsv2>(httpResponse.response));
+               return response.pipe(map(httpResponse => <SkySpeedSettingsv2>(httpResponse.response)));
         }
         return response;
     }

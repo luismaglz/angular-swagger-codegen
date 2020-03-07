@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -72,7 +72,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/payments/${encodeURIComponent(String(paymentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -94,7 +94,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<Payment>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/payments/${encodeURIComponent(String(paymentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Payment>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Payment>(httpResponse.response)));
         }
         return response;
     }
@@ -111,7 +111,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<Array<Payment>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/payments`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Payment>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Payment>>(httpResponse.response)));
         }
         return response;
     }
@@ -128,7 +128,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<InlineResponse2008>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/payments/refunds`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2008>(httpResponse.response));
+               return response.pipe(map(httpResponse => <InlineResponse2008>(httpResponse.response)));
         }
         return response;
     }
@@ -146,7 +146,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/booking/payments/refunds/organizationCredit`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -168,7 +168,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/booking/payments/voucher/${encodeURIComponent(String(voucherPaymentReference))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -199,7 +199,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<VoucherInformation>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/payments/voucher?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <VoucherInformation>(httpResponse.response));
+               return response.pipe(map(httpResponse => <VoucherInformation>(httpResponse.response)));
         }
         return response;
     }
@@ -216,7 +216,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<InlineResponse2008>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/booking/payments/available`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2008>(httpResponse.response));
+               return response.pipe(map(httpResponse => <InlineResponse2008>(httpResponse.response)));
         }
         return response;
     }
@@ -271,7 +271,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<CreditAccount>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/booking/payments/bookingCredit?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CreditAccount>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CreditAccount>(httpResponse.response)));
         }
         return response;
     }
@@ -289,7 +289,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/payments/bookingCredit`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -328,7 +328,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<CreditAccount>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/booking/payments/credit?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CreditAccount>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CreditAccount>(httpResponse.response)));
         }
         return response;
     }
@@ -346,7 +346,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/payments/credit`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -369,7 +369,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<CreditAccount>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/booking/payments/customerCredit?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CreditAccount>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CreditAccount>(httpResponse.response)));
         }
         return response;
     }
@@ -387,7 +387,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/payments/customerCredit`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -410,7 +410,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<CreditAccount>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/booking/payments/organizationCredit?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <CreditAccount>(httpResponse.response));
+               return response.pipe(map(httpResponse => <CreditAccount>(httpResponse.response)));
         }
         return response;
     }
@@ -428,7 +428,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/payments/organizationCredit`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -452,7 +452,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/payments?${queryParameters.join('&')}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -470,7 +470,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v2/booking/payments/refunds/customerCredit`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -492,7 +492,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v2/booking/payments/voucher/${encodeURIComponent(String(voucherPaymentReference))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -540,7 +540,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<DirectCurrencyConversionAvailability>> = this.httpClient.get(`${this.basePath}/api/nsk/v3/booking/payments/${encodeURIComponent(String(paymentMethod))}/dcc?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <DirectCurrencyConversionAvailability>(httpResponse.response));
+               return response.pipe(map(httpResponse => <DirectCurrencyConversionAvailability>(httpResponse.response)));
         }
         return response;
     }
@@ -580,7 +580,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<PaymentFeeResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v3/booking/payments/fees/${encodeURIComponent(String(feeCode))}?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PaymentFeeResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PaymentFeeResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -603,7 +603,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/payments/mcc/${encodeURIComponent(String(currencyCode))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -631,7 +631,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/payments/mcc/${encodeURIComponent(String(currencyCode))}/storedPayment/${encodeURIComponent(String(storedPaymentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -648,7 +648,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<InlineResponse2009>> = this.httpClient.get(`${this.basePath}/api/nsk/v3/booking/payments/mcc`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <InlineResponse2009>(httpResponse.response));
+               return response.pipe(map(httpResponse => <InlineResponse2009>(httpResponse.response)));
         }
         return response;
     }
@@ -666,7 +666,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/payments/refunds`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -689,7 +689,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/payments/storedPayment/${encodeURIComponent(String(storedPaymentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -713,7 +713,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/payments/threeDSecure?${queryParameters.join('&')}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -731,7 +731,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v3/booking/payments/voucher`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -754,7 +754,7 @@ export class BookingpaymentsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v4/booking/payments/dcc/${encodeURIComponent(String(dccKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }

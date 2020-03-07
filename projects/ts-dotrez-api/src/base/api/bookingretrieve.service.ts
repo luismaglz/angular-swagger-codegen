@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -54,7 +54,7 @@ export class BookingretrieveService {
 
         const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/retrieve/${encodeURIComponent(String(bookingKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Booking>(httpResponse.response)));
         }
         return response;
     }
@@ -76,7 +76,7 @@ export class BookingretrieveService {
 
         const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/booking/retrieve/byRecordLocator/${encodeURIComponent(String(recordLocator))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Booking>(httpResponse.response)));
         }
         return response;
     }
@@ -127,7 +127,7 @@ export class BookingretrieveService {
 
         const response: Observable<HttpResponse<Booking>> = this.httpClient.get(`${this.basePath}/api/nsk/v2/booking/retrieve?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Booking>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Booking>(httpResponse.response)));
         }
         return response;
     }

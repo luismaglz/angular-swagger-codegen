@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -80,7 +80,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -93,7 +93,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -106,7 +106,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string,  headers?: Headers): Promise<OrganizationAccount>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -119,7 +119,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -132,7 +132,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode,status,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode,status,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountStatusPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -145,7 +145,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -158,7 +158,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -171,7 +171,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode,commissionRateCode,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode,commissionRateCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -184,7 +184,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string,  headers?: Headers): Promise<OrganizationCommissionRate>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode,commissionRateCode,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode,commissionRateCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -197,7 +197,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -210,7 +210,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode,phoneNumberType,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode,phoneNumberType,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -223,7 +223,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode,phoneNumberType,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode,phoneNumberType,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -236,7 +236,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -249,7 +249,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode,phoneNumberType,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode,phoneNumberType,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -262,7 +262,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode,phoneNumberType,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode,phoneNumberType,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -275,7 +275,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -288,7 +288,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode,externalAccountKey,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode,externalAccountKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -301,7 +301,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string,  headers?: Headers): Promise<OrganizationExternalAccountv2>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode,externalAccountKey,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode,externalAccountKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -314,7 +314,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -327,7 +327,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string,  headers?: Headers): Promise<Organizationv2>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodeGet(organizationCode,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodeGet(organizationCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -340,7 +340,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest,  headers?: Headers): Promise<Organizationv2>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodePatch(organizationCode,createRequest,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodePatch(organizationCode,createRequest,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodePatch
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -353,7 +353,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest,  headers?: Headers): Promise<Organizationv2>
     {
-        const response = await apiNskV1Organizations2ByOrganizationCodePut(organizationCode,request,'body', headers);
+        const response = await apiNskV1Organizations2ByOrganizationCodePut(organizationCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodePut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -366,7 +366,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest,  headers?: Headers): Promise<Organizationv2>
     {
-        const response = await apiNskV1Organizations2Post(createRequest,'body', headers);
+        const response = await apiNskV1Organizations2Post(createRequest,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2Post
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -379,7 +379,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest,  headers?: Headers): Promise<Organizationv2>
     {
-        const response = await apiNskV1Organizations2RegisterPost(registerRequest,'body', headers);
+        const response = await apiNskV1Organizations2RegisterPost(registerRequest,'body', headers).toPromise();
         // TODO: Implement apiNskV1Organizations2RegisterPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -392,7 +392,7 @@ export class StoreOrganizations2Service {
      */
     public async store_apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',  headers?: Headers): Promise<Array<OrganizationRecord>>
     {
-        const response = await apiNskV2Organizations2Get(type,status,organizationCode,parentOrganizationCode,companyName,city,postalCode,pagedItemIndex,pageSize,matchCriteriaOrganizationCode,matchCriteriaParentOrganizationCode,matchCriteriaCompanyName,matchCriteriaCity,matchCriteriaPostalCode,'body', headers);
+        const response = await apiNskV2Organizations2Get(type,status,organizationCode,parentOrganizationCode,companyName,city,postalCode,pagedItemIndex,pageSize,matchCriteriaOrganizationCode,matchCriteriaParentOrganizationCode,matchCriteriaCompanyName,matchCriteriaCity,matchCriteriaPostalCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2Organizations2Get
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

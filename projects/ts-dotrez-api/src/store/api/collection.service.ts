@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -41,7 +41,7 @@ export class StoreCollectionService {
      */
     public async store_apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
-        const response = await apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
+        const response = await apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV1CollectionByAccountCollectionKeyTransactionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

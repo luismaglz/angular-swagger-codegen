@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -44,7 +44,7 @@ export class StoreOneTimeTravelNotificationsService {
      */
     public async store_apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey,'body', headers);
+        const response = await apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -57,7 +57,7 @@ export class StoreOneTimeTravelNotificationsService {
      */
     public async store_apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string,  headers?: Headers): Promise<OneTimeTravelNotification>
     {
-        const response = await apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey,'body', headers);
+        const response = await apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -70,7 +70,7 @@ export class StoreOneTimeTravelNotificationsService {
      */
     public async store_apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1OneTimeTravelNotificationsPost(request,'body', headers);
+        const response = await apiNskV1OneTimeTravelNotificationsPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1OneTimeTravelNotificationsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

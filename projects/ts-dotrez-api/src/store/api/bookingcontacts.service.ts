@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -61,7 +61,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodeDelete(contactTypeCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodeDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -74,7 +74,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode: string,  headers?: Headers): Promise<Contact>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodeGet(contactTypeCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -87,7 +87,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode: string, request?: DeltaMapperContactBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode,request,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodePatch(contactTypeCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodePatch
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -100,7 +100,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode,phoneNumberType,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(contactTypeCode,phoneNumberType,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -113,7 +113,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<PhoneNumber>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode,phoneNumberType,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(contactTypeCode,phoneNumberType,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -126,7 +126,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode,phoneNumberType,request,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(contactTypeCode,phoneNumberType,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -139,7 +139,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode: string,  headers?: Headers): Promise<Array<PhoneNumber>>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(contactTypeCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -152,7 +152,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode: string, request?: PhoneNumber,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode,request,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(contactTypeCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -165,7 +165,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode: string, request?: ContactRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode,request,'body', headers);
+        const response = await apiNskV1BookingContactsByContactTypeCodePut(contactTypeCode,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsByContactTypeCodePut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -178,7 +178,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsGet( headers?: Headers): Promise<InlineResponse2004>
     {
-        const response = await apiNskV1BookingContactsGet('body', headers);
+        const response = await apiNskV1BookingContactsGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -191,7 +191,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsPost(request?: Contact,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsPost(request,'body', headers);
+        const response = await apiNskV1BookingContactsPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -204,7 +204,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsPrimaryDelete( headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsPrimaryDelete('body', headers);
+        const response = await apiNskV1BookingContactsPrimaryDelete('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsPrimaryDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -217,7 +217,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsPrimaryGet( headers?: Headers): Promise<Contact>
     {
-        const response = await apiNskV1BookingContactsPrimaryGet('body', headers);
+        const response = await apiNskV1BookingContactsPrimaryGet('body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsPrimaryGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -230,7 +230,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsPrimaryPatch(request?: DeltaMapperContactBase,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsPrimaryPatch(request,'body', headers);
+        const response = await apiNskV1BookingContactsPrimaryPatch(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsPrimaryPatch
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -243,7 +243,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsPrimaryPost(request?: ContactRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsPrimaryPost(request,'body', headers);
+        const response = await apiNskV1BookingContactsPrimaryPost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsPrimaryPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -256,7 +256,7 @@ export class StoreBookingcontactsService {
      */
     public async store_apiNskV1BookingContactsPrimaryPut(request?: ContactRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingContactsPrimaryPut(request,'body', headers);
+        const response = await apiNskV1BookingContactsPrimaryPut(request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingContactsPrimaryPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

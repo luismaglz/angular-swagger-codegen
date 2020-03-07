@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -108,7 +108,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(bookingKey: string, lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SeatAssignmentHistoryResponse>
     {
-        const response = await apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(bookingKey,lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(bookingKey,lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyHistoryFlightMoveGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -121,7 +121,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyHistoryGet(bookingKey: string, event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<HistoryResponse>
     {
-        const response = await apiNskV1BookingsByBookingKeyHistoryGet(bookingKey,event,lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyHistoryGet(bookingKey,event,lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyHistoryGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -134,7 +134,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyHistoryMessageGet(bookingKey: string,  headers?: Headers): Promise<Array<BookingMessageHistory>>
     {
-        const response = await apiNskV1BookingsByBookingKeyHistoryMessageGet(bookingKey,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyHistoryMessageGet(bookingKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyHistoryMessageGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -147,7 +147,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyHistoryNotificationGet(bookingKey: string,  headers?: Headers): Promise<Array<BookingNotificationHistory>>
     {
-        const response = await apiNskV1BookingsByBookingKeyHistoryNotificationGet(bookingKey,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyHistoryNotificationGet(bookingKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyHistoryNotificationGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -160,7 +160,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(bookingKey: string, event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SeatAssignmentHistoryResponse>
     {
-        const response = await apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(bookingKey,event,lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(bookingKey,event,lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -173,7 +173,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(bookingKey: string, event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SegmentChangeHistoryResponse>
     {
-        const response = await apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(bookingKey,event,lastPageKey,pageSize,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(bookingKey,event,lastPageKey,pageSize,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyHistorySegmentChangeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -186,7 +186,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyQueueDelete(bookingKey: string, request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByBookingKeyQueueDelete(bookingKey,request,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyQueueDelete(bookingKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyQueueDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -199,7 +199,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyQueueHistoryPost(bookingKey: string, request?: BookingQueueHistoryRequest,  headers?: Headers): Promise<Array<BookingQueueHistory>>
     {
-        const response = await apiNskV1BookingsByBookingKeyQueueHistoryPost(bookingKey,request,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyQueueHistoryPost(bookingKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyQueueHistoryPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -212,7 +212,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByBookingKeyQueuePost(bookingKey: string, request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByBookingKeyQueuePost(bookingKey,request,'body', headers);
+        const response = await apiNskV1BookingsByBookingKeyQueuePost(bookingKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByBookingKeyQueuePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -225,7 +225,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(recordLocator: string, accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
-        const response = await apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(recordLocator,accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(recordLocator,accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -238,7 +238,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(recordLocator: string, accountCollectionKey: string, request?: TransactionRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(recordLocator,accountCollectionKey,request,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(recordLocator,accountCollectionKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -251,7 +251,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorAccountCollectionPost(recordLocator: string, request?: AccountCollectionRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByRecordLocatorAccountCollectionPost(recordLocator,request,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorAccountCollectionPost(recordLocator,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorAccountCollectionPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -264,7 +264,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorAccountGet(recordLocator: string,  headers?: Headers): Promise<Account>
     {
-        const response = await apiNskV1BookingsByRecordLocatorAccountGet(recordLocator,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorAccountGet(recordLocator,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorAccountGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -277,7 +277,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorAccountPost(recordLocator: string, request?: CreateAccountRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByRecordLocatorAccountPost(recordLocator,request,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorAccountPost(recordLocator,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorAccountPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -290,7 +290,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorAccountStatusPut(recordLocator: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByRecordLocatorAccountStatusPut(recordLocator,status,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorAccountStatusPut(recordLocator,status,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorAccountStatusPut
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -303,7 +303,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorAccountTransactionsGet(recordLocator: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
-        const response = await apiNskV1BookingsByRecordLocatorAccountTransactionsGet(recordLocator,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorAccountTransactionsGet(recordLocator,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorAccountTransactionsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -316,7 +316,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorCommentsPost(recordLocator: string, comments?: Array<BookingCommentRequest>,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByRecordLocatorCommentsPost(recordLocator,comments,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorCommentsPost(recordLocator,comments,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorCommentsPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -329,7 +329,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorEmailPost(recordLocator: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByRecordLocatorEmailPost(recordLocator,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorEmailPost(recordLocator,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorEmailPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -342,7 +342,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: FareOverrideRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(recordLocator,journeyKey,request,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(recordLocator,journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -355,7 +355,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsByRecordLocatorGet(recordLocator: string,  headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV1BookingsByRecordLocatorGet(recordLocator,'body', headers);
+        const response = await apiNskV1BookingsByRecordLocatorGet(recordLocator,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsByRecordLocatorGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -368,7 +368,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(recordLocator,journeyKey,request,'body', headers);
+        const response = await apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(recordLocator,journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -381,7 +381,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(recordLocator: string, journeyKey: string,  headers?: Headers): Promise<CheckinRequirements>
     {
-        const response = await apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(recordLocator,journeyKey,'body', headers);
+        const response = await apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(recordLocator,journeyKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -394,7 +394,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(recordLocator: string, journeyKey: string,  headers?: Headers): Promise<InlineResponse2003>
     {
-        const response = await apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(recordLocator,journeyKey,'body', headers);
+        const response = await apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(recordLocator,journeyKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -407,7 +407,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(recordLocator,segmentKey,request,'body', headers);
+        const response = await apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(recordLocator,segmentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -420,7 +420,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(recordLocator: string, segmentKey: string,  headers?: Headers): Promise<CheckinRequirements>
     {
-        const response = await apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(recordLocator,segmentKey,'body', headers);
+        const response = await apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(recordLocator,segmentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -433,7 +433,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(recordLocator: string, segmentKey: string,  headers?: Headers): Promise<InlineResponse2003>
     {
-        const response = await apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(recordLocator,segmentKey,'body', headers);
+        const response = await apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(recordLocator,segmentKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -446,7 +446,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByAgencyGet(organizationCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByAgencyGet(organizationCode,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByAgencyGet(organizationCode,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByAgencyGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -459,7 +459,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByAgentCodeGet(agentCode: string, domainCode: string, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByAgentCodeGet(agentCode,domainCode,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByAgentCodeGet(agentCode,domainCode,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByAgentCodeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -472,7 +472,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByAgentGet(agentId: number, firstName?: string, lastName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByAgentGet(agentId,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByAgentGet(agentId,firstName,lastName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByAgentGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -485,7 +485,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByBagTagGet(bagTag: string, startUtc: Date, endUtc: Date, pageSize?: number, lastIndex?: number, searchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByBagTagGet(bagTag,startUtc,endUtc,pageSize,lastIndex,searchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByBagTagGet(bagTag,startUtc,endUtc,pageSize,lastIndex,searchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByBagTagGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -498,7 +498,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByContactCustomerNumberGet(contactCustomerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByContactCustomerNumberGet(contactCustomerNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByContactCustomerNumberGet(contactCustomerNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByContactCustomerNumberGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -511,7 +511,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByContactGet(firstName?: string, lastName?: string, recordLocator?: string, phoneNumber?: string, emailAddress?: string, sourceOrganization?: string, organizationCode?: string, organizationGroupCode?: string, searchArchive?: boolean, pageSize?: number, lastIndex?: number,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByContactGet(firstName,lastName,recordLocator,phoneNumber,emailAddress,sourceOrganization,organizationCode,organizationGroupCode,searchArchive,pageSize,lastIndex,'body', headers);
+        const response = await apiNskV1BookingsSearchByContactGet(firstName,lastName,recordLocator,phoneNumber,emailAddress,sourceOrganization,organizationCode,organizationGroupCode,searchArchive,pageSize,lastIndex,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByContactGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -524,7 +524,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByCreditCardGet(creditCardNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByCreditCardGet(creditCardNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByCreditCardGet(creditCardNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByCreditCardGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -537,7 +537,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByCustomerNumberGet(customerNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByCustomerNumberGet(customerNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByCustomerNumberGet(customerNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByCustomerNumberGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -550,7 +550,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByDateGet(startDateUtc: Date, endDateUtc: Date, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByDateGet(startDateUtc,endDateUtc,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByDateGet(startDateUtc,endDateUtc,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByDateGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -563,7 +563,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByDocumentGet(documentDocumentNumber: string, documentDocumentTypeCode: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByDocumentGet(documentDocumentNumber,documentDocumentTypeCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByDocumentGet(documentDocumentNumber,documentDocumentTypeCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByDocumentGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -576,7 +576,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByEmailGet(emailAddress: string, agentId?: number, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByEmailGet(emailAddress,agentId,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByEmailGet(emailAddress,agentId,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByEmailGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -589,7 +589,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByLastNameGet(lastName: string, firstName?: string, phoneticSearch?: boolean, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByLastNameGet(lastName,firstName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByLastNameGet(lastName,firstName,phoneticSearch,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByLastNameGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -602,7 +602,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByPhoneGet(phoneNumber: string, agentId?: number, organizationCode?: string, filtersPageSize?: number, filtersLastIndex?: number, filtersFlightNumber?: string, filtersDepartureDate?: Date, filtersDestination?: string, filtersOrigin?: string, filtersSourceOrganization?: string, filtersOrganizationGroupCode?: string, filtersSearchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByPhoneGet(phoneNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByPhoneGet(phoneNumber,agentId,organizationCode,filtersPageSize,filtersLastIndex,filtersFlightNumber,filtersDepartureDate,filtersDestination,filtersOrigin,filtersSourceOrganization,filtersOrganizationGroupCode,filtersSearchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByPhoneGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -615,7 +615,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByRecordLocatorGet(recordLocator: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByRecordLocatorGet(recordLocator,pageSize,lastIndex,sourceOrganization,organizationGroupCode,searchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByRecordLocatorGet(recordLocator,pageSize,lastIndex,sourceOrganization,organizationGroupCode,searchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByRecordLocatorGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -628,7 +628,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(systemCode: string, recordLocator: string, agentId?: number, organizationCode?: string, pageSize?: number, lastIndex?: number, sourceOrganization?: string, organizationGroupCode?: string, searchArchive?: boolean,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
-        const response = await apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(systemCode,recordLocator,agentId,organizationCode,pageSize,lastIndex,sourceOrganization,organizationGroupCode,searchArchive,'body', headers);
+        const response = await apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(systemCode,recordLocator,agentId,organizationCode,pageSize,lastIndex,sourceOrganization,organizationGroupCode,searchArchive,'body', headers).toPromise();
         // TODO: Implement apiNskV1BookingsSearchByThirdPartyRecordLocatorGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -641,7 +641,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV2BookingsByRecordLocatorNotificationPost(recordLocator: string,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV2BookingsByRecordLocatorNotificationPost(recordLocator,'body', headers);
+        const response = await apiNskV2BookingsByRecordLocatorNotificationPost(recordLocator,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingsByRecordLocatorNotificationPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -654,7 +654,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV2BookingsGet(recordLocator: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date,  headers?: Headers): Promise<Booking>
     {
-        const response = await apiNskV2BookingsGet(recordLocator,emailAddress,origin,firstName,lastName,customerNumber,departureDate,'body', headers);
+        const response = await apiNskV2BookingsGet(recordLocator,emailAddress,origin,firstName,lastName,customerNumber,departureDate,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -667,7 +667,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV2BookingsQuotePost(request?: ItineraryQuoteRequest,  headers?: Headers): Promise<ItineraryQuote>
     {
-        const response = await apiNskV2BookingsQuotePost(request,'body', headers);
+        const response = await apiNskV2BookingsQuotePost(request,'body', headers).toPromise();
         // TODO: Implement apiNskV2BookingsQuotePost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -680,7 +680,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(recordLocator: string, journeyKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(recordLocator,journeyKey,request,'body', headers);
+        const response = await apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(recordLocator,journeyKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -693,7 +693,7 @@ export class StoreBookingsService {
      */
     public async store_apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(recordLocator: string, segmentKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
     {
-        const response = await apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(recordLocator,segmentKey,request,'body', headers);
+        const response = await apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(recordLocator,segmentKey,request,'body', headers).toPromise();
         // TODO: Implement apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

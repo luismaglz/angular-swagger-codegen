@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -48,7 +48,7 @@ export class ConfigurationService {
 
         const response: Observable<HttpResponse<EnvironmentHealth>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/configuration/check`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <EnvironmentHealth>(httpResponse.response));
+               return response.pipe(map(httpResponse => <EnvironmentHealth>(httpResponse.response)));
         }
         return response;
     }

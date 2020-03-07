@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -45,7 +45,7 @@ export class StoreBundlesService {
      */
     public async store_apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string,  headers?: Headers): Promise<BundleApplicationDetails>
     {
-        const response = await apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey,'body', headers);
+        const response = await apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey,'body', headers).toPromise();
         // TODO: Implement apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -58,7 +58,7 @@ export class StoreBundlesService {
      */
     public async store_apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string,  headers?: Headers): Promise<Array<BundleApplication>>
     {
-        const response = await apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode,'body', headers);
+        const response = await apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BundlesRulesByBundleRuleCodeDetailsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -71,7 +71,7 @@ export class StoreBundlesService {
      */
     public async store_apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string,  headers?: Headers): Promise<BundleSetDetails>
     {
-        const response = await apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode,'body', headers);
+        const response = await apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1BundlesSetsByBundleSetCodeDetailsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

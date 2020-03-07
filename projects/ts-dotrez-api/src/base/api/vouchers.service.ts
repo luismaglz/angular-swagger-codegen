@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -75,7 +75,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<VouchersSummaryResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/byDate?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <VouchersSummaryResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <VouchersSummaryResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -97,7 +97,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<Array<VoucherItem>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/byIssuance/${encodeURIComponent(String(voucherIssuanceKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherItem>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<VoucherItem>>(httpResponse.response)));
         }
         return response;
     }
@@ -160,7 +160,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<Array<VoucherItem>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/byMarket?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherItem>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<VoucherItem>>(httpResponse.response)));
         }
         return response;
     }
@@ -182,7 +182,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<Voucher>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/${encodeURIComponent(String(voucherKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Voucher>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Voucher>(httpResponse.response)));
         }
         return response;
     }
@@ -205,7 +205,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/vouchers/${encodeURIComponent(String(voucherKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -227,7 +227,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<VoucherConfiguration>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/configuration/${encodeURIComponent(String(configurationCode))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <VoucherConfiguration>(httpResponse.response));
+               return response.pipe(map(httpResponse => <VoucherConfiguration>(httpResponse.response)));
         }
         return response;
     }
@@ -244,7 +244,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<Array<VoucherConfiguration>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers/configuration`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherConfiguration>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<VoucherConfiguration>>(httpResponse.response)));
         }
         return response;
     }
@@ -299,7 +299,7 @@ export class VouchersService {
 
         const response: Observable<HttpResponse<Array<VoucherItem>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/vouchers?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<VoucherItem>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<VoucherItem>>(httpResponse.response)));
         }
         return response;
     }

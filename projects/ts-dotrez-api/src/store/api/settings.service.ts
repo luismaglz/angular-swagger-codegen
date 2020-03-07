@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
-
+import { Store } from 'redux';
 import {
     HttpResponse,
     Headers,
@@ -75,7 +75,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CheckInSettings>
     {
-        const response = await apiNskV1SettingsBookingCheckinGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingCheckinGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingCheckinGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -88,7 +88,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<ContactSettings>
     {
-        const response = await apiNskV1SettingsBookingContactGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingContactGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingContactGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -101,7 +101,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CustomerAccountSettings>
     {
-        const response = await apiNskV1SettingsBookingCustomerAccountGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingCustomerAccountGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingCustomerAccountGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -114,7 +114,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<FeeSettings>
     {
-        const response = await apiNskV1SettingsBookingFeeGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingFeeGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingFeeGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -127,7 +127,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<FlightSearchSettings>
     {
-        const response = await apiNskV1SettingsBookingFlightSearchGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingFlightSearchGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingFlightSearchGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -140,7 +140,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<GeneralSettings>
     {
-        const response = await apiNskV1SettingsBookingGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -153,7 +153,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<PassengerSettings>
     {
-        const response = await apiNskV1SettingsBookingPassengerGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingPassengerGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingPassengerGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -166,7 +166,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<ReserveFlightsSettings>
     {
-        const response = await apiNskV1SettingsBookingReserveFlightsGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsBookingReserveFlightsGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsBookingReserveFlightsGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -179,7 +179,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<LogonSettings>
     {
-        const response = await apiNskV1SettingsGeneralApplicationLogonGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsGeneralApplicationLogonGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsGeneralApplicationLogonGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -192,7 +192,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CodesSettings>
     {
-        const response = await apiNskV1SettingsGeneralCodesGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsGeneralCodesGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsGeneralCodesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -205,7 +205,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<SessionSettings>
     {
-        const response = await apiNskV1SettingsGeneralSessionGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV1SettingsGeneralSessionGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsGeneralSessionGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -218,7 +218,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsItineraryGet(eTag?: string,  headers?: Headers): Promise<ItinerarySettings>
     {
-        const response = await apiNskV1SettingsItineraryGet(eTag,'body', headers);
+        const response = await apiNskV1SettingsItineraryGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsItineraryGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -231,7 +231,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsPaymentGet(eTag?: string,  headers?: Headers): Promise<PaymentSettings>
     {
-        const response = await apiNskV1SettingsPaymentGet(eTag,'body', headers);
+        const response = await apiNskV1SettingsPaymentGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsPaymentGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -244,7 +244,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsUserAgencyCreationGet(eTag?: string,  headers?: Headers): Promise<AgencyCreationSettings>
     {
-        const response = await apiNskV1SettingsUserAgencyCreationGet(eTag,'body', headers);
+        const response = await apiNskV1SettingsUserAgencyCreationGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsUserAgencyCreationGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -257,7 +257,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV1SettingsUserCustomerCreationGet(eTag?: string,  headers?: Headers): Promise<CustomerCreationSettings>
     {
-        const response = await apiNskV1SettingsUserCustomerCreationGet(eTag,'body', headers);
+        const response = await apiNskV1SettingsUserCustomerCreationGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV1SettingsUserCustomerCreationGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -270,7 +270,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<BookingPaymentSettingsv2>
     {
-        const response = await apiNskV2SettingsBookingPaymentGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV2SettingsBookingPaymentGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2SettingsBookingPaymentGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -283,7 +283,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV2SettingsPremiumServicesGet(eTag?: string,  headers?: Headers): Promise<PremiumServicesSettingsv2>
     {
-        const response = await apiNskV2SettingsPremiumServicesGet(eTag,'body', headers);
+        const response = await apiNskV2SettingsPremiumServicesGet(eTag,'body', headers).toPromise();
         // TODO: Implement apiNskV2SettingsPremiumServicesGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;
@@ -296,7 +296,7 @@ export class StoreSettingsService {
      */
     public async store_apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<SkySpeedSettingsv2>
     {
-        const response = await apiNskV2SettingsSkySpeedGet(eTag,roleCode,'body', headers);
+        const response = await apiNskV2SettingsSkySpeedGet(eTag,roleCode,'body', headers).toPromise();
         // TODO: Implement apiNskV2SettingsSkySpeedGet
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

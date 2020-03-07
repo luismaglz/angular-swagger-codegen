@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -58,7 +58,7 @@ export class ManifestService {
 
         const response: Observable<HttpResponse<PassengerDetails>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}/passengerDetails`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PassengerDetails>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PassengerDetails>(httpResponse.response)));
         }
         return response;
     }
@@ -80,7 +80,7 @@ export class ManifestService {
 
         const response: Observable<HttpResponse<Array<PassengerSeatAssignment>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}/passengerSeatAssignments`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PassengerSeatAssignment>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PassengerSeatAssignment>>(httpResponse.response)));
         }
         return response;
     }
@@ -103,7 +103,7 @@ export class ManifestService {
 
         const response: Observable<HttpResponse<Manifest>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/manifest/${encodeURIComponent(String(legKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Manifest>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Manifest>(httpResponse.response)));
         }
         return response;
     }
@@ -150,7 +150,7 @@ export class ManifestService {
 
         const response: Observable<HttpResponse<TripInformationResponse>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/manifest?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <TripInformationResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <TripInformationResponse>(httpResponse.response)));
         }
         return response;
     }

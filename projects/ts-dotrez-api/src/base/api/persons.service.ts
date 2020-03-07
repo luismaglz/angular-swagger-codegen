@@ -11,8 +11,8 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs/Observable";
-import { map, toPromise } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
@@ -143,7 +143,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Transaction>>(httpResponse.response)));
         }
         return response;
     }
@@ -171,7 +171,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/account/collection/${encodeURIComponent(String(accountCollectionKey))}/transactions`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -194,7 +194,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/account/collection`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -216,7 +216,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Account>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/account`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Account>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Account>(httpResponse.response)));
         }
         return response;
     }
@@ -239,7 +239,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/account`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -271,7 +271,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/account/status?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -323,7 +323,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<Transaction>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/account/transactions?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<Transaction>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<Transaction>>(httpResponse.response)));
         }
         return response;
     }
@@ -350,7 +350,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/addresses/${encodeURIComponent(String(personAddressKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -377,7 +377,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonAddress>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/addresses/${encodeURIComponent(String(personAddressKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonAddress>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonAddress>(httpResponse.response)));
         }
         return response;
     }
@@ -405,7 +405,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/addresses/${encodeURIComponent(String(personAddressKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -433,7 +433,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/addresses/${encodeURIComponent(String(personAddressKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -455,7 +455,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonAddress>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/addresses`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonAddress>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonAddress>>(httpResponse.response)));
         }
         return response;
     }
@@ -478,7 +478,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/addresses`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -505,7 +505,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/aliases/${encodeURIComponent(String(personAliasKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -532,7 +532,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonAlias>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/aliases/${encodeURIComponent(String(personAliasKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonAlias>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonAlias>(httpResponse.response)));
         }
         return response;
     }
@@ -560,7 +560,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/aliases/${encodeURIComponent(String(personAliasKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -588,7 +588,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/aliases/${encodeURIComponent(String(personAliasKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -610,7 +610,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonAlias>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/aliases`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonAlias>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonAlias>>(httpResponse.response)));
         }
         return response;
     }
@@ -633,7 +633,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/aliases`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -660,7 +660,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/comments/${encodeURIComponent(String(personCommentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -687,7 +687,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonComment>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/comments/${encodeURIComponent(String(personCommentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonComment>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonComment>(httpResponse.response)));
         }
         return response;
     }
@@ -715,7 +715,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/comments/${encodeURIComponent(String(personCommentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -743,7 +743,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/comments/${encodeURIComponent(String(personCommentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -765,7 +765,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonComment>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/comments`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonComment>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonComment>>(httpResponse.response)));
         }
         return response;
     }
@@ -788,7 +788,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/comments`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -810,7 +810,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -837,7 +837,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/emails/${encodeURIComponent(String(personEmailAddressKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -864,7 +864,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonEmail>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/emails/${encodeURIComponent(String(personEmailAddressKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonEmail>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonEmail>(httpResponse.response)));
         }
         return response;
     }
@@ -892,7 +892,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/emails/${encodeURIComponent(String(personEmailAddressKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -920,7 +920,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/emails/${encodeURIComponent(String(personEmailAddressKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -942,7 +942,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonEmail>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/emails`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonEmail>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonEmail>>(httpResponse.response)));
         }
         return response;
     }
@@ -965,7 +965,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/emails`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -987,7 +987,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Person>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Person>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Person>(httpResponse.response)));
         }
         return response;
     }
@@ -1014,7 +1014,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/information/${encodeURIComponent(String(personInformationKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1041,7 +1041,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonInformation>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/information/${encodeURIComponent(String(personInformationKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonInformation>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonInformation>(httpResponse.response)));
         }
         return response;
     }
@@ -1069,7 +1069,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/information/${encodeURIComponent(String(personInformationKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1097,7 +1097,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/information/${encodeURIComponent(String(personInformationKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1119,7 +1119,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonInformation>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/information`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonInformation>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonInformation>>(httpResponse.response)));
         }
         return response;
     }
@@ -1142,7 +1142,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/information`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1165,7 +1165,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1192,7 +1192,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/phoneNumbers/${encodeURIComponent(String(personPhoneNumberKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1219,7 +1219,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonPhoneNumber>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/phoneNumbers/${encodeURIComponent(String(personPhoneNumberKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonPhoneNumber>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonPhoneNumber>(httpResponse.response)));
         }
         return response;
     }
@@ -1247,7 +1247,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/phoneNumbers/${encodeURIComponent(String(personPhoneNumberKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1275,7 +1275,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/phoneNumbers/${encodeURIComponent(String(personPhoneNumberKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1297,7 +1297,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonPhoneNumber>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/phoneNumbers`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonPhoneNumber>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonPhoneNumber>>(httpResponse.response)));
         }
         return response;
     }
@@ -1320,7 +1320,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/phoneNumbers`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1347,7 +1347,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/preferences/${encodeURIComponent(String(personPreferenceKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1374,7 +1374,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonPreference>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/preferences/${encodeURIComponent(String(personPreferenceKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonPreference>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonPreference>(httpResponse.response)));
         }
         return response;
     }
@@ -1402,7 +1402,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/preferences/${encodeURIComponent(String(personPreferenceKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1430,7 +1430,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/preferences/${encodeURIComponent(String(personPreferenceKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1452,7 +1452,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonPreference>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/preferences`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonPreference>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonPreference>>(httpResponse.response)));
         }
         return response;
     }
@@ -1475,7 +1475,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/preferences`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1502,7 +1502,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/programs/${encodeURIComponent(String(personProgramKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1529,7 +1529,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonCustomerProgram>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/programs/${encodeURIComponent(String(personProgramKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonCustomerProgram>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonCustomerProgram>(httpResponse.response)));
         }
         return response;
     }
@@ -1557,7 +1557,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/programs/${encodeURIComponent(String(personProgramKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1585,7 +1585,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/programs/${encodeURIComponent(String(personProgramKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1607,7 +1607,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonCustomerProgram>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/programs`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonCustomerProgram>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonCustomerProgram>>(httpResponse.response)));
         }
         return response;
     }
@@ -1630,7 +1630,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/programs`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1653,7 +1653,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1680,7 +1680,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/storedPayments/${encodeURIComponent(String(personStoredPaymentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1707,7 +1707,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonStoredPayment>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/storedPayments/${encodeURIComponent(String(personStoredPaymentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonStoredPayment>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonStoredPayment>(httpResponse.response)));
         }
         return response;
     }
@@ -1735,7 +1735,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/storedPayments/${encodeURIComponent(String(personStoredPaymentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1763,7 +1763,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/storedPayments/${encodeURIComponent(String(personStoredPaymentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1785,7 +1785,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonStoredPayment>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/storedPayments`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonStoredPayment>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonStoredPayment>>(httpResponse.response)));
         }
         return response;
     }
@@ -1808,7 +1808,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/storedPayments`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1835,7 +1835,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelDocuments/${encodeURIComponent(String(personTravelDocumentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1862,7 +1862,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<PersonTravelDocument>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelDocuments/${encodeURIComponent(String(personTravelDocumentKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <PersonTravelDocument>(httpResponse.response));
+               return response.pipe(map(httpResponse => <PersonTravelDocument>(httpResponse.response)));
         }
         return response;
     }
@@ -1884,7 +1884,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonTravelDocument>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelDocuments`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonTravelDocument>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonTravelDocument>>(httpResponse.response)));
         }
         return response;
     }
@@ -1907,7 +1907,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelDocuments`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1934,7 +1934,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1966,7 +1966,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/events/${encodeURIComponent(String(eventType))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -1998,7 +1998,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<NotificationEvent>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/events/${encodeURIComponent(String(eventType))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <NotificationEvent>(httpResponse.response));
+               return response.pipe(map(httpResponse => <NotificationEvent>(httpResponse.response)));
         }
         return response;
     }
@@ -2025,7 +2025,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<NotificationEvent>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/events`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<NotificationEvent>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<NotificationEvent>>(httpResponse.response)));
         }
         return response;
     }
@@ -2053,7 +2053,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/events`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2080,7 +2080,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<TravelNotification>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <TravelNotification>(httpResponse.response));
+               return response.pipe(map(httpResponse => <TravelNotification>(httpResponse.response)));
         }
         return response;
     }
@@ -2108,7 +2108,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2136,7 +2136,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2168,7 +2168,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/timedEvents/${encodeURIComponent(String(timedEventType))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2200,7 +2200,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<NotificationTimedEvent>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/timedEvents/${encodeURIComponent(String(timedEventType))}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <NotificationTimedEvent>(httpResponse.response));
+               return response.pipe(map(httpResponse => <NotificationTimedEvent>(httpResponse.response)));
         }
         return response;
     }
@@ -2233,7 +2233,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/timedEvents/${encodeURIComponent(String(timedEventType))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2260,7 +2260,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<NotificationTimedEvent>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/timedEvents`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<NotificationTimedEvent>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<NotificationTimedEvent>>(httpResponse.response)));
         }
         return response;
     }
@@ -2288,7 +2288,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications/${encodeURIComponent(String(travelNotificationKey))}/timedEvents`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2310,7 +2310,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<TravelNotification>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<TravelNotification>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<TravelNotification>>(httpResponse.response)));
         }
         return response;
     }
@@ -2333,7 +2333,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons/${encodeURIComponent(String(personKey))}/travelNotifications`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2412,7 +2412,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<Array<PersonRecord>>> = this.httpClient.get(`${this.basePath}/api/nsk/v1/persons?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <Array<PersonRecord>>(httpResponse.response));
+               return response.pipe(map(httpResponse => <Array<PersonRecord>>(httpResponse.response)));
         }
         return response;
     }
@@ -2430,7 +2430,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.post(`${this.basePath}/api/nsk/v1/persons`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2458,7 +2458,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.patch(`${this.basePath}/api/nsk/v2/persons/${encodeURIComponent(String(personKey))}/travelDocuments/${encodeURIComponent(String(personTravelDocumentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
@@ -2486,7 +2486,7 @@ export class PersonsService {
 
         const response: Observable<HttpResponse<IJsonResponse>> = this.httpClient.put(`${this.basePath}/api/nsk/v2/persons/${encodeURIComponent(String(personKey))}/travelDocuments/${encodeURIComponent(String(personTravelDocumentKey))}`, request , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <IJsonResponse>(httpResponse.response));
+               return response.pipe(map(httpResponse => <IJsonResponse>(httpResponse.response)));
         }
         return response;
     }
