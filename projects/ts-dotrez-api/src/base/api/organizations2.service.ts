@@ -19,23 +19,25 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { ChildAccountTransactionsRequest } from 'api-models';
-import { CreateOrganizationAccountRequest } from 'api-models';
-import { DeltaMapperOrganizationEditRequest } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { OrganizationAccount } from 'api-models';
-import { OrganizationCommissionRate } from 'api-models';
-import { OrganizationCreateRequest } from 'api-models';
-import { OrganizationEditRequest } from 'api-models';
-import { OrganizationExternalAccountRequest } from 'api-models';
-import { OrganizationExternalAccountv2 } from 'api-models';
-import { OrganizationRecord } from 'api-models';
-import { OrganizationRegisterRequest } from 'api-models';
-import { OrganizationTransactionRequest } from 'api-models';
-import { Organizationv2 } from 'api-models';
-import { PhoneNumber } from 'api-models';
-import { PhoneNumberBase } from 'api-models';
-import { Transaction } from 'api-models';
+import {
+    ChildAccountTransactionsRequest, 
+    CreateOrganizationAccountRequest, 
+    DeltaMapperOrganizationEditRequest, 
+    IJsonResponse, 
+    OrganizationAccount, 
+    OrganizationCommissionRate, 
+    OrganizationCreateRequest, 
+    OrganizationEditRequest, 
+    OrganizationExternalAccountRequest, 
+    OrganizationExternalAccountv2, 
+    OrganizationRecord, 
+    OrganizationRegisterRequest, 
+    OrganizationTransactionRequest, 
+    Organizationv2, 
+    PhoneNumber, 
+    PhoneNumberBase, 
+    Transaction, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -19,25 +19,27 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Availability } from 'api-models';
-import { AvailabilityFlyAheadRequest } from 'api-models';
-import { AvailabilityMoveRequest } from 'api-models';
-import { AvailabilityRebookRequest } from 'api-models';
-import { Booking } from 'api-models';
-import { BookingSellRequest } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { MoveRequest } from 'api-models';
-import { ScheduleDetail } from 'api-models';
-import { Trip } from 'api-models';
-import { TripDetails } from 'api-models';
-import { TripDowngradeRequest } from 'api-models';
-import { TripInformationQuery } from 'api-models';
-import { TripInformationResponse } from 'api-models';
-import { TripSellRequest } from 'api-models';
-import { TripStatusv2 } from 'api-models';
-import { TripUpgradeBaseRequest } from 'api-models';
-import { TripUpgradeRequest } from 'api-models';
-import { UpgradeSegment } from 'api-models';
+import {
+    Availability, 
+    AvailabilityFlyAheadRequest, 
+    AvailabilityMoveRequest, 
+    AvailabilityRebookRequest, 
+    Booking, 
+    BookingSellRequest, 
+    IJsonResponse, 
+    MoveRequest, 
+    ScheduleDetail, 
+    Trip, 
+    TripDetails, 
+    TripDowngradeRequest, 
+    TripInformationQuery, 
+    TripInformationResponse, 
+    TripSellRequest, 
+    TripStatusv2, 
+    TripUpgradeBaseRequest, 
+    TripUpgradeRequest, 
+    UpgradeSegment, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

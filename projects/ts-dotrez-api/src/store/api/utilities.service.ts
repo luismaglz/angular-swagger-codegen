@@ -18,11 +18,11 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1UtilitiesStationLocalTimeByStationCodeGet
+        apiNskV1UtilitiesStationLocalTimeByStationCodeGet,
 } from '../base/api'
 
 

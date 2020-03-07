@@ -19,15 +19,17 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from 'api-models';
-import { PassengerSsr } from 'api-models';
-import { PassengerSsrKey } from 'api-models';
-import { ResellSsrRequest } from 'api-models';
-import { SingleSsrByKeyRequestv2 } from 'api-models';
-import { SsrAvailability } from 'api-models';
-import { SsrAvailabilityRequestv2 } from 'api-models';
-import { SsrByKeysRequestv2 } from 'api-models';
-import { SsrsRequest } from 'api-models';
+import {
+    IJsonResponse, 
+    PassengerSsr, 
+    PassengerSsrKey, 
+    ResellSsrRequest, 
+    SingleSsrByKeyRequestv2, 
+    SsrAvailability, 
+    SsrAvailabilityRequestv2, 
+    SsrByKeysRequestv2, 
+    SsrsRequest, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

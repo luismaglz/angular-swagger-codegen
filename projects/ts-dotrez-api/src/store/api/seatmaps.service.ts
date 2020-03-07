@@ -18,12 +18,12 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    SeatMapAvailability 
+    IJsonResponse, 
+    SeatMapAvailability, 
 } from 'api-models';
 
 import {
-        apiNskV3SeatmapsByJourneyKeyGet
+        apiNskV3SeatmapsByJourneyKeyGet,
 } from '../base/api'
 
 

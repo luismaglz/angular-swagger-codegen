@@ -18,28 +18,28 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    PassengerSsr 
-    PassengerSsrKey 
-    ResellSsrRequest 
-    SingleSsrByKeyRequestv2 
-    SsrAvailability 
-    SsrAvailabilityRequestv2 
-    SsrByKeysRequestv2 
-    SsrsRequest 
+    IJsonResponse, 
+    PassengerSsr, 
+    PassengerSsrKey, 
+    ResellSsrRequest, 
+    SingleSsrByKeyRequestv2, 
+    SsrAvailability, 
+    SsrAvailabilityRequestv2, 
+    SsrByKeysRequestv2, 
+    SsrsRequest, 
 } from 'api-models';
 
 import {
-        apiNskV1BookingSsrsBySsrKeyDelete
-        apiNskV1BookingSsrsBySsrKeyGet
-        apiNskV1BookingSsrsBySsrKeyPut
-        apiNskV1BookingSsrsGet
-        apiNskV1BookingSsrsManualDelete
-        apiNskV1BookingSsrsManualPost
-        apiNskV1BookingSsrsResellPost
-        apiNskV2BookingSsrsAvailabilityPost
-        apiNskV2BookingSsrsBySsrKeyPost
-        apiNskV2BookingSsrsPost
+        apiNskV1BookingSsrsBySsrKeyDelete,
+        apiNskV1BookingSsrsBySsrKeyGet,
+        apiNskV1BookingSsrsBySsrKeyPut,
+        apiNskV1BookingSsrsGet,
+        apiNskV1BookingSsrsManualDelete,
+        apiNskV1BookingSsrsManualPost,
+        apiNskV1BookingSsrsResellPost,
+        apiNskV2BookingSsrsAvailabilityPost,
+        apiNskV2BookingSsrsBySsrKeyPost,
+        apiNskV2BookingSsrsPost,
 } from '../base/api'
 
 

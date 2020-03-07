@@ -19,25 +19,27 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { AgencyCreationSettings } from 'api-models';
-import { BookingPaymentSettingsv2 } from 'api-models';
-import { CheckInSettings } from 'api-models';
-import { CodesSettings } from 'api-models';
-import { ContactSettings } from 'api-models';
-import { CustomerAccountSettings } from 'api-models';
-import { CustomerCreationSettings } from 'api-models';
-import { FeeSettings } from 'api-models';
-import { FlightSearchSettings } from 'api-models';
-import { GeneralSettings } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { ItinerarySettings } from 'api-models';
-import { LogonSettings } from 'api-models';
-import { PassengerSettings } from 'api-models';
-import { PaymentSettings } from 'api-models';
-import { PremiumServicesSettingsv2 } from 'api-models';
-import { ReserveFlightsSettings } from 'api-models';
-import { SessionSettings } from 'api-models';
-import { SkySpeedSettingsv2 } from 'api-models';
+import {
+    AgencyCreationSettings, 
+    BookingPaymentSettingsv2, 
+    CheckInSettings, 
+    CodesSettings, 
+    ContactSettings, 
+    CustomerAccountSettings, 
+    CustomerCreationSettings, 
+    FeeSettings, 
+    FlightSearchSettings, 
+    GeneralSettings, 
+    IJsonResponse, 
+    ItinerarySettings, 
+    LogonSettings, 
+    PassengerSettings, 
+    PaymentSettings, 
+    PremiumServicesSettingsv2, 
+    ReserveFlightsSettings, 
+    SessionSettings, 
+    SkySpeedSettingsv2, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -18,23 +18,23 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    AvailabilityRequestv2 
-    AvailabilitySimpleRequestv2 
-    Availabilityv2 
-    IJsonResponse 
-    LowFareAvailability 
-    LowFareAvailabilityRequest 
-    LowFareAvailabilitySearchSimpleRequest 
-    LowFareCacheAvailability 
-    LowFareCacheRequest 
+    AvailabilityRequestv2, 
+    AvailabilitySimpleRequestv2, 
+    Availabilityv2, 
+    IJsonResponse, 
+    LowFareAvailability, 
+    LowFareAvailabilityRequest, 
+    LowFareAvailabilitySearchSimpleRequest, 
+    LowFareCacheAvailability, 
+    LowFareCacheRequest, 
 } from 'api-models';
 
 import {
-        apiNskV1AvailabilityLowfareBetaPost
-        apiNskV2AvailabilityLowfarePost
-        apiNskV2AvailabilityLowfareSimplePost
-        apiNskV4AvailabilitySearchPost
-        apiNskV4AvailabilitySearchSimplePost
+        apiNskV1AvailabilityLowfareBetaPost,
+        apiNskV2AvailabilityLowfarePost,
+        apiNskV2AvailabilityLowfareSimplePost,
+        apiNskV4AvailabilitySearchPost,
+        apiNskV4AvailabilitySearchSimplePost,
 } from '../base/api'
 
 

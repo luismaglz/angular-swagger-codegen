@@ -9,14 +9,14 @@ import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
     {{#imports}}
-    {{classname}} 
+    {{classname}}, 
     {{/imports}}
 } from 'api-models';
 
 import {
 {{#operations}}
     {{#operation}}
-        {{nickname}}
+        {{nickname}},
     {{/operation}}
 {{/operations}}
 } from '../base/api'

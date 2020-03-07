@@ -18,46 +18,46 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    AgencyCreationSettings 
-    BookingPaymentSettingsv2 
-    CheckInSettings 
-    CodesSettings 
-    ContactSettings 
-    CustomerAccountSettings 
-    CustomerCreationSettings 
-    FeeSettings 
-    FlightSearchSettings 
-    GeneralSettings 
-    IJsonResponse 
-    ItinerarySettings 
-    LogonSettings 
-    PassengerSettings 
-    PaymentSettings 
-    PremiumServicesSettingsv2 
-    ReserveFlightsSettings 
-    SessionSettings 
-    SkySpeedSettingsv2 
+    AgencyCreationSettings, 
+    BookingPaymentSettingsv2, 
+    CheckInSettings, 
+    CodesSettings, 
+    ContactSettings, 
+    CustomerAccountSettings, 
+    CustomerCreationSettings, 
+    FeeSettings, 
+    FlightSearchSettings, 
+    GeneralSettings, 
+    IJsonResponse, 
+    ItinerarySettings, 
+    LogonSettings, 
+    PassengerSettings, 
+    PaymentSettings, 
+    PremiumServicesSettingsv2, 
+    ReserveFlightsSettings, 
+    SessionSettings, 
+    SkySpeedSettingsv2, 
 } from 'api-models';
 
 import {
-        apiNskV1SettingsBookingCheckinGet
-        apiNskV1SettingsBookingContactGet
-        apiNskV1SettingsBookingCustomerAccountGet
-        apiNskV1SettingsBookingFeeGet
-        apiNskV1SettingsBookingFlightSearchGet
-        apiNskV1SettingsBookingGet
-        apiNskV1SettingsBookingPassengerGet
-        apiNskV1SettingsBookingReserveFlightsGet
-        apiNskV1SettingsGeneralApplicationLogonGet
-        apiNskV1SettingsGeneralCodesGet
-        apiNskV1SettingsGeneralSessionGet
-        apiNskV1SettingsItineraryGet
-        apiNskV1SettingsPaymentGet
-        apiNskV1SettingsUserAgencyCreationGet
-        apiNskV1SettingsUserCustomerCreationGet
-        apiNskV2SettingsBookingPaymentGet
-        apiNskV2SettingsPremiumServicesGet
-        apiNskV2SettingsSkySpeedGet
+        apiNskV1SettingsBookingCheckinGet,
+        apiNskV1SettingsBookingContactGet,
+        apiNskV1SettingsBookingCustomerAccountGet,
+        apiNskV1SettingsBookingFeeGet,
+        apiNskV1SettingsBookingFlightSearchGet,
+        apiNskV1SettingsBookingGet,
+        apiNskV1SettingsBookingPassengerGet,
+        apiNskV1SettingsBookingReserveFlightsGet,
+        apiNskV1SettingsGeneralApplicationLogonGet,
+        apiNskV1SettingsGeneralCodesGet,
+        apiNskV1SettingsGeneralSessionGet,
+        apiNskV1SettingsItineraryGet,
+        apiNskV1SettingsPaymentGet,
+        apiNskV1SettingsUserAgencyCreationGet,
+        apiNskV1SettingsUserCustomerCreationGet,
+        apiNskV2SettingsBookingPaymentGet,
+        apiNskV2SettingsPremiumServicesGet,
+        apiNskV2SettingsSkySpeedGet,
 } from '../base/api'
 
 

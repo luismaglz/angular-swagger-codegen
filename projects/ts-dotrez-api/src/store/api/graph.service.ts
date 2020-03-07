@@ -18,14 +18,14 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    GraphQlQuery 
-    GraphQlQueryv2 
+    GraphQlQuery, 
+    GraphQlQueryv2, 
 } from 'api-models';
 
 import {
-        apiNskV1GraphByQueryNamePost
-        apiV1GraphPost
-        apiV2GraphByQueryNamePost
+        apiNskV1GraphByQueryNamePost,
+        apiV1GraphPost,
+        apiV2GraphByQueryNamePost,
 } from '../base/api'
 
 

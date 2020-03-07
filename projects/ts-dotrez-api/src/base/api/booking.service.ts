@@ -19,54 +19,56 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Account } from 'api-models';
-import { ActivityProduct } from 'api-models';
-import { AddOn } from 'api-models';
-import { AddOnAllowedPayments } from 'api-models';
-import { AddOnSettings } from 'api-models';
-import { AutoAssignRequest } from 'api-models';
-import { Booking } from 'api-models';
-import { BookingComment } from 'api-models';
-import { BookingMessageHistory } from 'api-models';
-import { BookingNotificationHistory } from 'api-models';
-import { BookingPointOfSaleEditRequest } from 'api-models';
-import { BookingQueueRequest } from 'api-models';
-import { BundleAvailability } from 'api-models';
-import { BundleAvailabilityRequest } from 'api-models';
-import { CarProduct } from 'api-models';
-import { CommitPassengerFeeRequest } from 'api-models';
-import { CommitRequestv2 } from 'api-models';
-import { Consumer } from 'api-models';
-import { DeltaMapperBookingPointOfSaleEditRequest } from 'api-models';
-import { DeltaMapperConsumer } from 'api-models';
-import { DeltaMapperOrderParticipantUpdateRequest } from 'api-models';
-import { DeltaMapperRecordLocatorEditRequest } from 'api-models';
-import { DivideRequestv2 } from 'api-models';
-import { FareOverrideRequest } from 'api-models';
-import { FareRule } from 'api-models';
-import { FeeRequestBase } from 'api-models';
-import { FlightMoveHistoryResponse } from 'api-models';
-import { HistoryResponse } from 'api-models';
-import { HotelProduct } from 'api-models';
-import { IActionResult } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { InlineResponse200 } from 'api-models';
-import { InlineResponse2001 } from 'api-models';
-import { InlineResponse2002 } from 'api-models';
-import { InsuranceProduct } from 'api-models';
-import { OrderParticipantUpdateRequest } from 'api-models';
-import { OrderPaymentBase } from 'api-models';
-import { PreCancelDetail } from 'api-models';
-import { PromotionRequest } from 'api-models';
-import { RecordLocator } from 'api-models';
-import { RecordLocatorCreateRequest } from 'api-models';
-import { RecordLocatorEditRequest } from 'api-models';
-import { SeatAssignmentHistoryResponse } from 'api-models';
-import { SeatMapAvailability } from 'api-models';
-import { SegmentChangeHistoryResponse } from 'api-models';
-import { SellInsuranceRequest } from 'api-models';
-import { ServiceCharge } from 'api-models';
-import { Transaction } from 'api-models';
+import {
+    Account, 
+    ActivityProduct, 
+    AddOn, 
+    AddOnAllowedPayments, 
+    AddOnSettings, 
+    AutoAssignRequest, 
+    Booking, 
+    BookingComment, 
+    BookingMessageHistory, 
+    BookingNotificationHistory, 
+    BookingPointOfSaleEditRequest, 
+    BookingQueueRequest, 
+    BundleAvailability, 
+    BundleAvailabilityRequest, 
+    CarProduct, 
+    CommitPassengerFeeRequest, 
+    CommitRequestv2, 
+    Consumer, 
+    DeltaMapperBookingPointOfSaleEditRequest, 
+    DeltaMapperConsumer, 
+    DeltaMapperOrderParticipantUpdateRequest, 
+    DeltaMapperRecordLocatorEditRequest, 
+    DivideRequestv2, 
+    FareOverrideRequest, 
+    FareRule, 
+    FeeRequestBase, 
+    FlightMoveHistoryResponse, 
+    HistoryResponse, 
+    HotelProduct, 
+    IActionResult, 
+    IJsonResponse, 
+    InlineResponse200, 
+    InlineResponse2001, 
+    InlineResponse2002, 
+    InsuranceProduct, 
+    OrderParticipantUpdateRequest, 
+    OrderPaymentBase, 
+    PreCancelDetail, 
+    PromotionRequest, 
+    RecordLocator, 
+    RecordLocatorCreateRequest, 
+    RecordLocatorEditRequest, 
+    SeatAssignmentHistoryResponse, 
+    SeatMapAvailability, 
+    SegmentChangeHistoryResponse, 
+    SellInsuranceRequest, 
+    ServiceCharge, 
+    Transaction, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

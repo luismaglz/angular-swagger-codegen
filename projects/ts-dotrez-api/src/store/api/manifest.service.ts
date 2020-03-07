@@ -18,19 +18,19 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    Manifest 
-    ManifestRequestBase 
-    PassengerDetails 
-    PassengerSeatAssignment 
-    TripInformationResponse 
+    IJsonResponse, 
+    Manifest, 
+    ManifestRequestBase, 
+    PassengerDetails, 
+    PassengerSeatAssignment, 
+    TripInformationResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1ManifestByLegKeyPassengerDetailsGet
-        apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet
-        apiNskV1ManifestByLegKeyPost
-        apiNskV1ManifestGet
+        apiNskV1ManifestByLegKeyPassengerDetailsGet,
+        apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet,
+        apiNskV1ManifestByLegKeyPost,
+        apiNskV1ManifestGet,
 } from '../base/api'
 
 

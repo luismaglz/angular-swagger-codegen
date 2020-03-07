@@ -18,12 +18,12 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    FareRule 
-    IJsonResponse 
+    FareRule, 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1FareRulesByFareAvailabilityKeyGet
+        apiNskV1FareRulesByFareAvailabilityKeyGet,
 } from '../base/api'
 
 

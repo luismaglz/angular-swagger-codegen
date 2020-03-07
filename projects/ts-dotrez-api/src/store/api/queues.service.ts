@@ -18,22 +18,22 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    BookingQueueItemBase 
-    DeleteBookingQueueItemBaseRequest 
-    DequeueTravelSummary 
-    IJsonResponse 
-    MoveBookingQueueItemBase 
-    QueueResults 
-    TravelQueueItemRequest 
+    BookingQueueItemBase, 
+    DeleteBookingQueueItemBaseRequest, 
+    DequeueTravelSummary, 
+    IJsonResponse, 
+    MoveBookingQueueItemBase, 
+    QueueResults, 
+    TravelQueueItemRequest, 
 } from 'api-models';
 
 import {
-        apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete
-        apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut
-        apiNskV1QueuesTravelByTravelQueueCodeNextGet
-        apiNskV1QueuesTravelPost
-        apiNskV2QueuesBookingsByBookingQueueCodeNextGet
-        apiNskV2QueuesBookingsGet
+        apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete,
+        apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut,
+        apiNskV1QueuesTravelByTravelQueueCodeNextGet,
+        apiNskV1QueuesTravelPost,
+        apiNskV2QueuesBookingsByBookingQueueCodeNextGet,
+        apiNskV2QueuesBookingsGet,
 } from '../base/api'
 
 

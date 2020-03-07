@@ -19,87 +19,89 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { AccountTransactionCode } from 'api-models';
-import { AddressType } from 'api-models';
-import { AgentSettingType } from 'api-models';
-import { Area } from 'api-models';
-import { BaggageType } from 'api-models';
-import { BundleApplication } from 'api-models';
-import { BundleConfiguration } from 'api-models';
-import { BundleRule } from 'api-models';
-import { BundleSet } from 'api-models';
-import { BundleSsrConfiguration } from 'api-models';
-import { Carrier } from 'api-models';
-import { City } from 'api-models';
-import { ClassOfService } from 'api-models';
-import { CommerceLocation } from 'api-models';
-import { CommissionRate } from 'api-models';
-import { ContactType } from 'api-models';
-import { Countryv2 } from 'api-models';
-import { Culture } from 'api-models';
-import { Currency } from 'api-models';
-import { CustomerProgram } from 'api-models';
-import { CustomerProgramLevel } from 'api-models';
-import { Delay } from 'api-models';
-import { Department } from 'api-models';
-import { DocumentType } from 'api-models';
-import { Domain } from 'api-models';
-import { DynamicParameter } from 'api-models';
-import { EmailType } from 'api-models';
-import { EnumResource } from 'api-models';
-import { ExternalRate } from 'api-models';
-import { FareType } from 'api-models';
-import { Fee } from 'api-models';
-import { FeeDetail } from 'api-models';
-import { HotCardReason } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { IssuanceReason } from 'api-models';
-import { Location } from 'api-models';
-import { Mac } from 'api-models';
-import { Market } from 'api-models';
-import { Marketv2 } from 'api-models';
-import { MessageType } from 'api-models';
-import { ParticipantType } from 'api-models';
-import { PassengerDiscount } from 'api-models';
-import { PassengerType } from 'api-models';
-import { PaymentMethod } from 'api-models';
-import { PersonAttachmentType } from 'api-models';
-import { PersonInformationType } from 'api-models';
-import { PhoneType } from 'api-models';
-import { ProductClass } from 'api-models';
-import { PromotionSettingType } from 'api-models';
-import { ProvinceState } from 'api-models';
-import { QueueCategory } from 'api-models';
-import { ReminderTime } from 'api-models';
-import { ResourceCategoryItem } from 'api-models';
-import { ResourceContentItem } from 'api-models';
-import { ResourceContentResult } from 'api-models';
-import { ResourceEntriesCarrier } from 'api-models';
-import { ResourceEntriesCurrencyv2 } from 'api-models';
-import { ResourceEntriesPersonAttachmentType } from 'api-models';
-import { ResourceEntriesStationDetail } from 'api-models';
-import { Role } from 'api-models';
-import { RoleSettingType } from 'api-models';
-import { SettingsCategoryRequest } from 'api-models';
-import { ShoppingAttribute } from 'api-models';
-import { ShoppingAttributeGroup } from 'api-models';
-import { SingleSignOnProvider } from 'api-models';
-import { Source } from 'api-models';
-import { Ssr } from 'api-models';
-import { SsrGroup } from 'api-models';
-import { SsrNest } from 'api-models';
-import { SsrRestrictionResult } from 'api-models';
-import { StandByPriority } from 'api-models';
-import { Station } from 'api-models';
-import { StationCategory } from 'api-models';
-import { SubZone } from 'api-models';
-import { Suffix } from 'api-models';
-import { TimeZone } from 'api-models';
-import { Title } from 'api-models';
-import { TravelClass } from 'api-models';
-import { Vendor } from 'api-models';
-import { Vendorv2 } from 'api-models';
-import { Zone } from 'api-models';
+import {
+    AccountTransactionCode, 
+    AddressType, 
+    AgentSettingType, 
+    Area, 
+    BaggageType, 
+    BundleApplication, 
+    BundleConfiguration, 
+    BundleRule, 
+    BundleSet, 
+    BundleSsrConfiguration, 
+    Carrier, 
+    City, 
+    ClassOfService, 
+    CommerceLocation, 
+    CommissionRate, 
+    ContactType, 
+    Countryv2, 
+    Culture, 
+    Currency, 
+    CustomerProgram, 
+    CustomerProgramLevel, 
+    Delay, 
+    Department, 
+    DocumentType, 
+    Domain, 
+    DynamicParameter, 
+    EmailType, 
+    EnumResource, 
+    ExternalRate, 
+    FareType, 
+    Fee, 
+    FeeDetail, 
+    HotCardReason, 
+    IJsonResponse, 
+    IssuanceReason, 
+    Location, 
+    Mac, 
+    Market, 
+    Marketv2, 
+    MessageType, 
+    ParticipantType, 
+    PassengerDiscount, 
+    PassengerType, 
+    PaymentMethod, 
+    PersonAttachmentType, 
+    PersonInformationType, 
+    PhoneType, 
+    ProductClass, 
+    PromotionSettingType, 
+    ProvinceState, 
+    QueueCategory, 
+    ReminderTime, 
+    ResourceCategoryItem, 
+    ResourceContentItem, 
+    ResourceContentResult, 
+    ResourceEntriesCarrier, 
+    ResourceEntriesCurrencyv2, 
+    ResourceEntriesPersonAttachmentType, 
+    ResourceEntriesStationDetail, 
+    Role, 
+    RoleSettingType, 
+    SettingsCategoryRequest, 
+    ShoppingAttribute, 
+    ShoppingAttributeGroup, 
+    SingleSignOnProvider, 
+    Source, 
+    Ssr, 
+    SsrGroup, 
+    SsrNest, 
+    SsrRestrictionResult, 
+    StandByPriority, 
+    Station, 
+    StationCategory, 
+    SubZone, 
+    Suffix, 
+    TimeZone, 
+    Title, 
+    TravelClass, 
+    Vendor, 
+    Vendorv2, 
+    Zone, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -19,13 +19,15 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Contact } from 'api-models';
-import { ContactRequest } from 'api-models';
-import { DeltaMapperContactBase } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { InlineResponse2004 } from 'api-models';
-import { PhoneNumber } from 'api-models';
-import { PhoneNumberBase } from 'api-models';
+import {
+    Contact, 
+    ContactRequest, 
+    DeltaMapperContactBase, 
+    IJsonResponse, 
+    InlineResponse2004, 
+    PhoneNumber, 
+    PhoneNumberBase, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

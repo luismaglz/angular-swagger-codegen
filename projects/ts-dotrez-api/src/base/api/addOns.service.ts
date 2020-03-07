@@ -19,20 +19,22 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { ActivityProduct } from 'api-models';
-import { ActivitySimpleRequest } from 'api-models';
-import { AddOn } from 'api-models';
-import { CarProduct } from 'api-models';
-import { HotelProduct } from 'api-models';
-import { HotelRequest } from 'api-models';
-import { ProductRequest } from 'api-models';
-import { QuoteCarRequest } from 'api-models';
-import { QuoteHotelRequest } from 'api-models';
-import { QuoteTokenRequest } from 'api-models';
-import { QuotedProduct } from 'api-models';
-import { SellCarRequest } from 'api-models';
-import { SellHotelRequest } from 'api-models';
-import { SellTokenRequest } from 'api-models';
+import {
+    ActivityProduct, 
+    ActivitySimpleRequest, 
+    AddOn, 
+    CarProduct, 
+    HotelProduct, 
+    HotelRequest, 
+    ProductRequest, 
+    QuoteCarRequest, 
+    QuoteHotelRequest, 
+    QuoteTokenRequest, 
+    QuotedProduct, 
+    SellCarRequest, 
+    SellHotelRequest, 
+    SellTokenRequest, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

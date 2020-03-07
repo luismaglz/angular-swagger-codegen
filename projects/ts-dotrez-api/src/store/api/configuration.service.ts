@@ -18,11 +18,11 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    EnvironmentHealth 
+    EnvironmentHealth, 
 } from 'api-models';
 
 import {
-        apiNskV1ConfigurationCheckGet
+        apiNskV1ConfigurationCheckGet,
 } from '../base/api'
 
 

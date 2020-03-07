@@ -18,15 +18,15 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    Promotion 
-    PromotionBase 
+    IJsonResponse, 
+    Promotion, 
+    PromotionBase, 
 } from 'api-models';
 
 import {
-        apiNskV1PromotionsByPromotionCodeGet
-        apiNskV1PromotionsByPromotionCodeValidateGet
-        apiNskV1PromotionsGet
+        apiNskV1PromotionsByPromotionCodeGet,
+        apiNskV1PromotionsByPromotionCodeValidateGet,
+        apiNskV1PromotionsGet,
 } from '../base/api'
 
 

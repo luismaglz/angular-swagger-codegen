@@ -19,40 +19,42 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { AddSeatRequest } from 'api-models';
-import { DeltaMapperInfant } from 'api-models';
-import { DeltaMapperPassengerAddressEditRequest } from 'api-models';
-import { DeltaMapperPassengerBase } from 'api-models';
-import { DeltaMapperTravelDocumentEditRequest } from 'api-models';
-import { DeltaMapperTravelNotificationEditRequest } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { Infant } from 'api-models';
-import { InlineResponse2005 } from 'api-models';
-import { InlineResponse2006 } from 'api-models';
-import { InlineResponse2007 } from 'api-models';
-import { NotificationEvent } from 'api-models';
-import { NotificationEventCreateRequest } from 'api-models';
-import { NotificationTimedEvent } from 'api-models';
-import { NotificationTimedEventCreateRequest } from 'api-models';
-import { NotificationTimedEventEditRequest } from 'api-models';
-import { Passenger } from 'api-models';
-import { PassengerAddress } from 'api-models';
-import { PassengerAddressCreateRequest } from 'api-models';
-import { PassengerAddressEditRequest } from 'api-models';
-import { PassengerBag } from 'api-models';
-import { PassengerBase } from 'api-models';
-import { PassengerInfant } from 'api-models';
-import { PassengerInfantCreateRequest } from 'api-models';
-import { PassengerKeyResponse } from 'api-models';
-import { PassengerPriceBreakdown } from 'api-models';
-import { PassengerSeat } from 'api-models';
-import { PassengerTravelDocument } from 'api-models';
-import { PassengerTypeCodeEditRequest } from 'api-models';
-import { TravelDocumentCreateRequest } from 'api-models';
-import { TravelDocumentEditRequest } from 'api-models';
-import { TravelNotification } from 'api-models';
-import { TravelNotificationCreateRequest } from 'api-models';
-import { TravelNotificationEditRequest } from 'api-models';
+import {
+    AddSeatRequest, 
+    DeltaMapperInfant, 
+    DeltaMapperPassengerAddressEditRequest, 
+    DeltaMapperPassengerBase, 
+    DeltaMapperTravelDocumentEditRequest, 
+    DeltaMapperTravelNotificationEditRequest, 
+    IJsonResponse, 
+    Infant, 
+    InlineResponse2005, 
+    InlineResponse2006, 
+    InlineResponse2007, 
+    NotificationEvent, 
+    NotificationEventCreateRequest, 
+    NotificationTimedEvent, 
+    NotificationTimedEventCreateRequest, 
+    NotificationTimedEventEditRequest, 
+    Passenger, 
+    PassengerAddress, 
+    PassengerAddressCreateRequest, 
+    PassengerAddressEditRequest, 
+    PassengerBag, 
+    PassengerBase, 
+    PassengerInfant, 
+    PassengerInfantCreateRequest, 
+    PassengerKeyResponse, 
+    PassengerPriceBreakdown, 
+    PassengerSeat, 
+    PassengerTravelDocument, 
+    PassengerTypeCodeEditRequest, 
+    TravelDocumentCreateRequest, 
+    TravelDocumentEditRequest, 
+    TravelNotification, 
+    TravelNotificationCreateRequest, 
+    TravelNotificationEditRequest, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

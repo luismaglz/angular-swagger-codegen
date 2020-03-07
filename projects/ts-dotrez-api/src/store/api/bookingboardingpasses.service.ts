@@ -18,19 +18,19 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    BoardingPassFilterRequest 
-    BoardingPassPassengerFilterRequest 
-    BoardingPassesCollectionv2 
-    BoardingPassesM2D 
-    BoardingPassesS2D 
-    IJsonResponse 
+    BoardingPassFilterRequest, 
+    BoardingPassPassengerFilterRequest, 
+    BoardingPassesCollectionv2, 
+    BoardingPassesM2D, 
+    BoardingPassesS2D, 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost
-        apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost
-        apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost
-        apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost
+        apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost,
+        apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost,
+        apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost,
+        apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost,
 } from '../base/api'
 
 

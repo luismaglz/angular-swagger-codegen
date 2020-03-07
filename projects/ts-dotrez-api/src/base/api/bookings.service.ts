@@ -19,30 +19,32 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Account } from 'api-models';
-import { AccountCollectionRequest } from 'api-models';
-import { Booking } from 'api-models';
-import { BookingCommentRequest } from 'api-models';
-import { BookingMessageHistory } from 'api-models';
-import { BookingNotificationHistory } from 'api-models';
-import { BookingQueueHistory } from 'api-models';
-import { BookingQueueHistoryRequest } from 'api-models';
-import { BookingQueueRequest } from 'api-models';
-import { BookingSearchResult } from 'api-models';
-import { CheckinPassengersRequest } from 'api-models';
-import { CheckinPassengersRequestv3 } from 'api-models';
-import { CheckinRequirements } from 'api-models';
-import { CreateAccountRequest } from 'api-models';
-import { FareOverrideRequest } from 'api-models';
-import { HistoryResponse } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { InlineResponse2003 } from 'api-models';
-import { ItineraryQuote } from 'api-models';
-import { ItineraryQuoteRequest } from 'api-models';
-import { SeatAssignmentHistoryResponse } from 'api-models';
-import { SegmentChangeHistoryResponse } from 'api-models';
-import { Transaction } from 'api-models';
-import { TransactionRequest } from 'api-models';
+import {
+    Account, 
+    AccountCollectionRequest, 
+    Booking, 
+    BookingCommentRequest, 
+    BookingMessageHistory, 
+    BookingNotificationHistory, 
+    BookingQueueHistory, 
+    BookingQueueHistoryRequest, 
+    BookingQueueRequest, 
+    BookingSearchResult, 
+    CheckinPassengersRequest, 
+    CheckinPassengersRequestv3, 
+    CheckinRequirements, 
+    CreateAccountRequest, 
+    FareOverrideRequest, 
+    HistoryResponse, 
+    IJsonResponse, 
+    InlineResponse2003, 
+    ItineraryQuote, 
+    ItineraryQuoteRequest, 
+    SeatAssignmentHistoryResponse, 
+    SegmentChangeHistoryResponse, 
+    Transaction, 
+    TransactionRequest, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

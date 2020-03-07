@@ -19,69 +19,71 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { BookingSearchResult } from 'api-models';
-import { BookingTripResult } from 'api-models';
-import { DeltaMapperPersonAddressEditRequest } from 'api-models';
-import { DeltaMapperPersonAliasRequest } from 'api-models';
-import { DeltaMapperPersonCommentRequest } from 'api-models';
-import { DeltaMapperPersonCustomerProgramEditRequest } from 'api-models';
-import { DeltaMapperPersonEditRequest } from 'api-models';
-import { DeltaMapperPersonEmailEditRequest } from 'api-models';
-import { DeltaMapperPersonInformationEditRequest } from 'api-models';
-import { DeltaMapperPersonPhoneNumberRequest } from 'api-models';
-import { DeltaMapperPersonPreferenceEditRequest } from 'api-models';
-import { DeltaMapperPersonStoredPaymentUpdateRequest } from 'api-models';
-import { DeltaMapperTravelDocumentEditRequestv2 } from 'api-models';
-import { DeltaMapperTravelNotificationEditRequest } from 'api-models';
-import { DeltaMapperUserRequest } from 'api-models';
-import { DeltaMapperUserRolePatchRequest } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { NotificationEvent } from 'api-models';
-import { NotificationEventCreateRequest } from 'api-models';
-import { NotificationTimedEvent } from 'api-models';
-import { NotificationTimedEventCreateRequest } from 'api-models';
-import { NotificationTimedEventEditRequest } from 'api-models';
-import { Person } from 'api-models';
-import { PersonAddress } from 'api-models';
-import { PersonAddressCreateRequest } from 'api-models';
-import { PersonAddressEditRequest } from 'api-models';
-import { PersonAlias } from 'api-models';
-import { PersonAliasRequest } from 'api-models';
-import { PersonComment } from 'api-models';
-import { PersonCommentRequest } from 'api-models';
-import { PersonCustomerProgram } from 'api-models';
-import { PersonCustomerProgramCreateRequest } from 'api-models';
-import { PersonCustomerProgramEditRequest } from 'api-models';
-import { PersonEditRequest } from 'api-models';
-import { PersonEmail } from 'api-models';
-import { PersonEmailCreateRequest } from 'api-models';
-import { PersonEmailEditRequest } from 'api-models';
-import { PersonInformation } from 'api-models';
-import { PersonInformationCreateRequest } from 'api-models';
-import { PersonInformationEditRequest } from 'api-models';
-import { PersonPhoneNumber } from 'api-models';
-import { PersonPhoneNumberRequest } from 'api-models';
-import { PersonPreference } from 'api-models';
-import { PersonPreferenceCreateRequest } from 'api-models';
-import { PersonPreferenceEditRequest } from 'api-models';
-import { PersonStoredPayment } from 'api-models';
-import { PersonStoredPaymentRequest } from 'api-models';
-import { PersonStoredPaymentUpdateRequest } from 'api-models';
-import { PersonTravelDocument } from 'api-models';
-import { PersonTravelDocumentRequest } from 'api-models';
-import { TravelDocumentEditRequestv2 } from 'api-models';
-import { TravelNotification } from 'api-models';
-import { TravelNotificationCreateRequest } from 'api-models';
-import { TravelNotificationEditRequest } from 'api-models';
-import { User } from 'api-models';
-import { UserChangePasswordRequestBase } from 'api-models';
-import { UserCreateRequest } from 'api-models';
-import { UserCreateRequestv2 } from 'api-models';
-import { UserRecord } from 'api-models';
-import { UserRequest } from 'api-models';
-import { UserRole } from 'api-models';
-import { UserRoleCreateRequest } from 'api-models';
-import { UserRoleEditRequest } from 'api-models';
+import {
+    BookingSearchResult, 
+    BookingTripResult, 
+    DeltaMapperPersonAddressEditRequest, 
+    DeltaMapperPersonAliasRequest, 
+    DeltaMapperPersonCommentRequest, 
+    DeltaMapperPersonCustomerProgramEditRequest, 
+    DeltaMapperPersonEditRequest, 
+    DeltaMapperPersonEmailEditRequest, 
+    DeltaMapperPersonInformationEditRequest, 
+    DeltaMapperPersonPhoneNumberRequest, 
+    DeltaMapperPersonPreferenceEditRequest, 
+    DeltaMapperPersonStoredPaymentUpdateRequest, 
+    DeltaMapperTravelDocumentEditRequestv2, 
+    DeltaMapperTravelNotificationEditRequest, 
+    DeltaMapperUserRequest, 
+    DeltaMapperUserRolePatchRequest, 
+    IJsonResponse, 
+    NotificationEvent, 
+    NotificationEventCreateRequest, 
+    NotificationTimedEvent, 
+    NotificationTimedEventCreateRequest, 
+    NotificationTimedEventEditRequest, 
+    Person, 
+    PersonAddress, 
+    PersonAddressCreateRequest, 
+    PersonAddressEditRequest, 
+    PersonAlias, 
+    PersonAliasRequest, 
+    PersonComment, 
+    PersonCommentRequest, 
+    PersonCustomerProgram, 
+    PersonCustomerProgramCreateRequest, 
+    PersonCustomerProgramEditRequest, 
+    PersonEditRequest, 
+    PersonEmail, 
+    PersonEmailCreateRequest, 
+    PersonEmailEditRequest, 
+    PersonInformation, 
+    PersonInformationCreateRequest, 
+    PersonInformationEditRequest, 
+    PersonPhoneNumber, 
+    PersonPhoneNumberRequest, 
+    PersonPreference, 
+    PersonPreferenceCreateRequest, 
+    PersonPreferenceEditRequest, 
+    PersonStoredPayment, 
+    PersonStoredPaymentRequest, 
+    PersonStoredPaymentUpdateRequest, 
+    PersonTravelDocument, 
+    PersonTravelDocumentRequest, 
+    TravelDocumentEditRequestv2, 
+    TravelNotification, 
+    TravelNotificationCreateRequest, 
+    TravelNotificationEditRequest, 
+    User, 
+    UserChangePasswordRequestBase, 
+    UserCreateRequest, 
+    UserCreateRequestv2, 
+    UserRecord, 
+    UserRequest, 
+    UserRole, 
+    UserRoleCreateRequest, 
+    UserRoleEditRequest, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

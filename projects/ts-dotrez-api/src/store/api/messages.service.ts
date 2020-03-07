@@ -18,15 +18,15 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    MessageBase 
+    IJsonResponse, 
+    MessageBase, 
 } from 'api-models';
 
 import {
-        apiNskV1MessagesByMessageKeyDelete
-        apiNskV1MessagesByMessageKeyGet
-        apiNskV1MessagesGet
-        apiNskV1MessagesPost
+        apiNskV1MessagesByMessageKeyDelete,
+        apiNskV1MessagesByMessageKeyGet,
+        apiNskV1MessagesGet,
+        apiNskV1MessagesPost,
 } from '../base/api'
 
 

@@ -18,28 +18,28 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    Credentials 
-    IJsonResponse 
-    NskSessionContext 
-    NskTokenRequest 
-    ServerTransferRequest 
-    SingleSignOnCredentials 
-    TokenRequest 
-    TokenResponse 
+    Credentials, 
+    IJsonResponse, 
+    NskSessionContext, 
+    NskTokenRequest, 
+    ServerTransferRequest, 
+    SingleSignOnCredentials, 
+    TokenRequest, 
+    TokenResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1TokenCulturePost
-        apiNskV1TokenDelete
-        apiNskV1TokenGet
-        apiNskV1TokenPost
-        apiNskV1TokenPut
-        apiNskV1TokenServerTransferPost
-        apiNskV1TokenSingleSignOnPost
-        apiNskV1TokenSingleSignOnPut
-        apiV1TokenDelete
-        apiV1TokenPost
-        apiV1TokenPut
+        apiNskV1TokenCulturePost,
+        apiNskV1TokenDelete,
+        apiNskV1TokenGet,
+        apiNskV1TokenPost,
+        apiNskV1TokenPut,
+        apiNskV1TokenServerTransferPost,
+        apiNskV1TokenSingleSignOnPost,
+        apiNskV1TokenSingleSignOnPut,
+        apiV1TokenDelete,
+        apiV1TokenPost,
+        apiV1TokenPut,
 } from '../base/api'
 
 

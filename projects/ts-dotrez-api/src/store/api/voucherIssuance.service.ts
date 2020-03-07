@@ -18,14 +18,14 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    VoucherIssuance 
-    VoucherIssuanceRequest 
+    IJsonResponse, 
+    VoucherIssuance, 
+    VoucherIssuanceRequest, 
 } from 'api-models';
 
 import {
-        apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet
-        apiNskV1VoucherIssuancePost
+        apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet,
+        apiNskV1VoucherIssuancePost,
 } from '../base/api'
 
 

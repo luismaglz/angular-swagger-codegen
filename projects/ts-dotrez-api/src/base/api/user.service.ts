@@ -19,24 +19,26 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { BookingSearchResult } from 'api-models';
-import { BookingTripResult } from 'api-models';
-import { DeltaMapperSingleSignOnTokenRequest } from 'api-models';
-import { DeltaMapperUserRequest } from 'api-models';
-import { DeltaMapperUserRolePatchRequest } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { SessionRoles } from 'api-models';
-import { SingleSignOnTokenRequest } from 'api-models';
-import { User } from 'api-models';
-import { UserChangePasswordRequestBase } from 'api-models';
-import { UserCustomerCreateRequest } from 'api-models';
-import { UserCustomerCreateRequestv2 } from 'api-models';
-import { UserImpersonateRequest } from 'api-models';
-import { UserRequest } from 'api-models';
-import { UserRole } from 'api-models';
-import { UserRoleCreateRequest } from 'api-models';
-import { UserRoleEditRequest } from 'api-models';
-import { UserSingleSignOnToken } from 'api-models';
+import {
+    BookingSearchResult, 
+    BookingTripResult, 
+    DeltaMapperSingleSignOnTokenRequest, 
+    DeltaMapperUserRequest, 
+    DeltaMapperUserRolePatchRequest, 
+    IJsonResponse, 
+    SessionRoles, 
+    SingleSignOnTokenRequest, 
+    User, 
+    UserChangePasswordRequestBase, 
+    UserCustomerCreateRequest, 
+    UserCustomerCreateRequestv2, 
+    UserImpersonateRequest, 
+    UserRequest, 
+    UserRole, 
+    UserRoleCreateRequest, 
+    UserRoleEditRequest, 
+    UserSingleSignOnToken, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

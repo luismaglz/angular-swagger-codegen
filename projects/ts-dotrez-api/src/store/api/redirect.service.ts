@@ -18,11 +18,11 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    RedirectResult 
+    RedirectResult, 
 } from 'api-models';
 
 import {
-        apiV1RedirectGet
+        apiV1RedirectGet,
 } from '../base/api'
 
 

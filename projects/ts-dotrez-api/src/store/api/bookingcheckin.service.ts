@@ -18,23 +18,23 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    CheckinPassengerLiftStatus 
-    CheckinPassengersRequest 
-    CheckinPassengersRequestv3 
-    CheckinRequirements 
-    IJsonResponse 
-    InlineResponse2003 
+    CheckinPassengerLiftStatus, 
+    CheckinPassengersRequest, 
+    CheckinPassengersRequestv3, 
+    CheckinRequirements, 
+    IJsonResponse, 
+    InlineResponse2003, 
 } from 'api-models';
 
 import {
-        apiNskV1BookingCheckinJourneyByJourneyKeyDelete
-        apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet
-        apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet
-        apiNskV1BookingCheckinSegmentBySegmentKeyDelete
-        apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet
-        apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet
-        apiNskV3BookingCheckinJourneyByJourneyKeyPost
-        apiNskV3BookingCheckinSegmentBySegmentKeyPost
+        apiNskV1BookingCheckinJourneyByJourneyKeyDelete,
+        apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet,
+        apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet,
+        apiNskV1BookingCheckinSegmentBySegmentKeyDelete,
+        apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet,
+        apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet,
+        apiNskV3BookingCheckinJourneyByJourneyKeyPost,
+        apiNskV3BookingCheckinSegmentBySegmentKeyPost,
 } from '../base/api'
 
 

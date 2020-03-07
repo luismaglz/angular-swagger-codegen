@@ -19,9 +19,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from 'api-models';
-import { Promotion } from 'api-models';
-import { PromotionBase } from 'api-models';
+import {
+    IJsonResponse, 
+    Promotion, 
+    PromotionBase, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -19,12 +19,14 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { BoardingPassFilterRequest } from 'api-models';
-import { BoardingPassPassengerFilterRequest } from 'api-models';
-import { BoardingPassesCollectionv2 } from 'api-models';
-import { BoardingPassesM2D } from 'api-models';
-import { BoardingPassesS2D } from 'api-models';
-import { IJsonResponse } from 'api-models';
+import {
+    BoardingPassFilterRequest, 
+    BoardingPassPassengerFilterRequest, 
+    BoardingPassesCollectionv2, 
+    BoardingPassesM2D, 
+    BoardingPassesS2D, 
+    IJsonResponse, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

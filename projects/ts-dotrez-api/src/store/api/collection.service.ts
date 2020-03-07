@@ -18,12 +18,12 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    Transaction 
+    IJsonResponse, 
+    Transaction, 
 } from 'api-models';
 
 import {
-        apiNskV1CollectionByAccountCollectionKeyTransactionsGet
+        apiNskV1CollectionByAccountCollectionKeyTransactionsGet,
 } from '../base/api'
 
 

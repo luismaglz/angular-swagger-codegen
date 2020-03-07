@@ -19,9 +19,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from 'api-models';
-import { OrganizationGroup } from 'api-models';
-import { OrganizationGroupDetails } from 'api-models';
+import {
+    IJsonResponse, 
+    OrganizationGroup, 
+    OrganizationGroupDetails, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

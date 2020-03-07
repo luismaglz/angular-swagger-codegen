@@ -19,13 +19,15 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { BookingQueueItemBase } from 'api-models';
-import { DeleteBookingQueueItemBaseRequest } from 'api-models';
-import { DequeueTravelSummary } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { MoveBookingQueueItemBase } from 'api-models';
-import { QueueResults } from 'api-models';
-import { TravelQueueItemRequest } from 'api-models';
+import {
+    BookingQueueItemBase, 
+    DeleteBookingQueueItemBaseRequest, 
+    DequeueTravelSummary, 
+    IJsonResponse, 
+    MoveBookingQueueItemBase, 
+    QueueResults, 
+    TravelQueueItemRequest, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -18,32 +18,32 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    Contact 
-    ContactRequest 
-    DeltaMapperContactBase 
-    IJsonResponse 
-    InlineResponse2004 
-    PhoneNumber 
-    PhoneNumberBase 
+    Contact, 
+    ContactRequest, 
+    DeltaMapperContactBase, 
+    IJsonResponse, 
+    InlineResponse2004, 
+    PhoneNumber, 
+    PhoneNumberBase, 
 } from 'api-models';
 
 import {
-        apiNskV1BookingContactsByContactTypeCodeDelete
-        apiNskV1BookingContactsByContactTypeCodeGet
-        apiNskV1BookingContactsByContactTypeCodePatch
-        apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete
-        apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet
-        apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut
-        apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet
-        apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost
-        apiNskV1BookingContactsByContactTypeCodePut
-        apiNskV1BookingContactsGet
-        apiNskV1BookingContactsPost
-        apiNskV1BookingContactsPrimaryDelete
-        apiNskV1BookingContactsPrimaryGet
-        apiNskV1BookingContactsPrimaryPatch
-        apiNskV1BookingContactsPrimaryPost
-        apiNskV1BookingContactsPrimaryPut
+        apiNskV1BookingContactsByContactTypeCodeDelete,
+        apiNskV1BookingContactsByContactTypeCodeGet,
+        apiNskV1BookingContactsByContactTypeCodePatch,
+        apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete,
+        apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet,
+        apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut,
+        apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet,
+        apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost,
+        apiNskV1BookingContactsByContactTypeCodePut,
+        apiNskV1BookingContactsGet,
+        apiNskV1BookingContactsPost,
+        apiNskV1BookingContactsPrimaryDelete,
+        apiNskV1BookingContactsPrimaryGet,
+        apiNskV1BookingContactsPrimaryPatch,
+        apiNskV1BookingContactsPrimaryPost,
+        apiNskV1BookingContactsPrimaryPut,
 } from '../base/api'
 
 

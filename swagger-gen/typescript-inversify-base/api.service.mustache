@@ -9,9 +9,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-{{#imports}}
-import { {{classname}} } from 'api-models';
-{{/imports}}
+import {
+    {{#imports}}
+    {{classname}}, 
+    {{/imports}}
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 {{#withInterfaces}}

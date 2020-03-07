@@ -18,29 +18,29 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    BundleSellRequest 
-    CancelJourneyRequest 
-    IJsonResponse 
-    Journey 
-    PassengerBag 
-    PassengerBagRequest 
-    TravelDocumentRequirements 
+    BundleSellRequest, 
+    CancelJourneyRequest, 
+    IJsonResponse, 
+    Journey, 
+    PassengerBag, 
+    PassengerBagRequest, 
+    TravelDocumentRequirements, 
 } from 'api-models';
 
 import {
-        apiNskV1BookingJourneysByJourneyKeyBundlesPost
-        apiNskV1BookingJourneysByJourneyKeyDelete
-        apiNskV1BookingJourneysByJourneyKeyGet
-        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet
-        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete
-        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet
-        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet
-        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost
-        apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet
-        apiNskV1BookingJourneysDelete
-        apiNskV1BookingJourneysGet
-        apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet
-        apiNskV1BookingJourneysTravelDocumentRequirementsGet
+        apiNskV1BookingJourneysByJourneyKeyBundlesPost,
+        apiNskV1BookingJourneysByJourneyKeyDelete,
+        apiNskV1BookingJourneysByJourneyKeyGet,
+        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet,
+        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete,
+        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet,
+        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet,
+        apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost,
+        apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet,
+        apiNskV1BookingJourneysDelete,
+        apiNskV1BookingJourneysGet,
+        apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet,
+        apiNskV1BookingJourneysTravelDocumentRequirementsGet,
 } from '../base/api'
 
 

@@ -18,16 +18,16 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    BundleApplication 
-    BundleApplicationDetails 
-    BundleSetDetails 
-    IJsonResponse 
+    BundleApplication, 
+    BundleApplicationDetails, 
+    BundleSetDetails, 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet
-        apiNskV1BundlesRulesByBundleRuleCodeDetailsGet
-        apiNskV1BundlesSetsByBundleSetCodeDetailsGet
+        apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet,
+        apiNskV1BundlesRulesByBundleRuleCodeDetailsGet,
+        apiNskV1BundlesSetsByBundleSetCodeDetailsGet,
 } from '../base/api'
 
 

@@ -18,47 +18,47 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    Availability 
-    AvailabilityFlyAheadRequest 
-    AvailabilityMoveRequest 
-    AvailabilityRebookRequest 
-    Booking 
-    BookingSellRequest 
-    IJsonResponse 
-    MoveRequest 
-    ScheduleDetail 
-    Trip 
-    TripDetails 
-    TripDowngradeRequest 
-    TripInformationQuery 
-    TripInformationResponse 
-    TripSellRequest 
-    TripStatusv2 
-    TripUpgradeBaseRequest 
-    TripUpgradeRequest 
-    UpgradeSegment 
+    Availability, 
+    AvailabilityFlyAheadRequest, 
+    AvailabilityMoveRequest, 
+    AvailabilityRebookRequest, 
+    Booking, 
+    BookingSellRequest, 
+    IJsonResponse, 
+    MoveRequest, 
+    ScheduleDetail, 
+    Trip, 
+    TripDetails, 
+    TripDowngradeRequest, 
+    TripInformationQuery, 
+    TripInformationResponse, 
+    TripSellRequest, 
+    TripStatusv2, 
+    TripUpgradeBaseRequest, 
+    TripUpgradeRequest, 
+    UpgradeSegment, 
 } from 'api-models';
 
 import {
-        apiNskV1TripDowngradePost
-        apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet
-        apiNskV1TripFlyAheadAvailabilityPost
-        apiNskV1TripInfoByLegKeyDetailsGet
-        apiNskV1TripInfoPost
-        apiNskV1TripInfoSimpleGet
-        apiNskV1TripMoveAvailabilitySelfServiceGet
-        apiNskV1TripMovePost
-        apiNskV1TripScheduleGet
-        apiNskV1TripUpgradeByUpgradeKeyPost
-        apiNskV1TripUpgradeGet
-        apiNskV1TripUpgradePost
-        apiNskV2TripInfoByLegKeyStatusGet
-        apiNskV2TripMoveAvailabilityByJourneyKeyGet
-        apiNskV2TripMoveAvailabilityPost
-        apiNskV3TripRebookAvailabilityPost
-        apiNskV3TripRebookAvailabilitySimpleGet
-        apiNskV4TripPost
-        apiNskV4TripSellPost
+        apiNskV1TripDowngradePost,
+        apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet,
+        apiNskV1TripFlyAheadAvailabilityPost,
+        apiNskV1TripInfoByLegKeyDetailsGet,
+        apiNskV1TripInfoPost,
+        apiNskV1TripInfoSimpleGet,
+        apiNskV1TripMoveAvailabilitySelfServiceGet,
+        apiNskV1TripMovePost,
+        apiNskV1TripScheduleGet,
+        apiNskV1TripUpgradeByUpgradeKeyPost,
+        apiNskV1TripUpgradeGet,
+        apiNskV1TripUpgradePost,
+        apiNskV2TripInfoByLegKeyStatusGet,
+        apiNskV2TripMoveAvailabilityByJourneyKeyGet,
+        apiNskV2TripMoveAvailabilityPost,
+        apiNskV3TripRebookAvailabilityPost,
+        apiNskV3TripRebookAvailabilitySimpleGet,
+        apiNskV4TripPost,
+        apiNskV4TripSellPost,
 } from '../base/api'
 
 

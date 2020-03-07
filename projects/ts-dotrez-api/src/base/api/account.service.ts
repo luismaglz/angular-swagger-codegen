@@ -19,9 +19,11 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { AccountChangePasswordRequest } from 'api-models';
-import { AccountForgotPasswordRequest } from 'api-models';
-import { IJsonResponse } from 'api-models';
+import {
+    AccountChangePasswordRequest, 
+    AccountForgotPasswordRequest, 
+    IJsonResponse, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

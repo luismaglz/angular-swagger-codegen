@@ -1,0 +1,7 @@
+{
+  "directory": "./src/",
+  "delete": true,
+  "singleQuotes": true,
+  "exclude": "spec.ts|test.data.ts|test.module.ts|internal\\..*?ts|test-data",
+  "location": "top"
+}

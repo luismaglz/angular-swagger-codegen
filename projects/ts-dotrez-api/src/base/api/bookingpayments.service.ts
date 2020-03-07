@@ -19,26 +19,28 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { ApplyBookingCreditRequestv2 } from 'api-models';
-import { ApplyCreditAccountRequest } from 'api-models';
-import { ApplyCreditRequest } from 'api-models';
-import { CreditAccount } from 'api-models';
-import { CustomerCreditRefundRequest } from 'api-models';
-import { DccRequestBasev2 } from 'api-models';
-import { DirectCurrencyConversionAvailability } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { InlineResponse2008 } from 'api-models';
-import { InlineResponse2009 } from 'api-models';
-import { OrganizationRefundRequest } from 'api-models';
-import { Payment } from 'api-models';
-import { PaymentFeeResponse } from 'api-models';
-import { PaymentMethodRequest } from 'api-models';
-import { PaymentRefundRequest } from 'api-models';
-import { PaymentRequest } from 'api-models';
-import { ThreeDSecurePaymentMethodRequestv2 } from 'api-models';
-import { ThreeDSecureResponse } from 'api-models';
-import { VoucherInformation } from 'api-models';
-import { VoucherPaymentRequest } from 'api-models';
+import {
+    ApplyBookingCreditRequestv2, 
+    ApplyCreditAccountRequest, 
+    ApplyCreditRequest, 
+    CreditAccount, 
+    CustomerCreditRefundRequest, 
+    DccRequestBasev2, 
+    DirectCurrencyConversionAvailability, 
+    IJsonResponse, 
+    InlineResponse2008, 
+    InlineResponse2009, 
+    OrganizationRefundRequest, 
+    Payment, 
+    PaymentFeeResponse, 
+    PaymentMethodRequest, 
+    PaymentRefundRequest, 
+    PaymentRequest, 
+    ThreeDSecurePaymentMethodRequestv2, 
+    ThreeDSecureResponse, 
+    VoucherInformation, 
+    VoucherPaymentRequest, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

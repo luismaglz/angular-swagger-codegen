@@ -18,32 +18,32 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    ActivityProduct 
-    ActivitySimpleRequest 
-    AddOn 
-    CarProduct 
-    HotelProduct 
-    HotelRequest 
-    ProductRequest 
-    QuoteCarRequest 
-    QuoteHotelRequest 
-    QuoteTokenRequest 
-    QuotedProduct 
-    SellCarRequest 
-    SellHotelRequest 
-    SellTokenRequest 
+    ActivityProduct, 
+    ActivitySimpleRequest, 
+    AddOn, 
+    CarProduct, 
+    HotelProduct, 
+    HotelRequest, 
+    ProductRequest, 
+    QuoteCarRequest, 
+    QuoteHotelRequest, 
+    QuoteTokenRequest, 
+    QuotedProduct, 
+    SellCarRequest, 
+    SellHotelRequest, 
+    SellTokenRequest, 
 } from 'api-models';
 
 import {
-        apiNskV1AddOnsActivitiesAvailablePost
-        apiNskV1AddOnsActivitiesPost
-        apiNskV1AddOnsActivitiesQuotePost
-        apiNskV1AddOnsCarsAvailablePost
-        apiNskV1AddOnsCarsPost
-        apiNskV1AddOnsCarsQuotePost
-        apiNskV1AddOnsHotelsAvailablePost
-        apiNskV1AddOnsHotelsPost
-        apiNskV1AddOnsHotelsQuotePost
+        apiNskV1AddOnsActivitiesAvailablePost,
+        apiNskV1AddOnsActivitiesPost,
+        apiNskV1AddOnsActivitiesQuotePost,
+        apiNskV1AddOnsCarsAvailablePost,
+        apiNskV1AddOnsCarsPost,
+        apiNskV1AddOnsCarsQuotePost,
+        apiNskV1AddOnsHotelsAvailablePost,
+        apiNskV1AddOnsHotelsPost,
+        apiNskV1AddOnsHotelsQuotePost,
 } from '../base/api'
 
 

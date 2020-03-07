@@ -18,23 +18,23 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    Voucher 
-    VoucherConfiguration 
-    VoucherItem 
-    VoucherUpdateRequest 
-    VouchersSummaryResponse 
+    IJsonResponse, 
+    Voucher, 
+    VoucherConfiguration, 
+    VoucherItem, 
+    VoucherUpdateRequest, 
+    VouchersSummaryResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1VouchersByDateGet
-        apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet
-        apiNskV1VouchersByMarketGet
-        apiNskV1VouchersByVoucherKeyGet
-        apiNskV1VouchersByVoucherKeyPut
-        apiNskV1VouchersConfigurationByConfigurationCodeGet
-        apiNskV1VouchersConfigurationGet
-        apiNskV1VouchersGet
+        apiNskV1VouchersByDateGet,
+        apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet,
+        apiNskV1VouchersByMarketGet,
+        apiNskV1VouchersByVoucherKeyGet,
+        apiNskV1VouchersByVoucherKeyPut,
+        apiNskV1VouchersConfigurationByConfigurationCodeGet,
+        apiNskV1VouchersConfigurationGet,
+        apiNskV1VouchersGet,
 } from '../base/api'
 
 

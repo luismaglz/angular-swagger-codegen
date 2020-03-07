@@ -18,13 +18,13 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiV1RedisByNameDelete
-        apiV1RedisDelete
-        apiV1RedisGet
+        apiV1RedisByNameDelete,
+        apiV1RedisDelete,
+        apiV1RedisGet,
 } from '../base/api'
 
 

@@ -18,14 +18,14 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    Booking 
-    IJsonResponse 
+    Booking, 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1BookingRetrieveByBookingKeyGet
-        apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet
-        apiNskV2BookingRetrieveGet
+        apiNskV1BookingRetrieveByBookingKeyGet,
+        apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet,
+        apiNskV2BookingRetrieveGet,
 } from '../base/api'
 
 

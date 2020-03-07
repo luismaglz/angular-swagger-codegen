@@ -18,14 +18,14 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    IJsonResponse 
-    OrganizationGroup 
-    OrganizationGroupDetails 
+    IJsonResponse, 
+    OrganizationGroup, 
+    OrganizationGroupDetails, 
 } from 'api-models';
 
 import {
-        apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet
-        apiNskV1OrganizationsGroupsGet
+        apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet,
+        apiNskV1OrganizationsGroupsGet,
 } from '../base/api'
 
 

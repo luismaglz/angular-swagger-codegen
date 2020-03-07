@@ -18,14 +18,14 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    AccountChangePasswordRequest 
-    AccountForgotPasswordRequest 
-    IJsonResponse 
+    AccountChangePasswordRequest, 
+    AccountForgotPasswordRequest, 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1AccountPasswordChangePost
-        apiNskV1AccountPasswordResetPost
+        apiNskV1AccountPasswordChangePost,
+        apiNskV1AccountPasswordResetPost,
 } from '../base/api'
 
 

@@ -18,12 +18,12 @@ import { inject, injectable } from "inversify";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 import {
-    CurrencyConversion 
-    IJsonResponse 
+    CurrencyConversion, 
+    IJsonResponse, 
 } from 'api-models';
 
 import {
-        apiNskV1CurrencyConverterGet
+        apiNskV1CurrencyConverterGet,
 } from '../base/api'
 
 

@@ -19,14 +19,16 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Credentials } from 'api-models';
-import { IJsonResponse } from 'api-models';
-import { NskSessionContext } from 'api-models';
-import { NskTokenRequest } from 'api-models';
-import { ServerTransferRequest } from 'api-models';
-import { SingleSignOnCredentials } from 'api-models';
-import { TokenRequest } from 'api-models';
-import { TokenResponse } from 'api-models';
+import {
+    Credentials, 
+    IJsonResponse, 
+    NskSessionContext, 
+    NskTokenRequest, 
+    ServerTransferRequest, 
+    SingleSignOnCredentials, 
+    TokenRequest, 
+    TokenResponse, 
+} from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 
