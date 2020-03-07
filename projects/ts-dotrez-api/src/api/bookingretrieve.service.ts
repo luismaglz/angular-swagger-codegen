@@ -19,8 +19,8 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Booking } from '../model/booking';
-import { IJsonResponse } from '../model/iJsonResponse';
+import { Booking } from 'api-models';
+import { IJsonResponse } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

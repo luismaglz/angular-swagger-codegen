@@ -19,13 +19,13 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Contact } from '../model/contact';
-import { ContactRequest } from '../model/contactRequest';
-import { DeltaMapperContactBase } from '../model/deltaMapperContactBase';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InlineResponse2004 } from '../model/inlineResponse2004';
-import { PhoneNumber } from '../model/phoneNumber';
-import { PhoneNumberBase } from '../model/phoneNumberBase';
+import { Contact } from 'api-models';
+import { ContactRequest } from 'api-models';
+import { DeltaMapperContactBase } from 'api-models';
+import { IJsonResponse } from 'api-models';
+import { InlineResponse2004 } from 'api-models';
+import { PhoneNumber } from 'api-models';
+import { PhoneNumberBase } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -19,12 +19,12 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Manifest } from '../model/manifest';
-import { ManifestRequestBase } from '../model/manifestRequestBase';
-import { PassengerDetails } from '../model/passengerDetails';
-import { PassengerSeatAssignment } from '../model/passengerSeatAssignment';
-import { TripInformationResponse } from '../model/tripInformationResponse';
+import { IJsonResponse } from 'api-models';
+import { Manifest } from 'api-models';
+import { ManifestRequestBase } from 'api-models';
+import { PassengerDetails } from 'api-models';
+import { PassengerSeatAssignment } from 'api-models';
+import { TripInformationResponse } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

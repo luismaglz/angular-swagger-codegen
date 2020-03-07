@@ -19,20 +19,20 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { ActivityProduct } from '../model/activityProduct';
-import { ActivitySimpleRequest } from '../model/activitySimpleRequest';
-import { AddOn } from '../model/addOn';
-import { CarProduct } from '../model/carProduct';
-import { HotelProduct } from '../model/hotelProduct';
-import { HotelRequest } from '../model/hotelRequest';
-import { ProductRequest } from '../model/productRequest';
-import { QuoteCarRequest } from '../model/quoteCarRequest';
-import { QuoteHotelRequest } from '../model/quoteHotelRequest';
-import { QuoteTokenRequest } from '../model/quoteTokenRequest';
-import { QuotedProduct } from '../model/quotedProduct';
-import { SellCarRequest } from '../model/sellCarRequest';
-import { SellHotelRequest } from '../model/sellHotelRequest';
-import { SellTokenRequest } from '../model/sellTokenRequest';
+import { ActivityProduct } from 'api-models';
+import { ActivitySimpleRequest } from 'api-models';
+import { AddOn } from 'api-models';
+import { CarProduct } from 'api-models';
+import { HotelProduct } from 'api-models';
+import { HotelRequest } from 'api-models';
+import { ProductRequest } from 'api-models';
+import { QuoteCarRequest } from 'api-models';
+import { QuoteHotelRequest } from 'api-models';
+import { QuoteTokenRequest } from 'api-models';
+import { QuotedProduct } from 'api-models';
+import { SellCarRequest } from 'api-models';
+import { SellHotelRequest } from 'api-models';
+import { SellTokenRequest } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

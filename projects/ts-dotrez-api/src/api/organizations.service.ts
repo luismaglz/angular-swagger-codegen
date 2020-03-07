@@ -19,9 +19,9 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from '../model/iJsonResponse';
-import { OrganizationGroup } from '../model/organizationGroup';
-import { OrganizationGroupDetails } from '../model/organizationGroupDetails';
+import { IJsonResponse } from 'api-models';
+import { OrganizationGroup } from 'api-models';
+import { OrganizationGroupDetails } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

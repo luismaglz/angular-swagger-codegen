@@ -19,14 +19,14 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { Credentials } from '../model/credentials';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { NskSessionContext } from '../model/nskSessionContext';
-import { NskTokenRequest } from '../model/nskTokenRequest';
-import { ServerTransferRequest } from '../model/serverTransferRequest';
-import { SingleSignOnCredentials } from '../model/singleSignOnCredentials';
-import { TokenRequest } from '../model/tokenRequest';
-import { TokenResponse } from '../model/tokenResponse';
+import { Credentials } from 'api-models';
+import { IJsonResponse } from 'api-models';
+import { NskSessionContext } from 'api-models';
+import { NskTokenRequest } from 'api-models';
+import { ServerTransferRequest } from 'api-models';
+import { SingleSignOnCredentials } from 'api-models';
+import { TokenRequest } from 'api-models';
+import { TokenResponse } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

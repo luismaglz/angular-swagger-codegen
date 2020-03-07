@@ -19,9 +19,9 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from '../model/iJsonResponse';
-import { OneTimeNotificationCreateRequest } from '../model/oneTimeNotificationCreateRequest';
-import { OneTimeTravelNotification } from '../model/oneTimeTravelNotification';
+import { IJsonResponse } from 'api-models';
+import { OneTimeNotificationCreateRequest } from 'api-models';
+import { OneTimeTravelNotification } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

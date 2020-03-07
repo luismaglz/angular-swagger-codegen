@@ -19,12 +19,12 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Voucher } from '../model/voucher';
-import { VoucherConfiguration } from '../model/voucherConfiguration';
-import { VoucherItem } from '../model/voucherItem';
-import { VoucherUpdateRequest } from '../model/voucherUpdateRequest';
-import { VouchersSummaryResponse } from '../model/vouchersSummaryResponse';
+import { IJsonResponse } from 'api-models';
+import { Voucher } from 'api-models';
+import { VoucherConfiguration } from 'api-models';
+import { VoucherItem } from 'api-models';
+import { VoucherUpdateRequest } from 'api-models';
+import { VouchersSummaryResponse } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

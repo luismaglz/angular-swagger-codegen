@@ -19,12 +19,12 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { CheckinPassengerLiftStatus } from '../model/checkinPassengerLiftStatus';
-import { CheckinPassengersRequest } from '../model/checkinPassengersRequest';
-import { CheckinPassengersRequestv3 } from '../model/checkinPassengersRequestv3';
-import { CheckinRequirements } from '../model/checkinRequirements';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InlineResponse2003 } from '../model/inlineResponse2003';
+import { CheckinPassengerLiftStatus } from 'api-models';
+import { CheckinPassengersRequest } from 'api-models';
+import { CheckinPassengersRequestv3 } from 'api-models';
+import { CheckinRequirements } from 'api-models';
+import { IJsonResponse } from 'api-models';
+import { InlineResponse2003 } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

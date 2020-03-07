@@ -19,7 +19,7 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { EnvironmentHealth } from '../model/environmentHealth';
+import { EnvironmentHealth } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -19,9 +19,9 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { AncillaryPricingOptionsContext } from '../model/ancillaryPricingOptionsContext';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { InputParameters } from '../model/inputParameters';
+import { AncillaryPricingOptionsContext } from 'api-models';
+import { IJsonResponse } from 'api-models';
+import { InputParameters } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -19,7 +19,7 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from '../model/iJsonResponse';
+import { IJsonResponse } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

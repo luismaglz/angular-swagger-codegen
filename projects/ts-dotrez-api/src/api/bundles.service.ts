@@ -19,10 +19,10 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { BundleApplication } from '../model/bundleApplication';
-import { BundleApplicationDetails } from '../model/bundleApplicationDetails';
-import { BundleSetDetails } from '../model/bundleSetDetails';
-import { IJsonResponse } from '../model/iJsonResponse';
+import { BundleApplication } from 'api-models';
+import { BundleApplicationDetails } from 'api-models';
+import { BundleSetDetails } from 'api-models';
+import { IJsonResponse } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

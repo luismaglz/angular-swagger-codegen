@@ -19,13 +19,13 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { BundleSellRequest } from '../model/bundleSellRequest';
-import { CancelJourneyRequest } from '../model/cancelJourneyRequest';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { Journey } from '../model/journey';
-import { PassengerBag } from '../model/passengerBag';
-import { PassengerBagRequest } from '../model/passengerBagRequest';
-import { TravelDocumentRequirements } from '../model/travelDocumentRequirements';
+import { BundleSellRequest } from 'api-models';
+import { CancelJourneyRequest } from 'api-models';
+import { IJsonResponse } from 'api-models';
+import { Journey } from 'api-models';
+import { PassengerBag } from 'api-models';
+import { PassengerBagRequest } from 'api-models';
+import { TravelDocumentRequirements } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

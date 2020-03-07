@@ -19,15 +19,15 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { AvailabilityRequestv2 } from '../model/availabilityRequestv2';
-import { AvailabilitySimpleRequestv2 } from '../model/availabilitySimpleRequestv2';
-import { Availabilityv2 } from '../model/availabilityv2';
-import { IJsonResponse } from '../model/iJsonResponse';
-import { LowFareAvailability } from '../model/lowFareAvailability';
-import { LowFareAvailabilityRequest } from '../model/lowFareAvailabilityRequest';
-import { LowFareAvailabilitySearchSimpleRequest } from '../model/lowFareAvailabilitySearchSimpleRequest';
-import { LowFareCacheAvailability } from '../model/lowFareCacheAvailability';
-import { LowFareCacheRequest } from '../model/lowFareCacheRequest';
+import { AvailabilityRequestv2 } from 'api-models';
+import { AvailabilitySimpleRequestv2 } from 'api-models';
+import { Availabilityv2 } from 'api-models';
+import { IJsonResponse } from 'api-models';
+import { LowFareAvailability } from 'api-models';
+import { LowFareAvailabilityRequest } from 'api-models';
+import { LowFareAvailabilitySearchSimpleRequest } from 'api-models';
+import { LowFareCacheAvailability } from 'api-models';
+import { LowFareCacheRequest } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

@@ -19,8 +19,8 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { GraphQlQuery } from '../model/graphQlQuery';
-import { GraphQlQueryv2 } from '../model/graphQlQueryv2';
+import { GraphQlQuery } from 'api-models';
+import { GraphQlQueryv2 } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

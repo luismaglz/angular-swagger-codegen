@@ -19,9 +19,9 @@ import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { IJsonResponse } from '../model/iJsonResponse';
-import { VoucherIssuance } from '../model/voucherIssuance';
-import { VoucherIssuanceRequest } from '../model/voucherIssuanceRequest';
+import { IJsonResponse } from 'api-models';
+import { VoucherIssuance } from 'api-models';
+import { VoucherIssuanceRequest } from 'api-models';
 
 import { COLLECTION_FORMATS }  from '../variables';
 

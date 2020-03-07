@@ -20,6 +20,9 @@ class HttpClient implements IHttpClient {
     put(url: string, body: {}, headers?: Headers): Observable<HttpResponse> {
         return this.performNetworkCall(url, "put", this.getJsonBody(body), this.addJsonHeaders(headers));
     }
+    patch(url: string, body: {}, headers?: Headers): Observable<HttpResponse> {
+        return this.performNetworkCall(url, "patch", this.getJsonBody(body), this.addJsonHeaders(headers));
+    }
 
     delete(url: string, headers?: Headers): Observable<HttpResponse> {
         return this.performNetworkCall(url, "delete", undefined, headers);
