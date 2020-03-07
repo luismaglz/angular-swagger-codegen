@@ -14,7 +14,7 @@
 /**
  * Model representing a resource content item.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ResourceContentItem { 
     /**

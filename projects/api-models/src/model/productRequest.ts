@@ -16,7 +16,7 @@ import { ParticipantCriteria } from './participantCriteria';
 /**
  * Defines the query for a destionation request used in car and insurance types.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ProductRequest { 
     /**
@@ -50,7 +50,7 @@ export interface ProductRequest {
     /**
      * The search sort order.
      */
-    sort?: Enums.SearchSortType;
+    sort?: Enums.<ENUM>'SupplierDefined'|'Price'|'Rating'|'Name'|'Category'|'VendorDescription'|'Preferred'|'Relevance'</ENUM>;
     /**
      * The promotion code with which to search.
      */

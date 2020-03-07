@@ -14,7 +14,7 @@
 /**
  * Defines a person's customer program.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonCustomerProgram { 
     /**

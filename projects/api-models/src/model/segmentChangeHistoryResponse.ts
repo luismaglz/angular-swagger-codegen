@@ -15,7 +15,7 @@ import { SegmentChangeHistory } from './segmentChangeHistory';
 /**
  * Defines a segment change history response.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SegmentChangeHistoryResponse { 
     /**

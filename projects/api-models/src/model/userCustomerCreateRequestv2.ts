@@ -14,7 +14,7 @@
 /**
  * Defines the user customer create request that will be setup with the defiend default customer creation parameters.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface UserCustomerCreateRequestv2 { 
     /**

@@ -15,7 +15,7 @@ import { BundleAvailabilityPricesByJourney } from './bundleAvailabilityPricesByJ
 /**
  * Model containing the bundle ssr availability information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BundleAvailability { 
     /**

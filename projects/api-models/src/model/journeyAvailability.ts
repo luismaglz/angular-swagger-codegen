@@ -17,13 +17,13 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines a journey availability.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface JourneyAvailability { 
     /**
      * Returns a flight type enumeration. (NonStop, Thru, etc.)
      */
-    readonly flightType?: Enums.FlightType;
+    readonly flightType?: Enums.<ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * The total number of stops this flight takes.
      */

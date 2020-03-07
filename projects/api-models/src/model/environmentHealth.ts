@@ -12,7 +12,7 @@
 import { HealthInformation } from './healthInformation';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface EnvironmentHealth { 
     nodes?: Array<HealthInformation>;

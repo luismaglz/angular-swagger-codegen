@@ -18,7 +18,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Represents a boarding pass passenger detail base, containing all the important passenger details for the boarding  pass.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BoardingPassPassengerDetailsBase { 
     /**
@@ -52,7 +52,7 @@ export interface BoardingPassPassengerDetailsBase {
     /**
      * The gender.
      */
-    gender?: Enums.Gender;
+    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The passengers infant details if an infant exists.
      */

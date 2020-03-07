@@ -15,7 +15,7 @@ import { RegionIdentifier } from './regionIdentifier';
 /**
  * The region filter model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface RegionFilter { 
     /**

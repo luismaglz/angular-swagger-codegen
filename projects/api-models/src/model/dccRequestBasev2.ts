@@ -15,7 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Model representing the DCC request without a unique key.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface DccRequestBasev2 { 
     paymentFields?: DccRequestBasev2PaymentFields;

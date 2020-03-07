@@ -14,7 +14,7 @@
 /**
  * Defines a request to apply credit for an account.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ApplyCreditAccountRequest { 
     /**
@@ -32,5 +32,5 @@ export interface ApplyCreditAccountRequest {
     /**
      * Defines the type of credit being applied.
      */
-    type?: Enums.CreditType;
+    type?: Enums.<ENUM>'Customer'|'Booking'|'Organization'</ENUM>;
 }

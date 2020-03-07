@@ -17,7 +17,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Represents a boarding pass for a specific passenger using the S2D barcode type.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BoardingPassS2D { 
     /**

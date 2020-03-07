@@ -12,7 +12,7 @@
 import { IFilterMetadata } from './iFilterMetadata';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface FilterDescriptor { 
     readonly filter?: IFilterMetadata;

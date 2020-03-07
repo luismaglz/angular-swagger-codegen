@@ -15,7 +15,7 @@ import { MarketDesignator } from './marketDesignator';
 /**
  * SSR request for a Ssr designator request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SsrDesignatorRequest { 
     /**

@@ -17,7 +17,7 @@ import { PassengerTypeCriteria } from './passengerTypeCriteria';
 /**
  * Model representing an availability simple request v2.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailabilitySimpleRequestv2 { 
     /**
@@ -59,7 +59,7 @@ export interface AvailabilitySimpleRequestv2 {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: Enums.TaxesAndFeesRollupMode;
+    taxesAndFees?: Enums.<ENUM>'None'|'Taxes'|'TaxesAndFees'</ENUM>;
     /**
      * Used to validate that the low fare prices retrieved from the low fare endpoint is valid.
      */
@@ -67,7 +67,7 @@ export interface AvailabilitySimpleRequestv2 {
     /**
      * Determines if SSR nest information will be returned on the legs for each available journey segments.
      */
-    ssrCollectionsMode?: Enums.AvailabilitySsrCollectionsMode;
+    ssrCollectionsMode?: Enums.<ENUM>'None'|'Leg'</ENUM>;
     /**
      * The number of fares per journey to be returned. If not set it will use the default optimized values
      */

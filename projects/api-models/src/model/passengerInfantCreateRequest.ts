@@ -16,7 +16,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Model representing infant data that can be set.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerInfantCreateRequest { 
     /**
@@ -38,7 +38,7 @@ export interface PassengerInfantCreateRequest {
     /**
      * The gender of the passenger.
      */
-    gender?: Enums.Gender;
+    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The name of the passenger.
      */

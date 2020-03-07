@@ -25,7 +25,7 @@ import { Warning } from './warning';
 /**
  * Defines an availability search result.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ActivityProduct { 
     /**

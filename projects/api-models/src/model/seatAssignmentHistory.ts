@@ -17,7 +17,7 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines a seat assignment history log entry.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SeatAssignmentHistory { 
     /**

@@ -14,7 +14,7 @@
 /**
  * Model representing changes that can be made to a component order  participant name.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrderParticipantNameUpdateRequest { 
     /**

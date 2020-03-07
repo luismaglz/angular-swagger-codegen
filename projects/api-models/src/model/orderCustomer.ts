@@ -16,7 +16,7 @@ import { Name } from './name';
 /**
  * Defines an order customer contact details.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrderCustomer { 
     /**

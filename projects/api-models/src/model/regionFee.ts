@@ -16,7 +16,7 @@ import { RegionRate } from './regionRate';
 /**
  * Region fee model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface RegionFee { 
     /**
@@ -34,7 +34,7 @@ export interface RegionFee {
     /**
      * Gets or sets the deduction type of this region fee.
      */
-    deductionType?: Enums.DeductionType;
+    deductionType?: Enums.<ENUM>'All'|'First'|'Last'|'ExceptForFirst'|'ExceptForLast'|'None'</ENUM>;
     /**
      * Gets or sets the default currency code of this region fee.
      */
@@ -42,7 +42,7 @@ export interface RegionFee {
     /**
      * Gets or sets the directionality of this region fee.
      */
-    directionality?: Enums.Directionality;
+    directionality?: Enums.<ENUM>'None'|'To'|'From'|'Between'</ENUM>;
     /**
      * Gets or sets the discontinue date of this region fee.
      */
@@ -74,7 +74,7 @@ export interface RegionFee {
     /**
      * Gets or sets the region type for this region fee.
      */
-    regionType?: Enums.RegionType;
+    regionType?: Enums.<ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
     /**
      * Gets or sets the release date for this region fee.
      */
@@ -94,7 +94,7 @@ export interface RegionFee {
     /**
      * Gets or sets the travel region type for this region.
      */
-    travelRegionType?: Enums.RegionType;
+    travelRegionType?: Enums.<ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
     /**
      * Gets or sets the travel release date for this region.
      */
@@ -102,5 +102,5 @@ export interface RegionFee {
     /**
      * Gets or sets the travel segment indicator for this region.
      */
-    travelSegmentIndicator?: Enums.TravelSegmentIndicator;
+    travelSegmentIndicator?: Enums.<ENUM>'None'|'CheckAgainstJourney'|'CheckAgainstTrip'|'Departure'|'DepartureOfTripOrigin'|'DepartureAtConnection'|'DepartureWithinStopoverTime'|'DepartureAtPointOfTurnaround'|'DepartureOfTransOceanicSegment'|'DepartureFromGateway'|'DepartureOfLastSegment'|'DepartureExceedsStopoverTime'|'NotDepartingViaConnection'|'GroundTimeBeforeDepartureOfJourneyWithin'|'GroundTimeBeforeDepartureOfJourneyExceeds'|'Arrival'|'ArrivalOfTransOceanicSegment'|'ArrivalAtGateway'|'ArrivalAtPointOfTurnaround'|'ArrivalAtConnection'|'ArrivalAtTripOrigin'|'NotDepartingViaConnectionOnSameCalendarDay'|'CheckAgainstItinerary'|'GroundTimeAfterArrivalAtConnectionWithin'|'GroundTimeAfterArrivalAtConnectionExceeds'|'GroundTimeAfterArrivalOfJourneyWithin'|'GroundTimeAfterArrivalOfJourneyExceeds'</ENUM>;
 }

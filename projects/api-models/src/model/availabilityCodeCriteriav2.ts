@@ -14,7 +14,7 @@
 /**
  * Describes the different code criteria that can be set that can influence availability response.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailabilityCodeCriteriav2 { 
     /**

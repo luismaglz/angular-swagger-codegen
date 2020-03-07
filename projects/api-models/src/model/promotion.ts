@@ -15,7 +15,7 @@ import { PromotionSetting } from './promotionSetting';
 /**
  * Defines a promotion model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Promotion { 
     /**

@@ -14,7 +14,7 @@
 /**
  * Represents the trip operation delay data.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripOperationDelay { 
     /**

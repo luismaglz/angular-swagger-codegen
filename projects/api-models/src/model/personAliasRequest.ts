@@ -14,13 +14,13 @@
 /**
  * Defines the person alias request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonAliasRequest { 
     /**
      * The type of alias.
      */
-    type?: Enums.PersonAliasType;
+    type?: Enums.<ENUM>'Alias'|'Variant'</ENUM>;
     /**
      * The given first name.
      */

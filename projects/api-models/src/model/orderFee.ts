@@ -15,7 +15,7 @@ import { Amount } from './amount';
 /**
  * Defines a order fee.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrderFee { 
     /**
@@ -41,7 +41,7 @@ export interface OrderFee {
     /**
      * The type of fee applied.
      */
-    type?: Enums.OrderFeeType;
+    type?: Enums.<ENUM>'Default'|'Tax'|'Markup'|'Discount'</ENUM>;
     /**
      * Flag indicating if they specific fee is waiveable.
      */

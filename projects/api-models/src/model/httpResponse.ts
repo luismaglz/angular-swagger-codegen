@@ -15,7 +15,7 @@ import { IResponseCookies } from './iResponseCookies';
 import { Stream } from './stream';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface HttpResponse { 
     readonly httpContext?: HttpContext;

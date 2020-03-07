@@ -15,7 +15,7 @@ import { JourneyAvailability } from './journeyAvailability';
 /**
  * Trip model representing a slim version of a core Availability Schedule.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Trip { 
     /**

@@ -17,7 +17,7 @@ import { UserSetting } from './userSetting';
 /**
  * Defines a unique user.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface User { 
     /**
@@ -31,7 +31,7 @@ export interface User {
     /**
      * The status of the account.
      */
-    status?: Enums.UserStatus;
+    status?: Enums.<ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
     /**
      * The unque person key associated to the user.
      */

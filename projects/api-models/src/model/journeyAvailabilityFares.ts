@@ -15,7 +15,7 @@ import { JourneyFareAvailability } from './journeyFareAvailability';
 /**
  * The journey fares which contain only the key and journey specific information of the fare.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface JourneyAvailabilityFares { 
     ?: JourneyFareAvailability;

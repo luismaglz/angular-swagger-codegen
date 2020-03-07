@@ -14,7 +14,7 @@
 /**
  * Defines the a person information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonInformation { 
     /**

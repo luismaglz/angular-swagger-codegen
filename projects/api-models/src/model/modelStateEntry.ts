@@ -12,7 +12,7 @@
 import { ModelError } from './modelError';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ModelStateEntry { 
     rawValue?: any;

@@ -14,13 +14,13 @@
 /**
  * Defines a booking comment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingCommentRequest { 
     /**
      * Indicates where the comment will be seen.
      */
-    type?: Enums.PersonCommentType;
+    type?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
     /**
      * The text of the comment.
      */

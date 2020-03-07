@@ -15,7 +15,7 @@ import { BundlePricesByJourney } from './bundlePricesByJourney';
 /**
  * The available in-state booking bundle prices per journey.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BundleAvailabilityPricesByJourney { 
     ?: BundlePricesByJourney;

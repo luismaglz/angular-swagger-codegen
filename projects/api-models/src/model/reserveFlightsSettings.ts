@@ -14,7 +14,7 @@
 /**
  * The booking reserve flight settings.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ReserveFlightsSettings { 
     /**
@@ -52,23 +52,23 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to view manifest.
      */
-    viewManifestControl?: Enums.ViewManifestControl;
+    viewManifestControl?: Enums.<ENUM>'None'|'StandbyOnly'|'Full'</ENUM>;
     /**
      * Indicator on permissions for AdHoc flight operations.
      */
-    adHocFlightControl?: Enums.AdHocFlightControl;
+    adHocFlightControl?: Enums.<ENUM>'None'|'View'|'Sell'</ENUM>;
     /**
      * Indicator whether the agent is allowed to overbook except on moves.
      */
-    allowSellOverbook?: Enums.OverbookControl;
+    allowSellOverbook?: Enums.<ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowMoveOverbook?: Enums.OverbookControl;
+    allowMoveOverbook?: Enums.<ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowUpgradeOverbook?: Enums.OverbookControl;
+    allowUpgradeOverbook?: Enums.<ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
     /**
      * Flag indicating whether the agent allows split-journey moves.
      */
@@ -76,7 +76,7 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to move a passenger from a flight to another without repricing.
      */
-    allowMove?: Enums.MoveFlightCode;
+    allowMove?: Enums.<ENUM>'NotAllowed'|'AllowedOnInventory'|'Allowed'</ENUM>;
     /**
      * Flag indicating if move by maximum class availability.
      */
@@ -164,7 +164,7 @@ export interface ReserveFlightsSettings {
     /**
      * Controls which type of fare overrides are allowed by a role.
      */
-    allowedFareOverrideType?: Enums.AllowedFareOverrideType;
+    allowedFareOverrideType?: Enums.<ENUM>'DiscountedPrice'|'PublishedPrice'|'All'</ENUM>;
     /**
      * Flag indicating whether or not to allow a trip move for the initial (non-committed) booking.
      */

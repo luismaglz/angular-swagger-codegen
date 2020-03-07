@@ -15,7 +15,7 @@ import { Name } from './name';
 /**
  * The passenger seat assignment model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerSeatAssignment { 
     /**
@@ -53,7 +53,7 @@ export interface PassengerSeatAssignment {
     /**
      * The status of the flight leg.  It indicates whether the coupon has been used, and  if the passenger has been checked in, has boarded the flight or not.
      */
-    liftStatus?: Enums.LiftStatus;
+    liftStatus?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
     /**
      * The ticket type of the passenger.
      */

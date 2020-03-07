@@ -13,7 +13,7 @@ import { CustomAttributeTypedArgument } from './customAttributeTypedArgument';
 import { MemberInfo } from './memberInfo';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CustomAttributeNamedArgument { 
     readonly memberInfo?: MemberInfo;

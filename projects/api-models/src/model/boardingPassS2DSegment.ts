@@ -19,7 +19,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Represents a boarding pass segment following the S2D barcode type. When using S2D format each segment will have a  barcode.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BoardingPassS2DSegment { 
     /**
@@ -45,7 +45,7 @@ export interface BoardingPassS2DSegment {
     /**
      * The type of the current segment.
      */
-    type?: Enums.SegmentTypes;
+    type?: Enums.<ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
     /**
      * Flag indicating if the segment is international.
      */

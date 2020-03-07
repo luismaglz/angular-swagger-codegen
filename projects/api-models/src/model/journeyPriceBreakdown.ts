@@ -14,7 +14,7 @@
 /**
  * Defines a specifics journey pricing breakdown.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface JourneyPriceBreakdown { 
     /**

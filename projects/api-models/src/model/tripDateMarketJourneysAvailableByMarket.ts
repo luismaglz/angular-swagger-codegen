@@ -15,7 +15,7 @@ import { AvailableJourney } from './availableJourney';
 /**
  * The dictionary of available journeys for the date per market.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripDateMarketJourneysAvailableByMarket { 
     ?: Array<AvailableJourney>;

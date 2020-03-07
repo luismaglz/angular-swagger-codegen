@@ -15,7 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Defines information needed for a customer credit refund.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CustomerCreditRefundRequest { 
     /**

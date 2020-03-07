@@ -15,7 +15,7 @@ import { TripDateMarket } from './tripDateMarket';
 /**
  * The trip results represents a wrapper class for the potential collection of multiple selected dates (flex days or  range) selected on the availability request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripResult { 
     /**

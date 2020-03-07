@@ -14,7 +14,7 @@
 /**
  * The collection of dynamic order parameters to include.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SellTokenCatalogRequestParameters { 
     ?: string;

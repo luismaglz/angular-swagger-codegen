@@ -15,7 +15,7 @@ import { Currencyv2 } from './currencyv2';
 /**
  * Model representing the resource entries.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ResourceEntriesCurrencyv2 { 
     /**

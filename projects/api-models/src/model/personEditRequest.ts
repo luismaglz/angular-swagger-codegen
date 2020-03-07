@@ -16,7 +16,7 @@ import { PersonBasicInformation } from './personBasicInformation';
 /**
  * Defines the person create request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonEditRequest { 
     /**
@@ -26,11 +26,11 @@ export interface PersonEditRequest {
     /**
      * The type of person.
      */
-    type?: Enums.PersonType;
+    type?: Enums.<ENUM>'None'|'Customer'|'Agent'</ENUM>;
     /**
      * The status of the person.
      */
-    status?: Enums.PersonStatus;
+    status?: Enums.<ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
     /**
      * The person's basic information.
      */
@@ -38,5 +38,5 @@ export interface PersonEditRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: Enums.NotificationPreference;
+    notificationPreference?: Enums.<ENUM>'None'|'Promotional'</ENUM>;
 }

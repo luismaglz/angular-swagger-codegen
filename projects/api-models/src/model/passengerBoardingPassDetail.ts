@@ -14,7 +14,7 @@
 /**
  * Defines information used to populate the printed boarding pass and 2D bar codes.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerBoardingPassDetail { 
     /**

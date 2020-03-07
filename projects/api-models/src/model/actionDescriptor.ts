@@ -17,7 +17,7 @@ import { InputParameters } from './inputParameters';
 import { ParameterDescriptor } from './parameterDescriptor';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ActionDescriptor { 
     readonly id?: string;

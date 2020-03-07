@@ -15,7 +15,7 @@ import { AvailableJourneyFareDetail } from './availableJourneyFareDetail';
 /**
  * The available journey fare represents a journeys fare offering. If the journey is multi segment multiple fare  details will be present so each fare can be shown its unique details.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailableJourneyFare { 
     /**

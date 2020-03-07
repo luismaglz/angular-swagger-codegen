@@ -14,7 +14,7 @@
 /**
  * Defines the type of sale values.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TypeOfSale { 
     /**

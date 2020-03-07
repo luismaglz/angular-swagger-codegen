@@ -17,13 +17,13 @@ import { Program } from './program';
 /**
  * The passenger detail model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerDetail { 
     /**
      * The current status of the booking.
      */
-    status?: Enums.BookingStatus;
+    status?: Enums.<ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * The record locator.
      */
@@ -39,7 +39,7 @@ export interface PassengerDetail {
     /**
      * The profile status on the booking.
      */
-    profileStatus?: Enums.BookingProfileStatus;
+    profileStatus?: Enums.<ENUM>'Default'|'KnownIndividual'|'ResolutionGroup'|'SelecteeGroup'|'NotUsed'|'FailureGroup'|'RandomSelectee'|'Exempt'</ENUM>;
     /**
      * The ticket number of the infant with the passenger.
      */
@@ -55,7 +55,7 @@ export interface PassengerDetail {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: Enums.WeightCategory;
+    weightCategory?: Enums.<ENUM>'Male'|'Female'|'Child'</ENUM>;
     /**
      * The ticket type of the passenger.
      */
@@ -75,7 +75,7 @@ export interface PassengerDetail {
     /**
      * The current assigned trip type.
      */
-    tripType?: Enums.TripType;
+    tripType?: Enums.<ENUM>'None'|'OneWay'|'RoundTrip'|'HalfRound'|'OpenJaw'|'CircleTrip'|'All'</ENUM>;
     /**
      * The passenger segment booking status.
      */
@@ -119,5 +119,5 @@ export interface PassengerDetail {
     /**
      * The paid status for the passenger.
      */
-    paidStatus?: Enums.PaidStatus;
+    paidStatus?: Enums.<ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
 }

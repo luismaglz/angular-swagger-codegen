@@ -16,7 +16,7 @@ import { LowFarePassengers } from './lowFarePassengers';
 /**
  * Low fare contains the information for a specific flight.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface LowFare { 
     passengers?: LowFarePassengers;

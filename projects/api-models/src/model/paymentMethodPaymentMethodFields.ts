@@ -15,7 +15,7 @@ import { PaymentMethodField } from './paymentMethodField';
 /**
  * The payment method fields for this payment method.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PaymentMethodPaymentMethodFields { 
     ?: PaymentMethodField;

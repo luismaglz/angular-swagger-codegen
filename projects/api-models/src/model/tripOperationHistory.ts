@@ -14,7 +14,7 @@
 /**
  * Represents the history of an trip operation.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripOperationHistory { 
     /**

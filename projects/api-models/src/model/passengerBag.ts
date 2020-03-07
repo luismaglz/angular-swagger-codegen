@@ -14,7 +14,7 @@
 /**
  * Model information about the baggage a passenger has.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerBag { 
     /**
@@ -60,5 +60,5 @@ export interface PassengerBag {
     /**
      * The WeightType in Bag object.
      */
-    weightType?: Enums.WeightType;
+    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
 }

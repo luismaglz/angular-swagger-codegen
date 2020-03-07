@@ -14,7 +14,7 @@
 /**
  * Model information about the date market which identifies a market and the departure date.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface MarketDesignator { 
     /**

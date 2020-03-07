@@ -14,7 +14,7 @@
 /**
  * Defines the request to retrieve a service fee.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CommitPassengerFeeRequest { 
     /**

@@ -14,7 +14,7 @@
 /**
  * A model representing a leg ssr summary.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface LegSsr { 
     /**

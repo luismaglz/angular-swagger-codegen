@@ -12,7 +12,7 @@
 import { AddOnAllowedPayments } from './addOnAllowedPayments';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface InlineResponse2001 { 
     ?: AddOnAllowedPayments;

@@ -15,7 +15,7 @@ import { MarketInformation } from './marketInformation';
 /**
  * Represents the inventory leg cross reference data.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface LegCrossReference { 
     /**

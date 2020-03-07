@@ -14,7 +14,7 @@ import { ICustomAttributeProvider } from './iCustomAttributeProvider';
 import { ParameterInfo } from './parameterInfo';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface MethodInfo { 
     readonly memberType?: Enums.<ENUM>'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All'</ENUM>;

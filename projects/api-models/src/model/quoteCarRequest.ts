@@ -15,7 +15,7 @@ import { SelectedPersonalization } from './selectedPersonalization';
 /**
  * Defines a product quote item request used for a singular catalog item.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface QuoteCarRequest { 
     /**

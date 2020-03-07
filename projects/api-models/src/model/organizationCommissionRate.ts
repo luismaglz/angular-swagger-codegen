@@ -14,7 +14,7 @@
 /**
  * The commission rate details of an organization.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrganizationCommissionRate { 
     /**

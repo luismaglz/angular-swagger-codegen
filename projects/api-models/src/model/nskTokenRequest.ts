@@ -15,7 +15,7 @@ import { Credentials } from './credentials';
 /**
  * Defines the nsk token request to gain access to the API.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface NskTokenRequest { 
     /**

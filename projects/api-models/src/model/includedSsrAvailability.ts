@@ -17,7 +17,7 @@ import { BundleSegmentSsr } from './bundleSegmentSsr';
 /**
  * The included ssr availability model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface IncludedSsrAvailability { 
     /**

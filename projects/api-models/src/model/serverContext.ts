@@ -14,7 +14,7 @@
 /**
  * Defines the server context.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ServerContext { 
     /**
@@ -32,5 +32,5 @@ export interface ServerContext {
     /**
      * The acting channel type.
      */
-    channel?: Enums.ChannelType;
+    channel?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
 }

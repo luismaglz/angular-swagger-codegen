@@ -14,7 +14,7 @@
 /**
  * Model representing an passenger group type for availability search.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerSearchCriteria { 
     /**

@@ -15,7 +15,7 @@ import { PassengerSearchCriteria } from './passengerSearchCriteria';
 /**
  * Model representing a low fare availability search simple request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface LowFareAvailabilitySearchSimpleRequest { 
     /**
@@ -49,7 +49,7 @@ export interface LowFareAvailabilitySearchSimpleRequest {
     /**
      * The loyalty fare filter.
      */
-    loyaltyFilter?: Enums.LoyaltyFilter;
+    loyaltyFilter?: Enums.<ENUM>'MonetaryOnly'|'PointsOnly'|'PointsAndMonetary'|'PreserveCurrent'</ENUM>;
     /**
      * The number of days to subtract from the begin/end date.
      */

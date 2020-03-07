@@ -17,7 +17,7 @@ import { ParticipantDocument } from './participantDocument';
 /**
  * Defines a orders participant.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrderParticipant { 
     /**

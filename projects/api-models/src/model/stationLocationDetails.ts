@@ -15,7 +15,7 @@ import { Coordinate } from './coordinate';
 /**
  * Defines the station location details.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface StationLocationDetails { 
     /**
@@ -57,5 +57,5 @@ export interface StationLocationDetails {
     /**
      * The stations configured weight units of measurement.
      */
-    weightType?: Enums.WeightType;
+    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
 }

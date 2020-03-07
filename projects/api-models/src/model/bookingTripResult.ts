@@ -15,7 +15,7 @@ import { SegmentTripResult } from './segmentTripResult';
 /**
  * Booking flight result data.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingTripResult { 
     /**
@@ -25,15 +25,15 @@ export interface BookingTripResult {
     /**
      * The booking status.
      */
-    bookingStatus?: Enums.BookingStatus;
+    bookingStatus?: Enums.<ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * The price status.
      */
-    priceStatus?: Enums.PriceStatus;
+    priceStatus?: Enums.<ENUM>'Invalid'|'Override'|'Valid'</ENUM>;
     /**
      * The paid status.
      */
-    paidStatus?: Enums.PaidStatus;
+    paidStatus?: Enums.<ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
     /**
      * The UTC date and time of when the booking was created.
      */

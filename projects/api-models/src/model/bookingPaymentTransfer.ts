@@ -14,7 +14,7 @@
 /**
  * Defines a booking payment transfer transaction
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingPaymentTransfer { 
     /**

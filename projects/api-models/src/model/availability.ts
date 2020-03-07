@@ -16,7 +16,7 @@ import { Trip } from './trip';
 /**
  * Availability contains all information returned when requesting flight availability.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Availability { 
     /**

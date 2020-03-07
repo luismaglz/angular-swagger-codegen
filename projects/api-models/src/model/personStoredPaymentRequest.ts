@@ -14,7 +14,7 @@
 /**
  * Defines the peron's stored payment create request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonStoredPaymentRequest { 
     /**
@@ -24,7 +24,7 @@ export interface PersonStoredPaymentRequest {
     /**
      * The type of payment being added.
      */
-    paymentMethodType: Enums.PaymentMethodType;
+    paymentMethodType: Enums.<ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
     /**
      * The name of the account.
      */

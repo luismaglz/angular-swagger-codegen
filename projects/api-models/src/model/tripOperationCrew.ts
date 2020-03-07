@@ -14,7 +14,7 @@
 /**
  * Represents the crew of an trip operation.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripOperationCrew { 
     /**
@@ -24,5 +24,5 @@ export interface TripOperationCrew {
     /**
      * The crew personnel type.
      */
-    crewType?: Enums.CrewType;
+    crewType?: Enums.<ENUM>'Default'|'Pilot'|'CoPilot'|'CockpitJumpseat'|'CabinJumpseat'|'CabinCrew'</ENUM>;
 }

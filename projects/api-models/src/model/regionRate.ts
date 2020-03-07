@@ -14,7 +14,7 @@
 /**
  * Region rate model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface RegionRate { 
     /**
@@ -40,5 +40,5 @@ export interface RegionRate {
     /**
      * The type of this region rate.
      */
-    regionType?: Enums.RegionType;
+    regionType?: Enums.<ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
 }

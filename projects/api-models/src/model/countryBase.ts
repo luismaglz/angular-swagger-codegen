@@ -14,7 +14,7 @@
 /**
  * Represents the base class for a country model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CountryBase { 
     /**

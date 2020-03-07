@@ -14,7 +14,7 @@
 /**
  * A dictionary that maps queue category codes.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CodesSettingsQueueCategoryCodes { 
     ?: number;

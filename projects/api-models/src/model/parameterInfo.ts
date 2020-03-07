@@ -13,7 +13,7 @@ import { CustomAttributeData } from './customAttributeData';
 import { MemberInfo } from './memberInfo';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ParameterInfo { 
     readonly parameterType?: string;

@@ -16,7 +16,7 @@ import { RetrieveBookingv2 } from './retrieveBookingv2';
 /**
  * Defines a request to apply credit from state.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ApplyBookingCreditRequestv2 { 
     /**

@@ -15,7 +15,7 @@ import { VoucherSummary } from './voucherSummary';
 /**
  * The voucher by date search response item.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface VouchersSummaryResponse { 
     /**

@@ -14,7 +14,7 @@
 /**
  * Defines an available image.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Image { 
     /**

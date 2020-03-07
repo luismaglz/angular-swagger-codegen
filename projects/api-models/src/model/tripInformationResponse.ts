@@ -15,7 +15,7 @@ import { TripInformationJourney } from './tripInformationJourney';
 /**
  * A collection of journeys for a given departure date and market.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripInformationResponse { 
     /**

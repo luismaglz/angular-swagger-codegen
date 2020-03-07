@@ -15,13 +15,13 @@ import { EquipmentFilter } from './equipmentFilter';
 /**
  * The trip information query model contains data to perform a   trip information search.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripInformationQuery { 
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: Enums.DayOfWeek;
+    daysOfWeek?: Enums.<ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
     /**
      * The end date of the trip information search.
      */
@@ -61,7 +61,7 @@ export interface TripInformationQuery {
     /**
      * The flight type.
      */
-    flightType?: Enums.OperationsFlightType;
+    flightType?: Enums.<ENUM>'All'|'NonStop'|'Through'|'Direct'|'Connect'</ENUM>;
     /**
      * The operational suffix.
      */

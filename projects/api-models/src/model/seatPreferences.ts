@@ -15,17 +15,17 @@ import { SeatPreference } from './seatPreference';
 /**
  * Represents the seating preferences base model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SeatPreferences { 
     /**
      * The simple seating preference.
      */
-    seat?: Enums.SimpleSeatPreference;
+    seat?: Enums.<ENUM>'None'|'Window'|'Aisle'|'Other'</ENUM>;
     /**
      * The prefered travel class of service.
      */
-    travelClass?: Enums.TravelClassSeatPreference;
+    travelClass?: Enums.<ENUM>'None'|'Business'|'Economy'|'FirstClass'</ENUM>;
     /**
      * The advanced seating preferences.
      */

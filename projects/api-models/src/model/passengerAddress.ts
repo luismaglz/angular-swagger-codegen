@@ -14,13 +14,13 @@
 /**
  * Passenger address information. This contains more data then the base address class.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerAddress { 
     /**
      * The addresses APIS status.
      */
-    status?: Enums.ApisAddressStatus;
+    status?: Enums.<ENUM>'Residence'|'InCountry'|'Emergency'|'Contact'</ENUM>;
     /**
      * Company name associated with this address.
      */

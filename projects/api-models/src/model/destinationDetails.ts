@@ -15,13 +15,13 @@ import { GateInformation } from './gateInformation';
 /**
  * Represents the destination details model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface DestinationDetails { 
     /**
      * Represents the arrival status.
      */
-    status?: Enums.ArrivalStatus;
+    status?: Enums.<ENUM>'Default'|'Cancelled'|'Arrived'|'SeeAgent'|'Delayed'</ENUM>;
     /**
      * Represents additional information about the  trip operation station.
      */

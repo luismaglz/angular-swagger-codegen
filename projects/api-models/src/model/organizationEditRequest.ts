@@ -17,7 +17,7 @@ import { OrganizationConfigurationv2 } from './organizationConfigurationv2';
 /**
  * The base data on the organization.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrganizationEditRequest { 
     /**
@@ -35,7 +35,7 @@ export interface OrganizationEditRequest {
     /**
      * Organization type.
      */
-    type?: Enums.OrganizationType;
+    type?: Enums.<ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
     /**
      * Advanced configuration values.
      */
@@ -43,7 +43,7 @@ export interface OrganizationEditRequest {
     /**
      * The organization status.
      */
-    status?: Enums.OrganizationStatus;
+    status?: Enums.<ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
     /**
      * The parent organization code.
      */

@@ -17,13 +17,13 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * The available journey represents a specific date, market journey that can be sold.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailableJourney { 
     /**
      * The flight type of the journey.
      */
-    readonly flightType?: Enums.FlightType;
+    readonly flightType?: Enums.<ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * The number of stops the journey will make.
      */

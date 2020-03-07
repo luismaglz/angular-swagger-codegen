@@ -22,7 +22,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Model information representing a passenger on a journey.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Passenger { 
     /**
@@ -80,5 +80,5 @@ export interface Passenger {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: Enums.WeightCategory;
+    weightCategory?: Enums.<ENUM>'Male'|'Female'|'Child'</ENUM>;
 }

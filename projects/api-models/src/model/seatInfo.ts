@@ -15,7 +15,7 @@ import { SeatInfoPropertyList } from './seatInfoPropertyList';
 /**
  * The model for the seat information such as deck, seat properties, etc.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SeatInfo { 
     /**

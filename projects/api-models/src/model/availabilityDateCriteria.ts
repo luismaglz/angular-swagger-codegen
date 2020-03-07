@@ -14,7 +14,7 @@
 /**
  * Defines the availability criteria dates.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailabilityDateCriteria { 
     /**
@@ -36,5 +36,5 @@ export interface AvailabilityDateCriteria {
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: Enums.DayOfWeek;
+    daysOfWeek?: Enums.<ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
 }

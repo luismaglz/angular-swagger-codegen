@@ -14,7 +14,7 @@
 /**
  * A model for a request to update the passenger type code.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerTypeCodeEditRequest { 
     /**
@@ -28,5 +28,5 @@ export interface PassengerTypeCodeEditRequest {
     /**
      * The new gender of the passenger.  Only required if GDPR is enabled.
      */
-    gender?: Enums.Gender;
+    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
 }

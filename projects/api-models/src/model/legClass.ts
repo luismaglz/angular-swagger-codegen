@@ -14,7 +14,7 @@
 /**
  * The leg class model information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface LegClass { 
     /**
@@ -56,7 +56,7 @@ export interface LegClass {
     /**
      * The status.
      */
-    status?: Enums.ClassStatus;
+    status?: Enums.<ENUM>'Active'|'InActive'|'AvsOpen'|'AvsOnRequest'|'AvsClosed'</ENUM>;
     /**
      * The thru sold.
      */

@@ -22,7 +22,7 @@ import { Term } from './term';
 /**
  * Defines a product order.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface QuotedOrder { 
     /**
@@ -36,7 +36,7 @@ export interface QuotedOrder {
     /**
      * The product type code.
      */
-    type?: Enums.ProductTypeCode;
+    type?: Enums.<ENUM>'Default'|'Insurance'|'Activity'|'Hotel'|'Car'</ENUM>;
     /**
      * Flag indicating if the order is active.
      */
@@ -100,7 +100,7 @@ export interface QuotedOrder {
     /**
      * The payment action.
      */
-    paymentAction?: Enums.PaymentAction;
+    paymentAction?: Enums.<ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
     /**
      * The pricing breakdown.
      */

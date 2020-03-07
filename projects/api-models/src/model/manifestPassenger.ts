@@ -24,7 +24,7 @@ import { Program } from './program';
 /**
  * Manifest Passenger.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ManifestPassenger { 
     /**
@@ -42,7 +42,7 @@ export interface ManifestPassenger {
     /**
      * The type of flight that is being dealt with: Local = first leg of journey
      */
-    checkInType?: Enums.CheckInType;
+    checkInType?: Enums.<ENUM>'Default'|'Local'|'Through'|'Connecting'|'NonLocal'</ENUM>;
     /**
      * Manifest comments attached to the booking.  Gets collection of ManifestComment
      */
@@ -74,7 +74,7 @@ export interface ManifestPassenger {
     /**
      * The PaidStatus property.
      */
-    paidStatus?: Enums.PaidStatus;
+    paidStatus?: Enums.<ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
     /**
      * Travel documents for the passenger, i.e. Passports and Visas.  Navitaire.NewSkies.Messages.Manifest.ManifestPassengerAddress
      */
@@ -94,7 +94,7 @@ export interface ManifestPassenger {
     /**
      * The ProfileStatus property.
      */
-    profileStatus?: Enums.BookingProfileStatus;
+    profileStatus?: Enums.<ENUM>'Default'|'KnownIndividual'|'ResolutionGroup'|'SelecteeGroup'|'NotUsed'|'FailureGroup'|'RandomSelectee'|'Exempt'</ENUM>;
     /**
      * The passenger program data.
      */
@@ -114,7 +114,7 @@ export interface ManifestPassenger {
     /**
      * The booking status.
      */
-    status?: Enums.BookingStatus;
+    status?: Enums.<ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * Additional passenger information details.
      */

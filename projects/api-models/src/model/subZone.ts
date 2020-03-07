@@ -15,7 +15,7 @@ import { Station } from './station';
 /**
  * The subzone model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SubZone { 
     /**

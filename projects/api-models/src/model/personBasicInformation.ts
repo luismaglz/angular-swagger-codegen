@@ -14,13 +14,13 @@
 /**
  * Defines the person's basic information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonBasicInformation { 
     /**
      * The person's gender.
      */
-    gender?: Enums.Gender;
+    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The person's date of birth.
      */

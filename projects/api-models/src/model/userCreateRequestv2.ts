@@ -17,7 +17,7 @@ import { UserSetting } from './userSetting';
 /**
  * Defines the v2 user create request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface UserCreateRequestv2 { 
     /**
@@ -31,7 +31,7 @@ export interface UserCreateRequestv2 {
     /**
      * The status of the account.
      */
-    status?: Enums.UserStatus;
+    status?: Enums.<ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
     /**
      * The collection of user roles.
      */

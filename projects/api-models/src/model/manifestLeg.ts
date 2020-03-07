@@ -17,7 +17,7 @@ import { SsrGlance } from './ssrGlance';
 /**
  * Manifest Leg.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ManifestLeg { 
     /**
@@ -55,7 +55,7 @@ export interface ManifestLeg {
     /**
      * The LiftStatus property.
      */
-    liftStatus?: Enums.LiftStatus;
+    liftStatus?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
     /**
      * The ManifestOrigin property.
      */

@@ -14,7 +14,7 @@
 /**
  * Defines the received by information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ReceivedByInfo { 
     /**

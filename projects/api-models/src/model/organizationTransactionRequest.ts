@@ -14,13 +14,13 @@
 /**
  * The organization account transaction request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrganizationTransactionRequest { 
     /**
      * The transaction types for an organization account.
      */
-    type?: Enums.AllowedTransactionTypes;
+    type?: Enums.<ENUM>'Default'|'Payment'|'Adjustment'|'Supplementary'</ENUM>;
     /**
      * The credit account transaction amount.
      */

@@ -15,7 +15,7 @@ import { SeatAssignmentHistory } from './seatAssignmentHistory';
 /**
  * Defines a seat assignment history response.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SeatAssignmentHistoryResponse { 
     /**

@@ -15,7 +15,7 @@ import { City } from './city';
 /**
  * The province/state code model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ProvinceState { 
     /**

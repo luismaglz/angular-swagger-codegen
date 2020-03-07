@@ -14,7 +14,7 @@
 /**
  * Model representing passenger's old and new key in the event of a key change.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerKeyResponse { 
     /**

@@ -15,7 +15,7 @@ import { NotificationDestination } from './notificationDestination';
 /**
  * Request base for travel notifications.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TravelNotificationEditRequest { 
     /**

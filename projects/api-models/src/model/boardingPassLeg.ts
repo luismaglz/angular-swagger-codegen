@@ -20,7 +20,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines the boarding pass leg details.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BoardingPassLeg { 
     /**
@@ -38,7 +38,7 @@ export interface BoardingPassLeg {
     /**
      * The status of the leg for the passenger.
      */
-    liftStatus?: Enums.LiftStatus;
+    liftStatus?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
     /**
      * The legs operated by text.
      */

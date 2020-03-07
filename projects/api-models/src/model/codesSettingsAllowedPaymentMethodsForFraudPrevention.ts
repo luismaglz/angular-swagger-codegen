@@ -14,7 +14,7 @@
 /**
  * A dictionary that map payment method codes to a boolean representing whether it is allowed for fraud  prevention.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CodesSettingsAllowedPaymentMethodsForFraudPrevention { 
     ?: boolean;

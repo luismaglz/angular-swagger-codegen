@@ -14,7 +14,7 @@
 /**
  * The defined coordinates of a location.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Coordinate { 
     /**

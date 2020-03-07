@@ -15,7 +15,7 @@ import { Credentials } from './credentials';
 /**
  * Defines a change password request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AccountChangePasswordRequest { 
     /**

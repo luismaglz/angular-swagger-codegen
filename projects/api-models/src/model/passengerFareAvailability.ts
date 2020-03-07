@@ -15,7 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Model describing common fare availability information for an entire availability request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerFareAvailability { 
     /**

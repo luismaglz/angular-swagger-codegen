@@ -14,7 +14,7 @@
 /**
  * This model represents the passenger summary info per cabin.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TravelClass { 
     /**

@@ -14,7 +14,7 @@
 /**
  * The booking customer account settings.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CustomerAccountSettings { 
     /**
@@ -32,65 +32,65 @@ export interface CustomerAccountSettings {
     /**
      * The restriction/permissions allowed by the current role.
      */
-    customerAccessControl?: Enums.CustomerAccessControl;
+    customerAccessControl?: Enums.<ENUM>'View'|'CreateAndChange'</ENUM>;
     /**
      * The default notification preferences of the customer.
      */
-    defaultCustomerNotificationPreference?: Enums.NotificationPreference;
+    defaultCustomerNotificationPreference?: Enums.<ENUM>'None'|'Promotional'</ENUM>;
     /**
      * The default seat preferences of the customer.
      */
-    defaultSeatPreference?: Enums.SeatPreference;
+    defaultSeatPreference?: Enums.<ENUM>'None'|'Window'|'Aisle'|'NoPreference'|'Front'|'Rear'|'WindowFront'|'WindowRear'|'AisleFront'|'AisleRear'</ENUM>;
     /**
      * The restrictions on the customer address fields.
      */
-    disableCustomerAddress?: Enums.FieldControlType;
+    disableCustomerAddress?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer currency fields.
      */
-    disableCustomerCurrency?: Enums.FieldControlType;
+    disableCustomerCurrency?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer date of birth fields.
      */
-    disableCustomerDateOfBirth?: Enums.FieldControlType;
+    disableCustomerDateOfBirth?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer email fields.
      */
-    disableCustomerEmail?: Enums.FieldControlType;
+    disableCustomerEmail?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer fax fields.
      */
-    disableCustomerFax?: Enums.FieldControlType;
+    disableCustomerFax?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer language fields.
      */
-    disableCustomerLanguage?: Enums.FieldControlType;
+    disableCustomerLanguage?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer nationality fields.
      */
-    disableCustomerNationality?: Enums.FieldControlType;
+    disableCustomerNationality?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer notification preferences fields.
      */
-    disableCustomerNotificationPreference?: Enums.FieldControlType;
+    disableCustomerNotificationPreference?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer payment fields.
      */
-    disableCustomerPayment?: Enums.FieldControlType;
+    disableCustomerPayment?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer phone number fields.
      */
-    disableCustomerPhone?: Enums.FieldControlType;
+    disableCustomerPhone?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer resident country fields.
      */
-    disableCustomerResidentCountry?: Enums.FieldControlType;
+    disableCustomerResidentCountry?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer title fields.
      */
-    disableCustomerTitle?: Enums.FieldControlType;
+    disableCustomerTitle?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The restrictions on the customer type fields.
      */
-    disableCustomerType?: Enums.FieldControlType;
+    disableCustomerType?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
 }

@@ -16,7 +16,7 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines the different point of sale information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingSales { 
     /**

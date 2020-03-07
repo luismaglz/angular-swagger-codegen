@@ -15,7 +15,7 @@ import { Passenger } from './passenger';
 /**
  * The list of passengers and information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingPassengers { 
     ?: Passenger;

@@ -14,13 +14,13 @@
 /**
  * Defines a passengers restriction for the current segment trying to be checked into.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CheckinPassengerRestriction { 
     /**
      * The passenger restriction type.
      */
-    restriction?: Enums.CheckinPassengerRestrictionType;
+    restriction?: Enums.<ENUM>'NotFound'|'MissingDestinationAddress'|'MissingCountryOrResidence'|'OnLockQueue'|'MissingRequiredSsrs'|'ContainsRestrictedSsrs'|'IsSelectee'|'MissingSeat'|'NotConfirmed'|'NotStandby'|'ContainsUnknownSsr'|'MissingApisRequirement'|'MissingDocuments'|'MissingName'|'MissingInfantName'|'MissingDateOfBirth'|'MissingInfantDateOfBirth'|'RestrictedInfantInLap'</ENUM>;
     /**
      * The description of the restriction.
      */

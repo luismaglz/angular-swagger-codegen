@@ -15,7 +15,7 @@ import { Name } from './name';
 /**
  * The base class for the infant.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface InfantBase { 
     /**
@@ -25,7 +25,7 @@ export interface InfantBase {
     /**
      * The gender of the passenger.
      */
-    gender?: Enums.Gender;
+    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The name of the passenger.
      */

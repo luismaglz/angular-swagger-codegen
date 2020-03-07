@@ -15,7 +15,7 @@ import { Name } from './name';
 /**
  * The contact details for an organization.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ContactEditDetails { 
     /**

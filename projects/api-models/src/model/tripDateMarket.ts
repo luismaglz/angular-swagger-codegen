@@ -15,7 +15,7 @@ import { TripDateMarketJourneysAvailableByMarket } from './tripDateMarketJourney
 /**
  * The trip date market represents a specific dates collection of markets.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripDateMarket { 
     /**

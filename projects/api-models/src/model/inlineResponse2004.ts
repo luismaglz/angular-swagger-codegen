@@ -12,7 +12,7 @@
 import { Contact } from './contact';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface InlineResponse2004 { 
     ?: Contact;

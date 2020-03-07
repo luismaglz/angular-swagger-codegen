@@ -15,7 +15,7 @@ import { CustomerProgramLevel } from './customerProgramLevel';
 /**
  * The customer program such as loyalty programs.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CustomerProgram { 
     /**
@@ -29,7 +29,7 @@ export interface CustomerProgram {
     /**
      * The program type.
      */
-    programType?: Enums.ProgramType;
+    programType?: Enums.<ENUM>'Default'|'Internal'|'External'</ENUM>;
     /**
      * The validation type.
      */

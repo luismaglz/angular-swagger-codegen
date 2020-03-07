@@ -12,7 +12,7 @@
 import { IUrlHelper } from './iUrlHelper';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface RedirectResult { 
     permanent?: boolean;

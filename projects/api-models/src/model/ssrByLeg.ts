@@ -16,7 +16,7 @@ import { SsrDetail } from './ssrDetail';
 /**
  * Model information for a sell service request (SSR) tied to a specific leg.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SsrByLeg { 
     /**

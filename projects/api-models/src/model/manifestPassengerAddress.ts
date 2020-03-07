@@ -14,7 +14,7 @@
 /**
  * The Manifest Passenger Address.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ManifestPassengerAddress { 
     /**
@@ -24,7 +24,7 @@ export interface ManifestPassengerAddress {
     /**
      * The addresses APIS status.
      */
-    status?: Enums.ApisAddressStatus;
+    status?: Enums.<ENUM>'Residence'|'InCountry'|'Emergency'|'Contact'</ENUM>;
     /**
      * Company name associated with this address.
      */

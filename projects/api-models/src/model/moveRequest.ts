@@ -14,7 +14,7 @@
 /**
  * Defines the move journey request for a booking in state.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface MoveRequest { 
     /**
@@ -32,7 +32,7 @@ export interface MoveRequest {
     /**
      * The type of move that is requested.
      */
-    moveType?: Enums.MovePassengerJourneyType;
+    moveType?: Enums.<ENUM>'None'|'Irop'|'Diversion'|'FlightClose'|'FlyAhead'|'SplitJourney'|'SelfServiceRebooking'</ENUM>;
     /**
      * If true and the FromJourney is waitlisted, then the newly moved-to journey will  also be waitlisted.  This interacts with ChangeStatus.  See documentation for  ChangeStatus for further details.
      */
@@ -44,7 +44,7 @@ export interface MoveRequest {
     /**
      * Controls whether the Move is allowed to ignore boarded and/or  checked-in statuses.
      */
-    ignoreLiftStatus?: Enums.IgnoreLiftStatus;
+    ignoreLiftStatus?: Enums.<ENUM>'IgnoreNotAllowed'|'IgnoreCheckin'|'IgnoreBoarded'</ENUM>;
     /**
      * Set ChangeStatus to false and KeepWaitListStatus to false if you wish the  status of the new segments to be set based upon the ActionStatusCodes  specified in the ToJourney.  Set ChangeStatus to false and KeepWaitListStatus to true if you wish the  status of the new segments to be set based upon the ActionStatusCodes  specified in the ToJourney EXCEPT when the original segments (being moved  from) are waitlisted.  If the original segments are waitlisted, then the  new segments will also be forced to be waitlisted, regardless of which  ActionStatusCodes were specified in ToJourney.  If ChangeStatus is true, the status of the new segments will be set to  the opposite of the status of the original (moving from) segment.  If the  original segments were waitlisted, then new segments will not be.  If the  original segments were not waitlisted, the new segments will be waitlisted.  This does not need to be set to true if moving to a standby journey that is  already part of the booking.
      */
@@ -60,5 +60,5 @@ export interface MoveRequest {
     /**
      * Controls whether to move SSRs from FromJourney to ToJourney.
      */
-    moveSsrOption?: Enums.MoveSsrOption;
+    moveSsrOption?: Enums.<ENUM>'OverbookSsr'|'MoveAvailableSsr'|'MoveNone'</ENUM>;
 }

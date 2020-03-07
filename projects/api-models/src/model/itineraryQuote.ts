@@ -17,7 +17,7 @@ import { Journey } from './journey';
 /**
  * Defines the itinerary quote model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ItineraryQuote { 
     passengers?: ItineraryQuotePassengers;

@@ -15,7 +15,7 @@ import { CheckinPassengerRequestv2 } from './checkinPassengerRequestv2';
 /**
  * Defines the checkin passengers request v3 model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CheckinPassengersRequestv3 { 
     /**

@@ -17,7 +17,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Model data.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SegmentTripResult { 
     /**

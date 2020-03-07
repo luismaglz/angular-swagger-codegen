@@ -14,7 +14,7 @@
 /**
  * Model representing additional passenger information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerInformation { 
     /**
@@ -28,7 +28,7 @@ export interface PassengerInformation {
     /**
      * Gets or sets passenger gender.
      */
-    gender?: Enums.Gender;
+    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The passenger's date of birth.
      */

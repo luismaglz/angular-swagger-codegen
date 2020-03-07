@@ -15,7 +15,7 @@ import { Coordinate } from './coordinate';
 /**
  * Defines a travel commerce location.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CommerceLocation { 
     /**

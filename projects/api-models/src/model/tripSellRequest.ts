@@ -16,7 +16,7 @@ import { SellKey } from './sellKey';
 /**
  * Trip sell request represents the data needed to sell journeys to a booking.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripSellRequest { 
     /**

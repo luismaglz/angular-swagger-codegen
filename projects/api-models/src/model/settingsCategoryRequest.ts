@@ -14,7 +14,7 @@
 /**
  * Model representing a settings category request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SettingsCategoryRequest { 
     /**

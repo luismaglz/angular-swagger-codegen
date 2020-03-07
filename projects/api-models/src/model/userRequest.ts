@@ -15,13 +15,13 @@ import { UserCodes } from './userCodes';
 /**
  * Defines the user request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface UserRequest { 
     /**
      * The status of the account.
      */
-    status?: Enums.UserStatus;
+    status?: Enums.<ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
     /**
      * The unique username.
      */

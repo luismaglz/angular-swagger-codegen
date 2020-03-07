@@ -14,7 +14,7 @@
 /**
  * Defines a credit account information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CreditAccount { 
     /**

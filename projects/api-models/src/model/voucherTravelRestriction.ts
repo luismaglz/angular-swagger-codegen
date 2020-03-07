@@ -14,13 +14,13 @@
 /**
  * The voucher configuration model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface VoucherTravelRestriction { 
     /**
      * The travel restriction type.
      */
-    restrictionType?: Enums.TravelRestrictionType;
+    restrictionType?: Enums.<ENUM>'Default'|'Blackout'|'Season'</ENUM>;
     /**
      * The voucher configuration code.
      */

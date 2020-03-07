@@ -14,7 +14,7 @@
 /**
  * The fare reference totals represents the sum of all the fares for a specific available journey fare. If individual  passenger fare breakdown in needed that will need to be calculated using the master fare collection.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface FareReferenceTotals { 
     /**

@@ -20,7 +20,7 @@ import { TravelDocumentCreateRequest } from './travelDocumentCreateRequest';
 /**
  * Defines the passenger request details.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerRequest { 
     /**

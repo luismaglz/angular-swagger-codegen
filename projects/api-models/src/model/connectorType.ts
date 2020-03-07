@@ -14,7 +14,7 @@
 /**
  * Defines a connector type.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ConnectorType { 
     /**

@@ -15,7 +15,7 @@ import { PassengerSsrAvailability } from './passengerSsrAvailability';
 /**
  * Get the passenger keys this is available for
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BundleLegSsrPassengersAvailability { 
     ?: PassengerSsrAvailability;

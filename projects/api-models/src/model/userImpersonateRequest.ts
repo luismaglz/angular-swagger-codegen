@@ -14,7 +14,7 @@
 /**
  * Defines a user impersonate request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface UserImpersonateRequest { 
     /**

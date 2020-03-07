@@ -28,7 +28,7 @@ import { Term } from './term';
 /**
  * Defines a order.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Order { 
     /**
@@ -103,7 +103,7 @@ export interface Order {
     /**
      * The payment action.
      */
-    paymentAction?: Enums.PaymentAction;
+    paymentAction?: Enums.<ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
     /**
      * The pricing breakdown.
      */

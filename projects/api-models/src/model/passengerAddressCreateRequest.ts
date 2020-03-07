@@ -14,13 +14,13 @@
 /**
  * Defines a passenger address create request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerAddressCreateRequest { 
     /**
      * The addresses APIS status.
      */
-    status?: Enums.ApisAddressStatus;
+    status?: Enums.<ENUM>'Residence'|'InCountry'|'Emergency'|'Contact'</ENUM>;
     /**
      * Company name associated with this address.
      */

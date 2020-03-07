@@ -15,7 +15,7 @@ import { BookingHistory } from './bookingHistory';
 /**
  * Defines a booking history response.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface HistoryResponse { 
     /**

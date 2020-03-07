@@ -14,13 +14,13 @@
 /**
  * Defines a availability fare search criteria.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailabilityFareCriteria { 
     /**
      * The fare class control.
      */
-    classControl?: Enums.FareClassControl;
+    classControl?: Enums.<ENUM>'LowestFareClass'|'CompressByProductClass'|'Default'</ENUM>;
     /**
      * The max fare price.
      */
@@ -32,7 +32,7 @@ export interface AvailabilityFareCriteria {
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: Enums.LoyaltyFilter;
+    loyalty?: Enums.<ENUM>'MonetaryOnly'|'PointsOnly'|'PointsAndMonetary'|'PreserveCurrent'</ENUM>;
     /**
      * The list of fare types.
      */

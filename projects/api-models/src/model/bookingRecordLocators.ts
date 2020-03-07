@@ -15,7 +15,7 @@ import { RecordLocator } from './recordLocator';
 /**
  * Defines the bookings unique identifiers.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingRecordLocators { 
     /**

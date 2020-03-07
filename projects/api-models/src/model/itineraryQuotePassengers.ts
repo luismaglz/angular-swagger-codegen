@@ -15,7 +15,7 @@ import { Passenger } from './passenger';
 /**
  * The dictionary of passengers.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ItineraryQuotePassengers { 
     ?: Passenger;

@@ -14,7 +14,7 @@
 /**
  * Fee Model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Fee { 
     /**
@@ -40,11 +40,11 @@ export interface Fee {
     /**
      * Gets or sets when the charge limit is applied to this fee.
      */
-    chargeLimitMode?: Enums.ChargeLimitMode;
+    chargeLimitMode?: Enums.<ENUM>'FirstOccurrences'|'LastOccurrences'|'FirstOutLastInOccurrences'</ENUM>;
     /**
      * Gets or sets the charge limit for the travel component associated with this fee.
      */
-    chargeLimitTravelComponent?: Enums.TravelComponent;
+    chargeLimitTravelComponent?: Enums.<ENUM>'Unknown'|'Itinerary'|'Trip'|'Journey'|'Segment'|'Leg'|'ItineraryWithJourneySalesDate'|'TripWithJourneySalesDate'|'JourneyWithBookingSalesDate'|'JourneyWithJourneySalesDate'|'SegmentWithJourneySalesDate'|'LegWithJourneySalesDate'|'Fare'</ENUM>;
     /**
      * Gets or sets the commissionable flag for this fee.
      */
@@ -64,7 +64,7 @@ export interface Fee {
     /**
      * Gets or sets how this fee is applied.
      */
-    feeApplication?: Enums.FeeApplication;
+    feeApplication?: Enums.<ENUM>'Pnr'|'TravelComponent'|'EachPassenger'|'EachPassengerTravelComponent'|'SpecifyPassenger'|'AllPaxCheckingBagsTogether'|'PerBookingNoLimit'</ENUM>;
     /**
      * Gets or sets the code for this fee.
      */
@@ -72,11 +72,11 @@ export interface Fee {
     /**
      * Gets or sets the fee option mode for this fee.
      */
-    feeOptionMode?: Enums.FeeOptionMode;
+    feeOptionMode?: Enums.<ENUM>'Default'|'All'|'LowestCost'|'HighestCost'</ENUM>;
     /**
      * Gets or sets the fee type for this fee.
      */
-    feeType?: Enums.FeeType;
+    feeType?: Enums.<ENUM>'All'|'Tax'|'TravelFee'|'ServiceFee'|'PaymentFee'|'PenaltyFee'|'SsrFee'|'NonFlightServiceFee'|'UpgradeFee'|'SeatFee'|'BaseFare'|'SpoilageFee'|'NameChangeFee'|'ConvenienceFee'|'BaggageFee'|'FareSurcharge'|'PromotionDiscount'|'ServiceBundle'|'ExtraBagFee'|'ATPCOBagFee'</ENUM>;
     /**
      * Gets or sets the inactive flag for this fee.
      */
@@ -100,7 +100,7 @@ export interface Fee {
     /**
      * Gets or sets how the taxes are applied for this fee.
      */
-    taxApplication?: Enums.TaxApplication;
+    taxApplication?: Enums.<ENUM>'Unknown'|'Taxable'|'TaxableLocal'|'NonTaxable'|'NonTaxableApplyToBaseFareOnly'|'TaxableByTrip'|'TaxableByItinerary'</ENUM>;
     /**
      * Gets or sets the ticketable flag for this fee.
      */
@@ -108,5 +108,5 @@ export interface Fee {
     /**
      * Gets or sets the travel component associated with this fee.
      */
-    travelComponent?: Enums.TravelComponent;
+    travelComponent?: Enums.<ENUM>'Unknown'|'Itinerary'|'Trip'|'Journey'|'Segment'|'Leg'|'ItineraryWithJourneySalesDate'|'TripWithJourneySalesDate'|'JourneyWithBookingSalesDate'|'JourneyWithJourneySalesDate'|'SegmentWithJourneySalesDate'|'LegWithJourneySalesDate'|'Fare'</ENUM>;
 }

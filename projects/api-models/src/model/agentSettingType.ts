@@ -14,7 +14,7 @@
 /**
  * The agent setting type.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AgentSettingType { 
     /**

@@ -12,7 +12,7 @@
 import { FuncModelMetadataBoolean } from './funcModelMetadataBoolean';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface IPropertyFilterProvider { 
     readonly propertyFilter?: FuncModelMetadataBoolean;

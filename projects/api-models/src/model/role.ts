@@ -15,7 +15,7 @@ import { RoleSetting } from './roleSetting';
 /**
  * Person model describes basic information about a person.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Role { 
     /**

@@ -14,7 +14,7 @@
 /**
  * The booking queue history request model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingQueueHistoryRequest { 
     /**

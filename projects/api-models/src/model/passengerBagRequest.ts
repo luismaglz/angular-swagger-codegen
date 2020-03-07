@@ -14,7 +14,7 @@
 /**
  * A model for a request to update the passenger bags.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerBagRequest { 
     /**
@@ -32,7 +32,7 @@ export interface PassengerBagRequest {
     /**
      * Type of weight for the baggage weight.
      */
-    weightType?: Enums.WeightType;
+    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
     /**
      * The baggage weight.
      */

@@ -14,7 +14,7 @@
 /**
  * Defines a person comment request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonCommentRequest { 
     /**
@@ -24,5 +24,5 @@ export interface PersonCommentRequest {
     /**
      * The comment type.
      */
-    type?: Enums.PersonCommentType;
+    type?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
 }

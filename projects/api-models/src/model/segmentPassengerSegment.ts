@@ -15,7 +15,7 @@ import { PassengerSegment } from './passengerSegment';
 /**
  * Passengers on this segment by passenger key.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SegmentPassengerSegment { 
     ?: PassengerSegment;

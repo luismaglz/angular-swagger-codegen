@@ -14,7 +14,7 @@
 /**
  * Defines a booking add ons charge.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AddOnCharge { 
     /**
@@ -32,7 +32,7 @@ export interface AddOnCharge {
     /**
      * The charge collection type.
      */
-    collection?: Enums.CollectType;
+    collection?: Enums.<ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
     /**
      * The currency code.
      */

@@ -16,7 +16,7 @@ import { MarketInformation } from './marketInformation';
 /**
  * Model information for a bundle sell service request (SSR) tied to a specific leg.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BundleLegSsr { 
     /**
@@ -35,7 +35,7 @@ export interface BundleLegSsr {
     /**
      * Gets the SSR type.
      */
-    ssrType?: Enums.SsrType;
+    ssrType?: Enums.<ENUM>'Standard'|'Infant'|'Meal'|'BaggageAllowance'|'TravelLineMeal'</ENUM>;
     /**
      * Gets the SSR name.
      */
@@ -67,5 +67,5 @@ export interface BundleLegSsr {
     /**
      * Gets the seat restriction.
      */
-    seatRestriction?: Enums.SeatRestriction;
+    seatRestriction?: Enums.<ENUM>'Undefined'|'AlwaysAllowed'|'DefaultAllowed'|'DefaultRestricted'</ENUM>;
 }

@@ -14,7 +14,7 @@
 /**
  * The person information type model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonInformationType { 
     /**

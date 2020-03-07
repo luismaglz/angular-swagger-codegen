@@ -14,7 +14,7 @@
 /**
  * Represents a single seat preference.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SeatPreference { 
     /**

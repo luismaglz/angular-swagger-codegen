@@ -15,7 +15,7 @@ import { DeckInformationCompartments } from './deckInformationCompartments';
 /**
  * Defines a deck within an equipment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface DeckInformation { 
     /**

@@ -14,13 +14,13 @@
 /**
  * Manifest Comment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ManifestComment { 
     /**
      * The comment type.
      */
-    commentType?: Enums.PersonCommentType;
+    commentType?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
     /**
      * The agentID.
      */

@@ -14,7 +14,7 @@
 /**
  * Defines the product results criteria returned.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AddOnCriteria { 
     /**

@@ -15,7 +15,7 @@ import { SsrsByType } from './ssrsByType';
 /**
  * Request to add multiple leg, segment, or journey Ssr's.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SsrsRequest { 
     /**

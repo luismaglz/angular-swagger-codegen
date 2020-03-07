@@ -14,7 +14,7 @@
 /**
  * Defines the boarding pass request that is responsible for filtering the boarding pass response.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BoardingPassFilterRequest { 
     /**

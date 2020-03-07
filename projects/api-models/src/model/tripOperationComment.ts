@@ -14,7 +14,7 @@
 /**
  * Represents a comment for a trip operation.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripOperationComment { 
     /**
@@ -28,5 +28,5 @@ export interface TripOperationComment {
     /**
      * Represents the comment type.
      */
-    type?: Enums.OperationCommentType;
+    type?: Enums.<ENUM>'Default'|'Reservation'|'Operation'|'PitLoad'|'Irop'|'AppsOverride'|'ManualAppsOverride'</ENUM>;
 }

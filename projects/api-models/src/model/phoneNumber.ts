@@ -14,13 +14,13 @@
 /**
  * Defines a common phone number.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PhoneNumber { 
     /**
      * The phone number type.
      */
-    type: Enums.PhoneNumberType;
+    type: Enums.<ENUM>'Other'|'Home'|'Work'|'Mobile'|'Fax'</ENUM>;
     /**
      * The phone number without any formatting characters.
      */

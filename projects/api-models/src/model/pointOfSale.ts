@@ -14,7 +14,7 @@
 /**
  * Model related to the point of sale.  This is for readonly operations.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PointOfSale { 
     /**

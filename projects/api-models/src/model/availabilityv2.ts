@@ -16,7 +16,7 @@ import { TripResult } from './tripResult';
 /**
  * Availabilityv2 represents the availability response based on the search criteria.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Availabilityv2 { 
     /**

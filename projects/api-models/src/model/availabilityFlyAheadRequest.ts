@@ -18,7 +18,7 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
 /**
  * Defines a fly ahead availability criteria search.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailabilityFlyAheadRequest { 
     passengerKeys?: Array<string>;
@@ -45,5 +45,5 @@ export interface AvailabilityFlyAheadRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: Enums.AvailabilityType;
+    type?: Enums.<ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
 }

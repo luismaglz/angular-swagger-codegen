@@ -14,7 +14,7 @@
 /**
  * Sell key represents the journey and the fare sell keys to combine to what journey and fare will be sold.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SellKey { 
     /**
@@ -32,5 +32,5 @@ export interface SellKey {
     /**
      * The reserving inventory action of the journey once sold by the system.
      */
-    inventoryControl?: Enums.InventoryControlType;
+    inventoryControl?: Enums.<ENUM>'HoldSpace'|'SoftHoldSpace'|'ClaimSpace'|'OversellSpace'|'StandBy'</ENUM>;
 }

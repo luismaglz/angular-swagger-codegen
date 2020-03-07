@@ -15,7 +15,7 @@ import { SelectedPersonalization } from './selectedPersonalization';
 /**
  * Defines a quote token catalog request. This request is used for quoting a specific products product variation  catalog item.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface QuoteTokenCatalogRequest { 
     /**

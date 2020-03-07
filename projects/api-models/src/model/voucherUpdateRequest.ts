@@ -14,11 +14,11 @@
 /**
  * The voucher update request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface VoucherUpdateRequest { 
     /**
      * The status to update the voucher to.
      */
-    status: Enums.VoucherStatusUpdate;
+    status: Enums.<ENUM>'Reinstate'|'Void'</ENUM>;
 }

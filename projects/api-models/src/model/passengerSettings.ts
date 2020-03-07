@@ -14,89 +14,89 @@
 /**
  * The booking passenger settings.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerSettings { 
     /**
      * Passenger title field validation control.
      */
-    passengerTitle?: Enums.FieldControlType;
+    passengerTitle?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger first name field validation control.
      */
-    passengerFirstName?: Enums.FieldControlType;
+    passengerFirstName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger middle name field validation control.
      */
-    passengerMiddleName?: Enums.FieldControlType;
+    passengerMiddleName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger last name field validation control.
      */
-    passengerLastName?: Enums.FieldControlType;
+    passengerLastName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger suffix field validation control.
      */
-    passengerSuffix?: Enums.FieldControlType;
+    passengerSuffix?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger customer number field validation control.
      */
-    passengerCustomerNumber?: Enums.FieldControlType;
+    passengerCustomerNumber?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger gender field validation control.
      */
-    passengerGender?: Enums.FieldControlType;
+    passengerGender?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger date of birth field validation control.
      */
-    passengerDateOfBirth?: Enums.FieldControlType;
+    passengerDateOfBirth?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger nationality field validation control.
      */
-    passengerNationality?: Enums.FieldControlType;
+    passengerNationality?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger resident country field validation control.
      */
-    passengerResidentCountry?: Enums.FieldControlType;
+    passengerResidentCountry?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant title field validation control.
      */
-    infantTitle?: Enums.FieldControlType;
+    infantTitle?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant first name field validation control.
      */
-    infantFirstName?: Enums.FieldControlType;
+    infantFirstName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant middle name field validation control.
      */
-    infantMiddleName?: Enums.FieldControlType;
+    infantMiddleName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant last name field validation control.
      */
-    infantLastName?: Enums.FieldControlType;
+    infantLastName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant suffix field validation control.
      */
-    infantSuffix?: Enums.FieldControlType;
+    infantSuffix?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant gender field validation control.
      */
-    infantGender?: Enums.FieldControlType;
+    infantGender?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant date of birth field validation control.
      */
-    infantDateOfBirth?: Enums.FieldControlType;
+    infantDateOfBirth?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant nationality field validation control.
      */
-    infantNationality?: Enums.FieldControlType;
+    infantNationality?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant resident country field validation control.
      */
-    infantResidentCountry?: Enums.FieldControlType;
+    infantResidentCountry?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * TBA passenger will allow users to enter passengers with information \"To Be Determined\".
      */
-    tbaPassengersAllowed?: Enums.TbaPassengersAllowed;
+    tbaPassengersAllowed?: Enums.<ENUM>'Never'|'IfFirstPassengerIsKnown'|'Always'</ENUM>;
     /**
      * Flag to indicate if passenger customer programs are allowed.
      */

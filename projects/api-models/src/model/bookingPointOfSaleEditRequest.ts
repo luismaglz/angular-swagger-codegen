@@ -14,7 +14,7 @@
 /**
  * Model related to the booking point of sale edit request.  This is to be used for update operations only.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingPointOfSaleEditRequest { 
     /**

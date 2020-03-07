@@ -14,7 +14,7 @@
 /**
  * The carrier model.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Carrier { 
     /**

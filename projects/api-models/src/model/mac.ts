@@ -14,7 +14,7 @@
 /**
  * The MAC station model defines areas of related stations by region. //todo: Document and expand the MAC acronym
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Mac { 
     /**

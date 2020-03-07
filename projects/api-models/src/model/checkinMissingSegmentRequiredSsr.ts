@@ -15,7 +15,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines the a segments collection of missing SSR's.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface CheckinMissingSegmentRequiredSsr { 
     /**

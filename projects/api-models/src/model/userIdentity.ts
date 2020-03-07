@@ -14,7 +14,7 @@
 /**
  * Defines the logged in users identity.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface UserIdentity { 
     /**

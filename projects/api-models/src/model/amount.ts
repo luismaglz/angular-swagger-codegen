@@ -14,7 +14,7 @@
 /**
  * Defines an amount base price and total price.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Amount { 
     /**

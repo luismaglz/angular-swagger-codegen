@@ -15,7 +15,7 @@ import { PassengerSearchCriteria } from './passengerSearchCriteria';
 /**
  * Defines the availability criteria passenger types.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerTypeCriteria { 
     /**

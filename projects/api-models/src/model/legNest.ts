@@ -15,7 +15,7 @@ import { LegClass } from './legClass';
 /**
  * A model representing a leg nest.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface LegNest { 
     /**
@@ -37,7 +37,7 @@ export interface LegNest {
     /**
      * Gets or sets the type of the nest.
      */
-    nestType?: Enums.NestType;
+    nestType?: Enums.<ENUM>'Default'|'Net'|'Serial'|'OneBooking'</ENUM>;
     /**
      * Gets or sets the nest leg classes.
      */

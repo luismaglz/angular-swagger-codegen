@@ -13,7 +13,7 @@ import { ClaimsIdentity } from './claimsIdentity';
 import { InputParameters } from './inputParameters';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Claim { 
     readonly issuer?: string;

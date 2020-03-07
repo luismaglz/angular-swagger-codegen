@@ -29,7 +29,7 @@ import { TypeOfSale } from './typeOfSale';
 /**
  * Represents a full booking object.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Booking { 
     /**

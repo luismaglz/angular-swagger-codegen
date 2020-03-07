@@ -14,7 +14,7 @@
 /**
  * The booking fee settings.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface FeeSettings { 
     /**
@@ -36,5 +36,5 @@ export interface FeeSettings {
     /**
      * Gets or sets the restriction for fee description fields.
      */
-    feeDescription?: Enums.FieldControlType;
+    feeDescription?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
 }

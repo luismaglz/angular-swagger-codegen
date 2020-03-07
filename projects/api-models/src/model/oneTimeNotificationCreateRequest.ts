@@ -18,7 +18,7 @@ import { OneTimeNotificationEventCreateRequest } from './oneTimeNotificationEven
 /**
  * Request for one time notification creation.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OneTimeNotificationCreateRequest { 
     /**

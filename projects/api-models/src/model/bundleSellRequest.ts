@@ -15,7 +15,7 @@ import { SsrByKeysRequestv2 } from './ssrByKeysRequestv2';
 /**
  * The bundle sell request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BundleSellRequest { 
     /**

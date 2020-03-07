@@ -15,7 +15,7 @@ import { FareAvailability } from './fareAvailability';
 /**
  * The aggregate collection of fares available for all trips.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailabilityFaresAvailable { 
     ?: FareAvailability;

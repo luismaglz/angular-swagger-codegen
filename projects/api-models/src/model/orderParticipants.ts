@@ -15,7 +15,7 @@ import { OrderParticipant } from './orderParticipant';
 /**
  * The collection of order participants.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrderParticipants { 
     ?: OrderParticipant;

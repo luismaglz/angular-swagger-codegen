@@ -14,7 +14,7 @@
 /**
  * Model that represents the fare service charge information.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ServiceCharge { 
     /**
@@ -36,7 +36,7 @@ export interface ServiceCharge {
     /**
      * The service charge collect type.
      */
-    collectType?: Enums.CollectType;
+    collectType?: Enums.<ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
     /**
      * The service charge currency code.
      */

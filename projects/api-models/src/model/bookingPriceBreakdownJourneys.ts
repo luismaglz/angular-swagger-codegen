@@ -15,7 +15,7 @@ import { JourneyPriceBreakdown } from './journeyPriceBreakdown';
 /**
  * The individual collection of journey price breakdown.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingPriceBreakdownJourneys { 
     ?: JourneyPriceBreakdown;

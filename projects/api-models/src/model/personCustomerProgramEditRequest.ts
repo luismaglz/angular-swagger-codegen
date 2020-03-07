@@ -14,7 +14,7 @@
 /**
  * Defines a person's customer program edit request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonCustomerProgramEditRequest { 
     /**

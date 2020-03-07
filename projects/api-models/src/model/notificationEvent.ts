@@ -14,7 +14,7 @@
 /**
  * A travel notification event.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface NotificationEvent { 
     /**
@@ -24,5 +24,5 @@ export interface NotificationEvent {
     /**
      * The travel notification event type.
      */
-    type: Enums.NotificationEventType;
+    type: Enums.<ENUM>'DepartureDelay'|'ArrivalDelay'|'ScheduleChange'|'CheckIn'</ENUM>;
 }

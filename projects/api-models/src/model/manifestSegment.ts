@@ -18,7 +18,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Manifest Segment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ManifestSegment { 
     /**
@@ -40,7 +40,7 @@ export interface ManifestSegment {
     /**
      * Weight Type.
      */
-    baggageAllowanceWeightType?: Enums.WeightType;
+    baggageAllowanceWeightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
     /**
      * The BookingStatus property.
      */

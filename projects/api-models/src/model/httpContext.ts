@@ -22,7 +22,7 @@ import { KeyValuePairTypeObject } from './keyValuePairTypeObject';
 import { WebSocketManager } from './webSocketManager';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface HttpContext { 
     readonly features?: Array<KeyValuePairTypeObject>;

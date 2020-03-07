@@ -14,7 +14,7 @@
 /**
  * Represents a server transfer request.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ServerTransferRequest { 
     /**
@@ -28,5 +28,5 @@ export interface ServerTransferRequest {
     /**
      * The transferred server's channel type.
      */
-    channel?: Enums.ChannelType;
+    channel?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
 }

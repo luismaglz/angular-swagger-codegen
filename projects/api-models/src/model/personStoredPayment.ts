@@ -14,7 +14,7 @@
 /**
  * Defines a specific person's stored payment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PersonStoredPayment { 
     /**
@@ -28,7 +28,7 @@ export interface PersonStoredPayment {
     /**
      * The type of payment being added.
      */
-    paymentMethodType: Enums.PaymentMethodType;
+    paymentMethodType: Enums.<ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
     /**
      * The name of the account.
      */

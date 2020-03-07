@@ -15,7 +15,7 @@ import { Queue } from './queue';
 /**
  * Base class for all queue model objects
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface QueueResults { 
     /**

@@ -17,7 +17,7 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * Defines a payment on an order.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrderPayment { 
     /**

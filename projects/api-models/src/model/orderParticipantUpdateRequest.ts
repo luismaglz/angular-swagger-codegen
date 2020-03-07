@@ -17,7 +17,7 @@ import { ParticipantDocument } from './participantDocument';
 /**
  * Represents changes that can be made to a component order participant.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface OrderParticipantUpdateRequest { 
     /**

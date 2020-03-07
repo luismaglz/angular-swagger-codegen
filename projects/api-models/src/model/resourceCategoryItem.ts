@@ -14,13 +14,13 @@
 /**
  * Model representing a resource setting category item.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ResourceCategoryItem { 
     /**
      * The default content type.
      */
-    readonly contentType?: Enums.ResponseContentType;
+    readonly contentType?: Enums.<ENUM>'Unknown'|'Json'|'Xml'</ENUM>;
     /**
      * The resource id.
      */

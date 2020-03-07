@@ -14,7 +14,7 @@
 /**
  * Defines a booking message history log entry.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingMessageHistory { 
     /**

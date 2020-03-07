@@ -12,7 +12,7 @@
 import { Claim } from './claim';
 
 
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface ClaimsIdentity { 
     readonly authenticationType?: string;

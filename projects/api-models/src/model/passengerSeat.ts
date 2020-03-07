@@ -15,7 +15,7 @@ import { SeatInfo } from './seatInfo';
 /**
  * Model for a passenger seat for a segment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerSeat { 
     /**

@@ -15,7 +15,7 @@ import { BoardingPassS2D } from './boardingPassS2D';
 /**
  * Represents a collection of boarding passes following the S2D bar code format.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BoardingPassesS2D { 
     /**

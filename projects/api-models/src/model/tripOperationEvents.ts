@@ -14,7 +14,7 @@
 /**
  * Represents the flight operation time events for an estimated,  actual, and forced time event.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface TripOperationEvents { 
     /**

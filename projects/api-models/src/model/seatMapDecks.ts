@@ -15,7 +15,7 @@ import { DeckInformation } from './deckInformation';
 /**
  * The collection of decks/levels for the equipment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface SeatMapDecks { 
     ?: DeckInformation;

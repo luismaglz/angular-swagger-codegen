@@ -16,7 +16,7 @@ import { ConnectorType } from './connectorType';
 /**
  * Defines a supplier.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface Supplier { 
     /**

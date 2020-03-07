@@ -15,7 +15,7 @@ import { OrderFee } from './orderFee';
 /**
  * Defines the pre cancel details for a specific component.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PreCancelDetail { 
     /**
@@ -33,7 +33,7 @@ export interface PreCancelDetail {
     /**
      * The status of the pre cancel.
      */
-    status?: Enums.PreCancelStatus;
+    status?: Enums.<ENUM>'Unknown'|'CancelAvailable'|'ExternalCancelAvailable'|'ImmediateCancel'|'CancelDenied'|'RemoveFromBooking'|'CancelPending'</ENUM>;
     /**
      * The pre cancel description.
      */

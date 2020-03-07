@@ -15,7 +15,7 @@ import { SeatGroupInfo } from './seatGroupInfo';
 /**
  * The collection of seat group fees.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface PassengerSeatGroupInfoGroups { 
     ?: SeatGroupInfo;

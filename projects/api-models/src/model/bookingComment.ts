@@ -15,13 +15,13 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines a booking comment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface BookingComment { 
     /**
      * Indicates where the comment will be seen.
      */
-    type?: Enums.PersonCommentType;
+    type?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
     /**
      * The point of sale for the comment.
      */

@@ -16,7 +16,7 @@ import { Upgrade } from './upgrade';
 /**
  * Defines a available upgrade segment.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface UpgradeSegment { 
     /**

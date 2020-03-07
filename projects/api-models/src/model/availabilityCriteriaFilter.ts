@@ -14,17 +14,17 @@
 /**
  * Defines all the different ways the availability response can be filtered.
  */
-import * as Enums from '../types/enums';
+import * as Enums from '../enums';
 
 export interface AvailabilityCriteriaFilter { 
     /**
      * Defines the type of fares to be included in the response.
      */
-    fareInclusionType?: Enums.AvailabilityType;
+    fareInclusionType?: Enums.<ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
     /**
      * The class compression type.
      */
-    compressionType?: Enums.FareClassControl;
+    compressionType?: Enums.<ENUM>'LowestFareClass'|'CompressByProductClass'|'Default'</ENUM>;
     /**
      * The max fare price.
      */
@@ -36,7 +36,7 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: Enums.LoyaltyFilter;
+    loyalty?: Enums.<ENUM>'MonetaryOnly'|'PointsOnly'|'PointsAndMonetary'|'PreserveCurrent'</ENUM>;
     /**
      * Flag indicating to include allotted fare classes of service.
      */
@@ -44,11 +44,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters the type of journeys to return.
      */
-    exclusionType?: Enums.AvailabilityFilter;
+    exclusionType?: Enums.<ENUM>'Default'|'ExcludeDeparted'|'ExcludeImminent'|'ExcludeUnavailable'</ENUM>;
     /**
      * The list of inventory journey sort options, used for filtering journeys on the response.
      */
-    sortOptions?: Enums.JourneySortKey;
+    sortOptions?: Enums.<ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
     /**
      * The list of product class codes to filter with.
      */
@@ -76,11 +76,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * The type filtering based on connections.
      */
-    type?: Enums.FlightType;
+    type?: Enums.<ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * Specifies the type of sold as connection when segment connects with passive segment.
      */
-    connectionType?: Enums.SoldAsConnectionType;
+    connectionType?: Enums.<ENUM>'None'|'Domestic'|'International'|'Both'</ENUM>;
     /**
      * The number of max connections.
      */
