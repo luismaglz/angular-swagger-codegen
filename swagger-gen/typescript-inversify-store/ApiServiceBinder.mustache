@@ -9,11 +9,11 @@ import { {{classname}}Interface }  from './{{importPath}}Interface';
 {{/apis}}
 {{/apiInfo}}
 
-export class ApiServiceBinder {
+export class StoreApiServiceBinder {
         {{#apiInfo}}
         {{#apis}}
-    public static with{{classname}}(container: interfaces.Container) {
-        container.bind<{{classname}}{{#withInterfaces}}Interface{{/withInterfaces}}>("{{classname}}").to({{classname}}).inSingletonScope();
+    public static withStore{{classname}}(container: interfaces.Container) {
+        container.bind<Store{{classname}}{{#withInterfaces}}Interface{{/withInterfaces}}>("{{classname}}").to({{classname}}).inSingletonScope();
     }
         {{/apis}}
         {{/apiInfo}}
