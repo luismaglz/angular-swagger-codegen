@@ -15,7 +15,7 @@
  * Represents a server transfer request.
  */
 
-    import { ServerTransferRequestChannel } from '../types/enums';
+    import { ServerTransferRequest<CAP>channel</CAP> } from '../types/enums';
 
 export interface ServerTransferRequest { 
     /**
@@ -29,5 +29,5 @@ export interface ServerTransferRequest {
     /**
      * The transferred server's channel type.
      */
-    channel?: ServerTransferRequestChannel;
+    channel?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
 }

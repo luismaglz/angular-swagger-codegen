@@ -15,14 +15,14 @@
  * Represents the manifest request base model.
  */
 
-    import { ManifestRequestBaseBaggageWeightType } from '../types/enums';
-    import { ManifestRequestBaseManifestFilters } from '../types/enums';
+    import { ManifestRequestBase<CAP>baggageWeightType</CAP> } from '../types/enums';
+    import { ManifestRequestBase<CAP>manifestFilters</CAP> } from '../types/enums';
 
 export interface ManifestRequestBase { 
     /**
      * Represents the weight type for all bags in the manifest.
      */
-    baggageWeightType?: ManifestRequestBaseBaggageWeightType;
+    baggageWeightType?: <ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
     /**
      * Specify whether the returned manifest includes   downline(.D)/inbound(.I) IATCI connections.
      */
@@ -30,5 +30,5 @@ export interface ManifestRequestBase {
     /**
      * The filters for the manifest.
      */
-    manifestFilters?: ManifestRequestBaseManifestFilters;
+    manifestFilters?: <ENUM>'None'|'Baggage'|'PassengerTravelDoc'|'PassengerInfant'|'PassengerAddress'|'BookingComment'|'BookingQueue'|'PassengerJourneySegmentProperty'|'PassengerJourneySsr'|'InventoryLegOpComments'|'All'</ENUM>;
 }

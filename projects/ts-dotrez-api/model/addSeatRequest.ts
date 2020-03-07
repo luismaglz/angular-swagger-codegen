@@ -15,8 +15,8 @@
  * Defines update seat request.
  */
 
-    import { AddSeatRequestInventoryControl } from '../types/enums';
-    import { AddSeatRequestSeatAssignmentMode } from '../types/enums';
+    import { AddSeatRequest<CAP>inventoryControl</CAP> } from '../types/enums';
+    import { AddSeatRequest<CAP>seatAssignmentMode</CAP> } from '../types/enums';
 
 export interface AddSeatRequest { 
     journeyKey?: string;
@@ -31,7 +31,7 @@ export interface AddSeatRequest {
     /**
      * Indicates the type of hold placed on a unit.
      */
-    inventoryControl?: AddSeatRequestInventoryControl;
+    inventoryControl?: <ENUM>'Session'|'None'</ENUM>;
     /**
      * Flag indicating whether to ignore seat SSR's.
      */
@@ -39,5 +39,5 @@ export interface AddSeatRequest {
     /**
      * The seat assignment mode.
      */
-    seatAssignmentMode?: AddSeatRequestSeatAssignmentMode;
+    seatAssignmentMode?: <ENUM>'AutoDetermine'|'PreSeatAssignment'|'WebCheckIn'</ENUM>;
 }

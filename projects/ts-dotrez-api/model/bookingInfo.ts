@@ -15,29 +15,29 @@
  * Describes general booking details.
  */
 
-    import { BookingInfoStatus } from '../types/enums';
-    import { BookingInfoPaidStatus } from '../types/enums';
-    import { BookingInfoPriceStatus } from '../types/enums';
-    import { BookingInfoProfileStatus } from '../types/enums';
-    import { BookingInfoChannelType } from '../types/enums';
+    import { BookingInfo<CAP>status</CAP> } from '../types/enums';
+    import { BookingInfo<CAP>paidStatus</CAP> } from '../types/enums';
+    import { BookingInfo<CAP>priceStatus</CAP> } from '../types/enums';
+    import { BookingInfo<CAP>profileStatus</CAP> } from '../types/enums';
+    import { BookingInfo<CAP>channelType</CAP> } from '../types/enums';
 
 export interface BookingInfo { 
     /**
      * The status of the entire booking.
      */
-    status?: BookingInfoStatus;
+    status?: <ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * The status of the applied payments.
      */
-    paidStatus?: BookingInfoPaidStatus;
+    paidStatus?: <ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
     /**
      * The pricing status of the booking.
      */
-    priceStatus?: BookingInfoPriceStatus;
+    priceStatus?: <ENUM>'Invalid'|'Override'|'Valid'</ENUM>;
     /**
      * The booking profiling status.
      */
-    profileStatus?: BookingInfoProfileStatus;
+    profileStatus?: <ENUM>'Default'|'KnownIndividual'|'ResolutionGroup'|'SelecteeGroup'|'NotUsed'|'FailureGroup'|'RandomSelectee'|'Exempt'</ENUM>;
     /**
      * Identifies the type (Default, GDS, CodeShare, ect) of the booking set during the commit process.
      */
@@ -45,7 +45,7 @@ export interface BookingInfo {
     /**
      * The channel that is responsible for created the booking.
      */
-    channelType?: BookingInfoChannelType;
+    channelType?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
     /**
      * The UTC date and time the booking was originally created.
      */

@@ -23,7 +23,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * The flight manifest model.
  */
 
-    import { ManifestLegStatus } from '../types/enums';
+    import { Manifest<CAP>legStatus</CAP> } from '../types/enums';
 
 export interface Manifest { 
     /**
@@ -45,7 +45,7 @@ export interface Manifest {
     /**
      * The Status in Manifest object.
      */
-    legStatus?: ManifestLegStatus;
+    legStatus?: <ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
     /**
      * Collection of InventoryLegCrossReference objects.
      */

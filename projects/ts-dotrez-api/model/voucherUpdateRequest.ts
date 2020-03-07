@@ -15,11 +15,11 @@
  * The voucher update request.
  */
 
-    import { VoucherUpdateRequestStatus } from '../types/enums';
+    import { VoucherUpdateRequest<CAP>status</CAP> } from '../types/enums';
 
 export interface VoucherUpdateRequest { 
     /**
      * The status to update the voucher to.
      */
-    status: VoucherUpdateRequestStatus;
+    status: <ENUM>'Reinstate'|'Void'</ENUM>;
 }

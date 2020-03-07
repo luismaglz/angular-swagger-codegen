@@ -15,7 +15,7 @@
  * A one time notification event.
  */
 
-    import { OneTimeNotificationEventType } from '../types/enums';
+    import { OneTimeNotificationEvent<CAP>type</CAP> } from '../types/enums';
 
 export interface OneTimeNotificationEvent { 
     /**
@@ -25,5 +25,5 @@ export interface OneTimeNotificationEvent {
     /**
      * The one time travel notification event type.
      */
-    type: OneTimeNotificationEventType;
+    type: <ENUM>'DepartureDelay'|'ArrivalDelay'</ENUM>;
 }

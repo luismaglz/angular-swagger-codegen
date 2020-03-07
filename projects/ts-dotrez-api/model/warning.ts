@@ -15,7 +15,7 @@
  * Defines the product warning.
  */
 
-    import { WarningChargeOrigin } from '../types/enums';
+    import { Warning<CAP>chargeOrigin</CAP> } from '../types/enums';
 
 export interface Warning { 
     /**
@@ -33,5 +33,5 @@ export interface Warning {
     /**
      * The origin of the charge in Travel Commerce.
      */
-    chargeOrigin?: WarningChargeOrigin;
+    chargeOrigin?: <ENUM>'Internal'|'External'|'Unknown'</ENUM>;
 }

@@ -16,7 +16,7 @@ import { Name } from './name';
  * Defines the edit travel document request.
  */
 
-    import { TravelDocumentEditRequestGender } from '../types/enums';
+    import { TravelDocumentEditRequest<CAP>gender</CAP> } from '../types/enums';
 
 export interface TravelDocumentEditRequest { 
     /**
@@ -46,7 +46,7 @@ export interface TravelDocumentEditRequest {
     /**
      * The travel document holder's gender.
      */
-    gender?: TravelDocumentEditRequestGender;
+    gender?: <ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The person's date of birth.
      */

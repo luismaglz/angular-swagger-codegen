@@ -16,8 +16,8 @@ import { MarketInformation } from './marketInformation';
  * Model representing the travel queue item without a unique key.
  */
 
-    import { TravelQueueItemBaseProcessStatus } from '../types/enums';
-    import { TravelQueueItemBaseProcessState } from '../types/enums';
+    import { TravelQueueItemBase<CAP>processStatus</CAP> } from '../types/enums';
+    import { TravelQueueItemBase<CAP>processState</CAP> } from '../types/enums';
 
 export interface TravelQueueItemBase { 
     /**
@@ -27,7 +27,7 @@ export interface TravelQueueItemBase {
     /**
      * Process status.
      */
-    processStatus?: TravelQueueItemBaseProcessStatus;
+    processStatus?: <ENUM>'Ready'|'Pending'</ENUM>;
     /**
      * Notes.
      */
@@ -35,7 +35,7 @@ export interface TravelQueueItemBase {
     /**
      * Process state.
      */
-    processState?: TravelQueueItemBaseProcessState;
+    processState?: <ENUM>'Default'|'SegmentsConfirmed'|'BookingBalanced'|'Other'|'Complete'</ENUM>;
     /**
      * Priority code.
      */

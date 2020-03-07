@@ -15,7 +15,7 @@
  * The account transaction code model.
  */
 
-    import { AccountTransactionCodeExpirationType } from '../types/enums';
+    import { AccountTransactionCode<CAP>expirationType</CAP> } from '../types/enums';
 
 export interface AccountTransactionCode { 
     /**
@@ -29,7 +29,7 @@ export interface AccountTransactionCode {
     /**
      * The expiration type.
      */
-    expirationType?: AccountTransactionCodeExpirationType;
+    expirationType?: <ENUM>'None'|'FixedAtIssuance'|'FixedDate'|'FixedAtBooking'</ENUM>;
     /**
      * The expiration days.
      */

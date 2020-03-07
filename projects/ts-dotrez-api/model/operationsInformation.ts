@@ -17,8 +17,8 @@ import { GateInformation } from './gateInformation';
  * Model describing the operations information.
  */
 
-    import { OperationsInformationArrivalStatus } from '../types/enums';
-    import { OperationsInformationDepartureStatus } from '../types/enums';
+    import { OperationsInformation<CAP>arrivalStatus</CAP> } from '../types/enums';
+    import { OperationsInformation<CAP>departureStatus</CAP> } from '../types/enums';
 
 export interface OperationsInformation { 
     /**
@@ -56,7 +56,7 @@ export interface OperationsInformation {
     /**
      * The arrival status.
      */
-    arrivalStatus?: OperationsInformationArrivalStatus;
+    arrivalStatus?: <ENUM>'Default'|'Cancelled'|'Arrived'|'SeeAgent'|'Delayed'</ENUM>;
     /**
      * The baggage claim.
      */
@@ -68,7 +68,7 @@ export interface OperationsInformation {
     /**
      * The departure status.
      */
-    departureStatus?: OperationsInformationDepartureStatus;
+    departureStatus?: <ENUM>'Default'|'Cancelled'|'Boarding'|'SeeAgent'|'Delayed'|'Departed'</ENUM>;
     /**
      * The departure time information.
      */

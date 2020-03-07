@@ -18,7 +18,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Available segment represents an available segment on a available journey.
  */
 
-    import { AvailableSegmentSegmentType } from '../types/enums';
+    import { AvailableSegment<CAP>segmentType</CAP> } from '../types/enums';
 
 export interface AvailableSegment { 
     /**
@@ -64,7 +64,7 @@ export interface AvailableSegment {
     /**
      * The type of the segment.
      */
-    segmentType?: AvailableSegmentSegmentType;
+    segmentType?: <ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
     /**
      * The collection of legs on the segment.
      */

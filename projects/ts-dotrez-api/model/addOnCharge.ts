@@ -15,14 +15,14 @@
  * Defines a booking add ons charge.
  */
 
-    import { AddOnChargeType } from '../types/enums';
-    import { AddOnChargeCollection } from '../types/enums';
+    import { AddOnCharge<CAP>type</CAP> } from '../types/enums';
+    import { AddOnCharge<CAP>collection</CAP> } from '../types/enums';
 
 export interface AddOnCharge { 
     /**
      * The charge type.
      */
-    type?: AddOnChargeType;
+    type?: <ENUM>'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment'</ENUM>;
     /**
      * The charge code.
      */
@@ -34,7 +34,7 @@ export interface AddOnCharge {
     /**
      * The charge collection type.
      */
-    collection?: AddOnChargeCollection;
+    collection?: <ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
     /**
      * The currency code.
      */

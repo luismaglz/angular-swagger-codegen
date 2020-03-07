@@ -15,13 +15,13 @@
  * The booking reserve flight settings.
  */
 
-    import { ReserveFlightsSettingsViewManifestControl } from '../types/enums';
-    import { ReserveFlightsSettingsAdHocFlightControl } from '../types/enums';
-    import { ReserveFlightsSettingsAllowSellOverbook } from '../types/enums';
-    import { ReserveFlightsSettingsAllowMoveOverbook } from '../types/enums';
-    import { ReserveFlightsSettingsAllowUpgradeOverbook } from '../types/enums';
-    import { ReserveFlightsSettingsAllowMove } from '../types/enums';
-    import { ReserveFlightsSettingsAllowedFareOverrideType } from '../types/enums';
+    import { ReserveFlightsSettings<CAP>viewManifestControl</CAP> } from '../types/enums';
+    import { ReserveFlightsSettings<CAP>adHocFlightControl</CAP> } from '../types/enums';
+    import { ReserveFlightsSettings<CAP>allowSellOverbook</CAP> } from '../types/enums';
+    import { ReserveFlightsSettings<CAP>allowMoveOverbook</CAP> } from '../types/enums';
+    import { ReserveFlightsSettings<CAP>allowUpgradeOverbook</CAP> } from '../types/enums';
+    import { ReserveFlightsSettings<CAP>allowMove</CAP> } from '../types/enums';
+    import { ReserveFlightsSettings<CAP>allowedFareOverrideType</CAP> } from '../types/enums';
 
 export interface ReserveFlightsSettings { 
     /**
@@ -59,23 +59,23 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to view manifest.
      */
-    viewManifestControl?: ReserveFlightsSettingsViewManifestControl;
+    viewManifestControl?: <ENUM>'None'|'StandbyOnly'|'Full'</ENUM>;
     /**
      * Indicator on permissions for AdHoc flight operations.
      */
-    adHocFlightControl?: ReserveFlightsSettingsAdHocFlightControl;
+    adHocFlightControl?: <ENUM>'None'|'View'|'Sell'</ENUM>;
     /**
      * Indicator whether the agent is allowed to overbook except on moves.
      */
-    allowSellOverbook?: ReserveFlightsSettingsAllowSellOverbook;
+    allowSellOverbook?: <ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowMoveOverbook?: ReserveFlightsSettingsAllowMoveOverbook;
+    allowMoveOverbook?: <ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowUpgradeOverbook?: ReserveFlightsSettingsAllowUpgradeOverbook;
+    allowUpgradeOverbook?: <ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
     /**
      * Flag indicating whether the agent allows split-journey moves.
      */
@@ -83,7 +83,7 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to move a passenger from a flight to another without repricing.
      */
-    allowMove?: ReserveFlightsSettingsAllowMove;
+    allowMove?: <ENUM>'NotAllowed'|'AllowedOnInventory'|'Allowed'</ENUM>;
     /**
      * Flag indicating if move by maximum class availability.
      */
@@ -171,7 +171,7 @@ export interface ReserveFlightsSettings {
     /**
      * Controls which type of fare overrides are allowed by a role.
      */
-    allowedFareOverrideType?: ReserveFlightsSettingsAllowedFareOverrideType;
+    allowedFareOverrideType?: <ENUM>'DiscountedPrice'|'PublishedPrice'|'All'</ENUM>;
     /**
      * Flag indicating whether or not to allow a trip move for the initial (non-committed) booking.
      */

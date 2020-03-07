@@ -15,7 +15,7 @@
  * Defines the individual passenger checkin request.
  */
 
-    import { CheckinPassengerRequestTransitType } from '../types/enums';
+    import { CheckinPassengerRequest<CAP>transitType</CAP> } from '../types/enums';
 
 export interface CheckinPassengerRequest { 
     /**
@@ -25,7 +25,7 @@ export interface CheckinPassengerRequest {
     /**
      * The passengers transit type.
      */
-    transitType?: CheckinPassengerRequestTransitType;
+    transitType?: <ENUM>'Default'|'Origin'|'Destination'|'Both'</ENUM>;
     /**
      * Flag indicating to process APPS.
      */

@@ -16,7 +16,7 @@ import { FeeRuleProperty } from './feeRuleProperty';
  * Fee rule model.
  */
 
-    import { FeeRuleOperator } from '../types/enums';
+    import { FeeRule<CAP>operator</CAP> } from '../types/enums';
 
 export interface FeeRule { 
     /**
@@ -34,5 +34,5 @@ export interface FeeRule {
     /**
      * Gets or sets the fee rule operator for this fee rule.
      */
-    operator?: FeeRuleOperator;
+    operator?: <ENUM>'Default'|'MustBe'|'MustNotBe'</ENUM>;
 }

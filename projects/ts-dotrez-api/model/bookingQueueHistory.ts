@@ -16,9 +16,9 @@ import { PointOfSale } from './pointOfSale';
  * Represents a booking queue history item.
  */
 
-    import { BookingQueueHistoryHistoryEvent } from '../types/enums';
-    import { BookingQueueHistoryQueueAction } from '../types/enums';
-    import { BookingQueueHistoryQueueType } from '../types/enums';
+    import { BookingQueueHistory<CAP>historyEvent</CAP> } from '../types/enums';
+    import { BookingQueueHistory<CAP>queueAction</CAP> } from '../types/enums';
+    import { BookingQueueHistory<CAP>queueType</CAP> } from '../types/enums';
 
 export interface BookingQueueHistory { 
     /**
@@ -32,7 +32,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue history event type.
      */
-    historyEvent?: BookingQueueHistoryHistoryEvent;
+    historyEvent?: <ENUM>'Unknown'|'Add'|'Remove'|'Update'</ENUM>;
     /**
      * The booking queue code.
      */
@@ -56,7 +56,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue action.
      */
-    queueAction?: BookingQueueHistoryQueueAction;
+    queueAction?: <ENUM>'Default'|'Warning'|'Lock'|'DefaultAndNotify'|'WarningAndNotify'|'LockAndNotify'</ENUM>;
     /**
      * The booking queue domain code.
      */
@@ -72,7 +72,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue item event type.
      */
-    queueType?: BookingQueueHistoryQueueType;
+    queueType?: <ENUM>'Default'|'BookingBalanceDue'|'BookingNegativeBalance'|'BookingCustomerComment'|'DeclinedPaymentInitial'|'DeclinedPaymentChange'|'FareOverride'|'ScheduleTimeChange'|'ScheduleTimeChangeMisconnect'|'ScheduleCancellation'|'FlightDesignatorChange'|'ReaccommodationMove'|'GdsCancelWithPendingPayment'|'InvalidPriceStatusOverride'|'FareRestrictionOverride'|'HeldBookings'|'InvalidPriceStatus'|'Watchlist'|'NonFlightServiceFee'|'NotAllTicketNumbersReceived'|'BookingSegmentOversold'|'ReaccommodationCancel'|'ExternalSsrAutoConfirmed'|'OpCarrierSegUpdate'|'OpCarrierSsrUpdate'|'OpCarrierOtherUpdate'|'NameChangeNotAllowed'|'InboundAscNotProcessed'|'OpCarrierInformationChange'|'BookingComponentUpdate'|'GroupBookings'|'BankDirectPnrOutOfBalance'|'NoSeatAssigned'|'SeatNumberChange'|'SsrNotSupportedOnNewSeat'|'FewerSeatPreferencesMetOnNewSeat'|'AosUnableToConfirmCancel'|'ETicketIssue'|'ETicketFollowup'|'InvoluntaryFlyAhead'|'ManualClearanceOnOutage'|'UnbalancedPoints'|'OpCarrierTimeChange'|'OaCarrierTimeChange'|'VoluntaryFlightChange'|'InvoluntaryFlightChange'|'HoldCancellationFailed'|'ScheduleTimeChangeWithDynamicQueueCode'|'ReaccommodationMoveWithDynamicQueueCode'|'ItineraryIntegrity'|'ReducePartyNotProcessed'|'CheckedPassengerUpdate'|'NameChangeWithinRule'|'IncompletePassengerEMDCoupon'|'ASVCUpdateFailed'|'ScheduleTimeChangeMisconnectBelowMinimum'|'ScheduleTimeChangeMisconnectAboveMaximum'|'OpCarrierMisconnect'|'InventoryQueuing'|'SelfServiceAsm'|'SelfServiceDelay'|'SelfServiceFlightCancellation'|'SelfServiceIrop'|'SelfServiceScheduleChange'|'SelfServiceTimeChange'|'AosAddOrCancelNotSuccessful'|'MissingGdsFareFamily'|'ChangeCabinQueue'</ENUM>;
     /**
      * The booking queue item point of sale.
      */

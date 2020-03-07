@@ -18,7 +18,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Represents the operation between board station and any subsequent off station  within the same flight.
  */
 
-    import { ItinerarySegmentSegmentType } from '../types/enums';
+    import { ItinerarySegment<CAP>segmentType</CAP> } from '../types/enums';
 
 export interface ItinerarySegment { 
     /**
@@ -48,5 +48,5 @@ export interface ItinerarySegment {
     /**
      * The type of the segment.
      */
-    segmentType?: ItinerarySegmentSegmentType;
+    segmentType?: <ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
 }

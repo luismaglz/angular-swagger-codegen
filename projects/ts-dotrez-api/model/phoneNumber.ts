@@ -15,13 +15,13 @@
  * Defines a common phone number.
  */
 
-    import { PhoneNumberType } from '../types/enums';
+    import { PhoneNumber<CAP>type</CAP> } from '../types/enums';
 
 export interface PhoneNumber { 
     /**
      * The phone number type.
      */
-    type: PhoneNumberType;
+    type: <ENUM>'Other'|'Home'|'Work'|'Mobile'|'Fax'</ENUM>;
     /**
      * The phone number without any formatting characters.
      */

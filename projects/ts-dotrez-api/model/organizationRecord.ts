@@ -17,8 +17,8 @@ import { ContactDetails } from './contactDetails';
  * The data on the user related agent's organization.
  */
 
-    import { OrganizationRecordType } from '../types/enums';
-    import { OrganizationRecordStatus } from '../types/enums';
+    import { OrganizationRecord<CAP>type</CAP> } from '../types/enums';
+    import { OrganizationRecord<CAP>status</CAP> } from '../types/enums';
 
 export interface OrganizationRecord { 
     /**
@@ -28,7 +28,7 @@ export interface OrganizationRecord {
     /**
      * Organization type.
      */
-    type?: OrganizationRecordType;
+    type?: <ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
     /**
      * The company details.
      */
@@ -40,7 +40,7 @@ export interface OrganizationRecord {
     /**
      * The organization status.
      */
-    status?: OrganizationRecordStatus;
+    status?: <ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
     /**
      * The parent organization code.
      */

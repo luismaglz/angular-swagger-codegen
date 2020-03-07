@@ -15,7 +15,7 @@
  * Defines a request to apply credit for an account.
  */
 
-    import { ApplyCreditAccountRequestType } from '../types/enums';
+    import { ApplyCreditAccountRequest<CAP>type</CAP> } from '../types/enums';
 
 export interface ApplyCreditAccountRequest { 
     /**
@@ -33,5 +33,5 @@ export interface ApplyCreditAccountRequest {
     /**
      * Defines the type of credit being applied.
      */
-    type?: ApplyCreditAccountRequestType;
+    type?: <ENUM>'Customer'|'Booking'|'Organization'</ENUM>;
 }

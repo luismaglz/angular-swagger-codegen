@@ -16,8 +16,8 @@ import { BundleLegSsrPassengersAvailability } from './bundleLegSsrPassengersAvai
  * Ssr detail model.
  */
 
-    import { SsrDetailSsrType } from '../types/enums';
-    import { SsrDetailSeatRestriction } from '../types/enums';
+    import { SsrDetail<CAP>ssrType</CAP> } from '../types/enums';
+    import { SsrDetail<CAP>seatRestriction</CAP> } from '../types/enums';
 
 export interface SsrDetail { 
     /**
@@ -28,7 +28,7 @@ export interface SsrDetail {
     /**
      * Gets the SSR type.
      */
-    ssrType?: SsrDetailSsrType;
+    ssrType?: <ENUM>'Standard'|'Infant'|'Meal'|'BaggageAllowance'|'TravelLineMeal'</ENUM>;
     /**
      * Gets the SSR name.
      */
@@ -60,5 +60,5 @@ export interface SsrDetail {
     /**
      * Gets the seat restriction.
      */
-    seatRestriction?: SsrDetailSeatRestriction;
+    seatRestriction?: <ENUM>'Undefined'|'AlwaysAllowed'|'DefaultAllowed'|'DefaultRestricted'</ENUM>;
 }

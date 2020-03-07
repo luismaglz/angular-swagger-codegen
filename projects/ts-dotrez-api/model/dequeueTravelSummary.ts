@@ -17,8 +17,8 @@ import { TravelSummary } from './travelSummary';
  * Represents an travel entry when dequeued.
  */
 
-    import { DequeueTravelSummaryProcessStatus } from '../types/enums';
-    import { DequeueTravelSummaryProcessState } from '../types/enums';
+    import { DequeueTravelSummary<CAP>processStatus</CAP> } from '../types/enums';
+    import { DequeueTravelSummary<CAP>processState</CAP> } from '../types/enums';
 
 export interface DequeueTravelSummary { 
     /**
@@ -36,7 +36,7 @@ export interface DequeueTravelSummary {
     /**
      * Process status.
      */
-    processStatus?: DequeueTravelSummaryProcessStatus;
+    processStatus?: <ENUM>'Ready'|'Pending'</ENUM>;
     /**
      * Notes.
      */
@@ -44,7 +44,7 @@ export interface DequeueTravelSummary {
     /**
      * Process state.
      */
-    processState?: DequeueTravelSummaryProcessState;
+    processState?: <ENUM>'Default'|'SegmentsConfirmed'|'BookingBalanced'|'Other'|'Complete'</ENUM>;
     /**
      * Priority code.
      */

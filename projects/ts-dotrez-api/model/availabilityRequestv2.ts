@@ -18,7 +18,7 @@ import { PassengerTypeCriteria } from './passengerTypeCriteria';
  * Defines a availability request.
  */
 
-    import { AvailabilityRequestv2TaxesAndFees } from '../types/enums';
+    import { AvailabilityRequestv2<CAP>taxesAndFees</CAP> } from '../types/enums';
 
 export interface AvailabilityRequestv2 { 
     /**
@@ -36,7 +36,7 @@ export interface AvailabilityRequestv2 {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: AvailabilityRequestv2TaxesAndFees;
+    taxesAndFees?: <ENUM>'None'|'Taxes'|'TaxesAndFees'</ENUM>;
     /**
      * The number of fares per journey to be returned. If not set it will use the default optimized values
      */

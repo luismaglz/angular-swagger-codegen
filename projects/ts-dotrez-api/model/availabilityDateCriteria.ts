@@ -15,7 +15,7 @@
  * Defines the availability criteria dates.
  */
 
-    import { AvailabilityDateCriteriaDaysOfWeek } from '../types/enums';
+    import { AvailabilityDateCriteria<CAP>daysOfWeek</CAP> } from '../types/enums';
 
 export interface AvailabilityDateCriteria { 
     /**
@@ -37,5 +37,5 @@ export interface AvailabilityDateCriteria {
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: AvailabilityDateCriteriaDaysOfWeek;
+    daysOfWeek?: <ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
 }

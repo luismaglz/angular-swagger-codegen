@@ -15,8 +15,8 @@
  * Model that represents the fare service charge information.
  */
 
-    import { ServiceChargeType } from '../types/enums';
-    import { ServiceChargeCollectType } from '../types/enums';
+    import { ServiceCharge<CAP>type</CAP> } from '../types/enums';
+    import { ServiceCharge<CAP>collectType</CAP> } from '../types/enums';
 
 export interface ServiceCharge { 
     /**
@@ -34,11 +34,11 @@ export interface ServiceCharge {
     /**
      * The service charge type.
      */
-    type?: ServiceChargeType;
+    type?: <ENUM>'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment'</ENUM>;
     /**
      * The service charge collect type.
      */
-    collectType?: ServiceChargeCollectType;
+    collectType?: <ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
     /**
      * The service charge currency code.
      */

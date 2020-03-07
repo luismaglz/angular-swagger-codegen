@@ -15,8 +15,8 @@
  * Model for a ticket applied to a passenger.
  */
 
-    import { TicketTicketIndicator } from '../types/enums';
-    import { TicketTicketStatus } from '../types/enums';
+    import { Ticket<CAP>ticketIndicator</CAP> } from '../types/enums';
+    import { Ticket<CAP>ticketStatus</CAP> } from '../types/enums';
 
 export interface Ticket { 
     /**
@@ -30,11 +30,11 @@ export interface Ticket {
     /**
      * The ticket indicator.
      */
-    ticketIndicator?: TicketTicketIndicator;
+    ticketIndicator?: <ENUM>'Unknown'|'TicketRequired'|'AutomatedTicketLiftRequired'|'ManualTicketLiftRequired'|'AutomatedTicketNoLiftRequired'|'ManualTicketNoLiftRequired'|'HostETicketNoLiftRequired'|'ElectronicTicketNoLiftRequired'</ENUM>;
     /**
      * The ticket status.
      */
-    ticketStatus?: TicketTicketStatus;
+    ticketStatus?: <ENUM>'Unknown'|'TicketAvailableForUse'|'TicketUnavailableForUse'|'TicketReissueRequiredForPassenger'|'TicketReissueRequiredForInfant'|'TicketReissueRequiredForBoth'</ENUM>;
     /**
      * The passenger key the ticket is associated with.
      */

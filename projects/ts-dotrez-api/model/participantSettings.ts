@@ -15,116 +15,116 @@
  * Defines the order participant field validation levels.
  */
 
-    import { ParticipantSettingsTypeCode } from '../types/enums';
-    import { ParticipantSettingsTitle } from '../types/enums';
-    import { ParticipantSettingsDocumentNumber } from '../types/enums';
-    import { ParticipantSettingsFirstName } from '../types/enums';
-    import { ParticipantSettingsDocumentIssueBy } from '../types/enums';
-    import { ParticipantSettingsMiddleName } from '../types/enums';
-    import { ParticipantSettingsDocumentTypeCode } from '../types/enums';
-    import { ParticipantSettingsLastName } from '../types/enums';
-    import { ParticipantSettingsLineOne } from '../types/enums';
-    import { ParticipantSettingsLineTwo } from '../types/enums';
-    import { ParticipantSettingsCity } from '../types/enums';
-    import { ParticipantSettingsPostalCode } from '../types/enums';
-    import { ParticipantSettingsProvinceState } from '../types/enums';
-    import { ParticipantSettingsCountryCode } from '../types/enums';
-    import { ParticipantSettingsCounty } from '../types/enums';
-    import { ParticipantSettingsHomePhone } from '../types/enums';
-    import { ParticipantSettingsWorkPhone } from '../types/enums';
-    import { ParticipantSettingsFax } from '../types/enums';
-    import { ParticipantSettingsEmail } from '../types/enums';
-    import { ParticipantSettingsType } from '../types/enums';
-    import { ParticipantSettingsCompanyName } from '../types/enums';
-    import { ParticipantSettingsBirthDate } from '../types/enums';
+    import { ParticipantSettings<CAP>typeCode</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>title</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>documentNumber</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>firstName</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>documentIssueBy</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>middleName</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>documentTypeCode</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>lastName</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>lineOne</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>lineTwo</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>city</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>postalCode</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>provinceState</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>countryCode</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>county</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>homePhone</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>workPhone</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>fax</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>email</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>type</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>companyName</CAP> } from '../types/enums';
+    import { ParticipantSettings<CAP>birthDate</CAP> } from '../types/enums';
 
 export interface ParticipantSettings { 
     /**
      * The field usage for the type code.
      */
-    typeCode?: ParticipantSettingsTypeCode;
+    typeCode?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The title field usage.
      */
-    title?: ParticipantSettingsTitle;
+    title?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The field usage for the document number.
      */
-    documentNumber?: ParticipantSettingsDocumentNumber;
+    documentNumber?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The first name field usage.
      */
-    firstName?: ParticipantSettingsFirstName;
+    firstName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The field usage for the document issue by.
      */
-    documentIssueBy?: ParticipantSettingsDocumentIssueBy;
+    documentIssueBy?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The middle name field usage.
      */
-    middleName?: ParticipantSettingsMiddleName;
+    middleName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The field usage for the document type code.
      */
-    documentTypeCode?: ParticipantSettingsDocumentTypeCode;
+    documentTypeCode?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The last name field usage.
      */
-    lastName?: ParticipantSettingsLastName;
+    lastName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address line one field usage.
      */
-    lineOne?: ParticipantSettingsLineOne;
+    lineOne?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address line two field usage.
      */
-    lineTwo?: ParticipantSettingsLineTwo;
+    lineTwo?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address city field usage.
      */
-    city?: ParticipantSettingsCity;
+    city?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address postal code field usage.
      */
-    postalCode?: ParticipantSettingsPostalCode;
+    postalCode?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address province state field usage.
      */
-    provinceState?: ParticipantSettingsProvinceState;
+    provinceState?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address country code field usage.
      */
-    countryCode?: ParticipantSettingsCountryCode;
+    countryCode?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address county field usage.
      */
-    county?: ParticipantSettingsCounty;
+    county?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The home phone number field usage.
      */
-    homePhone?: ParticipantSettingsHomePhone;
+    homePhone?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The work phone field usage.
      */
-    workPhone?: ParticipantSettingsWorkPhone;
+    workPhone?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The fax number field usage.
      */
-    fax?: ParticipantSettingsFax;
+    fax?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The email address field usage.
      */
-    email?: ParticipantSettingsEmail;
+    email?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The consumer type field usage.
      */
-    type?: ParticipantSettingsType;
+    type?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The company name field usage.
      */
-    companyName?: ParticipantSettingsCompanyName;
+    companyName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The date of birth field usage.
      */
-    birthDate?: ParticipantSettingsBirthDate;
+    birthDate?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
 }

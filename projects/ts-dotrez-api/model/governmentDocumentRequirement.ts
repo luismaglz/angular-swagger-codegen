@@ -15,13 +15,13 @@
  * Defines a certain document requirement reguarding a specific government instance.
  */
 
-    import { GovernmentDocumentRequirementGroup } from '../types/enums';
+    import { GovernmentDocumentRequirement<CAP>group</CAP> } from '../types/enums';
 
 export interface GovernmentDocumentRequirement { 
     /**
      * The document group.
      */
-    group?: GovernmentDocumentRequirementGroup;
+    group?: <ENUM>'Unknown'|'AlienRegistrationCard'|'PermanentResidentCard'|'FacilitationDocument'|'InsPass'|'MilitaryId'|'Passport'|'ReEntryPermit'|'CreditCard'|'TravelVisa'|'OaFrequentFlyer'|'ParoleLetter'|'NoticeOfAction'|'TransportationLetter'|'BorderCrossingCard'|'PilotLicense'|'UsNaturalizationCertificate'|'RefugeeTravelDocument'|'GovernmentId'|'DriversLicense'|'RedressNumber'|'KnownTravelerId'|'FormOfId'|'Nexus'|'SecondaryExempt'</ENUM>;
     /**
      * The documents type code.
      */

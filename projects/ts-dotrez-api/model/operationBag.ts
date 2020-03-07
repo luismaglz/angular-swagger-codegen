@@ -15,8 +15,8 @@
  * Operation Bag.
  */
 
-    import { OperationBagBaggageStatus } from '../types/enums';
-    import { OperationBagWeightType } from '../types/enums';
+    import { OperationBag<CAP>baggageStatus</CAP> } from '../types/enums';
+    import { OperationBag<CAP>weightType</CAP> } from '../types/enums';
 
 export interface OperationBag { 
     /**
@@ -30,7 +30,7 @@ export interface OperationBag {
     /**
      * The BaggageStatus in Bag object.
      */
-    baggageStatus?: OperationBagBaggageStatus;
+    baggageStatus?: <ENUM>'Default'|'Checked'|'Removed'|'Added'|'AddedPrinted'</ENUM>;
     /**
      * Flag for marking a bag as a non-standard piece of luggage.
      */
@@ -62,5 +62,5 @@ export interface OperationBag {
     /**
      * The WeightType in Bag object.
      */
-    weightType?: OperationBagWeightType;
+    weightType?: <ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
 }

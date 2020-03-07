@@ -17,8 +17,8 @@ import { ProductVariationCatalogAmounts } from './productVariationCatalogAmounts
  * Defines a product variations catalog results.
  */
 
-    import { ProductVariationCatalogInventoryGrouping } from '../types/enums';
-    import { ProductVariationCatalogPaymentAction } from '../types/enums';
+    import { ProductVariationCatalog<CAP>inventoryGrouping</CAP> } from '../types/enums';
+    import { ProductVariationCatalog<CAP>paymentAction</CAP> } from '../types/enums';
 
 export interface ProductVariationCatalog { 
     /**
@@ -44,7 +44,7 @@ export interface ProductVariationCatalog {
     /**
      * Determines how the inventory quantity is counted.
      */
-    inventoryGrouping?: ProductVariationCatalogInventoryGrouping;
+    inventoryGrouping?: <ENUM>'Existing'|'Total'</ENUM>;
     /**
      * The actual number available.
      */
@@ -60,5 +60,5 @@ export interface ProductVariationCatalog {
     /**
      * The configured payment action.
      */
-    paymentAction?: ProductVariationCatalogPaymentAction;
+    paymentAction?: <ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
 }

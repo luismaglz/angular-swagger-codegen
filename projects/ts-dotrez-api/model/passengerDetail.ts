@@ -18,17 +18,17 @@ import { Program } from './program';
  * The passenger detail model.
  */
 
-    import { PassengerDetailStatus } from '../types/enums';
-    import { PassengerDetailProfileStatus } from '../types/enums';
-    import { PassengerDetailWeightCategory } from '../types/enums';
-    import { PassengerDetailTripType } from '../types/enums';
-    import { PassengerDetailPaidStatus } from '../types/enums';
+    import { PassengerDetail<CAP>status</CAP> } from '../types/enums';
+    import { PassengerDetail<CAP>profileStatus</CAP> } from '../types/enums';
+    import { PassengerDetail<CAP>weightCategory</CAP> } from '../types/enums';
+    import { PassengerDetail<CAP>tripType</CAP> } from '../types/enums';
+    import { PassengerDetail<CAP>paidStatus</CAP> } from '../types/enums';
 
 export interface PassengerDetail { 
     /**
      * The current status of the booking.
      */
-    status?: PassengerDetailStatus;
+    status?: <ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * The record locator.
      */
@@ -44,7 +44,7 @@ export interface PassengerDetail {
     /**
      * The profile status on the booking.
      */
-    profileStatus?: PassengerDetailProfileStatus;
+    profileStatus?: <ENUM>'Default'|'KnownIndividual'|'ResolutionGroup'|'SelecteeGroup'|'NotUsed'|'FailureGroup'|'RandomSelectee'|'Exempt'</ENUM>;
     /**
      * The ticket number of the infant with the passenger.
      */
@@ -60,7 +60,7 @@ export interface PassengerDetail {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: PassengerDetailWeightCategory;
+    weightCategory?: <ENUM>'Male'|'Female'|'Child'</ENUM>;
     /**
      * The ticket type of the passenger.
      */
@@ -80,7 +80,7 @@ export interface PassengerDetail {
     /**
      * The current assigned trip type.
      */
-    tripType?: PassengerDetailTripType;
+    tripType?: <ENUM>'None'|'OneWay'|'RoundTrip'|'HalfRound'|'OpenJaw'|'CircleTrip'|'All'</ENUM>;
     /**
      * The passenger segment booking status.
      */
@@ -124,5 +124,5 @@ export interface PassengerDetail {
     /**
      * The paid status for the passenger.
      */
-    paidStatus?: PassengerDetailPaidStatus;
+    paidStatus?: <ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
 }

@@ -19,7 +19,7 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
  * Defines a fly ahead availability criteria search.
  */
 
-    import { AvailabilityFlyAheadRequestType } from '../types/enums';
+    import { AvailabilityFlyAheadRequest<CAP>type</CAP> } from '../types/enums';
 
 export interface AvailabilityFlyAheadRequest { 
     passengerKeys?: Array<string>;
@@ -46,5 +46,5 @@ export interface AvailabilityFlyAheadRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: AvailabilityFlyAheadRequestType;
+    type?: <ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
 }

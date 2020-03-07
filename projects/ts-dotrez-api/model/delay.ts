@@ -15,7 +15,7 @@
  * The delay model.
  */
 
-    import { DelayDelayType } from '../types/enums';
+    import { Delay<CAP>delayType</CAP> } from '../types/enums';
 
 export interface Delay { 
     /**
@@ -25,7 +25,7 @@ export interface Delay {
     /**
      * The delay type.
      */
-    delayType?: DelayDelayType;
+    delayType?: <ENUM>'Unknown'|'AirlineInternalCodes'|'Others'|'Schedules'|'PassengerAndBaggage'|'CargoAndMail'|'MailOnly'|'AircraftAndRampHandling'|'TechnicalAndAircraftEquipment'|'DamageToAircraft'|'EdpAutomatedEquipmentFailure'|'FlightOperationsAndCrewing'|'Weather'|'AirTrafficFlowManagement'|'AirportAndGovernmentalAuthorities'|'Reactionary'|'Miscellaneous'</ENUM>;
     /**
      * The Name.
      */

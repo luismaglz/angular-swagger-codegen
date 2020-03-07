@@ -15,8 +15,8 @@
  * Model representing a resource content item.
  */
 
-    import { ResourceContentItemType } from '../types/enums';
-    import { ResourceContentItemDataType } from '../types/enums';
+    import { ResourceContentItem<CAP>type</CAP> } from '../types/enums';
+    import { ResourceContentItem<CAP>dataType</CAP> } from '../types/enums';
 
 export interface ResourceContentItem { 
     /**
@@ -42,11 +42,11 @@ export interface ResourceContentItem {
     /**
      * Specific content type.
      */
-    type?: ResourceContentItemType;
+    type?: <ENUM>'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference'</ENUM>;
     /**
      * Content data type.
      */
-    dataType?: ResourceContentItemDataType;
+    dataType?: <ENUM>'Default'|'Text'|'RichTextFormat'|'ImageJpg'|'ImageGif'|'ImageBmp'|'ImagePng'|'WordDoc'|'Html'|'Pdf'|'Uri'|'WordDocx'|'Unmapped'</ENUM>;
     /**
      * Data bytes.
      */

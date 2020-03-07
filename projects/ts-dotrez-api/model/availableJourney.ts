@@ -18,13 +18,13 @@ import { TransportationDesignator } from './transportationDesignator';
  * The available journey represents a specific date, market journey that can be sold.
  */
 
-    import { AvailableJourneyFlightType } from '../types/enums';
+    import { AvailableJourney<CAP>flightType</CAP> } from '../types/enums';
 
 export interface AvailableJourney { 
     /**
      * The flight type of the journey.
      */
-    readonly flightType?: AvailableJourneyFlightType;
+    readonly flightType?: <ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * The number of stops the journey will make.
      */

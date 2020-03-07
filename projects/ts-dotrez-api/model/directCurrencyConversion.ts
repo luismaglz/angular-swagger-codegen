@@ -15,7 +15,7 @@
  * Defines a direct currency conversion.
  */
 
-    import { DirectCurrencyConversionStatus } from '../types/enums';
+    import { DirectCurrencyConversion<CAP>status</CAP> } from '../types/enums';
 
 export interface DirectCurrencyConversion { 
     /**
@@ -41,7 +41,7 @@ export interface DirectCurrencyConversion {
     /**
      * The conversion status.
      */
-    status?: DirectCurrencyConversionStatus;
+    status?: <ENUM>'DccNotOffered'|'DccOfferRejected'|'DccOfferAccepted'|'DccInitialValue'|'MccInUse'</ENUM>;
     /**
      * Flag indicating if DCC is applicable.
      */

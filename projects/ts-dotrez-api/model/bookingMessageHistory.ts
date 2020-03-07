@@ -15,13 +15,13 @@
  * Defines a booking message history log entry.
  */
 
-    import { BookingMessageHistoryType } from '../types/enums';
+    import { BookingMessageHistory<CAP>type</CAP> } from '../types/enums';
 
 export interface BookingMessageHistory { 
     /**
      * The message history type.
      */
-    type?: BookingMessageHistoryType;
+    type?: <ENUM>'TeletypeMessage'|'ETicket'|'GovernmentSecurity'|'PnrGovernment'</ENUM>;
     /**
      * The message.
      */

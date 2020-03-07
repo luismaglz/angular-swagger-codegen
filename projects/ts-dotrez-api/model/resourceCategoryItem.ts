@@ -15,13 +15,13 @@
  * Model representing a resource setting category item.
  */
 
-    import { ResourceCategoryItemContentType } from '../types/enums';
+    import { ResourceCategoryItem<CAP>contentType</CAP> } from '../types/enums';
 
 export interface ResourceCategoryItem { 
     /**
      * The default content type.
      */
-    readonly contentType?: ResourceCategoryItemContentType;
+    readonly contentType?: <ENUM>'Unknown'|'Json'|'Xml'</ENUM>;
     /**
      * The resource id.
      */

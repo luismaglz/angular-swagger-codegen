@@ -16,7 +16,7 @@ import { Name } from './name';
  * Defines a specific person travel document.
  */
 
-    import { PersonTravelDocumentGender } from '../types/enums';
+    import { PersonTravelDocument<CAP>gender</CAP> } from '../types/enums';
 
 export interface PersonTravelDocument { 
     /**
@@ -62,7 +62,7 @@ export interface PersonTravelDocument {
     /**
      * The travel document holder's gender.
      */
-    gender?: PersonTravelDocumentGender;
+    gender?: <ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The person's date of birth.
      */

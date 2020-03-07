@@ -15,7 +15,7 @@
  * The booking fee settings.
  */
 
-    import { FeeSettingsFeeDescription } from '../types/enums';
+    import { FeeSettings<CAP>feeDescription</CAP> } from '../types/enums';
 
 export interface FeeSettings { 
     /**
@@ -37,5 +37,5 @@ export interface FeeSettings {
     /**
      * Gets or sets the restriction for fee description fields.
      */
-    feeDescription?: FeeSettingsFeeDescription;
+    feeDescription?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
 }

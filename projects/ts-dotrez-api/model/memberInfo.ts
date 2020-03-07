@@ -13,10 +13,10 @@ import { CustomAttributeData } from './customAttributeData';
 
 
 
-    import { MemberInfoMemberType } from '../types/enums';
+    import { MemberInfo<CAP>memberType</CAP> } from '../types/enums';
 
 export interface MemberInfo { 
-    readonly memberType?: MemberInfoMemberType;
+    readonly memberType?: <ENUM>'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All'</ENUM>;
     readonly name?: string;
     readonly declaringType?: string;
     readonly reflectedType?: string;

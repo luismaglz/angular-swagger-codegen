@@ -15,8 +15,8 @@
  * Model describing the detailed leg information.
  */
 
-    import { LegInformationCodeShareIndicator } from '../types/enums';
-    import { LegInformationStatus } from '../types/enums';
+    import { LegInformation<CAP>codeShareIndicator</CAP> } from '../types/enums';
+    import { LegInformation<CAP>status</CAP> } from '../types/enums';
 
 export interface LegInformation { 
     /**
@@ -54,7 +54,7 @@ export interface LegInformation {
     /**
      * The leg code share indicator.
      */
-    codeShareIndicator?: LegInformationCodeShareIndicator;
+    codeShareIndicator?: <ENUM>'NonCodeShare'|'CodeShareCommercialDuplicate'|'SharedDesignatorOrWetLease'|'CodeShareHostOperatingCarrier'|'CodeShareCommercialDuplicateWithOverrideText'|'SharedDesignatorOrWetLeaseWithOverrideText'</ENUM>;
     /**
      * The leg departure terminal.
      */
@@ -138,7 +138,7 @@ export interface LegInformation {
     /**
      * The legs status.
      */
-    status?: LegInformationStatus;
+    status?: <ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
     /**
      * A value indicating whether the leg is subject to government approval.
      */

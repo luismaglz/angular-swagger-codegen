@@ -25,10 +25,10 @@ import { Program } from './program';
  * Manifest Passenger.
  */
 
-    import { ManifestPassengerCheckInType } from '../types/enums';
-    import { ManifestPassengerPaidStatus } from '../types/enums';
-    import { ManifestPassengerProfileStatus } from '../types/enums';
-    import { ManifestPassengerStatus } from '../types/enums';
+    import { ManifestPassenger<CAP>checkInType</CAP> } from '../types/enums';
+    import { ManifestPassenger<CAP>paidStatus</CAP> } from '../types/enums';
+    import { ManifestPassenger<CAP>profileStatus</CAP> } from '../types/enums';
+    import { ManifestPassenger<CAP>status</CAP> } from '../types/enums';
 
 export interface ManifestPassenger { 
     /**
@@ -46,7 +46,7 @@ export interface ManifestPassenger {
     /**
      * The type of flight that is being dealt with: Local = first leg of journey
      */
-    checkInType?: ManifestPassengerCheckInType;
+    checkInType?: <ENUM>'Default'|'Local'|'Through'|'Connecting'|'NonLocal'</ENUM>;
     /**
      * Manifest comments attached to the booking.  Gets collection of ManifestComment
      */
@@ -78,7 +78,7 @@ export interface ManifestPassenger {
     /**
      * The PaidStatus property.
      */
-    paidStatus?: ManifestPassengerPaidStatus;
+    paidStatus?: <ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
     /**
      * Travel documents for the passenger, i.e. Passports and Visas.  Navitaire.NewSkies.Messages.Manifest.ManifestPassengerAddress
      */
@@ -98,7 +98,7 @@ export interface ManifestPassenger {
     /**
      * The ProfileStatus property.
      */
-    profileStatus?: ManifestPassengerProfileStatus;
+    profileStatus?: <ENUM>'Default'|'KnownIndividual'|'ResolutionGroup'|'SelecteeGroup'|'NotUsed'|'FailureGroup'|'RandomSelectee'|'Exempt'</ENUM>;
     /**
      * The passenger program data.
      */
@@ -118,7 +118,7 @@ export interface ManifestPassenger {
     /**
      * The booking status.
      */
-    status?: ManifestPassengerStatus;
+    status?: <ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * Additional passenger information details.
      */

@@ -15,7 +15,7 @@
  * The location model.
  */
 
-    import { LocationLocationType } from '../types/enums';
+    import { Location<CAP>locationType</CAP> } from '../types/enums';
 
 export interface Location { 
     /**
@@ -29,7 +29,7 @@ export interface Location {
     /**
      * The location type.
      */
-    locationType?: LocationLocationType;
+    locationType?: <ENUM>'Other'|'Station'|'City'</ENUM>;
     /**
      * The payment group id.
      */

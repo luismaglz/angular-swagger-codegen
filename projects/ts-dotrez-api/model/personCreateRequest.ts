@@ -26,9 +26,9 @@ import { PersonTravelDocumentRequest } from './personTravelDocumentRequest';
  * Defines the person create request.
  */
 
-    import { PersonCreateRequestType } from '../types/enums';
-    import { PersonCreateRequestStatus } from '../types/enums';
-    import { PersonCreateRequestNotificationPreference } from '../types/enums';
+    import { PersonCreateRequest<CAP>type</CAP> } from '../types/enums';
+    import { PersonCreateRequest<CAP>status</CAP> } from '../types/enums';
+    import { PersonCreateRequest<CAP>notificationPreference</CAP> } from '../types/enums';
 
 export interface PersonCreateRequest { 
     /**
@@ -42,7 +42,7 @@ export interface PersonCreateRequest {
     /**
      * The type of person.
      */
-    type?: PersonCreateRequestType;
+    type?: <ENUM>'None'|'Customer'|'Agent'</ENUM>;
     /**
      * The collection of registered email address.
      */
@@ -50,7 +50,7 @@ export interface PersonCreateRequest {
     /**
      * The status of the person.
      */
-    status?: PersonCreateRequestStatus;
+    status?: <ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
     /**
      * The collection of registered phone numbers.
      */
@@ -66,7 +66,7 @@ export interface PersonCreateRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: PersonCreateRequestNotificationPreference;
+    notificationPreference?: <ENUM>'None'|'Promotional'</ENUM>;
     /**
      * The collection of registered stored payments.
      */

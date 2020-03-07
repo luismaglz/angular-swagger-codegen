@@ -16,7 +16,7 @@ import { Supplier } from './supplier';
  * Defines a travel commerce vendor.
  */
 
-    import { VendorPaymentAction } from '../types/enums';
+    import { Vendor<CAP>paymentAction</CAP> } from '../types/enums';
 
 export interface Vendor { 
     /**
@@ -54,7 +54,7 @@ export interface Vendor {
     /**
      * The payment action.
      */
-    paymentAction?: VendorPaymentAction;
+    paymentAction?: <ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
     /**
      * Supplier information.
      */

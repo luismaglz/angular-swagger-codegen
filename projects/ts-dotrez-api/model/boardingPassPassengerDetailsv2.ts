@@ -19,7 +19,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
  * Defines the boarding pass passenger details.
  */
 
-    import { BoardingPassPassengerDetailsv2Gender } from '../types/enums';
+    import { BoardingPassPassengerDetailsv2<CAP>gender</CAP> } from '../types/enums';
 
 export interface BoardingPassPassengerDetailsv2 { 
     /**
@@ -57,7 +57,7 @@ export interface BoardingPassPassengerDetailsv2 {
     /**
      * The gender.
      */
-    gender?: BoardingPassPassengerDetailsv2Gender;
+    gender?: <ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The passengers infant details if an infant exists.
      */

@@ -12,11 +12,11 @@
 
 
 
-    import { MessageStatus } from '../types/enums';
+    import { Message<CAP>status</CAP> } from '../types/enums';
 
 export interface Message { 
     code?: string;
     type?: string;
     value?: string;
-    status?: MessageStatus;
+    status?: <ENUM>'General'|'Warning'|'Critical'</ENUM>;
 }

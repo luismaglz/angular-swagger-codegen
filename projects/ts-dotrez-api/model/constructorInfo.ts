@@ -13,17 +13,17 @@ import { CustomAttributeData } from './customAttributeData';
 
 
 
-    import { ConstructorInfoMemberType } from '../types/enums';
-    import { ConstructorInfoMethodImplementationFlags } from '../types/enums';
-    import { ConstructorInfoAttributes } from '../types/enums';
-    import { ConstructorInfoCallingConvention } from '../types/enums';
+    import { ConstructorInfo<CAP>memberType</CAP> } from '../types/enums';
+    import { ConstructorInfo<CAP>methodImplementationFlags</CAP> } from '../types/enums';
+    import { ConstructorInfo<CAP>attributes</CAP> } from '../types/enums';
+    import { ConstructorInfo<CAP>callingConvention</CAP> } from '../types/enums';
 
 export interface ConstructorInfo { 
-    readonly memberType?: ConstructorInfoMemberType;
-    readonly methodImplementationFlags?: ConstructorInfoMethodImplementationFlags;
+    readonly memberType?: <ENUM>'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All'</ENUM>;
+    readonly methodImplementationFlags?: <ENUM>'Managed'|'IL'|'Native'|'OPTIL'|'Runtime'|'CodeTypeMask'|'Unmanaged'|'ManagedMask'|'NoInlining'|'ForwardRef'|'Synchronized'|'NoOptimization'|'PreserveSig'|'AggressiveInlining'|'InternalCall'|'MaxMethodImplVal'</ENUM>;
     readonly methodHandle?: any;
-    readonly attributes?: ConstructorInfoAttributes;
-    readonly callingConvention?: ConstructorInfoCallingConvention;
+    readonly attributes?: <ENUM>'ReuseSlot'|'PrivateScope'|'Private'|'FamANDAssem'|'Assembly'|'Family'|'FamORAssem'|'Public'|'MemberAccessMask'|'UnmanagedExport'|'Static'|'Final'|'Virtual'|'HideBySig'|'NewSlot'|'VtableLayoutMask'|'CheckAccessOnOverride'|'Abstract'|'SpecialName'|'RTSpecialName'|'PinvokeImpl'|'HasSecurity'|'RequireSecObject'|'ReservedMask'</ENUM>;
+    readonly callingConvention?: <ENUM>'Standard'|'VarArgs'|'Any'|'HasThis'|'ExplicitThis'</ENUM>;
     readonly isGenericMethodDefinition?: boolean;
     readonly containsGenericParameters?: boolean;
     readonly isGenericMethod?: boolean;

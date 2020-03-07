@@ -17,7 +17,7 @@ import { UserRole } from './userRole';
  * Defines a user record.
  */
 
-    import { UserRecordStatus } from '../types/enums';
+    import { UserRecord<CAP>status</CAP> } from '../types/enums';
 
 export interface UserRecord { 
     /**
@@ -39,7 +39,7 @@ export interface UserRecord {
     /**
      * The status of the user.
      */
-    status?: UserRecordStatus;
+    status?: <ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
     /**
      * Flag indicating if the user is allowed.
      */

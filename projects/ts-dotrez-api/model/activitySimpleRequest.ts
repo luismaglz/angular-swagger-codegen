@@ -17,7 +17,7 @@ import { ParticipantCriteria } from './participantCriteria';
  * Defines the query for generic travel commerce activities.
  */
 
-    import { ActivitySimpleRequestSort } from '../types/enums';
+    import { ActivitySimpleRequest<CAP>sort</CAP> } from '../types/enums';
 
 export interface ActivitySimpleRequest { 
     /**
@@ -51,7 +51,7 @@ export interface ActivitySimpleRequest {
     /**
      * The search sort order.
      */
-    sort?: ActivitySimpleRequestSort;
+    sort?: <ENUM>'SupplierDefined'|'Price'|'Rating'|'Name'|'Category'|'VendorDescription'|'Preferred'|'Relevance'</ENUM>;
     /**
      * The promotion code with which to search.
      */

@@ -15,11 +15,11 @@
  * The payment method field model.
  */
 
-    import { PaymentMethodFieldBookingPaymentField } from '../types/enums';
-    import { PaymentMethodFieldPaymentMethodType } from '../types/enums';
-    import { PaymentMethodFieldRefundUiState } from '../types/enums';
-    import { PaymentMethodFieldRequiredType } from '../types/enums';
-    import { PaymentMethodFieldValueType } from '../types/enums';
+    import { PaymentMethodField<CAP>bookingPaymentField</CAP> } from '../types/enums';
+    import { PaymentMethodField<CAP>paymentMethodType</CAP> } from '../types/enums';
+    import { PaymentMethodField<CAP>refundUiState</CAP> } from '../types/enums';
+    import { PaymentMethodField<CAP>requiredType</CAP> } from '../types/enums';
+    import { PaymentMethodField<CAP>valueType</CAP> } from '../types/enums';
 
 export interface PaymentMethodField { 
     /**
@@ -29,7 +29,7 @@ export interface PaymentMethodField {
     /**
      * The field category for this payment field.
      */
-    bookingPaymentField?: PaymentMethodFieldBookingPaymentField;
+    bookingPaymentField?: <ENUM>'Miscellaneous'|'AccountNumber'|'Amount'|'ExpirationDate'|'CurrencyCode'|'PaymentText'|'PrepaidApprovalCode'|'Deposit'</ENUM>;
     /**
      * The name of this payment field
      */
@@ -45,7 +45,7 @@ export interface PaymentMethodField {
     /**
      * The payment method type for this payment field.
      */
-    paymentMethodType?: PaymentMethodFieldPaymentMethodType;
+    paymentMethodType?: <ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
     /**
      * The persist data flag for this payment field.
      */
@@ -53,11 +53,11 @@ export interface PaymentMethodField {
     /**
      * The refund ui state for this payment field.
      */
-    refundUiState?: PaymentMethodFieldRefundUiState;
+    refundUiState?: <ENUM>'Enabled'|'Disabled'|'Hidden'</ENUM>;
     /**
      * The required type for this payment field.
      */
-    requiredType?: PaymentMethodFieldRequiredType;
+    requiredType?: <ENUM>'Required'|'Optional'|'NotAllowed'</ENUM>;
     /**
      * The value max length for this payment field.
      */
@@ -73,5 +73,5 @@ export interface PaymentMethodField {
     /**
      * The value type for this payment field.
      */
-    valueType?: PaymentMethodFieldValueType;
+    valueType?: <ENUM>'Unknown'|'String'|'UpperCaseString'|'Numeric'|'Alphanumeric'|'Amount'|'Date'|'Mod10'|'Name'|'Address'|'State'|'Zip'|'Country'|'City'|'Boolean'|'Email'</ENUM>;
 }

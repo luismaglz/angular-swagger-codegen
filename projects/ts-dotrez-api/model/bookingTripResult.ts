@@ -16,9 +16,9 @@ import { SegmentTripResult } from './segmentTripResult';
  * Booking flight result data.
  */
 
-    import { BookingTripResultBookingStatus } from '../types/enums';
-    import { BookingTripResultPriceStatus } from '../types/enums';
-    import { BookingTripResultPaidStatus } from '../types/enums';
+    import { BookingTripResult<CAP>bookingStatus</CAP> } from '../types/enums';
+    import { BookingTripResult<CAP>priceStatus</CAP> } from '../types/enums';
+    import { BookingTripResult<CAP>paidStatus</CAP> } from '../types/enums';
 
 export interface BookingTripResult { 
     /**
@@ -28,15 +28,15 @@ export interface BookingTripResult {
     /**
      * The booking status.
      */
-    bookingStatus?: BookingTripResultBookingStatus;
+    bookingStatus?: <ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * The price status.
      */
-    priceStatus?: BookingTripResultPriceStatus;
+    priceStatus?: <ENUM>'Invalid'|'Override'|'Valid'</ENUM>;
     /**
      * The paid status.
      */
-    paidStatus?: BookingTripResultPaidStatus;
+    paidStatus?: <ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
     /**
      * The UTC date and time of when the booking was created.
      */

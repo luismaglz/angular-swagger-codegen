@@ -15,101 +15,101 @@
  * Defines the order customers field validation levels.
  */
 
-    import { CustomerSettingsCustomerNumber } from '../types/enums';
-    import { CustomerSettingsTitle } from '../types/enums';
-    import { CustomerSettingsFirstName } from '../types/enums';
-    import { CustomerSettingsMiddleName } from '../types/enums';
-    import { CustomerSettingsLastName } from '../types/enums';
-    import { CustomerSettingsLineOne } from '../types/enums';
-    import { CustomerSettingsLineTwo } from '../types/enums';
-    import { CustomerSettingsCity } from '../types/enums';
-    import { CustomerSettingsPostalCode } from '../types/enums';
-    import { CustomerSettingsProvinceState } from '../types/enums';
-    import { CustomerSettingsCountryCode } from '../types/enums';
-    import { CustomerSettingsCounty } from '../types/enums';
-    import { CustomerSettingsHomePhone } from '../types/enums';
-    import { CustomerSettingsWorkPhone } from '../types/enums';
-    import { CustomerSettingsFax } from '../types/enums';
-    import { CustomerSettingsEmail } from '../types/enums';
-    import { CustomerSettingsType } from '../types/enums';
-    import { CustomerSettingsCompanyName } from '../types/enums';
-    import { CustomerSettingsBirthDate } from '../types/enums';
+    import { CustomerSettings<CAP>customerNumber</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>title</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>firstName</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>middleName</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>lastName</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>lineOne</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>lineTwo</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>city</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>postalCode</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>provinceState</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>countryCode</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>county</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>homePhone</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>workPhone</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>fax</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>email</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>type</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>companyName</CAP> } from '../types/enums';
+    import { CustomerSettings<CAP>birthDate</CAP> } from '../types/enums';
 
 export interface CustomerSettings { 
     /**
      * The field usage for the customer number.
      */
-    customerNumber?: CustomerSettingsCustomerNumber;
+    customerNumber?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The title field usage.
      */
-    title?: CustomerSettingsTitle;
+    title?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The first name field usage.
      */
-    firstName?: CustomerSettingsFirstName;
+    firstName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The middle name field usage.
      */
-    middleName?: CustomerSettingsMiddleName;
+    middleName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The last name field usage.
      */
-    lastName?: CustomerSettingsLastName;
+    lastName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address line one field usage.
      */
-    lineOne?: CustomerSettingsLineOne;
+    lineOne?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address line two field usage.
      */
-    lineTwo?: CustomerSettingsLineTwo;
+    lineTwo?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address city field usage.
      */
-    city?: CustomerSettingsCity;
+    city?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address postal code field usage.
      */
-    postalCode?: CustomerSettingsPostalCode;
+    postalCode?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address province state field usage.
      */
-    provinceState?: CustomerSettingsProvinceState;
+    provinceState?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address country code field usage.
      */
-    countryCode?: CustomerSettingsCountryCode;
+    countryCode?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The address county field usage.
      */
-    county?: CustomerSettingsCounty;
+    county?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The home phone number field usage.
      */
-    homePhone?: CustomerSettingsHomePhone;
+    homePhone?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The work phone field usage.
      */
-    workPhone?: CustomerSettingsWorkPhone;
+    workPhone?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The fax number field usage.
      */
-    fax?: CustomerSettingsFax;
+    fax?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The email address field usage.
      */
-    email?: CustomerSettingsEmail;
+    email?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The consumer type field usage.
      */
-    type?: CustomerSettingsType;
+    type?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The company name field usage.
      */
-    companyName?: CustomerSettingsCompanyName;
+    companyName?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The date of birth field usage.
      */
-    birthDate?: CustomerSettingsBirthDate;
+    birthDate?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
 }

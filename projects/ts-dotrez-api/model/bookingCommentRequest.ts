@@ -15,13 +15,13 @@
  * Defines a booking comment.
  */
 
-    import { BookingCommentRequestType } from '../types/enums';
+    import { BookingCommentRequest<CAP>type</CAP> } from '../types/enums';
 
 export interface BookingCommentRequest { 
     /**
      * Indicates where the comment will be seen.
      */
-    type?: BookingCommentRequestType;
+    type?: <ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
     /**
      * The text of the comment.
      */

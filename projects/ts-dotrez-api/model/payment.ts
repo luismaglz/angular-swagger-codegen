@@ -22,10 +22,10 @@ import { ThreeDSecure } from './threeDSecure';
  * Defines an applied payment on the booking.
  */
 
-    import { PaymentAuthorizationStatus } from '../types/enums';
-    import { PaymentType } from '../types/enums';
-    import { PaymentStatus } from '../types/enums';
-    import { PaymentChannelType } from '../types/enums';
+    import { Payment<CAP>authorizationStatus</CAP> } from '../types/enums';
+    import { Payment<CAP>type</CAP> } from '../types/enums';
+    import { Payment<CAP>status</CAP> } from '../types/enums';
+    import { Payment<CAP>channelType</CAP> } from '../types/enums';
 
 export interface Payment { 
     /**
@@ -55,7 +55,7 @@ export interface Payment {
     /**
      * The real payment status that should never be exposed to the end user unless a agent.
      */
-    authorizationStatus?: PaymentAuthorizationStatus;
+    authorizationStatus?: <ENUM>'Unknown'|'Acknowledged'|'Pending'|'InProcess'|'Approved'|'Declined'|'Referral'|'PickUpCard'|'HotCard'|'Voided'|'Retrieval'|'ChargedBack'|'Error'|'ValidationFailed'|'Address'|'VerificationCode'|'FraudPrevention'|'ForcedApproval'|'ForcedDecline'</ENUM>;
     /**
      * The date restriction for a payment (when funds will be there).
      */
@@ -87,11 +87,11 @@ export interface Payment {
     /**
      * The payment method type.
      */
-    type?: PaymentType;
+    type?: <ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
     /**
      * The status of the booking (this is the safe status).
      */
-    status?: PaymentStatus;
+    status?: <ENUM>'New'|'Received'|'Pending'|'Approved'|'Declined'|'Unknown'|'PendingCustomerAction'</ENUM>;
     /**
      * Flag that indicates if the payment is a result of a divide.
      */
@@ -99,7 +99,7 @@ export interface Payment {
     /**
      * The channel type that the payment was made through.
      */
-    channelType?: PaymentChannelType;
+    channelType?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
     /**
      * The payments point of sale information.
      */

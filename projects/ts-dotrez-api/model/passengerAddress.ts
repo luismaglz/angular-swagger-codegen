@@ -15,13 +15,13 @@
  * Passenger address information. This contains more data then the base address class.
  */
 
-    import { PassengerAddressStatus } from '../types/enums';
+    import { PassengerAddress<CAP>status</CAP> } from '../types/enums';
 
 export interface PassengerAddress { 
     /**
      * The addresses APIS status.
      */
-    status?: PassengerAddressStatus;
+    status?: <ENUM>'Residence'|'InCountry'|'Emergency'|'Contact'</ENUM>;
     /**
      * Company name associated with this address.
      */

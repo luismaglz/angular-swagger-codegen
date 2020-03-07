@@ -15,28 +15,28 @@
  * The Booking Check-In Settings.
  */
 
-    import { CheckInSettingsAllowApisCheckIn } from '../types/enums';
-    import { CheckInSettingsAllowIappCheckIn } from '../types/enums';
-    import { CheckInSettingsDomesticBagWeight } from '../types/enums';
-    import { CheckInSettingsInternationalBagWeight } from '../types/enums';
+    import { CheckInSettings<CAP>allowApisCheckIn</CAP> } from '../types/enums';
+    import { CheckInSettings<CAP>allowIappCheckIn</CAP> } from '../types/enums';
+    import { CheckInSettings<CAP>domesticBagWeight</CAP> } from '../types/enums';
+    import { CheckInSettings<CAP>internationalBagWeight</CAP> } from '../types/enums';
 
 export interface CheckInSettings { 
     /**
      * Gets or sets the APIS rules for Check-In.
      */
-    allowApisCheckIn?: CheckInSettingsAllowApisCheckIn;
+    allowApisCheckIn?: <ENUM>'NotAllowed'|'AllowedWithVerifiedDocument'|'AllowedWithDocument'|'AllowedWithoutVerifiedDocument'</ENUM>;
     /**
      * Gets or sets the IAPP rules for Check-In.
      */
-    allowIappCheckIn?: CheckInSettingsAllowIappCheckIn;
+    allowIappCheckIn?: <ENUM>'NotAllowed'|'AllowedWithVerifiedDocument'|'AllowedWithDocument'|'AllowedWithoutVerifiedDocument'</ENUM>;
     /**
      * Gets or sets the Domestic bag weight rules for Check-In.
      */
-    domesticBagWeight?: CheckInSettingsDomesticBagWeight;
+    domesticBagWeight?: <ENUM>'WeightNotRequired'|'TotalWeightRequired'|'IndividualWeightRequired'</ENUM>;
     /**
      * Gets or sets the International bag weight rules for Check-In.
      */
-    internationalBagWeight?: CheckInSettingsInternationalBagWeight;
+    internationalBagWeight?: <ENUM>'WeightNotRequired'|'TotalWeightRequired'|'IndividualWeightRequired'</ENUM>;
     /**
      * Gets or sets the flag to allow APPS Checkin.
      */

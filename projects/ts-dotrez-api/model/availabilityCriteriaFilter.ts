@@ -15,23 +15,23 @@
  * Defines all the different ways the availability response can be filtered.
  */
 
-    import { AvailabilityCriteriaFilterFareInclusionType } from '../types/enums';
-    import { AvailabilityCriteriaFilterCompressionType } from '../types/enums';
-    import { AvailabilityCriteriaFilterLoyalty } from '../types/enums';
-    import { AvailabilityCriteriaFilterExclusionType } from '../types/enums';
-    import { AvailabilityCriteriaFilterSortOptions } from '../types/enums';
-    import { AvailabilityCriteriaFilterType } from '../types/enums';
-    import { AvailabilityCriteriaFilterConnectionType } from '../types/enums';
+    import { AvailabilityCriteriaFilter<CAP>fareInclusionType</CAP> } from '../types/enums';
+    import { AvailabilityCriteriaFilter<CAP>compressionType</CAP> } from '../types/enums';
+    import { AvailabilityCriteriaFilter<CAP>loyalty</CAP> } from '../types/enums';
+    import { AvailabilityCriteriaFilter<CAP>exclusionType</CAP> } from '../types/enums';
+    import { AvailabilityCriteriaFilter<CAP>sortOptions</CAP> } from '../types/enums';
+    import { AvailabilityCriteriaFilter<CAP>type</CAP> } from '../types/enums';
+    import { AvailabilityCriteriaFilter<CAP>connectionType</CAP> } from '../types/enums';
 
 export interface AvailabilityCriteriaFilter { 
     /**
      * Defines the type of fares to be included in the response.
      */
-    fareInclusionType?: AvailabilityCriteriaFilterFareInclusionType;
+    fareInclusionType?: <ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
     /**
      * The class compression type.
      */
-    compressionType?: AvailabilityCriteriaFilterCompressionType;
+    compressionType?: <ENUM>'LowestFareClass'|'CompressByProductClass'|'Default'</ENUM>;
     /**
      * The max fare price.
      */
@@ -43,7 +43,7 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: AvailabilityCriteriaFilterLoyalty;
+    loyalty?: <ENUM>'MonetaryOnly'|'PointsOnly'|'PointsAndMonetary'|'PreserveCurrent'</ENUM>;
     /**
      * Flag indicating to include allotted fare classes of service.
      */
@@ -51,11 +51,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters the type of journeys to return.
      */
-    exclusionType?: AvailabilityCriteriaFilterExclusionType;
+    exclusionType?: <ENUM>'Default'|'ExcludeDeparted'|'ExcludeImminent'|'ExcludeUnavailable'</ENUM>;
     /**
      * The list of inventory journey sort options, used for filtering journeys on the response.
      */
-    sortOptions?: AvailabilityCriteriaFilterSortOptions;
+    sortOptions?: <ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
     /**
      * The list of product class codes to filter with.
      */
@@ -83,11 +83,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * The type filtering based on connections.
      */
-    type?: AvailabilityCriteriaFilterType;
+    type?: <ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * Specifies the type of sold as connection when segment connects with passive segment.
      */
-    connectionType?: AvailabilityCriteriaFilterConnectionType;
+    connectionType?: <ENUM>'None'|'Domestic'|'International'|'Both'</ENUM>;
     /**
      * The number of max connections.
      */

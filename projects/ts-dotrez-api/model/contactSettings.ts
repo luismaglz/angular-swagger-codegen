@@ -15,96 +15,96 @@
  * The booking contact settings.
  */
 
-    import { ContactSettingsTitle } from '../types/enums';
-    import { ContactSettingsFirstName } from '../types/enums';
-    import { ContactSettingsMiddleName } from '../types/enums';
-    import { ContactSettingsLastName } from '../types/enums';
-    import { ContactSettingsSuffix } from '../types/enums';
-    import { ContactSettingsAddressLineOne } from '../types/enums';
-    import { ContactSettingsAddressLineTwo } from '../types/enums';
-    import { ContactSettingsAddressLineThree } from '../types/enums';
-    import { ContactSettingsCity } from '../types/enums';
-    import { ContactSettingsState } from '../types/enums';
-    import { ContactSettingsPostalCode } from '../types/enums';
-    import { ContactSettingsCountry } from '../types/enums';
-    import { ContactSettingsEmail } from '../types/enums';
-    import { ContactSettingsHomePhoneNumber } from '../types/enums';
-    import { ContactSettingsWorkPhoneNumber } from '../types/enums';
-    import { ContactSettingsOtherPhoneNumber } from '../types/enums';
-    import { ContactSettingsFaxNumber } from '../types/enums';
-    import { ContactSettingsDefaultItineraryDistribution } from '../types/enums';
-    import { ContactSettingsNotificationPreference } from '../types/enums';
-    import { ContactSettingsDefaultNotificationPreference } from '../types/enums';
+    import { ContactSettings<CAP>title</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>firstName</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>middleName</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>lastName</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>suffix</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>addressLineOne</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>addressLineTwo</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>addressLineThree</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>city</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>state</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>postalCode</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>country</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>email</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>homePhoneNumber</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>workPhoneNumber</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>otherPhoneNumber</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>faxNumber</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>defaultItineraryDistribution</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>notificationPreference</CAP> } from '../types/enums';
+    import { ContactSettings<CAP>defaultNotificationPreference</CAP> } from '../types/enums';
 
 export interface ContactSettings { 
     /**
      * Title field validation control.
      */
-    title?: ContactSettingsTitle;
+    title?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * First name field validation control.
      */
-    firstName?: ContactSettingsFirstName;
+    firstName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Middle name field validation control.
      */
-    middleName?: ContactSettingsMiddleName;
+    middleName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Last name field validation control.
      */
-    lastName?: ContactSettingsLastName;
+    lastName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Suffix field validation control.
      */
-    suffix?: ContactSettingsSuffix;
+    suffix?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address line one field validation control.
      */
-    addressLineOne?: ContactSettingsAddressLineOne;
+    addressLineOne?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address line two field validation control.
      */
-    addressLineTwo?: ContactSettingsAddressLineTwo;
+    addressLineTwo?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address line three field validation control.
      */
-    addressLineThree?: ContactSettingsAddressLineThree;
+    addressLineThree?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address city field validation control.
      */
-    city?: ContactSettingsCity;
+    city?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address state field validation control.
      */
-    state?: ContactSettingsState;
+    state?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address postal code field validation control.
      */
-    postalCode?: ContactSettingsPostalCode;
+    postalCode?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address country field validation control.
      */
-    country?: ContactSettingsCountry;
+    country?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Email field validation control.
      */
-    email?: ContactSettingsEmail;
+    email?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Home phone number field validation control.
      */
-    homePhoneNumber?: ContactSettingsHomePhoneNumber;
+    homePhoneNumber?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Work phone number field validation control.
      */
-    workPhoneNumber?: ContactSettingsWorkPhoneNumber;
+    workPhoneNumber?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Other phone number field validation control.
      */
-    otherPhoneNumber?: ContactSettingsOtherPhoneNumber;
+    otherPhoneNumber?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Fax number field validation control.
      */
-    faxNumber?: ContactSettingsFaxNumber;
+    faxNumber?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Flag indicating to disable phone number formatting.
      */
@@ -112,15 +112,15 @@ export interface ContactSettings {
     /**
      * The default itinerary distribution option.
      */
-    defaultItineraryDistribution?: ContactSettingsDefaultItineraryDistribution;
+    defaultItineraryDistribution?: <ENUM>'None'|'Mail'|'Email'|'Fax'|'MailFax'|'Airport'|'Hold'|'Print'</ENUM>;
     /**
      * Notification preference field validation control.
      */
-    notificationPreference?: ContactSettingsNotificationPreference;
+    notificationPreference?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The default notification preference.
      */
-    defaultNotificationPreference?: ContactSettingsDefaultNotificationPreference;
+    defaultNotificationPreference?: <ENUM>'None'|'Promotional'</ENUM>;
     /**
      * Flag indicating to default the customer preferences to the contact.
      */

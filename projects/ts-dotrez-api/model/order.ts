@@ -29,7 +29,7 @@ import { Term } from './term';
  * Defines a order.
  */
 
-    import { OrderPaymentAction } from '../types/enums';
+    import { Order<CAP>paymentAction</CAP> } from '../types/enums';
 
 export interface Order { 
     /**
@@ -104,7 +104,7 @@ export interface Order {
     /**
      * The payment action.
      */
-    paymentAction?: OrderPaymentAction;
+    paymentAction?: <ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
     /**
      * The pricing breakdown.
      */

@@ -17,11 +17,11 @@ import { RegionRate } from './regionRate';
  * Region fee model.
  */
 
-    import { RegionFeeDeductionType } from '../types/enums';
-    import { RegionFeeDirectionality } from '../types/enums';
-    import { RegionFeeRegionType } from '../types/enums';
-    import { RegionFeeTravelRegionType } from '../types/enums';
-    import { RegionFeeTravelSegmentIndicator } from '../types/enums';
+    import { RegionFee<CAP>deductionType</CAP> } from '../types/enums';
+    import { RegionFee<CAP>directionality</CAP> } from '../types/enums';
+    import { RegionFee<CAP>regionType</CAP> } from '../types/enums';
+    import { RegionFee<CAP>travelRegionType</CAP> } from '../types/enums';
+    import { RegionFee<CAP>travelSegmentIndicator</CAP> } from '../types/enums';
 
 export interface RegionFee { 
     /**
@@ -39,7 +39,7 @@ export interface RegionFee {
     /**
      * Gets or sets the deduction type of this region fee.
      */
-    deductionType?: RegionFeeDeductionType;
+    deductionType?: <ENUM>'All'|'First'|'Last'|'ExceptForFirst'|'ExceptForLast'|'None'</ENUM>;
     /**
      * Gets or sets the default currency code of this region fee.
      */
@@ -47,7 +47,7 @@ export interface RegionFee {
     /**
      * Gets or sets the directionality of this region fee.
      */
-    directionality?: RegionFeeDirectionality;
+    directionality?: <ENUM>'None'|'To'|'From'|'Between'</ENUM>;
     /**
      * Gets or sets the discontinue date of this region fee.
      */
@@ -79,7 +79,7 @@ export interface RegionFee {
     /**
      * Gets or sets the region type for this region fee.
      */
-    regionType?: RegionFeeRegionType;
+    regionType?: <ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
     /**
      * Gets or sets the release date for this region fee.
      */
@@ -99,7 +99,7 @@ export interface RegionFee {
     /**
      * Gets or sets the travel region type for this region.
      */
-    travelRegionType?: RegionFeeTravelRegionType;
+    travelRegionType?: <ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
     /**
      * Gets or sets the travel release date for this region.
      */
@@ -107,5 +107,5 @@ export interface RegionFee {
     /**
      * Gets or sets the travel segment indicator for this region.
      */
-    travelSegmentIndicator?: RegionFeeTravelSegmentIndicator;
+    travelSegmentIndicator?: <ENUM>'None'|'CheckAgainstJourney'|'CheckAgainstTrip'|'Departure'|'DepartureOfTripOrigin'|'DepartureAtConnection'|'DepartureWithinStopoverTime'|'DepartureAtPointOfTurnaround'|'DepartureOfTransOceanicSegment'|'DepartureFromGateway'|'DepartureOfLastSegment'|'DepartureExceedsStopoverTime'|'NotDepartingViaConnection'|'GroundTimeBeforeDepartureOfJourneyWithin'|'GroundTimeBeforeDepartureOfJourneyExceeds'|'Arrival'|'ArrivalOfTransOceanicSegment'|'ArrivalAtGateway'|'ArrivalAtPointOfTurnaround'|'ArrivalAtConnection'|'ArrivalAtTripOrigin'|'NotDepartingViaConnectionOnSameCalendarDay'|'CheckAgainstItinerary'|'GroundTimeAfterArrivalAtConnectionWithin'|'GroundTimeAfterArrivalAtConnectionExceeds'|'GroundTimeAfterArrivalOfJourneyWithin'|'GroundTimeAfterArrivalOfJourneyExceeds'</ENUM>;
 }

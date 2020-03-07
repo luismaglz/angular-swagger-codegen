@@ -15,13 +15,13 @@
  * Fee Model.
  */
 
-    import { FeeChargeLimitMode } from '../types/enums';
-    import { FeeChargeLimitTravelComponent } from '../types/enums';
-    import { FeeFeeApplication } from '../types/enums';
-    import { FeeFeeOptionMode } from '../types/enums';
-    import { FeeFeeType } from '../types/enums';
-    import { FeeTaxApplication } from '../types/enums';
-    import { FeeTravelComponent } from '../types/enums';
+    import { Fee<CAP>chargeLimitMode</CAP> } from '../types/enums';
+    import { Fee<CAP>chargeLimitTravelComponent</CAP> } from '../types/enums';
+    import { Fee<CAP>feeApplication</CAP> } from '../types/enums';
+    import { Fee<CAP>feeOptionMode</CAP> } from '../types/enums';
+    import { Fee<CAP>feeType</CAP> } from '../types/enums';
+    import { Fee<CAP>taxApplication</CAP> } from '../types/enums';
+    import { Fee<CAP>travelComponent</CAP> } from '../types/enums';
 
 export interface Fee { 
     /**
@@ -47,11 +47,11 @@ export interface Fee {
     /**
      * Gets or sets when the charge limit is applied to this fee.
      */
-    chargeLimitMode?: FeeChargeLimitMode;
+    chargeLimitMode?: <ENUM>'FirstOccurrences'|'LastOccurrences'|'FirstOutLastInOccurrences'</ENUM>;
     /**
      * Gets or sets the charge limit for the travel component associated with this fee.
      */
-    chargeLimitTravelComponent?: FeeChargeLimitTravelComponent;
+    chargeLimitTravelComponent?: <ENUM>'Unknown'|'Itinerary'|'Trip'|'Journey'|'Segment'|'Leg'|'ItineraryWithJourneySalesDate'|'TripWithJourneySalesDate'|'JourneyWithBookingSalesDate'|'JourneyWithJourneySalesDate'|'SegmentWithJourneySalesDate'|'LegWithJourneySalesDate'|'Fare'</ENUM>;
     /**
      * Gets or sets the commissionable flag for this fee.
      */
@@ -71,7 +71,7 @@ export interface Fee {
     /**
      * Gets or sets how this fee is applied.
      */
-    feeApplication?: FeeFeeApplication;
+    feeApplication?: <ENUM>'Pnr'|'TravelComponent'|'EachPassenger'|'EachPassengerTravelComponent'|'SpecifyPassenger'|'AllPaxCheckingBagsTogether'|'PerBookingNoLimit'</ENUM>;
     /**
      * Gets or sets the code for this fee.
      */
@@ -79,11 +79,11 @@ export interface Fee {
     /**
      * Gets or sets the fee option mode for this fee.
      */
-    feeOptionMode?: FeeFeeOptionMode;
+    feeOptionMode?: <ENUM>'Default'|'All'|'LowestCost'|'HighestCost'</ENUM>;
     /**
      * Gets or sets the fee type for this fee.
      */
-    feeType?: FeeFeeType;
+    feeType?: <ENUM>'All'|'Tax'|'TravelFee'|'ServiceFee'|'PaymentFee'|'PenaltyFee'|'SsrFee'|'NonFlightServiceFee'|'UpgradeFee'|'SeatFee'|'BaseFare'|'SpoilageFee'|'NameChangeFee'|'ConvenienceFee'|'BaggageFee'|'FareSurcharge'|'PromotionDiscount'|'ServiceBundle'|'ExtraBagFee'|'ATPCOBagFee'</ENUM>;
     /**
      * Gets or sets the inactive flag for this fee.
      */
@@ -107,7 +107,7 @@ export interface Fee {
     /**
      * Gets or sets how the taxes are applied for this fee.
      */
-    taxApplication?: FeeTaxApplication;
+    taxApplication?: <ENUM>'Unknown'|'Taxable'|'TaxableLocal'|'NonTaxable'|'NonTaxableApplyToBaseFareOnly'|'TaxableByTrip'|'TaxableByItinerary'</ENUM>;
     /**
      * Gets or sets the ticketable flag for this fee.
      */
@@ -115,5 +115,5 @@ export interface Fee {
     /**
      * Gets or sets the travel component associated with this fee.
      */
-    travelComponent?: FeeTravelComponent;
+    travelComponent?: <ENUM>'Unknown'|'Itinerary'|'Trip'|'Journey'|'Segment'|'Leg'|'ItineraryWithJourneySalesDate'|'TripWithJourneySalesDate'|'JourneyWithBookingSalesDate'|'JourneyWithJourneySalesDate'|'SegmentWithJourneySalesDate'|'LegWithJourneySalesDate'|'Fare'</ENUM>;
 }

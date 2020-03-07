@@ -15,7 +15,7 @@
  * Defines the login credentials to gain access to a specific user.
  */
 
-    import { CredentialsChannelType } from '../types/enums';
+    import { Credentials<CAP>channelType</CAP> } from '../types/enums';
 
 export interface Credentials { 
     /**
@@ -41,7 +41,7 @@ export interface Credentials {
     /**
      * The optional channel type invoking the communication with the server.
      */
-    channelType?: CredentialsChannelType;
+    channelType?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
     /**
      * The role to log in as.
      */

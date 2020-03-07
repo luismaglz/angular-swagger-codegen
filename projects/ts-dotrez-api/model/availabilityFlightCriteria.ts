@@ -15,7 +15,7 @@
  * The specific flight criteria for the availability criteria.
  */
 
-    import { AvailabilityFlightCriteriaType } from '../types/enums';
+    import { AvailabilityFlightCriteria<CAP>type</CAP> } from '../types/enums';
 
 export interface AvailabilityFlightCriteria { 
     /**
@@ -29,7 +29,7 @@ export interface AvailabilityFlightCriteria {
     /**
      * The flight type filtering based on connections.
      */
-    type?: AvailabilityFlightCriteriaType;
+    type?: <ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * The number of max connecting flights.
      */

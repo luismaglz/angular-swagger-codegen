@@ -13,12 +13,12 @@ import { HealthInformation } from './healthInformation';
 
 
 
-    import { EnvironmentHealthStatus } from '../types/enums';
+    import { EnvironmentHealth<CAP>status</CAP> } from '../types/enums';
 
 export interface EnvironmentHealth { 
     nodes?: Array<HealthInformation>;
     component?: string;
     componentType?: string;
     details?: string;
-    status?: EnvironmentHealthStatus;
+    status?: <ENUM>'Unknown'|'Ok'|'Warning'|'Error'</ENUM>;
 }

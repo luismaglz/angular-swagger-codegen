@@ -18,8 +18,8 @@ import { OrganizationConfigurationv2 } from './organizationConfigurationv2';
  * The base data on the organization.
  */
 
-    import { OrganizationEditRequestType } from '../types/enums';
-    import { OrganizationEditRequestStatus } from '../types/enums';
+    import { OrganizationEditRequest<CAP>type</CAP> } from '../types/enums';
+    import { OrganizationEditRequest<CAP>status</CAP> } from '../types/enums';
 
 export interface OrganizationEditRequest { 
     /**
@@ -37,7 +37,7 @@ export interface OrganizationEditRequest {
     /**
      * Organization type.
      */
-    type?: OrganizationEditRequestType;
+    type?: <ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
     /**
      * Advanced configuration values.
      */
@@ -45,7 +45,7 @@ export interface OrganizationEditRequest {
     /**
      * The organization status.
      */
-    status?: OrganizationEditRequestStatus;
+    status?: <ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
     /**
      * The parent organization code.
      */

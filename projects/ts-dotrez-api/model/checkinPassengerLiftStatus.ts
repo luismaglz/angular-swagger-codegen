@@ -16,13 +16,13 @@ import { TransportationIdentifier } from './transportationIdentifier';
  * Defines a single passengers checkin status for a specific segment.
  */
 
-    import { CheckinPassengerLiftStatusStatus } from '../types/enums';
+    import { CheckinPassengerLiftStatus<CAP>status</CAP> } from '../types/enums';
 
 export interface CheckinPassengerLiftStatus { 
     /**
      * The lift status of the passenger for a specific segment.
      */
-    status?: CheckinPassengerLiftStatusStatus;
+    status?: <ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
     /**
      * The transportation identifier.
      */

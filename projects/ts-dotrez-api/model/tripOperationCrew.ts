@@ -15,7 +15,7 @@
  * Represents the crew of an trip operation.
  */
 
-    import { TripOperationCrewCrewType } from '../types/enums';
+    import { TripOperationCrew<CAP>crewType</CAP> } from '../types/enums';
 
 export interface TripOperationCrew { 
     /**
@@ -25,5 +25,5 @@ export interface TripOperationCrew {
     /**
      * The crew personnel type.
      */
-    crewType?: TripOperationCrewCrewType;
+    crewType?: <ENUM>'Default'|'Pilot'|'CoPilot'|'CockpitJumpseat'|'CabinJumpseat'|'CabinCrew'</ENUM>;
 }

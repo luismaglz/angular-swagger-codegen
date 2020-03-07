@@ -17,13 +17,13 @@ import { SsrRequest } from './ssrRequest';
  * Ssrs by type model allows multiple Ssr requests for a specific type.
  */
 
-    import { SsrsByTypeType } from '../types/enums';
+    import { SsrsByType<CAP>type</CAP> } from '../types/enums';
 
 export interface SsrsByType { 
     /**
      * Defines the duration type of the Ssr.
      */
-    type: SsrsByTypeType;
+    type: <ENUM>'Segment'|'Journey'|'Leg'</ENUM>;
     /**
      * Market for the corresponding type.
      */

@@ -15,14 +15,14 @@
  * Manifest Comment.
  */
 
-    import { ManifestCommentCommentType } from '../types/enums';
-    import { ManifestCommentSystemName } from '../types/enums';
+    import { ManifestComment<CAP>commentType</CAP> } from '../types/enums';
+    import { ManifestComment<CAP>systemName</CAP> } from '../types/enums';
 
 export interface ManifestComment { 
     /**
      * The comment type.
      */
-    commentType?: ManifestCommentCommentType;
+    commentType?: <ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
     /**
      * The agentID.
      */
@@ -46,5 +46,5 @@ export interface ManifestComment {
     /**
      * The system type.
      */
-    systemName?: ManifestCommentSystemName;
+    systemName?: <ENUM>'Default'|'WinRez'|'FareManager'|'ScheduleManager'|'WinManager'|'ConsoleRez'|'WebRez'|'WebServicesApi'|'WebServicesEsc'|'InternalService'|'WebReporting'|'TaxAndFeeManager'|'Dcs'|'DCS_Kiosk'</ENUM>;
 }

@@ -17,7 +17,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
  * Manifest Infant.
  */
 
-    import { ManifestInfantGender } from '../types/enums';
+    import { ManifestInfant<CAP>gender</CAP> } from '../types/enums';
 
 export interface ManifestInfant { 
     /**
@@ -39,7 +39,7 @@ export interface ManifestInfant {
     /**
      * The gender of the passenger.
      */
-    gender?: ManifestInfantGender;
+    gender?: <ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The name of the passenger.
      */

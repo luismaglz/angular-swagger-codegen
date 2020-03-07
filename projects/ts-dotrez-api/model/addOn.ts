@@ -20,8 +20,8 @@ import { Order } from './order';
  * Defines a booking add on service details.
  */
 
-    import { AddOnStatus } from '../types/enums';
-    import { AddOnType } from '../types/enums';
+    import { AddOn<CAP>status</CAP> } from '../types/enums';
+    import { AddOn<CAP>type</CAP> } from '../types/enums';
 
 export interface AddOn { 
     /**
@@ -31,7 +31,7 @@ export interface AddOn {
     /**
      * The status of the add on.
      */
-    readonly status?: AddOnStatus;
+    readonly status?: <ENUM>'Unknown'|'Active'|'Pending'|'Confirming'|'CancelPending'|'Cancelled'</ENUM>;
     /**
      * The unique add on key.
      */
@@ -39,7 +39,7 @@ export interface AddOn {
     /**
      * The type of add on.
      */
-    type?: AddOnType;
+    type?: <ENUM>'Default'|'Insurance'|'Activity'|'Hotel'|'Car'</ENUM>;
     /**
      * The components order summary when the order is not available.
      */

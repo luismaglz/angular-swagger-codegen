@@ -15,11 +15,11 @@
  * A one time travel notification event create request.
  */
 
-    import { OneTimeNotificationEventCreateRequestType } from '../types/enums';
+    import { OneTimeNotificationEventCreateRequest<CAP>type</CAP> } from '../types/enums';
 
 export interface OneTimeNotificationEventCreateRequest { 
     /**
      * The one time travel notification event type.
      */
-    type: OneTimeNotificationEventCreateRequestType;
+    type: <ENUM>'DepartureDelay'|'ArrivalDelay'</ENUM>;
 }

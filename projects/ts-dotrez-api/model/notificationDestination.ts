@@ -15,13 +15,13 @@
  * A travel notification destination.
  */
 
-    import { NotificationDestinationDeliveryMethodCode } from '../types/enums';
+    import { NotificationDestination<CAP>deliveryMethodCode</CAP> } from '../types/enums';
 
 export interface NotificationDestination { 
     /**
      * The delivery method code.
      */
-    deliveryMethodCode: NotificationDestinationDeliveryMethodCode;
+    deliveryMethodCode: <ENUM>'Email'|'Sms'</ENUM>;
     /**
      * The notification destination, an email or phone number.
      */

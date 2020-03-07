@@ -17,7 +17,7 @@ import { PointOfSale } from './pointOfSale';
  * Defines a flight move history log entry.
  */
 
-    import { FlightMoveHistoryChangeReason } from '../types/enums';
+    import { FlightMoveHistory<CAP>changeReason</CAP> } from '../types/enums';
 
 export interface FlightMoveHistory { 
     /**
@@ -51,7 +51,7 @@ export interface FlightMoveHistory {
     /**
      * The reason for the move operation.
      */
-    changeReason?: FlightMoveHistoryChangeReason;
+    changeReason?: <ENUM>'NoChange'|'Irop'|'ScheduleChange'|'Move'|'VoluntaryFlyAhead'|'InvoluntaryFlyAhead'|'SelfServiceRebooking'</ENUM>;
     /**
      * The received by reference number.
      */

@@ -15,7 +15,7 @@
  * Defines the the person phone number.
  */
 
-    import { PersonPhoneNumberRequestType } from '../types/enums';
+    import { PersonPhoneNumberRequest<CAP>type</CAP> } from '../types/enums';
 
 export interface PersonPhoneNumberRequest { 
     /**
@@ -25,7 +25,7 @@ export interface PersonPhoneNumberRequest {
     /**
      * The phone number type.
      */
-    type: PersonPhoneNumberRequestType;
+    type: <ENUM>'Other'|'Home'|'Work'|'Mobile'|'Fax'</ENUM>;
     /**
      * The phone number without any formatting characters.
      */

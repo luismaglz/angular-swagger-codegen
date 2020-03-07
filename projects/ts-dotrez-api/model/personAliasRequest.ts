@@ -15,13 +15,13 @@
  * Defines the person alias request.
  */
 
-    import { PersonAliasRequestType } from '../types/enums';
+    import { PersonAliasRequest<CAP>type</CAP> } from '../types/enums';
 
 export interface PersonAliasRequest { 
     /**
      * The type of alias.
      */
-    type?: PersonAliasRequestType;
+    type?: <ENUM>'Alias'|'Variant'</ENUM>;
     /**
      * The given first name.
      */

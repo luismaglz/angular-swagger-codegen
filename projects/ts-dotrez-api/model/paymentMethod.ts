@@ -16,10 +16,10 @@ import { PaymentMethodPaymentMethodFields } from './paymentMethodPaymentMethodFi
  * The payment method model.
  */
 
-    import { PaymentMethodDccType } from '../types/enums';
-    import { PaymentMethodPaymentMethodType } from '../types/enums';
-    import { PaymentMethodPaymentRefundType } from '../types/enums';
-    import { PaymentMethodRefundCurrencyControl } from '../types/enums';
+    import { PaymentMethod<CAP>dccType</CAP> } from '../types/enums';
+    import { PaymentMethod<CAP>paymentMethodType</CAP> } from '../types/enums';
+    import { PaymentMethod<CAP>paymentRefundType</CAP> } from '../types/enums';
+    import { PaymentMethod<CAP>refundCurrencyControl</CAP> } from '../types/enums';
 
 export interface PaymentMethod { 
     /**
@@ -45,7 +45,7 @@ export interface PaymentMethod {
     /**
      * The DCC type for this payment method.
      */
-    dccType?: PaymentMethodDccType;
+    dccType?: <ENUM>'None'|'ZeroRate'|'FullAmount'</ENUM>;
     /**
      * The disallow partial refund flag for this payment method.
      */
@@ -70,11 +70,11 @@ export interface PaymentMethod {
     /**
      * The payment method type for this payment method.
      */
-    paymentMethodType?: PaymentMethodPaymentMethodType;
+    paymentMethodType?: <ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
     /**
      * The payment refund type for this payment method.
      */
-    paymentRefundType?: PaymentMethodPaymentRefundType;
+    paymentRefundType?: <ENUM>'NotAllowed'|'LineItemLevel'|'AccountLevel'|'BookingLevel'</ENUM>;
     /**
      * The proportional refund flag for this payment method.
      */
@@ -86,7 +86,7 @@ export interface PaymentMethod {
     /**
      * The refund currency control for this payment method.
      */
-    refundCurrencyControl?: PaymentMethodRefundCurrencyControl;
+    refundCurrencyControl?: <ENUM>'UseCollectedCurrency'|'UseQuotedCurrency'</ENUM>;
     /**
      * The hours of restriction for this payment method.
      */

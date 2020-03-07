@@ -15,7 +15,7 @@
  * Defines a trip downgrade request.
  */
 
-    import { TripDowngradeRequestInventoryControl } from '../types/enums';
+    import { TripDowngradeRequest<CAP>inventoryControl</CAP> } from '../types/enums';
 
 export interface TripDowngradeRequest { 
     /**
@@ -25,5 +25,5 @@ export interface TripDowngradeRequest {
     /**
      * The reserving inventory action of the upgrade once sold by the system.
      */
-    inventoryControl?: TripDowngradeRequestInventoryControl;
+    inventoryControl?: <ENUM>'HoldSpace'|'SoftHoldSpace'|'ClaimSpace'|'OversellSpace'|'StandBy'</ENUM>;
 }

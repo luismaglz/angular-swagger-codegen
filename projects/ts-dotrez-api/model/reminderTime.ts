@@ -15,13 +15,13 @@
  * The reminder time for a notification timed event.
  */
 
-    import { ReminderTimeType } from '../types/enums';
+    import { ReminderTime<CAP>type</CAP> } from '../types/enums';
 
 export interface ReminderTime { 
     /**
      * The notification timed event type.
      */
-    type?: ReminderTimeType;
+    type?: <ENUM>'Departure'|'Arrival'</ENUM>;
     /**
      * The list of acceptable reminder times.
      */

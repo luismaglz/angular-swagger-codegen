@@ -15,108 +15,108 @@
  * The booking passenger settings.
  */
 
-    import { PassengerSettingsPassengerTitle } from '../types/enums';
-    import { PassengerSettingsPassengerFirstName } from '../types/enums';
-    import { PassengerSettingsPassengerMiddleName } from '../types/enums';
-    import { PassengerSettingsPassengerLastName } from '../types/enums';
-    import { PassengerSettingsPassengerSuffix } from '../types/enums';
-    import { PassengerSettingsPassengerCustomerNumber } from '../types/enums';
-    import { PassengerSettingsPassengerGender } from '../types/enums';
-    import { PassengerSettingsPassengerDateOfBirth } from '../types/enums';
-    import { PassengerSettingsPassengerNationality } from '../types/enums';
-    import { PassengerSettingsPassengerResidentCountry } from '../types/enums';
-    import { PassengerSettingsInfantTitle } from '../types/enums';
-    import { PassengerSettingsInfantFirstName } from '../types/enums';
-    import { PassengerSettingsInfantMiddleName } from '../types/enums';
-    import { PassengerSettingsInfantLastName } from '../types/enums';
-    import { PassengerSettingsInfantSuffix } from '../types/enums';
-    import { PassengerSettingsInfantGender } from '../types/enums';
-    import { PassengerSettingsInfantDateOfBirth } from '../types/enums';
-    import { PassengerSettingsInfantNationality } from '../types/enums';
-    import { PassengerSettingsInfantResidentCountry } from '../types/enums';
-    import { PassengerSettingsTbaPassengersAllowed } from '../types/enums';
+    import { PassengerSettings<CAP>passengerTitle</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerFirstName</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerMiddleName</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerLastName</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerSuffix</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerCustomerNumber</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerGender</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerDateOfBirth</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerNationality</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>passengerResidentCountry</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantTitle</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantFirstName</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantMiddleName</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantLastName</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantSuffix</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantGender</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantDateOfBirth</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantNationality</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>infantResidentCountry</CAP> } from '../types/enums';
+    import { PassengerSettings<CAP>tbaPassengersAllowed</CAP> } from '../types/enums';
 
 export interface PassengerSettings { 
     /**
      * Passenger title field validation control.
      */
-    passengerTitle?: PassengerSettingsPassengerTitle;
+    passengerTitle?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger first name field validation control.
      */
-    passengerFirstName?: PassengerSettingsPassengerFirstName;
+    passengerFirstName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger middle name field validation control.
      */
-    passengerMiddleName?: PassengerSettingsPassengerMiddleName;
+    passengerMiddleName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger last name field validation control.
      */
-    passengerLastName?: PassengerSettingsPassengerLastName;
+    passengerLastName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger suffix field validation control.
      */
-    passengerSuffix?: PassengerSettingsPassengerSuffix;
+    passengerSuffix?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger customer number field validation control.
      */
-    passengerCustomerNumber?: PassengerSettingsPassengerCustomerNumber;
+    passengerCustomerNumber?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger gender field validation control.
      */
-    passengerGender?: PassengerSettingsPassengerGender;
+    passengerGender?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger date of birth field validation control.
      */
-    passengerDateOfBirth?: PassengerSettingsPassengerDateOfBirth;
+    passengerDateOfBirth?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger nationality field validation control.
      */
-    passengerNationality?: PassengerSettingsPassengerNationality;
+    passengerNationality?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Passenger resident country field validation control.
      */
-    passengerResidentCountry?: PassengerSettingsPassengerResidentCountry;
+    passengerResidentCountry?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant title field validation control.
      */
-    infantTitle?: PassengerSettingsInfantTitle;
+    infantTitle?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant first name field validation control.
      */
-    infantFirstName?: PassengerSettingsInfantFirstName;
+    infantFirstName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant middle name field validation control.
      */
-    infantMiddleName?: PassengerSettingsInfantMiddleName;
+    infantMiddleName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant last name field validation control.
      */
-    infantLastName?: PassengerSettingsInfantLastName;
+    infantLastName?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant suffix field validation control.
      */
-    infantSuffix?: PassengerSettingsInfantSuffix;
+    infantSuffix?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant gender field validation control.
      */
-    infantGender?: PassengerSettingsInfantGender;
+    infantGender?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant date of birth field validation control.
      */
-    infantDateOfBirth?: PassengerSettingsInfantDateOfBirth;
+    infantDateOfBirth?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant nationality field validation control.
      */
-    infantNationality?: PassengerSettingsInfantNationality;
+    infantNationality?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Infant resident country field validation control.
      */
-    infantResidentCountry?: PassengerSettingsInfantResidentCountry;
+    infantResidentCountry?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * TBA passenger will allow users to enter passengers with information \"To Be Determined\".
      */
-    tbaPassengersAllowed?: PassengerSettingsTbaPassengersAllowed;
+    tbaPassengersAllowed?: <ENUM>'Never'|'IfFirstPassengerIsKnown'|'Always'</ENUM>;
     /**
      * Flag to indicate if passenger customer programs are allowed.
      */

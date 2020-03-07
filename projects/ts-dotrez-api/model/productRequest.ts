@@ -17,7 +17,7 @@ import { ParticipantCriteria } from './participantCriteria';
  * Defines the query for a destionation request used in car and insurance types.
  */
 
-    import { ProductRequestSort } from '../types/enums';
+    import { ProductRequest<CAP>sort</CAP> } from '../types/enums';
 
 export interface ProductRequest { 
     /**
@@ -51,7 +51,7 @@ export interface ProductRequest {
     /**
      * The search sort order.
      */
-    sort?: ProductRequestSort;
+    sort?: <ENUM>'SupplierDefined'|'Price'|'Rating'|'Name'|'Category'|'VendorDescription'|'Preferred'|'Relevance'</ENUM>;
     /**
      * The promotion code with which to search.
      */

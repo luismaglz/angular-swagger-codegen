@@ -16,8 +16,8 @@ import { Name } from './name';
  * Booking model data.
  */
 
-    import { BookingSearchResultBookingStatus } from '../types/enums';
-    import { BookingSearchResultChannelType } from '../types/enums';
+    import { BookingSearchResult<CAP>bookingStatus</CAP> } from '../types/enums';
+    import { BookingSearchResult<CAP>channelType</CAP> } from '../types/enums';
 
 export interface BookingSearchResult { 
     /**
@@ -31,11 +31,11 @@ export interface BookingSearchResult {
     /**
      * The booking status.
      */
-    bookingStatus?: BookingSearchResultBookingStatus;
+    bookingStatus?: <ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * The type of the channel.
      */
-    channelType?: BookingSearchResultChannelType;
+    channelType?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
     /**
      * Indicates whether this is editable.
      */

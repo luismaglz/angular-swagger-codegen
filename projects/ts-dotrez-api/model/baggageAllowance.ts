@@ -16,8 +16,8 @@ import { BaggageUsageDetails } from './baggageUsageDetails';
  * Defines a baggage allowance.
  */
 
-    import { BaggageAllowanceBehavior } from '../types/enums';
-    import { BaggageAllowanceWeightType } from '../types/enums';
+    import { BaggageAllowance<CAP>behavior</CAP> } from '../types/enums';
+    import { BaggageAllowance<CAP>weightType</CAP> } from '../types/enums';
 
 export interface BaggageAllowance { 
     /**
@@ -39,7 +39,7 @@ export interface BaggageAllowance {
     /**
      * The allowance behavior.
      */
-    behavior?: BaggageAllowanceBehavior;
+    behavior?: <ENUM>'Default'|'WeightSharing'|'PerPiece'|'PerPieceWithWeightSharing'</ENUM>;
     /**
      * The list of baggage type codes.
      */
@@ -59,7 +59,7 @@ export interface BaggageAllowance {
     /**
      * The weight type for MaximumWeightPerPiece and TotalWeight.
      */
-    weightType?: BaggageAllowanceWeightType;
+    weightType?: <ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
     /**
      * The associated baggage usage details.
      */

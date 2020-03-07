@@ -15,13 +15,13 @@
  * Manifest leg operations comment model.
  */
 
-    import { ManifestLegOperationCommentCommentType } from '../types/enums';
+    import { ManifestLegOperationComment<CAP>commentType</CAP> } from '../types/enums';
 
 export interface ManifestLegOperationComment { 
     /**
      * The comment type.
      */
-    commentType?: ManifestLegOperationCommentCommentType;
+    commentType?: <ENUM>'Default'|'Reservation'|'Operation'|'PitLoad'|'Irop'|'AppsOverride'|'ManualAppsOverride'</ENUM>;
     /**
      * The agentID.
      */

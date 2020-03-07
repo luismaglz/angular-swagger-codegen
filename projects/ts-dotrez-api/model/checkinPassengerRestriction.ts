@@ -15,13 +15,13 @@
  * Defines a passengers restriction for the current segment trying to be checked into.
  */
 
-    import { CheckinPassengerRestrictionRestriction } from '../types/enums';
+    import { CheckinPassengerRestriction<CAP>restriction</CAP> } from '../types/enums';
 
 export interface CheckinPassengerRestriction { 
     /**
      * The passenger restriction type.
      */
-    restriction?: CheckinPassengerRestrictionRestriction;
+    restriction?: <ENUM>'NotFound'|'MissingDestinationAddress'|'MissingCountryOrResidence'|'OnLockQueue'|'MissingRequiredSsrs'|'ContainsRestrictedSsrs'|'IsSelectee'|'MissingSeat'|'NotConfirmed'|'NotStandby'|'ContainsUnknownSsr'|'MissingApisRequirement'|'MissingDocuments'|'MissingName'|'MissingInfantName'|'MissingDateOfBirth'|'MissingInfantDateOfBirth'|'RestrictedInfantInLap'</ENUM>;
     /**
      * The description of the restriction.
      */

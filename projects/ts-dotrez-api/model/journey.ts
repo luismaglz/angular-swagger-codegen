@@ -18,13 +18,13 @@ import { TransportationDesignator } from './transportationDesignator';
  * Data about the journey which represents the collection of segments and their legs on the journey.
  */
 
-    import { JourneyFlightType } from '../types/enums';
+    import { Journey<CAP>flightType</CAP> } from '../types/enums';
 
 export interface Journey { 
     /**
      * Returns a flight type enumeration. (NonStop, Thru, etc.)
      */
-    readonly flightType?: JourneyFlightType;
+    readonly flightType?: <ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * The total number of stops this flight takes.
      */

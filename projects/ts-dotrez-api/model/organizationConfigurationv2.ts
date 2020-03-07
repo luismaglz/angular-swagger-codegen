@@ -15,8 +15,8 @@
  * The configuration details of an organization.
  */
 
-    import { OrganizationConfigurationv2GdsEmailItinerary } from '../types/enums';
-    import { OrganizationConfigurationv2ReferralType } from '../types/enums';
+    import { OrganizationConfigurationv2<CAP>gdsEmailItinerary</CAP> } from '../types/enums';
+    import { OrganizationConfigurationv2<CAP>referralType</CAP> } from '../types/enums';
 
 export interface OrganizationConfigurationv2 { 
     /**
@@ -46,7 +46,7 @@ export interface OrganizationConfigurationv2 {
     /**
      * Gds email itinerary.
      */
-    gdsEmailItinerary?: OrganizationConfigurationv2GdsEmailItinerary;
+    gdsEmailItinerary?: <ENUM>'NoDistribution'|'UseOrganizationEmailOnly'|'UseMessageEmailOnly'|'UseMessageEmail'</ENUM>;
     /**
      * Organization source is internal. Otherwise its external.
      */
@@ -62,5 +62,5 @@ export interface OrganizationConfigurationv2 {
     /**
      * Referral type.
      */
-    referralType?: OrganizationConfigurationv2ReferralType;
+    referralType?: <ENUM>'Default'|'Allowed'|'AllowedWithUrlMatch'|'NotAllowed'</ENUM>;
 }

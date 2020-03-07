@@ -15,12 +15,12 @@
  * The Booking flight search settings.
  */
 
-    import { FlightSearchSettingsPrimarySortKey } from '../types/enums';
-    import { FlightSearchSettingsSecondarySortKey } from '../types/enums';
-    import { FlightSearchSettingsDisplayLowerFares } from '../types/enums';
-    import { FlightSearchSettingsFareClassControl } from '../types/enums';
-    import { FlightSearchSettingsFareSorting } from '../types/enums';
-    import { FlightSearchSettingsLowFareCacheStatus } from '../types/enums';
+    import { FlightSearchSettings<CAP>primarySortKey</CAP> } from '../types/enums';
+    import { FlightSearchSettings<CAP>secondarySortKey</CAP> } from '../types/enums';
+    import { FlightSearchSettings<CAP>displayLowerFares</CAP> } from '../types/enums';
+    import { FlightSearchSettings<CAP>fareClassControl</CAP> } from '../types/enums';
+    import { FlightSearchSettings<CAP>fareSorting</CAP> } from '../types/enums';
+    import { FlightSearchSettings<CAP>lowFareCacheStatus</CAP> } from '../types/enums';
 
 export interface FlightSearchSettings { 
     /**
@@ -46,11 +46,11 @@ export interface FlightSearchSettings {
     /**
      * The primary sort to be used on availability response.
      */
-    primarySortKey?: FlightSearchSettingsPrimarySortKey;
+    primarySortKey?: <ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
     /**
      * The secondary sort to be used on the availability response.
      */
-    secondarySortKey?: FlightSearchSettingsSecondarySortKey;
+    secondarySortKey?: <ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
     /**
      * The maximum number of days between the begin and end date for regular availability.
      */
@@ -62,11 +62,11 @@ export interface FlightSearchSettings {
     /**
      * Display setting for low fares (used in change flow).
      */
-    displayLowerFares?: FlightSearchSettingsDisplayLowerFares;
+    displayLowerFares?: <ENUM>'HideLowerFares'|'ShowAndAllowLowerFares'|'ShowButDisableLowerFares'</ENUM>;
     /**
      * The fare class filtering when returning journeys during availability.
      */
-    fareClassControl?: FlightSearchSettingsFareClassControl;
+    fareClassControl?: <ENUM>'LowestFareClass'|'CompressByProductClass'|'Default'</ENUM>;
     /**
      * The flag indicating whether to allow anticipated sales taxes and travel fees when processing the availability  request.
      */
@@ -74,9 +74,9 @@ export interface FlightSearchSettings {
     /**
      * Fare filtering options.
      */
-    fareSorting?: FlightSearchSettingsFareSorting;
+    fareSorting?: <ENUM>'BySortPrice'|'ByCalculatedFarePrice'</ENUM>;
     /**
      * The status of the low fare cache.
      */
-    lowFareCacheStatus?: FlightSearchSettingsLowFareCacheStatus;
+    lowFareCacheStatus?: <ENUM>'AlwaysUseCache'|'BypassCacheOnRequest'|'NeverUseCache'</ENUM>;
 }

@@ -17,8 +17,8 @@ import { Name } from './name';
  * Defines the person record.
  */
 
-    import { PersonRecordType } from '../types/enums';
-    import { PersonRecordStatus } from '../types/enums';
+    import { PersonRecord<CAP>type</CAP> } from '../types/enums';
+    import { PersonRecord<CAP>status</CAP> } from '../types/enums';
 
 export interface PersonRecord { 
     /**
@@ -28,11 +28,11 @@ export interface PersonRecord {
     /**
      * The person's type.
      */
-    type?: PersonRecordType;
+    type?: <ENUM>'None'|'Customer'|'Agent'</ENUM>;
     /**
      * The person's status.
      */
-    status?: PersonRecordStatus;
+    status?: <ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
     /**
      * The person's customer number.
      */

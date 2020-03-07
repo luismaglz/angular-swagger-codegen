@@ -16,8 +16,8 @@ import { SeatMapProperty } from './seatMapProperty';
  * Defines a unit within an equipment -&gt; decks -&gt; compartment.
  */
 
-    import { UnitInformationAvailability } from '../types/enums';
-    import { UnitInformationType } from '../types/enums';
+    import { UnitInformation<CAP>availability</CAP> } from '../types/enums';
+    import { UnitInformation<CAP>type</CAP> } from '../types/enums';
 
 export interface UnitInformation { 
     /**
@@ -31,7 +31,7 @@ export interface UnitInformation {
     /**
      * The availability of the seat.
      */
-    availability?: UnitInformationAvailability;
+    availability?: <ENUM>'Unknown'|'Reserved'|'Blocked'|'HeldForAnotherSession'|'HeldForThisSession'|'Open'|'Missing'|'CheckedIn'|'FleetBlocked'|'Restricted'|'Broken'|'ReservedForPnr'|'SoftBlocked'|'Unavailable'</ENUM>;
     /**
      * Defines compartment designator of the compartment to which unit belongs to.
      */
@@ -43,7 +43,7 @@ export interface UnitInformation {
     /**
      * The type of the unit.
      */
-    type?: UnitInformationType;
+    type?: <ENUM>'None'|'NormalSeat'|'LargeSeat'|'Couchette'|'Compartment'|'Table'|'Wall'|'Window'|'Door'|'Stairs'|'Wing'|'Other'|'Bulkhead'|'BedOneOfThree'|'BedTwoOfThree'|'BedThreeOfThree'|'BedOneOfTwo'|'BedTwoOfTwo'|'Bed'|'Exit'|'LabelRuler'|'GenericUnitResizableArea'|'Lavatory'|'LavatoryWithHandicappedFacilities'|'Luggage'|'MovableCompartmentDivider'|'Bar'|'Closet'|'Galley'|'MovieScreen'|'Storage'</ENUM>;
     /**
      * The designated travel class code.
      */

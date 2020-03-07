@@ -15,16 +15,16 @@
  * The voucher market restriction model.
  */
 
-    import { VoucherMarketRestrictionRestrictionType } from '../types/enums';
-    import { VoucherMarketRestrictionDirectionality } from '../types/enums';
-    import { VoucherMarketRestrictionRegionType } from '../types/enums';
-    import { VoucherMarketRestrictionTravelRegionType } from '../types/enums';
+    import { VoucherMarketRestriction<CAP>restrictionType</CAP> } from '../types/enums';
+    import { VoucherMarketRestriction<CAP>directionality</CAP> } from '../types/enums';
+    import { VoucherMarketRestriction<CAP>regionType</CAP> } from '../types/enums';
+    import { VoucherMarketRestriction<CAP>travelRegionType</CAP> } from '../types/enums';
 
 export interface VoucherMarketRestriction { 
     /**
      * The market restriction type.
      */
-    restrictionType?: VoucherMarketRestrictionRestrictionType;
+    restrictionType?: <ENUM>'MustBeOne'|'MustNot'</ENUM>;
     /**
      * The voucher configuration code.
      */
@@ -32,7 +32,7 @@ export interface VoucherMarketRestriction {
     /**
      * The directionality of the voucher market restriction.
      */
-    directionality?: VoucherMarketRestrictionDirectionality;
+    directionality?: <ENUM>'None'|'To'|'From'|'Between'</ENUM>;
     /**
      * The sequence number of the voucher restriction.
      */
@@ -40,7 +40,7 @@ export interface VoucherMarketRestriction {
     /**
      * The region type.
      */
-    regionType?: VoucherMarketRestrictionRegionType;
+    regionType?: <ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
     /**
      * The region code.
      */
@@ -48,7 +48,7 @@ export interface VoucherMarketRestriction {
     /**
      * The travel region type.
      */
-    travelRegionType?: VoucherMarketRestrictionTravelRegionType;
+    travelRegionType?: <ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
     /**
      * The travel region code.
      */

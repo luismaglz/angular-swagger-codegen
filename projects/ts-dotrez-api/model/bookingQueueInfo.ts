@@ -15,9 +15,9 @@
  * Describes the booking queue info.
  */
 
-    import { BookingQueueInfoType } from '../types/enums';
-    import { BookingQueueInfoAction } from '../types/enums';
-    import { BookingQueueInfoMode } from '../types/enums';
+    import { BookingQueueInfo<CAP>type</CAP> } from '../types/enums';
+    import { BookingQueueInfo<CAP>action</CAP> } from '../types/enums';
+    import { BookingQueueInfo<CAP>mode</CAP> } from '../types/enums';
 
 export interface BookingQueueInfo { 
     /**
@@ -55,15 +55,15 @@ export interface BookingQueueInfo {
     /**
      * The type of event that triggered placement of the booking in the queue.
      */
-    type?: BookingQueueInfoType;
+    type?: <ENUM>'Default'|'BookingBalanceDue'|'BookingNegativeBalance'|'BookingCustomerComment'|'DeclinedPaymentInitial'|'DeclinedPaymentChange'|'FareOverride'|'ScheduleTimeChange'|'ScheduleTimeChangeMisconnect'|'ScheduleCancellation'|'FlightDesignatorChange'|'ReaccommodationMove'|'GdsCancelWithPendingPayment'|'InvalidPriceStatusOverride'|'FareRestrictionOverride'|'HeldBookings'|'InvalidPriceStatus'|'Watchlist'|'NonFlightServiceFee'|'NotAllTicketNumbersReceived'|'BookingSegmentOversold'|'ReaccommodationCancel'|'ExternalSsrAutoConfirmed'|'OpCarrierSegUpdate'|'OpCarrierSsrUpdate'|'OpCarrierOtherUpdate'|'NameChangeNotAllowed'|'InboundAscNotProcessed'|'OpCarrierInformationChange'|'BookingComponentUpdate'|'GroupBookings'|'BankDirectPnrOutOfBalance'|'NoSeatAssigned'|'SeatNumberChange'|'SsrNotSupportedOnNewSeat'|'FewerSeatPreferencesMetOnNewSeat'|'AosUnableToConfirmCancel'|'ETicketIssue'|'ETicketFollowup'|'InvoluntaryFlyAhead'|'ManualClearanceOnOutage'|'UnbalancedPoints'|'OpCarrierTimeChange'|'OaCarrierTimeChange'|'VoluntaryFlightChange'|'InvoluntaryFlightChange'|'HoldCancellationFailed'|'ScheduleTimeChangeWithDynamicQueueCode'|'ReaccommodationMoveWithDynamicQueueCode'|'ItineraryIntegrity'|'ReducePartyNotProcessed'|'CheckedPassengerUpdate'|'NameChangeWithinRule'|'IncompletePassengerEMDCoupon'|'ASVCUpdateFailed'|'ScheduleTimeChangeMisconnectBelowMinimum'|'ScheduleTimeChangeMisconnectAboveMaximum'|'OpCarrierMisconnect'|'InventoryQueuing'|'SelfServiceAsm'|'SelfServiceDelay'|'SelfServiceFlightCancellation'|'SelfServiceIrop'|'SelfServiceScheduleChange'|'SelfServiceTimeChange'|'AosAddOrCancelNotSuccessful'|'MissingGdsFareFamily'|'ChangeCabinQueue'</ENUM>;
     /**
      * The action that will be taken as a result of the placement in the queue.
      */
-    action?: BookingQueueInfoAction;
+    action?: <ENUM>'Default'|'Warning'|'Lock'|'DefaultAndNotify'|'WarningAndNotify'|'LockAndNotify'</ENUM>;
     /**
      * The indicator if this entry was added or removed from the queue.
      */
-    mode?: BookingQueueInfoMode;
+    mode?: <ENUM>'EnQueued'|'DeQueued'</ENUM>;
     /**
      * The flight reference.
      */
