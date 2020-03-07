@@ -26,7 +26,7 @@ import {
         apiV1RedisByNameDelete,
         apiV1RedisDelete,
         apiV1RedisGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

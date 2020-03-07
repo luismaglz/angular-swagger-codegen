@@ -166,7 +166,7 @@ import {
         apiNskV1PersonsPost,
         apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPatch,
         apiNskV2PersonsByPersonKeyTravelDocumentsByPersonTravelDocumentKeyPut,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

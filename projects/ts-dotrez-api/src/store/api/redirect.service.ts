@@ -24,7 +24,7 @@ import {
 
 import {
         apiV1RedirectGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

@@ -36,7 +36,7 @@ import {
         apiNskV2AvailabilityLowfareSimplePost,
         apiNskV4AvailabilitySearchPost,
         apiNskV4AvailabilitySearchSimplePost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

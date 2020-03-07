@@ -45,7 +45,7 @@ import {
         apiNskV1AddOnsHotelsAvailablePost,
         apiNskV1AddOnsHotelsPost,
         apiNskV1AddOnsHotelsQuotePost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

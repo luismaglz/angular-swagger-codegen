@@ -28,7 +28,7 @@ import {
         apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete,
         apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet,
         apiNskV1OneTimeTravelNotificationsPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

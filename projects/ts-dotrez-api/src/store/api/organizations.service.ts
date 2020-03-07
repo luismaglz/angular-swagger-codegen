@@ -27,7 +27,7 @@ import {
 import {
         apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet,
         apiNskV1OrganizationsGroupsGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

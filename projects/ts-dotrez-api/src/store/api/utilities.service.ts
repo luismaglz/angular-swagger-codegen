@@ -24,7 +24,7 @@ import {
 
 import {
         apiNskV1UtilitiesStationLocalTimeByStationCodeGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

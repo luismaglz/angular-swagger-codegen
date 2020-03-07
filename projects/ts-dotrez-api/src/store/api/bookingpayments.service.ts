@@ -71,7 +71,7 @@ import {
         apiNskV3BookingPaymentsThreeDSecurePost,
         apiNskV3BookingPaymentsVoucherPost,
         apiNskV4BookingPaymentsDccByDccKeyPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

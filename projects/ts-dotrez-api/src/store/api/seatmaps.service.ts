@@ -25,7 +25,7 @@ import {
 
 import {
         apiNskV3SeatmapsByJourneyKeyGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

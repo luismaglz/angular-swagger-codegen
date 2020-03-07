@@ -92,7 +92,7 @@ import {
         apiNskV2BookingsQuotePost,
         apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost,
         apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

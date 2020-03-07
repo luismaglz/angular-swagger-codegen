@@ -27,7 +27,7 @@ import {
 import {
         apiNskV1AccountPasswordChangePost,
         apiNskV1AccountPasswordResetPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

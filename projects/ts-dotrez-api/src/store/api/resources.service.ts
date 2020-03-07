@@ -244,7 +244,7 @@ import {
         apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet,
         apiNskV2ResourcesMarketsByLocationCodeGet,
         apiNskV2ResourcesMarketsGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

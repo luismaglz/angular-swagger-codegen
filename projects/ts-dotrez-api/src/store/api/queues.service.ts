@@ -35,7 +35,7 @@ import {
         apiNskV1QueuesTravelPost,
         apiNskV2QueuesBookingsByBookingQueueCodeNextGet,
         apiNskV2QueuesBookingsGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

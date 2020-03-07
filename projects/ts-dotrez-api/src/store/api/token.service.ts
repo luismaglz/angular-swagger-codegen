@@ -41,7 +41,7 @@ import {
         apiV1TokenDelete,
         apiV1TokenPost,
         apiV1TokenPut,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

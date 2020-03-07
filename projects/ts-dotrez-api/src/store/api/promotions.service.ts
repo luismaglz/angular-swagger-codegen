@@ -28,7 +28,7 @@ import {
         apiNskV1PromotionsByPromotionCodeGet,
         apiNskV1PromotionsByPromotionCodeValidateGet,
         apiNskV1PromotionsGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

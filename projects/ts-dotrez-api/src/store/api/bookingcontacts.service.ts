@@ -45,7 +45,7 @@ import {
         apiNskV1BookingContactsPrimaryPatch,
         apiNskV1BookingContactsPrimaryPost,
         apiNskV1BookingContactsPrimaryPut,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

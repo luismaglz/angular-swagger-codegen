@@ -28,7 +28,7 @@ import {
         apiNskV1MessagesByMessageKeyGet,
         apiNskV1MessagesGet,
         apiNskV1MessagesPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

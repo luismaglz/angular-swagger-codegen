@@ -155,7 +155,7 @@ import {
         apiNskV1UserPersonTravelNotificationsPost,
         apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPatch,
         apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPut,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

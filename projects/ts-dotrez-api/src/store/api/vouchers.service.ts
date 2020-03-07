@@ -36,7 +36,7 @@ import {
         apiNskV1VouchersConfigurationByConfigurationCodeGet,
         apiNskV1VouchersConfigurationGet,
         apiNskV1VouchersGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

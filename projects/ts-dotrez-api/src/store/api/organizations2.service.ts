@@ -64,7 +64,7 @@ import {
         apiNskV1Organizations2Post,
         apiNskV1Organizations2RegisterPost,
         apiNskV2Organizations2Get,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

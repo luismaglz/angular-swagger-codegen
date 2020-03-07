@@ -108,7 +108,7 @@ import {
         apiNskV3BookingPassengersByPassengerKeyInfantPut,
         apiNskV3BookingPassengersByPassengerKeyPatch,
         apiNskV3BookingPassengersByPassengerKeyPut,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

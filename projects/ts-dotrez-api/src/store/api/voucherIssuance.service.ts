@@ -27,7 +27,7 @@ import {
 import {
         apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet,
         apiNskV1VoucherIssuancePost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

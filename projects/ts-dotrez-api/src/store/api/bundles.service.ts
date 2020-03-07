@@ -29,7 +29,7 @@ import {
         apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet,
         apiNskV1BundlesRulesByBundleRuleCodeDetailsGet,
         apiNskV1BundlesSetsByBundleSetCodeDetailsGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

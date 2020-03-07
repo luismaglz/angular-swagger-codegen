@@ -180,7 +180,7 @@ import {
         apiNskV2UsersByUserKeyPersonTravelDocumentsByPersonTravelDocumentKeyPut,
         apiNskV2UsersGet,
         apiNskV2UsersPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

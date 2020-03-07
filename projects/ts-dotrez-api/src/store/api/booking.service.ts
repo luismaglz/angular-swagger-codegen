@@ -139,7 +139,7 @@ import {
         apiNskV3BookingPost,
         apiNskV3BookingPut,
         apiNskV3BookingSeatmapsJourneyByJourneyKeyGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

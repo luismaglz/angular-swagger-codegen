@@ -24,7 +24,7 @@ import {
 
 import {
         apiNskV1ConfigurationCheckGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

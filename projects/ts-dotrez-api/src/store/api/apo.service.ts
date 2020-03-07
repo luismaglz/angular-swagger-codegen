@@ -30,7 +30,7 @@ import {
         apiNskV1ApoDelete,
         apiNskV1ApoGet,
         apiNskV1ApoPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

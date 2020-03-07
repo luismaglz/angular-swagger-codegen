@@ -63,7 +63,7 @@ import {
         apiNskV1UserSingleSignOnTokenByProviderKeyPut,
         apiNskV1UserSingleSignOnTokenGet,
         apiNskV2UserPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

@@ -36,7 +36,7 @@ import {
         apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet,
         apiNskV3BookingCheckinJourneyByJourneyKeyPost,
         apiNskV3BookingCheckinSegmentBySegmentKeyPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

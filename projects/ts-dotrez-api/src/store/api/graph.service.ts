@@ -27,7 +27,7 @@ import {
         apiNskV1GraphByQueryNamePost,
         apiV1GraphPost,
         apiV2GraphByQueryNamePost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

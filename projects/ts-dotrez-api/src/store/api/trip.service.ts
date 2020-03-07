@@ -60,7 +60,7 @@ import {
         apiNskV3TripRebookAvailabilitySimpleGet,
         apiNskV4TripPost,
         apiNskV4TripSellPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

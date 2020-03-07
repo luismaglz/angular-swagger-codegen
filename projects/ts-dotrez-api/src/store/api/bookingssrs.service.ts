@@ -41,7 +41,7 @@ import {
         apiNskV2BookingSsrsAvailabilityPost,
         apiNskV2BookingSsrsBySsrKeyPost,
         apiNskV2BookingSsrsPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

@@ -42,7 +42,7 @@ import {
         apiNskV1BookingJourneysGet,
         apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet,
         apiNskV1BookingJourneysTravelDocumentRequirementsGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

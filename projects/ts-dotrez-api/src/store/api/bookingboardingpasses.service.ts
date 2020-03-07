@@ -32,7 +32,7 @@ import {
         apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost,
         apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost,
         apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

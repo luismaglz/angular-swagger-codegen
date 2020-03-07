@@ -25,7 +25,7 @@ import {
 
 import {
         apiNskV1CollectionByAccountCollectionKeyTransactionsGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

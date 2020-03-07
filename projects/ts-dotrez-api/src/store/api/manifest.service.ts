@@ -32,7 +32,7 @@ import {
         apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet,
         apiNskV1ManifestByLegKeyPost,
         apiNskV1ManifestGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 

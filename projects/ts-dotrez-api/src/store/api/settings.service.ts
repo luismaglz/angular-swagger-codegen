@@ -59,7 +59,7 @@ import {
         apiNskV2SettingsBookingPaymentGet,
         apiNskV2SettingsPremiumServicesGet,
         apiNskV2SettingsSkySpeedGet,
-} from '../base/api'
+} from '../base/api/index'
 
 
 
