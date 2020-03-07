@@ -1,0 +1,31 @@
+{
+  "name": "ts-dotrez-api",
+  "version": "1.0.0",
+  "description": "typescript dotrez api",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "pretsc": "rimraf -rf dist/",
+    "tsc": "tsc",
+    "watch": "tsc --watch",
+    "barrel": "barrelsby -c ./barrel-config.json",
+    "test": "SET TS_NODE_PROJECT=./tsconfig.spec.json&&mocha -r ts-node/register -r esm ./src/**/*.spec.ts*"
+  },
+  "dependencies": {
+    "inversify": "^5.0.1",
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "tslib": "^1.10.0",
+    "typescript": "~3.7.2",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "author": "",
+  "license": "ISC"
+}
