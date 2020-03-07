@@ -6,11 +6,7 @@ const dry = false;
 // Read and process enums
 fs.readFile(enumsPath, "utf8", processEnums);
 function processEnums(err, contents) {
-    // console.log(contents);
     const enumDictionary = JSON.parse(contents);
-    // console.log(Object.keys(enumDictionary)[0].replace(/"/g, "'"));
-    // const regex = /^export enum .* {\r([\s\S]*?)}/gm;
-    // const matches = contents.match(regex);
     const options = {
         files: modelsPath,
         from: /<ENUM>(.*)<\/ENUM>/gm,
