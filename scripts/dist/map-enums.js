@@ -2,7 +2,7 @@ const fs = require("fs");
 const replace = require("replace-in-file");
 const enumsPath = "../string-enums.txt";
 const modelsPath = "../../projects/ts-dotrez-api/model/*.ts";
-const dry = true;
+const dry = false;
 // Read and process enums
 fs.readFile(enumsPath, "utf8", processEnums);
 function processEnums(err, contents) {
