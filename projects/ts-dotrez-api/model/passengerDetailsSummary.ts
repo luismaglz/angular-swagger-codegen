@@ -14,6 +14,7 @@
 /**
  * The manifest passenger datails summary.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerDetailsSummary { 
     /**

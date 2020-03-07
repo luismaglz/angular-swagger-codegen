@@ -14,9 +14,7 @@
 /**
  * Filter criteria filters the availability responses results.
  */
-
-    import { AvailabilityFilterCriteria<CAP>filter</CAP> } from '../types/enums';
-    import { AvailabilityFilterCriteria<CAP>sortKeys</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AvailabilityFilterCriteria { 
     /**
@@ -26,11 +24,11 @@ export interface AvailabilityFilterCriteria {
     /**
      * Filters the type of journeys to return.
      */
-    filter?: <ENUM>'Default'|'ExcludeDeparted'|'ExcludeImminent'|'ExcludeUnavailable'</ENUM>;
+    filter?: Enums.AvailabilityFilter;
     /**
      * The list of inventory journey sort keys. Used for filtering journeys on the response.
      */
-    sortKeys?: <ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
+    sortKeys?: Enums.JourneySortKey;
     /**
      * The list of product class codes to filter with.
      */

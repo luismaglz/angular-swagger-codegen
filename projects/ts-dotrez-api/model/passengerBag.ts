@@ -14,8 +14,7 @@
 /**
  * Model information about the baggage a passenger has.
  */
-
-    import { PassengerBag<CAP>weightType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PassengerBag { 
     /**
@@ -61,5 +60,5 @@ export interface PassengerBag {
     /**
      * The WeightType in Bag object.
      */
-    weightType?: <ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
+    weightType?: Enums.WeightType;
 }

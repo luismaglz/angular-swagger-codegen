@@ -15,6 +15,7 @@ import { PassengerSeatGroupInfoGroups } from './passengerSeatGroupInfoGroups';
 /**
  * Defines the equipment seat group details for a specific passenger.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerSeatGroupInfo { 
     /**

@@ -14,8 +14,7 @@
 /**
  * Defines the trip upgrade request.
  */
-
-    import { TripUpgradeRequest<CAP>inventoryControl</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface TripUpgradeRequest { 
     /**
@@ -25,7 +24,7 @@ export interface TripUpgradeRequest {
     /**
      * The reserving inventory action of the upgrade once sold by the system.
      */
-    inventoryControl?: <ENUM>'HoldSpace'|'SoftHoldSpace'|'ClaimSpace'|'OversellSpace'|'StandBy'</ENUM>;
+    inventoryControl?: Enums.InventoryControlType;
     /**
      * Flag indicating to override the fee if permissions allow it.
      */

@@ -14,6 +14,7 @@
 /**
  * The discount amount details for an SSR bundle.
  */
+import * as Enums from '../types/enums';
 
 export interface BundleDiscountAmount { 
     /**

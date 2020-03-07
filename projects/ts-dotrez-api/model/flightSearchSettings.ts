@@ -14,13 +14,7 @@
 /**
  * The Booking flight search settings.
  */
-
-    import { FlightSearchSettings<CAP>primarySortKey</CAP> } from '../types/enums';
-    import { FlightSearchSettings<CAP>secondarySortKey</CAP> } from '../types/enums';
-    import { FlightSearchSettings<CAP>displayLowerFares</CAP> } from '../types/enums';
-    import { FlightSearchSettings<CAP>fareClassControl</CAP> } from '../types/enums';
-    import { FlightSearchSettings<CAP>fareSorting</CAP> } from '../types/enums';
-    import { FlightSearchSettings<CAP>lowFareCacheStatus</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface FlightSearchSettings { 
     /**
@@ -46,11 +40,11 @@ export interface FlightSearchSettings {
     /**
      * The primary sort to be used on availability response.
      */
-    primarySortKey?: <ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
+    primarySortKey?: Enums.JourneySortKey;
     /**
      * The secondary sort to be used on the availability response.
      */
-    secondarySortKey?: <ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
+    secondarySortKey?: Enums.JourneySortKey;
     /**
      * The maximum number of days between the begin and end date for regular availability.
      */
@@ -62,11 +56,11 @@ export interface FlightSearchSettings {
     /**
      * Display setting for low fares (used in change flow).
      */
-    displayLowerFares?: <ENUM>'HideLowerFares'|'ShowAndAllowLowerFares'|'ShowButDisableLowerFares'</ENUM>;
+    displayLowerFares?: Enums.FareDisplayType;
     /**
      * The fare class filtering when returning journeys during availability.
      */
-    fareClassControl?: <ENUM>'LowestFareClass'|'CompressByProductClass'|'Default'</ENUM>;
+    fareClassControl?: Enums.FareClassControl;
     /**
      * The flag indicating whether to allow anticipated sales taxes and travel fees when processing the availability  request.
      */
@@ -74,9 +68,9 @@ export interface FlightSearchSettings {
     /**
      * Fare filtering options.
      */
-    fareSorting?: <ENUM>'BySortPrice'|'ByCalculatedFarePrice'</ENUM>;
+    fareSorting?: Enums.FareSelection;
     /**
      * The status of the low fare cache.
      */
-    lowFareCacheStatus?: <ENUM>'AlwaysUseCache'|'BypassCacheOnRequest'|'NeverUseCache'</ENUM>;
+    lowFareCacheStatus?: Enums.LowFareCacheOption;
 }

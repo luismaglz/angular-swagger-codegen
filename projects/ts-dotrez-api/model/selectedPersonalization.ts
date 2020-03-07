@@ -14,6 +14,7 @@
 /**
  * Defines a selected personalization.
  */
+import * as Enums from '../types/enums';
 
 export interface SelectedPersonalization { 
     /**

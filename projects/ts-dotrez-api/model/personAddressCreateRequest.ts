@@ -14,6 +14,7 @@
 /**
  * Defines a person address request.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonAddressCreateRequest { 
     /**

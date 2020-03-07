@@ -14,6 +14,7 @@
 /**
  * Represents the gate information for the trip status model.  Consists  of actual gate information and estimated/scheduled gate information.
  */
+import * as Enums from '../types/enums';
 
 export interface GateInformation { 
     /**

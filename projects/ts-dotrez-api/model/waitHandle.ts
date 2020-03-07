@@ -12,6 +12,7 @@
 import { SafeWaitHandle } from './safeWaitHandle';
 
 
+import * as Enums from '../types/enums';
 
 export interface WaitHandle { 
     handle?: any;

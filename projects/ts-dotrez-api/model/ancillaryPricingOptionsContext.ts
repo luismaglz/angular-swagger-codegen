@@ -15,6 +15,7 @@ import { AncillaryPricingOptionsContextInputParameters } from './ancillaryPricin
 /**
  * Defines the ancillary pricing options context.
  */
+import * as Enums from '../types/enums';
 
 export interface AncillaryPricingOptionsContext { 
     inputParameters?: AncillaryPricingOptionsContextInputParameters;

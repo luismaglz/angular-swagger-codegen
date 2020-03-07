@@ -14,8 +14,7 @@
 /**
  * The document type model.
  */
-
-    import { DocumentType<CAP>group</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface DocumentType { 
     /**
@@ -29,7 +28,7 @@ export interface DocumentType {
     /**
      * The document group.
      */
-    group?: <ENUM>'Unknown'|'AlienRegistrationCard'|'PermanentResidentCard'|'FacilitationDocument'|'InsPass'|'MilitaryId'|'Passport'|'ReEntryPermit'|'CreditCard'|'TravelVisa'|'OaFrequentFlyer'|'ParoleLetter'|'NoticeOfAction'|'TransportationLetter'|'BorderCrossingCard'|'PilotLicense'|'UsNaturalizationCertificate'|'RefugeeTravelDocument'|'GovernmentId'|'DriversLicense'|'RedressNumber'|'KnownTravelerId'|'FormOfId'|'Nexus'|'SecondaryExempt'</ENUM>;
+    group?: Enums.DocumentGroup;
     /**
      * Indicates if an expiration date is required.
      */

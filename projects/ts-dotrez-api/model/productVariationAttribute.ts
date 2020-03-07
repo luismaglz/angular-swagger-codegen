@@ -14,6 +14,7 @@
 /**
  * Defines the product variation attribute result.
  */
+import * as Enums from '../types/enums';
 
 export interface ProductVariationAttribute { 
     /**

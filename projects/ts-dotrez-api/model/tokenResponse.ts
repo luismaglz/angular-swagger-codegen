@@ -11,6 +11,7 @@
  */
 
 
+import * as Enums from '../types/enums';
 
 export interface TokenResponse { 
     token?: string;

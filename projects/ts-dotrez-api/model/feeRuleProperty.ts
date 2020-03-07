@@ -14,9 +14,7 @@
 /**
  * Fee rule property model.
  */
-
-    import { FeeRuleProperty<CAP>operator</CAP> } from '../types/enums';
-    import { FeeRuleProperty<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface FeeRuleProperty { 
     /**
@@ -30,11 +28,11 @@ export interface FeeRuleProperty {
     /**
      * Gets or sets the property operator of this fee rule property.
      */
-    operator?: <ENUM>'Default'|'MustBe'|'MustNotBe'|'AllMustBe'</ENUM>;
+    operator?: Enums.FeeRulePropertyOperator;
     /**
      * Gets or sets the property type of this fee rule property.
      */
-    type?: <ENUM>'Default'|'PassengerType'|'FromStationClass'|'FareClass'|'PassengerResidentCountry'|'FeeCode'|'ToStationClass'|'EventChannel'|'OrganizationGroup'|'OrganizationCode'|'AgentRole'|'BestCustomerProgramLevel'|'WorstCustomerProgramLevel'|'ExactCustomerProgramLevel'|'CarrierCode'|'SeatGroup'|'FeeType'|'ProductClass'|'SystemCode'|'TripType'|'PaymentType'|'TicketAccountingCode'|'SoldChannel'|'ItineraryFullyWithinCountry'|'ChangeReasonCode'|'GuestRecognitionLevel'|'FlightType'|'FareType'|'DayOfWeek'|'StartTimeOfDay'|'EndTimeOfDay'|'StartFlightNumberRange'|'EndFlightNumberRange'|'MinAdvancedPurchaseDays'|'FareDiscount'|'BookingStatus'|'EarliestAdvancedPurchaseDays'|'SalesStartTimeOfDay'|'SalesEndTimeOfDay'|'BookingCurrency'|'CardSubType'|'PaymentMethodCode'|'ServiceBundle'|'CreatedAgentRoleCode'|'StartExtraBagRange'|'EndExtraBagRange'|'JourneyDepartureStation'|'JourneyDepartureCountry'|'GSTStateCode'</ENUM>;
+    type?: Enums.<ENUM>'Default'|'PassengerType'|'FromStationClass'|'FareClass'|'PassengerResidentCountry'|'FeeCode'|'ToStationClass'|'EventChannel'|'OrganizationGroup'|'OrganizationCode'|'AgentRole'|'BestCustomerProgramLevel'|'WorstCustomerProgramLevel'|'ExactCustomerProgramLevel'|'CarrierCode'|'SeatGroup'|'FeeType'|'ProductClass'|'SystemCode'|'TripType'|'PaymentType'|'TicketAccountingCode'|'SoldChannel'|'ItineraryFullyWithinCountry'|'ChangeReasonCode'|'GuestRecognitionLevel'|'FlightType'|'FareType'|'DayOfWeek'|'StartTimeOfDay'|'EndTimeOfDay'|'StartFlightNumberRange'|'EndFlightNumberRange'|'MinAdvancedPurchaseDays'|'FareDiscount'|'BookingStatus'|'EarliestAdvancedPurchaseDays'|'SalesStartTimeOfDay'|'SalesEndTimeOfDay'|'BookingCurrency'|'CardSubType'|'PaymentMethodCode'|'ServiceBundle'|'CreatedAgentRoleCode'|'StartExtraBagRange'|'EndExtraBagRange'|'JourneyDepartureStation'|'JourneyDepartureCountry'|'GSTStateCode'</ENUM>;
     /**
      * Gets or sets the property value of this fee rule property.
      */

@@ -14,6 +14,7 @@
 /**
  * Defines a order note.
  */
+import * as Enums from '../types/enums';
 
 export interface OrderNote { 
     /**

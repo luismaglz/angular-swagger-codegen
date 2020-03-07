@@ -15,6 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Model that represents the passenger fare details.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerFare { 
     /**

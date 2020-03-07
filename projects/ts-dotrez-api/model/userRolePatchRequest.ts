@@ -14,6 +14,7 @@
 /**
  * Defines the user role patch request.
  */
+import * as Enums from '../types/enums';
 
 export interface UserRolePatchRequest { 
     /**

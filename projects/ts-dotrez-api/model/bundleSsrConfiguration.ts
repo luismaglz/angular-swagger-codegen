@@ -15,8 +15,7 @@ import { BundleDiscountAmount } from './bundleDiscountAmount';
 /**
  * The bundle ssr configuration model.
  */
-
-    import { BundleSsrConfiguration<CAP>bundleSsrType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface BundleSsrConfiguration { 
     /**
@@ -38,7 +37,7 @@ export interface BundleSsrConfiguration {
     /**
      * The bundle ssr type.
      */
-    bundleSsrType?: <ENUM>'InBundle'|'InBundleUpgrade'|'NotInBundle'</ENUM>;
+    bundleSsrType?: Enums.BundleSsrType;
     /**
      * The discount percent.
      */

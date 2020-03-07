@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass assigned seat details.
  */
+import * as Enums from '../types/enums';
 
 export interface BoardingPassSeatDetails { 
     /**

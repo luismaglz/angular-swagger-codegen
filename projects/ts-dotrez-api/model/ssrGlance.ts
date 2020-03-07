@@ -14,6 +14,7 @@
 /**
  * Manifest Leg SSR.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrGlance { 
     /**

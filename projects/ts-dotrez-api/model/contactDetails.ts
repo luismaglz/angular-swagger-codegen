@@ -16,6 +16,7 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * The contact details for an organization.
  */
+import * as Enums from '../types/enums';
 
 export interface ContactDetails { 
     /**

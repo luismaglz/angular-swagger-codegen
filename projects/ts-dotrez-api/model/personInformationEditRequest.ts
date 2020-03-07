@@ -14,6 +14,7 @@
 /**
  * Defines a person information edit request.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonInformationEditRequest { 
     /**

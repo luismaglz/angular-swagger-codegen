@@ -16,6 +16,7 @@ import { RecordLocator } from './recordLocator';
 /**
  * Defines the booking divide request.
  */
+import * as Enums from '../types/enums';
 
 export interface DivideRequestv2 { 
     /**

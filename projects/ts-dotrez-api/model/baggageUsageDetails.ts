@@ -14,8 +14,7 @@
 /**
  * Defines baggage usage details.
  */
-
-    import { BaggageUsageDetails<CAP>weightType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface BaggageUsageDetails { 
     /**
@@ -33,5 +32,5 @@ export interface BaggageUsageDetails {
     /**
      * The weight type for RemainingTotalWeight.
      */
-    weightType?: <ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
+    weightType?: Enums.WeightType;
 }

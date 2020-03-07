@@ -14,8 +14,7 @@
 /**
  * The account transaction code model.
  */
-
-    import { AccountTransactionCode<CAP>expirationType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AccountTransactionCode { 
     /**
@@ -29,7 +28,7 @@ export interface AccountTransactionCode {
     /**
      * The expiration type.
      */
-    expirationType?: <ENUM>'None'|'FixedAtIssuance'|'FixedDate'|'FixedAtBooking'</ENUM>;
+    expirationType?: Enums.CreditExpirationType;
     /**
      * The expiration days.
      */

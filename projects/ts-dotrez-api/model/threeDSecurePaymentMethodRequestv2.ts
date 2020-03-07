@@ -15,6 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Defines information needed for a generic payment requested with ThreeDSecure validation.
  */
+import * as Enums from '../types/enums';
 
 export interface ThreeDSecurePaymentMethodRequestv2 { 
     paReq?: string;

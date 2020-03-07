@@ -14,14 +14,13 @@
 /**
  * The organization account transaction request.
  */
-
-    import { OrganizationTransactionRequest<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface OrganizationTransactionRequest { 
     /**
      * The transaction types for an organization account.
      */
-    type?: <ENUM>'Default'|'Payment'|'Adjustment'|'Supplementary'</ENUM>;
+    type?: Enums.AllowedTransactionTypes;
     /**
      * The credit account transaction amount.
      */

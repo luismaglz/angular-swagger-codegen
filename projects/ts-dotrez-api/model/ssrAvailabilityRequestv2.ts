@@ -15,6 +15,7 @@ import { MarketInformation } from './marketInformation';
 /**
  * Represents an SSR availability request.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrAvailabilityRequestv2 { 
     /**

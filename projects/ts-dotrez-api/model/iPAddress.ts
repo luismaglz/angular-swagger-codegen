@@ -11,12 +11,11 @@
  */
 
 
-
-    import { IPAddress<CAP>addressFamily</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface IPAddress { 
     address?: number;
-    readonly addressFamily?: <ENUM>'Unspecified'|'Unix'|'InterNetwork'|'ImpLink'|'Pup'|'Chaos'|'Ipx'|'NS'|'Iso'|'Osi'|'Ecma'|'DataKit'|'Ccitt'|'Sna'|'DecNet'|'DataLink'|'Lat'|'HyperChannel'|'AppleTalk'|'NetBios'|'VoiceView'|'FireFox'|'Banyan'|'Atm'|'InterNetworkV6'|'Cluster'|'Ieee12844'|'Irda'|'NetworkDesigners'|'Max'|'Unknown'</ENUM>;
+    readonly addressFamily?: Enums.<ENUM>'Unspecified'|'Unix'|'InterNetwork'|'ImpLink'|'Pup'|'Chaos'|'Ipx'|'NS'|'Iso'|'Osi'|'Ecma'|'DataKit'|'Ccitt'|'Sna'|'DecNet'|'DataLink'|'Lat'|'HyperChannel'|'AppleTalk'|'NetBios'|'VoiceView'|'FireFox'|'Banyan'|'Atm'|'InterNetworkV6'|'Cluster'|'Ieee12844'|'Irda'|'NetworkDesigners'|'Max'|'Unknown'</ENUM>;
     scopeId?: number;
     readonly isIPv6Multicast?: boolean;
     readonly isIPv6LinkLocal?: boolean;

@@ -14,6 +14,7 @@
 /**
  * Defines the participant type information.
  */
+import * as Enums from '../types/enums';
 
 export interface ParticipantType { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Represents the payload data for the trip operation.
  */
+import * as Enums from '../types/enums';
 
 export interface TripOperationPayload { 
     /**

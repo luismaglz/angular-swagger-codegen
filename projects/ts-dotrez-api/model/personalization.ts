@@ -15,8 +15,7 @@ import { PersonalizationParameter } from './personalizationParameter';
 /**
  * Defines an available personalization for an add-on.
  */
-
-    import { Personalization<CAP>dataType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Personalization { 
     /**
@@ -38,7 +37,7 @@ export interface Personalization {
     /**
      * The display data type.
      */
-    dataType?: <ENUM>'Unknown'|'Bool'|'List'|'Text'|'Date'</ENUM>;
+    dataType?: Enums.PersonalizationDataType;
     /**
      * Flag indicating that user input is required.
      */

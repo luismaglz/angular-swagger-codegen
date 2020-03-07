@@ -14,6 +14,7 @@
 /**
  * Defines a change password request base.
  */
+import * as Enums from '../types/enums';
 
 export interface UserChangePasswordRequestBase { 
     /**

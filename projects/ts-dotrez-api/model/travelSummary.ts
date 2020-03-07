@@ -15,14 +15,13 @@ import { MarketInformation } from './marketInformation';
 /**
  * Represents the travel summary information.
  */
-
-    import { TravelSummary<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface TravelSummary { 
     /**
      * Status of the flight summary.
      */
-    status?: <ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
+    status?: Enums.LegStatus;
     /**
      * Number of the flight.
      */

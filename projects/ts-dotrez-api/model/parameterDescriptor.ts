@@ -12,6 +12,7 @@
 import { BindingInfo } from './bindingInfo';
 
 
+import * as Enums from '../types/enums';
 
 export interface ParameterDescriptor { 
     name?: string;

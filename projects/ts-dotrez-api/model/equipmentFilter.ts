@@ -14,6 +14,7 @@
 /**
  * Represents a filter for equipment type.
  */
+import * as Enums from '../types/enums';
 
 export interface EquipmentFilter { 
     /**

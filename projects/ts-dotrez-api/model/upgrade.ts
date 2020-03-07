@@ -15,6 +15,7 @@ import { PassengerFee } from './passengerFee';
 /**
  * Defines the upgrade information.
  */
+import * as Enums from '../types/enums';
 
 export interface Upgrade { 
     /**

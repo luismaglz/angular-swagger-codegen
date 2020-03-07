@@ -15,6 +15,7 @@ import { CompartmentInformation } from './compartmentInformation';
 /**
  * The collection of compartments within the deck.
  */
+import * as Enums from '../types/enums';
 
 export interface DeckInformationCompartments { 
     ?: CompartmentInformation;

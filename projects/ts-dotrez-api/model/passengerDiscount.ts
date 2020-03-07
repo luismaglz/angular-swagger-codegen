@@ -14,8 +14,7 @@
 /**
  * The passenger discount model.
  */
-
-    import { PassengerDiscount<CAP>passengerDiscountType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PassengerDiscount { 
     /**
@@ -29,7 +28,7 @@ export interface PassengerDiscount {
     /**
      * The passenger discount type.
      */
-    passengerDiscountType?: <ENUM>'Default'|'Regular'|'Loyalty'</ENUM>;
+    passengerDiscountType?: Enums.PassengerDiscountType;
     /**
      * The in active.
      */

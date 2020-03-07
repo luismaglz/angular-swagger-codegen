@@ -17,6 +17,7 @@ import { NotificationTimedEvent } from './notificationTimedEvent';
 /**
  * A travel notification.
  */
+import * as Enums from '../types/enums';
 
 export interface TravelNotification { 
     /**

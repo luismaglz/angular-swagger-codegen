@@ -14,6 +14,7 @@
 /**
  * Defines base location details.
  */
+import * as Enums from '../types/enums';
 
 export interface LocationBase { 
     /**

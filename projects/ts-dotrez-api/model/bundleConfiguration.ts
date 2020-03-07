@@ -14,6 +14,7 @@
 /**
  * The bundle configuration model.
  */
+import * as Enums from '../types/enums';
 
 export interface BundleConfiguration { 
     /**

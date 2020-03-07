@@ -14,6 +14,7 @@
 /**
  * Market detail contains the abstracted market data describing the earliest and  latest STD.
  */
+import * as Enums from '../types/enums';
 
 export interface ScheduleDetail { 
     /**

@@ -14,11 +14,7 @@
 /**
  * The market model.
  */
-
-    import { Market<CAP>includesTaxesAndFees</CAP> } from '../types/enums';
-    import { Market<CAP>locationType</CAP> } from '../types/enums';
-    import { Market<CAP>travelDocsRequired</CAP> } from '../types/enums';
-    import { Market<CAP>travelLocationType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Market { 
     /**
@@ -40,7 +36,7 @@ export interface Market {
     /**
      * The directions where taxes and fees are included in this market.
      */
-    includesTaxesAndFees?: <ENUM>'None'|'To'|'From'|'Between'</ENUM>;
+    includesTaxesAndFees?: Enums.Directionality;
     /**
      * The latest check in from travel location for this market.
      */
@@ -52,11 +48,11 @@ export interface Market {
     /**
      * The location type of the starting location for this market.
      */
-    locationType?: <ENUM>'Undefined'|'Station'|'Mac'</ENUM>;
+    locationType?: Enums.MarketLocationType;
     /**
      * The market rules for requiring travel documents for this market.
      */
-    travelDocsRequired?: <ENUM>'None'|'FromTravel'|'ToTravel'|'BothTravel'|'BothOverride'|'FromOverride'|'ToOverride'|'ToTravelToOverride'|'ToTravelBothOverride'|'ToTravelFromOverride'|'FromTravelToOverride'|'FromTravelBothOverride'|'FromTravelFromOverride'|'BothTravelToOverride'|'BothTravelBothOverride'|'BothTravelFromOverride'</ENUM>;
+    travelDocsRequired?: Enums.<ENUM>'None'|'FromTravel'|'ToTravel'|'BothTravel'|'BothOverride'|'FromOverride'|'ToOverride'|'ToTravelToOverride'|'ToTravelBothOverride'|'ToTravelFromOverride'|'FromTravelToOverride'|'FromTravelBothOverride'|'FromTravelFromOverride'|'BothTravelToOverride'|'BothTravelBothOverride'|'BothTravelFromOverride'</ENUM>;
     /**
      * The ending location code for this market.
      */
@@ -64,5 +60,5 @@ export interface Market {
     /**
      * The location type of the ending location for this market.
      */
-    travelLocationType?: <ENUM>'Undefined'|'Station'|'Mac'</ENUM>;
+    travelLocationType?: Enums.MarketLocationType;
 }

@@ -15,10 +15,7 @@ import { VoucherTransaction } from './voucherTransaction';
 /**
  * Voucher information. This model describes a voucher information after being queried by the voucher code.
  */
-
-    import { VoucherInformation<CAP>type</CAP> } from '../types/enums';
-    import { VoucherInformation<CAP>status</CAP> } from '../types/enums';
-    import { VoucherInformation<CAP>nameRestriction</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface VoucherInformation { 
     /**
@@ -64,7 +61,7 @@ export interface VoucherInformation {
     /**
      * The voucher type.
      */
-    type?: <ENUM>'Credit'|'SingleUseCredit'|'Service'|'SingleUse'|'MultiUse'|'SingleUseNegativeAdjustment'</ENUM>;
+    type?: Enums.VoucherType;
     /**
      * The voucher configuration code.
      */
@@ -80,7 +77,7 @@ export interface VoucherInformation {
     /**
      * The voucher status.
      */
-    status?: <ENUM>'Available'|'Void'|'Redeemed'|'Expired'</ENUM>;
+    status?: Enums.VoucherStatus;
     /**
      * Returns the original available amount of the voucher, converted to a foreign currency.  Used if the booking and voucher are in different currencies.
      */
@@ -96,7 +93,7 @@ export interface VoucherInformation {
     /**
      * The name restriction for the voucher.
      */
-    nameRestriction?: <ENUM>'None'|'MustBePassenger'|'MustBePassengerOrContact'</ENUM>;
+    nameRestriction?: Enums.VoucherNameRestriction;
     /**
      * The voucher transactions.
      */

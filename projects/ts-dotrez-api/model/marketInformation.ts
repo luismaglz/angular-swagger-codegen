@@ -15,6 +15,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Model information about the market arrival and destination details.
  */
+import * as Enums from '../types/enums';
 
 export interface MarketInformation { 
     /**

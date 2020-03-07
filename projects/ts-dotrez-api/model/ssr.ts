@@ -14,9 +14,7 @@
 /**
  * The sell service request (SSR) model.
  */
-
-    import { Ssr<CAP>ssrType</CAP> } from '../types/enums';
-    import { Ssr<CAP>seatRestriction</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Ssr { 
     /**
@@ -42,7 +40,7 @@ export interface Ssr {
     /**
      * The Ssr type.
      */
-    ssrType?: <ENUM>'Standard'|'Infant'|'Meal'|'BaggageAllowance'|'TravelLineMeal'</ENUM>;
+    ssrType?: Enums.SsrType;
     /**
      * The in active.
      */
@@ -70,7 +68,7 @@ export interface Ssr {
     /**
      * The seat restriction.
      */
-    seatRestriction?: <ENUM>'Undefined'|'AlwaysAllowed'|'DefaultAllowed'|'DefaultRestricted'</ENUM>;
+    seatRestriction?: Enums.SeatRestriction;
     /**
      * The rule set name.
      */

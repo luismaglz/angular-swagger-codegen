@@ -15,6 +15,7 @@ import { UnitInformation } from './unitInformation';
 /**
  * Defines a compartment within an equipment -&gt; deck.
  */
+import * as Enums from '../types/enums';
 
 export interface CompartmentInformation { 
     /**

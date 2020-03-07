@@ -14,6 +14,7 @@
 /**
  * Defines a unique locator for reference.
  */
+import * as Enums from '../types/enums';
 
 export interface RecordLocator { 
     /**

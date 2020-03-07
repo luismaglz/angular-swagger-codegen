@@ -14,6 +14,7 @@
 /**
  * Defines the options available when canceling a journey.
  */
+import * as Enums from '../types/enums';
 
 export interface CancelJourneyRequest { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Model to request a voucher payment.
  */
+import * as Enums from '../types/enums';
 
 export interface VoucherPaymentRequest { 
     /**

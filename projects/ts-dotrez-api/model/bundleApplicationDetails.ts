@@ -14,6 +14,7 @@
 /**
  * The bundle application details model.
  */
+import * as Enums from '../types/enums';
 
 export interface BundleApplicationDetails { 
     /**

@@ -14,6 +14,7 @@
 /**
  * The collection of additional search input parameters.
  */
+import * as Enums from '../types/enums';
 
 export interface ActivitySimpleRequestParameters { 
     ?: string;

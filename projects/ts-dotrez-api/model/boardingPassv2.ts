@@ -17,6 +17,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Defines the top level boarding pass details.
  */
+import * as Enums from '../types/enums';
 
 export interface BoardingPassv2 { 
     /**

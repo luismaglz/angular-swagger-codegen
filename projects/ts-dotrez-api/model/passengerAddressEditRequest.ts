@@ -14,6 +14,7 @@
 /**
  * Defines a passenger address edit request.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerAddressEditRequest { 
     /**

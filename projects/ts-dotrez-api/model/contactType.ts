@@ -14,6 +14,7 @@
 /**
  * The booking contact type.
  */
+import * as Enums from '../types/enums';
 
 export interface ContactType { 
     /**

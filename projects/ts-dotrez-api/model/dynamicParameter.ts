@@ -14,6 +14,7 @@
 /**
  * The dynamic parameter.
  */
+import * as Enums from '../types/enums';
 
 export interface DynamicParameter { 
     /**

@@ -14,8 +14,7 @@
 /**
  * A travel notification timed event.
  */
-
-    import { NotificationTimedEvent<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface NotificationTimedEvent { 
     /**
@@ -29,5 +28,5 @@ export interface NotificationTimedEvent {
     /**
      * The travel notification timed event type.
      */
-    type: <ENUM>'Departure'|'Arrival'</ENUM>;
+    type: Enums.NotificationTimedEventType;
 }

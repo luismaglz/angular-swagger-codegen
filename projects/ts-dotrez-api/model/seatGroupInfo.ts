@@ -15,6 +15,7 @@ import { PassengerFee } from './passengerFee';
 /**
  * Information about a equipment seat group.
  */
+import * as Enums from '../types/enums';
 
 export interface SeatGroupInfo { 
     /**

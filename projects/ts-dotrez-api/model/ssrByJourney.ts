@@ -16,6 +16,7 @@ import { SsrDetail } from './ssrDetail';
 /**
  * Model information for a sell service request (SSR) tied to a specific journey.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrByJourney { 
     /**

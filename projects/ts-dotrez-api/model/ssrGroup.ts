@@ -15,6 +15,7 @@ import { SsrGroupItem } from './ssrGroupItem';
 /**
  * The sell service request (SSR) group model.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrGroup { 
     /**

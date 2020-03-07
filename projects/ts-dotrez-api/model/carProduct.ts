@@ -24,6 +24,7 @@ import { Warning } from './warning';
 /**
  * Defines a car product result.
  */
+import * as Enums from '../types/enums';
 
 export interface CarProduct { 
     /**

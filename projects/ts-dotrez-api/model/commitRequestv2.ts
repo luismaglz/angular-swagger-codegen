@@ -16,6 +16,7 @@ import { BookingHold } from './bookingHold';
 /**
  * Represents version two of the booking commit request.
  */
+import * as Enums from '../types/enums';
 
 export interface CommitRequestv2 { 
     /**

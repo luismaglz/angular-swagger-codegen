@@ -15,6 +15,7 @@ import { Name } from './name';
 /**
  * Defines the participant criteria.
  */
+import * as Enums from '../types/enums';
 
 export interface ParticipantCriteria { 
     /**

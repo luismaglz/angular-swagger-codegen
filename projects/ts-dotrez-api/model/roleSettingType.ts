@@ -14,6 +14,7 @@
 /**
  * The role settings type model.
  */
+import * as Enums from '../types/enums';
 
 export interface RoleSettingType { 
     /**

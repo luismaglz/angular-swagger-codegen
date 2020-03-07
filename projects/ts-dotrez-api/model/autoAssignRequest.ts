@@ -15,9 +15,7 @@ import { SeatPreferences } from './seatPreferences';
 /**
  * Defines the auto assign seat request.
  */
-
-    import { AutoAssignRequest<CAP>inventoryControl</CAP> } from '../types/enums';
-    import { AutoAssignRequest<CAP>seatAssignmentMode</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AutoAssignRequest { 
     /**
@@ -35,9 +33,9 @@ export interface AutoAssignRequest {
     /**
      * Indicates the type of hold placed on a unit.
      */
-    inventoryControl?: <ENUM>'Session'|'None'</ENUM>;
+    inventoryControl?: Enums.UnitInventoryControlType;
     /**
      * The seat assignment mode.
      */
-    seatAssignmentMode?: <ENUM>'AutoDetermine'|'PreSeatAssignment'|'WebCheckIn'</ENUM>;
+    seatAssignmentMode?: Enums.SeatAssignmentMode;
 }

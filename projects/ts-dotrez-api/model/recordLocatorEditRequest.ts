@@ -14,6 +14,7 @@
 /**
  * The record locator edit request model.
  */
+import * as Enums from '../types/enums';
 
 export interface RecordLocatorEditRequest { 
     /**

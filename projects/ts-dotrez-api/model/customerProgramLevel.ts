@@ -15,6 +15,7 @@ import { CustomerProgramSetting } from './customerProgramSetting';
 /**
  * The customer program level.
  */
+import * as Enums from '../types/enums';
 
 export interface CustomerProgramLevel { 
     /**

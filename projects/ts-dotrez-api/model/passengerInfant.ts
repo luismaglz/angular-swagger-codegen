@@ -17,8 +17,7 @@ import { PassengerTravelDocument } from './passengerTravelDocument';
 /**
  * Model representing an infant with a passenger.
  */
-
-    import { PassengerInfant<CAP>gender</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PassengerInfant { 
     /**
@@ -44,7 +43,7 @@ export interface PassengerInfant {
     /**
      * The gender of the passenger.
      */
-    gender?: <ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The name of the passenger.
      */

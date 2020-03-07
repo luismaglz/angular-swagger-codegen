@@ -14,6 +14,7 @@
 /**
  * Settings for the premium services.
  */
+import * as Enums from '../types/enums';
 
 export interface PremiumServicesSettingsv2 { 
     /**

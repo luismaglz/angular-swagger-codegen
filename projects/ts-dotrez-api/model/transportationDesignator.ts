@@ -14,6 +14,7 @@
 /**
  * Model information about the traveling arrival and destination details.
  */
+import * as Enums from '../types/enums';
 
 export interface TransportationDesignator { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Defines a user's single sign on token.
  */
+import * as Enums from '../types/enums';
 
 export interface UserSingleSignOnToken { 
     /**

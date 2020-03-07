@@ -14,6 +14,7 @@
 /**
  * Defines a specific item in an insurance request.
  */
+import * as Enums from '../types/enums';
 
 export interface SellInsuranceRequest { 
     /**

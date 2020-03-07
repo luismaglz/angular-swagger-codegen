@@ -14,8 +14,7 @@
 /**
  * The available journey fare details represents a journeys fare availability.
  */
-
-    import { AvailableJourneyFareDetail<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AvailableJourneyFareDetail { 
     /**
@@ -25,7 +24,7 @@ export interface AvailableJourneyFareDetail {
     /**
      * The classes status.
      */
-    status?: <ENUM>'Active'|'InActive'|'AvsOpen'|'AvsOnRequest'|'AvsClosed'</ENUM>;
+    status?: Enums.ClassStatus;
     /**
      * The reference to the fare in the master fare collection.
      */

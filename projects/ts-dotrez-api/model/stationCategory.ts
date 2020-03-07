@@ -14,6 +14,7 @@
 /**
  * The station category model.
  */
+import * as Enums from '../types/enums';
 
 export interface StationCategory { 
     /**

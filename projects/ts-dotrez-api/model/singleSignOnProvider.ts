@@ -14,6 +14,7 @@
 /**
  * Defines the single sign on credentials.
  */
+import * as Enums from '../types/enums';
 
 export interface SingleSignOnProvider { 
     /**

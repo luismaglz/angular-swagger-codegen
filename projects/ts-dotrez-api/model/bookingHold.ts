@@ -14,6 +14,7 @@
 /**
  * Defines the booking hold expiration.
  */
+import * as Enums from '../types/enums';
 
 export interface BookingHold { 
     /**

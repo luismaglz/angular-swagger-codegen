@@ -14,6 +14,7 @@
 /**
  * Represents the flight operation times for the departure event, which  includes an estimated and scheduled time event.
  */
+import * as Enums from '../types/enums';
 
 export interface DepartureEvent { 
     /**

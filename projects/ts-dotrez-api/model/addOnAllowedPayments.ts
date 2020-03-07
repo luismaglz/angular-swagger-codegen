@@ -15,6 +15,7 @@ import { ComponentPaymentType } from './componentPaymentType';
 /**
  * Defines a components allowed payment types.
  */
+import * as Enums from '../types/enums';
 
 export interface AddOnAllowedPayments { 
     /**

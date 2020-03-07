@@ -14,6 +14,7 @@
 /**
  * Defines a passenger score.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerScore { 
     /**

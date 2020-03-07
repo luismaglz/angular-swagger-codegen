@@ -14,6 +14,7 @@
 /**
  * Defines a unique person address.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonAddress { 
     /**

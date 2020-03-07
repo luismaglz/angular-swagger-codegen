@@ -17,6 +17,7 @@ import { PassengerProgram } from './passengerProgram';
 /**
  * Defines the base passenger details.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerBase { 
     /**

@@ -16,10 +16,7 @@ import { PersonBasicInformation } from './personBasicInformation';
 /**
  * Defines the person create request.
  */
-
-    import { PersonEditRequest<CAP>type</CAP> } from '../types/enums';
-    import { PersonEditRequest<CAP>status</CAP> } from '../types/enums';
-    import { PersonEditRequest<CAP>notificationPreference</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PersonEditRequest { 
     /**
@@ -29,11 +26,11 @@ export interface PersonEditRequest {
     /**
      * The type of person.
      */
-    type?: <ENUM>'None'|'Customer'|'Agent'</ENUM>;
+    type?: Enums.PersonType;
     /**
      * The status of the person.
      */
-    status?: <ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
+    status?: Enums.PersonStatus;
     /**
      * The person's basic information.
      */
@@ -41,5 +38,5 @@ export interface PersonEditRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: <ENUM>'None'|'Promotional'</ENUM>;
+    notificationPreference?: Enums.NotificationPreference;
 }

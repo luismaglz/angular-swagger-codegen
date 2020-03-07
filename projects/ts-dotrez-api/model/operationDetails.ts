@@ -22,8 +22,7 @@ import { TripOperationTimes } from './tripOperationTimes';
 /**
  * Represents the operation details model.
  */
-
-    import { OperationDetails<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface OperationDetails { 
     /**
@@ -41,7 +40,7 @@ export interface OperationDetails {
     /**
      * Represents the trip status.
      */
-    status?: <ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
+    status?: Enums.LegStatus;
     /**
      * Represents the transportation identifier.
      */

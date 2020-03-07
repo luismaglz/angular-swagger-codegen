@@ -14,23 +14,7 @@
 /**
  * The booking customer account settings.
  */
-
-    import { CustomerAccountSettings<CAP>customerAccessControl</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>defaultCustomerNotificationPreference</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>defaultSeatPreference</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerAddress</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerCurrency</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerDateOfBirth</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerEmail</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerFax</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerLanguage</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerNationality</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerNotificationPreference</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerPayment</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerPhone</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerResidentCountry</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerTitle</CAP> } from '../types/enums';
-    import { CustomerAccountSettings<CAP>disableCustomerType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface CustomerAccountSettings { 
     /**
@@ -48,65 +32,65 @@ export interface CustomerAccountSettings {
     /**
      * The restriction/permissions allowed by the current role.
      */
-    customerAccessControl?: <ENUM>'View'|'CreateAndChange'</ENUM>;
+    customerAccessControl?: Enums.CustomerAccessControl;
     /**
      * The default notification preferences of the customer.
      */
-    defaultCustomerNotificationPreference?: <ENUM>'None'|'Promotional'</ENUM>;
+    defaultCustomerNotificationPreference?: Enums.NotificationPreference;
     /**
      * The default seat preferences of the customer.
      */
-    defaultSeatPreference?: <ENUM>'None'|'Window'|'Aisle'|'NoPreference'|'Front'|'Rear'|'WindowFront'|'WindowRear'|'AisleFront'|'AisleRear'</ENUM>;
+    defaultSeatPreference?: Enums.SeatPreference;
     /**
      * The restrictions on the customer address fields.
      */
-    disableCustomerAddress?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerAddress?: Enums.FieldControlType;
     /**
      * The restrictions on the customer currency fields.
      */
-    disableCustomerCurrency?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerCurrency?: Enums.FieldControlType;
     /**
      * The restrictions on the customer date of birth fields.
      */
-    disableCustomerDateOfBirth?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerDateOfBirth?: Enums.FieldControlType;
     /**
      * The restrictions on the customer email fields.
      */
-    disableCustomerEmail?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerEmail?: Enums.FieldControlType;
     /**
      * The restrictions on the customer fax fields.
      */
-    disableCustomerFax?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerFax?: Enums.FieldControlType;
     /**
      * The restrictions on the customer language fields.
      */
-    disableCustomerLanguage?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerLanguage?: Enums.FieldControlType;
     /**
      * The restrictions on the customer nationality fields.
      */
-    disableCustomerNationality?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerNationality?: Enums.FieldControlType;
     /**
      * The restrictions on the customer notification preferences fields.
      */
-    disableCustomerNotificationPreference?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerNotificationPreference?: Enums.FieldControlType;
     /**
      * The restrictions on the customer payment fields.
      */
-    disableCustomerPayment?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerPayment?: Enums.FieldControlType;
     /**
      * The restrictions on the customer phone number fields.
      */
-    disableCustomerPhone?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerPhone?: Enums.FieldControlType;
     /**
      * The restrictions on the customer resident country fields.
      */
-    disableCustomerResidentCountry?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerResidentCountry?: Enums.FieldControlType;
     /**
      * The restrictions on the customer title fields.
      */
-    disableCustomerTitle?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerTitle?: Enums.FieldControlType;
     /**
      * The restrictions on the customer type fields.
      */
-    disableCustomerType?: <ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
+    disableCustomerType?: Enums.FieldControlType;
 }

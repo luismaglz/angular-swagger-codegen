@@ -15,6 +15,7 @@ import { Ssr } from './ssr';
 /**
  * The SSR nest model.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrNest { 
     /**

@@ -15,6 +15,7 @@ import { StationDetail } from './stationDetail';
 /**
  * Model representing the resource entries.
  */
+import * as Enums from '../types/enums';
 
 export interface ResourceEntriesStationDetail { 
     /**

@@ -12,6 +12,7 @@
 import { WaitHandle } from './waitHandle';
 
 
+import * as Enums from '../types/enums';
 
 export interface CancellationToken { 
     readonly isCancellationRequested?: boolean;

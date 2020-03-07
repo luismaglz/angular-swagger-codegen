@@ -14,6 +14,7 @@
 /**
  * Defines a direct currency conversion availability model.
  */
+import * as Enums from '../types/enums';
 
 export interface DirectCurrencyConversionAvailability { 
     /**

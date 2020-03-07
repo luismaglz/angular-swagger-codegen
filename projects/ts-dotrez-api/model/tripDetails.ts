@@ -16,6 +16,7 @@ import { LegCrossReference } from './legCrossReference';
 /**
  * Represents the trip status details version two model.
  */
+import * as Enums from '../types/enums';
 
 export interface TripDetails { 
     /**

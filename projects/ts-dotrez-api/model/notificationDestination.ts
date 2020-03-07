@@ -14,14 +14,13 @@
 /**
  * A travel notification destination.
  */
-
-    import { NotificationDestination<CAP>deliveryMethodCode</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface NotificationDestination { 
     /**
      * The delivery method code.
      */
-    deliveryMethodCode: <ENUM>'Email'|'Sms'</ENUM>;
+    deliveryMethodCode: Enums.<ENUM>'Email'|'Sms'</ENUM>;
     /**
      * The notification destination, an email or phone number.
      */

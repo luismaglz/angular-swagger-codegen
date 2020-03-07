@@ -15,9 +15,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Model data.
  */
-
-    import { LegTripResult<CAP>status</CAP> } from '../types/enums';
-    import { LegTripResult<CAP>liftStatus</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface LegTripResult { 
     /**
@@ -39,11 +37,11 @@ export interface LegTripResult {
     /**
      * The leg's status.
      */
-    status?: <ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
+    status?: Enums.LegStatus;
     /**
      * The lift status.
      */
-    liftStatus?: <ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    liftStatus?: Enums.LiftStatus;
     /**
      * The departure time using the time variant in universal time.
      */

@@ -17,6 +17,7 @@ import { ProductVariationCatalog } from './productVariationCatalog';
 /**
  * Defines a product variation result.
  */
+import * as Enums from '../types/enums';
 
 export interface ProductVariation { 
     /**

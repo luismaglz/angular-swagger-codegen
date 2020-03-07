@@ -15,6 +15,7 @@ import { RoleSettingType } from './roleSettingType';
 /**
  * The role settings model.
  */
+import * as Enums from '../types/enums';
 
 export interface RoleSetting { 
     /**

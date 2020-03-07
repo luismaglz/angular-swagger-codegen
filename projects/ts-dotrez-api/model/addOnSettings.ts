@@ -16,6 +16,7 @@ import { ParticipantSettings } from './participantSettings';
 /**
  * Defines a add ons field validation requirements.
  */
+import * as Enums from '../types/enums';
 
 export interface AddOnSettings { 
     /**

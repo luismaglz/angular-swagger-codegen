@@ -14,6 +14,7 @@ import { CustomAttributeNamedArgument } from './customAttributeNamedArgument';
 import { CustomAttributeTypedArgument } from './customAttributeTypedArgument';
 
 
+import * as Enums from '../types/enums';
 
 export interface CustomAttributeData { 
     readonly attributeType?: string;

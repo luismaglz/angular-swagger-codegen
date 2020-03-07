@@ -15,6 +15,7 @@ import { Carrier } from './carrier';
 /**
  * Model representing the resource entries.
  */
+import * as Enums from '../types/enums';
 
 export interface ResourceEntriesCarrier { 
     /**

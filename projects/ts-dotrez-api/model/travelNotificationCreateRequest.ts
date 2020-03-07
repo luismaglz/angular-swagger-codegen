@@ -17,6 +17,7 @@ import { NotificationTimedEventCreateRequest } from './notificationTimedEventCre
 /**
  * Create request for travel notifications.
  */
+import * as Enums from '../types/enums';
 
 export interface TravelNotificationCreateRequest { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Settings for creating customers.
  */
+import * as Enums from '../types/enums';
 
 export interface CustomerCreationSettings { 
     /**

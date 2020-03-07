@@ -14,6 +14,7 @@
 /**
  * Low fare passengers contains the passenger type specific data.
  */
+import * as Enums from '../types/enums';
 
 export interface LowFareAmount { 
     /**

@@ -14,6 +14,7 @@
 /**
  * The data for an organizations external account.
  */
+import * as Enums from '../types/enums';
 
 export interface OrganizationExternalAccountv2 { 
     /**

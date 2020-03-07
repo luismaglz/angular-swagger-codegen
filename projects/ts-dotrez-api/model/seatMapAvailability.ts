@@ -17,6 +17,7 @@ import { SeatMapAvailabilitySsrLookup } from './seatMapAvailabilitySsrLookup';
 /**
  * Defines the equipment availability.
  */
+import * as Enums from '../types/enums';
 
 export interface SeatMapAvailability { 
     /**

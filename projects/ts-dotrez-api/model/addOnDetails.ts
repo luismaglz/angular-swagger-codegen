@@ -14,6 +14,7 @@
 /**
  * Defines a booking add on base details.
  */
+import * as Enums from '../types/enums';
 
 export interface AddOnDetails { 
     /**

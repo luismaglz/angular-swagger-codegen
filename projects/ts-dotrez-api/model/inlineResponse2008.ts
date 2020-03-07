@@ -12,6 +12,7 @@
 import { PaymentMethod } from './paymentMethod';
 
 
+import * as Enums from '../types/enums';
 
 export interface InlineResponse2008 { 
     ?: PaymentMethod;

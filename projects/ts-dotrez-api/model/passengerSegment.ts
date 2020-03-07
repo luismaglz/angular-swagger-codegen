@@ -22,10 +22,7 @@ import { Ticket } from './ticket';
 /**
  * Model data for the passenger on the booking for the specific segment.
  */
-
-    import { PassengerSegment<CAP>baggageAllowanceWeightType</CAP> } from '../types/enums';
-    import { PassengerSegment<CAP>liftStatus</CAP> } from '../types/enums';
-    import { PassengerSegment<CAP>overBookIndicator</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PassengerSegment { 
     /**
@@ -51,7 +48,7 @@ export interface PassengerSegment {
     /**
      * The type of passenger segment baggage allowance weight.
      */
-    baggageAllowanceWeightType?: <ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
+    baggageAllowanceWeightType?: Enums.WeightType;
     /**
      * The passenger segment boarding sequence.
      */
@@ -63,7 +60,7 @@ export interface PassengerSegment {
     /**
      * The lift status.
      */
-    liftStatus?: <ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    liftStatus?: Enums.LiftStatus;
     /**
      * The modified date.
      */
@@ -71,7 +68,7 @@ export interface PassengerSegment {
     /**
      * The over book indicator.
      */
-    overBookIndicator?: <ENUM>'NormalSell'|'Oversold'|'ClassOrCabinOversold'</ENUM>;
+    overBookIndicator?: Enums.OverbookIndicatorTypes;
     /**
      * The priority date.
      */

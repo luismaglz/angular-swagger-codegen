@@ -17,6 +17,7 @@ import { RegionFilter } from './regionFilter';
 /**
  * The bundle application model.
  */
+import * as Enums from '../types/enums';
 
 export interface BundleApplication { 
     /**

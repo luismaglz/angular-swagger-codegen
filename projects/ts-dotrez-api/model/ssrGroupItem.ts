@@ -14,6 +14,7 @@
 /**
  * The SSR group SSR model.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrGroupItem { 
     /**

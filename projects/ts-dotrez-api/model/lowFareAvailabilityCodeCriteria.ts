@@ -14,6 +14,7 @@
 /**
  * Describes the low fare availability code criteria.
  */
+import * as Enums from '../types/enums';
 
 export interface LowFareAvailabilityCodeCriteria { 
     /**

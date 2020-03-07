@@ -15,14 +15,13 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Defines a single passengers checkin status for a specific segment.
  */
-
-    import { CheckinPassengerLiftStatus<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface CheckinPassengerLiftStatus { 
     /**
      * The lift status of the passenger for a specific segment.
      */
-    status?: <ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    status?: Enums.LiftStatus;
     /**
      * The transportation identifier.
      */

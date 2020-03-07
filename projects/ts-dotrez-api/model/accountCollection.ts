@@ -14,6 +14,7 @@
 /**
  * The account collection model.
  */
+import * as Enums from '../types/enums';
 
 export interface AccountCollection { 
     /**

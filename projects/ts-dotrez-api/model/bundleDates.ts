@@ -14,6 +14,7 @@
 /**
  * The bundle dates model.
  */
+import * as Enums from '../types/enums';
 
 export interface BundleDates { 
     /**

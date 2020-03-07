@@ -19,6 +19,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Model data describing the leg which is a single travel leg from point a to b.
  */
+import * as Enums from '../types/enums';
 
 export interface Leg { 
     /**

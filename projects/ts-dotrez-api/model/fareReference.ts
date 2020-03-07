@@ -16,6 +16,7 @@ import { FareReferenceTotals } from './fareReferenceTotals';
 /**
  * The fare reference represents a master reference of the full fare details.
  */
+import * as Enums from '../types/enums';
 
 export interface FareReference { 
     /**

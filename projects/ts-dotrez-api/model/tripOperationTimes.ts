@@ -16,6 +16,7 @@ import { TripOperationEvents } from './tripOperationEvents';
 /**
  * Represents the flight operation time events.  Null property values indicate  that there is no recorded time event for the given property name.
  */
+import * as Enums from '../types/enums';
 
 export interface TripOperationTimes { 
     /**

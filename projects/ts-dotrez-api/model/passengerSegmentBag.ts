@@ -14,8 +14,7 @@
 /**
  * Model information about the baggage a passenger has on a segment.
  */
-
-    import { PassengerSegmentBag<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PassengerSegmentBag { 
     /**
@@ -33,7 +32,7 @@ export interface PassengerSegmentBag {
     /**
      * The bag status.
      */
-    status?: <ENUM>'Default'|'Checked'|'Removed'|'Added'|'AddedPrinted'</ENUM>;
+    status?: Enums.BaggageStatus;
     /**
      * The bag segment departure station.
      */

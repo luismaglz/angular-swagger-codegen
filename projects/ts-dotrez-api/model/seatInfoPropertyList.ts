@@ -14,6 +14,7 @@
 /**
  * The property list by type code and value.
  */
+import * as Enums from '../types/enums';
 
 export interface SeatInfoPropertyList { 
     ?: string;

@@ -14,12 +14,7 @@
 /**
  * Defines a component allowed payment type.
  */
-
-    import { ComponentPaymentType<CAP>modType</CAP> } from '../types/enums';
-    import { ComponentPaymentType<CAP>expiration</CAP> } from '../types/enums';
-    import { ComponentPaymentType<CAP>cvv</CAP> } from '../types/enums';
-    import { ComponentPaymentType<CAP>name</CAP> } from '../types/enums';
-    import { ComponentPaymentType<CAP>issueNumber</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface ComponentPaymentType { 
     /**
@@ -33,21 +28,21 @@ export interface ComponentPaymentType {
     /**
      * The modulus check to perform.
      */
-    modType?: <ENUM>'None'|'Mod10'|'Mod11'</ENUM>;
+    modType?: Enums.PaymentModType;
     /**
      * The field usage for expiration date.
      */
-    expiration?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    expiration?: Enums.FieldUsage;
     /**
      * The field usage for CVV.
      */
-    cvv?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    cvv?: Enums.FieldUsage;
     /**
      * The field usage for card holder name.
      */
-    name?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    name?: Enums.FieldUsage;
     /**
      * The field usage for issue number.
      */
-    issueNumber?: <ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    issueNumber?: Enums.FieldUsage;
 }

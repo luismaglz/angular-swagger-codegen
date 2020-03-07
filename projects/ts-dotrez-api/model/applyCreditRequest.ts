@@ -14,6 +14,7 @@
 /**
  * Defines a request to apply credit from state.
  */
+import * as Enums from '../types/enums';
 
 export interface ApplyCreditRequest { 
     /**

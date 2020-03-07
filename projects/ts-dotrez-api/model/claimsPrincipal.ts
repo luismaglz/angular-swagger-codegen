@@ -14,6 +14,7 @@ import { ClaimsIdentity } from './claimsIdentity';
 import { IIdentity } from './iIdentity';
 
 
+import * as Enums from '../types/enums';
 
 export interface ClaimsPrincipal { 
     readonly claims?: Array<Claim>;

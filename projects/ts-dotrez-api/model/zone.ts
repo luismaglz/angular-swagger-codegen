@@ -15,6 +15,7 @@ import { SubZone } from './subZone';
 /**
  * The zone model.
  */
+import * as Enums from '../types/enums';
 
 export interface Zone { 
     /**

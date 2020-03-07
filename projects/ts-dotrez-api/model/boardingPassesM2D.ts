@@ -15,6 +15,7 @@ import { BoardingPassM2D } from './boardingPassM2D';
 /**
  * The collection of M2D boarding passes.
  */
+import * as Enums from '../types/enums';
 
 export interface BoardingPassesM2D { 
     /**

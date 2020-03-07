@@ -15,6 +15,7 @@ import { VoucherMarketInformation } from './voucherMarketInformation';
 /**
  * The voucher issuance request model.
  */
+import * as Enums from '../types/enums';
 
 export interface VoucherIssuanceRequest { 
     /**

@@ -15,6 +15,7 @@ import { Coordinate } from './coordinate';
 /**
  * Defines an address with GPS coordinates.
  */
+import * as Enums from '../types/enums';
 
 export interface OrderAddress { 
     /**

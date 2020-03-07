@@ -14,6 +14,7 @@
 /**
  * The hot card reason model.
  */
+import * as Enums from '../types/enums';
 
 export interface HotCardReason { 
     /**

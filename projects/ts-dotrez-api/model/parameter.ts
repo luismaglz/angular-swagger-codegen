@@ -14,6 +14,7 @@
 /**
  * Defines a supplier parameter.
  */
+import * as Enums from '../types/enums';
 
 export interface Parameter { 
     /**

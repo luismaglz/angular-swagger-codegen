@@ -12,6 +12,7 @@
 import { PassengerPriceBreakdown } from './passengerPriceBreakdown';
 
 
+import * as Enums from '../types/enums';
 
 export interface InlineResponse2006 { 
     ?: PassengerPriceBreakdown;

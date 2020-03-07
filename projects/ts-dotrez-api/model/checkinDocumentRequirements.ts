@@ -15,6 +15,7 @@ import { GovernmentPassengerDocumentRequirement } from './governmentPassengerDoc
 /**
  * Defines a passenger checkin document requirements.
  */
+import * as Enums from '../types/enums';
 
 export interface CheckinDocumentRequirements { 
     /**

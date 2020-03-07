@@ -14,6 +14,7 @@
 /**
  * Defines the person preferences.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonPreference { 
     /**

@@ -14,9 +14,7 @@
 /**
  * Model representing a resource content item.
  */
-
-    import { ResourceContentItem<CAP>type</CAP> } from '../types/enums';
-    import { ResourceContentItem<CAP>dataType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface ResourceContentItem { 
     /**
@@ -42,11 +40,11 @@ export interface ResourceContentItem {
     /**
      * Specific content type.
      */
-    type?: <ENUM>'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference'</ENUM>;
+    type?: Enums.<ENUM>'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference'</ENUM>;
     /**
      * Content data type.
      */
-    dataType?: <ENUM>'Default'|'Text'|'RichTextFormat'|'ImageJpg'|'ImageGif'|'ImageBmp'|'ImagePng'|'WordDoc'|'Html'|'Pdf'|'Uri'|'WordDocx'|'Unmapped'</ENUM>;
+    dataType?: Enums.<ENUM>'Default'|'Text'|'RichTextFormat'|'ImageJpg'|'ImageGif'|'ImageBmp'|'ImagePng'|'WordDoc'|'Html'|'Pdf'|'Uri'|'WordDocx'|'Unmapped'</ENUM>;
     /**
      * Data bytes.
      */

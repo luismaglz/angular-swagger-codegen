@@ -15,8 +15,7 @@ import { Supplier } from './supplier';
 /**
  * Defines a travel commerce vendor.
  */
-
-    import { Vendorv2<CAP>paymentAction</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Vendorv2 { 
     /**
@@ -50,7 +49,7 @@ export interface Vendorv2 {
     /**
      * The payment action.
      */
-    paymentAction?: <ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
+    paymentAction?: Enums.PaymentAction;
     /**
      * Supplier information.
      */

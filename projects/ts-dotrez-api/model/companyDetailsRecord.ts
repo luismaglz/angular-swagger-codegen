@@ -16,6 +16,7 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * The organization company details record results.
  */
+import * as Enums from '../types/enums';
 
 export interface CompanyDetailsRecord { 
     /**

@@ -11,6 +11,7 @@
  */
 
 
+import * as Enums from '../types/enums';
 
 export interface KeyValuePairTypeObject { 
     readonly key?: string;

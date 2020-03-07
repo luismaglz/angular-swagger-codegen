@@ -14,6 +14,7 @@
 /**
  * SSR detail for a specific passenger number.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrByKeyRequest { 
     /**

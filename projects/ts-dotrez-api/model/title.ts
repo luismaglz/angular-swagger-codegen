@@ -14,9 +14,7 @@
 /**
  * The Title.
  */
-
-    import { Title<CAP>gender</CAP> } from '../types/enums';
-    import { Title<CAP>weightCategory</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Title { 
     /**
@@ -30,11 +28,11 @@ export interface Title {
     /**
      * The gender.
      */
-    gender?: <ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The weight category.
      */
-    weightCategory?: <ENUM>'Male'|'Female'|'Child'</ENUM>;
+    weightCategory?: Enums.WeightCategory;
     /**
      * The InActive.
      */

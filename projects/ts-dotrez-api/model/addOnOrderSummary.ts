@@ -14,6 +14,7 @@
 /**
  * Defines the details about an order if the order is not available.
  */
+import * as Enums from '../types/enums';
 
 export interface AddOnOrderSummary { 
     /**

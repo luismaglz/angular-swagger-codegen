@@ -14,6 +14,7 @@
 /**
  * Defines the account forgot password request.
  */
+import * as Enums from '../types/enums';
 
 export interface AccountForgotPasswordRequest { 
     /**

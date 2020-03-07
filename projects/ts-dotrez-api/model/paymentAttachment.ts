@@ -14,6 +14,7 @@
 /**
  * Defines a payment attachment.
  */
+import * as Enums from '../types/enums';
 
 export interface PaymentAttachment { 
     /**

@@ -14,8 +14,7 @@
 /**
  * The voucher transaction model.
  */
-
-    import { VoucherTransaction<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface VoucherTransaction { 
     /**
@@ -33,7 +32,7 @@ export interface VoucherTransaction {
     /**
      * The voucher transaction type.
      */
-    type?: <ENUM>'Debit'|'Credit'|'Void'|'Reinstate'|'Adjustment'</ENUM>;
+    type?: Enums.VoucherTransactionType;
     /**
      * The amount of foreign currency.
      */

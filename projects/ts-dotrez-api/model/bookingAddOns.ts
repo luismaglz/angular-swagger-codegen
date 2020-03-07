@@ -15,6 +15,7 @@ import { AddOn } from './addOn';
 /**
  * The list of components.
  */
+import * as Enums from '../types/enums';
 
 export interface BookingAddOns { 
     ?: AddOn;

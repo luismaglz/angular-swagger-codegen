@@ -12,6 +12,7 @@
 import { MccCurrencyInformationv2 } from './mccCurrencyInformationv2';
 
 
+import * as Enums from '../types/enums';
 
 export interface InlineResponse2009 { 
     ?: MccCurrencyInformationv2;

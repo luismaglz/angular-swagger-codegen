@@ -15,6 +15,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Defines a single instance of non-stop travel between two stations.
  */
+import * as Enums from '../types/enums';
 
 export interface ItineraryLeg { 
     /**

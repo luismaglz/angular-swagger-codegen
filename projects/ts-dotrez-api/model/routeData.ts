@@ -13,6 +13,7 @@ import { ActionDescriptorProperties } from './actionDescriptorProperties';
 import { IRouter } from './iRouter';
 
 
+import * as Enums from '../types/enums';
 
 export interface RouteData { 
     dataTokens?: ActionDescriptorProperties;

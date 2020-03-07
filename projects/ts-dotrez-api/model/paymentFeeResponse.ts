@@ -15,6 +15,7 @@ import { PassengerFee } from './passengerFee';
 /**
  * Defines information for the payment fee response.
  */
+import * as Enums from '../types/enums';
 
 export interface PaymentFeeResponse { 
     /**

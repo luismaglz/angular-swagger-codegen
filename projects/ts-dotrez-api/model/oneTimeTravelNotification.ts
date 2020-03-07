@@ -17,6 +17,7 @@ import { OneTimeNotificationEvent } from './oneTimeNotificationEvent';
 /**
  * A one time travel notification.
  */
+import * as Enums from '../types/enums';
 
 export interface OneTimeTravelNotification { 
     /**

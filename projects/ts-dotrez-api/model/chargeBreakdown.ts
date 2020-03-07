@@ -15,6 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Defines a charge breakdown.
  */
+import * as Enums from '../types/enums';
 
 export interface ChargeBreakdown { 
     /**

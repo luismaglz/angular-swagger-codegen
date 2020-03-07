@@ -14,6 +14,7 @@
 /**
  * Defines a common name.
  */
+import * as Enums from '../types/enums';
 
 export interface Name { 
     /**

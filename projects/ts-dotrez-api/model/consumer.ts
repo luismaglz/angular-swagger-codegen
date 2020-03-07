@@ -16,6 +16,7 @@ import { Name } from './name';
 /**
  * Defines a consumer.
  */
+import * as Enums from '../types/enums';
 
 export interface Consumer { 
     /**

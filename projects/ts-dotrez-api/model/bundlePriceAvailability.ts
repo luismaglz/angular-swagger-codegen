@@ -18,6 +18,7 @@ import { UpgradableSsrAvailability } from './upgradableSsrAvailability';
 /**
  * The bundle price availability model.
  */
+import * as Enums from '../types/enums';
 
 export interface BundlePriceAvailability { 
     /**

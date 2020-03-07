@@ -17,6 +17,7 @@ import { OrganizationExternalAccountRequest } from './organizationExternalAccoun
 /**
  * The data on the organization register request.
  */
+import * as Enums from '../types/enums';
 
 export interface OrganizationRegisterRequest { 
     /**

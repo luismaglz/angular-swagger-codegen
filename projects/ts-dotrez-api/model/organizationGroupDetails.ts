@@ -15,6 +15,7 @@ import { OrganizationRecordMinimum } from './organizationRecordMinimum';
 /**
  * The data for an organization group including details.
  */
+import * as Enums from '../types/enums';
 
 export interface OrganizationGroupDetails { 
     /**

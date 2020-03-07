@@ -16,6 +16,7 @@ import { TravelQueueRequest } from './travelQueueRequest';
 /**
  * API request object used to enqueue a new travel queue item.
  */
+import * as Enums from '../types/enums';
 
 export interface TravelQueueItemRequest { 
     /**

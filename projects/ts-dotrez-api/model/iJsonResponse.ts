@@ -12,6 +12,7 @@
 import { Message } from './message';
 
 
+import * as Enums from '../types/enums';
 
 export interface IJsonResponse { 
     errors?: Array<any>;

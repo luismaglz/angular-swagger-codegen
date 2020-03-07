@@ -14,8 +14,7 @@
 /**
  * The voucher item model.
  */
-
-    import { VoucherItem<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface VoucherItem { 
     /**
@@ -49,7 +48,7 @@ export interface VoucherItem {
     /**
      * The voucher status.
      */
-    status?: <ENUM>'Available'|'Void'|'Redeemed'|'Expired'</ENUM>;
+    status?: Enums.VoucherStatus;
     /**
      * The availability count of the voucher.
      */

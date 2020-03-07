@@ -14,8 +14,7 @@
 /**
  * Defines the user role create request.
  */
-
-    import { UserRoleCreateRequest<CAP>effectiveDays</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface UserRoleCreateRequest { 
     /**
@@ -25,7 +24,7 @@ export interface UserRoleCreateRequest {
     /**
      * The days the role is effective.
      */
-    effectiveDays?: <ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
+    effectiveDays?: Enums.DayOfWeek;
     /**
      * The date the role is effective after.
      */

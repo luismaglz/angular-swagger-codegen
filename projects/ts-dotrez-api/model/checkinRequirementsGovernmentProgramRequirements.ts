@@ -15,6 +15,7 @@ import { GovernmentProgramRequirements } from './governmentProgramRequirements';
 /**
  * The collection of government programs requirements.
  */
+import * as Enums from '../types/enums';
 
 export interface CheckinRequirementsGovernmentProgramRequirements { 
     ?: GovernmentProgramRequirements;

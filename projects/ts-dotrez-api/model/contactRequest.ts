@@ -17,9 +17,7 @@ import { PhoneNumber } from './phoneNumber';
 /**
  * Defines a contact create request.
  */
-
-    import { ContactRequest<CAP>distributionOption</CAP> } from '../types/enums';
-    import { ContactRequest<CAP>notificationPreference</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface ContactRequest { 
     /**
@@ -49,11 +47,11 @@ export interface ContactRequest {
     /**
      * The contact distribution option.
      */
-    distributionOption?: <ENUM>'None'|'Mail'|'Email'|'Fax'|'MailFax'|'Airport'|'Hold'|'Print'</ENUM>;
+    distributionOption?: Enums.DistributionOption;
     /**
      * The notification preference of the contact.
      */
-    notificationPreference?: <ENUM>'None'|'Promotional'</ENUM>;
+    notificationPreference?: Enums.NotificationPreference;
     /**
      * The company name.
      */

@@ -14,6 +14,7 @@
 /**
  * Defines a order history transaction.
  */
+import * as Enums from '../types/enums';
 
 export interface OrderHistory { 
     /**

@@ -14,6 +14,7 @@
 /**
  * The resell Ssr request.
  */
+import * as Enums from '../types/enums';
 
 export interface ResellSsrRequest { 
     /**

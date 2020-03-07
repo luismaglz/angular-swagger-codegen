@@ -17,6 +17,7 @@ import { SsrBySegment } from './ssrBySegment';
 /**
  * Model containing all Ssr information.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrAvailability { 
     /**

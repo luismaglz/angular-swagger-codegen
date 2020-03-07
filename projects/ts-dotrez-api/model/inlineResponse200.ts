@@ -12,6 +12,7 @@
 import { AddOn } from './addOn';
 
 
+import * as Enums from '../types/enums';
 
 export interface InlineResponse200 { 
     ?: AddOn;

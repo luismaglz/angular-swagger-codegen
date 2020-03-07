@@ -14,6 +14,7 @@
 /**
  * The currency model.
  */
+import * as Enums from '../types/enums';
 
 export interface Currencyv2 { 
     /**

@@ -16,6 +16,7 @@ import { AmountDue } from './amountDue';
 /**
  * Defines all the different order price breakdown.
  */
+import * as Enums from '../types/enums';
 
 export interface OrderPriceBreakdown { 
     /**

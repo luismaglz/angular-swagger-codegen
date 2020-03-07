@@ -12,6 +12,7 @@
 import { IPAddress } from './iPAddress';
 
 
+import * as Enums from '../types/enums';
 
 export interface ConnectionInfo { 
     id?: string;

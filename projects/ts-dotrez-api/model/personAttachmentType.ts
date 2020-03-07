@@ -14,6 +14,7 @@
 /**
  * The person attachment Type.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonAttachmentType { 
     /**

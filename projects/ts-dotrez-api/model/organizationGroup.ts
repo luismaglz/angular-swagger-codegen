@@ -14,6 +14,7 @@
 /**
  * The data for an organization group.
  */
+import * as Enums from '../types/enums';
 
 export interface OrganizationGroup { 
     /**

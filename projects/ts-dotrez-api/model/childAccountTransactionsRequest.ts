@@ -14,6 +14,7 @@
 /**
  * The organization account transaction request.
  */
+import * as Enums from '../types/enums';
 
 export interface ChildAccountTransactionsRequest { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Model representing the retrieve booking data.
  */
+import * as Enums from '../types/enums';
 
 export interface RetrieveBookingv2 { 
     /**

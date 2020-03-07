@@ -14,6 +14,7 @@
 /**
  * Represents various count data for passengers, such as checked-in, no-shows, etc.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerCounts { 
     /**

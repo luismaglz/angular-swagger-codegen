@@ -14,6 +14,7 @@
 /**
  * SSR request for a single journey Ssr.
  */
+import * as Enums from '../types/enums';
 
 export interface JourneySsrRequest { 
     /**

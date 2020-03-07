@@ -12,6 +12,7 @@
 import { HttpContext } from './httpContext';
 
 
+import * as Enums from '../types/enums';
 
 export interface AuthenticationManager { 
     readonly httpContext?: HttpContext;

@@ -14,6 +14,7 @@
 /**
  * Low fare leg information.
  */
+import * as Enums from '../types/enums';
 
 export interface LowFareLeg { 
     /**

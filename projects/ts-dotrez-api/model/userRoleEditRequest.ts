@@ -14,14 +14,13 @@
 /**
  * Defines the user role edit request.
  */
-
-    import { UserRoleEditRequest<CAP>effectiveDays</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface UserRoleEditRequest { 
     /**
      * The days the role is effective.
      */
-    effectiveDays?: <ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
+    effectiveDays?: Enums.DayOfWeek;
     /**
      * The date the role is effective after.
      */

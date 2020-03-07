@@ -16,6 +16,7 @@ import { SellTokenCatalogRequestParameters } from './sellTokenCatalogRequestPara
 /**
  * Defines a product quote item request used for a singular catalog item.
  */
+import * as Enums from '../types/enums';
 
 export interface SellCarRequest { 
     parameters?: SellTokenCatalogRequestParameters;

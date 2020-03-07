@@ -14,6 +14,7 @@
 /**
  * Defines the single sign on token request.
  */
+import * as Enums from '../types/enums';
 
 export interface SingleSignOnTokenRequest { 
     /**

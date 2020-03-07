@@ -15,6 +15,7 @@ import { HttpContext } from './httpContext';
 import { RouteData } from './routeData';
 
 
+import * as Enums from '../types/enums';
 
 export interface ActionContext { 
     actionDescriptor?: ActionDescriptor;

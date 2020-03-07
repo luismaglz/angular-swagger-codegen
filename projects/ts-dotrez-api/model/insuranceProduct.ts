@@ -22,6 +22,7 @@ import { Warning } from './warning';
 /**
  * Defines an insurance product result.
  */
+import * as Enums from '../types/enums';
 
 export interface InsuranceProduct { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Defines the search results price calculations.
  */
+import * as Enums from '../types/enums';
 
 export interface ProductPriceBreakdown { 
     /**

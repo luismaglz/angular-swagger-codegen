@@ -14,6 +14,7 @@
 /**
  * Manifest Cabin Passenger Count.
  */
+import * as Enums from '../types/enums';
 
 export interface ManifestCabinPassengerCount { 
     /**

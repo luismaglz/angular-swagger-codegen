@@ -15,6 +15,7 @@ import { StationLocationDetails } from './stationLocationDetails';
 /**
  * Defines a station.
  */
+import * as Enums from '../types/enums';
 
 export interface Station { 
     /**

@@ -16,6 +16,7 @@ import { ExternalRate } from './externalRate';
 /**
  * Model with the Mcc curency and rate information.
  */
+import * as Enums from '../types/enums';
 
 export interface MccCurrencyInformationv2 { 
     /**

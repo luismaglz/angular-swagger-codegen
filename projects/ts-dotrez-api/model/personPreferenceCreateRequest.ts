@@ -14,6 +14,7 @@
 /**
  * Defines a person preference create request.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonPreferenceCreateRequest { 
     /**

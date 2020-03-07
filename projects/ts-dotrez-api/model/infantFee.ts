@@ -15,6 +15,7 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Defines the infant fee information.
  */
+import * as Enums from '../types/enums';
 
 export interface InfantFee { 
     /**

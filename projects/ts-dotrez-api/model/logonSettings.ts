@@ -14,6 +14,7 @@
 /**
  * The logon settings.
  */
+import * as Enums from '../types/enums';
 
 export interface LogonSettings { 
     /**

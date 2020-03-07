@@ -19,8 +19,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Defines the boarding pass segment details.
  */
-
-    import { BoardingPassSegment<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface BoardingPassSegment { 
     /**
@@ -42,7 +41,7 @@ export interface BoardingPassSegment {
     /**
      * The type of the current segment.
      */
-    type?: <ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
+    type?: Enums.SegmentTypes;
     /**
      * Flag indicating if the segment is international.
      */

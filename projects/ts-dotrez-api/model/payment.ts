@@ -21,11 +21,7 @@ import { ThreeDSecure } from './threeDSecure';
 /**
  * Defines an applied payment on the booking.
  */
-
-    import { Payment<CAP>authorizationStatus</CAP> } from '../types/enums';
-    import { Payment<CAP>type</CAP> } from '../types/enums';
-    import { Payment<CAP>status</CAP> } from '../types/enums';
-    import { Payment<CAP>channelType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Payment { 
     /**
@@ -55,7 +51,7 @@ export interface Payment {
     /**
      * The real payment status that should never be exposed to the end user unless a agent.
      */
-    authorizationStatus?: <ENUM>'Unknown'|'Acknowledged'|'Pending'|'InProcess'|'Approved'|'Declined'|'Referral'|'PickUpCard'|'HotCard'|'Voided'|'Retrieval'|'ChargedBack'|'Error'|'ValidationFailed'|'Address'|'VerificationCode'|'FraudPrevention'|'ForcedApproval'|'ForcedDecline'</ENUM>;
+    authorizationStatus?: Enums.AuthorizationStatus;
     /**
      * The date restriction for a payment (when funds will be there).
      */
@@ -87,11 +83,11 @@ export interface Payment {
     /**
      * The payment method type.
      */
-    type?: <ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
+    type?: Enums.PaymentMethodType;
     /**
      * The status of the booking (this is the safe status).
      */
-    status?: <ENUM>'New'|'Received'|'Pending'|'Approved'|'Declined'|'Unknown'|'PendingCustomerAction'</ENUM>;
+    status?: Enums.BookingPaymentStatus;
     /**
      * Flag that indicates if the payment is a result of a divide.
      */
@@ -99,7 +95,7 @@ export interface Payment {
     /**
      * The channel type that the payment was made through.
      */
-    channelType?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channelType?: Enums.ChannelType;
     /**
      * The payments point of sale information.
      */

@@ -18,6 +18,7 @@ import { QueryString } from './queryString';
 import { Stream } from './stream';
 
 
+import * as Enums from '../types/enums';
 
 export interface HttpRequest { 
     readonly httpContext?: HttpContext;

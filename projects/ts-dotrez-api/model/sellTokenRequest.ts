@@ -15,6 +15,7 @@ import { SellTokenCatalogRequest } from './sellTokenCatalogRequest';
 /**
  * Defines a product sell token request.
  */
+import * as Enums from '../types/enums';
 
 export interface SellTokenRequest { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Defines a common address.
  */
+import * as Enums from '../types/enums';
 
 export interface Address { 
     /**

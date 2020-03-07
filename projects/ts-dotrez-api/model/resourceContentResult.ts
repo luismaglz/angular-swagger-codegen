@@ -14,8 +14,7 @@
 /**
  * Model representing a resource content item.
  */
-
-    import { ResourceContentResult<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface ResourceContentResult { 
     /**
@@ -33,5 +32,5 @@ export interface ResourceContentResult {
     /**
      * Specific content type.
      */
-    type?: <ENUM>'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference'</ENUM>;
+    type?: Enums.<ENUM>'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference'</ENUM>;
 }

@@ -14,6 +14,7 @@
 /**
  * Defines a common phone number base.
  */
+import * as Enums from '../types/enums';
 
 export interface PhoneNumberBase { 
     /**

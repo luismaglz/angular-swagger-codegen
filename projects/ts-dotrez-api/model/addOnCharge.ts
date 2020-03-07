@@ -14,15 +14,13 @@
 /**
  * Defines a booking add ons charge.
  */
-
-    import { AddOnCharge<CAP>type</CAP> } from '../types/enums';
-    import { AddOnCharge<CAP>collection</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AddOnCharge { 
     /**
      * The charge type.
      */
-    type?: <ENUM>'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment'</ENUM>;
+    type?: Enums.<ENUM>'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment'</ENUM>;
     /**
      * The charge code.
      */
@@ -34,7 +32,7 @@ export interface AddOnCharge {
     /**
      * The charge collection type.
      */
-    collection?: <ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
+    collection?: Enums.CollectType;
     /**
      * The currency code.
      */

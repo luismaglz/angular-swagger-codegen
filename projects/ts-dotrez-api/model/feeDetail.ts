@@ -16,10 +16,7 @@ import { RegionFee } from './regionFee';
 /**
  * Fee detail model.
  */
-
-    import { FeeDetail<CAP>taxApplicationOverride</CAP> } from '../types/enums';
-    import { FeeDetail<CAP>travelComponentOverride</CAP> } from '../types/enums';
-    import { FeeDetail<CAP>feeApplicationOverride</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface FeeDetail { 
     /**
@@ -41,11 +38,11 @@ export interface FeeDetail {
     /**
      * Gets or sets the override of how to apply the taxes.
      */
-    taxApplicationOverride?: <ENUM>'Unknown'|'Taxable'|'TaxableLocal'|'NonTaxable'|'NonTaxableApplyToBaseFareOnly'|'TaxableByTrip'|'TaxableByItinerary'</ENUM>;
+    taxApplicationOverride?: Enums.TaxApplication;
     /**
      * Gets or sets the override for the travel component.
      */
-    travelComponentOverride?: <ENUM>'Unknown'|'Itinerary'|'Trip'|'Journey'|'Segment'|'Leg'|'ItineraryWithJourneySalesDate'|'TripWithJourneySalesDate'|'JourneyWithBookingSalesDate'|'JourneyWithJourneySalesDate'|'SegmentWithJourneySalesDate'|'LegWithJourneySalesDate'|'Fare'</ENUM>;
+    travelComponentOverride?: Enums.TravelComponent;
     /**
      * Gets or sets the flag for using the overrides.
      */
@@ -53,5 +50,5 @@ export interface FeeDetail {
     /**
      * Gets or sets the override for where to apply this fee option.
      */
-    feeApplicationOverride?: <ENUM>'Pnr'|'TravelComponent'|'EachPassenger'|'EachPassengerTravelComponent'|'SpecifyPassenger'|'AllPaxCheckingBagsTogether'|'PerBookingNoLimit'</ENUM>;
+    feeApplicationOverride?: Enums.FeeApplication;
 }

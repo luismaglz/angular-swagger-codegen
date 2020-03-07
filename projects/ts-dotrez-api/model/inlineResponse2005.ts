@@ -12,6 +12,7 @@
 import { Passenger } from './passenger';
 
 
+import * as Enums from '../types/enums';
 
 export interface InlineResponse2005 { 
     ?: Passenger;

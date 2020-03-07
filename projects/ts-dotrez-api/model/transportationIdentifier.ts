@@ -14,6 +14,7 @@
 /**
  * Represents the transportation identifier model data.
  */
+import * as Enums from '../types/enums';
 
 export interface TransportationIdentifier { 
     /**

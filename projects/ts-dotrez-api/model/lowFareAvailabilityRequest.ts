@@ -18,6 +18,7 @@ import { PassengerTypeCriteria } from './passengerTypeCriteria';
 /**
  * Defines the low are availability request.
  */
+import * as Enums from '../types/enums';
 
 export interface LowFareAvailabilityRequest { 
     /**

@@ -16,6 +16,7 @@ import { ProvinceState } from './provinceState';
 /**
  * Represents the country model, version two.
  */
+import * as Enums from '../types/enums';
 
 export interface Countryv2 { 
     /**

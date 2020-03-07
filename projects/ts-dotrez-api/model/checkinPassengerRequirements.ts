@@ -18,6 +18,7 @@ import { CheckinPassengerRestriction } from './checkinPassengerRestriction';
 /**
  * Defines an individual passengers checkin requirements.
  */
+import * as Enums from '../types/enums';
 
 export interface CheckinPassengerRequirements { 
     /**

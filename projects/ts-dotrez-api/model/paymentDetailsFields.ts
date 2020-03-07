@@ -14,6 +14,7 @@
 /**
  * The collection of payment fields.
  */
+import * as Enums from '../types/enums';
 
 export interface PaymentDetailsFields { 
     ?: string;

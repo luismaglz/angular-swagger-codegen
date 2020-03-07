@@ -14,8 +14,7 @@
 /**
  * Defines a booking notification history.
  */
-
-    import { BookingNotificationHistory<CAP>eventTypeCode</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface BookingNotificationHistory { 
     /**
@@ -29,7 +28,7 @@ export interface BookingNotificationHistory {
     /**
      * Event type code of the notification.
      */
-    eventTypeCode?: <ENUM>'Unknown'|'Departure'|'DepartureDelay'|'Arrival'|'ArrivalDelay'|'ScheduleChange'|'CheckIn'</ENUM>;
+    eventTypeCode?: Enums.SubscriptionEventType;
     /**
      * Delivery method code of the notification.
      */

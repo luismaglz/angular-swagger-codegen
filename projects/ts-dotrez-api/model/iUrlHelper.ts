@@ -12,6 +12,7 @@
 import { ActionContext } from './actionContext';
 
 
+import * as Enums from '../types/enums';
 
 export interface IUrlHelper { 
     readonly actionContext?: ActionContext;

@@ -14,6 +14,7 @@
 /**
  * Model related to the point of sale.
  */
+import * as Enums from '../types/enums';
 
 export interface BookingPointOfSale { 
     /**

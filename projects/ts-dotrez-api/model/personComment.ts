@@ -14,8 +14,7 @@
 /**
  * Defines a person comment.
  */
-
-    import { PersonComment<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PersonComment { 
     /**
@@ -29,5 +28,5 @@ export interface PersonComment {
     /**
      * The comment type.
      */
-    type?: <ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
+    type?: Enums.PersonCommentType;
 }

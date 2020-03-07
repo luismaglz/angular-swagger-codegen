@@ -15,6 +15,7 @@ import { Ssr } from './ssr';
 /**
  * The list of SSR's available.
  */
+import * as Enums from '../types/enums';
 
 export interface SeatMapAvailabilitySsrLookup { 
     ?: Ssr;

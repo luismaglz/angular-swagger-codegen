@@ -15,6 +15,7 @@ import { CheckinPassengerRequest } from './checkinPassengerRequest';
 /**
  * Defines the checkin passengers request.
  */
+import * as Enums from '../types/enums';
 
 export interface CheckinPassengersRequest { 
     /**

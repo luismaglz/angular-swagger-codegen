@@ -14,6 +14,7 @@
 /**
  * A list of external payment codes that allow validation overrides.
  */
+import * as Enums from '../types/enums';
 
 export interface CodesSettingsExternalPaymentValidationOverrides { 
     ?: boolean;

@@ -14,6 +14,7 @@
 /**
  * Payment voucher details. This describes a voucher applied to a payment.
  */
+import * as Enums from '../types/enums';
 
 export interface PaymentVoucherDetails { 
     /**

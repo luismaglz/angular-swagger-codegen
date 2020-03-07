@@ -14,6 +14,7 @@
 /**
  * Describes the availability criteria code criteria.
  */
+import * as Enums from '../types/enums';
 
 export interface AvailabilityCodeCriteria { 
     /**

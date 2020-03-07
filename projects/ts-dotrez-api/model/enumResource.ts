@@ -14,6 +14,7 @@
 /**
  * Provide localization information about an enumeration.
  */
+import * as Enums from '../types/enums';
 
 export interface EnumResource { 
     /**

@@ -14,6 +14,7 @@
 /**
  * The booking payment settings.
  */
+import * as Enums from '../types/enums';
 
 export interface BookingPaymentSettingsv2 { 
     /**

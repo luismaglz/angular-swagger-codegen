@@ -12,6 +12,7 @@
 import { LowFareAvailabilityByDate } from './lowFareAvailabilityByDate';
 
 
+import * as Enums from '../types/enums';
 
 export interface LowFareCacheAvailability { 
     lowFares?: Array<LowFareAvailabilityByDate>;

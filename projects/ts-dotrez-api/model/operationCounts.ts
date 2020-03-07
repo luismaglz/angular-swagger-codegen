@@ -14,6 +14,7 @@
 /**
  * Represents the operation counts model.
  */
+import * as Enums from '../types/enums';
 
 export interface OperationCounts { 
     /**

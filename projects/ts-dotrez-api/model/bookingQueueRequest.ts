@@ -14,6 +14,7 @@
 /**
  * The booking request base model.
  */
+import * as Enums from '../types/enums';
 
 export interface BookingQueueRequest { 
     /**

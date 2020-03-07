@@ -15,6 +15,7 @@ import { RoleBase } from './roleBase';
 /**
  * Defines the roles being used within the session.
  */
+import * as Enums from '../types/enums';
 
 export interface SessionRoles { 
     /**

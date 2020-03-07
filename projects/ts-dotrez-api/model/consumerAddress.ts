@@ -14,6 +14,7 @@
 /**
  * Defines a consumer address.
  */
+import * as Enums from '../types/enums';
 
 export interface ConsumerAddress { 
     /**

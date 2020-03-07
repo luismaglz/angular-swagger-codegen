@@ -15,6 +15,7 @@ import { SsrDesignatorRequest } from './ssrDesignatorRequest';
 /**
  * SSR request for a single passenger type.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrRequestByPassengerType { 
     /**

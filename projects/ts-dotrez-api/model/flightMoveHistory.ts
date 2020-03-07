@@ -16,8 +16,7 @@ import { PointOfSale } from './pointOfSale';
 /**
  * Defines a flight move history log entry.
  */
-
-    import { FlightMoveHistory<CAP>changeReason</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface FlightMoveHistory { 
     /**
@@ -51,7 +50,7 @@ export interface FlightMoveHistory {
     /**
      * The reason for the move operation.
      */
-    changeReason?: <ENUM>'NoChange'|'Irop'|'ScheduleChange'|'Move'|'VoluntaryFlyAhead'|'InvoluntaryFlyAhead'|'SelfServiceRebooking'</ENUM>;
+    changeReason?: Enums.ChangeReasonCodes;
     /**
      * The received by reference number.
      */

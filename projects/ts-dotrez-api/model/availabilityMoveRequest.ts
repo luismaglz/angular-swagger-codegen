@@ -18,15 +18,13 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
 /**
  * Defines the availability move request.
  */
-
-    import { AvailabilityMoveRequest<CAP>passengerMoveType</CAP> } from '../types/enums';
-    import { AvailabilityMoveRequest<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AvailabilityMoveRequest { 
     /**
      * The passenger move type.
      */
-    passengerMoveType?: <ENUM>'None'|'Irop'|'Diversion'|'FlightClose'|'FlyAhead'|'SplitJourney'|'SelfServiceRebooking'</ENUM>;
+    passengerMoveType?: Enums.MovePassengerJourneyType;
     /**
      * The filtering criteria.
      */
@@ -50,5 +48,5 @@ export interface AvailabilityMoveRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: <ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
+    type?: Enums.AvailabilityType;
 }

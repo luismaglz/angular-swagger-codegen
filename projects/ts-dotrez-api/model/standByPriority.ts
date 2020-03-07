@@ -14,6 +14,7 @@
 /**
  * The stand by priority model.
  */
+import * as Enums from '../types/enums';
 
 export interface StandByPriority { 
     /**

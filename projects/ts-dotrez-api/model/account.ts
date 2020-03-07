@@ -15,10 +15,7 @@ import { AccountCollection } from './accountCollection';
 /**
  * The account model.
  */
-
-    import { Account<CAP>owner</CAP> } from '../types/enums';
-    import { Account<CAP>type</CAP> } from '../types/enums';
-    import { Account<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Account { 
     /**
@@ -40,15 +37,15 @@ export interface Account {
     /**
      * The account owner type.
      */
-    owner?: <ENUM>'Organization'|'Personnal'|'Booking'|'Unknown'</ENUM>;
+    owner?: Enums.AccountOwnerType;
     /**
      * The account type.
      */
-    type?: <ENUM>'Credit'|'Prepaid'|'Supplementary'|'Dependent'|'Unknown'</ENUM>;
+    type?: Enums.AccountType;
     /**
      * The account status.
      */
-    status?: <ENUM>'Open'|'Closed'|'AgencyInactive'|'Unknown'</ENUM>;
+    status?: Enums.AccountStatus;
     /**
      * The total amount.
      */

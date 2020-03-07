@@ -15,14 +15,13 @@ import { ServiceCharge } from './serviceCharge';
 /**
  * Model representing passenger fee information.
  */
-
-    import { PassengerFee<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PassengerFee { 
     /**
      * The fee type.
      */
-    type?: <ENUM>'All'|'Tax'|'TravelFee'|'ServiceFee'|'PaymentFee'|'PenaltyFee'|'SsrFee'|'NonFlightServiceFee'|'UpgradeFee'|'SeatFee'|'BaseFare'|'SpoilageFee'|'NameChangeFee'|'ConvenienceFee'|'BaggageFee'|'FareSurcharge'|'PromotionDiscount'|'ServiceBundle'|'ExtraBagFee'|'ATPCOBagFee'</ENUM>;
+    type?: Enums.FeeType;
     /**
      * The SSR code.
      */

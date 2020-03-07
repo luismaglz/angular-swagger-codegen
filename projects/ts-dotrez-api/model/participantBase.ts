@@ -14,6 +14,7 @@
 /**
  * Defines the stored participant information.
  */
+import * as Enums from '../types/enums';
 
 export interface ParticipantBase { 
     /**

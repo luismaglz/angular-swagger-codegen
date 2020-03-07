@@ -16,6 +16,7 @@ import { TransportationDesignator } from './transportationDesignator';
 /**
  * Represents the trip information journey.
  */
+import * as Enums from '../types/enums';
 
 export interface TripInformationJourney { 
     /**

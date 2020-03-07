@@ -14,6 +14,7 @@
 /**
  * Defines the person email edit address.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonEmailEditRequest { 
     /**

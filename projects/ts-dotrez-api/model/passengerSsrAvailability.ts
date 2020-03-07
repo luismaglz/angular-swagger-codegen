@@ -14,6 +14,7 @@
 /**
  * Model containing the details about the availability and price of the Ssr for a specific passenger.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerSsrAvailability { 
     /**

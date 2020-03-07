@@ -14,6 +14,7 @@
 /**
  * Defines the different applied payment amounts for a single payment.
  */
+import * as Enums from '../types/enums';
 
 export interface PaymentAmounts { 
     /**

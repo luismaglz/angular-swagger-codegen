@@ -15,6 +15,7 @@ import { ChargeBreakdown } from './chargeBreakdown';
 /**
  * Defines the combined booking passengers pricing breakdown.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerPriceBreakdownBase { 
     /**

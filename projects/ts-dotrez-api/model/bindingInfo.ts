@@ -14,6 +14,7 @@ import { FuncActionContextBoolean } from './funcActionContextBoolean';
 import { IPropertyFilterProvider } from './iPropertyFilterProvider';
 
 
+import * as Enums from '../types/enums';
 
 export interface BindingInfo { 
     bindingSource?: BindingSource;

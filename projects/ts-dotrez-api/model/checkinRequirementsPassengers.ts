@@ -15,6 +15,7 @@ import { CheckinPassengerRequirements } from './checkinPassengerRequirements';
 /**
  * The collection of passengers and there requirements to checkin.
  */
+import * as Enums from '../types/enums';
 
 export interface CheckinRequirementsPassengers { 
     ?: CheckinPassengerRequirements;

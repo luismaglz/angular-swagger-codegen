@@ -15,6 +15,7 @@ import { FlightMoveHistory } from './flightMoveHistory';
 /**
  * Defines a flight move history response.
  */
+import * as Enums from '../types/enums';
 
 export interface FlightMoveHistoryResponse { 
     /**

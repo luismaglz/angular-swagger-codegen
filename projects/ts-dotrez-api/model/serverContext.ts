@@ -14,9 +14,7 @@
 /**
  * Defines the server context.
  */
-
-    import { ServerContext<CAP>systemName</CAP> } from '../types/enums';
-    import { ServerContext<CAP>channel</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface ServerContext { 
     /**
@@ -30,9 +28,9 @@ export interface ServerContext {
     /**
      * The acting system name.
      */
-    systemName?: <ENUM>'Default'|'WinRez'|'FareManager'|'ScheduleManager'|'WinManager'|'ConsoleRez'|'WebRez'|'WebServicesApi'|'WebServicesEsc'|'InternalService'|'WebReporting'|'TaxAndFeeManager'|'Dcs'|'DCS_Kiosk'</ENUM>;
+    systemName?: Enums.<ENUM>'Default'|'WinRez'|'FareManager'|'ScheduleManager'|'WinManager'|'ConsoleRez'|'WebRez'|'WebServicesApi'|'WebServicesEsc'|'InternalService'|'WebReporting'|'TaxAndFeeManager'|'Dcs'|'DCS_Kiosk'</ENUM>;
     /**
      * The acting channel type.
      */
-    channel?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channel?: Enums.ChannelType;
 }

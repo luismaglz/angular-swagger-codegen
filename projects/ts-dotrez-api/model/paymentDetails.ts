@@ -15,6 +15,7 @@ import { PaymentDetailsFields } from './paymentDetailsFields';
 /**
  * Defines the payment details.
  */
+import * as Enums from '../types/enums';
 
 export interface PaymentDetails { 
     /**

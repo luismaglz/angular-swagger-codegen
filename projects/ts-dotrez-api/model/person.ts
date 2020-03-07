@@ -25,10 +25,7 @@ import { PersonTravelDocument } from './personTravelDocument';
 /**
  * Defines a person.
  */
-
-    import { Person<CAP>type</CAP> } from '../types/enums';
-    import { Person<CAP>status</CAP> } from '../types/enums';
-    import { Person<CAP>notificationPreference</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Person { 
     /**
@@ -46,7 +43,7 @@ export interface Person {
     /**
      * The type of person.
      */
-    type?: <ENUM>'None'|'Customer'|'Agent'</ENUM>;
+    type?: Enums.PersonType;
     /**
      * The collection of registered email address.
      */
@@ -54,7 +51,7 @@ export interface Person {
     /**
      * The status of the person.
      */
-    status?: <ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
+    status?: Enums.PersonStatus;
     /**
      * The collection of registered phone numbers.
      */
@@ -70,7 +67,7 @@ export interface Person {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: <ENUM>'None'|'Promotional'</ENUM>;
+    notificationPreference?: Enums.NotificationPreference;
     /**
      * The collection of registered stored payments.
      */

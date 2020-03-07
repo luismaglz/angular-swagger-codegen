@@ -14,6 +14,7 @@
 /**
  * Model describing the basic fare information that is displayed per availability segment.
  */
+import * as Enums from '../types/enums';
 
 export interface JourneyFareAvailability { 
     /**

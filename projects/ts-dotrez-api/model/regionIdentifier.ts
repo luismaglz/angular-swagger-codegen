@@ -14,8 +14,7 @@
 /**
  * The region identifier model.
  */
-
-    import { RegionIdentifier<CAP>regionType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface RegionIdentifier { 
     /**
@@ -25,7 +24,7 @@ export interface RegionIdentifier {
     /**
      * The region type.
      */
-    regionType?: <ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
+    regionType?: Enums.RegionType;
     /**
      * The flag to indicate if this is not in the travel region.
      */

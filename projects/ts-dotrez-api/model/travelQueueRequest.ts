@@ -14,6 +14,7 @@
 /**
  * Defines a travel queue query.
  */
+import * as Enums from '../types/enums';
 
 export interface TravelQueueRequest { 
     /**

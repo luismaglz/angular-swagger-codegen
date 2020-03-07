@@ -17,8 +17,7 @@ import { AvailabilityFareCriteria } from './availabilityFareCriteria';
 /**
  * Model representing a availability rebook search.
  */
-
-    import { AvailabilityRebookRequest<CAP>taxesAndFees</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AvailabilityRebookRequest { 
     /**
@@ -32,7 +31,7 @@ export interface AvailabilityRebookRequest {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: <ENUM>'None'|'Taxes'|'TaxesAndFees'</ENUM>;
+    taxesAndFees?: Enums.TaxesAndFeesRollupMode;
     /**
      * The code criteria.
      */

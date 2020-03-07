@@ -19,9 +19,7 @@ import { OrganizationExternalAccountRequest } from './organizationExternalAccoun
 /**
  * The data on the organization.
  */
-
-    import { OrganizationCreateRequest<CAP>type</CAP> } from '../types/enums';
-    import { OrganizationCreateRequest<CAP>status</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface OrganizationCreateRequest { 
     /**
@@ -39,7 +37,7 @@ export interface OrganizationCreateRequest {
     /**
      * Organization type.
      */
-    type?: <ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
+    type?: Enums.OrganizationType;
     /**
      * Commission rates.
      */
@@ -55,7 +53,7 @@ export interface OrganizationCreateRequest {
     /**
      * The organization status.
      */
-    status?: <ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
+    status?: Enums.OrganizationStatus;
     /**
      * The contact details.
      */

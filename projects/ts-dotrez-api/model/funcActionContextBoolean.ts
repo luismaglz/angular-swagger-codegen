@@ -12,6 +12,7 @@
 import { MethodInfo } from './methodInfo';
 
 
+import * as Enums from '../types/enums';
 
 export interface FuncActionContextBoolean { 
     readonly method?: MethodInfo;

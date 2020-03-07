@@ -14,12 +14,11 @@
 /**
  * A travel notification event create request.
  */
-
-    import { NotificationEventCreateRequest<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface NotificationEventCreateRequest { 
     /**
      * The travel notification event type.
      */
-    type: <ENUM>'DepartureDelay'|'ArrivalDelay'|'ScheduleChange'|'CheckIn'</ENUM>;
+    type: Enums.NotificationEventType;
 }

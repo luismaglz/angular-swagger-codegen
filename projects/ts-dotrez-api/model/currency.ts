@@ -14,8 +14,7 @@
 /**
  * The currency model.
  */
-
-    import { Currency<CAP>displayDigits</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface Currency { 
     /**
@@ -33,7 +32,7 @@ export interface Currency {
     /**
      * The display digits of currency.
      */
-    displayDigits?: <ENUM>'ZeroDigits'|'TwoDigits'|'ThreeDigits'</ENUM>;
+    displayDigits?: Enums.<ENUM>'ZeroDigits'|'TwoDigits'|'ThreeDigits'</ENUM>;
     /**
      * The digit prefix of currency.
      */

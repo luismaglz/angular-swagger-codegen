@@ -15,6 +15,7 @@ import { Address } from './address';
 /**
  * The organization company details of an organization.
  */
+import * as Enums from '../types/enums';
 
 export interface CompanyEditDetails { 
     /**

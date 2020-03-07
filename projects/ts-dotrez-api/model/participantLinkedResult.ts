@@ -14,6 +14,7 @@
 /**
  * Defines the participant results.
  */
+import * as Enums from '../types/enums';
 
 export interface ParticipantLinkedResult { 
     /**

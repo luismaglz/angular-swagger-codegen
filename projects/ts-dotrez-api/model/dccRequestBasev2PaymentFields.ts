@@ -14,6 +14,7 @@
 /**
  * Dynamic field information used for validation related to the specific payment type.  See the PaymentMethodsAvailable view model / PaymentMethodFieldList
  */
+import * as Enums from '../types/enums';
 
 export interface DccRequestBasev2PaymentFields { 
     ?: string;

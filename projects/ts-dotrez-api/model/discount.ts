@@ -14,6 +14,7 @@
 /**
  * Defines a discount.
  */
+import * as Enums from '../types/enums';
 
 export interface Discount { 
     /**

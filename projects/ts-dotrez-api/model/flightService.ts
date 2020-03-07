@@ -15,6 +15,7 @@ import { ManifestSegment } from './manifestSegment';
 /**
  * Flight Service.
  */
+import * as Enums from '../types/enums';
 
 export interface FlightService { 
     /**

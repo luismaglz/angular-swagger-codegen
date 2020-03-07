@@ -14,6 +14,7 @@
 /**
  * The single ssr by key request model, v2.
  */
+import * as Enums from '../types/enums';
 
 export interface SingleSsrByKeyRequestv2 { 
     /**

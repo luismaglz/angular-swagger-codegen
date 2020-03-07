@@ -15,6 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Defines information needed for a generic voucher payment requested to be added to the booking in state.
  */
+import * as Enums from '../types/enums';
 
 export interface PaymentRefundRequest { 
     /**

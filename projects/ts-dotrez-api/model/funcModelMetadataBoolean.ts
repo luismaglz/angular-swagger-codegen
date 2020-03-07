@@ -12,6 +12,7 @@
 import { MethodInfo } from './methodInfo';
 
 
+import * as Enums from '../types/enums';
 
 export interface FuncModelMetadataBoolean { 
     readonly method?: MethodInfo;

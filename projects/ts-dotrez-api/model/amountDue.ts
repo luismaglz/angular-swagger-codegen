@@ -14,6 +14,7 @@
 /**
  * Defines the amounts due for an order.
  */
+import * as Enums from '../types/enums';
 
 export interface AmountDue { 
     /**

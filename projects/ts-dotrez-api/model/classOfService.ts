@@ -14,6 +14,7 @@
 /**
  * The class of service model.
  */
+import * as Enums from '../types/enums';
 
 export interface ClassOfService { 
     /**

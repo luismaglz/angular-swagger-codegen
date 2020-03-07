@@ -1,4 +1,5 @@
-{{>modelEnumImport}}
+import * as Enums from '../types/enums';
+
 export interface {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{ {{>modelGenericAdditionalProperties}}
 {{#vars}}
     {{#description}}
@@ -6,6 +7,6 @@ export interface {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{ {{>m
      * {{{description}}}
      */
     {{/description}}
-    {{#isReadOnly}}readonly {{/isReadOnly}}{{name}}{{^required}}?{{/required}}: {{#isEnum}}{{>modelGenericEnums}}{{/isEnum}}{{^isEnum}}{{{datatype}}}{{/isEnum}};
+    {{#isReadOnly}}readonly {{/isReadOnly}}{{name}}{{^required}}?{{/required}}: {{#isEnum}}Enums.{{>modelGenericEnums}}{{/isEnum}}{{^isEnum}}{{{datatype}}}{{/isEnum}};
 {{/vars}}
 }

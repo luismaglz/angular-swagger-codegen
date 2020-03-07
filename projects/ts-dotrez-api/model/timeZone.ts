@@ -15,6 +15,7 @@ import { TimeZoneVariation } from './timeZoneVariation';
 /**
  * The timezone model.
  */
+import * as Enums from '../types/enums';
 
 export interface TimeZone { 
     /**

@@ -18,9 +18,7 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
 /**
  * Defines a availability rebook criteria search which includes all the previous passengers on the booking.
  */
-
-    import { AvailabilityByTrip<CAP>ssrCollectionsMode</CAP> } from '../types/enums';
-    import { AvailabilityByTrip<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AvailabilityByTrip { 
     /**
@@ -42,7 +40,7 @@ export interface AvailabilityByTrip {
     /**
      * Determines how and when to return the Ssr nest information.
      */
-    ssrCollectionsMode?: <ENUM>'None'|'Leg'</ENUM>;
+    ssrCollectionsMode?: Enums.AvailabilitySsrCollectionsMode;
     /**
      * The flight search criteria.
      */
@@ -50,5 +48,5 @@ export interface AvailabilityByTrip {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: <ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
+    type?: Enums.AvailabilityType;
 }

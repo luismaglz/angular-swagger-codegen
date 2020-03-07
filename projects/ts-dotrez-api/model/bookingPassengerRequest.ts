@@ -16,6 +16,7 @@ import { PassengerRequest } from './passengerRequest';
 /**
  * Defines the the passenger and associated ssr request.
  */
+import * as Enums from '../types/enums';
 
 export interface BookingPassengerRequest { 
     /**

@@ -14,21 +14,17 @@ import { ICustomAttributeProvider } from './iCustomAttributeProvider';
 import { ParameterInfo } from './parameterInfo';
 
 
-
-    import { MethodInfo<CAP>memberType</CAP> } from '../types/enums';
-    import { MethodInfo<CAP>methodImplementationFlags</CAP> } from '../types/enums';
-    import { MethodInfo<CAP>attributes</CAP> } from '../types/enums';
-    import { MethodInfo<CAP>callingConvention</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface MethodInfo { 
-    readonly memberType?: <ENUM>'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All'</ENUM>;
+    readonly memberType?: Enums.<ENUM>'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All'</ENUM>;
     readonly returnType?: string;
     readonly returnParameter?: ParameterInfo;
     readonly returnTypeCustomAttributes?: ICustomAttributeProvider;
-    readonly methodImplementationFlags?: <ENUM>'Managed'|'IL'|'Native'|'OPTIL'|'Runtime'|'CodeTypeMask'|'Unmanaged'|'ManagedMask'|'NoInlining'|'ForwardRef'|'Synchronized'|'NoOptimization'|'PreserveSig'|'AggressiveInlining'|'InternalCall'|'MaxMethodImplVal'</ENUM>;
+    readonly methodImplementationFlags?: Enums.<ENUM>'Managed'|'IL'|'Native'|'OPTIL'|'Runtime'|'CodeTypeMask'|'Unmanaged'|'ManagedMask'|'NoInlining'|'ForwardRef'|'Synchronized'|'NoOptimization'|'PreserveSig'|'AggressiveInlining'|'InternalCall'|'MaxMethodImplVal'</ENUM>;
     readonly methodHandle?: any;
-    readonly attributes?: <ENUM>'ReuseSlot'|'PrivateScope'|'Private'|'FamANDAssem'|'Assembly'|'Family'|'FamORAssem'|'Public'|'MemberAccessMask'|'UnmanagedExport'|'Static'|'Final'|'Virtual'|'HideBySig'|'NewSlot'|'VtableLayoutMask'|'CheckAccessOnOverride'|'Abstract'|'SpecialName'|'RTSpecialName'|'PinvokeImpl'|'HasSecurity'|'RequireSecObject'|'ReservedMask'</ENUM>;
-    readonly callingConvention?: <ENUM>'Standard'|'VarArgs'|'Any'|'HasThis'|'ExplicitThis'</ENUM>;
+    readonly attributes?: Enums.<ENUM>'ReuseSlot'|'PrivateScope'|'Private'|'FamANDAssem'|'Assembly'|'Family'|'FamORAssem'|'Public'|'MemberAccessMask'|'UnmanagedExport'|'Static'|'Final'|'Virtual'|'HideBySig'|'NewSlot'|'VtableLayoutMask'|'CheckAccessOnOverride'|'Abstract'|'SpecialName'|'RTSpecialName'|'PinvokeImpl'|'HasSecurity'|'RequireSecObject'|'ReservedMask'</ENUM>;
+    readonly callingConvention?: Enums.<ENUM>'Standard'|'VarArgs'|'Any'|'HasThis'|'ExplicitThis'</ENUM>;
     readonly isGenericMethodDefinition?: boolean;
     readonly containsGenericParameters?: boolean;
     readonly isGenericMethod?: boolean;

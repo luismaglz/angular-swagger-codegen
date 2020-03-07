@@ -14,8 +14,7 @@
 /**
  * Defines the single sign on credentials.
  */
-
-    import { SingleSignOnCredentials<CAP>channelType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface SingleSignOnCredentials { 
     /**
@@ -29,7 +28,7 @@ export interface SingleSignOnCredentials {
     /**
      * The optional channel type invoking the communication with the server.
      */
-    channelType?: <ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channelType?: Enums.ChannelType;
     /**
      * The unique single sign on provider key.
      */

@@ -14,6 +14,7 @@
 /**
  * A travel notification timed event edit request.
  */
+import * as Enums from '../types/enums';
 
 export interface NotificationTimedEventEditRequest { 
     /**

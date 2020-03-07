@@ -15,6 +15,7 @@ import { LowFarePassenger } from './lowFarePassenger';
 /**
  * Low fare passenger collection with they key of passenger type.
  */
+import * as Enums from '../types/enums';
 
 export interface LowFarePassengers { 
     ?: LowFarePassenger;

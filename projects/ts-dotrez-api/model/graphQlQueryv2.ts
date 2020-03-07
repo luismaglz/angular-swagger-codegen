@@ -11,6 +11,7 @@
  */
 
 
+import * as Enums from '../types/enums';
 
 export interface GraphQlQueryv2 { 
     query: string;

@@ -15,6 +15,7 @@ import { Discount } from './discount';
 /**
  * Defines a product variation catalog calculated amounts.
  */
+import * as Enums from '../types/enums';
 
 export interface ProductVariationCatalogAmounts { 
     /**

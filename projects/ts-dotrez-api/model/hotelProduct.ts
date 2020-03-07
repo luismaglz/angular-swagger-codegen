@@ -24,6 +24,7 @@ import { Warning } from './warning';
 /**
  * Defines a availability search result.
  */
+import * as Enums from '../types/enums';
 
 export interface HotelProduct { 
     /**

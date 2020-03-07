@@ -12,6 +12,7 @@
 import { CheckinPassengerLiftStatus } from './checkinPassengerLiftStatus';
 
 
+import * as Enums from '../types/enums';
 
 export interface InlineResponse2003 { 
     ?: Array<CheckinPassengerLiftStatus>;

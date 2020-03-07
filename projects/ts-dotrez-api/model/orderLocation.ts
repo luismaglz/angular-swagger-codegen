@@ -14,6 +14,7 @@
 /**
  * Defines a location.
  */
+import * as Enums from '../types/enums';
 
 export interface OrderLocation { 
     /**

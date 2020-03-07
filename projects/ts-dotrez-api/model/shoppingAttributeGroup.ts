@@ -14,6 +14,7 @@
 /**
  * Model for a shopping attribute groups.
  */
+import * as Enums from '../types/enums';
 
 export interface ShoppingAttributeGroup { 
     /**

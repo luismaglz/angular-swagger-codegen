@@ -17,8 +17,7 @@ import { UserIdentity } from './userIdentity';
 /**
  * Defines the nsk current session context.
  */
-
-    import { NskSessionContext<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface NskSessionContext { 
     /**
@@ -52,7 +51,7 @@ export interface NskSessionContext {
     /**
      * The type of session permissions based on the logged in user.
      */
-    type?: <ENUM>'Unknown'|'Customer'|'Anonymous'|'Agent'</ENUM>;
+    type?: Enums.SessionPermissionType;
     /**
      * True if the booking exists in NewSkies for the session.
      */

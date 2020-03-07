@@ -17,9 +17,7 @@ import { TransportationIdentifier } from './transportationIdentifier';
 /**
  * Availability segment defines segment information before being booked.
  */
-
-    import { AvailabilitySegment<CAP>changeReasonCode</CAP> } from '../types/enums';
-    import { AvailabilitySegment<CAP>segmentType</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AvailabilitySegment { 
     /**
@@ -61,11 +59,11 @@ export interface AvailabilitySegment {
     /**
      * The change reason code.
      */
-    changeReasonCode?: <ENUM>'NoChange'|'Irop'|'ScheduleChange'|'Move'|'VoluntaryFlyAhead'|'InvoluntaryFlyAhead'|'SelfServiceRebooking'</ENUM>;
+    changeReasonCode?: Enums.ChangeReasonCodes;
     /**
      * The type of the segment.
      */
-    segmentType?: <ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
+    segmentType?: Enums.SegmentTypes;
     /**
      * The value indicating if this segment is international.
      */

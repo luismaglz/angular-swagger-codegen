@@ -17,6 +17,7 @@ import { SsrsStatelessRequest } from './ssrsStatelessRequest';
 /**
  * Defines the itinerary booking quote request.
  */
+import * as Enums from '../types/enums';
 
 export interface ItineraryQuoteRequest { 
     /**

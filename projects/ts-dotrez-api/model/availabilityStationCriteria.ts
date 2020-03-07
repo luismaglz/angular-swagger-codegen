@@ -14,6 +14,7 @@
 /**
  * Defines the availability criteria stations.
  */
+import * as Enums from '../types/enums';
 
 export interface AvailabilityStationCriteria { 
     /**

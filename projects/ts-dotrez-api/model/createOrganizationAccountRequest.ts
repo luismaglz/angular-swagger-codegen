@@ -14,8 +14,7 @@
 /**
  * The create organization account request model.
  */
-
-    import { CreateOrganizationAccountRequest<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface CreateOrganizationAccountRequest { 
     /**
@@ -29,7 +28,7 @@ export interface CreateOrganizationAccountRequest {
     /**
      * The allowed account types for account creation.
      */
-    type?: <ENUM>'Credit'|'Prepaid'|'Supplementary'</ENUM>;
+    type?: Enums.AllowedAccountTypes;
     /**
      * The optional note to associate with the account creation.
      */

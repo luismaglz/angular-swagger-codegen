@@ -14,6 +14,7 @@
 /**
  * Defines a personalization parameter. A parameter is used for display purposes to show what is considered an  acceptable  respone.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonalizationParameter { 
     /**

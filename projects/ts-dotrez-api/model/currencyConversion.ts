@@ -14,6 +14,7 @@
 /**
  * Model with the information needed to calculate from one currency to another.
  */
+import * as Enums from '../types/enums';
 
 export interface CurrencyConversion { 
     /**

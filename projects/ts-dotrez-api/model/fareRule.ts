@@ -14,6 +14,7 @@
 /**
  * Defines a fare rule and its data.
  */
+import * as Enums from '../types/enums';
 
 export interface FareRule { 
     /**

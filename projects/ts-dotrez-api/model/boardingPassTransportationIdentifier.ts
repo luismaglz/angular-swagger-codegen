@@ -14,6 +14,7 @@
 /**
  * Defines a boarding pass transportation identifier.
  */
+import * as Enums from '../types/enums';
 
 export interface BoardingPassTransportationIdentifier { 
     /**

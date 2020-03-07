@@ -14,6 +14,7 @@
 /**
  * Defines three D secure response.
  */
+import * as Enums from '../types/enums';
 
 export interface ThreeDSecureResponse { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Defines the boarding pass acting program.
  */
+import * as Enums from '../types/enums';
 
 export interface BoardingPassProgram { 
     /**

@@ -14,6 +14,7 @@
 /**
  * Defines the person email create address.
  */
+import * as Enums from '../types/enums';
 
 export interface PersonEmailCreateRequest { 
     /**

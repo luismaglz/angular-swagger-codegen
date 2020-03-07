@@ -14,6 +14,7 @@
 /**
  * The ancillary pricing options input parameters.
  */
+import * as Enums from '../types/enums';
 
 export interface AncillaryPricingOptionsContextInputParameters { 
     ?: string;

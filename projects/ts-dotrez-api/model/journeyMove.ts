@@ -14,6 +14,7 @@
 /**
  * Summarized move data at the journey level.
  */
+import * as Enums from '../types/enums';
 
 export interface JourneyMove { 
     /**

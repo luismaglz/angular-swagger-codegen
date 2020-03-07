@@ -15,6 +15,7 @@ import { SsrByKeyRequest } from './ssrByKeyRequest';
 /**
  * Request to add a leg, segment, or journey Ssr.
  */
+import * as Enums from '../types/enums';
 
 export interface SsrByKeysRequestv2 { 
     /**

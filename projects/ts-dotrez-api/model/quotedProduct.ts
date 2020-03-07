@@ -18,6 +18,7 @@ import { QuotedOrder } from './quotedOrder';
 /**
  * Defines a quoted product and all of its containing orders.
  */
+import * as Enums from '../types/enums';
 
 export interface QuotedProduct { 
     /**

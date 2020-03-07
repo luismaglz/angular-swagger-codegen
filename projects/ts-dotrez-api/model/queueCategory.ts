@@ -14,6 +14,7 @@
 /**
  * The Queue Category model.
  */
+import * as Enums from '../types/enums';
 
 export interface QueueCategory { 
     /**

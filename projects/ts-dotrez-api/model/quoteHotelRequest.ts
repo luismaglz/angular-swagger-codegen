@@ -15,6 +15,7 @@ import { SelectedPersonalization } from './selectedPersonalization';
 /**
  * Defines a product quote token request.
  */
+import * as Enums from '../types/enums';
 
 export interface QuoteHotelRequest { 
     /**

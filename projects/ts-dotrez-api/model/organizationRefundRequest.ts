@@ -15,6 +15,7 @@ import { DccRequestBasev2PaymentFields } from './dccRequestBasev2PaymentFields';
 /**
  * Defines information needed for an organization account refund.
  */
+import * as Enums from '../types/enums';
 
 export interface OrganizationRefundRequest { 
     /**

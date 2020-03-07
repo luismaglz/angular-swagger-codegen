@@ -16,6 +16,7 @@ import { SellTokenCatalogRequestParameters } from './sellTokenCatalogRequestPara
 /**
  * Defines a sell token catalog request. This request is used for selling a specific products product variation  catalog item.
  */
+import * as Enums from '../types/enums';
 
 export interface SellTokenCatalogRequest { 
     parameters?: SellTokenCatalogRequestParameters;

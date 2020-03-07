@@ -14,8 +14,7 @@
 /**
  * Manifest Queue.
  */
-
-    import { ManifestQueue<CAP>queueAction</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface ManifestQueue { 
     /**
@@ -25,7 +24,7 @@ export interface ManifestQueue {
     /**
      * The action that will be taken as a result of the placement in.
      */
-    queueAction?: <ENUM>'Default'|'Warning'|'Lock'|'DefaultAndNotify'|'WarningAndNotify'|'LockAndNotify'</ENUM>;
+    queueAction?: Enums.QueueAction;
     /**
      * The QueueCategoryCode property.
      */

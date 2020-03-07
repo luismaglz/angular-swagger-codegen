@@ -18,6 +18,7 @@ import { BundleSegmentSsr } from './bundleSegmentSsr';
 /**
  * The upgradable bundle ssr availability model.
  */
+import * as Enums from '../types/enums';
 
 export interface UpgradableSsrAvailability { 
     /**

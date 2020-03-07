@@ -15,6 +15,7 @@ import { LowFareDateMarket } from './lowFareDateMarket';
 /**
  * Low fare availability contains all information returned when requesting a low fare trip availability.
  */
+import * as Enums from '../types/enums';
 
 export interface LowFareAvailability { 
     /**

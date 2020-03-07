@@ -14,6 +14,7 @@
 /**
  * Defines the terms and conditions of an order.
  */
+import * as Enums from '../types/enums';
 
 export interface Term { 
     /**

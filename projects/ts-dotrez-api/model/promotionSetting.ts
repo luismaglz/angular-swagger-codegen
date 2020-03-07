@@ -14,6 +14,7 @@
 /**
  * Defines a promotion setting model.
  */
+import * as Enums from '../types/enums';
 
 export interface PromotionSetting { 
     /**

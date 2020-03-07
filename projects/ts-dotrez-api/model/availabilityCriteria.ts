@@ -17,8 +17,7 @@ import { AvailabilityStationCriteria } from './availabilityStationCriteria';
 /**
  * Defines a single direction search criteria far an availability call.
  */
-
-    import { AvailabilityCriteria<CAP>ssrCollectionsMode</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface AvailabilityCriteria { 
     /**
@@ -40,5 +39,5 @@ export interface AvailabilityCriteria {
     /**
      * Determines if SSR nest information will be returned on the legs for each available journey segments.
      */
-    ssrCollectionsMode?: <ENUM>'None'|'Leg'</ENUM>;
+    ssrCollectionsMode?: Enums.AvailabilitySsrCollectionsMode;
 }

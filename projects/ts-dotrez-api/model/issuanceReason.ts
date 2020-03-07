@@ -14,6 +14,7 @@
 /**
  * The issuance reason model.
  */
+import * as Enums from '../types/enums';
 
 export interface IssuanceReason { 
     /**

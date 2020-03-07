@@ -14,14 +14,13 @@
 /**
  * Defines the person alias request.
  */
-
-    import { PersonAliasRequest<CAP>type</CAP> } from '../types/enums';
+import * as Enums from '../types/enums';
 
 export interface PersonAliasRequest { 
     /**
      * The type of alias.
      */
-    type?: <ENUM>'Alias'|'Variant'</ENUM>;
+    type?: Enums.PersonAliasType;
     /**
      * The given first name.
      */

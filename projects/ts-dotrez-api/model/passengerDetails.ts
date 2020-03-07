@@ -16,6 +16,7 @@ import { PassengerDetailsSummary } from './passengerDetailsSummary';
 /**
  * The passenger details model.
  */
+import * as Enums from '../types/enums';
 
 export interface PassengerDetails { 
     /**
