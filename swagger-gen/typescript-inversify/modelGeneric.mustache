@@ -6,6 +6,6 @@ export interface {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{ {{>m
      * {{{description}}}
      */
     {{/description}}
-    {{#isReadOnly}}readonly {{/isReadOnly}}{{name}}{{^required}}?{{/required}}: {{#isEnum}}{{classname}}<CAP>{{name}}</CAP>{{/isEnum}}{{^isEnum}}{{{datatype}}}{{/isEnum}};
+    {{#isReadOnly}}readonly {{/isReadOnly}}{{name}}{{^required}}?{{/required}}: {{#isEnum}}{{classname}}{{>modelGenericEnums}}{{/isEnum}}{{^isEnum}}{{{datatype}}}{{/isEnum}};
 {{/vars}}
 }
