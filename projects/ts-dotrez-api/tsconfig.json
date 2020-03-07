@@ -1,5 +1,5 @@
 {
-    "extends": "../tsconfig.json",
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
         "moduleResolution": "node",
         "declaration": true,
@@ -8,10 +8,7 @@
         "module": "commonjs",
         "target": "es5",
         "strictNullChecks": true,
-        "types": [
-            "node",
-            "mocha"
-        ]
+        "types": []
     },
     "include": [
         "./src/**/*"

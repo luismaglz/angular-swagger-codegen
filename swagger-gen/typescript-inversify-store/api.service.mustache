@@ -13,8 +13,18 @@ import {
     {{/imports}}
 } from 'api-models';
 
+import {
+{{#operations}}
+    {{#operation}}
+        {{nickname}}
+    {{/operation}}
+{{/operations}}
+} from '../base/api'
+
 {{#withInterfaces}}
 import { {{classname}}Interface }  from './{{classname}}Interface';
+
+
 {{/withInterfaces}}
 
 {{#operations}}
@@ -39,14 +49,12 @@ export class Store_{{classname}} {
     /**
      * {{summary}}
      * {{notes}}
-     {{#allParams}}* @param {{paramName}} {{description}}
-     {{/allParams}}{{#useHttpClient}}* @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.{{/useHttpClient}}
      */
-    public store_{{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}, headers?: Headers): {{#usePromise}}Promise{{/usePromise}}<{{#returnType}}{{{returnType}}}{{#isResponseTypeFile}}|undefined{{/isResponseTypeFile}}{{/returnType}}{{^returnType}}any{{/returnType}}>;
-        const response = await nickname({{nickname}}({{#allParams}}{{paramName}},'body', headers);
+    public store_{{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}} headers?: Headers): Promise<{{#returnType}}{{{returnType}}}{{#isResponseTypeFile}}|undefined{{/isResponseTypeFile}}{{/returnType}}{{^returnType}}any{{/returnType}}>
+    {
+        const response = await {{nickname}}({{#allParams}}{{paramName}},{{/allParams}}'body', headers);
         // TODO: Implement {{nickname}}
-        addResponsetoStore(this.store, response.data, true, true);
+        // addResponsetoStore(this.store, response.data, true, true);
         return response;
     }
 
