@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     MessageBase, 
 } from 'api-models';
@@ -41,7 +42,7 @@ export class StoreMessagesService {
      * Deletes a message item.
      * 
      */
-    public store_apiNskV1MessagesByMessageKeyDelete(messageKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1MessagesByMessageKeyDelete(messageKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1MessagesByMessageKeyDelete(messageKey,'body', headers);
         // TODO: Implement apiNskV1MessagesByMessageKeyDelete
@@ -54,7 +55,7 @@ export class StoreMessagesService {
      * Retrieves a specific message item.
      * 
      */
-    public store_apiNskV1MessagesByMessageKeyGet(messageKey: string,  headers?: Headers): Promise<MessageBase>
+    public async store_apiNskV1MessagesByMessageKeyGet(messageKey: string,  headers?: Headers): Promise<MessageBase>
     {
         const response = await apiNskV1MessagesByMessageKeyGet(messageKey,'body', headers);
         // TODO: Implement apiNskV1MessagesByMessageKeyGet
@@ -67,7 +68,7 @@ export class StoreMessagesService {
      * Retrieves a collection of messages based on search criteria.
      * 
      */
-    public store_apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string,  headers?: Headers): Promise<Array<MessageBase>>
+    public async store_apiNskV1MessagesGet(searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', messageTypeCode?: string, searchStartDate?: Date, searchEndDate?: Date, pageSize?: number, lastIndex?: number, searchValue?: string,  headers?: Headers): Promise<Array<MessageBase>>
     {
         const response = await apiNskV1MessagesGet(searchType,messageTypeCode,searchStartDate,searchEndDate,pageSize,lastIndex,searchValue,'body', headers);
         // TODO: Implement apiNskV1MessagesGet
@@ -80,7 +81,7 @@ export class StoreMessagesService {
      * Adds a new message item.
      * 
      */
-    public store_apiNskV1MessagesPost(request?: MessageBase,  headers?: Headers): Promise<MessageBase>
+    public async store_apiNskV1MessagesPost(request?: MessageBase,  headers?: Headers): Promise<MessageBase>
     {
         const response = await apiNskV1MessagesPost(request,'body', headers);
         // TODO: Implement apiNskV1MessagesPost

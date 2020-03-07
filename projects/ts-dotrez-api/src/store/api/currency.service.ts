@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     CurrencyConversion, 
     IJsonResponse, 
 } from 'api-models';
@@ -38,7 +39,7 @@ export class StoreCurrencyService {
      * Calculates currency conversions.
      * 
      */
-    public store_apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number,  headers?: Headers): Promise<CurrencyConversion>
+    public async store_apiNskV1CurrencyConverterGet(fromCurrencyCode: string, toCurrencyCode: string, amount: number,  headers?: Headers): Promise<CurrencyConversion>
     {
         const response = await apiNskV1CurrencyConverterGet(fromCurrencyCode,toCurrencyCode,amount,'body', headers);
         // TODO: Implement apiNskV1CurrencyConverterGet

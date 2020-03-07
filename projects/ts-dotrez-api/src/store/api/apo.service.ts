@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     AncillaryPricingOptionsContext, 
     IJsonResponse, 
     InputParameters, 
@@ -43,7 +44,7 @@ export class StoreApoService {
      * Deletes a single saved ancillary pricing option&#39;s data.
      * 
      */
-    public store_apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1ApoByInputParameterKeyDelete(inputParameterKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1ApoByInputParameterKeyDelete(inputParameterKey,'body', headers);
         // TODO: Implement apiNskV1ApoByInputParameterKeyDelete
@@ -56,7 +57,7 @@ export class StoreApoService {
      * Updates an individual saved ancillary pricing option&#39;s data.
      * This will replace the current saved ancillary pricing option&#39;s value with the  given input parameter value, based on the input parameter key.
      */
-    public store_apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1ApoByInputParameterKeyPut(inputParameterKey: string, inputParameterValue?: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1ApoByInputParameterKeyPut(inputParameterKey,inputParameterValue,'body', headers);
         // TODO: Implement apiNskV1ApoByInputParameterKeyPut
@@ -69,7 +70,7 @@ export class StoreApoService {
      * Deletes all of the saved ancillary pricing options data.
      * 
      */
-    public store_apiNskV1ApoDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1ApoDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1ApoDelete('body', headers);
         // TODO: Implement apiNskV1ApoDelete
@@ -82,7 +83,7 @@ export class StoreApoService {
      * Gets the current saved ancillary pricing options data.
      * 
      */
-    public store_apiNskV1ApoGet( headers?: Headers): Promise<AncillaryPricingOptionsContext>
+    public async store_apiNskV1ApoGet( headers?: Headers): Promise<AncillaryPricingOptionsContext>
     {
         const response = await apiNskV1ApoGet('body', headers);
         // TODO: Implement apiNskV1ApoGet
@@ -95,7 +96,7 @@ export class StoreApoService {
      * Adds new entries to the saved ancillary pricing options data.
      * 
      */
-    public store_apiNskV1ApoPost(inputParameters?: InputParameters,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1ApoPost(inputParameters?: InputParameters,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1ApoPost(inputParameters,'body', headers);
         // TODO: Implement apiNskV1ApoPost

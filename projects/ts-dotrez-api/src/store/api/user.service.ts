@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     BookingSearchResult, 
     BookingTripResult, 
     DeltaMapperSingleSignOnTokenRequest, 
@@ -76,7 +77,7 @@ export class StoreUserService {
      * Searches the logged in user booking upcoming and past bookings.
      * This is similar to the user booking endpoint but returns more focused trip information.  This endpoint will only return data where a booking&#39;s passenger customer number matches the current logged in user.  Bookings made by the user where the passenger customer number is not assigned are ignored.
      */
-    public store_apiNskV1UserBookingsByPassengerGet(startDate?: Date, endDate?: Date,  headers?: Headers): Promise<Array<BookingTripResult>>
+    public async store_apiNskV1UserBookingsByPassengerGet(startDate?: Date, endDate?: Date,  headers?: Headers): Promise<Array<BookingTripResult>>
     {
         const response = await apiNskV1UserBookingsByPassengerGet(startDate,endDate,'body', headers);
         // TODO: Implement apiNskV1UserBookingsByPassengerGet
@@ -89,7 +90,7 @@ export class StoreUserService {
      * Searches the logged in user booking upcoming and past bookings.
      * 
      */
-    public store_apiNskV1UserBookingsGet(returnCount: number, associatedFirstName?: string, associatedLastName?: string, phoneticSearch?: boolean, tripIdentifier?: string, origin?: string, destination?: string, searchArchive?: boolean, tripDate?: Date, startDate?: Date, endDate?: Date, searchByCustomerNumber?: boolean, lastBookingKey?: string,  headers?: Headers): Promise<Array<BookingSearchResult>>
+    public async store_apiNskV1UserBookingsGet(returnCount: number, associatedFirstName?: string, associatedLastName?: string, phoneticSearch?: boolean, tripIdentifier?: string, origin?: string, destination?: string, searchArchive?: boolean, tripDate?: Date, startDate?: Date, endDate?: Date, searchByCustomerNumber?: boolean, lastBookingKey?: string,  headers?: Headers): Promise<Array<BookingSearchResult>>
     {
         const response = await apiNskV1UserBookingsGet(returnCount,associatedFirstName,associatedLastName,phoneticSearch,tripIdentifier,origin,destination,searchArchive,tripDate,startDate,endDate,searchByCustomerNumber,lastBookingKey,'body', headers);
         // TODO: Implement apiNskV1UserBookingsGet
@@ -102,7 +103,7 @@ export class StoreUserService {
      * Retrieves the current logged in user.
      * 
      */
-    public store_apiNskV1UserGet( headers?: Headers): Promise<User>
+    public async store_apiNskV1UserGet( headers?: Headers): Promise<User>
     {
         const response = await apiNskV1UserGet('body', headers);
         // TODO: Implement apiNskV1UserGet
@@ -115,7 +116,7 @@ export class StoreUserService {
      * Resets the logged in users role.
      * 
      */
-    public store_apiNskV1UserImpersonateDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserImpersonateDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserImpersonateDelete('body', headers);
         // TODO: Implement apiNskV1UserImpersonateDelete
@@ -128,7 +129,7 @@ export class StoreUserService {
      * Gets the logged in users current session roles state.
      * 
      */
-    public store_apiNskV1UserImpersonateGet( headers?: Headers): Promise<SessionRoles>
+    public async store_apiNskV1UserImpersonateGet( headers?: Headers): Promise<SessionRoles>
     {
         const response = await apiNskV1UserImpersonateGet('body', headers);
         // TODO: Implement apiNskV1UserImpersonateGet
@@ -141,7 +142,7 @@ export class StoreUserService {
      * Impersonates a new role for the logged in user.
      * 
      */
-    public store_apiNskV1UserImpersonatePost(request?: UserImpersonateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserImpersonatePost(request?: UserImpersonateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserImpersonatePost(request,'body', headers);
         // TODO: Implement apiNskV1UserImpersonatePost
@@ -154,7 +155,7 @@ export class StoreUserService {
      * Changes the logged in user&#39;s password.
      * 
      */
-    public store_apiNskV1UserPasswordChangePost(request?: UserChangePasswordRequestBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserPasswordChangePost(request?: UserChangePasswordRequestBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserPasswordChangePost(request,'body', headers);
         // TODO: Implement apiNskV1UserPasswordChangePost
@@ -167,7 +168,7 @@ export class StoreUserService {
      * Patches the current logged in user.
      * 
      */
-    public store_apiNskV1UserPatch(request?: DeltaMapperUserRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserPatch(request?: DeltaMapperUserRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserPatch(request,'body', headers);
         // TODO: Implement apiNskV1UserPatch
@@ -180,7 +181,7 @@ export class StoreUserService {
      * Creates a user with customer creation parameter defaults.
      * This endpoint will create a user based off the system configured customer creation parameters. The associated  person has to be of type customer or an exception will be thrown. To change these default settings please configure  utilities.
      */
-    public store_apiNskV1UserPost(request?: UserCustomerCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserPost(request?: UserCustomerCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserPost(request,'body', headers);
         // TODO: Implement apiNskV1UserPost
@@ -193,7 +194,7 @@ export class StoreUserService {
      * Updates the current logged in user.
      * 
      */
-    public store_apiNskV1UserPut(request?: UserRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserPut(request?: UserRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserPut(request,'body', headers);
         // TODO: Implement apiNskV1UserPut
@@ -206,7 +207,7 @@ export class StoreUserService {
      * Delets a specific role on the logged in user.
      * 
      */
-    public store_apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey,'body', headers);
         // TODO: Implement apiNskV1UserRolesByUserRoleKeyDelete
@@ -219,7 +220,7 @@ export class StoreUserService {
      * Gets a specific role from the logged in user.
      * 
      */
-    public store_apiNskV1UserRolesByUserRoleKeyGet(userRoleKey: string,  headers?: Headers): Promise<UserRole>
+    public async store_apiNskV1UserRolesByUserRoleKeyGet(userRoleKey: string,  headers?: Headers): Promise<UserRole>
     {
         const response = await apiNskV1UserRolesByUserRoleKeyGet(userRoleKey,'body', headers);
         // TODO: Implement apiNskV1UserRolesByUserRoleKeyGet
@@ -232,7 +233,7 @@ export class StoreUserService {
      * Patches a specific role on the logged in user.
      * 
      */
-    public store_apiNskV1UserRolesByUserRoleKeyPatch(userRoleKey: string, request?: DeltaMapperUserRolePatchRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserRolesByUserRoleKeyPatch(userRoleKey: string, request?: DeltaMapperUserRolePatchRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserRolesByUserRoleKeyPatch(userRoleKey,request,'body', headers);
         // TODO: Implement apiNskV1UserRolesByUserRoleKeyPatch
@@ -245,7 +246,7 @@ export class StoreUserService {
      * Updates a specific role on the logged in user.
      * 
      */
-    public store_apiNskV1UserRolesByUserRoleKeyPut(userRoleKey: string, request?: UserRoleEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserRolesByUserRoleKeyPut(userRoleKey: string, request?: UserRoleEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserRolesByUserRoleKeyPut(userRoleKey,request,'body', headers);
         // TODO: Implement apiNskV1UserRolesByUserRoleKeyPut
@@ -258,7 +259,7 @@ export class StoreUserService {
      * Gets all roles from the logged in user.
      * 
      */
-    public store_apiNskV1UserRolesGet( headers?: Headers): Promise<Array<UserRole>>
+    public async store_apiNskV1UserRolesGet( headers?: Headers): Promise<Array<UserRole>>
     {
         const response = await apiNskV1UserRolesGet('body', headers);
         // TODO: Implement apiNskV1UserRolesGet
@@ -271,7 +272,7 @@ export class StoreUserService {
      * Creates a new role on the logged in user.
      * 
      */
-    public store_apiNskV1UserRolesPost(request?: UserRoleCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserRolesPost(request?: UserRoleCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserRolesPost(request,'body', headers);
         // TODO: Implement apiNskV1UserRolesPost
@@ -284,7 +285,7 @@ export class StoreUserService {
      * Deletes a token associated with the single sign on provider from the logged-in user.
      * 
      */
-    public store_apiNskV1UserSingleSignOnTokenByProviderKeyDelete(providerKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserSingleSignOnTokenByProviderKeyDelete(providerKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserSingleSignOnTokenByProviderKeyDelete(providerKey,'body', headers);
         // TODO: Implement apiNskV1UserSingleSignOnTokenByProviderKeyDelete
@@ -297,7 +298,7 @@ export class StoreUserService {
      * Gets a single sign on token associated with a specific user.
      * 
      */
-    public store_apiNskV1UserSingleSignOnTokenByProviderKeyGet(providerKey: string,  headers?: Headers): Promise<UserSingleSignOnToken>
+    public async store_apiNskV1UserSingleSignOnTokenByProviderKeyGet(providerKey: string,  headers?: Headers): Promise<UserSingleSignOnToken>
     {
         const response = await apiNskV1UserSingleSignOnTokenByProviderKeyGet(providerKey,'body', headers);
         // TODO: Implement apiNskV1UserSingleSignOnTokenByProviderKeyGet
@@ -310,7 +311,7 @@ export class StoreUserService {
      * Patches an existing token associated with the logged-in user.
      * 
      */
-    public store_apiNskV1UserSingleSignOnTokenByProviderKeyPatch(providerKey: string, tokenRequest?: DeltaMapperSingleSignOnTokenRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserSingleSignOnTokenByProviderKeyPatch(providerKey: string, tokenRequest?: DeltaMapperSingleSignOnTokenRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserSingleSignOnTokenByProviderKeyPatch(providerKey,tokenRequest,'body', headers);
         // TODO: Implement apiNskV1UserSingleSignOnTokenByProviderKeyPatch
@@ -323,7 +324,7 @@ export class StoreUserService {
      * Links the requested token with the logged-in user.
      * 
      */
-    public store_apiNskV1UserSingleSignOnTokenByProviderKeyPost(providerKey: string, tokenRequest?: SingleSignOnTokenRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserSingleSignOnTokenByProviderKeyPost(providerKey: string, tokenRequest?: SingleSignOnTokenRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserSingleSignOnTokenByProviderKeyPost(providerKey,tokenRequest,'body', headers);
         // TODO: Implement apiNskV1UserSingleSignOnTokenByProviderKeyPost
@@ -336,7 +337,7 @@ export class StoreUserService {
      * Updates an existing token associated with the logged-in user.
      * 
      */
-    public store_apiNskV1UserSingleSignOnTokenByProviderKeyPut(providerKey: string, tokenRequest?: SingleSignOnTokenRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1UserSingleSignOnTokenByProviderKeyPut(providerKey: string, tokenRequest?: SingleSignOnTokenRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1UserSingleSignOnTokenByProviderKeyPut(providerKey,tokenRequest,'body', headers);
         // TODO: Implement apiNskV1UserSingleSignOnTokenByProviderKeyPut
@@ -349,7 +350,7 @@ export class StoreUserService {
      * Gets all of the single sign on tokens associated with a specific user.
      * 
      */
-    public store_apiNskV1UserSingleSignOnTokenGet( headers?: Headers): Promise<Array<UserSingleSignOnToken>>
+    public async store_apiNskV1UserSingleSignOnTokenGet( headers?: Headers): Promise<Array<UserSingleSignOnToken>>
     {
         const response = await apiNskV1UserSingleSignOnTokenGet('body', headers);
         // TODO: Implement apiNskV1UserSingleSignOnTokenGet
@@ -362,7 +363,7 @@ export class StoreUserService {
      * Creates a user with customer creation parameter defaults.
      * This endpoint will create a user based off the system configured customer creation parameters. The associated  person has to be of type customer or an exception will be thrown. To change these default settings please configure  utilities.
      */
-    public store_apiNskV2UserPost(request?: UserCustomerCreateRequestv2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2UserPost(request?: UserCustomerCreateRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2UserPost(request,'body', headers);
         // TODO: Implement apiNskV2UserPost

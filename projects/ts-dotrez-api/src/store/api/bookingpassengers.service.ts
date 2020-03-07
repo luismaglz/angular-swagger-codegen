@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     AddSeatRequest, 
     DeltaMapperInfant, 
     DeltaMapperPassengerAddressEditRequest, 
@@ -121,7 +122,7 @@ export class StoreBookingpassengersService {
      * Gets all the passenger price breakdown by passenger type.
      * 
      */
-    public store_apiNskV1BookingPassengersBreakdownByTypeGet( headers?: Headers): Promise<InlineResponse2007>
+    public async store_apiNskV1BookingPassengersBreakdownByTypeGet( headers?: Headers): Promise<InlineResponse2007>
     {
         const response = await apiNskV1BookingPassengersBreakdownByTypeGet('body', headers);
         // TODO: Implement apiNskV1BookingPassengersBreakdownByTypeGet
@@ -134,7 +135,7 @@ export class StoreBookingpassengersService {
      * Gets all the passenger price breakdowns.
      * 
      */
-    public store_apiNskV1BookingPassengersBreakdownGet( headers?: Headers): Promise<InlineResponse2006>
+    public async store_apiNskV1BookingPassengersBreakdownGet( headers?: Headers): Promise<InlineResponse2006>
     {
         const response = await apiNskV1BookingPassengersBreakdownGet('body', headers);
         // TODO: Implement apiNskV1BookingPassengersBreakdownGet
@@ -147,7 +148,7 @@ export class StoreBookingpassengersService {
      * Deletes a passenger travel notification for a specific passenger on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(passengerAlternateKey,travelNotificationKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete
@@ -160,7 +161,7 @@ export class StoreBookingpassengersService {
      * Deletes a notification event from a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(passengerAlternateKey,travelNotificationKey,eventType,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete
@@ -173,7 +174,7 @@ export class StoreBookingpassengersService {
      * Get a notification event for a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',  headers?: Headers): Promise<NotificationEvent>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',  headers?: Headers): Promise<NotificationEvent>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(passengerAlternateKey,travelNotificationKey,eventType,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet
@@ -186,7 +187,7 @@ export class StoreBookingpassengersService {
      * Gets notification events for a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<Array<NotificationEvent>>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<Array<NotificationEvent>>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(passengerAlternateKey,travelNotificationKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet
@@ -199,7 +200,7 @@ export class StoreBookingpassengersService {
      * Adds a notification event to a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationEventCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(passengerAlternateKey,travelNotificationKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost
@@ -212,7 +213,7 @@ export class StoreBookingpassengersService {
      * Gets a passenger travel notification for a specific passenger on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<TravelNotification>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<TravelNotification>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(passengerAlternateKey,travelNotificationKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet
@@ -225,7 +226,7 @@ export class StoreBookingpassengersService {
      * Patches a passenger travel notification for a specific passenger on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey: string, travelNotificationKey: string, request?: DeltaMapperTravelNotificationEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(passengerAlternateKey,travelNotificationKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch
@@ -238,7 +239,7 @@ export class StoreBookingpassengersService {
      * Updates a passenger travel notification for a specific passenger on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey: string, travelNotificationKey: string, request?: TravelNotificationEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(passengerAlternateKey,travelNotificationKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut
@@ -251,7 +252,7 @@ export class StoreBookingpassengersService {
      * Deletes a notification timed event from a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival',  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival',  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(passengerAlternateKey,travelNotificationKey,timedEventType,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete
@@ -264,7 +265,7 @@ export class StoreBookingpassengersService {
      * Get a notification timed event for a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival',  headers?: Headers): Promise<NotificationTimedEvent>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival',  headers?: Headers): Promise<NotificationTimedEvent>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(passengerAlternateKey,travelNotificationKey,timedEventType,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet
@@ -277,7 +278,7 @@ export class StoreBookingpassengersService {
      * Updates a notification timed event for a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey: string, travelNotificationKey: string, timedEventType: 'Departure' | 'Arrival', request?: NotificationTimedEventEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(passengerAlternateKey,travelNotificationKey,timedEventType,request,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut
@@ -290,7 +291,7 @@ export class StoreBookingpassengersService {
      * Gets notification timed events for a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<Array<NotificationTimedEvent>>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey: string, travelNotificationKey: string,  headers?: Headers): Promise<Array<NotificationTimedEvent>>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(passengerAlternateKey,travelNotificationKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet
@@ -303,7 +304,7 @@ export class StoreBookingpassengersService {
      * Adds a notification timed event to a specific passenger travel notification on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey: string, travelNotificationKey: string, request?: NotificationTimedEventCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(passengerAlternateKey,travelNotificationKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost
@@ -316,7 +317,7 @@ export class StoreBookingpassengersService {
      * Gets passenger travel notifications for a specific passenger on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string,  headers?: Headers): Promise<Array<TravelNotification>>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey: string,  headers?: Headers): Promise<Array<TravelNotification>>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(passengerAlternateKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet
@@ -329,7 +330,7 @@ export class StoreBookingpassengersService {
      * Creates a passenger travel notification for a specific passenger on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey: string, request?: TravelNotificationCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(passengerAlternateKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost
@@ -342,7 +343,7 @@ export class StoreBookingpassengersService {
      * Gets a specific address from a specific passenger.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string,  headers?: Headers): Promise<PassengerAddress>
+    public async store_apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey: string, addressKey: string,  headers?: Headers): Promise<PassengerAddress>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(passengerKey,addressKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet
@@ -355,7 +356,7 @@ export class StoreBookingpassengersService {
      * Gets the collection of addresses from a specific passenger.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerAddress>>
+    public async store_apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerAddress>>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyAddressesGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyAddressesGet
@@ -368,7 +369,7 @@ export class StoreBookingpassengersService {
      * Retrieve a single bag from a specific passenger.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string,  headers?: Headers): Promise<PassengerBag>
+    public async store_apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey: string, baggageKey: string,  headers?: Headers): Promise<PassengerBag>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(passengerKey,baggageKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet
@@ -381,7 +382,7 @@ export class StoreBookingpassengersService {
      * Gets all the baggage for a specified passenger.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerBag>>
+    public async store_apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerBag>>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyBaggageGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyBaggageGet
@@ -394,7 +395,7 @@ export class StoreBookingpassengersService {
      * Gets a specific passenger price breakdown by passenger key.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string,  headers?: Headers): Promise<PassengerPriceBreakdown>
+    public async store_apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey: string,  headers?: Headers): Promise<PassengerPriceBreakdown>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyBreakdownGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyBreakdownGet
@@ -407,7 +408,7 @@ export class StoreBookingpassengersService {
      * Gets a specific passenger&#39;s specific travel document.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<PassengerTravelDocument>
+    public async store_apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<PassengerTravelDocument>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(passengerKey,travelDocumentKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet
@@ -420,7 +421,7 @@ export class StoreBookingpassengersService {
      * Gets a specific passenger&#39;s collection of travel documents.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerTravelDocument>>
+    public async store_apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerTravelDocument>>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyDocumentsGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyDocumentsGet
@@ -433,7 +434,7 @@ export class StoreBookingpassengersService {
      * Gets a specific passenger on the booking.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string,  headers?: Headers): Promise<Passenger>
+    public async store_apiNskV1BookingPassengersByPassengerKeyGet(passengerKey: string,  headers?: Headers): Promise<Passenger>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyGet
@@ -446,7 +447,7 @@ export class StoreBookingpassengersService {
      * Gets a specific passenger infant&#39;s specific travel document.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<PassengerTravelDocument>
+    public async store_apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<PassengerTravelDocument>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(passengerKey,travelDocumentKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet
@@ -459,7 +460,7 @@ export class StoreBookingpassengersService {
      * Gets a specific passenger infant&#39;s collection of travel documents.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerTravelDocument>>
+    public async store_apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerTravelDocument>>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet
@@ -472,7 +473,7 @@ export class StoreBookingpassengersService {
      * Gets a specific passenger&#39;s infant.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string,  headers?: Headers): Promise<PassengerInfant>
+    public async store_apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey: string,  headers?: Headers): Promise<PassengerInfant>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyInfantGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyInfantGet
@@ -485,7 +486,7 @@ export class StoreBookingpassengersService {
      * Patches a specific passenger to the given passenger type.
      * NOTE: The date of birth doesn&#39;t need to be updated if the passenger&#39;s current date of birth still falls within the  new passenger type&#39;s age restriction.  This could also cause a repricing on the booking.  In addition, changing the passenger type will change the passenger key as well.
      */
-    public store_apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest,  headers?: Headers): Promise<PassengerKeyResponse>
+    public async store_apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey: string, request?: PassengerTypeCodeEditRequest,  headers?: Headers): Promise<PassengerKeyResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(passengerKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch
@@ -498,7 +499,7 @@ export class StoreBookingpassengersService {
      * Deletes a seat assignment from a specific passenger on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey: string, unitKey: string, waiveFee?: boolean, ignoreSeatSsrs?: boolean,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(passengerKey,unitKey,waiveFee,ignoreSeatSsrs,'body', headers);
         // TODO: Implement apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete
@@ -511,7 +512,7 @@ export class StoreBookingpassengersService {
      * Gets the collection of passengers on the booking.
      * 
      */
-    public store_apiNskV1BookingPassengersGet( headers?: Headers): Promise<InlineResponse2005>
+    public async store_apiNskV1BookingPassengersGet( headers?: Headers): Promise<InlineResponse2005>
     {
         const response = await apiNskV1BookingPassengersGet('body', headers);
         // TODO: Implement apiNskV1BookingPassengersGet
@@ -524,7 +525,7 @@ export class StoreBookingpassengersService {
      * Deletes a specific address on a specific passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey: string, addressKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(passengerKey,addressKey,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete
@@ -537,7 +538,7 @@ export class StoreBookingpassengersService {
      * Patches a specific address on a specific passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey: string, addressKey: string, request?: DeltaMapperPassengerAddressEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(passengerKey,addressKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch
@@ -550,7 +551,7 @@ export class StoreBookingpassengersService {
      * Updates a specific address on a specific passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey: string, addressKey: string, request?: PassengerAddressEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(passengerKey,addressKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut
@@ -563,7 +564,7 @@ export class StoreBookingpassengersService {
      * Creates a new address for a specific passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey: string, request?: PassengerAddressCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyAddressesPost(passengerKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyAddressesPost
@@ -576,7 +577,7 @@ export class StoreBookingpassengersService {
      * Deletes a specific passenger&#39;s specific travel document.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(passengerKey,travelDocumentKey,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete
@@ -589,7 +590,7 @@ export class StoreBookingpassengersService {
      * Patches a specific passenger&#39;s travel document.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(passengerKey,travelDocumentKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch
@@ -602,7 +603,7 @@ export class StoreBookingpassengersService {
      * Updates a specific passenger&#39;s travel document.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(passengerKey,travelDocumentKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut
@@ -615,7 +616,7 @@ export class StoreBookingpassengersService {
      * Create a new travel document for a specific passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyDocumentsPost(passengerKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyDocumentsPost
@@ -628,7 +629,7 @@ export class StoreBookingpassengersService {
      * Deletes a infant from a specific passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyInfantDelete(passengerKey,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyInfantDelete
@@ -641,7 +642,7 @@ export class StoreBookingpassengersService {
      * Deletes a specific passenger infant specific travel document.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey: string, travelDocumentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(passengerKey,travelDocumentKey,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete
@@ -654,7 +655,7 @@ export class StoreBookingpassengersService {
      * Patches a specific passenger infant travel document.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey: string, travelDocumentKey: string, request?: DeltaMapperTravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(passengerKey,travelDocumentKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch
@@ -667,7 +668,7 @@ export class StoreBookingpassengersService {
      * Updates a specific passenger infant travel document.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey: string, travelDocumentKey: string, request?: TravelDocumentEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(passengerKey,travelDocumentKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut
@@ -680,7 +681,7 @@ export class StoreBookingpassengersService {
      * Create a new travel document for a specific passenger infant.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey: string, request?: TravelDocumentCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(passengerKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost
@@ -693,7 +694,7 @@ export class StoreBookingpassengersService {
      * Patches a infant on a specific passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey: string, request?: DeltaMapperInfant,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeyInfantPatch(passengerKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeyInfantPatch
@@ -706,7 +707,7 @@ export class StoreBookingpassengersService {
      * Gets passenger seat by key.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string,  headers?: Headers): Promise<PassengerSeat>
+    public async store_apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey: string, unitKey: string,  headers?: Headers): Promise<PassengerSeat>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(passengerKey,unitKey,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet
@@ -719,7 +720,7 @@ export class StoreBookingpassengersService {
      * Adds a seat assignment to a specific passenger on the booking in state.
      * This endpoint actively checks whether the passenger has a seat. If the passenger does  have a seat, it will delete the current seat the passenger occupies and add the requested  one. This may result in slightly slower response times.
      */
-    public store_apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey: string, unitKey: string, request?: AddSeatRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(passengerKey,unitKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost
@@ -732,7 +733,7 @@ export class StoreBookingpassengersService {
      * Gets all seats associated with a passenger.
      * 
      */
-    public store_apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerSeat>>
+    public async store_apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey: string,  headers?: Headers): Promise<Array<PassengerSeat>>
     {
         const response = await apiNskV2BookingPassengersByPassengerKeySeatsGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV2BookingPassengersByPassengerKeySeatsGet
@@ -745,7 +746,7 @@ export class StoreBookingpassengersService {
      * Creates an infant on a specific passenger.
      * 
      */
-    public store_apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey: string, request?: PassengerInfantCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPassengersByPassengerKeyInfantPost(passengerKey,request,'body', headers);
         // TODO: Implement apiNskV3BookingPassengersByPassengerKeyInfantPost
@@ -758,7 +759,7 @@ export class StoreBookingpassengersService {
      * Updates an infant on a specific passenger.
      * 
      */
-    public store_apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey: string, request?: Infant,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPassengersByPassengerKeyInfantPut(passengerKey,request,'body', headers);
         // TODO: Implement apiNskV3BookingPassengersByPassengerKeyInfantPut
@@ -771,7 +772,7 @@ export class StoreBookingpassengersService {
      * Patches a specific passenger on the booking.
      * 
      */
-    public store_apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey: string, waiveNameChangeFees?: boolean, request?: DeltaMapperPassengerBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPassengersByPassengerKeyPatch(passengerKey,waiveNameChangeFees,request,'body', headers);
         // TODO: Implement apiNskV3BookingPassengersByPassengerKeyPatch
@@ -784,7 +785,7 @@ export class StoreBookingpassengersService {
      * Updates a specific passenger on the booking.
      * 
      */
-    public store_apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPassengersByPassengerKeyPut(passengerKey: string, waiveNameChangeFees?: boolean, request?: PassengerBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPassengersByPassengerKeyPut(passengerKey,waiveNameChangeFees,request,'body', headers);
         // TODO: Implement apiNskV3BookingPassengersByPassengerKeyPut

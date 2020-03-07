@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     SeatMapAvailability, 
 } from 'api-models';
@@ -38,7 +39,7 @@ export class StoreSeatmapsService {
      * Gets the list of seat maps for all the journeys stateless.
      * 
      */
-    public store_apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
+    public async store_apiNskV3SeatmapsByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
     {
         const response = await apiNskV3SeatmapsByJourneyKeyGet(journeyKey,includePropertyLookup,cultureCode,'body', headers);
         // TODO: Implement apiNskV3SeatmapsByJourneyKeyGet

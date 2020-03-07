@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     OrganizationGroup, 
     OrganizationGroupDetails, 
@@ -40,7 +41,7 @@ export class StoreOrganizationsService {
      * Retrieves the details of an organization group.
      * 
      */
-    public store_apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string,  headers?: Headers): Promise<OrganizationGroupDetails>
+    public async store_apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode: string,  headers?: Headers): Promise<OrganizationGroupDetails>
     {
         const response = await apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(organizationGroupCode,'body', headers);
         // TODO: Implement apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet
@@ -53,7 +54,7 @@ export class StoreOrganizationsService {
      * Retrieves the organization groups.
      * 
      */
-    public store_apiNskV1OrganizationsGroupsGet( headers?: Headers): Promise<Array<OrganizationGroup>>
+    public async store_apiNskV1OrganizationsGroupsGet( headers?: Headers): Promise<Array<OrganizationGroup>>
     {
         const response = await apiNskV1OrganizationsGroupsGet('body', headers);
         // TODO: Implement apiNskV1OrganizationsGroupsGet

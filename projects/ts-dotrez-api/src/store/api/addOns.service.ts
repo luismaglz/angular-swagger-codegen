@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     ActivityProduct, 
     ActivitySimpleRequest, 
     AddOn, 
@@ -58,7 +59,7 @@ export class StoreAddOnsService {
      * Gets availability.
      * This is functionally a GET but POST is used to reduce URL length overhead.
      */
-    public store_apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest,  headers?: Headers): Promise<Array<ActivityProduct>>
+    public async store_apiNskV1AddOnsActivitiesAvailablePost(request?: ActivitySimpleRequest,  headers?: Headers): Promise<Array<ActivityProduct>>
     {
         const response = await apiNskV1AddOnsActivitiesAvailablePost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsActivitiesAvailablePost
@@ -71,7 +72,7 @@ export class StoreAddOnsService {
      * Sell request for an activity.
      * 
      */
-    public store_apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest,  headers?: Headers): Promise<AddOn>
+    public async store_apiNskV1AddOnsActivitiesPost(request?: SellTokenRequest,  headers?: Headers): Promise<AddOn>
     {
         const response = await apiNskV1AddOnsActivitiesPost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsActivitiesPost
@@ -84,7 +85,7 @@ export class StoreAddOnsService {
      * Quote an activity.
      * 
      */
-    public store_apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest,  headers?: Headers): Promise<QuotedProduct>
+    public async store_apiNskV1AddOnsActivitiesQuotePost(request?: QuoteTokenRequest,  headers?: Headers): Promise<QuotedProduct>
     {
         const response = await apiNskV1AddOnsActivitiesQuotePost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsActivitiesQuotePost
@@ -97,7 +98,7 @@ export class StoreAddOnsService {
      * Gets availability.
      * This is functionally a GET but POST is used to reduce URL length overhead.
      */
-    public store_apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest,  headers?: Headers): Promise<Array<CarProduct>>
+    public async store_apiNskV1AddOnsCarsAvailablePost(request?: ProductRequest,  headers?: Headers): Promise<Array<CarProduct>>
     {
         const response = await apiNskV1AddOnsCarsAvailablePost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsCarsAvailablePost
@@ -110,7 +111,7 @@ export class StoreAddOnsService {
      * Sell request for a car.
      * 
      */
-    public store_apiNskV1AddOnsCarsPost(request?: SellCarRequest,  headers?: Headers): Promise<AddOn>
+    public async store_apiNskV1AddOnsCarsPost(request?: SellCarRequest,  headers?: Headers): Promise<AddOn>
     {
         const response = await apiNskV1AddOnsCarsPost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsCarsPost
@@ -123,7 +124,7 @@ export class StoreAddOnsService {
      * Quote car.
      * 
      */
-    public store_apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest,  headers?: Headers): Promise<QuotedProduct>
+    public async store_apiNskV1AddOnsCarsQuotePost(request?: QuoteCarRequest,  headers?: Headers): Promise<QuotedProduct>
     {
         const response = await apiNskV1AddOnsCarsQuotePost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsCarsQuotePost
@@ -136,7 +137,7 @@ export class StoreAddOnsService {
      * Gets availability.
      * This is functionally a GET but POST is used to reduce URL length overhead.
      */
-    public store_apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest,  headers?: Headers): Promise<Array<HotelProduct>>
+    public async store_apiNskV1AddOnsHotelsAvailablePost(request?: HotelRequest,  headers?: Headers): Promise<Array<HotelProduct>>
     {
         const response = await apiNskV1AddOnsHotelsAvailablePost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsHotelsAvailablePost
@@ -149,7 +150,7 @@ export class StoreAddOnsService {
      * Sell request for a hotel.
      * 
      */
-    public store_apiNskV1AddOnsHotelsPost(request?: SellHotelRequest,  headers?: Headers): Promise<AddOn>
+    public async store_apiNskV1AddOnsHotelsPost(request?: SellHotelRequest,  headers?: Headers): Promise<AddOn>
     {
         const response = await apiNskV1AddOnsHotelsPost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsHotelsPost
@@ -162,7 +163,7 @@ export class StoreAddOnsService {
      * Quote hotel.
      * 
      */
-    public store_apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest,  headers?: Headers): Promise<QuotedProduct>
+    public async store_apiNskV1AddOnsHotelsQuotePost(request?: QuoteHotelRequest,  headers?: Headers): Promise<QuotedProduct>
     {
         const response = await apiNskV1AddOnsHotelsQuotePost(request,'body', headers);
         // TODO: Implement apiNskV1AddOnsHotelsQuotePost

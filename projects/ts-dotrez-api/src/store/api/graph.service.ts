@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     GraphQlQuery, 
     GraphQlQueryv2, 
 } from 'api-models';
@@ -40,7 +41,7 @@ export class StoreGraphService {
      * Invokes a graph query configured in utilities.
      * When a graph query is configured on the server under Resource Management it allows your payload sizes to be even smaller.
      */
-    public store_apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any,  headers?: Headers): Promise<any>
+    public async store_apiNskV1GraphByQueryNamePost(queryName: string, cachedResults: boolean, variables?: any,  headers?: Headers): Promise<any>
     {
         const response = await apiNskV1GraphByQueryNamePost(queryName,cachedResults,variables,'body', headers);
         // TODO: Implement apiNskV1GraphByQueryNamePost
@@ -53,7 +54,7 @@ export class StoreGraphService {
      * 
      * 
      */
-    public store_apiV1GraphPost(query?: GraphQlQuery,  headers?: Headers): Promise<any>
+    public async store_apiV1GraphPost(query?: GraphQlQuery,  headers?: Headers): Promise<any>
     {
         const response = await apiV1GraphPost(query,'body', headers);
         // TODO: Implement apiV1GraphPost
@@ -66,7 +67,7 @@ export class StoreGraphService {
      * 
      * 
      */
-    public store_apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2,  headers?: Headers): Promise<any>
+    public async store_apiV2GraphByQueryNamePost(queryName: string, query?: GraphQlQueryv2,  headers?: Headers): Promise<any>
     {
         const response = await apiV2GraphByQueryNamePost(queryName,query,'body', headers);
         // TODO: Implement apiV2GraphByQueryNamePost

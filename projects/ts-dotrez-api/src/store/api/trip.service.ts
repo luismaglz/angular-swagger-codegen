@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     Availability, 
     AvailabilityFlyAheadRequest, 
     AvailabilityMoveRequest, 
@@ -73,7 +74,7 @@ export class StoreTripService {
      * Downgrades the current booking in state segments.
      * 
      */
-    public store_apiNskV1TripDowngradePost(request?: TripDowngradeRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TripDowngradePost(request?: TripDowngradeRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TripDowngradePost(request,'body', headers);
         // TODO: Implement apiNskV1TripDowngradePost
@@ -86,7 +87,7 @@ export class StoreTripService {
      * Simple fly ahead search request covers the bare minimum search  by journey. AvailabilitySettings configure the rest.
      * 
      */
-    public store_apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Trip>
+    public async store_apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Trip>
     {
         const response = await apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(journeyKey,'body', headers);
         // TODO: Implement apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet
@@ -99,7 +100,7 @@ export class StoreTripService {
      * Full fly ahead availability search request.
      * This request allows for total control over  the configuration. If a property is not set, the default settings (AvailabilitySettings) is used in its place.  Note, this is a post request even though it is only getting information. This is due to the complicated data needed  in the post data.
      */
-    public store_apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest,  headers?: Headers): Promise<Trip>
+    public async store_apiNskV1TripFlyAheadAvailabilityPost(request?: AvailabilityFlyAheadRequest,  headers?: Headers): Promise<Trip>
     {
         const response = await apiNskV1TripFlyAheadAvailabilityPost(request,'body', headers);
         // TODO: Implement apiNskV1TripFlyAheadAvailabilityPost
@@ -112,7 +113,7 @@ export class StoreTripService {
      * Retrieves cabin and various details for the specified leg key.
      * The additional trip details include the leg cross references,   the cabin details (nest counts), and the checkin-lid.
      */
-    public store_apiNskV1TripInfoByLegKeyDetailsGet(legKey: string,  headers?: Headers): Promise<TripDetails>
+    public async store_apiNskV1TripInfoByLegKeyDetailsGet(legKey: string,  headers?: Headers): Promise<TripDetails>
     {
         const response = await apiNskV1TripInfoByLegKeyDetailsGet(legKey,'body', headers);
         // TODO: Implement apiNskV1TripInfoByLegKeyDetailsGet
@@ -125,7 +126,7 @@ export class StoreTripService {
      * Gets the search results for the trip information, based on the search criteria.
      * 
      */
-    public store_apiNskV1TripInfoPost(request?: TripInformationQuery,  headers?: Headers): Promise<Array<TripInformationResponse>>
+    public async store_apiNskV1TripInfoPost(request?: TripInformationQuery,  headers?: Headers): Promise<Array<TripInformationResponse>>
     {
         const response = await apiNskV1TripInfoPost(request,'body', headers);
         // TODO: Implement apiNskV1TripInfoPost
@@ -138,7 +139,7 @@ export class StoreTripService {
      * Performs a simplified search for trip information based upon minimal, required data for  the search criteria.
      * 
      */
-    public store_apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',  headers?: Headers): Promise<Array<TripInformationResponse>>
+    public async store_apiNskV1TripInfoSimpleGet(beginDate: Date, numberOfJourneys?: number, origin?: string, destination?: string, endDate?: Date, startTimeInterval?: string, endTimeInterval?: string, identifier?: string, carrierCode?: string, flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',  headers?: Headers): Promise<Array<TripInformationResponse>>
     {
         const response = await apiNskV1TripInfoSimpleGet(beginDate,numberOfJourneys,origin,destination,endDate,startTimeInterval,endTimeInterval,identifier,carrierCode,flightType,'body', headers);
         // TODO: Implement apiNskV1TripInfoSimpleGet
@@ -151,7 +152,7 @@ export class StoreTripService {
      * Self-service search for move availability.
      * 
      */
-    public store_apiNskV1TripMoveAvailabilitySelfServiceGet( headers?: Headers): Promise<Availability>
+    public async store_apiNskV1TripMoveAvailabilitySelfServiceGet( headers?: Headers): Promise<Availability>
     {
         const response = await apiNskV1TripMoveAvailabilitySelfServiceGet('body', headers);
         // TODO: Implement apiNskV1TripMoveAvailabilitySelfServiceGet
@@ -164,7 +165,7 @@ export class StoreTripService {
      * Moves a journey on the booking in state.
      * 
      */
-    public store_apiNskV1TripMovePost(request?: MoveRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TripMovePost(request?: MoveRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TripMovePost(request,'body', headers);
         // TODO: Implement apiNskV1TripMovePost
@@ -177,7 +178,7 @@ export class StoreTripService {
      * Retrieves the schedule of flights for a market.
      * 
      */
-    public store_apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All',  headers?: Headers): Promise<Array<ScheduleDetail>>
+    public async store_apiNskV1TripScheduleGet(origin: string, destination: string, beginDate: Date, endDate: Date, type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All',  headers?: Headers): Promise<Array<ScheduleDetail>>
     {
         const response = await apiNskV1TripScheduleGet(origin,destination,beginDate,endDate,type,'body', headers);
         // TODO: Implement apiNskV1TripScheduleGet
@@ -190,7 +191,7 @@ export class StoreTripService {
      * Upgrades the current booking for the single key.
      * 
      */
-    public store_apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey: string, request?: TripUpgradeBaseRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TripUpgradeByUpgradeKeyPost(upgradeKey,request,'body', headers);
         // TODO: Implement apiNskV1TripUpgradeByUpgradeKeyPost
@@ -203,7 +204,7 @@ export class StoreTripService {
      * Gets the list of upgrade options for the booking in state.
      * 
      */
-    public store_apiNskV1TripUpgradeGet( headers?: Headers): Promise<Array<UpgradeSegment>>
+    public async store_apiNskV1TripUpgradeGet( headers?: Headers): Promise<Array<UpgradeSegment>>
     {
         const response = await apiNskV1TripUpgradeGet('body', headers);
         // TODO: Implement apiNskV1TripUpgradeGet
@@ -216,7 +217,7 @@ export class StoreTripService {
      * Upgrades the current booking in state segments.
      * 
      */
-    public store_apiNskV1TripUpgradePost(request?: TripUpgradeRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TripUpgradePost(request?: TripUpgradeRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TripUpgradePost(request,'body', headers);
         // TODO: Implement apiNskV1TripUpgradePost
@@ -229,7 +230,7 @@ export class StoreTripService {
      * Retrieves the trip status data for the specified leg key.
      * 
      */
-    public store_apiNskV2TripInfoByLegKeyStatusGet(legKey: string,  headers?: Headers): Promise<TripStatusv2>
+    public async store_apiNskV2TripInfoByLegKeyStatusGet(legKey: string,  headers?: Headers): Promise<TripStatusv2>
     {
         const response = await apiNskV2TripInfoByLegKeyStatusGet(legKey,'body', headers);
         // TODO: Implement apiNskV2TripInfoByLegKeyStatusGet
@@ -242,7 +243,7 @@ export class StoreTripService {
      * Searches for availability with the simple move request. The simple search request covers the bare minimum search  criteria and lets default settings (AvailabilitySettings) configure the rest.
      * 
      */
-    public store_apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string,  headers?: Headers): Promise<Availability>
+    public async store_apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey: string, passengerMoveType: 'None' | 'Irop' | 'Diversion' | 'FlightClose' | 'FlyAhead' | 'SplitJourney' | 'SelfServiceRebooking', beginDate?: Date, origin?: string, destination?: string,  headers?: Headers): Promise<Availability>
     {
         const response = await apiNskV2TripMoveAvailabilityByJourneyKeyGet(journeyKey,passengerMoveType,beginDate,origin,destination,'body', headers);
         // TODO: Implement apiNskV2TripMoveAvailabilityByJourneyKeyGet
@@ -255,7 +256,7 @@ export class StoreTripService {
      * Searches for move availability with the full availability search request. This request will allow for total control  over  the configuration. If a property is not set, the default settings (AvailabilitySettings) is used in its place.
      * Note, this is a post request even though it is only getting information. This is due to the complicated data needed  in the post data.
      */
-    public store_apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest,  headers?: Headers): Promise<Availability>
+    public async store_apiNskV2TripMoveAvailabilityPost(request?: AvailabilityMoveRequest,  headers?: Headers): Promise<Availability>
     {
         const response = await apiNskV2TripMoveAvailabilityPost(request,'body', headers);
         // TODO: Implement apiNskV2TripMoveAvailabilityPost
@@ -268,7 +269,7 @@ export class StoreTripService {
      * Rebook search with the current booking defaults.
      * Requires a booking in state.   Although this endpoint behaves like a GET, POST is used to reduce the limitations resulting from URL length issues.
      */
-    public store_apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest,  headers?: Headers): Promise<Availability>
+    public async store_apiNskV3TripRebookAvailabilityPost(request?: AvailabilityRebookRequest,  headers?: Headers): Promise<Availability>
     {
         const response = await apiNskV3TripRebookAvailabilityPost(request,'body', headers);
         // TODO: Implement apiNskV3TripRebookAvailabilityPost
@@ -281,7 +282,7 @@ export class StoreTripService {
      * Simple rebook search with the current booking defaults.
      * Requires a booking in state.
      */
-    public store_apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent',  headers?: Headers): Promise<Availability>
+    public async store_apiNskV3TripRebookAvailabilitySimpleGet(origin: string, destination: string, beginDate: Date, endDate?: Date, loyaltyFilter?: 'MonetaryOnly' | 'PointsOnly' | 'PointsAndMonetary' | 'PreserveCurrent',  headers?: Headers): Promise<Availability>
     {
         const response = await apiNskV3TripRebookAvailabilitySimpleGet(origin,destination,beginDate,endDate,loyaltyFilter,'body', headers);
         // TODO: Implement apiNskV3TripRebookAvailabilitySimpleGet
@@ -294,7 +295,7 @@ export class StoreTripService {
      * Creates a new booking with the provided journeys, contacts, passengers, and SSRs.
      * 
      */
-    public store_apiNskV4TripPost(request?: BookingSellRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV4TripPost(request?: BookingSellRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV4TripPost(request,'body', headers);
         // TODO: Implement apiNskV4TripPost
@@ -307,7 +308,7 @@ export class StoreTripService {
      * Sells the list of journeys and creates a booking if it doesn&#39;t already exist.
      * 
      */
-    public store_apiNskV4TripSellPost(request?: TripSellRequest,  headers?: Headers): Promise<Booking>
+    public async store_apiNskV4TripSellPost(request?: TripSellRequest,  headers?: Headers): Promise<Booking>
     {
         const response = await apiNskV4TripSellPost(request,'body', headers);
         // TODO: Implement apiNskV4TripSellPost

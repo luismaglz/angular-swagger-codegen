@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     AccountChangePasswordRequest, 
     AccountForgotPasswordRequest, 
     IJsonResponse, 
@@ -40,7 +41,7 @@ export class StoreAccountService {
      * Changes the accounts password.
      * 
      */
-    public store_apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1AccountPasswordChangePost(request?: AccountChangePasswordRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1AccountPasswordChangePost(request,'body', headers);
         // TODO: Implement apiNskV1AccountPasswordChangePost
@@ -53,7 +54,7 @@ export class StoreAccountService {
      * Invokes the forgot password reset for a specific account.
      * 
      */
-    public store_apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1AccountPasswordResetPost(request?: AccountForgotPasswordRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1AccountPasswordResetPost(request,'body', headers);
         // TODO: Implement apiNskV1AccountPasswordResetPost

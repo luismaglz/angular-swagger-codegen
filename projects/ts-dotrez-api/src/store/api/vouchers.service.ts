@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     Voucher, 
     VoucherConfiguration, 
@@ -49,7 +50,7 @@ export class StoreVouchersService {
      * Searches for vouchers issued within the given date range.
      * 
      */
-    public store_apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date,  headers?: Headers): Promise<VouchersSummaryResponse>
+    public async store_apiNskV1VouchersByDateGet(beginDate: Date, pageSize?: number, lastPageKey?: string, endDate?: Date,  headers?: Headers): Promise<VouchersSummaryResponse>
     {
         const response = await apiNskV1VouchersByDateGet(beginDate,pageSize,lastPageKey,endDate,'body', headers);
         // TODO: Implement apiNskV1VouchersByDateGet
@@ -62,7 +63,7 @@ export class StoreVouchersService {
      * Gets vouchers associated with a voucher issuance.
      * 
      */
-    public store_apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string,  headers?: Headers): Promise<Array<VoucherItem>>
+    public async store_apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string,  headers?: Headers): Promise<Array<VoucherItem>>
     {
         const response = await apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey,'body', headers);
         // TODO: Implement apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet
@@ -75,7 +76,7 @@ export class StoreVouchersService {
      * Gets a collection of vouchers based on the market information.
      * 
      */
-    public store_apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string,  headers?: Headers): Promise<Array<VoucherItem>>
+    public async store_apiNskV1VouchersByMarketGet(destination: string, origin: string, departureDate: Date, identifier: string, carrierCode: string, opSuffix?: string,  headers?: Headers): Promise<Array<VoucherItem>>
     {
         const response = await apiNskV1VouchersByMarketGet(destination,origin,departureDate,identifier,carrierCode,opSuffix,'body', headers);
         // TODO: Implement apiNskV1VouchersByMarketGet
@@ -88,7 +89,7 @@ export class StoreVouchersService {
      * Gets a specific voucher based upon the voucher key.
      * 
      */
-    public store_apiNskV1VouchersByVoucherKeyGet(voucherKey: string,  headers?: Headers): Promise<Voucher>
+    public async store_apiNskV1VouchersByVoucherKeyGet(voucherKey: string,  headers?: Headers): Promise<Voucher>
     {
         const response = await apiNskV1VouchersByVoucherKeyGet(voucherKey,'body', headers);
         // TODO: Implement apiNskV1VouchersByVoucherKeyGet
@@ -101,7 +102,7 @@ export class StoreVouchersService {
      * Changes the voucher status.
      * 
      */
-    public store_apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1VouchersByVoucherKeyPut(voucherKey: string, request?: VoucherUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1VouchersByVoucherKeyPut(voucherKey,request,'body', headers);
         // TODO: Implement apiNskV1VouchersByVoucherKeyPut
@@ -114,7 +115,7 @@ export class StoreVouchersService {
      * Gets a specific voucher configuration based on the configuration code.
      * 
      */
-    public store_apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string,  headers?: Headers): Promise<VoucherConfiguration>
+    public async store_apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode: string,  headers?: Headers): Promise<VoucherConfiguration>
     {
         const response = await apiNskV1VouchersConfigurationByConfigurationCodeGet(configurationCode,'body', headers);
         // TODO: Implement apiNskV1VouchersConfigurationByConfigurationCodeGet
@@ -127,7 +128,7 @@ export class StoreVouchersService {
      * Gets all available voucher configurations.
      * 
      */
-    public store_apiNskV1VouchersConfigurationGet( headers?: Headers): Promise<Array<VoucherConfiguration>>
+    public async store_apiNskV1VouchersConfigurationGet( headers?: Headers): Promise<Array<VoucherConfiguration>>
     {
         const response = await apiNskV1VouchersConfigurationGet('body', headers);
         // TODO: Implement apiNskV1VouchersConfigurationGet
@@ -140,7 +141,7 @@ export class StoreVouchersService {
      * Gets vouchers based upon data in the request.
      * 
      */
-    public store_apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string,  headers?: Headers): Promise<Array<VoucherItem>>
+    public async store_apiNskV1VouchersGet(customerNameFirstName: string, customerNameLastName: string, activeOnly: boolean, recordLocator?: string, customerNumber?: string, cultureCode?: string,  headers?: Headers): Promise<Array<VoucherItem>>
     {
         const response = await apiNskV1VouchersGet(customerNameFirstName,customerNameLastName,activeOnly,recordLocator,customerNumber,cultureCode,'body', headers);
         // TODO: Implement apiNskV1VouchersGet

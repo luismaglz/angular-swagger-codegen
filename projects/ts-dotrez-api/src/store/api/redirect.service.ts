@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     RedirectResult, 
 } from 'api-models';
 
@@ -37,7 +38,7 @@ export class StoreRedirectService {
      * 
      * 
      */
-    public store_apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string,  headers?: Headers): Promise<any>
+    public async store_apiV1RedirectGet(domain?: string, scheme?: string, port?: number, path?: string, param1?: string, value1?: string, param2?: string, value2?: string, param3?: string, value3?: string, param4?: string, value4?: string,  headers?: Headers): Promise<any>
     {
         const response = await apiV1RedirectGet(domain,scheme,port,path,param1,value1,param2,value2,param3,value3,param4,value4,'body', headers);
         // TODO: Implement apiV1RedirectGet

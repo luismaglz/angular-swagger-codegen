@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     BookingQueueItemBase, 
     DeleteBookingQueueItemBaseRequest, 
     DequeueTravelSummary, 
@@ -48,7 +49,7 @@ export class StoreQueuesService {
      * Removes booking queue items from the specified queue.
      * 
      */
-    public store_apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode: string, bookingQueueItemKey: string, request?: DeleteBookingQueueItemBaseRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete(bookingQueueCode,bookingQueueItemKey,request,'body', headers);
         // TODO: Implement apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyDelete
@@ -61,7 +62,7 @@ export class StoreQueuesService {
      * Moves to a different queue.
      * The booking queue proxy and service model do not currently support getting the queue code  the item was moved to. Therefore, it is not possible at this time to provide a link to  access the item on a different queue or a configurable response containing the queue object.  Additionally, the proxy and service model do not allow for getting a particular item within a  queue.
      */
-    public store_apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode: string, bookingQueueItemKey: string, request?: MoveBookingQueueItemBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut(bookingQueueCode,bookingQueueItemKey,request,'body', headers);
         // TODO: Implement apiNskV1QueuesBookingsByBookingQueueCodeItemsByBookingQueueItemKeyPut
@@ -74,7 +75,7 @@ export class StoreQueuesService {
      * Pops the next item in the travel queue.
      * This will delete the item from the queue.  This action requires a session token.
      */
-    public store_apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string,  headers?: Headers): Promise<DequeueTravelSummary>
+    public async store_apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode: string, subQueueCode?: string,  headers?: Headers): Promise<DequeueTravelSummary>
     {
         const response = await apiNskV1QueuesTravelByTravelQueueCodeNextGet(travelQueueCode,subQueueCode,'body', headers);
         // TODO: Implement apiNskV1QueuesTravelByTravelQueueCodeNextGet
@@ -87,7 +88,7 @@ export class StoreQueuesService {
      * Creates a new travel queue entry.
      * This action requires a session token.
      */
-    public store_apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1QueuesTravelPost(item?: TravelQueueItemRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1QueuesTravelPost(item,'body', headers);
         // TODO: Implement apiNskV1QueuesTravelPost
@@ -100,7 +101,7 @@ export class StoreQueuesService {
      * Gets the next item in the booking queue.
      * This will not delete the item from the queue.  This action requires a session token.
      */
-    public store_apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string,  headers?: Headers): Promise<Array<BookingQueueItemBase>>
+    public async store_apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode: string, subQueueCode?: string, startDate?: Date, endDate?: Date, password?: string,  headers?: Headers): Promise<Array<BookingQueueItemBase>>
     {
         const response = await apiNskV2QueuesBookingsByBookingQueueCodeNextGet(bookingQueueCode,subQueueCode,startDate,endDate,password,'body', headers);
         // TODO: Implement apiNskV2QueuesBookingsByBookingQueueCodeNextGet
@@ -113,7 +114,7 @@ export class StoreQueuesService {
      * Gets the list of queues available.
      * This action requires a session token.
      */
-    public store_apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number,  headers?: Headers): Promise<QueueResults>
+    public async store_apiNskV2QueuesBookingsGet(queueName?: string, queueCode?: string, queueCategoryCode?: string, pageSize?: number, lastPageIndex?: number,  headers?: Headers): Promise<QueueResults>
     {
         const response = await apiNskV2QueuesBookingsGet(queueName,queueCode,queueCategoryCode,pageSize,lastPageIndex,'body', headers);
         // TODO: Implement apiNskV2QueuesBookingsGet

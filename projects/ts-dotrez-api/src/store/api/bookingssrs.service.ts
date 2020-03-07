@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     PassengerSsr, 
     PassengerSsrKey, 
@@ -54,7 +55,7 @@ export class StoreBookingssrsService {
      * Deletes by the SSR passenger key provided by metadata.
      * Requires a booking in state.
      */
-    public store_apiNskV1BookingSsrsBySsrKeyDelete(ssrKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSsrsBySsrKeyDelete(ssrKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSsrsBySsrKeyDelete(ssrKey,'body', headers);
         // TODO: Implement apiNskV1BookingSsrsBySsrKeyDelete
@@ -67,7 +68,7 @@ export class StoreBookingssrsService {
      * Retrieves the current SSR by key.
      * Requires a booking in state.
      */
-    public store_apiNskV1BookingSsrsBySsrKeyGet(ssrKey: string,  headers?: Headers): Promise<PassengerSsr>
+    public async store_apiNskV1BookingSsrsBySsrKeyGet(ssrKey: string,  headers?: Headers): Promise<PassengerSsr>
     {
         const response = await apiNskV1BookingSsrsBySsrKeyGet(ssrKey,'body', headers);
         // TODO: Implement apiNskV1BookingSsrsBySsrKeyGet
@@ -80,7 +81,7 @@ export class StoreBookingssrsService {
      * Modify the ssr note.
      * Requires a booking in state.
      */
-    public store_apiNskV1BookingSsrsBySsrKeyPut(ssrKey: string, note?: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSsrsBySsrKeyPut(ssrKey: string, note?: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSsrsBySsrKeyPut(ssrKey,note,'body', headers);
         // TODO: Implement apiNskV1BookingSsrsBySsrKeyPut
@@ -93,7 +94,7 @@ export class StoreBookingssrsService {
      * Retrieves the current SSRs added to the booking in state.
      * Requires a booking in state.
      */
-    public store_apiNskV1BookingSsrsGet( headers?: Headers): Promise<Array<PassengerSsr>>
+    public async store_apiNskV1BookingSsrsGet( headers?: Headers): Promise<Array<PassengerSsr>>
     {
         const response = await apiNskV1BookingSsrsGet('body', headers);
         // TODO: Implement apiNskV1BookingSsrsGet
@@ -106,7 +107,7 @@ export class StoreBookingssrsService {
      * Deletes the SSR by the request criteria.
      * Requires a booking in state.   This is an alternate way of deleting an SSR. Deleting by ID is recommended (see /api/booking/ssrs).  This method is useful if the UI is not querying availability and not using dynamic SSR information.
      */
-    public store_apiNskV1BookingSsrsManualDelete(request?: PassengerSsrKey,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSsrsManualDelete(request?: PassengerSsrKey,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSsrsManualDelete(request,'body', headers);
         // TODO: Implement apiNskV1BookingSsrsManualDelete
@@ -119,7 +120,7 @@ export class StoreBookingssrsService {
      * Adds SSRs to the booking in state.
      * Adding an SSR by journey automatically adds the SSR to every segment.  Requires a booking in state.  This is an alternate way of creating an SSR. Creating by ID is recommended (see /api/booking/ssrs).  This method is useful if the UI is not querying availability and not using dynamic SSR information.
      */
-    public store_apiNskV1BookingSsrsManualPost(request?: SsrsRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSsrsManualPost(request?: SsrsRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSsrsManualPost(request,'body', headers);
         // TODO: Implement apiNskV1BookingSsrsManualPost
@@ -132,7 +133,7 @@ export class StoreBookingssrsService {
      * Resells any cancelled ssrs to the provided journey on the booking.
      * 
      */
-    public store_apiNskV1BookingSsrsResellPost(request?: ResellSsrRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSsrsResellPost(request?: ResellSsrRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSsrsResellPost(request,'body', headers);
         // TODO: Implement apiNskV1BookingSsrsResellPost
@@ -145,7 +146,7 @@ export class StoreBookingssrsService {
      * Get the ssr&#39;s available to add to the booking in state.
      * Requires a booking in state.  By default, all ssr availability for the booking is returned.
      */
-    public store_apiNskV2BookingSsrsAvailabilityPost(request?: SsrAvailabilityRequestv2,  headers?: Headers): Promise<SsrAvailability>
+    public async store_apiNskV2BookingSsrsAvailabilityPost(request?: SsrAvailabilityRequestv2,  headers?: Headers): Promise<SsrAvailability>
     {
         const response = await apiNskV2BookingSsrsAvailabilityPost(request,'body', headers);
         // TODO: Implement apiNskV2BookingSsrsAvailabilityPost
@@ -158,7 +159,7 @@ export class StoreBookingssrsService {
      * Add an SSR to the booking in state.
      * Adding an SSR by journey automatically adds the SSR to every segment.  Requires a booking in state.
      */
-    public store_apiNskV2BookingSsrsBySsrKeyPost(ssrKey: string, request?: SingleSsrByKeyRequestv2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingSsrsBySsrKeyPost(ssrKey: string, request?: SingleSsrByKeyRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingSsrsBySsrKeyPost(ssrKey,request,'body', headers);
         // TODO: Implement apiNskV2BookingSsrsBySsrKeyPost
@@ -171,7 +172,7 @@ export class StoreBookingssrsService {
      * Adds SSRs to the booking in state.
      * Adding an SSR by journey automatically adds the SSR to every segment.  Requires a booking in state.
      */
-    public store_apiNskV2BookingSsrsPost(request?: SsrByKeysRequestv2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingSsrsPost(request?: SsrByKeysRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingSsrsPost(request,'body', headers);
         // TODO: Implement apiNskV2BookingSsrsPost

@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     CheckinPassengerLiftStatus, 
     CheckinPassengersRequest, 
     CheckinPassengersRequestv3, 
@@ -49,7 +50,7 @@ export class StoreBookingcheckinService {
      * Removes the checkin status of passengers for a specific journey in state.
      * 
      */
-    public store_apiNskV1BookingCheckinJourneyByJourneyKeyDelete(journeyKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingCheckinJourneyByJourneyKeyDelete(journeyKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingCheckinJourneyByJourneyKeyDelete(journeyKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingCheckinJourneyByJourneyKeyDelete
@@ -62,7 +63,7 @@ export class StoreBookingcheckinService {
      * Gets the checkin pre-validation requirements for a specific journey.
      * 
      */
-    public store_apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet(journeyKey: string,  headers?: Headers): Promise<CheckinRequirements>
+    public async store_apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet(journeyKey: string,  headers?: Headers): Promise<CheckinRequirements>
     {
         const response = await apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet(journeyKey,'body', headers);
         // TODO: Implement apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet
@@ -75,7 +76,7 @@ export class StoreBookingcheckinService {
      * Gets the passengers lift status for a specific journey based on the booking in state.
      * 
      */
-    public store_apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet(journeyKey: string,  headers?: Headers): Promise<Array<CheckinPassengerLiftStatus>>
+    public async store_apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet(journeyKey: string,  headers?: Headers): Promise<Array<CheckinPassengerLiftStatus>>
     {
         const response = await apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet(journeyKey,'body', headers);
         // TODO: Implement apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet
@@ -88,7 +89,7 @@ export class StoreBookingcheckinService {
      * Removes the checkin status of passengers for a specific journey&#39;s segment in state.
      * 
      */
-    public store_apiNskV1BookingCheckinSegmentBySegmentKeyDelete(segmentKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingCheckinSegmentBySegmentKeyDelete(segmentKey: string, request?: CheckinPassengersRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingCheckinSegmentBySegmentKeyDelete(segmentKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingCheckinSegmentBySegmentKeyDelete
@@ -101,7 +102,7 @@ export class StoreBookingcheckinService {
      * Gets the checkin pre-validation requirements for a specific journey&#39;s segment.
      * 
      */
-    public store_apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet(segmentKey: string,  headers?: Headers): Promise<CheckinRequirements>
+    public async store_apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet(segmentKey: string,  headers?: Headers): Promise<CheckinRequirements>
     {
         const response = await apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet(segmentKey,'body', headers);
         // TODO: Implement apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet
@@ -114,7 +115,7 @@ export class StoreBookingcheckinService {
      * Gets the passenger lift status for a specific segment based on the booking in state.
      * 
      */
-    public store_apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet(segmentKey: string,  headers?: Headers): Promise<InlineResponse2003>
+    public async store_apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet(segmentKey: string,  headers?: Headers): Promise<InlineResponse2003>
     {
         const response = await apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet(segmentKey,'body', headers);
         // TODO: Implement apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet
@@ -127,7 +128,7 @@ export class StoreBookingcheckinService {
      * Checks in a collection of passengers to a specific journey in state.
      * 
      */
-    public store_apiNskV3BookingCheckinJourneyByJourneyKeyPost(journeyKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingCheckinJourneyByJourneyKeyPost(journeyKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingCheckinJourneyByJourneyKeyPost(journeyKey,request,'body', headers);
         // TODO: Implement apiNskV3BookingCheckinJourneyByJourneyKeyPost
@@ -140,7 +141,7 @@ export class StoreBookingcheckinService {
      * Checks in a collection of passengers to a specific journey&#39;s segment in state.
      * 
      */
-    public store_apiNskV3BookingCheckinSegmentBySegmentKeyPost(segmentKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingCheckinSegmentBySegmentKeyPost(segmentKey: string, request?: CheckinPassengersRequestv3,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingCheckinSegmentBySegmentKeyPost(segmentKey,request,'body', headers);
         // TODO: Implement apiNskV3BookingCheckinSegmentBySegmentKeyPost

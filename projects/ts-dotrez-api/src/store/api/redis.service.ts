@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
 } from 'api-models';
 
@@ -39,7 +40,7 @@ export class StoreRedisService {
      * 
      * 
      */
-    public store_apiV1RedisByNameDelete(name: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiV1RedisByNameDelete(name: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiV1RedisByNameDelete(name,'body', headers);
         // TODO: Implement apiV1RedisByNameDelete
@@ -52,7 +53,7 @@ export class StoreRedisService {
      * 
      * 
      */
-    public store_apiV1RedisDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiV1RedisDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiV1RedisDelete('body', headers);
         // TODO: Implement apiV1RedisDelete
@@ -65,7 +66,7 @@ export class StoreRedisService {
      * 
      * 
      */
-    public store_apiV1RedisGet( headers?: Headers): Promise<Array<string>>
+    public async store_apiV1RedisGet( headers?: Headers): Promise<Array<string>>
     {
         const response = await apiV1RedisGet('body', headers);
         // TODO: Implement apiV1RedisGet

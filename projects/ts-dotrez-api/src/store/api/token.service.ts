@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     Credentials, 
     IJsonResponse, 
     NskSessionContext, 
@@ -54,7 +55,7 @@ export class StoreTokenService {
      * Sets the culture code for the lifetime of the token.
      * Note there is middleware that looks for \&quot;Culture\&quot; on every request in the headers or query string parameters.  These can be used if you want to set the culture for a single request only.
      */
-    public store_apiNskV1TokenCulturePost(defaultCultureCode?: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TokenCulturePost(defaultCultureCode?: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TokenCulturePost(defaultCultureCode,'body', headers);
         // TODO: Implement apiNskV1TokenCulturePost
@@ -67,7 +68,7 @@ export class StoreTokenService {
      * Abandons the active token.
      * 
      */
-    public store_apiNskV1TokenDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TokenDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TokenDelete('body', headers);
         // TODO: Implement apiNskV1TokenDelete
@@ -80,7 +81,7 @@ export class StoreTokenService {
      * Get the information about the current token.
      * 
      */
-    public store_apiNskV1TokenGet( headers?: Headers): Promise<NskSessionContext>
+    public async store_apiNskV1TokenGet( headers?: Headers): Promise<NskSessionContext>
     {
         const response = await apiNskV1TokenGet('body', headers);
         // TODO: Implement apiNskV1TokenGet
@@ -93,7 +94,7 @@ export class StoreTokenService {
      * Creates the general access token that will grant access to the API.
      * Security Note:  This endpoint has the ability to log in as any role assigned to a user  or that is allowed through impersonation settings. A user may still log  into a role that is not assigned to them if the impersonation settings  allow it.
      */
-    public store_apiNskV1TokenPost(request?: NskTokenRequest,  headers?: Headers): Promise<TokenResponse>
+    public async store_apiNskV1TokenPost(request?: NskTokenRequest,  headers?: Headers): Promise<TokenResponse>
     {
         const response = await apiNskV1TokenPost(request,'body', headers);
         // TODO: Implement apiNskV1TokenPost
@@ -106,7 +107,7 @@ export class StoreTokenService {
      * Given a non-null request, upgrades the current session&#39;s logged in user.  Otherwise, keeps the active token alive.
      * Security Note:  This endpoint has the ability to log in as any role assigned to a user  or that is allowed through impersonation settings. A user may still log  into a role that is not assigned to them if the impersonation settings  allow it.
      */
-    public store_apiNskV1TokenPut(request?: Credentials,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TokenPut(request?: Credentials,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TokenPut(request,'body', headers);
         // TODO: Implement apiNskV1TokenPut
@@ -119,7 +120,7 @@ export class StoreTokenService {
      * Transfers the server context from NewSkies and returns a new token.
      * This endpoint returns a new token.  The new token must be applied in the  authorization header to access the transferred server context.
      */
-    public store_apiNskV1TokenServerTransferPost(request?: ServerTransferRequest,  headers?: Headers): Promise<TokenResponse>
+    public async store_apiNskV1TokenServerTransferPost(request?: ServerTransferRequest,  headers?: Headers): Promise<TokenResponse>
     {
         const response = await apiNskV1TokenServerTransferPost(request,'body', headers);
         // TODO: Implement apiNskV1TokenServerTransferPost
@@ -132,7 +133,7 @@ export class StoreTokenService {
      * Creates the general access token that will grant access to the API.
      * In order to use single sign on, a single sign on token must first be  associated with a user.  Refer to the \&quot;user/singleSignOnToken\&quot; endpoints.
      */
-    public store_apiNskV1TokenSingleSignOnPost(credentials?: SingleSignOnCredentials,  headers?: Headers): Promise<TokenResponse>
+    public async store_apiNskV1TokenSingleSignOnPost(credentials?: SingleSignOnCredentials,  headers?: Headers): Promise<TokenResponse>
     {
         const response = await apiNskV1TokenSingleSignOnPost(credentials,'body', headers);
         // TODO: Implement apiNskV1TokenSingleSignOnPost
@@ -145,7 +146,7 @@ export class StoreTokenService {
      * Given a non-null request, upgrades the current session&#39;s logged in user.  Otherwise, keeps the active token alive.
      * In order to use single sign on, a single sign on token must first be  associated with a user.  Refer to the \&quot;user/singleSignOnToken\&quot; endpoints.
      */
-    public store_apiNskV1TokenSingleSignOnPut(credentials?: SingleSignOnCredentials,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1TokenSingleSignOnPut(credentials?: SingleSignOnCredentials,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1TokenSingleSignOnPut(credentials,'body', headers);
         // TODO: Implement apiNskV1TokenSingleSignOnPut
@@ -158,7 +159,7 @@ export class StoreTokenService {
      * 
      * 
      */
-    public store_apiV1TokenDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiV1TokenDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiV1TokenDelete('body', headers);
         // TODO: Implement apiV1TokenDelete
@@ -171,7 +172,7 @@ export class StoreTokenService {
      * 
      * 
      */
-    public store_apiV1TokenPost(request?: TokenRequest,  headers?: Headers): Promise<TokenResponse>
+    public async store_apiV1TokenPost(request?: TokenRequest,  headers?: Headers): Promise<TokenResponse>
     {
         const response = await apiV1TokenPost(request,'body', headers);
         // TODO: Implement apiV1TokenPost
@@ -184,7 +185,7 @@ export class StoreTokenService {
      * 
      * 
      */
-    public store_apiV1TokenPut( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiV1TokenPut( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiV1TokenPut('body', headers);
         // TODO: Implement apiV1TokenPut

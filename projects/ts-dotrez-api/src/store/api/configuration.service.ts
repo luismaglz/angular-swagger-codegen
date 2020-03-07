@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     EnvironmentHealth, 
 } from 'api-models';
 
@@ -37,7 +38,7 @@ export class StoreConfigurationService {
      * Performs the dotREZ NSK API configuration check.
      * 
      */
-    public store_apiNskV1ConfigurationCheckGet( headers?: Headers): Promise<EnvironmentHealth>
+    public async store_apiNskV1ConfigurationCheckGet( headers?: Headers): Promise<EnvironmentHealth>
     {
         const response = await apiNskV1ConfigurationCheckGet('body', headers);
         // TODO: Implement apiNskV1ConfigurationCheckGet

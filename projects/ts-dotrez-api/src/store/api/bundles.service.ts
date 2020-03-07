@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     BundleApplication, 
     BundleApplicationDetails, 
     BundleSetDetails, 
@@ -42,7 +43,7 @@ export class StoreBundlesService {
      * Retrieves a specific bundle application&#39;s details.
      * See api/nsk/v1/resources/bundles/applications to retrieve the collection of  bundle application resources.
      */
-    public store_apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string,  headers?: Headers): Promise<BundleApplicationDetails>
+    public async store_apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey: string,  headers?: Headers): Promise<BundleApplicationDetails>
     {
         const response = await apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(bundleApplicationKey,'body', headers);
         // TODO: Implement apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet
@@ -55,7 +56,7 @@ export class StoreBundlesService {
      * Retrieves the list of bundle applications associated with  the bundle rule.
      * See api/nsk/v1/resources/bundles/rules to retrieve the collection of  bundle rule resources.
      */
-    public store_apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string,  headers?: Headers): Promise<Array<BundleApplication>>
+    public async store_apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode: string,  headers?: Headers): Promise<Array<BundleApplication>>
     {
         const response = await apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(bundleRuleCode,'body', headers);
         // TODO: Implement apiNskV1BundlesRulesByBundleRuleCodeDetailsGet
@@ -68,7 +69,7 @@ export class StoreBundlesService {
      * Retrieves the list of bundle codes associated with the bundle set.
      * See api/nsk/v1/resources/bundles/sets to retrieve the collection of  bundle set resources.
      */
-    public store_apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string,  headers?: Headers): Promise<BundleSetDetails>
+    public async store_apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode: string,  headers?: Headers): Promise<BundleSetDetails>
     {
         const response = await apiNskV1BundlesSetsByBundleSetCodeDetailsGet(bundleSetCode,'body', headers);
         // TODO: Implement apiNskV1BundlesSetsByBundleSetCodeDetailsGet

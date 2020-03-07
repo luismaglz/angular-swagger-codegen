@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     ApplyBookingCreditRequestv2, 
     ApplyCreditAccountRequest, 
     ApplyCreditRequest, 
@@ -84,7 +85,7 @@ export class StoreBookingpaymentsService {
      * Deletes the payment.
      * 
      */
-    public store_apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPaymentsByPaymentKeyDelete(paymentKey,'body', headers);
         // TODO: Implement apiNskV1BookingPaymentsByPaymentKeyDelete
@@ -97,7 +98,7 @@ export class StoreBookingpaymentsService {
      * Gets a specific payment.
      * 
      */
-    public store_apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string,  headers?: Headers): Promise<Payment>
+    public async store_apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey: string,  headers?: Headers): Promise<Payment>
     {
         const response = await apiNskV1BookingPaymentsByPaymentKeyGet(paymentKey,'body', headers);
         // TODO: Implement apiNskV1BookingPaymentsByPaymentKeyGet
@@ -110,7 +111,7 @@ export class StoreBookingpaymentsService {
      * Retrieves the booking payments on the booking in state.
      * Requires a booking in state.
      */
-    public store_apiNskV1BookingPaymentsGet( headers?: Headers): Promise<Array<Payment>>
+    public async store_apiNskV1BookingPaymentsGet( headers?: Headers): Promise<Array<Payment>>
     {
         const response = await apiNskV1BookingPaymentsGet('body', headers);
         // TODO: Implement apiNskV1BookingPaymentsGet
@@ -123,7 +124,7 @@ export class StoreBookingpaymentsService {
      * Retrieves the booking payment methods available for a refund on the booking in state.
      * Requires a booking in state.
      */
-    public store_apiNskV1BookingPaymentsRefundsGet( headers?: Headers): Promise<InlineResponse2008>
+    public async store_apiNskV1BookingPaymentsRefundsGet( headers?: Headers): Promise<InlineResponse2008>
     {
         const response = await apiNskV1BookingPaymentsRefundsGet('body', headers);
         // TODO: Implement apiNskV1BookingPaymentsRefundsGet
@@ -136,7 +137,7 @@ export class StoreBookingpaymentsService {
      * Creates an organization account refund for a payment from  the booking in state.
      * 
      */
-    public store_apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request?: OrganizationRefundRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPaymentsRefundsOrganizationCreditPost(request,'body', headers);
         // TODO: Implement apiNskV1BookingPaymentsRefundsOrganizationCreditPost
@@ -149,7 +150,7 @@ export class StoreBookingpaymentsService {
      * Deletes a voucher payment on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference,'body', headers);
         // TODO: Implement apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete
@@ -162,7 +163,7 @@ export class StoreBookingpaymentsService {
      * Gets information regarding a specific voucher code.
      * 
      */
-    public store_apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean,  headers?: Headers): Promise<VoucherInformation>
+    public async store_apiNskV1BookingPaymentsVoucherGet(referenceCode: string, overrideRestrictions?: boolean,  headers?: Headers): Promise<VoucherInformation>
     {
         const response = await apiNskV1BookingPaymentsVoucherGet(referenceCode,overrideRestrictions,'body', headers);
         // TODO: Implement apiNskV1BookingPaymentsVoucherGet
@@ -175,7 +176,7 @@ export class StoreBookingpaymentsService {
      * Retrieves the booking payment methods available for the booking in state.
      * Requires a booking in state.
      */
-    public store_apiNskV2BookingPaymentsAvailableGet( headers?: Headers): Promise<InlineResponse2008>
+    public async store_apiNskV2BookingPaymentsAvailableGet( headers?: Headers): Promise<InlineResponse2008>
     {
         const response = await apiNskV2BookingPaymentsAvailableGet('body', headers);
         // TODO: Implement apiNskV2BookingPaymentsAvailableGet
@@ -188,7 +189,7 @@ export class StoreBookingpaymentsService {
      * Gets credit available from a past booking.
      * See booking retrieve. This method uses the same validation rules.
      */
-    public store_apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date,  headers?: Headers): Promise<CreditAccount>
+    public async store_apiNskV2BookingPaymentsBookingCreditGet(recordLocator: string, currencyCode?: string, emailAddress?: string, origin?: string, firstName?: string, lastName?: string, customerNumber?: string, departureDate?: Date,  headers?: Headers): Promise<CreditAccount>
     {
         const response = await apiNskV2BookingPaymentsBookingCreditGet(recordLocator,currencyCode,emailAddress,origin,firstName,lastName,customerNumber,departureDate,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsBookingCreditGet
@@ -201,7 +202,7 @@ export class StoreBookingpaymentsService {
      * Applies credit from a past booking.
      * 
      */
-    public store_apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPaymentsBookingCreditPost(request?: ApplyBookingCreditRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPaymentsBookingCreditPost(request,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsBookingCreditPost
@@ -214,7 +215,7 @@ export class StoreBookingpaymentsService {
      * Gets credit available by reference number and type.
      * This endpoint is for agents and can get credit available for any user or type.
      */
-    public store_apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
+    public async store_apiNskV2BookingPaymentsCreditGet(referenceNumber: string, type: 'Customer' | 'Booking' | 'Organization', currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
     {
         const response = await apiNskV2BookingPaymentsCreditGet(referenceNumber,type,currencyCode,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsCreditGet
@@ -227,7 +228,7 @@ export class StoreBookingpaymentsService {
      * Applies credit by reference number and type.
      * This endpoint is for agents and can apply credit for any user or type.
      */
-    public store_apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPaymentsCreditPost(request?: ApplyCreditAccountRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPaymentsCreditPost(request,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsCreditPost
@@ -240,7 +241,7 @@ export class StoreBookingpaymentsService {
      * Gets credit available for the logged in user on the booking in state.
      * Depending on configuration, credit may be validated by the contacts and passengers on the booking.
      */
-    public store_apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
+    public async store_apiNskV2BookingPaymentsCustomerCreditGet(currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
     {
         const response = await apiNskV2BookingPaymentsCustomerCreditGet(currencyCode,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsCustomerCreditGet
@@ -253,7 +254,7 @@ export class StoreBookingpaymentsService {
      * Applies credit from the logged in customer to the booking in state.
      * 
      */
-    public store_apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPaymentsCustomerCreditPost(request?: ApplyCreditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPaymentsCustomerCreditPost(request,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsCustomerCreditPost
@@ -266,7 +267,7 @@ export class StoreBookingpaymentsService {
      * Gets credit available for the logged in users organization.
      * Depending on configuration, credit may be validated by the contacts and passengers on the booking.
      */
-    public store_apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
+    public async store_apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode?: string,  headers?: Headers): Promise<CreditAccount>
     {
         const response = await apiNskV2BookingPaymentsOrganizationCreditGet(currencyCode,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsOrganizationCreditGet
@@ -279,7 +280,7 @@ export class StoreBookingpaymentsService {
      * Applies credit to the logged in user&#39;s organization.
      * 
      */
-    public store_apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPaymentsOrganizationCreditPost(request?: ApplyCreditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPaymentsOrganizationCreditPost(request,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsOrganizationCreditPost
@@ -292,7 +293,7 @@ export class StoreBookingpaymentsService {
      * Creates a new external payment or prepaid payment on the booking in state.
      * &lt;p&gt;                      The payment fields are dynamic to the criteria of your payment provider. Here is an example request for a                      credit card payment that does not require address, zip, etc.                      { \&quot;amount\&quot;: 10, \&quot;currencyCode\&quot;: \&quot;USD\&quot;, \&quot;paymentFields\&quot;: {\&quot;ACCTNO\&quot;:\&quot;411111111111\&quot;, \&quot;EXPDATE\&quot;:\&quot;10/8/2017\&quot;,                      \&quot;CC::AccountHolderName\&quot;:\&quot;Bob Smith\&quot;, \&quot;CC::VerificationCode\&quot;:\&quot;111\&quot;}}                  &lt;/p&gt;  &lt;p&gt;                      A 202 (HTTP status code) response returns alternate data signifying that Three D Secure was enabled for this                      payment                      and is required for this payment type. The payment will need to be resent using the 3DS endpoint.                  &lt;/p&gt;  &lt;p&gt;                      If you would like to make a ThreeDSecure payment, you will need to have these headers populated:                      &lt;ul&gt;&lt;li&gt;                              User Agent                          &lt;/li&gt;&lt;li&gt;                              Ip Address                          &lt;/li&gt;&lt;li&gt;                              Accept                          &lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
      */
-    public store_apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPaymentsPost(request?: PaymentMethodRequest, termUrl?: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPaymentsPost(request,termUrl,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsPost
@@ -305,7 +306,7 @@ export class StoreBookingpaymentsService {
      * Creates a customer credit for a specified customer.
      * Requires a booking in state and an agent token. Agents should use /refunds endpoint for booking credits.
      */
-    public store_apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPaymentsRefundsCustomerCreditPost(request?: CustomerCreditRefundRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPaymentsRefundsCustomerCreditPost(request,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsRefundsCustomerCreditPost
@@ -318,7 +319,7 @@ export class StoreBookingpaymentsService {
      * Deletes a voucher payment on the booking in state.
      * 
      */
-    public store_apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(voucherPaymentReference,'body', headers);
         // TODO: Implement apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete
@@ -331,7 +332,7 @@ export class StoreBookingpaymentsService {
      * Gets the available direct currency codes offer.
      * 
      */
-    public store_apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string,  headers?: Headers): Promise<DirectCurrencyConversionAvailability>
+    public async store_apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod: string, amount: number, accountNumber: string, quotedCurrencyCode: string,  headers?: Headers): Promise<DirectCurrencyConversionAvailability>
     {
         const response = await apiNskV3BookingPaymentsByPaymentMethodDccGet(paymentMethod,amount,accountNumber,quotedCurrencyCode,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsByPaymentMethodDccGet
@@ -344,7 +345,7 @@ export class StoreBookingpaymentsService {
      * Retrieves the payment fee for the fee code.
      * 
      */
-    public store_apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string,  headers?: Headers): Promise<PaymentFeeResponse>
+    public async store_apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode: string, amount: number, currencyCode?: string, collectedCurrencyCode?: string,  headers?: Headers): Promise<PaymentFeeResponse>
     {
         const response = await apiNskV3BookingPaymentsFeesByFeeCodeGet(feeCode,amount,currencyCode,collectedCurrencyCode,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsFeesByFeeCodeGet
@@ -357,7 +358,7 @@ export class StoreBookingpaymentsService {
      * Creates a new MCC payment.
      * This is affected by the booking currency code.
      */
-    public store_apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode: string, request?: PaymentMethodRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPaymentsMccByCurrencyCodePost(currencyCode,request,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsMccByCurrencyCodePost
@@ -370,7 +371,7 @@ export class StoreBookingpaymentsService {
      * Creates a new MCC payment from a stored payment.
      * This is affected by the booking currency code.
      */
-    public store_apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode: string, storedPaymentKey: string, request?: PaymentRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(currencyCode,storedPaymentKey,request,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost
@@ -383,7 +384,7 @@ export class StoreBookingpaymentsService {
      * Gets the available multi-currency codes available.
      * This is affected by the booking currency code.
      */
-    public store_apiNskV3BookingPaymentsMccGet( headers?: Headers): Promise<InlineResponse2009>
+    public async store_apiNskV3BookingPaymentsMccGet( headers?: Headers): Promise<InlineResponse2009>
     {
         const response = await apiNskV3BookingPaymentsMccGet('body', headers);
         // TODO: Implement apiNskV3BookingPaymentsMccGet
@@ -396,7 +397,7 @@ export class StoreBookingpaymentsService {
      * Creates a refund for the booking in state.
      * Requires a booking in state. Credit shell payment types will default to a customer credit if logged in. If not  logged in a booking credit will be applied.
      */
-    public store_apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPaymentsRefundsPost(request?: PaymentRefundRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPaymentsRefundsPost(request,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsRefundsPost
@@ -409,7 +410,7 @@ export class StoreBookingpaymentsService {
      * Creates a payment using the stored payment information for the booking in state.
      * Account Number and Expiration Date are stored.  With stored payments, payment fields may still be required to complete the transaction.  For example, a credit card that requires address information, this information is not stored with the stored  payment.
      */
-    public store_apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey: string, request?: PaymentRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(storedPaymentKey,request,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost
@@ -422,7 +423,7 @@ export class StoreBookingpaymentsService {
      * Creates a new ThreeDSecure external payment or prepaid payment on the booking in state.
      * &lt;p&gt;                      A call to payments post should be made first and processed to verify a 3DS payment is required.                  &lt;/p&gt;  &lt;p&gt;                      If you would like to make a ThreeDSecure payment, you will need to provide a valid term url.                      You will also need to have these headers populated:                      &lt;ul&gt;&lt;li&gt;                              User Agent                          &lt;/li&gt;&lt;li&gt;                              Ip Address                          &lt;/li&gt;&lt;li&gt;                              Accept                          &lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
      */
-    public store_apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPaymentsThreeDSecurePost(request?: ThreeDSecurePaymentMethodRequestv2, termUrl?: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPaymentsThreeDSecurePost(request,termUrl,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsThreeDSecurePost
@@ -435,7 +436,7 @@ export class StoreBookingpaymentsService {
      * Creates a new voucher payment on the booking in state.
      * 
      */
-    public store_apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPaymentsVoucherPost(request?: VoucherPaymentRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPaymentsVoucherPost(request,'body', headers);
         // TODO: Implement apiNskV3BookingPaymentsVoucherPost
@@ -448,7 +449,7 @@ export class StoreBookingpaymentsService {
      * Creates a new external payment with direct currency conversion.
      * 
      */
-    public store_apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV4BookingPaymentsDccByDccKeyPost(dccKey: string, request?: DccRequestBasev2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV4BookingPaymentsDccByDccKeyPost(dccKey,request,'body', headers);
         // TODO: Implement apiNskV4BookingPaymentsDccByDccKeyPost

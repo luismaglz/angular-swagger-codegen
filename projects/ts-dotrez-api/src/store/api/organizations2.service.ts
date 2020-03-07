@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     ChildAccountTransactionsRequest, 
     CreateOrganizationAccountRequest, 
     DeltaMapperOrganizationEditRequest, 
@@ -77,7 +78,7 @@ export class StoreOrganizations2Service {
      * Adjust the available amount of a child account.
      * The known list of parent-child relations are as follows:  - Dependent accounts are not supported.  - A parent&#39;s account of type credit may have children of type supplemental or credit.  - A parent&#39;s account of type prepaid may have children of type prepaid.  - No other combination of parent-child relations are supported.
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode: string, request?: ChildAccountTransactionsRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost
@@ -90,7 +91,7 @@ export class StoreOrganizations2Service {
      * Adjust the credit limit of a child account.
      * The known list of parent-child relations are as follows:  - Dependent accounts are not supported.  - A parent&#39;s account of type credit may have children of type supplemental or credit.  - A parent&#39;s account of type prepaid may have children of type prepaid.  - No other combination of parent-child relations are supported.
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode: string, request?: ChildAccountTransactionsRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut
@@ -103,7 +104,7 @@ export class StoreOrganizations2Service {
      * Retrieves the organization account and collections based on the organization code.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string,  headers?: Headers): Promise<OrganizationAccount>
+    public async store_apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode: string,  headers?: Headers): Promise<OrganizationAccount>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeAccountGet(organizationCode,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountGet
@@ -116,7 +117,7 @@ export class StoreOrganizations2Service {
      * Creates an organization account based on the organization code.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode: string, request?: CreateOrganizationAccountRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeAccountPost(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountPost
@@ -129,7 +130,7 @@ export class StoreOrganizations2Service {
      * Updates the organization account status.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode: string, status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(organizationCode,status,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountStatusPut
@@ -142,7 +143,7 @@ export class StoreOrganizations2Service {
      * Retrieves the organization account transactions based on the organization code  and data in the request.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
+    public async store_apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet(organizationCode,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountTransactionsGet
@@ -155,7 +156,7 @@ export class StoreOrganizations2Service {
      * Creates account transactions based on data in the request and the  organization code.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode: string, request?: OrganizationTransactionRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost
@@ -168,7 +169,7 @@ export class StoreOrganizations2Service {
      * Delete a commission rate.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode: string, commissionRateCode: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(organizationCode,commissionRateCode,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete
@@ -181,7 +182,7 @@ export class StoreOrganizations2Service {
      * Get a commission rate.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string,  headers?: Headers): Promise<OrganizationCommissionRate>
+    public async store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode: string, commissionRateCode: string,  headers?: Headers): Promise<OrganizationCommissionRate>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(organizationCode,commissionRateCode,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet
@@ -194,7 +195,7 @@ export class StoreOrganizations2Service {
      * Create a commission rate.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode: string, request?: OrganizationCommissionRate,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost
@@ -207,7 +208,7 @@ export class StoreOrganizations2Service {
      * Deletes a company phone number.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(organizationCode,phoneNumberType,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete
@@ -220,7 +221,7 @@ export class StoreOrganizations2Service {
      * Updates a company phone number.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(organizationCode,phoneNumberType,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut
@@ -233,7 +234,7 @@ export class StoreOrganizations2Service {
      * Create a company phone number.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode: string, request?: PhoneNumber,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost
@@ -246,7 +247,7 @@ export class StoreOrganizations2Service {
      * Deletes a contact phone number.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(organizationCode,phoneNumberType,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete
@@ -259,7 +260,7 @@ export class StoreOrganizations2Service {
      * Updates a contact phone number.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode: string, phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax', request?: PhoneNumberBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(organizationCode,phoneNumberType,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut
@@ -272,7 +273,7 @@ export class StoreOrganizations2Service {
      * Create a contact phone number.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode: string, request?: PhoneNumber,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost
@@ -285,7 +286,7 @@ export class StoreOrganizations2Service {
      * Delete an external account.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode: string, externalAccountKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(organizationCode,externalAccountKey,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete
@@ -298,7 +299,7 @@ export class StoreOrganizations2Service {
      * Get an external account.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string,  headers?: Headers): Promise<OrganizationExternalAccountv2>
+    public async store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode: string, externalAccountKey: string,  headers?: Headers): Promise<OrganizationExternalAccountv2>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(organizationCode,externalAccountKey,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet
@@ -311,7 +312,7 @@ export class StoreOrganizations2Service {
      * Create an external account.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode: string, request?: OrganizationExternalAccountRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost
@@ -324,7 +325,7 @@ export class StoreOrganizations2Service {
      * Retrieves the organization.
      * 
      */
-    public store_apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string,  headers?: Headers): Promise<Organizationv2>
+    public async store_apiNskV1Organizations2ByOrganizationCodeGet(organizationCode: string,  headers?: Headers): Promise<Organizationv2>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodeGet(organizationCode,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodeGet
@@ -337,7 +338,7 @@ export class StoreOrganizations2Service {
      * Updates an organization.
      * Requires agent permissions.  The organization code is a generic code for all of the organization types. Each individual type has its own code  and validation.  If the organization status is not pending the organization code should follow these validation rules based on type:  &lt;ul&gt;&lt;li&gt;Third Party: 3 to 10 characters in length with alphanumeric values.&lt;/li&gt;&lt;li&gt;Travel Agency: 7 to 10 characters in length with numeric values.&lt;/li&gt;&lt;li&gt;Carrier: 2 to 3 characters in length with alphanumeric values.&lt;/li&gt;&lt;/ul&gt;
      */
-    public store_apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest,  headers?: Headers): Promise<Organizationv2>
+    public async store_apiNskV1Organizations2ByOrganizationCodePatch(organizationCode: string, createRequest?: DeltaMapperOrganizationEditRequest,  headers?: Headers): Promise<Organizationv2>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodePatch(organizationCode,createRequest,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodePatch
@@ -350,7 +351,7 @@ export class StoreOrganizations2Service {
      * Updates an organization.
      * Requires agent permissions.  The organization code is a generic code for all of the organization types. Each individual type has its own code  and validation.  If the organization status is not pending the organization code should follow these validation rules based on type:  &lt;ul&gt;&lt;li&gt;Third Party: 3 to 10 characters in length with alphanumeric values.&lt;/li&gt;&lt;li&gt;Travel Agency: 7 to 10 characters in length with numeric values.&lt;/li&gt;&lt;li&gt;Carrier: 2 to 3 characters in length with alphanumeric values.&lt;/li&gt;&lt;/ul&gt;
      */
-    public store_apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest,  headers?: Headers): Promise<Organizationv2>
+    public async store_apiNskV1Organizations2ByOrganizationCodePut(organizationCode: string, request?: OrganizationEditRequest,  headers?: Headers): Promise<Organizationv2>
     {
         const response = await apiNskV1Organizations2ByOrganizationCodePut(organizationCode,request,'body', headers);
         // TODO: Implement apiNskV1Organizations2ByOrganizationCodePut
@@ -363,7 +364,7 @@ export class StoreOrganizations2Service {
      * Create a new organization.
      * Requires agent permissions.  The organization code is a generic code for all of the organization types. Each individual type has its own code  and validation.  If the organization status is not pending the organization code should follow these validation rules based on type:  &lt;ul&gt;&lt;li&gt;Third Party: 3 to 10 characters in length with alphanumeric values.&lt;/li&gt;&lt;li&gt;Travel Agency: 7 to 10 characters in length with numeric values.&lt;/li&gt;&lt;li&gt;Carrier: 2 to 3 characters in length with alphanumeric values.&lt;/li&gt;&lt;/ul&gt;
      */
-    public store_apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest,  headers?: Headers): Promise<Organizationv2>
+    public async store_apiNskV1Organizations2Post(createRequest?: OrganizationCreateRequest,  headers?: Headers): Promise<Organizationv2>
     {
         const response = await apiNskV1Organizations2Post(createRequest,'body', headers);
         // TODO: Implement apiNskV1Organizations2Post
@@ -376,7 +377,7 @@ export class StoreOrganizations2Service {
      * Requests to register a new organization.
      * Note: This is only a request. An agent will need to approve the action.
      */
-    public store_apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest,  headers?: Headers): Promise<Organizationv2>
+    public async store_apiNskV1Organizations2RegisterPost(registerRequest?: OrganizationRegisterRequest,  headers?: Headers): Promise<Organizationv2>
     {
         const response = await apiNskV1Organizations2RegisterPost(registerRequest,'body', headers);
         // TODO: Implement apiNskV1Organizations2RegisterPost
@@ -389,7 +390,7 @@ export class StoreOrganizations2Service {
      * Searches for organizations.
      * 
      */
-    public store_apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',  headers?: Headers): Promise<Array<OrganizationRecord>>
+    public async store_apiNskV2Organizations2Get(type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty', status: 'Default' | 'Active' | 'Cancelled' | 'Pending', organizationCode?: string, parentOrganizationCode?: string, companyName?: string, city?: string, postalCode?: string, pagedItemIndex?: number, pageSize?: number, matchCriteriaOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaParentOrganizationCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCompanyName?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', matchCriteriaPostalCode?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',  headers?: Headers): Promise<Array<OrganizationRecord>>
     {
         const response = await apiNskV2Organizations2Get(type,status,organizationCode,parentOrganizationCode,companyName,city,postalCode,pagedItemIndex,pageSize,matchCriteriaOrganizationCode,matchCriteriaParentOrganizationCode,matchCriteriaCompanyName,matchCriteriaCity,matchCriteriaPostalCode,'body', headers);
         // TODO: Implement apiNskV2Organizations2Get

@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     Account, 
     ActivityProduct, 
     AddOn, 
@@ -152,7 +153,7 @@ export class StoreBookingService {
      * Retrieves the account collection transactions for the booking in state.
      * 
      */
-    public store_apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
+    public async store_apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
         const response = await apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
         // TODO: Implement apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet
@@ -165,7 +166,7 @@ export class StoreBookingService {
      * Retrieves the account and collections for the booking in state.
      * 
      */
-    public store_apiNskV1BookingAccountGet( headers?: Headers): Promise<Account>
+    public async store_apiNskV1BookingAccountGet( headers?: Headers): Promise<Account>
     {
         const response = await apiNskV1BookingAccountGet('body', headers);
         // TODO: Implement apiNskV1BookingAccountGet
@@ -178,7 +179,7 @@ export class StoreBookingService {
      * Retrieves all of the transactions for all of the collections for the booking in state.
      * 
      */
-    public store_apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
+    public async store_apiNskV1BookingAccountTransactionsGet(startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
         const response = await apiNskV1BookingAccountTransactionsGet(startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
         // TODO: Implement apiNskV1BookingAccountTransactionsGet
@@ -191,7 +192,7 @@ export class StoreBookingService {
      * Gets default availability using details from the booking in state.  Requires a valid booking in state.
      * 
      */
-    public store_apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<ActivityProduct>>
+    public async store_apiNskV1BookingAddOnsActivitiesGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<ActivityProduct>>
     {
         const response = await apiNskV1BookingAddOnsActivitiesGet(vendorCode,cultureCode,'body', headers);
         // TODO: Implement apiNskV1BookingAddOnsActivitiesGet
@@ -204,7 +205,7 @@ export class StoreBookingService {
      * Gets default availability using details from the booking in state.  Requires a valid booking in state.
      * 
      */
-    public store_apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<CarProduct>>
+    public async store_apiNskV1BookingAddOnsCarsGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<CarProduct>>
     {
         const response = await apiNskV1BookingAddOnsCarsGet(vendorCode,cultureCode,'body', headers);
         // TODO: Implement apiNskV1BookingAddOnsCarsGet
@@ -217,7 +218,7 @@ export class StoreBookingService {
      * Gets default availability using details from the booking in state.  Requires a valid booking in state.
      * 
      */
-    public store_apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<HotelProduct>>
+    public async store_apiNskV1BookingAddOnsHotelsGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<HotelProduct>>
     {
         const response = await apiNskV1BookingAddOnsHotelsGet(vendorCode,cultureCode,'body', headers);
         // TODO: Implement apiNskV1BookingAddOnsHotelsGet
@@ -230,7 +231,7 @@ export class StoreBookingService {
      * Gets default availability using details from the booking in state.  Requires a valid booking in state.
      * 
      */
-    public store_apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<InsuranceProduct>>
+    public async store_apiNskV1BookingAddOnsInsuranceGet(vendorCode?: string, cultureCode?: string,  headers?: Headers): Promise<Array<InsuranceProduct>>
     {
         const response = await apiNskV1BookingAddOnsInsuranceGet(vendorCode,cultureCode,'body', headers);
         // TODO: Implement apiNskV1BookingAddOnsInsuranceGet
@@ -243,7 +244,7 @@ export class StoreBookingService {
      * Sells new insurance items.
      * 
      */
-    public store_apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest,  headers?: Headers): Promise<IActionResult>
+    public async store_apiNskV1BookingAddOnsInsurancePost(request?: SellInsuranceRequest,  headers?: Headers): Promise<IActionResult>
     {
         const response = await apiNskV1BookingAddOnsInsurancePost(request,'body', headers);
         // TODO: Implement apiNskV1BookingAddOnsInsurancePost
@@ -256,7 +257,7 @@ export class StoreBookingService {
      * Updates an order customer for a specific add-on on the booking.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey: string, request?: DeltaMapperConsumer,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyCustomerPatch(addOnKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyCustomerPatch
@@ -269,7 +270,7 @@ export class StoreBookingService {
      * Updates an order customer for a specific add-on on the booking.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey: string, request?: Consumer,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyCustomerPut(addOnKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyCustomerPut
@@ -282,7 +283,7 @@ export class StoreBookingService {
      * Deletes a specific add-on on the booking in state.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyDelete(addOnKey,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyDelete
@@ -295,7 +296,7 @@ export class StoreBookingService {
      * Gets a specific add-on from the booking in state.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string,  headers?: Headers): Promise<AddOn>
+    public async store_apiNskV1BookingAddonsByAddOnKeyGet(addOnKey: string,  headers?: Headers): Promise<AddOn>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyGet(addOnKey,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyGet
@@ -308,7 +309,7 @@ export class StoreBookingService {
      * Updates a single participant for a specific add-on on the booking.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey: string, participantKey: string, request?: DeltaMapperOrderParticipantUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(addOnKey,participantKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch
@@ -321,7 +322,7 @@ export class StoreBookingService {
      * Updates a single participant for a specific add-on on the booking.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey: string, participantKey: string, request?: OrderParticipantUpdateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(addOnKey,participantKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut
@@ -334,7 +335,7 @@ export class StoreBookingService {
      * Gets a specific add-on&#39;s allowed payment methods.
      * If the add on&#39;s payment required flag is set to true, this endpoint  will return the allowed payment options for the add on.  If set to  false, null will be returned.
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string,  headers?: Headers): Promise<AddOnAllowedPayments>
+    public async store_apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey: string,  headers?: Headers): Promise<AddOnAllowedPayments>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyPaymentsGet(addOnKey,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyPaymentsGet
@@ -347,7 +348,7 @@ export class StoreBookingService {
      * Adds a payment to a specific add-on on the booking.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey: string, request?: OrderPaymentBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyPaymentsPost(addOnKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyPaymentsPost
@@ -360,7 +361,7 @@ export class StoreBookingService {
      * Pre cancels a specific add-on on the booking in state.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string,  headers?: Headers): Promise<PreCancelDetail>
+    public async store_apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey: string,  headers?: Headers): Promise<PreCancelDetail>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyPreCancelGet(addOnKey,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyPreCancelGet
@@ -373,7 +374,7 @@ export class StoreBookingService {
      * Syncs the specific add-on on the booking.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeySyncPut(addOnKey,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeySyncPut
@@ -386,7 +387,7 @@ export class StoreBookingService {
      * Retrieves the field validation for a specific add-on on the booking.
      * 
      */
-    public store_apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string,  headers?: Headers): Promise<AddOnSettings>
+    public async store_apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey: string,  headers?: Headers): Promise<AddOnSettings>
     {
         const response = await apiNskV1BookingAddonsByAddOnKeyValidationGet(addOnKey,'body', headers);
         // TODO: Implement apiNskV1BookingAddonsByAddOnKeyValidationGet
@@ -399,7 +400,7 @@ export class StoreBookingService {
      * Gets all the add-ons on the booking in state.
      * 
      */
-    public store_apiNskV1BookingAddonsGet( headers?: Headers): Promise<InlineResponse200>
+    public async store_apiNskV1BookingAddonsGet( headers?: Headers): Promise<InlineResponse200>
     {
         const response = await apiNskV1BookingAddonsGet('body', headers);
         // TODO: Implement apiNskV1BookingAddonsGet
@@ -412,7 +413,7 @@ export class StoreBookingService {
      * Gets all the available add-ons allowed payment methods for all the add-ons on the booking in state.
      * 
      */
-    public store_apiNskV1BookingAddonsPaymentsGet( headers?: Headers): Promise<InlineResponse2001>
+    public async store_apiNskV1BookingAddonsPaymentsGet( headers?: Headers): Promise<InlineResponse2001>
     {
         const response = await apiNskV1BookingAddonsPaymentsGet('body', headers);
         // TODO: Implement apiNskV1BookingAddonsPaymentsGet
@@ -425,7 +426,7 @@ export class StoreBookingService {
      * Gets the baggage allowances for the current booking in state.  Baggage usage details will only be returned if includeUsageDetails  is flagged true AND the allowance behavior is NOT Default.
      * 
      */
-    public store_apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean,  headers?: Headers): Promise<InlineResponse2002>
+    public async store_apiNskV1BookingBaggageAllowancesGet(includeUsageDetails?: boolean,  headers?: Headers): Promise<InlineResponse2002>
     {
         const response = await apiNskV1BookingBaggageAllowancesGet(includeUsageDetails,'body', headers);
         // TODO: Implement apiNskV1BookingBaggageAllowancesGet
@@ -438,7 +439,7 @@ export class StoreBookingService {
      * Retrieves the bundle and ssr availability for the booking in-state.
      * Although this endpoint behaves like a GET, POST reduces the limitations resulting from URL length issues.
      */
-    public store_apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest,  headers?: Headers): Promise<Array<BundleAvailability>>
+    public async store_apiNskV1BookingBundleAvailabilityPost(request?: BundleAvailabilityRequest,  headers?: Headers): Promise<Array<BundleAvailability>>
     {
         const response = await apiNskV1BookingBundleAvailabilityPost(request,'body', headers);
         // TODO: Implement apiNskV1BookingBundleAvailabilityPost
@@ -451,7 +452,7 @@ export class StoreBookingService {
      * Gets the list of comments on the in-state booking.
      * 
      */
-    public store_apiNskV1BookingCommentsGet( headers?: Headers): Promise<Array<BookingComment>>
+    public async store_apiNskV1BookingCommentsGet( headers?: Headers): Promise<Array<BookingComment>>
     {
         const response = await apiNskV1BookingCommentsGet('body', headers);
         // TODO: Implement apiNskV1BookingCommentsGet
@@ -464,7 +465,7 @@ export class StoreBookingService {
      * Replaces an existing fare price with an amount specified.
      * 
      */
-    public store_apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey: string, request?: FareOverrideRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(journeyKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingFareOverrideJourneyByJourneyKeyPost
@@ -477,7 +478,7 @@ export class StoreBookingService {
      * Retrieves a fare rule from the current booking in state based on  the specific fare key.
      * 
      */
-    public store_apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string,  headers?: Headers): Promise<FareRule>
+    public async store_apiNskV1BookingFareRulesFareByFareKeyGet(fareKey: string,  headers?: Headers): Promise<FareRule>
     {
         const response = await apiNskV1BookingFareRulesFareByFareKeyGet(fareKey,'body', headers);
         // TODO: Implement apiNskV1BookingFareRulesFareByFareKeyGet
@@ -490,7 +491,7 @@ export class StoreBookingService {
      * Retrieves the collection of all fare rules from the current booking in state.
      * 
      */
-    public store_apiNskV1BookingFareRulesGet( headers?: Headers): Promise<Array<FareRule>>
+    public async store_apiNskV1BookingFareRulesGet( headers?: Headers): Promise<Array<FareRule>>
     {
         const response = await apiNskV1BookingFareRulesGet('body', headers);
         // TODO: Implement apiNskV1BookingFareRulesGet
@@ -503,7 +504,7 @@ export class StoreBookingService {
      * Retrieves the collection of all fare rules from the current booking in state  for the specific journey key.
      * 
      */
-    public store_apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Array<FareRule>>
+    public async store_apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Array<FareRule>>
     {
         const response = await apiNskV1BookingFareRulesJourneyByJourneyKeyGet(journeyKey,'body', headers);
         // TODO: Implement apiNskV1BookingFareRulesJourneyByJourneyKeyGet
@@ -516,7 +517,7 @@ export class StoreBookingService {
      * Retrieves the collection of all fare rules from the current booking in state for the specific segment key.
      * 
      */
-    public store_apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string,  headers?: Headers): Promise<Array<FareRule>>
+    public async store_apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey: string,  headers?: Headers): Promise<Array<FareRule>>
     {
         const response = await apiNskV1BookingFareRulesSegmentBySegmentKeyGet(segmentKey,'body', headers);
         // TODO: Implement apiNskV1BookingFareRulesSegmentBySegmentKeyGet
@@ -529,7 +530,7 @@ export class StoreBookingService {
      * Deletes a fee.
      * 
      */
-    public store_apiNskV1BookingFeeByFeeKeyDelete(feeKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingFeeByFeeKeyDelete(feeKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingFeeByFeeKeyDelete(feeKey,'body', headers);
         // TODO: Implement apiNskV1BookingFeeByFeeKeyDelete
@@ -542,7 +543,7 @@ export class StoreBookingService {
      * Overrides a fee amount.
      * 
      */
-    public store_apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingFeeByFeeKeyPut(feeKey: string, request?: FeeRequestBase,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingFeeByFeeKeyPut(feeKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingFeeByFeeKeyPut
@@ -555,7 +556,7 @@ export class StoreBookingService {
      * Gets the fee price.
      * Only service and penalty fee types support a price that is configured by the booking in state.  Depending on the configuration, the passenger key will be needed.  For other fee types the price amount is manually provided.
      */
-    public store_apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string,  headers?: Headers): Promise<Array<ServiceCharge>>
+    public async store_apiNskV1BookingFeeGet(feeCode: string, passengerKey?: string, origin?: string, collectedCurrencyCode?: string,  headers?: Headers): Promise<Array<ServiceCharge>>
     {
         const response = await apiNskV1BookingFeeGet(feeCode,passengerKey,origin,collectedCurrencyCode,'body', headers);
         // TODO: Implement apiNskV1BookingFeeGet
@@ -568,7 +569,7 @@ export class StoreBookingService {
      * Manually adds a new fee.
      * Penalty fees, spoilage fees, and service fees can be created manually. Other types are automatically created by  the system.  Depending on the configuration, the passenger key will be needed.
      */
-    public store_apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingFeePost(request?: CommitPassengerFeeRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingFeePost(request,'body', headers);
         // TODO: Implement apiNskV1BookingFeePost
@@ -581,7 +582,7 @@ export class StoreBookingService {
      * Get the current booking in state.
      * 
      */
-    public store_apiNskV1BookingGet( headers?: Headers): Promise<Booking>
+    public async store_apiNskV1BookingGet( headers?: Headers): Promise<Booking>
     {
         const response = await apiNskV1BookingGet('body', headers);
         // TODO: Implement apiNskV1BookingGet
@@ -594,7 +595,7 @@ export class StoreBookingService {
      * Gets the current flight move history in state.
      * 
      */
-    public store_apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<FlightMoveHistoryResponse>
+    public async store_apiNskV1BookingHistoryFlightMoveGet(lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<FlightMoveHistoryResponse>
     {
         const response = await apiNskV1BookingHistoryFlightMoveGet(lastPageKey,pageSize,'body', headers);
         // TODO: Implement apiNskV1BookingHistoryFlightMoveGet
@@ -607,7 +608,7 @@ export class StoreBookingService {
      * Gets the current booking history in state.
      * 
      */
-    public store_apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<HistoryResponse>
+    public async store_apiNskV1BookingHistoryGet(event?: 'Unknown' | 'ConvertedHistory' | 'FlightTimeChange' | 'FlightDesignatorChange' | 'AssignedSeat' | 'RemoveSeat' | 'AddedFlight' | 'DeletedFlight' | 'DeletedPassenger' | 'NameChange' | 'GroupNameChange' | 'CancelledTicketing' | 'ScheduleChange' | 'AddedPayment' | 'ServiceFee' | 'QueuedPnr' | 'UnqueuedPnr' | 'DeletedComment' | 'Divided' | 'CheckedIn' | 'CheckedOut' | 'FareOverride' | 'AddedBaggage' | 'ChangedBaggageWeight' | 'CheckedBaggage' | 'RemovedBaggage' | 'BoardedPassenger' | 'UnboardedPassenger' | 'ManualAuthorization' | 'ManualDecline' | 'UndoCancel' | 'ItinerarySent' | 'ContactChange' | 'SsrAdded' | 'FlightMoved' | 'VerifiedDocument' | 'RemovedVerifiedDocument' | 'Promotion' | 'BookingComment' | 'CancelledSchedule' | 'CancelServiceFee' | 'OverrideServiceFee' | 'AddedRecordLocator' | 'DeletedRecordLocator' | 'UpgradeClassOfService' | 'DowngradeClassOfService' | 'StandbyPriorityChange' | 'AssignedTicketNumber' | 'DeletedTicketNumber' | 'ConfirmSegmentStatusCodeChange' | 'CodeshareFlightChanged' | 'PdsCancel' | 'PdsPending' | 'PdsConfirm' | 'PdsFinalized' | 'PdsDeclined' | 'PdsException' | 'PdsCancelRefused' | 'PdsCancelUnsuccessful' | 'Apps' | 'InhibitedOverride' | 'PrintedBagTag' | 'SelfPrintedBagTag' | 'PrintedBoardingPass' | 'AddCustomerId' | 'DeleteCustomerId' | 'HoldCreated' | 'HoldRemoved' | 'HoldChanged' | 'OverrideCoupon' | 'PdsSynchronized' | 'PdsItemremoved' | 'Reprice' | 'ChannelOverride' | 'EmdCreated' | 'EmdRemoved' | 'EmdChanged' | 'ServiceBundle' | 'PublishedFareOverride' | 'FareClassRealignment', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<HistoryResponse>
     {
         const response = await apiNskV1BookingHistoryGet(event,lastPageKey,pageSize,'body', headers);
         // TODO: Implement apiNskV1BookingHistoryGet
@@ -620,7 +621,7 @@ export class StoreBookingService {
      * Gets the current message history in state.
      * 
      */
-    public store_apiNskV1BookingHistoryMessageGet( headers?: Headers): Promise<Array<BookingMessageHistory>>
+    public async store_apiNskV1BookingHistoryMessageGet( headers?: Headers): Promise<Array<BookingMessageHistory>>
     {
         const response = await apiNskV1BookingHistoryMessageGet('body', headers);
         // TODO: Implement apiNskV1BookingHistoryMessageGet
@@ -633,7 +634,7 @@ export class StoreBookingService {
      * Gets the current notification history in state.
      * 
      */
-    public store_apiNskV1BookingHistoryNotificationGet( headers?: Headers): Promise<Array<BookingNotificationHistory>>
+    public async store_apiNskV1BookingHistoryNotificationGet( headers?: Headers): Promise<Array<BookingNotificationHistory>>
     {
         const response = await apiNskV1BookingHistoryNotificationGet('body', headers);
         // TODO: Implement apiNskV1BookingHistoryNotificationGet
@@ -646,7 +647,7 @@ export class StoreBookingService {
      * Gets the current seat assignment history in state.
      * 
      */
-    public store_apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SeatAssignmentHistoryResponse>
+    public async store_apiNskV1BookingHistorySeatAssignmentGet(event: 'AssignedSeat' | 'RemoveSeat', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SeatAssignmentHistoryResponse>
     {
         const response = await apiNskV1BookingHistorySeatAssignmentGet(event,lastPageKey,pageSize,'body', headers);
         // TODO: Implement apiNskV1BookingHistorySeatAssignmentGet
@@ -659,7 +660,7 @@ export class StoreBookingService {
      * Gets the current segment change history in state.
      * 
      */
-    public store_apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SegmentChangeHistoryResponse>
+    public async store_apiNskV1BookingHistorySegmentChangeGet(event: 'AddedFlight' | 'DeletedFlight', lastPageKey?: string, pageSize?: number,  headers?: Headers): Promise<SegmentChangeHistoryResponse>
     {
         const response = await apiNskV1BookingHistorySegmentChangeGet(event,lastPageKey,pageSize,'body', headers);
         // TODO: Implement apiNskV1BookingHistorySegmentChangeGet
@@ -672,7 +673,7 @@ export class StoreBookingService {
      * Updates the booking point of sale.
      * The ISO country code cannot be updated for a committed booking.  This value can only be  updated on an uncommitted booking.
      */
-    public store_apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPointOfSalePatch(request?: DeltaMapperBookingPointOfSaleEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPointOfSalePatch(request,'body', headers);
         // TODO: Implement apiNskV1BookingPointOfSalePatch
@@ -685,7 +686,7 @@ export class StoreBookingService {
      * Updates the booking point of sale.
      * The ISO country code cannot be updated for a committed booking.  This value can only be  updated on an uncommitted booking.
      */
-    public store_apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPointOfSalePut(request?: BookingPointOfSaleEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPointOfSalePut(request,'body', headers);
         // TODO: Implement apiNskV1BookingPointOfSalePut
@@ -698,7 +699,7 @@ export class StoreBookingService {
      * Deletes the promotion code on the booking in state.
      * 
      */
-    public store_apiNskV1BookingPromotionDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPromotionDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPromotionDelete('body', headers);
         // TODO: Implement apiNskV1BookingPromotionDelete
@@ -711,7 +712,7 @@ export class StoreBookingService {
      * Sets a promotion code to a booking in state.
      * 
      */
-    public store_apiNskV1BookingPromotionPost(request?: PromotionRequest,  headers?: Headers): Promise<any>
+    public async store_apiNskV1BookingPromotionPost(request?: PromotionRequest,  headers?: Headers): Promise<any>
     {
         const response = await apiNskV1BookingPromotionPost(request,'body', headers);
         // TODO: Implement apiNskV1BookingPromotionPost
@@ -724,7 +725,7 @@ export class StoreBookingService {
      * Updates a promotion code to a booking in state.
      * 
      */
-    public store_apiNskV1BookingPromotionPut(request?: PromotionRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingPromotionPut(request?: PromotionRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingPromotionPut(request,'body', headers);
         // TODO: Implement apiNskV1BookingPromotionPut
@@ -737,7 +738,7 @@ export class StoreBookingService {
      * Removes the booking in state from a booking queue.
      * 
      */
-    public store_apiNskV1BookingQueueDelete(request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingQueueDelete(request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingQueueDelete(request,'body', headers);
         // TODO: Implement apiNskV1BookingQueueDelete
@@ -750,7 +751,7 @@ export class StoreBookingService {
      * Adds the booking from state to a booking queue.
      * 
      */
-    public store_apiNskV1BookingQueuePost(request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingQueuePost(request?: BookingQueueRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingQueuePost(request,'body', headers);
         // TODO: Implement apiNskV1BookingQueuePost
@@ -763,7 +764,7 @@ export class StoreBookingService {
      * Deletes a record locator from the booking.
      * 
      */
-    public store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(recordLocatorKey,'body', headers);
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete
@@ -776,7 +777,7 @@ export class StoreBookingService {
      * Gets the record locator associated with the record locator key for  the in-state booking.
      * 
      */
-    public store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string,  headers?: Headers): Promise<RecordLocator>
+    public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey: string,  headers?: Headers): Promise<RecordLocator>
     {
         const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(recordLocatorKey,'body', headers);
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet
@@ -789,7 +790,7 @@ export class StoreBookingService {
      * Patches the data of a third party record locator on the booking.
      * 
      */
-    public store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey: string, request?: DeltaMapperRecordLocatorEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(recordLocatorKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch
@@ -802,7 +803,7 @@ export class StoreBookingService {
      * Replaces the data of a third party record locator on the booking.
      * 
      */
-    public store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey: string, request?: RecordLocatorEditRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(recordLocatorKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut
@@ -815,7 +816,7 @@ export class StoreBookingService {
      * Deletes all record locators from the booking.
      * 
      */
-    public store_apiNskV1BookingRecordLocatorsDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingRecordLocatorsDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingRecordLocatorsDelete('body', headers);
         // TODO: Implement apiNskV1BookingRecordLocatorsDelete
@@ -828,7 +829,7 @@ export class StoreBookingService {
      * Gets all of the record locators on the in-state booking.
      * 
      */
-    public store_apiNskV1BookingRecordLocatorsGet( headers?: Headers): Promise<Array<RecordLocator>>
+    public async store_apiNskV1BookingRecordLocatorsGet( headers?: Headers): Promise<Array<RecordLocator>>
     {
         const response = await apiNskV1BookingRecordLocatorsGet('body', headers);
         // TODO: Implement apiNskV1BookingRecordLocatorsGet
@@ -841,7 +842,7 @@ export class StoreBookingService {
      * Adds a third party record locator to the booking.
      * 
      */
-    public store_apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingRecordLocatorsPost(request?: RecordLocatorCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingRecordLocatorsPost(request,'body', headers);
         // TODO: Implement apiNskV1BookingRecordLocatorsPost
@@ -854,7 +855,7 @@ export class StoreBookingService {
      * Clears the current booking state.
      * 
      */
-    public store_apiNskV1BookingResetDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingResetDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingResetDelete('body', headers);
         // TODO: Implement apiNskV1BookingResetDelete
@@ -867,7 +868,7 @@ export class StoreBookingService {
      * Overrides the effective sales channel for the booking in state.
      * For the overriden channel to be implemented, the booking in state must be committed after calling this endpoint.
      */
-    public store_apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api',  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSalesChannelPut(channelType?: 'Direct' | 'Web' | 'Api',  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSalesChannelPut(channelType,'body', headers);
         // TODO: Implement apiNskV1BookingSalesChannelPut
@@ -880,7 +881,7 @@ export class StoreBookingService {
      * Auto assigns seats to all passengers that do not have them for a specific journey.
      * 
      */
-    public store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey: string, journeyKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(primaryPassengerKey,journeyKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost
@@ -893,7 +894,7 @@ export class StoreBookingService {
      * Auto assigns seats to all selected passengers that do not have them for every journey on the booking.
      * 
      */
-    public store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(primaryPassengerKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost
@@ -906,7 +907,7 @@ export class StoreBookingService {
      * Auto assigns seats to all passengers that do not have them for a specific journey&#39;s segment.
      * 
      */
-    public store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey: string, segmentKey: string, request?: AutoAssignRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(primaryPassengerKey,segmentKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost
@@ -919,7 +920,7 @@ export class StoreBookingService {
      * Cancels the specific segment from the booking in state.
      * Calling this method will alter the existing journeyKey. If you are cancelling the only segment in a journey,  this method will behave the same as calling DELETE on /api/nsk/v1/booking/journeys/{journeyKey}.   If there are segments remaining after the delete, the Location response header will be set with   the location of the modified journey with its new key.
      */
-    public store_apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingSegmentsBySegmentKeyDelete(segmentKey,'body', headers);
         // TODO: Implement apiNskV1BookingSegmentsBySegmentKeyDelete
@@ -932,7 +933,7 @@ export class StoreBookingService {
      * Deletes a comment from the booking.
      * 
      */
-    public store_apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingCommentsByCommentKeyDelete(commentKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingCommentsByCommentKeyDelete(commentKey,'body', headers);
         // TODO: Implement apiNskV2BookingCommentsByCommentKeyDelete
@@ -945,7 +946,7 @@ export class StoreBookingService {
      * Divides the current booking.
      * A valid user must be logged in to divide a booking.
      */
-    public store_apiNskV2BookingDividePost(request?: DivideRequestv2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV2BookingDividePost(request?: DivideRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV2BookingDividePost(request,'body', headers);
         // TODO: Implement apiNskV2BookingDividePost
@@ -958,7 +959,7 @@ export class StoreBookingService {
      * Retrieves the recommended hold date if hold is available.
      * 
      */
-    public store_apiNskV2BookingHoldAvailableGet( headers?: Headers): Promise<Date>
+    public async store_apiNskV2BookingHoldAvailableGet( headers?: Headers): Promise<Date>
     {
         const response = await apiNskV2BookingHoldAvailableGet('body', headers);
         // TODO: Implement apiNskV2BookingHoldAvailableGet
@@ -971,7 +972,7 @@ export class StoreBookingService {
      * Gets the list of seat maps for all the journeys for the booking in state.
      * 
      */
-    public store_apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
+    public async store_apiNskV2BookingSeatmapsGet(includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
     {
         const response = await apiNskV2BookingSeatmapsGet(includePropertyLookup,cultureCode,'body', headers);
         // TODO: Implement apiNskV2BookingSeatmapsGet
@@ -984,7 +985,7 @@ export class StoreBookingService {
      * Gets the list of seat maps for a specific journey&#39;s segment.
      * 
      */
-    public store_apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
+    public async store_apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
     {
         const response = await apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(segmentKey,includePropertyLookup,cultureCode,'body', headers);
         // TODO: Implement apiNskV2BookingSeatmapsSegmentBySegmentKeyGet
@@ -997,7 +998,7 @@ export class StoreBookingService {
      * Gets the status of the booking commit and returns the booking.
      * There are certain booking data that are not saved to state, such as payment   attachments. This endpoint will return the booking data so that non persisted   information is returned when and only when the status code is 200. This is the   only time the data will be available.
      */
-    public store_apiNskV2BookingStatusGet( headers?: Headers): Promise<Booking>
+    public async store_apiNskV2BookingStatusGet( headers?: Headers): Promise<Booking>
     {
         const response = await apiNskV2BookingStatusGet('body', headers);
         // TODO: Implement apiNskV2BookingStatusGet
@@ -1010,7 +1011,7 @@ export class StoreBookingService {
      * Commits stateful changes made and processes the booking.
      * 
      */
-    public store_apiNskV3BookingPost(request?: CommitRequestv2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPost(request?: CommitRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPost(request,'body', headers);
         // TODO: Implement apiNskV3BookingPost
@@ -1023,7 +1024,7 @@ export class StoreBookingService {
      * Commits stateful changes made and processes the booking.
      * 
      */
-    public store_apiNskV3BookingPut(request?: CommitRequestv2,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV3BookingPut(request?: CommitRequestv2,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV3BookingPut(request,'body', headers);
         // TODO: Implement apiNskV3BookingPut
@@ -1036,7 +1037,7 @@ export class StoreBookingService {
      * Gets the list of seat maps for an entire journey.
      * 
      */
-    public store_apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
+    public async store_apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey: string, includePropertyLookup?: boolean, cultureCode?: string,  headers?: Headers): Promise<Array<SeatMapAvailability>>
     {
         const response = await apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(journeyKey,includePropertyLookup,cultureCode,'body', headers);
         // TODO: Implement apiNskV3BookingSeatmapsJourneyByJourneyKeyGet

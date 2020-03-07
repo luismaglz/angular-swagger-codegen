@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
 } from 'api-models';
 
@@ -37,7 +38,7 @@ export class StoreUtilitiesService {
      * Retrieves the station local time.
      * 
      */
-    public store_apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string,  headers?: Headers): Promise<Date>
+    public async store_apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode: string,  headers?: Headers): Promise<Date>
     {
         const response = await apiNskV1UtilitiesStationLocalTimeByStationCodeGet(stationCode,'body', headers);
         // TODO: Implement apiNskV1UtilitiesStationLocalTimeByStationCodeGet

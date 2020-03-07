@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     EnvironmentHealth, 
 } from 'api-models';
 
@@ -37,7 +38,7 @@ export class StoreHealthService {
      * 
      * 
      */
-    public store_apiV1HealthGet( headers?: Headers): Promise<EnvironmentHealth>
+    public async store_apiV1HealthGet( headers?: Headers): Promise<EnvironmentHealth>
     {
         const response = await apiV1HealthGet('body', headers);
         // TODO: Implement apiV1HealthGet

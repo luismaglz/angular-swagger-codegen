@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     VoucherIssuance, 
     VoucherIssuanceRequest, 
@@ -40,7 +41,7 @@ export class StoreVoucherIssuanceService {
      * Gets a voucher issuance based upon the voucher issuance key.
      * 
      */
-    public store_apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string,  headers?: Headers): Promise<VoucherIssuance>
+    public async store_apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey: string,  headers?: Headers): Promise<VoucherIssuance>
     {
         const response = await apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(voucherIssuanceKey,'body', headers);
         // TODO: Implement apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet
@@ -53,7 +54,7 @@ export class StoreVoucherIssuanceService {
      * Creates vouchers based upon data in the request.
      * 
      */
-    public store_apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1VoucherIssuancePost(request?: VoucherIssuanceRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1VoucherIssuancePost(request,'body', headers);
         // TODO: Implement apiNskV1VoucherIssuancePost

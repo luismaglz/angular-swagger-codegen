@@ -13,13 +13,13 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
 
 import {
+    IAPIConfiguration,
+    HttpResponse,
+    Headers,
+    IHttpClient,
     ActivityProduct, 
     ActivitySimpleRequest, 
     AddOn, 

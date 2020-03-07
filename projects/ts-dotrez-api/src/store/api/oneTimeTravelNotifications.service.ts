@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     OneTimeNotificationCreateRequest, 
     OneTimeTravelNotification, 
@@ -41,7 +42,7 @@ export class StoreOneTimeTravelNotificationsService {
      * Deletes a one time travel notification.
      * 
      */
-    public store_apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(oneTimeTravelNotificationKey,'body', headers);
         // TODO: Implement apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete
@@ -54,7 +55,7 @@ export class StoreOneTimeTravelNotificationsService {
      * Gets a one time travel notification.
      * 
      */
-    public store_apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string,  headers?: Headers): Promise<OneTimeTravelNotification>
+    public async store_apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey: string,  headers?: Headers): Promise<OneTimeTravelNotification>
     {
         const response = await apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(oneTimeTravelNotificationKey,'body', headers);
         // TODO: Implement apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet
@@ -67,7 +68,7 @@ export class StoreOneTimeTravelNotificationsService {
      * Creates a one time travel notification.
      * To get or delete a one time notification, you will need to store the key that is on the location header.
      */
-    public store_apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1OneTimeTravelNotificationsPost(request?: OneTimeNotificationCreateRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1OneTimeTravelNotificationsPost(request,'body', headers);
         // TODO: Implement apiNskV1OneTimeTravelNotificationsPost

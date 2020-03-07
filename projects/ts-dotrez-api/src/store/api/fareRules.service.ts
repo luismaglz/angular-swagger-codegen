@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     FareRule, 
     IJsonResponse, 
 } from 'api-models';
@@ -38,7 +39,7 @@ export class StoreFareRulesService {
      * Gets the fare rules from the server based on a fare availability key.
      * 
      */
-    public store_apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string,  headers?: Headers): Promise<FareRule>
+    public async store_apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey: string,  headers?: Headers): Promise<FareRule>
     {
         const response = await apiNskV1FareRulesByFareAvailabilityKeyGet(fareAvailabilityKey,'body', headers);
         // TODO: Implement apiNskV1FareRulesByFareAvailabilityKeyGet

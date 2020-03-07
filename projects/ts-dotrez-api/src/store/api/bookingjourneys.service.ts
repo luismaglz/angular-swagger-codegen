@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     BundleSellRequest, 
     CancelJourneyRequest, 
     IJsonResponse, 
@@ -55,7 +56,7 @@ export class StoreBookingjourneysService {
      * Sells a service bundle for one or more passengers on a journey.
      * 
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyBundlesPost(journeyKey: string, request?: BundleSellRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingJourneysByJourneyKeyBundlesPost(journeyKey: string, request?: BundleSellRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyBundlesPost(journeyKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyBundlesPost
@@ -68,7 +69,7 @@ export class StoreBookingjourneysService {
      * Cancels the specific journey from the booking in state.
      * 
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyDelete(journeyKey: string, request?: CancelJourneyRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingJourneysByJourneyKeyDelete(journeyKey: string, request?: CancelJourneyRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyDelete(journeyKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyDelete
@@ -81,7 +82,7 @@ export class StoreBookingjourneysService {
      * Gets a single journey by the key.
      * 
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Journey>
+    public async store_apiNskV1BookingJourneysByJourneyKeyGet(journeyKey: string,  headers?: Headers): Promise<Journey>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyGet(journeyKey,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyGet
@@ -94,7 +95,7 @@ export class StoreBookingjourneysService {
      * Gets the passenger or associated infant&#39;s destination address requirements for a specific journey for the booking in-state.
      * This endpoint will determine if the passenger or the associated infant requires a destination address for the  given journey.                This does not determine if the passenger already has a qualifying address, only if the destination address  is required.
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet(journeyKey: string, passengerKey: string,  headers?: Headers): Promise<boolean>
+    public async store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet(journeyKey: string, passengerKey: string,  headers?: Headers): Promise<boolean>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet(journeyKey,passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyAddressRequirementsGet
@@ -107,7 +108,7 @@ export class StoreBookingjourneysService {
      * Removes baggage from the booking.
      * 
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete(journeyKey: string, passengerKey: string, baggageKey: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete(journeyKey: string, passengerKey: string, baggageKey: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete(journeyKey,passengerKey,baggageKey,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyDelete
@@ -120,7 +121,7 @@ export class StoreBookingjourneysService {
      * Gets a single bag from a passenger on a journey.
      * 
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet(journeyKey: string, passengerKey: string, baggageKey: string,  headers?: Headers): Promise<Array<PassengerBag>>
+    public async store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet(journeyKey: string, passengerKey: string, baggageKey: string,  headers?: Headers): Promise<Array<PassengerBag>>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet(journeyKey,passengerKey,baggageKey,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageByBaggageKeyGet
@@ -133,7 +134,7 @@ export class StoreBookingjourneysService {
      * Gets all baggage for a passenger on a specific journey.
      * 
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet(journeyKey: string, passengerKey: string,  headers?: Headers): Promise<Array<PassengerBag>>
+    public async store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet(journeyKey: string, passengerKey: string,  headers?: Headers): Promise<Array<PassengerBag>>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet(journeyKey,passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggageGet
@@ -146,7 +147,7 @@ export class StoreBookingjourneysService {
      * Adds baggage to the booking.
      * 
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost(journeyKey: string, passengerKey: string, request?: PassengerBagRequest,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost(journeyKey: string, passengerKey: string, request?: PassengerBagRequest,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost(journeyKey,passengerKey,request,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyPassengersByPassengerKeyBaggagePost
@@ -159,7 +160,7 @@ export class StoreBookingjourneysService {
      * Gets the travel document requirements for a specific journey for the booking in-state.
      * This endpoint will return a response containing a collection of travel document type codes that could fulfill  a travel document requirement.  If the \&quot;AtLeastOneDocumentRequired\&quot; value is true, then one or more documents  in the list are required.  However, it does not mean that every document in the list is required.  If  \&quot;AtLeastOneDocumentRequired\&quot; is false, then the list of document type codes represents a list of acceptable  travel documents, but nothing is required.                This endpoint does not determine if any passengers already have required travel documents.
      */
-    public store_apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet(journeyKey: string,  headers?: Headers): Promise<TravelDocumentRequirements>
+    public async store_apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet(journeyKey: string,  headers?: Headers): Promise<TravelDocumentRequirements>
     {
         const response = await apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet(journeyKey,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysByJourneyKeyTravelDocumentRequirementsGet
@@ -172,7 +173,7 @@ export class StoreBookingjourneysService {
      * Cancels all the journeys on the current booking in state.
      * 
      */
-    public store_apiNskV1BookingJourneysDelete( headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1BookingJourneysDelete( headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1BookingJourneysDelete('body', headers);
         // TODO: Implement apiNskV1BookingJourneysDelete
@@ -185,7 +186,7 @@ export class StoreBookingjourneysService {
      * Gets the collection of journeys on the booking in state.
      * 
      */
-    public store_apiNskV1BookingJourneysGet( headers?: Headers): Promise<Array<Journey>>
+    public async store_apiNskV1BookingJourneysGet( headers?: Headers): Promise<Array<Journey>>
     {
         const response = await apiNskV1BookingJourneysGet('body', headers);
         // TODO: Implement apiNskV1BookingJourneysGet
@@ -198,7 +199,7 @@ export class StoreBookingjourneysService {
      * Gets the passenger or associated infant&#39;s destination address requirements for all journeys for the booking in-state.
      * This endpoint will determine if the passenger or the associated infant requires a destination address.  If a  destination address is required for the passenger or associated infant for any journey, then this will return  true.                 This does not determine if the passenger already has a qualifying address, only if the destination address  is required.
      */
-    public store_apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet(passengerKey: string,  headers?: Headers): Promise<boolean>
+    public async store_apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet(passengerKey: string,  headers?: Headers): Promise<boolean>
     {
         const response = await apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet(passengerKey,'body', headers);
         // TODO: Implement apiNskV1BookingJourneysPassengersByPassengerKeyAddressRequirementsGet
@@ -211,7 +212,7 @@ export class StoreBookingjourneysService {
      * Gets the travel document requirements for all journeys for the booking in-state.
      * This endpoint will return a response containing a collection of travel document type codes that could fulfill  a travel document requirement.  If the \&quot;AtLeastOneDocumentRequired\&quot; value is true, then one or more documents  in the list are required.  However, it does not mean that every document in the list is required.  If  \&quot;AtLeastOneDocumentRequired\&quot; is false, then the list of document type codes represents a list of acceptable  travel documents, but nothing is required.                This endpoint does not determine if any passengers already have required travel documents.
      */
-    public store_apiNskV1BookingJourneysTravelDocumentRequirementsGet( headers?: Headers): Promise<TravelDocumentRequirements>
+    public async store_apiNskV1BookingJourneysTravelDocumentRequirementsGet( headers?: Headers): Promise<TravelDocumentRequirements>
     {
         const response = await apiNskV1BookingJourneysTravelDocumentRequirementsGet('body', headers);
         // TODO: Implement apiNskV1BookingJourneysTravelDocumentRequirementsGet

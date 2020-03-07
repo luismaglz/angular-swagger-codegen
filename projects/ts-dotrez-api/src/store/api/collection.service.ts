@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     Transaction, 
 } from 'api-models';
@@ -38,7 +39,7 @@ export class StoreCollectionService {
      * Retrieves the credit transactions based on the account collection key and  the request data.
      * 
      */
-    public store_apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
+    public async store_apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey: string, startTime: Date, sortByNewest: boolean, endTime?: Date, pageSize?: number, pageIndex?: number,  headers?: Headers): Promise<Array<Transaction>>
     {
         const response = await apiNskV1CollectionByAccountCollectionKeyTransactionsGet(accountCollectionKey,startTime,sortByNewest,endTime,pageSize,pageIndex,'body', headers);
         // TODO: Implement apiNskV1CollectionByAccountCollectionKeyTransactionsGet

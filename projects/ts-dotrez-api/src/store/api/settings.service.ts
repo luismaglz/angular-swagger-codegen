@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     AgencyCreationSettings, 
     BookingPaymentSettingsv2, 
     CheckInSettings, 
@@ -72,7 +73,7 @@ export class StoreSettingsService {
      * Get the checkin settings.
      * 
      */
-    public store_apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CheckInSettings>
+    public async store_apiNskV1SettingsBookingCheckinGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CheckInSettings>
     {
         const response = await apiNskV1SettingsBookingCheckinGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingCheckinGet
@@ -85,7 +86,7 @@ export class StoreSettingsService {
      * Get the contact settings.
      * 
      */
-    public store_apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<ContactSettings>
+    public async store_apiNskV1SettingsBookingContactGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<ContactSettings>
     {
         const response = await apiNskV1SettingsBookingContactGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingContactGet
@@ -98,7 +99,7 @@ export class StoreSettingsService {
      * Get the custom account settings.
      * 
      */
-    public store_apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CustomerAccountSettings>
+    public async store_apiNskV1SettingsBookingCustomerAccountGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CustomerAccountSettings>
     {
         const response = await apiNskV1SettingsBookingCustomerAccountGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingCustomerAccountGet
@@ -111,7 +112,7 @@ export class StoreSettingsService {
      * Get the fee settings.
      * 
      */
-    public store_apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<FeeSettings>
+    public async store_apiNskV1SettingsBookingFeeGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<FeeSettings>
     {
         const response = await apiNskV1SettingsBookingFeeGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingFeeGet
@@ -124,7 +125,7 @@ export class StoreSettingsService {
      * Get the flight search settings.
      * 
      */
-    public store_apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<FlightSearchSettings>
+    public async store_apiNskV1SettingsBookingFlightSearchGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<FlightSearchSettings>
     {
         const response = await apiNskV1SettingsBookingFlightSearchGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingFlightSearchGet
@@ -137,7 +138,7 @@ export class StoreSettingsService {
      * Get the general settings.
      * 
      */
-    public store_apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<GeneralSettings>
+    public async store_apiNskV1SettingsBookingGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<GeneralSettings>
     {
         const response = await apiNskV1SettingsBookingGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingGet
@@ -150,7 +151,7 @@ export class StoreSettingsService {
      * Get the passenger settings.
      * 
      */
-    public store_apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<PassengerSettings>
+    public async store_apiNskV1SettingsBookingPassengerGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<PassengerSettings>
     {
         const response = await apiNskV1SettingsBookingPassengerGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingPassengerGet
@@ -163,7 +164,7 @@ export class StoreSettingsService {
      * Get the reserve flight settings.
      * 
      */
-    public store_apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<ReserveFlightsSettings>
+    public async store_apiNskV1SettingsBookingReserveFlightsGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<ReserveFlightsSettings>
     {
         const response = await apiNskV1SettingsBookingReserveFlightsGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsBookingReserveFlightsGet
@@ -176,7 +177,7 @@ export class StoreSettingsService {
      * Retrieves the logon settings.
      * 
      */
-    public store_apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<LogonSettings>
+    public async store_apiNskV1SettingsGeneralApplicationLogonGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<LogonSettings>
     {
         const response = await apiNskV1SettingsGeneralApplicationLogonGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsGeneralApplicationLogonGet
@@ -189,7 +190,7 @@ export class StoreSettingsService {
      * Retrieves the codes settings.
      * 
      */
-    public store_apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CodesSettings>
+    public async store_apiNskV1SettingsGeneralCodesGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<CodesSettings>
     {
         const response = await apiNskV1SettingsGeneralCodesGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsGeneralCodesGet
@@ -202,7 +203,7 @@ export class StoreSettingsService {
      * Retrieves the session settings.
      * 
      */
-    public store_apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<SessionSettings>
+    public async store_apiNskV1SettingsGeneralSessionGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<SessionSettings>
     {
         const response = await apiNskV1SettingsGeneralSessionGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV1SettingsGeneralSessionGet
@@ -215,7 +216,7 @@ export class StoreSettingsService {
      * Retrieves the itinerary settings.
      * 
      */
-    public store_apiNskV1SettingsItineraryGet(eTag?: string,  headers?: Headers): Promise<ItinerarySettings>
+    public async store_apiNskV1SettingsItineraryGet(eTag?: string,  headers?: Headers): Promise<ItinerarySettings>
     {
         const response = await apiNskV1SettingsItineraryGet(eTag,'body', headers);
         // TODO: Implement apiNskV1SettingsItineraryGet
@@ -228,7 +229,7 @@ export class StoreSettingsService {
      * Get the non role based payment settings.
      * 
      */
-    public store_apiNskV1SettingsPaymentGet(eTag?: string,  headers?: Headers): Promise<PaymentSettings>
+    public async store_apiNskV1SettingsPaymentGet(eTag?: string,  headers?: Headers): Promise<PaymentSettings>
     {
         const response = await apiNskV1SettingsPaymentGet(eTag,'body', headers);
         // TODO: Implement apiNskV1SettingsPaymentGet
@@ -241,7 +242,7 @@ export class StoreSettingsService {
      * Retrieves the agency creation settings.
      * 
      */
-    public store_apiNskV1SettingsUserAgencyCreationGet(eTag?: string,  headers?: Headers): Promise<AgencyCreationSettings>
+    public async store_apiNskV1SettingsUserAgencyCreationGet(eTag?: string,  headers?: Headers): Promise<AgencyCreationSettings>
     {
         const response = await apiNskV1SettingsUserAgencyCreationGet(eTag,'body', headers);
         // TODO: Implement apiNskV1SettingsUserAgencyCreationGet
@@ -254,7 +255,7 @@ export class StoreSettingsService {
      * Retrieves the customer creation settings.
      * 
      */
-    public store_apiNskV1SettingsUserCustomerCreationGet(eTag?: string,  headers?: Headers): Promise<CustomerCreationSettings>
+    public async store_apiNskV1SettingsUserCustomerCreationGet(eTag?: string,  headers?: Headers): Promise<CustomerCreationSettings>
     {
         const response = await apiNskV1SettingsUserCustomerCreationGet(eTag,'body', headers);
         // TODO: Implement apiNskV1SettingsUserCustomerCreationGet
@@ -267,7 +268,7 @@ export class StoreSettingsService {
      * Get the role based booking payment settings.
      * 
      */
-    public store_apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<BookingPaymentSettingsv2>
+    public async store_apiNskV2SettingsBookingPaymentGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<BookingPaymentSettingsv2>
     {
         const response = await apiNskV2SettingsBookingPaymentGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV2SettingsBookingPaymentGet
@@ -280,7 +281,7 @@ export class StoreSettingsService {
      * Retrieves the premium services settings.
      * 
      */
-    public store_apiNskV2SettingsPremiumServicesGet(eTag?: string,  headers?: Headers): Promise<PremiumServicesSettingsv2>
+    public async store_apiNskV2SettingsPremiumServicesGet(eTag?: string,  headers?: Headers): Promise<PremiumServicesSettingsv2>
     {
         const response = await apiNskV2SettingsPremiumServicesGet(eTag,'body', headers);
         // TODO: Implement apiNskV2SettingsPremiumServicesGet
@@ -293,7 +294,7 @@ export class StoreSettingsService {
      * Retrieves the SkySpeed settings.
      * 
      */
-    public store_apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<SkySpeedSettingsv2>
+    public async store_apiNskV2SettingsSkySpeedGet(eTag?: string, roleCode?: string,  headers?: Headers): Promise<SkySpeedSettingsv2>
     {
         const response = await apiNskV2SettingsSkySpeedGet(eTag,roleCode,'body', headers);
         // TODO: Implement apiNskV2SettingsSkySpeedGet

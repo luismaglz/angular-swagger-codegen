@@ -13,11 +13,12 @@
 
 import { Observable } from "rxjs/Observable";
 import { map, toPromise } from "rxjs";
-import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
-import { Headers } from "../Headers";
-import HttpResponse from "../HttpResponse";
+
 import {
+    HttpResponse,
+    Headers,
+    IHttpClient,
     IJsonResponse, 
     Promotion, 
     PromotionBase, 
@@ -41,7 +42,7 @@ export class StorePromotionsService {
      * Gets a promotion based on the promotion code.
      * 
      */
-    public store_apiNskV1PromotionsByPromotionCodeGet(promotionCode: string,  headers?: Headers): Promise<Promotion>
+    public async store_apiNskV1PromotionsByPromotionCodeGet(promotionCode: string,  headers?: Headers): Promise<Promotion>
     {
         const response = await apiNskV1PromotionsByPromotionCodeGet(promotionCode,'body', headers);
         // TODO: Implement apiNskV1PromotionsByPromotionCodeGet
@@ -54,7 +55,7 @@ export class StorePromotionsService {
      * Evaluates a promotion code and optional organization code to determine if   the associated promotion is valid or not.
      * This validates the promotion code based on the logged-in user if the   organization code is not provided.
      */
-    public store_apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string,  headers?: Headers): Promise<IJsonResponse>
+    public async store_apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode: string, organizationCode?: string,  headers?: Headers): Promise<IJsonResponse>
     {
         const response = await apiNskV1PromotionsByPromotionCodeValidateGet(promotionCode,organizationCode,'body', headers);
         // TODO: Implement apiNskV1PromotionsByPromotionCodeValidateGet
@@ -67,7 +68,7 @@ export class StorePromotionsService {
      * Gets promotions based on data in the request.
      * 
      */
-    public store_apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',  headers?: Headers): Promise<Array<PromotionBase>>
+    public async store_apiNskV1PromotionsGet(promotionCode?: string, organizationCode?: string, effectiveDate?: Date, cultureCode?: string, promotionCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch', organizationCodeMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',  headers?: Headers): Promise<Array<PromotionBase>>
     {
         const response = await apiNskV1PromotionsGet(promotionCode,organizationCode,effectiveDate,cultureCode,promotionCodeMatching,organizationCodeMatching,'body', headers);
         // TODO: Implement apiNskV1PromotionsGet
