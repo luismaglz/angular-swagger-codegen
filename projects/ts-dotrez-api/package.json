@@ -14,7 +14,8 @@
     "tsc": "tsc",
     "watch": "tsc --watch",
     "barrel": "barrelsby -c ./barrel-config.json",
-    "test": "SET TS_NODE_PROJECT=./tsconfig.spec.json&&mocha -r ts-node/register -r esm ./src/**/*.spec.ts*"
+    "test": "SET TS_NODE_PROJECT=./tsconfig.spec.json&&mocha -r ts-node/register -r esm ./src/**/*.spec.ts*",
+    "pretty": "prettier --write ./src/**/*.ts"
   },
   "dependencies": {
     "inversify": "^5.0.1",
