@@ -160,7 +160,7 @@ import {
 
 
 @injectable()
-export class Store_UserpersonService {
+export class StoreUserpersonService {
 
     constructor(@inject("Store") private store: Store<any>) {}
 

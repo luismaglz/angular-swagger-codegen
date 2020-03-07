@@ -249,7 +249,7 @@ import {
 
 
 @injectable()
-export class Store_ResourcesService {
+export class StoreResourcesService {
 
     constructor(@inject("Store") private store: Store<any>) {}
 

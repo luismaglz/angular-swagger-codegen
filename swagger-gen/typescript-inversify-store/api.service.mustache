@@ -37,10 +37,10 @@ import { {{classname}}Interface }  from './{{classname}}Interface';
 
 @injectable()
 {{#withInterfaces}}
-export class Store_{{classname}} implements {{classname}}Interface {
+export class Store{{classname}} implements {{classname}}Interface {
 {{/withInterfaces}}
 {{^withInterfaces}}
-export class Store_{{classname}} {
+export class Store{{classname}} {
 {{/withInterfaces}}
 
     constructor(@inject("Store") private store: Store<any>) {}

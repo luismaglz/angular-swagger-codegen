@@ -50,7 +50,7 @@ import {
 
 
 @injectable()
-export class Store_BookingcontactsService {
+export class StoreBookingcontactsService {
 
     constructor(@inject("Store") private store: Store<any>) {}
 

@@ -2,10 +2,7 @@ import {interfaces} from "inversify";
 
 {{#apiInfo}}
 {{#apis}}
-import { {{classname}} } from './{{importPath}}';
-{{#withInterfaces}}
-import { {{classname}}Interface }  from './{{importPath}}Interface';
-{{/withInterfaces}}
+import { Store{{classname}} } from './{{importPath}}';
 {{/apis}}
 {{/apiInfo}}
 
@@ -13,7 +10,7 @@ export class StoreApiServiceBinder {
         {{#apiInfo}}
         {{#apis}}
     public static withStore{{classname}}(container: interfaces.Container) {
-        container.bind<Store{{classname}}{{#withInterfaces}}Interface{{/withInterfaces}}>("{{classname}}").to({{classname}}).inSingletonScope();
+        container.bind<Store{{classname}}{{#withInterfaces}}Interface{{/withInterfaces}}>("Store{{classname}}").to(Store{{classname}}).inSingletonScope();
     }
         {{/apis}}
         {{/apiInfo}}

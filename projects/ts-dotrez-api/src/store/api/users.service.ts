@@ -185,7 +185,7 @@ import {
 
 
 @injectable()
-export class Store_UsersService {
+export class StoreUsersService {
 
     constructor(@inject("Store") private store: Store<any>) {}
 

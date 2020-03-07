@@ -41,7 +41,7 @@ import {
 
 
 @injectable()
-export class Store_AvailabilityService {
+export class StoreAvailabilityService {
 
     constructor(@inject("Store") private store: Store<any>) {}
 

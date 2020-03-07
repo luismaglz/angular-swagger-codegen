@@ -31,7 +31,7 @@ import {
 
 
 @injectable()
-export class Store_RedisService {
+export class StoreRedisService {
 
     constructor(@inject("Store") private store: Store<any>) {}
 

@@ -30,7 +30,7 @@ import {
 
 
 @injectable()
-export class Store_FareRulesService {
+export class StoreFareRulesService {
 
     constructor(@inject("Store") private store: Store<any>) {}
 
