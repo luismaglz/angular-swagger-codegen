@@ -19,7 +19,7 @@ function processEnums(err, contents) {
     };
     replace(options)
         .then(results => {
-        console.log("Replacement results:", results);
+        // console.log("Replacement results:", results);
     })
         .catch(error => {
         console.error("Error occurred:", error);
@@ -29,6 +29,6 @@ function replaceEnums(match, group, enumDictionary) {
     if (typeof group !== "string")
         return "";
     const key = group.replace(/'/g, '"');
-    enumDictionary[key] ? enumDictionary[key] : match;
+    return enumDictionary[key] ? enumDictionary[key] : match;
 }
 //# sourceMappingURL=map-enums.js.map
