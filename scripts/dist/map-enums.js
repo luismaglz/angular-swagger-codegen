@@ -28,7 +28,6 @@ function processEnums(err, contents) {
 function replaceEnums(match, group, enumDictionary) {
     if (typeof group !== "string")
         return "";
-    const enumKey = group.replace(/"/g, "'");
-    enumDictionary[enumKey] ? enumDictionary[enumKey] : match;
+    enumDictionary[group] ? enumDictionary[group] : match;
 }
 //# sourceMappingURL=map-enums.js.map
