@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { IJsonResponse, Promotion, PromotionBase } from "api-models";
+import { IJsonResponse, Promotion, PromotionBase } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class PromotionsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -44,22 +44,22 @@ export class PromotionsService {
      */
   public apiNskV1PromotionsByPromotionCodeGet(
     promotionCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Promotion>;
   public apiNskV1PromotionsByPromotionCodeGet(
     promotionCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Promotion>>;
   public apiNskV1PromotionsByPromotionCodeGet(
     promotionCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!promotionCode) {
       throw new Error(
-        "Required parameter promotionCode was null or undefined when calling apiNskV1PromotionsByPromotionCodeGet."
+        'Required parameter promotionCode was null or undefined when calling apiNskV1PromotionsByPromotionCodeGet.'
       );
     }
 
@@ -69,7 +69,7 @@ export class PromotionsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Promotion>httpResponse.response)
       );
@@ -87,31 +87,31 @@ export class PromotionsService {
   public apiNskV1PromotionsByPromotionCodeValidateGet(
     promotionCode: string,
     organizationCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1PromotionsByPromotionCodeValidateGet(
     promotionCode: string,
     organizationCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1PromotionsByPromotionCodeValidateGet(
     promotionCode: string,
     organizationCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!promotionCode) {
       throw new Error(
-        "Required parameter promotionCode was null or undefined when calling apiNskV1PromotionsByPromotionCodeValidateGet."
+        'Required parameter promotionCode was null or undefined when calling apiNskV1PromotionsByPromotionCodeValidateGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
 
@@ -120,10 +120,10 @@ export class PromotionsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/promotions/${encodeURIComponent(
         String(promotionCode)
-      )}/validate?${queryParameters.join("&")}`,
+      )}/validate?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -148,16 +148,16 @@ export class PromotionsService {
     effectiveDate?: Date,
     cultureCode?: string,
     promotionCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     organizationCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
-    observe?: "body",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PromotionBase>>;
   public apiNskV1PromotionsGet(
@@ -166,16 +166,16 @@ export class PromotionsService {
     effectiveDate?: Date,
     cultureCode?: string,
     promotionCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     organizationCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
-    observe?: "response",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PromotionBase>>>;
   public apiNskV1PromotionsGet(
@@ -184,48 +184,48 @@ export class PromotionsService {
     effectiveDate?: Date,
     cultureCode?: string,
     promotionCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     organizationCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
-    observe: any = "body",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (promotionCode !== undefined) {
       queryParameters.push(
-        "promotionCode=" + encodeURIComponent(String(promotionCode))
+        'promotionCode=' + encodeURIComponent(String(promotionCode))
       );
     }
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (effectiveDate !== undefined) {
       queryParameters.push(
-        "effectiveDate=" + encodeURIComponent(<any>effectiveDate.toISOString())
+        'effectiveDate=' + encodeURIComponent(<any>effectiveDate.toISOString())
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (promotionCodeMatching !== undefined) {
       queryParameters.push(
-        "promotionCodeMatching=" +
+        'promotionCodeMatching=' +
           encodeURIComponent(String(promotionCodeMatching))
       );
     }
     if (organizationCodeMatching !== undefined) {
       queryParameters.push(
-        "organizationCodeMatching=" +
+        'organizationCodeMatching=' +
           encodeURIComponent(String(organizationCodeMatching))
       );
     }
@@ -233,10 +233,10 @@ export class PromotionsService {
     const response: Observable<HttpResponse<
       Array<PromotionBase>
     >> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/promotions?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/promotions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PromotionBase>>httpResponse.response)
       );

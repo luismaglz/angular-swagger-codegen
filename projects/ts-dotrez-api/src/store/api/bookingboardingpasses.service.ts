@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   BoardingPassFilterRequest,
   BoardingPassPassengerFilterRequest,
@@ -22,16 +22,20 @@ import {
   BoardingPassesM2D,
   BoardingPassesS2D,
   IJsonResponse
-} from "api-models";
+} from 'api-models';
 
-import { BookingboardingpassesService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { BookingboardingpassesService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreBookingboardingpassesService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("BookingboardingpassesService")
+    @inject('Store') protected store: Store<any>,
+    @inject('BookingboardingpassesService')
     protected baseService: BookingboardingpassesService
   ) {}
 
@@ -48,7 +52,7 @@ export class StoreBookingboardingpassesService {
       .apiNskV1BookingBoardingpassesM2dJourneyByJourneyKeyPost(
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -70,7 +74,7 @@ export class StoreBookingboardingpassesService {
       .apiNskV1BookingBoardingpassesS2dJourneyByJourneyKeyPost(
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -92,7 +96,7 @@ export class StoreBookingboardingpassesService {
       .apiNskV3BookingBoardingpassesJourneyByJourneyKeyPost(
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -114,7 +118,7 @@ export class StoreBookingboardingpassesService {
       .apiNskV3BookingBoardingpassesSegmentBySegmentKeyPost(
         segmentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();

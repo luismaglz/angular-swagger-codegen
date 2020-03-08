@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   Account,
@@ -68,22 +68,22 @@ import {
   TravelNotification,
   TravelNotificationCreateRequest,
   TravelNotificationEditRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class UserpersonService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -107,7 +107,7 @@ export class UserpersonService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Transaction>>;
   public apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet(
@@ -117,7 +117,7 @@ export class UserpersonService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Transaction>>>;
   public apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet(
@@ -127,49 +127,49 @@ export class UserpersonService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!accountCollectionKey) {
       throw new Error(
-        "Required parameter accountCollectionKey was null or undefined when calling apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter accountCollectionKey was null or undefined when calling apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!startTime) {
       throw new Error(
-        "Required parameter startTime was null or undefined when calling apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter startTime was null or undefined when calling apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!sortByNewest) {
       throw new Error(
-        "Required parameter sortByNewest was null or undefined when calling apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter sortByNewest was null or undefined when calling apiNskV1UserPersonAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startTime !== undefined) {
       queryParameters.push(
-        "startTime=" + encodeURIComponent(<any>startTime.toISOString())
+        'startTime=' + encodeURIComponent(<any>startTime.toISOString())
       );
     }
     if (endTime !== undefined) {
       queryParameters.push(
-        "endTime=" + encodeURIComponent(<any>endTime.toISOString())
+        'endTime=' + encodeURIComponent(<any>endTime.toISOString())
       );
     }
     if (sortByNewest !== undefined) {
       queryParameters.push(
-        "sortByNewest=" + encodeURIComponent(String(sortByNewest))
+        'sortByNewest=' + encodeURIComponent(String(sortByNewest))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (pageIndex !== undefined) {
       queryParameters.push(
-        "pageIndex=" + encodeURIComponent(String(pageIndex))
+        'pageIndex=' + encodeURIComponent(String(pageIndex))
       );
     }
 
@@ -180,10 +180,10 @@ export class UserpersonService {
         this.basePath
       }/api/nsk/v1/user/person/account/collection/${encodeURIComponent(
         String(accountCollectionKey)
-      )}/transactions?${queryParameters.join("&")}`,
+      )}/transactions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Transaction>>httpResponse.response)
       );
@@ -197,22 +197,22 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonAccountGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Account>;
   public apiNskV1UserPersonAccountGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Account>>;
   public apiNskV1UserPersonAccountGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Account>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/user/person/account`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Account>httpResponse.response));
     }
     return response;
@@ -234,7 +234,7 @@ export class UserpersonService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Transaction>>;
   public apiNskV1UserPersonAccountTransactionsGet(
@@ -243,7 +243,7 @@ export class UserpersonService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Transaction>>>;
   public apiNskV1UserPersonAccountTransactionsGet(
@@ -252,43 +252,43 @@ export class UserpersonService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!startTime) {
       throw new Error(
-        "Required parameter startTime was null or undefined when calling apiNskV1UserPersonAccountTransactionsGet."
+        'Required parameter startTime was null or undefined when calling apiNskV1UserPersonAccountTransactionsGet.'
       );
     }
 
     if (!sortByNewest) {
       throw new Error(
-        "Required parameter sortByNewest was null or undefined when calling apiNskV1UserPersonAccountTransactionsGet."
+        'Required parameter sortByNewest was null or undefined when calling apiNskV1UserPersonAccountTransactionsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startTime !== undefined) {
       queryParameters.push(
-        "startTime=" + encodeURIComponent(<any>startTime.toISOString())
+        'startTime=' + encodeURIComponent(<any>startTime.toISOString())
       );
     }
     if (endTime !== undefined) {
       queryParameters.push(
-        "endTime=" + encodeURIComponent(<any>endTime.toISOString())
+        'endTime=' + encodeURIComponent(<any>endTime.toISOString())
       );
     }
     if (sortByNewest !== undefined) {
       queryParameters.push(
-        "sortByNewest=" + encodeURIComponent(String(sortByNewest))
+        'sortByNewest=' + encodeURIComponent(String(sortByNewest))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (pageIndex !== undefined) {
       queryParameters.push(
-        "pageIndex=" + encodeURIComponent(String(pageIndex))
+        'pageIndex=' + encodeURIComponent(String(pageIndex))
       );
     }
 
@@ -298,11 +298,11 @@ export class UserpersonService {
       `${
         this.basePath
       }/api/nsk/v1/user/person/account/transactions?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Transaction>>httpResponse.response)
       );
@@ -318,22 +318,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonAddressesByPersonAddressKeyDelete(
     personAddressKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyDelete(
     personAddressKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyDelete(
     personAddressKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAddressKey) {
       throw new Error(
-        "Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyDelete."
+        'Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyDelete.'
       );
     }
 
@@ -345,7 +345,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -361,22 +361,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonAddressesByPersonAddressKeyGet(
     personAddressKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonAddress>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyGet(
     personAddressKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonAddress>>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyGet(
     personAddressKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAddressKey) {
       throw new Error(
-        "Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyGet."
+        'Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyGet.'
       );
     }
 
@@ -388,7 +388,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonAddress>httpResponse.response)
       );
@@ -406,24 +406,24 @@ export class UserpersonService {
   public apiNskV1UserPersonAddressesByPersonAddressKeyPatch(
     personAddressKey: string,
     request?: DeltaMapperPersonAddressEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyPatch(
     personAddressKey: string,
     request?: DeltaMapperPersonAddressEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyPatch(
     personAddressKey: string,
     request?: DeltaMapperPersonAddressEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAddressKey) {
       throw new Error(
-        "Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyPatch."
+        'Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyPatch.'
       );
     }
 
@@ -436,7 +436,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -454,24 +454,24 @@ export class UserpersonService {
   public apiNskV1UserPersonAddressesByPersonAddressKeyPut(
     personAddressKey: string,
     request?: PersonAddressEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyPut(
     personAddressKey: string,
     request?: PersonAddressEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAddressesByPersonAddressKeyPut(
     personAddressKey: string,
     request?: PersonAddressEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAddressKey) {
       throw new Error(
-        "Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyPut."
+        'Required parameter personAddressKey was null or undefined when calling apiNskV1UserPersonAddressesByPersonAddressKeyPut.'
       );
     }
 
@@ -484,7 +484,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -498,15 +498,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonAddressesGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonAddress>>;
   public apiNskV1UserPersonAddressesGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonAddress>>>;
   public apiNskV1UserPersonAddressesGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -515,7 +515,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/addresses`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonAddress>>httpResponse.response)
       );
@@ -531,17 +531,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonAddressesPost(
     request?: PersonAddressCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAddressesPost(
     request?: PersonAddressCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAddressesPost(
     request?: PersonAddressCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -551,7 +551,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -567,22 +567,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonAliasesByPersonAliasKeyDelete(
     personAliasKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyDelete(
     personAliasKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyDelete(
     personAliasKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAliasKey) {
       throw new Error(
-        "Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyDelete."
+        'Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyDelete.'
       );
     }
 
@@ -594,7 +594,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -610,22 +610,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonAliasesByPersonAliasKeyGet(
     personAliasKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonAlias>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyGet(
     personAliasKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonAlias>>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyGet(
     personAliasKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAliasKey) {
       throw new Error(
-        "Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyGet."
+        'Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyGet.'
       );
     }
 
@@ -635,7 +635,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonAlias>httpResponse.response)
       );
@@ -653,24 +653,24 @@ export class UserpersonService {
   public apiNskV1UserPersonAliasesByPersonAliasKeyPatch(
     personAliasKey: string,
     request?: DeltaMapperPersonAliasRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyPatch(
     personAliasKey: string,
     request?: DeltaMapperPersonAliasRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyPatch(
     personAliasKey: string,
     request?: DeltaMapperPersonAliasRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAliasKey) {
       throw new Error(
-        "Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyPatch."
+        'Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyPatch.'
       );
     }
 
@@ -683,7 +683,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -701,24 +701,24 @@ export class UserpersonService {
   public apiNskV1UserPersonAliasesByPersonAliasKeyPut(
     personAliasKey: string,
     request?: PersonAliasRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyPut(
     personAliasKey: string,
     request?: PersonAliasRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAliasesByPersonAliasKeyPut(
     personAliasKey: string,
     request?: PersonAliasRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAliasKey) {
       throw new Error(
-        "Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyPut."
+        'Required parameter personAliasKey was null or undefined when calling apiNskV1UserPersonAliasesByPersonAliasKeyPut.'
       );
     }
 
@@ -731,7 +731,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -745,15 +745,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonAliasesGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonAlias>>;
   public apiNskV1UserPersonAliasesGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonAlias>>>;
   public apiNskV1UserPersonAliasesGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -762,7 +762,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/aliases`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonAlias>>httpResponse.response)
       );
@@ -778,17 +778,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonAliasesPost(
     request?: PersonAliasRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonAliasesPost(
     request?: PersonAliasRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonAliasesPost(
     request?: PersonAliasRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -798,7 +798,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -814,22 +814,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonCommentsByPersonCommentKeyDelete(
     personCommentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyDelete(
     personCommentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyDelete(
     personCommentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personCommentKey) {
       throw new Error(
-        "Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyDelete."
+        'Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyDelete.'
       );
     }
 
@@ -841,7 +841,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -857,22 +857,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonCommentsByPersonCommentKeyGet(
     personCommentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonComment>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyGet(
     personCommentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonComment>>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyGet(
     personCommentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personCommentKey) {
       throw new Error(
-        "Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyGet."
+        'Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyGet.'
       );
     }
 
@@ -884,7 +884,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonComment>httpResponse.response)
       );
@@ -902,24 +902,24 @@ export class UserpersonService {
   public apiNskV1UserPersonCommentsByPersonCommentKeyPatch(
     personCommentKey: string,
     request?: DeltaMapperPersonCommentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyPatch(
     personCommentKey: string,
     request?: DeltaMapperPersonCommentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyPatch(
     personCommentKey: string,
     request?: DeltaMapperPersonCommentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personCommentKey) {
       throw new Error(
-        "Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyPatch."
+        'Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyPatch.'
       );
     }
 
@@ -932,7 +932,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -950,24 +950,24 @@ export class UserpersonService {
   public apiNskV1UserPersonCommentsByPersonCommentKeyPut(
     personCommentKey: string,
     request?: PersonCommentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyPut(
     personCommentKey: string,
     request?: PersonCommentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonCommentsByPersonCommentKeyPut(
     personCommentKey: string,
     request?: PersonCommentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personCommentKey) {
       throw new Error(
-        "Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyPut."
+        'Required parameter personCommentKey was null or undefined when calling apiNskV1UserPersonCommentsByPersonCommentKeyPut.'
       );
     }
 
@@ -980,7 +980,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -994,15 +994,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonCommentsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonComment>>;
   public apiNskV1UserPersonCommentsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonComment>>>;
   public apiNskV1UserPersonCommentsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1011,7 +1011,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/comments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonComment>>httpResponse.response)
       );
@@ -1027,17 +1027,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonCommentsPost(
     request?: PersonCommentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonCommentsPost(
     request?: PersonCommentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonCommentsPost(
     request?: PersonCommentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1047,7 +1047,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1063,22 +1063,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyDelete(
     personEmailAddressKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyDelete(
     personEmailAddressKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyDelete(
     personEmailAddressKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personEmailAddressKey) {
       throw new Error(
-        "Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyDelete."
+        'Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyDelete.'
       );
     }
 
@@ -1090,7 +1090,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1106,22 +1106,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyGet(
     personEmailAddressKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonEmail>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyGet(
     personEmailAddressKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonEmail>>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyGet(
     personEmailAddressKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personEmailAddressKey) {
       throw new Error(
-        "Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyGet."
+        'Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyGet.'
       );
     }
 
@@ -1131,7 +1131,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonEmail>httpResponse.response)
       );
@@ -1149,24 +1149,24 @@ export class UserpersonService {
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyPatch(
     personEmailAddressKey: string,
     request?: DeltaMapperPersonEmailEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyPatch(
     personEmailAddressKey: string,
     request?: DeltaMapperPersonEmailEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyPatch(
     personEmailAddressKey: string,
     request?: DeltaMapperPersonEmailEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personEmailAddressKey) {
       throw new Error(
-        "Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyPatch."
+        'Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyPatch.'
       );
     }
 
@@ -1179,7 +1179,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1197,24 +1197,24 @@ export class UserpersonService {
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyPut(
     personEmailAddressKey: string,
     request?: PersonEmailEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyPut(
     personEmailAddressKey: string,
     request?: PersonEmailEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonEmailsByPersonEmailAddressKeyPut(
     personEmailAddressKey: string,
     request?: PersonEmailEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personEmailAddressKey) {
       throw new Error(
-        "Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyPut."
+        'Required parameter personEmailAddressKey was null or undefined when calling apiNskV1UserPersonEmailsByPersonEmailAddressKeyPut.'
       );
     }
 
@@ -1227,7 +1227,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1241,15 +1241,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonEmailsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonEmail>>;
   public apiNskV1UserPersonEmailsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonEmail>>>;
   public apiNskV1UserPersonEmailsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1258,7 +1258,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/emails`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonEmail>>httpResponse.response)
       );
@@ -1274,17 +1274,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonEmailsPost(
     request?: PersonEmailCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonEmailsPost(
     request?: PersonEmailCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonEmailsPost(
     request?: PersonEmailCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1294,7 +1294,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1308,22 +1308,22 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Person>;
   public apiNskV1UserPersonGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Person>>;
   public apiNskV1UserPersonGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Person>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/user/person`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Person>httpResponse.response));
     }
     return response;
@@ -1337,22 +1337,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonInformationByPersonInformationKeyDelete(
     personInformationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonInformationByPersonInformationKeyDelete(
     personInformationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonInformationByPersonInformationKeyDelete(
     personInformationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personInformationKey) {
       throw new Error(
-        "Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyDelete."
+        'Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyDelete.'
       );
     }
 
@@ -1364,7 +1364,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1380,22 +1380,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonInformationByPersonInformationKeyGet(
     personInformationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonInformation>;
   public apiNskV1UserPersonInformationByPersonInformationKeyGet(
     personInformationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonInformation>>;
   public apiNskV1UserPersonInformationByPersonInformationKeyGet(
     personInformationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personInformationKey) {
       throw new Error(
-        "Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyGet."
+        'Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyGet.'
       );
     }
 
@@ -1407,7 +1407,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonInformation>httpResponse.response)
       );
@@ -1425,24 +1425,24 @@ export class UserpersonService {
   public apiNskV1UserPersonInformationByPersonInformationKeyPatch(
     personInformationKey: string,
     request?: DeltaMapperPersonInformationEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonInformationByPersonInformationKeyPatch(
     personInformationKey: string,
     request?: DeltaMapperPersonInformationEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonInformationByPersonInformationKeyPatch(
     personInformationKey: string,
     request?: DeltaMapperPersonInformationEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personInformationKey) {
       throw new Error(
-        "Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyPatch."
+        'Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyPatch.'
       );
     }
 
@@ -1455,7 +1455,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1473,24 +1473,24 @@ export class UserpersonService {
   public apiNskV1UserPersonInformationByPersonInformationKeyPut(
     personInformationKey: string,
     request?: PersonInformationEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonInformationByPersonInformationKeyPut(
     personInformationKey: string,
     request?: PersonInformationEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonInformationByPersonInformationKeyPut(
     personInformationKey: string,
     request?: PersonInformationEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personInformationKey) {
       throw new Error(
-        "Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyPut."
+        'Required parameter personInformationKey was null or undefined when calling apiNskV1UserPersonInformationByPersonInformationKeyPut.'
       );
     }
 
@@ -1503,7 +1503,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1517,15 +1517,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonInformationGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonInformation>>;
   public apiNskV1UserPersonInformationGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonInformation>>>;
   public apiNskV1UserPersonInformationGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1534,7 +1534,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/information`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonInformation>>httpResponse.response)
       );
@@ -1550,17 +1550,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonInformationPost(
     request?: PersonInformationCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonInformationPost(
     request?: PersonInformationCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonInformationPost(
     request?: PersonInformationCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1570,7 +1570,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1586,17 +1586,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPatch(
     request?: DeltaMapperPersonEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPatch(
     request?: DeltaMapperPersonEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPatch(
     request?: DeltaMapperPersonEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1606,7 +1606,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1622,22 +1622,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyDelete(
     personPhoneNumberKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyDelete(
     personPhoneNumberKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyDelete(
     personPhoneNumberKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPhoneNumberKey) {
       throw new Error(
-        "Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyDelete."
+        'Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyDelete.'
       );
     }
 
@@ -1651,7 +1651,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1667,22 +1667,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyGet(
     personPhoneNumberKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonPhoneNumber>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyGet(
     personPhoneNumberKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonPhoneNumber>>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyGet(
     personPhoneNumberKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPhoneNumberKey) {
       throw new Error(
-        "Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyGet."
+        'Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyGet.'
       );
     }
 
@@ -1696,7 +1696,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonPhoneNumber>httpResponse.response)
       );
@@ -1714,24 +1714,24 @@ export class UserpersonService {
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPatch(
     personPhoneNumberKey: string,
     request?: DeltaMapperPersonPhoneNumberRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPatch(
     personPhoneNumberKey: string,
     request?: DeltaMapperPersonPhoneNumberRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPatch(
     personPhoneNumberKey: string,
     request?: DeltaMapperPersonPhoneNumberRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPhoneNumberKey) {
       throw new Error(
-        "Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPatch."
+        'Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPatch.'
       );
     }
 
@@ -1746,7 +1746,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1764,24 +1764,24 @@ export class UserpersonService {
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPut(
     personPhoneNumberKey: string,
     request?: PersonPhoneNumberRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPut(
     personPhoneNumberKey: string,
     request?: PersonPhoneNumberRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPut(
     personPhoneNumberKey: string,
     request?: PersonPhoneNumberRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPhoneNumberKey) {
       throw new Error(
-        "Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPut."
+        'Required parameter personPhoneNumberKey was null or undefined when calling apiNskV1UserPersonPhoneNumbersByPersonPhoneNumberKeyPut.'
       );
     }
 
@@ -1796,7 +1796,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1810,15 +1810,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonPhoneNumbersGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonPhoneNumber>>;
   public apiNskV1UserPersonPhoneNumbersGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonPhoneNumber>>>;
   public apiNskV1UserPersonPhoneNumbersGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1827,7 +1827,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/phoneNumbers`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonPhoneNumber>>httpResponse.response)
       );
@@ -1843,17 +1843,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPhoneNumbersPost(
     request?: PersonPhoneNumberRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPhoneNumbersPost(
     request?: PersonPhoneNumberRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPhoneNumbersPost(
     request?: PersonPhoneNumberRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1863,7 +1863,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1879,22 +1879,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyDelete(
     personPreferenceKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyDelete(
     personPreferenceKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyDelete(
     personPreferenceKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPreferenceKey) {
       throw new Error(
-        "Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyDelete."
+        'Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyDelete.'
       );
     }
 
@@ -1906,7 +1906,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1922,22 +1922,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyGet(
     personPreferenceKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonPreference>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyGet(
     personPreferenceKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonPreference>>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyGet(
     personPreferenceKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPreferenceKey) {
       throw new Error(
-        "Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyGet."
+        'Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyGet.'
       );
     }
 
@@ -1949,7 +1949,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonPreference>httpResponse.response)
       );
@@ -1967,24 +1967,24 @@ export class UserpersonService {
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyPatch(
     personPreferenceKey: string,
     request?: DeltaMapperPersonPreferenceEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyPatch(
     personPreferenceKey: string,
     request?: DeltaMapperPersonPreferenceEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyPatch(
     personPreferenceKey: string,
     request?: DeltaMapperPersonPreferenceEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPreferenceKey) {
       throw new Error(
-        "Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyPatch."
+        'Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyPatch.'
       );
     }
 
@@ -1997,7 +1997,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2015,24 +2015,24 @@ export class UserpersonService {
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyPut(
     personPreferenceKey: string,
     request?: PersonPreferenceEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyPut(
     personPreferenceKey: string,
     request?: PersonPreferenceEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPreferencesByPersonPreferenceKeyPut(
     personPreferenceKey: string,
     request?: PersonPreferenceEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personPreferenceKey) {
       throw new Error(
-        "Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyPut."
+        'Required parameter personPreferenceKey was null or undefined when calling apiNskV1UserPersonPreferencesByPersonPreferenceKeyPut.'
       );
     }
 
@@ -2045,7 +2045,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2059,15 +2059,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonPreferencesGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonPreference>>;
   public apiNskV1UserPersonPreferencesGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonPreference>>>;
   public apiNskV1UserPersonPreferencesGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2076,7 +2076,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/preferences`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonPreference>>httpResponse.response)
       );
@@ -2092,17 +2092,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPreferencesPost(
     request?: PersonPreferenceCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPreferencesPost(
     request?: PersonPreferenceCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPreferencesPost(
     request?: PersonPreferenceCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2112,7 +2112,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2128,22 +2128,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonProgramsByPersonProgramKeyDelete(
     personProgramKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyDelete(
     personProgramKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyDelete(
     personProgramKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personProgramKey) {
       throw new Error(
-        "Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyDelete."
+        'Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyDelete.'
       );
     }
 
@@ -2155,7 +2155,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2171,22 +2171,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonProgramsByPersonProgramKeyGet(
     personProgramKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonCustomerProgram>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyGet(
     personProgramKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonCustomerProgram>>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyGet(
     personProgramKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personProgramKey) {
       throw new Error(
-        "Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyGet."
+        'Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyGet.'
       );
     }
 
@@ -2198,7 +2198,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonCustomerProgram>httpResponse.response)
       );
@@ -2216,24 +2216,24 @@ export class UserpersonService {
   public apiNskV1UserPersonProgramsByPersonProgramKeyPatch(
     personProgramKey: string,
     request?: DeltaMapperPersonCustomerProgramEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyPatch(
     personProgramKey: string,
     request?: DeltaMapperPersonCustomerProgramEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyPatch(
     personProgramKey: string,
     request?: DeltaMapperPersonCustomerProgramEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personProgramKey) {
       throw new Error(
-        "Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyPatch."
+        'Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyPatch.'
       );
     }
 
@@ -2246,7 +2246,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2264,24 +2264,24 @@ export class UserpersonService {
   public apiNskV1UserPersonProgramsByPersonProgramKeyPut(
     personProgramKey: string,
     request?: PersonCustomerProgramEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyPut(
     personProgramKey: string,
     request?: PersonCustomerProgramEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonProgramsByPersonProgramKeyPut(
     personProgramKey: string,
     request?: PersonCustomerProgramEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personProgramKey) {
       throw new Error(
-        "Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyPut."
+        'Required parameter personProgramKey was null or undefined when calling apiNskV1UserPersonProgramsByPersonProgramKeyPut.'
       );
     }
 
@@ -2294,7 +2294,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2308,15 +2308,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonProgramsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonCustomerProgram>>;
   public apiNskV1UserPersonProgramsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonCustomerProgram>>>;
   public apiNskV1UserPersonProgramsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2325,7 +2325,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/programs`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonCustomerProgram>>httpResponse.response)
       );
@@ -2341,17 +2341,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonProgramsPost(
     request?: PersonCustomerProgramCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonProgramsPost(
     request?: PersonCustomerProgramCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonProgramsPost(
     request?: PersonCustomerProgramCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2361,7 +2361,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2377,17 +2377,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonPut(
     request?: PersonEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonPut(
     request?: PersonEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonPut(
     request?: PersonEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2397,7 +2397,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2413,22 +2413,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyDelete(
     personStoredPaymentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyDelete(
     personStoredPaymentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyDelete(
     personStoredPaymentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personStoredPaymentKey) {
       throw new Error(
-        "Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyDelete."
+        'Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyDelete.'
       );
     }
 
@@ -2442,7 +2442,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2458,22 +2458,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyGet(
     personStoredPaymentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonStoredPayment>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyGet(
     personStoredPaymentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonStoredPayment>>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyGet(
     personStoredPaymentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personStoredPaymentKey) {
       throw new Error(
-        "Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyGet."
+        'Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyGet.'
       );
     }
 
@@ -2487,7 +2487,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonStoredPayment>httpResponse.response)
       );
@@ -2505,24 +2505,24 @@ export class UserpersonService {
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPatch(
     personStoredPaymentKey: string,
     request?: DeltaMapperPersonStoredPaymentUpdateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPatch(
     personStoredPaymentKey: string,
     request?: DeltaMapperPersonStoredPaymentUpdateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPatch(
     personStoredPaymentKey: string,
     request?: DeltaMapperPersonStoredPaymentUpdateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personStoredPaymentKey) {
       throw new Error(
-        "Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPatch."
+        'Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPatch.'
       );
     }
 
@@ -2537,7 +2537,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2555,24 +2555,24 @@ export class UserpersonService {
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPut(
     personStoredPaymentKey: string,
     request?: PersonStoredPaymentUpdateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPut(
     personStoredPaymentKey: string,
     request?: PersonStoredPaymentUpdateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPut(
     personStoredPaymentKey: string,
     request?: PersonStoredPaymentUpdateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personStoredPaymentKey) {
       throw new Error(
-        "Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPut."
+        'Required parameter personStoredPaymentKey was null or undefined when calling apiNskV1UserPersonStoredPaymentsByPersonStoredPaymentKeyPut.'
       );
     }
 
@@ -2587,7 +2587,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2601,15 +2601,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonStoredPaymentsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonStoredPayment>>;
   public apiNskV1UserPersonStoredPaymentsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonStoredPayment>>>;
   public apiNskV1UserPersonStoredPaymentsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2618,7 +2618,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/storedPayments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonStoredPayment>>httpResponse.response)
       );
@@ -2634,17 +2634,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonStoredPaymentsPost(
     request?: PersonStoredPaymentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonStoredPaymentsPost(
     request?: PersonStoredPaymentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonStoredPaymentsPost(
     request?: PersonStoredPaymentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2654,7 +2654,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2670,22 +2670,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyDelete(
     personTravelDocumentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyDelete(
     personTravelDocumentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyDelete(
     personTravelDocumentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personTravelDocumentKey) {
       throw new Error(
-        "Required parameter personTravelDocumentKey was null or undefined when calling apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyDelete."
+        'Required parameter personTravelDocumentKey was null or undefined when calling apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyDelete.'
       );
     }
 
@@ -2699,7 +2699,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2715,22 +2715,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyGet(
     personTravelDocumentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonTravelDocument>;
   public apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyGet(
     personTravelDocumentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonTravelDocument>>;
   public apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyGet(
     personTravelDocumentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personTravelDocumentKey) {
       throw new Error(
-        "Required parameter personTravelDocumentKey was null or undefined when calling apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyGet."
+        'Required parameter personTravelDocumentKey was null or undefined when calling apiNskV1UserPersonTravelDocumentsByPersonTravelDocumentKeyGet.'
       );
     }
 
@@ -2744,7 +2744,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonTravelDocument>httpResponse.response)
       );
@@ -2758,15 +2758,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonTravelDocumentsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonTravelDocument>>;
   public apiNskV1UserPersonTravelDocumentsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonTravelDocument>>>;
   public apiNskV1UserPersonTravelDocumentsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2775,7 +2775,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/travelDocuments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonTravelDocument>>httpResponse.response)
       );
@@ -2791,17 +2791,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelDocumentsPost(
     request?: PersonTravelDocumentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelDocumentsPost(
     request?: PersonTravelDocumentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelDocumentsPost(
     request?: PersonTravelDocumentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2811,7 +2811,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2827,22 +2827,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyDelete(
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyDelete(
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyDelete(
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyDelete."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyDelete.'
       );
     }
 
@@ -2856,7 +2856,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2873,31 +2873,31 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "response",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe: any = "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete.'
       );
     }
 
     if (!eventType) {
       throw new Error(
-        "Required parameter eventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete."
+        'Required parameter eventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete.'
       );
     }
 
@@ -2911,7 +2911,7 @@ export class UserpersonService {
       )}/events/${encodeURIComponent(String(eventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2928,31 +2928,31 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'body',
     headers?: Headers
   ): Observable<NotificationEvent>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "response",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<NotificationEvent>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe: any = "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet.'
       );
     }
 
     if (!eventType) {
       throw new Error(
-        "Required parameter eventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet."
+        'Required parameter eventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet.'
       );
     }
 
@@ -2966,7 +2966,7 @@ export class UserpersonService {
       )}/events/${encodeURIComponent(String(eventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <NotificationEvent>httpResponse.response)
       );
@@ -2982,22 +2982,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsGet(
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<NotificationEvent>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsGet(
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<NotificationEvent>>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsGet(
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsGet.'
       );
     }
 
@@ -3011,7 +3011,7 @@ export class UserpersonService {
       )}/events`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<NotificationEvent>>httpResponse.response)
       );
@@ -3029,24 +3029,24 @@ export class UserpersonService {
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsPost(
     travelNotificationKey: string,
     request?: NotificationEventCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsPost(
     travelNotificationKey: string,
     request?: NotificationEventCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsPost(
     travelNotificationKey: string,
     request?: NotificationEventCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsPost."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyEventsPost.'
       );
     }
 
@@ -3061,7 +3061,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3077,22 +3077,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyGet(
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TravelNotification>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyGet(
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TravelNotification>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyGet(
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyGet.'
       );
     }
 
@@ -3106,7 +3106,7 @@ export class UserpersonService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TravelNotification>httpResponse.response)
       );
@@ -3124,24 +3124,24 @@ export class UserpersonService {
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPatch(
     travelNotificationKey: string,
     request?: DeltaMapperTravelNotificationEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPatch(
     travelNotificationKey: string,
     request?: DeltaMapperTravelNotificationEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPatch(
     travelNotificationKey: string,
     request?: DeltaMapperTravelNotificationEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPatch."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPatch.'
       );
     }
 
@@ -3156,7 +3156,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3174,24 +3174,24 @@ export class UserpersonService {
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPut(
     travelNotificationKey: string,
     request?: TravelNotificationEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPut(
     travelNotificationKey: string,
     request?: TravelNotificationEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPut(
     travelNotificationKey: string,
     request?: TravelNotificationEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPut."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyPut.'
       );
     }
 
@@ -3206,7 +3206,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3223,31 +3223,31 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "response",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe: any = "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete.'
       );
     }
 
     if (!timedEventType) {
       throw new Error(
-        "Required parameter timedEventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete."
+        'Required parameter timedEventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete.'
       );
     }
 
@@ -3261,7 +3261,7 @@ export class UserpersonService {
       )}/timedEvents/${encodeURIComponent(String(timedEventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3278,31 +3278,31 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'body',
     headers?: Headers
   ): Observable<NotificationTimedEvent>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "response",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<NotificationTimedEvent>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe: any = "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet.'
       );
     }
 
     if (!timedEventType) {
       throw new Error(
-        "Required parameter timedEventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet."
+        'Required parameter timedEventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet.'
       );
     }
 
@@ -3316,7 +3316,7 @@ export class UserpersonService {
       )}/timedEvents/${encodeURIComponent(String(timedEventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <NotificationTimedEvent>httpResponse.response)
       );
@@ -3334,34 +3334,34 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     request?: NotificationTimedEventEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     request?: NotificationTimedEventEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     request?: NotificationTimedEventEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut.'
       );
     }
 
     if (!timedEventType) {
       throw new Error(
-        "Required parameter timedEventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut."
+        'Required parameter timedEventType was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut.'
       );
     }
 
@@ -3376,7 +3376,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3392,22 +3392,22 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsGet(
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<NotificationTimedEvent>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsGet(
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<NotificationTimedEvent>>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsGet(
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsGet.'
       );
     }
 
@@ -3421,7 +3421,7 @@ export class UserpersonService {
       )}/timedEvents`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<NotificationTimedEvent>>httpResponse.response
@@ -3441,24 +3441,24 @@ export class UserpersonService {
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsPost(
     travelNotificationKey: string,
     request?: NotificationTimedEventCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsPost(
     travelNotificationKey: string,
     request?: NotificationTimedEventCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsPost(
     travelNotificationKey: string,
     request?: NotificationTimedEventCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsPost."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1UserPersonTravelNotificationsByTravelNotificationKeyTimedEventsPost.'
       );
     }
 
@@ -3473,7 +3473,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3487,15 +3487,15 @@ export class UserpersonService {
      
      */
   public apiNskV1UserPersonTravelNotificationsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<TravelNotification>>;
   public apiNskV1UserPersonTravelNotificationsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<TravelNotification>>>;
   public apiNskV1UserPersonTravelNotificationsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -3504,7 +3504,7 @@ export class UserpersonService {
       `${this.basePath}/api/nsk/v1/user/person/travelNotifications`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<TravelNotification>>httpResponse.response)
       );
@@ -3520,17 +3520,17 @@ export class UserpersonService {
      */
   public apiNskV1UserPersonTravelNotificationsPost(
     request?: TravelNotificationCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPersonTravelNotificationsPost(
     request?: TravelNotificationCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPersonTravelNotificationsPost(
     request?: TravelNotificationCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -3540,7 +3540,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3558,24 +3558,24 @@ export class UserpersonService {
   public apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPatch(
     personTravelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPatch(
     personTravelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPatch(
     personTravelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personTravelDocumentKey) {
       throw new Error(
-        "Required parameter personTravelDocumentKey was null or undefined when calling apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPatch."
+        'Required parameter personTravelDocumentKey was null or undefined when calling apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPatch.'
       );
     }
 
@@ -3590,7 +3590,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3608,24 +3608,24 @@ export class UserpersonService {
   public apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPut(
     personTravelDocumentKey: string,
     request?: TravelDocumentEditRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPut(
     personTravelDocumentKey: string,
     request?: TravelDocumentEditRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPut(
     personTravelDocumentKey: string,
     request?: TravelDocumentEditRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personTravelDocumentKey) {
       throw new Error(
-        "Required parameter personTravelDocumentKey was null or undefined when calling apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPut."
+        'Required parameter personTravelDocumentKey was null or undefined when calling apiNskV2UserPersonTravelDocumentsByPersonTravelDocumentKeyPut.'
       );
     }
 
@@ -3640,7 +3640,7 @@ export class UserpersonService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

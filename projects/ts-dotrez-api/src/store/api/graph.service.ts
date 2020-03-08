@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { GraphQlQuery, GraphQlQueryv2 } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { GraphQlQuery, GraphQlQueryv2 } from 'api-models';
 
-import { GraphService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { GraphService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreGraphService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("GraphService") protected baseService: GraphService
+    @inject('Store') protected store: Store<any>,
+    @inject('GraphService') protected baseService: GraphService
   ) {}
 
   /**
@@ -42,7 +46,7 @@ export class StoreGraphService {
         queryName,
         cachedResults,
         variables,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -60,7 +64,7 @@ export class StoreGraphService {
     headers?: Headers
   ): Promise<any> {
     const response = await this.baseService
-      .apiV1GraphPost(query, "body", headers)
+      .apiV1GraphPost(query, 'body', headers)
       .toPromise();
     // TODO: Implement apiV1GraphPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -77,7 +81,7 @@ export class StoreGraphService {
     headers?: Headers
   ): Promise<any> {
     const response = await this.baseService
-      .apiV2GraphByQueryNamePost(queryName, query, "body", headers)
+      .apiV2GraphByQueryNamePost(queryName, query, 'body', headers)
       .toPromise();
     // TODO: Implement apiV2GraphByQueryNamePost
     // addResponsetoStore(this.store, response.data, true, true);

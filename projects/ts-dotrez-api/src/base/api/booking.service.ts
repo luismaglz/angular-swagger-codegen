@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   Account,
@@ -64,22 +64,22 @@ import {
   SellInsuranceRequest,
   ServiceCharge,
   Transaction
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BookingService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -103,7 +103,7 @@ export class BookingService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Transaction>>;
   public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(
@@ -113,7 +113,7 @@ export class BookingService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Transaction>>>;
   public apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet(
@@ -123,49 +123,49 @@ export class BookingService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!accountCollectionKey) {
       throw new Error(
-        "Required parameter accountCollectionKey was null or undefined when calling apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter accountCollectionKey was null or undefined when calling apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!startTime) {
       throw new Error(
-        "Required parameter startTime was null or undefined when calling apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter startTime was null or undefined when calling apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!sortByNewest) {
       throw new Error(
-        "Required parameter sortByNewest was null or undefined when calling apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter sortByNewest was null or undefined when calling apiNskV1BookingAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startTime !== undefined) {
       queryParameters.push(
-        "startTime=" + encodeURIComponent(<any>startTime.toISOString())
+        'startTime=' + encodeURIComponent(<any>startTime.toISOString())
       );
     }
     if (endTime !== undefined) {
       queryParameters.push(
-        "endTime=" + encodeURIComponent(<any>endTime.toISOString())
+        'endTime=' + encodeURIComponent(<any>endTime.toISOString())
       );
     }
     if (sortByNewest !== undefined) {
       queryParameters.push(
-        "sortByNewest=" + encodeURIComponent(String(sortByNewest))
+        'sortByNewest=' + encodeURIComponent(String(sortByNewest))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (pageIndex !== undefined) {
       queryParameters.push(
-        "pageIndex=" + encodeURIComponent(String(pageIndex))
+        'pageIndex=' + encodeURIComponent(String(pageIndex))
       );
     }
 
@@ -176,10 +176,10 @@ export class BookingService {
         this.basePath
       }/api/nsk/v1/booking/account/collection/${encodeURIComponent(
         String(accountCollectionKey)
-      )}/transactions?${queryParameters.join("&")}`,
+      )}/transactions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Transaction>>httpResponse.response)
       );
@@ -193,22 +193,22 @@ export class BookingService {
      
      */
   public apiNskV1BookingAccountGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Account>;
   public apiNskV1BookingAccountGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Account>>;
   public apiNskV1BookingAccountGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Account>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/booking/account`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Account>httpResponse.response));
     }
     return response;
@@ -230,7 +230,7 @@ export class BookingService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Transaction>>;
   public apiNskV1BookingAccountTransactionsGet(
@@ -239,7 +239,7 @@ export class BookingService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Transaction>>>;
   public apiNskV1BookingAccountTransactionsGet(
@@ -248,43 +248,43 @@ export class BookingService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!startTime) {
       throw new Error(
-        "Required parameter startTime was null or undefined when calling apiNskV1BookingAccountTransactionsGet."
+        'Required parameter startTime was null or undefined when calling apiNskV1BookingAccountTransactionsGet.'
       );
     }
 
     if (!sortByNewest) {
       throw new Error(
-        "Required parameter sortByNewest was null or undefined when calling apiNskV1BookingAccountTransactionsGet."
+        'Required parameter sortByNewest was null or undefined when calling apiNskV1BookingAccountTransactionsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startTime !== undefined) {
       queryParameters.push(
-        "startTime=" + encodeURIComponent(<any>startTime.toISOString())
+        'startTime=' + encodeURIComponent(<any>startTime.toISOString())
       );
     }
     if (endTime !== undefined) {
       queryParameters.push(
-        "endTime=" + encodeURIComponent(<any>endTime.toISOString())
+        'endTime=' + encodeURIComponent(<any>endTime.toISOString())
       );
     }
     if (sortByNewest !== undefined) {
       queryParameters.push(
-        "sortByNewest=" + encodeURIComponent(String(sortByNewest))
+        'sortByNewest=' + encodeURIComponent(String(sortByNewest))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (pageIndex !== undefined) {
       queryParameters.push(
-        "pageIndex=" + encodeURIComponent(String(pageIndex))
+        'pageIndex=' + encodeURIComponent(String(pageIndex))
       );
     }
 
@@ -293,10 +293,10 @@ export class BookingService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/account/transactions?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/account/transactions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Transaction>>httpResponse.response)
       );
@@ -314,30 +314,30 @@ export class BookingService {
   public apiNskV1BookingAddOnsActivitiesGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ActivityProduct>>;
   public apiNskV1BookingAddOnsActivitiesGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ActivityProduct>>>;
   public apiNskV1BookingAddOnsActivitiesGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (vendorCode !== undefined) {
       queryParameters.push(
-        "vendorCode=" + encodeURIComponent(String(vendorCode))
+        'vendorCode=' + encodeURIComponent(String(vendorCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -346,10 +346,10 @@ export class BookingService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/addOns/activities?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/addOns/activities?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ActivityProduct>>httpResponse.response)
       );
@@ -367,30 +367,30 @@ export class BookingService {
   public apiNskV1BookingAddOnsCarsGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<CarProduct>>;
   public apiNskV1BookingAddOnsCarsGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<CarProduct>>>;
   public apiNskV1BookingAddOnsCarsGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (vendorCode !== undefined) {
       queryParameters.push(
-        "vendorCode=" + encodeURIComponent(String(vendorCode))
+        'vendorCode=' + encodeURIComponent(String(vendorCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -398,11 +398,11 @@ export class BookingService {
       Array<CarProduct>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/booking/addOns/cars?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<CarProduct>>httpResponse.response)
       );
@@ -420,30 +420,30 @@ export class BookingService {
   public apiNskV1BookingAddOnsHotelsGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<HotelProduct>>;
   public apiNskV1BookingAddOnsHotelsGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<HotelProduct>>>;
   public apiNskV1BookingAddOnsHotelsGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (vendorCode !== undefined) {
       queryParameters.push(
-        "vendorCode=" + encodeURIComponent(String(vendorCode))
+        'vendorCode=' + encodeURIComponent(String(vendorCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -451,11 +451,11 @@ export class BookingService {
       Array<HotelProduct>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/booking/addOns/hotels?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<HotelProduct>>httpResponse.response)
       );
@@ -473,30 +473,30 @@ export class BookingService {
   public apiNskV1BookingAddOnsInsuranceGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<InsuranceProduct>>;
   public apiNskV1BookingAddOnsInsuranceGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<InsuranceProduct>>>;
   public apiNskV1BookingAddOnsInsuranceGet(
     vendorCode?: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (vendorCode !== undefined) {
       queryParameters.push(
-        "vendorCode=" + encodeURIComponent(String(vendorCode))
+        'vendorCode=' + encodeURIComponent(String(vendorCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -505,10 +505,10 @@ export class BookingService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/addOns/insurance?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/addOns/insurance?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<InsuranceProduct>>httpResponse.response)
       );
@@ -524,17 +524,17 @@ export class BookingService {
      */
   public apiNskV1BookingAddOnsInsurancePost(
     request?: SellInsuranceRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IActionResult>;
   public apiNskV1BookingAddOnsInsurancePost(
     request?: SellInsuranceRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IActionResult>>;
   public apiNskV1BookingAddOnsInsurancePost(
     request?: SellInsuranceRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -544,7 +544,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IActionResult>httpResponse.response)
       );
@@ -562,24 +562,24 @@ export class BookingService {
   public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(
     addOnKey: string,
     request?: DeltaMapperConsumer,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(
     addOnKey: string,
     request?: DeltaMapperConsumer,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingAddonsByAddOnKeyCustomerPatch(
     addOnKey: string,
     request?: DeltaMapperConsumer,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyCustomerPatch."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyCustomerPatch.'
       );
     }
 
@@ -592,7 +592,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -610,24 +610,24 @@ export class BookingService {
   public apiNskV1BookingAddonsByAddOnKeyCustomerPut(
     addOnKey: string,
     request?: Consumer,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingAddonsByAddOnKeyCustomerPut(
     addOnKey: string,
     request?: Consumer,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingAddonsByAddOnKeyCustomerPut(
     addOnKey: string,
     request?: Consumer,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyCustomerPut."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyCustomerPut.'
       );
     }
 
@@ -640,7 +640,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -656,22 +656,22 @@ export class BookingService {
      */
   public apiNskV1BookingAddonsByAddOnKeyDelete(
     addOnKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingAddonsByAddOnKeyDelete(
     addOnKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingAddonsByAddOnKeyDelete(
     addOnKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyDelete."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyDelete.'
       );
     }
 
@@ -683,7 +683,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -699,22 +699,22 @@ export class BookingService {
      */
   public apiNskV1BookingAddonsByAddOnKeyGet(
     addOnKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AddOn>;
   public apiNskV1BookingAddonsByAddOnKeyGet(
     addOnKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AddOn>>;
   public apiNskV1BookingAddonsByAddOnKeyGet(
     addOnKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyGet."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyGet.'
       );
     }
 
@@ -724,7 +724,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <AddOn>httpResponse.response));
     }
     return response;
@@ -742,32 +742,32 @@ export class BookingService {
     addOnKey: string,
     participantKey: string,
     request?: DeltaMapperOrderParticipantUpdateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(
     addOnKey: string,
     participantKey: string,
     request?: DeltaMapperOrderParticipantUpdateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch(
     addOnKey: string,
     participantKey: string,
     request?: DeltaMapperOrderParticipantUpdateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch.'
       );
     }
 
     if (!participantKey) {
       throw new Error(
-        "Required parameter participantKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch."
+        'Required parameter participantKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPatch.'
       );
     }
 
@@ -780,7 +780,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -800,32 +800,32 @@ export class BookingService {
     addOnKey: string,
     participantKey: string,
     request?: OrderParticipantUpdateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(
     addOnKey: string,
     participantKey: string,
     request?: OrderParticipantUpdateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut(
     addOnKey: string,
     participantKey: string,
     request?: OrderParticipantUpdateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut.'
       );
     }
 
     if (!participantKey) {
       throw new Error(
-        "Required parameter participantKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut."
+        'Required parameter participantKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyParticipantsByParticipantKeyPut.'
       );
     }
 
@@ -838,7 +838,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -854,22 +854,22 @@ export class BookingService {
      */
   public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(
     addOnKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AddOnAllowedPayments>;
   public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(
     addOnKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AddOnAllowedPayments>>;
   public apiNskV1BookingAddonsByAddOnKeyPaymentsGet(
     addOnKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyPaymentsGet."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyPaymentsGet.'
       );
     }
 
@@ -881,7 +881,7 @@ export class BookingService {
       )}/payments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <AddOnAllowedPayments>httpResponse.response)
       );
@@ -899,24 +899,24 @@ export class BookingService {
   public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(
     addOnKey: string,
     request?: OrderPaymentBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(
     addOnKey: string,
     request?: OrderPaymentBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingAddonsByAddOnKeyPaymentsPost(
     addOnKey: string,
     request?: OrderPaymentBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyPaymentsPost."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyPaymentsPost.'
       );
     }
 
@@ -929,7 +929,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -945,22 +945,22 @@ export class BookingService {
      */
   public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(
     addOnKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PreCancelDetail>;
   public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(
     addOnKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PreCancelDetail>>;
   public apiNskV1BookingAddonsByAddOnKeyPreCancelGet(
     addOnKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyPreCancelGet."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyPreCancelGet.'
       );
     }
 
@@ -972,7 +972,7 @@ export class BookingService {
       )}/pre/cancel`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PreCancelDetail>httpResponse.response)
       );
@@ -988,22 +988,22 @@ export class BookingService {
      */
   public apiNskV1BookingAddonsByAddOnKeySyncPut(
     addOnKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingAddonsByAddOnKeySyncPut(
     addOnKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingAddonsByAddOnKeySyncPut(
     addOnKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeySyncPut."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeySyncPut.'
       );
     }
 
@@ -1015,7 +1015,7 @@ export class BookingService {
       )}/sync`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1031,22 +1031,22 @@ export class BookingService {
      */
   public apiNskV1BookingAddonsByAddOnKeyValidationGet(
     addOnKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AddOnSettings>;
   public apiNskV1BookingAddonsByAddOnKeyValidationGet(
     addOnKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AddOnSettings>>;
   public apiNskV1BookingAddonsByAddOnKeyValidationGet(
     addOnKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addOnKey) {
       throw new Error(
-        "Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyValidationGet."
+        'Required parameter addOnKey was null or undefined when calling apiNskV1BookingAddonsByAddOnKeyValidationGet.'
       );
     }
 
@@ -1058,7 +1058,7 @@ export class BookingService {
       )}/validation`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <AddOnSettings>httpResponse.response)
       );
@@ -1072,15 +1072,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingAddonsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse200>;
   public apiNskV1BookingAddonsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse200>>;
   public apiNskV1BookingAddonsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1089,7 +1089,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/addons`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse200>httpResponse.response)
       );
@@ -1103,15 +1103,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingAddonsPaymentsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2001>;
   public apiNskV1BookingAddonsPaymentsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2001>>;
   public apiNskV1BookingAddonsPaymentsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1120,7 +1120,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/addons/payments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2001>httpResponse.response)
       );
@@ -1136,23 +1136,23 @@ export class BookingService {
      */
   public apiNskV1BookingBaggageAllowancesGet(
     includeUsageDetails?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2002>;
   public apiNskV1BookingBaggageAllowancesGet(
     includeUsageDetails?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2002>>;
   public apiNskV1BookingBaggageAllowancesGet(
     includeUsageDetails?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (includeUsageDetails !== undefined) {
       queryParameters.push(
-        "includeUsageDetails=" + encodeURIComponent(String(includeUsageDetails))
+        'includeUsageDetails=' + encodeURIComponent(String(includeUsageDetails))
       );
     }
 
@@ -1161,10 +1161,10 @@ export class BookingService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/baggageAllowances?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/baggageAllowances?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2002>httpResponse.response)
       );
@@ -1180,17 +1180,17 @@ export class BookingService {
      */
   public apiNskV1BookingBundleAvailabilityPost(
     request?: BundleAvailabilityRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BundleAvailability>>;
   public apiNskV1BookingBundleAvailabilityPost(
     request?: BundleAvailabilityRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BundleAvailability>>>;
   public apiNskV1BookingBundleAvailabilityPost(
     request?: BundleAvailabilityRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1200,7 +1200,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BundleAvailability>>httpResponse.response)
       );
@@ -1214,15 +1214,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingCommentsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingComment>>;
   public apiNskV1BookingCommentsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingComment>>>;
   public apiNskV1BookingCommentsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1231,7 +1231,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/comments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingComment>>httpResponse.response)
       );
@@ -1249,24 +1249,24 @@ export class BookingService {
   public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(
     journeyKey: string,
     request?: FareOverrideRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(
     journeyKey: string,
     request?: FareOverrideRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingFareOverrideJourneyByJourneyKeyPost(
     journeyKey: string,
     request?: FareOverrideRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1BookingFareOverrideJourneyByJourneyKeyPost."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1BookingFareOverrideJourneyByJourneyKeyPost.'
       );
     }
 
@@ -1281,7 +1281,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1297,22 +1297,22 @@ export class BookingService {
      */
   public apiNskV1BookingFareRulesFareByFareKeyGet(
     fareKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<FareRule>;
   public apiNskV1BookingFareRulesFareByFareKeyGet(
     fareKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<FareRule>>;
   public apiNskV1BookingFareRulesFareByFareKeyGet(
     fareKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!fareKey) {
       throw new Error(
-        "Required parameter fareKey was null or undefined when calling apiNskV1BookingFareRulesFareByFareKeyGet."
+        'Required parameter fareKey was null or undefined when calling apiNskV1BookingFareRulesFareByFareKeyGet.'
       );
     }
 
@@ -1322,7 +1322,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <FareRule>httpResponse.response)
       );
@@ -1336,15 +1336,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingFareRulesGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<FareRule>>;
   public apiNskV1BookingFareRulesGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<FareRule>>>;
   public apiNskV1BookingFareRulesGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1353,7 +1353,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/fareRules`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<FareRule>>httpResponse.response)
       );
@@ -1369,22 +1369,22 @@ export class BookingService {
      */
   public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(
     journeyKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<FareRule>>;
   public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(
     journeyKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<FareRule>>>;
   public apiNskV1BookingFareRulesJourneyByJourneyKeyGet(
     journeyKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1BookingFareRulesJourneyByJourneyKeyGet."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1BookingFareRulesJourneyByJourneyKeyGet.'
       );
     }
 
@@ -1398,7 +1398,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<FareRule>>httpResponse.response)
       );
@@ -1414,22 +1414,22 @@ export class BookingService {
      */
   public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(
     segmentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<FareRule>>;
   public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(
     segmentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<FareRule>>>;
   public apiNskV1BookingFareRulesSegmentBySegmentKeyGet(
     segmentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV1BookingFareRulesSegmentBySegmentKeyGet."
+        'Required parameter segmentKey was null or undefined when calling apiNskV1BookingFareRulesSegmentBySegmentKeyGet.'
       );
     }
 
@@ -1443,7 +1443,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<FareRule>>httpResponse.response)
       );
@@ -1459,22 +1459,22 @@ export class BookingService {
      */
   public apiNskV1BookingFeeByFeeKeyDelete(
     feeKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingFeeByFeeKeyDelete(
     feeKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingFeeByFeeKeyDelete(
     feeKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!feeKey) {
       throw new Error(
-        "Required parameter feeKey was null or undefined when calling apiNskV1BookingFeeByFeeKeyDelete."
+        'Required parameter feeKey was null or undefined when calling apiNskV1BookingFeeByFeeKeyDelete.'
       );
     }
 
@@ -1486,7 +1486,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1504,24 +1504,24 @@ export class BookingService {
   public apiNskV1BookingFeeByFeeKeyPut(
     feeKey: string,
     request?: FeeRequestBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingFeeByFeeKeyPut(
     feeKey: string,
     request?: FeeRequestBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingFeeByFeeKeyPut(
     feeKey: string,
     request?: FeeRequestBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!feeKey) {
       throw new Error(
-        "Required parameter feeKey was null or undefined when calling apiNskV1BookingFeeByFeeKeyPut."
+        'Required parameter feeKey was null or undefined when calling apiNskV1BookingFeeByFeeKeyPut.'
       );
     }
 
@@ -1534,7 +1534,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1556,7 +1556,7 @@ export class BookingService {
     passengerKey?: string,
     origin?: string,
     collectedCurrencyCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ServiceCharge>>;
   public apiNskV1BookingFeeGet(
@@ -1564,7 +1564,7 @@ export class BookingService {
     passengerKey?: string,
     origin?: string,
     collectedCurrencyCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ServiceCharge>>>;
   public apiNskV1BookingFeeGet(
@@ -1572,41 +1572,41 @@ export class BookingService {
     passengerKey?: string,
     origin?: string,
     collectedCurrencyCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!feeCode) {
       throw new Error(
-        "Required parameter feeCode was null or undefined when calling apiNskV1BookingFeeGet."
+        'Required parameter feeCode was null or undefined when calling apiNskV1BookingFeeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (passengerKey !== undefined) {
       queryParameters.push(
-        "passengerKey=" + encodeURIComponent(String(passengerKey))
+        'passengerKey=' + encodeURIComponent(String(passengerKey))
       );
     }
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (collectedCurrencyCode !== undefined) {
       queryParameters.push(
-        "collectedCurrencyCode=" +
+        'collectedCurrencyCode=' +
           encodeURIComponent(String(collectedCurrencyCode))
       );
     }
     if (feeCode !== undefined) {
-      queryParameters.push("feeCode=" + encodeURIComponent(String(feeCode)));
+      queryParameters.push('feeCode=' + encodeURIComponent(String(feeCode)));
     }
 
     const response: Observable<HttpResponse<
       Array<ServiceCharge>
     >> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/booking/fee?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/booking/fee?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ServiceCharge>>httpResponse.response)
       );
@@ -1622,17 +1622,17 @@ export class BookingService {
      */
   public apiNskV1BookingFeePost(
     request?: CommitPassengerFeeRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingFeePost(
     request?: CommitPassengerFeeRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingFeePost(
     request?: CommitPassengerFeeRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1642,7 +1642,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1656,22 +1656,22 @@ export class BookingService {
      
      */
   public apiNskV1BookingGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV1BookingGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV1BookingGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Booking>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/booking`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;
@@ -1687,29 +1687,29 @@ export class BookingService {
   public apiNskV1BookingHistoryFlightMoveGet(
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<FlightMoveHistoryResponse>;
   public apiNskV1BookingHistoryFlightMoveGet(
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<FlightMoveHistoryResponse>>;
   public apiNskV1BookingHistoryFlightMoveGet(
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
@@ -1717,10 +1717,10 @@ export class BookingService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/history/flightMove?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/history/flightMove?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <FlightMoveHistoryResponse>httpResponse.response)
       );
@@ -1738,287 +1738,287 @@ export class BookingService {
      */
   public apiNskV1BookingHistoryGet(
     event?:
-      | "Unknown"
-      | "ConvertedHistory"
-      | "FlightTimeChange"
-      | "FlightDesignatorChange"
-      | "AssignedSeat"
-      | "RemoveSeat"
-      | "AddedFlight"
-      | "DeletedFlight"
-      | "DeletedPassenger"
-      | "NameChange"
-      | "GroupNameChange"
-      | "CancelledTicketing"
-      | "ScheduleChange"
-      | "AddedPayment"
-      | "ServiceFee"
-      | "QueuedPnr"
-      | "UnqueuedPnr"
-      | "DeletedComment"
-      | "Divided"
-      | "CheckedIn"
-      | "CheckedOut"
-      | "FareOverride"
-      | "AddedBaggage"
-      | "ChangedBaggageWeight"
-      | "CheckedBaggage"
-      | "RemovedBaggage"
-      | "BoardedPassenger"
-      | "UnboardedPassenger"
-      | "ManualAuthorization"
-      | "ManualDecline"
-      | "UndoCancel"
-      | "ItinerarySent"
-      | "ContactChange"
-      | "SsrAdded"
-      | "FlightMoved"
-      | "VerifiedDocument"
-      | "RemovedVerifiedDocument"
-      | "Promotion"
-      | "BookingComment"
-      | "CancelledSchedule"
-      | "CancelServiceFee"
-      | "OverrideServiceFee"
-      | "AddedRecordLocator"
-      | "DeletedRecordLocator"
-      | "UpgradeClassOfService"
-      | "DowngradeClassOfService"
-      | "StandbyPriorityChange"
-      | "AssignedTicketNumber"
-      | "DeletedTicketNumber"
-      | "ConfirmSegmentStatusCodeChange"
-      | "CodeshareFlightChanged"
-      | "PdsCancel"
-      | "PdsPending"
-      | "PdsConfirm"
-      | "PdsFinalized"
-      | "PdsDeclined"
-      | "PdsException"
-      | "PdsCancelRefused"
-      | "PdsCancelUnsuccessful"
-      | "Apps"
-      | "InhibitedOverride"
-      | "PrintedBagTag"
-      | "SelfPrintedBagTag"
-      | "PrintedBoardingPass"
-      | "AddCustomerId"
-      | "DeleteCustomerId"
-      | "HoldCreated"
-      | "HoldRemoved"
-      | "HoldChanged"
-      | "OverrideCoupon"
-      | "PdsSynchronized"
-      | "PdsItemremoved"
-      | "Reprice"
-      | "ChannelOverride"
-      | "EmdCreated"
-      | "EmdRemoved"
-      | "EmdChanged"
-      | "ServiceBundle"
-      | "PublishedFareOverride"
-      | "FareClassRealignment",
+      | 'Unknown'
+      | 'ConvertedHistory'
+      | 'FlightTimeChange'
+      | 'FlightDesignatorChange'
+      | 'AssignedSeat'
+      | 'RemoveSeat'
+      | 'AddedFlight'
+      | 'DeletedFlight'
+      | 'DeletedPassenger'
+      | 'NameChange'
+      | 'GroupNameChange'
+      | 'CancelledTicketing'
+      | 'ScheduleChange'
+      | 'AddedPayment'
+      | 'ServiceFee'
+      | 'QueuedPnr'
+      | 'UnqueuedPnr'
+      | 'DeletedComment'
+      | 'Divided'
+      | 'CheckedIn'
+      | 'CheckedOut'
+      | 'FareOverride'
+      | 'AddedBaggage'
+      | 'ChangedBaggageWeight'
+      | 'CheckedBaggage'
+      | 'RemovedBaggage'
+      | 'BoardedPassenger'
+      | 'UnboardedPassenger'
+      | 'ManualAuthorization'
+      | 'ManualDecline'
+      | 'UndoCancel'
+      | 'ItinerarySent'
+      | 'ContactChange'
+      | 'SsrAdded'
+      | 'FlightMoved'
+      | 'VerifiedDocument'
+      | 'RemovedVerifiedDocument'
+      | 'Promotion'
+      | 'BookingComment'
+      | 'CancelledSchedule'
+      | 'CancelServiceFee'
+      | 'OverrideServiceFee'
+      | 'AddedRecordLocator'
+      | 'DeletedRecordLocator'
+      | 'UpgradeClassOfService'
+      | 'DowngradeClassOfService'
+      | 'StandbyPriorityChange'
+      | 'AssignedTicketNumber'
+      | 'DeletedTicketNumber'
+      | 'ConfirmSegmentStatusCodeChange'
+      | 'CodeshareFlightChanged'
+      | 'PdsCancel'
+      | 'PdsPending'
+      | 'PdsConfirm'
+      | 'PdsFinalized'
+      | 'PdsDeclined'
+      | 'PdsException'
+      | 'PdsCancelRefused'
+      | 'PdsCancelUnsuccessful'
+      | 'Apps'
+      | 'InhibitedOverride'
+      | 'PrintedBagTag'
+      | 'SelfPrintedBagTag'
+      | 'PrintedBoardingPass'
+      | 'AddCustomerId'
+      | 'DeleteCustomerId'
+      | 'HoldCreated'
+      | 'HoldRemoved'
+      | 'HoldChanged'
+      | 'OverrideCoupon'
+      | 'PdsSynchronized'
+      | 'PdsItemremoved'
+      | 'Reprice'
+      | 'ChannelOverride'
+      | 'EmdCreated'
+      | 'EmdRemoved'
+      | 'EmdChanged'
+      | 'ServiceBundle'
+      | 'PublishedFareOverride'
+      | 'FareClassRealignment',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<HistoryResponse>;
   public apiNskV1BookingHistoryGet(
     event?:
-      | "Unknown"
-      | "ConvertedHistory"
-      | "FlightTimeChange"
-      | "FlightDesignatorChange"
-      | "AssignedSeat"
-      | "RemoveSeat"
-      | "AddedFlight"
-      | "DeletedFlight"
-      | "DeletedPassenger"
-      | "NameChange"
-      | "GroupNameChange"
-      | "CancelledTicketing"
-      | "ScheduleChange"
-      | "AddedPayment"
-      | "ServiceFee"
-      | "QueuedPnr"
-      | "UnqueuedPnr"
-      | "DeletedComment"
-      | "Divided"
-      | "CheckedIn"
-      | "CheckedOut"
-      | "FareOverride"
-      | "AddedBaggage"
-      | "ChangedBaggageWeight"
-      | "CheckedBaggage"
-      | "RemovedBaggage"
-      | "BoardedPassenger"
-      | "UnboardedPassenger"
-      | "ManualAuthorization"
-      | "ManualDecline"
-      | "UndoCancel"
-      | "ItinerarySent"
-      | "ContactChange"
-      | "SsrAdded"
-      | "FlightMoved"
-      | "VerifiedDocument"
-      | "RemovedVerifiedDocument"
-      | "Promotion"
-      | "BookingComment"
-      | "CancelledSchedule"
-      | "CancelServiceFee"
-      | "OverrideServiceFee"
-      | "AddedRecordLocator"
-      | "DeletedRecordLocator"
-      | "UpgradeClassOfService"
-      | "DowngradeClassOfService"
-      | "StandbyPriorityChange"
-      | "AssignedTicketNumber"
-      | "DeletedTicketNumber"
-      | "ConfirmSegmentStatusCodeChange"
-      | "CodeshareFlightChanged"
-      | "PdsCancel"
-      | "PdsPending"
-      | "PdsConfirm"
-      | "PdsFinalized"
-      | "PdsDeclined"
-      | "PdsException"
-      | "PdsCancelRefused"
-      | "PdsCancelUnsuccessful"
-      | "Apps"
-      | "InhibitedOverride"
-      | "PrintedBagTag"
-      | "SelfPrintedBagTag"
-      | "PrintedBoardingPass"
-      | "AddCustomerId"
-      | "DeleteCustomerId"
-      | "HoldCreated"
-      | "HoldRemoved"
-      | "HoldChanged"
-      | "OverrideCoupon"
-      | "PdsSynchronized"
-      | "PdsItemremoved"
-      | "Reprice"
-      | "ChannelOverride"
-      | "EmdCreated"
-      | "EmdRemoved"
-      | "EmdChanged"
-      | "ServiceBundle"
-      | "PublishedFareOverride"
-      | "FareClassRealignment",
+      | 'Unknown'
+      | 'ConvertedHistory'
+      | 'FlightTimeChange'
+      | 'FlightDesignatorChange'
+      | 'AssignedSeat'
+      | 'RemoveSeat'
+      | 'AddedFlight'
+      | 'DeletedFlight'
+      | 'DeletedPassenger'
+      | 'NameChange'
+      | 'GroupNameChange'
+      | 'CancelledTicketing'
+      | 'ScheduleChange'
+      | 'AddedPayment'
+      | 'ServiceFee'
+      | 'QueuedPnr'
+      | 'UnqueuedPnr'
+      | 'DeletedComment'
+      | 'Divided'
+      | 'CheckedIn'
+      | 'CheckedOut'
+      | 'FareOverride'
+      | 'AddedBaggage'
+      | 'ChangedBaggageWeight'
+      | 'CheckedBaggage'
+      | 'RemovedBaggage'
+      | 'BoardedPassenger'
+      | 'UnboardedPassenger'
+      | 'ManualAuthorization'
+      | 'ManualDecline'
+      | 'UndoCancel'
+      | 'ItinerarySent'
+      | 'ContactChange'
+      | 'SsrAdded'
+      | 'FlightMoved'
+      | 'VerifiedDocument'
+      | 'RemovedVerifiedDocument'
+      | 'Promotion'
+      | 'BookingComment'
+      | 'CancelledSchedule'
+      | 'CancelServiceFee'
+      | 'OverrideServiceFee'
+      | 'AddedRecordLocator'
+      | 'DeletedRecordLocator'
+      | 'UpgradeClassOfService'
+      | 'DowngradeClassOfService'
+      | 'StandbyPriorityChange'
+      | 'AssignedTicketNumber'
+      | 'DeletedTicketNumber'
+      | 'ConfirmSegmentStatusCodeChange'
+      | 'CodeshareFlightChanged'
+      | 'PdsCancel'
+      | 'PdsPending'
+      | 'PdsConfirm'
+      | 'PdsFinalized'
+      | 'PdsDeclined'
+      | 'PdsException'
+      | 'PdsCancelRefused'
+      | 'PdsCancelUnsuccessful'
+      | 'Apps'
+      | 'InhibitedOverride'
+      | 'PrintedBagTag'
+      | 'SelfPrintedBagTag'
+      | 'PrintedBoardingPass'
+      | 'AddCustomerId'
+      | 'DeleteCustomerId'
+      | 'HoldCreated'
+      | 'HoldRemoved'
+      | 'HoldChanged'
+      | 'OverrideCoupon'
+      | 'PdsSynchronized'
+      | 'PdsItemremoved'
+      | 'Reprice'
+      | 'ChannelOverride'
+      | 'EmdCreated'
+      | 'EmdRemoved'
+      | 'EmdChanged'
+      | 'ServiceBundle'
+      | 'PublishedFareOverride'
+      | 'FareClassRealignment',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<HistoryResponse>>;
   public apiNskV1BookingHistoryGet(
     event?:
-      | "Unknown"
-      | "ConvertedHistory"
-      | "FlightTimeChange"
-      | "FlightDesignatorChange"
-      | "AssignedSeat"
-      | "RemoveSeat"
-      | "AddedFlight"
-      | "DeletedFlight"
-      | "DeletedPassenger"
-      | "NameChange"
-      | "GroupNameChange"
-      | "CancelledTicketing"
-      | "ScheduleChange"
-      | "AddedPayment"
-      | "ServiceFee"
-      | "QueuedPnr"
-      | "UnqueuedPnr"
-      | "DeletedComment"
-      | "Divided"
-      | "CheckedIn"
-      | "CheckedOut"
-      | "FareOverride"
-      | "AddedBaggage"
-      | "ChangedBaggageWeight"
-      | "CheckedBaggage"
-      | "RemovedBaggage"
-      | "BoardedPassenger"
-      | "UnboardedPassenger"
-      | "ManualAuthorization"
-      | "ManualDecline"
-      | "UndoCancel"
-      | "ItinerarySent"
-      | "ContactChange"
-      | "SsrAdded"
-      | "FlightMoved"
-      | "VerifiedDocument"
-      | "RemovedVerifiedDocument"
-      | "Promotion"
-      | "BookingComment"
-      | "CancelledSchedule"
-      | "CancelServiceFee"
-      | "OverrideServiceFee"
-      | "AddedRecordLocator"
-      | "DeletedRecordLocator"
-      | "UpgradeClassOfService"
-      | "DowngradeClassOfService"
-      | "StandbyPriorityChange"
-      | "AssignedTicketNumber"
-      | "DeletedTicketNumber"
-      | "ConfirmSegmentStatusCodeChange"
-      | "CodeshareFlightChanged"
-      | "PdsCancel"
-      | "PdsPending"
-      | "PdsConfirm"
-      | "PdsFinalized"
-      | "PdsDeclined"
-      | "PdsException"
-      | "PdsCancelRefused"
-      | "PdsCancelUnsuccessful"
-      | "Apps"
-      | "InhibitedOverride"
-      | "PrintedBagTag"
-      | "SelfPrintedBagTag"
-      | "PrintedBoardingPass"
-      | "AddCustomerId"
-      | "DeleteCustomerId"
-      | "HoldCreated"
-      | "HoldRemoved"
-      | "HoldChanged"
-      | "OverrideCoupon"
-      | "PdsSynchronized"
-      | "PdsItemremoved"
-      | "Reprice"
-      | "ChannelOverride"
-      | "EmdCreated"
-      | "EmdRemoved"
-      | "EmdChanged"
-      | "ServiceBundle"
-      | "PublishedFareOverride"
-      | "FareClassRealignment",
+      | 'Unknown'
+      | 'ConvertedHistory'
+      | 'FlightTimeChange'
+      | 'FlightDesignatorChange'
+      | 'AssignedSeat'
+      | 'RemoveSeat'
+      | 'AddedFlight'
+      | 'DeletedFlight'
+      | 'DeletedPassenger'
+      | 'NameChange'
+      | 'GroupNameChange'
+      | 'CancelledTicketing'
+      | 'ScheduleChange'
+      | 'AddedPayment'
+      | 'ServiceFee'
+      | 'QueuedPnr'
+      | 'UnqueuedPnr'
+      | 'DeletedComment'
+      | 'Divided'
+      | 'CheckedIn'
+      | 'CheckedOut'
+      | 'FareOverride'
+      | 'AddedBaggage'
+      | 'ChangedBaggageWeight'
+      | 'CheckedBaggage'
+      | 'RemovedBaggage'
+      | 'BoardedPassenger'
+      | 'UnboardedPassenger'
+      | 'ManualAuthorization'
+      | 'ManualDecline'
+      | 'UndoCancel'
+      | 'ItinerarySent'
+      | 'ContactChange'
+      | 'SsrAdded'
+      | 'FlightMoved'
+      | 'VerifiedDocument'
+      | 'RemovedVerifiedDocument'
+      | 'Promotion'
+      | 'BookingComment'
+      | 'CancelledSchedule'
+      | 'CancelServiceFee'
+      | 'OverrideServiceFee'
+      | 'AddedRecordLocator'
+      | 'DeletedRecordLocator'
+      | 'UpgradeClassOfService'
+      | 'DowngradeClassOfService'
+      | 'StandbyPriorityChange'
+      | 'AssignedTicketNumber'
+      | 'DeletedTicketNumber'
+      | 'ConfirmSegmentStatusCodeChange'
+      | 'CodeshareFlightChanged'
+      | 'PdsCancel'
+      | 'PdsPending'
+      | 'PdsConfirm'
+      | 'PdsFinalized'
+      | 'PdsDeclined'
+      | 'PdsException'
+      | 'PdsCancelRefused'
+      | 'PdsCancelUnsuccessful'
+      | 'Apps'
+      | 'InhibitedOverride'
+      | 'PrintedBagTag'
+      | 'SelfPrintedBagTag'
+      | 'PrintedBoardingPass'
+      | 'AddCustomerId'
+      | 'DeleteCustomerId'
+      | 'HoldCreated'
+      | 'HoldRemoved'
+      | 'HoldChanged'
+      | 'OverrideCoupon'
+      | 'PdsSynchronized'
+      | 'PdsItemremoved'
+      | 'Reprice'
+      | 'ChannelOverride'
+      | 'EmdCreated'
+      | 'EmdRemoved'
+      | 'EmdChanged'
+      | 'ServiceBundle'
+      | 'PublishedFareOverride'
+      | 'FareClassRealignment',
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (event !== undefined) {
-      queryParameters.push("event=" + encodeURIComponent(String(event)));
+      queryParameters.push('event=' + encodeURIComponent(String(event)));
     }
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
       HistoryResponse
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/booking/history?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <HistoryResponse>httpResponse.response)
       );
@@ -2032,15 +2032,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingHistoryMessageGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingMessageHistory>>;
   public apiNskV1BookingHistoryMessageGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingMessageHistory>>>;
   public apiNskV1BookingHistoryMessageGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2049,7 +2049,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/history/message`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingMessageHistory>>httpResponse.response)
       );
@@ -2063,15 +2063,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingHistoryNotificationGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingNotificationHistory>>;
   public apiNskV1BookingHistoryNotificationGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingNotificationHistory>>>;
   public apiNskV1BookingHistoryNotificationGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2080,7 +2080,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/history/notification`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse =>
@@ -2100,43 +2100,43 @@ export class BookingService {
      
      */
   public apiNskV1BookingHistorySeatAssignmentGet(
-    event: "AssignedSeat" | "RemoveSeat",
+    event: 'AssignedSeat' | 'RemoveSeat',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SeatAssignmentHistoryResponse>;
   public apiNskV1BookingHistorySeatAssignmentGet(
-    event: "AssignedSeat" | "RemoveSeat",
+    event: 'AssignedSeat' | 'RemoveSeat',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SeatAssignmentHistoryResponse>>;
   public apiNskV1BookingHistorySeatAssignmentGet(
-    event: "AssignedSeat" | "RemoveSeat",
+    event: 'AssignedSeat' | 'RemoveSeat',
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!event) {
       throw new Error(
-        "Required parameter event was null or undefined when calling apiNskV1BookingHistorySeatAssignmentGet."
+        'Required parameter event was null or undefined when calling apiNskV1BookingHistorySeatAssignmentGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (event !== undefined) {
-      queryParameters.push("event=" + encodeURIComponent(String(event)));
+      queryParameters.push('event=' + encodeURIComponent(String(event)));
     }
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
@@ -2144,10 +2144,10 @@ export class BookingService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/history/seatAssignment?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/history/seatAssignment?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <SeatAssignmentHistoryResponse>httpResponse.response
@@ -2166,43 +2166,43 @@ export class BookingService {
      
      */
   public apiNskV1BookingHistorySegmentChangeGet(
-    event: "AddedFlight" | "DeletedFlight",
+    event: 'AddedFlight' | 'DeletedFlight',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SegmentChangeHistoryResponse>;
   public apiNskV1BookingHistorySegmentChangeGet(
-    event: "AddedFlight" | "DeletedFlight",
+    event: 'AddedFlight' | 'DeletedFlight',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SegmentChangeHistoryResponse>>;
   public apiNskV1BookingHistorySegmentChangeGet(
-    event: "AddedFlight" | "DeletedFlight",
+    event: 'AddedFlight' | 'DeletedFlight',
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!event) {
       throw new Error(
-        "Required parameter event was null or undefined when calling apiNskV1BookingHistorySegmentChangeGet."
+        'Required parameter event was null or undefined when calling apiNskV1BookingHistorySegmentChangeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (event !== undefined) {
-      queryParameters.push("event=" + encodeURIComponent(String(event)));
+      queryParameters.push('event=' + encodeURIComponent(String(event)));
     }
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
@@ -2210,10 +2210,10 @@ export class BookingService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/history/segmentChange?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/history/segmentChange?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SegmentChangeHistoryResponse>httpResponse.response)
       );
@@ -2229,17 +2229,17 @@ export class BookingService {
      */
   public apiNskV1BookingPointOfSalePatch(
     request?: DeltaMapperBookingPointOfSaleEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPointOfSalePatch(
     request?: DeltaMapperBookingPointOfSaleEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPointOfSalePatch(
     request?: DeltaMapperBookingPointOfSaleEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2249,7 +2249,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2265,17 +2265,17 @@ export class BookingService {
      */
   public apiNskV1BookingPointOfSalePut(
     request?: BookingPointOfSaleEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPointOfSalePut(
     request?: BookingPointOfSaleEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPointOfSalePut(
     request?: BookingPointOfSaleEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2285,7 +2285,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2299,15 +2299,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingPromotionDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPromotionDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPromotionDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2316,7 +2316,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/promotion`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2332,17 +2332,17 @@ export class BookingService {
      */
   public apiNskV1BookingPromotionPost(
     request?: PromotionRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<any>;
   public apiNskV1BookingPromotionPost(
     request?: PromotionRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<any>>;
   public apiNskV1BookingPromotionPost(
     request?: PromotionRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<any>> = this.httpClient.post(
@@ -2350,7 +2350,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <any>httpResponse.response));
     }
     return response;
@@ -2364,17 +2364,17 @@ export class BookingService {
      */
   public apiNskV1BookingPromotionPut(
     request?: PromotionRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPromotionPut(
     request?: PromotionRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPromotionPut(
     request?: PromotionRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2384,7 +2384,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2400,17 +2400,17 @@ export class BookingService {
      */
   public apiNskV1BookingQueueDelete(
     request?: BookingQueueRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingQueueDelete(
     request?: BookingQueueRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingQueueDelete(
     request?: BookingQueueRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2420,7 +2420,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2436,17 +2436,17 @@ export class BookingService {
      */
   public apiNskV1BookingQueuePost(
     request?: BookingQueueRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingQueuePost(
     request?: BookingQueueRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingQueuePost(
     request?: BookingQueueRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2456,7 +2456,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2472,22 +2472,22 @@ export class BookingService {
      */
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(
     recordLocatorKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(
     recordLocatorKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete(
     recordLocatorKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocatorKey) {
       throw new Error(
-        "Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete."
+        'Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyDelete.'
       );
     }
 
@@ -2499,7 +2499,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2515,22 +2515,22 @@ export class BookingService {
      */
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(
     recordLocatorKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<RecordLocator>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(
     recordLocatorKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<RecordLocator>>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet(
     recordLocatorKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocatorKey) {
       throw new Error(
-        "Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet."
+        'Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyGet.'
       );
     }
 
@@ -2542,7 +2542,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <RecordLocator>httpResponse.response)
       );
@@ -2560,24 +2560,24 @@ export class BookingService {
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(
     recordLocatorKey: string,
     request?: DeltaMapperRecordLocatorEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(
     recordLocatorKey: string,
     request?: DeltaMapperRecordLocatorEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch(
     recordLocatorKey: string,
     request?: DeltaMapperRecordLocatorEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocatorKey) {
       throw new Error(
-        "Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch."
+        'Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyPatch.'
       );
     }
 
@@ -2590,7 +2590,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2608,24 +2608,24 @@ export class BookingService {
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(
     recordLocatorKey: string,
     request?: RecordLocatorEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(
     recordLocatorKey: string,
     request?: RecordLocatorEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut(
     recordLocatorKey: string,
     request?: RecordLocatorEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocatorKey) {
       throw new Error(
-        "Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut."
+        'Required parameter recordLocatorKey was null or undefined when calling apiNskV1BookingRecordLocatorsByRecordLocatorKeyPut.'
       );
     }
 
@@ -2638,7 +2638,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2652,15 +2652,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingRecordLocatorsDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingRecordLocatorsDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingRecordLocatorsDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2669,7 +2669,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/recordLocators`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2683,15 +2683,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingRecordLocatorsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<RecordLocator>>;
   public apiNskV1BookingRecordLocatorsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<RecordLocator>>>;
   public apiNskV1BookingRecordLocatorsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2700,7 +2700,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/recordLocators`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<RecordLocator>>httpResponse.response)
       );
@@ -2716,17 +2716,17 @@ export class BookingService {
      */
   public apiNskV1BookingRecordLocatorsPost(
     request?: RecordLocatorCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingRecordLocatorsPost(
     request?: RecordLocatorCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingRecordLocatorsPost(
     request?: RecordLocatorCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2736,7 +2736,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2750,15 +2750,15 @@ export class BookingService {
      
      */
   public apiNskV1BookingResetDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingResetDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingResetDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -2767,7 +2767,7 @@ export class BookingService {
       `${this.basePath}/api/nsk/v1/booking/reset`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2782,24 +2782,24 @@ export class BookingService {
      
      */
   public apiNskV1BookingSalesChannelPut(
-    channelType?: "Direct" | "Web" | "Api",
-    observe?: "body",
+    channelType?: 'Direct' | 'Web' | 'Api',
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSalesChannelPut(
-    channelType?: "Direct" | "Web" | "Api",
-    observe?: "response",
+    channelType?: 'Direct' | 'Web' | 'Api',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSalesChannelPut(
-    channelType?: "Direct" | "Web" | "Api",
-    observe: any = "body",
+    channelType?: 'Direct' | 'Web' | 'Api',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (channelType !== undefined) {
       queryParameters.push(
-        "channelType=" + encodeURIComponent(String(channelType))
+        'channelType=' + encodeURIComponent(String(channelType))
       );
     }
 
@@ -2807,11 +2807,11 @@ export class BookingService {
       IJsonResponse
     >> = this.httpClient.put(
       `${this.basePath}/api/nsk/v1/booking/salesChannel?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2831,32 +2831,32 @@ export class BookingService {
     primaryPassengerKey: string,
     journeyKey: string,
     request?: AutoAssignRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(
     primaryPassengerKey: string,
     journeyKey: string,
     request?: AutoAssignRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost(
     primaryPassengerKey: string,
     journeyKey: string,
     request?: AutoAssignRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!primaryPassengerKey) {
       throw new Error(
-        "Required parameter primaryPassengerKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost."
+        'Required parameter primaryPassengerKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost.'
       );
     }
 
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeyJourneyByJourneyKeyPost.'
       );
     }
 
@@ -2869,7 +2869,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2887,24 +2887,24 @@ export class BookingService {
   public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(
     primaryPassengerKey: string,
     request?: AutoAssignRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(
     primaryPassengerKey: string,
     request?: AutoAssignRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost(
     primaryPassengerKey: string,
     request?: AutoAssignRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!primaryPassengerKey) {
       throw new Error(
-        "Required parameter primaryPassengerKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost."
+        'Required parameter primaryPassengerKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeyPost.'
       );
     }
 
@@ -2917,7 +2917,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2937,32 +2937,32 @@ export class BookingService {
     primaryPassengerKey: string,
     segmentKey: string,
     request?: AutoAssignRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(
     primaryPassengerKey: string,
     segmentKey: string,
     request?: AutoAssignRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost(
     primaryPassengerKey: string,
     segmentKey: string,
     request?: AutoAssignRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!primaryPassengerKey) {
       throw new Error(
-        "Required parameter primaryPassengerKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost."
+        'Required parameter primaryPassengerKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost.'
       );
     }
 
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost."
+        'Required parameter segmentKey was null or undefined when calling apiNskV1BookingSeatsAutoByPrimaryPassengerKeySegmentBySegmentKeyPost.'
       );
     }
 
@@ -2975,7 +2975,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2991,22 +2991,22 @@ export class BookingService {
      */
   public apiNskV1BookingSegmentsBySegmentKeyDelete(
     segmentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSegmentsBySegmentKeyDelete(
     segmentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSegmentsBySegmentKeyDelete(
     segmentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV1BookingSegmentsBySegmentKeyDelete."
+        'Required parameter segmentKey was null or undefined when calling apiNskV1BookingSegmentsBySegmentKeyDelete.'
       );
     }
 
@@ -3018,7 +3018,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3034,22 +3034,22 @@ export class BookingService {
      */
   public apiNskV2BookingCommentsByCommentKeyDelete(
     commentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingCommentsByCommentKeyDelete(
     commentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingCommentsByCommentKeyDelete(
     commentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!commentKey) {
       throw new Error(
-        "Required parameter commentKey was null or undefined when calling apiNskV2BookingCommentsByCommentKeyDelete."
+        'Required parameter commentKey was null or undefined when calling apiNskV2BookingCommentsByCommentKeyDelete.'
       );
     }
 
@@ -3061,7 +3061,7 @@ export class BookingService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3077,17 +3077,17 @@ export class BookingService {
      */
   public apiNskV2BookingDividePost(
     request?: DivideRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingDividePost(
     request?: DivideRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingDividePost(
     request?: DivideRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -3097,7 +3097,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3111,22 +3111,22 @@ export class BookingService {
      
      */
   public apiNskV2BookingHoldAvailableGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Date>;
   public apiNskV2BookingHoldAvailableGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Date>>;
   public apiNskV2BookingHoldAvailableGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Date>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/booking/hold/available`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Date>httpResponse.response));
     }
     return response;
@@ -3142,31 +3142,31 @@ export class BookingService {
   public apiNskV2BookingSeatmapsGet(
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SeatMapAvailability>>;
   public apiNskV2BookingSeatmapsGet(
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SeatMapAvailability>>>;
   public apiNskV2BookingSeatmapsGet(
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (includePropertyLookup !== undefined) {
       queryParameters.push(
-        "includePropertyLookup=" +
+        'includePropertyLookup=' +
           encodeURIComponent(String(includePropertyLookup))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -3174,11 +3174,11 @@ export class BookingService {
       Array<SeatMapAvailability>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/booking/seatmaps?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SeatMapAvailability>>httpResponse.response)
       );
@@ -3198,39 +3198,39 @@ export class BookingService {
     segmentKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SeatMapAvailability>>;
   public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(
     segmentKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SeatMapAvailability>>>;
   public apiNskV2BookingSeatmapsSegmentBySegmentKeyGet(
     segmentKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV2BookingSeatmapsSegmentBySegmentKeyGet."
+        'Required parameter segmentKey was null or undefined when calling apiNskV2BookingSeatmapsSegmentBySegmentKeyGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (includePropertyLookup !== undefined) {
       queryParameters.push(
-        "includePropertyLookup=" +
+        'includePropertyLookup=' +
           encodeURIComponent(String(includePropertyLookup))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -3241,10 +3241,10 @@ export class BookingService {
         this.basePath
       }/api/nsk/v2/booking/seatmaps/segment/${encodeURIComponent(
         String(segmentKey)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SeatMapAvailability>>httpResponse.response)
       );
@@ -3258,22 +3258,22 @@ export class BookingService {
      
      */
   public apiNskV2BookingStatusGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV2BookingStatusGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV2BookingStatusGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Booking>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/booking/status`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;
@@ -3287,17 +3287,17 @@ export class BookingService {
      */
   public apiNskV3BookingPost(
     request?: CommitRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPost(
     request?: CommitRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPost(
     request?: CommitRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -3307,7 +3307,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3323,17 +3323,17 @@ export class BookingService {
      */
   public apiNskV3BookingPut(
     request?: CommitRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPut(
     request?: CommitRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPut(
     request?: CommitRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -3343,7 +3343,7 @@ export class BookingService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -3363,39 +3363,39 @@ export class BookingService {
     journeyKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SeatMapAvailability>>;
   public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(
     journeyKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SeatMapAvailability>>>;
   public apiNskV3BookingSeatmapsJourneyByJourneyKeyGet(
     journeyKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV3BookingSeatmapsJourneyByJourneyKeyGet."
+        'Required parameter journeyKey was null or undefined when calling apiNskV3BookingSeatmapsJourneyByJourneyKeyGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (includePropertyLookup !== undefined) {
       queryParameters.push(
-        "includePropertyLookup=" +
+        'includePropertyLookup=' +
           encodeURIComponent(String(includePropertyLookup))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -3406,10 +3406,10 @@ export class BookingService {
         this.basePath
       }/api/nsk/v3/booking/seatmaps/journey/${encodeURIComponent(
         String(journeyKey)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SeatMapAvailability>>httpResponse.response)
       );

@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   Account,
   AccountCollectionRequest,
@@ -40,16 +40,20 @@ import {
   SegmentChangeHistoryResponse,
   Transaction,
   TransactionRequest
-} from "api-models";
+} from 'api-models';
 
-import { BookingsService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { BookingsService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreBookingsService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("BookingsService") protected baseService: BookingsService
+    @inject('Store') protected store: Store<any>,
+    @inject('BookingsService') protected baseService: BookingsService
   ) {}
 
   /**
@@ -67,7 +71,7 @@ export class StoreBookingsService {
         bookingKey,
         lastPageKey,
         pageSize,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -83,86 +87,86 @@ export class StoreBookingsService {
   public async store_apiNskV1BookingsByBookingKeyHistoryGet(
     bookingKey: string,
     event?:
-      | "Unknown"
-      | "ConvertedHistory"
-      | "FlightTimeChange"
-      | "FlightDesignatorChange"
-      | "AssignedSeat"
-      | "RemoveSeat"
-      | "AddedFlight"
-      | "DeletedFlight"
-      | "DeletedPassenger"
-      | "NameChange"
-      | "GroupNameChange"
-      | "CancelledTicketing"
-      | "ScheduleChange"
-      | "AddedPayment"
-      | "ServiceFee"
-      | "QueuedPnr"
-      | "UnqueuedPnr"
-      | "DeletedComment"
-      | "Divided"
-      | "CheckedIn"
-      | "CheckedOut"
-      | "FareOverride"
-      | "AddedBaggage"
-      | "ChangedBaggageWeight"
-      | "CheckedBaggage"
-      | "RemovedBaggage"
-      | "BoardedPassenger"
-      | "UnboardedPassenger"
-      | "ManualAuthorization"
-      | "ManualDecline"
-      | "UndoCancel"
-      | "ItinerarySent"
-      | "ContactChange"
-      | "SsrAdded"
-      | "FlightMoved"
-      | "VerifiedDocument"
-      | "RemovedVerifiedDocument"
-      | "Promotion"
-      | "BookingComment"
-      | "CancelledSchedule"
-      | "CancelServiceFee"
-      | "OverrideServiceFee"
-      | "AddedRecordLocator"
-      | "DeletedRecordLocator"
-      | "UpgradeClassOfService"
-      | "DowngradeClassOfService"
-      | "StandbyPriorityChange"
-      | "AssignedTicketNumber"
-      | "DeletedTicketNumber"
-      | "ConfirmSegmentStatusCodeChange"
-      | "CodeshareFlightChanged"
-      | "PdsCancel"
-      | "PdsPending"
-      | "PdsConfirm"
-      | "PdsFinalized"
-      | "PdsDeclined"
-      | "PdsException"
-      | "PdsCancelRefused"
-      | "PdsCancelUnsuccessful"
-      | "Apps"
-      | "InhibitedOverride"
-      | "PrintedBagTag"
-      | "SelfPrintedBagTag"
-      | "PrintedBoardingPass"
-      | "AddCustomerId"
-      | "DeleteCustomerId"
-      | "HoldCreated"
-      | "HoldRemoved"
-      | "HoldChanged"
-      | "OverrideCoupon"
-      | "PdsSynchronized"
-      | "PdsItemremoved"
-      | "Reprice"
-      | "ChannelOverride"
-      | "EmdCreated"
-      | "EmdRemoved"
-      | "EmdChanged"
-      | "ServiceBundle"
-      | "PublishedFareOverride"
-      | "FareClassRealignment",
+      | 'Unknown'
+      | 'ConvertedHistory'
+      | 'FlightTimeChange'
+      | 'FlightDesignatorChange'
+      | 'AssignedSeat'
+      | 'RemoveSeat'
+      | 'AddedFlight'
+      | 'DeletedFlight'
+      | 'DeletedPassenger'
+      | 'NameChange'
+      | 'GroupNameChange'
+      | 'CancelledTicketing'
+      | 'ScheduleChange'
+      | 'AddedPayment'
+      | 'ServiceFee'
+      | 'QueuedPnr'
+      | 'UnqueuedPnr'
+      | 'DeletedComment'
+      | 'Divided'
+      | 'CheckedIn'
+      | 'CheckedOut'
+      | 'FareOverride'
+      | 'AddedBaggage'
+      | 'ChangedBaggageWeight'
+      | 'CheckedBaggage'
+      | 'RemovedBaggage'
+      | 'BoardedPassenger'
+      | 'UnboardedPassenger'
+      | 'ManualAuthorization'
+      | 'ManualDecline'
+      | 'UndoCancel'
+      | 'ItinerarySent'
+      | 'ContactChange'
+      | 'SsrAdded'
+      | 'FlightMoved'
+      | 'VerifiedDocument'
+      | 'RemovedVerifiedDocument'
+      | 'Promotion'
+      | 'BookingComment'
+      | 'CancelledSchedule'
+      | 'CancelServiceFee'
+      | 'OverrideServiceFee'
+      | 'AddedRecordLocator'
+      | 'DeletedRecordLocator'
+      | 'UpgradeClassOfService'
+      | 'DowngradeClassOfService'
+      | 'StandbyPriorityChange'
+      | 'AssignedTicketNumber'
+      | 'DeletedTicketNumber'
+      | 'ConfirmSegmentStatusCodeChange'
+      | 'CodeshareFlightChanged'
+      | 'PdsCancel'
+      | 'PdsPending'
+      | 'PdsConfirm'
+      | 'PdsFinalized'
+      | 'PdsDeclined'
+      | 'PdsException'
+      | 'PdsCancelRefused'
+      | 'PdsCancelUnsuccessful'
+      | 'Apps'
+      | 'InhibitedOverride'
+      | 'PrintedBagTag'
+      | 'SelfPrintedBagTag'
+      | 'PrintedBoardingPass'
+      | 'AddCustomerId'
+      | 'DeleteCustomerId'
+      | 'HoldCreated'
+      | 'HoldRemoved'
+      | 'HoldChanged'
+      | 'OverrideCoupon'
+      | 'PdsSynchronized'
+      | 'PdsItemremoved'
+      | 'Reprice'
+      | 'ChannelOverride'
+      | 'EmdCreated'
+      | 'EmdRemoved'
+      | 'EmdChanged'
+      | 'ServiceBundle'
+      | 'PublishedFareOverride'
+      | 'FareClassRealignment',
     lastPageKey?: string,
     pageSize?: number,
     headers?: Headers
@@ -173,7 +177,7 @@ export class StoreBookingsService {
         event,
         lastPageKey,
         pageSize,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -193,7 +197,7 @@ export class StoreBookingsService {
     const response = await this.baseService
       .apiNskV1BookingsByBookingKeyHistoryMessageGet(
         bookingKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -213,7 +217,7 @@ export class StoreBookingsService {
     const response = await this.baseService
       .apiNskV1BookingsByBookingKeyHistoryNotificationGet(
         bookingKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -228,7 +232,7 @@ export class StoreBookingsService {
    */
   public async store_apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(
     bookingKey: string,
-    event: "AssignedSeat" | "RemoveSeat",
+    event: 'AssignedSeat' | 'RemoveSeat',
     lastPageKey?: string,
     pageSize?: number,
     headers?: Headers
@@ -239,7 +243,7 @@ export class StoreBookingsService {
         event,
         lastPageKey,
         pageSize,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -254,7 +258,7 @@ export class StoreBookingsService {
    */
   public async store_apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(
     bookingKey: string,
-    event: "AddedFlight" | "DeletedFlight",
+    event: 'AddedFlight' | 'DeletedFlight',
     lastPageKey?: string,
     pageSize?: number,
     headers?: Headers
@@ -265,7 +269,7 @@ export class StoreBookingsService {
         event,
         lastPageKey,
         pageSize,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -287,7 +291,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsByBookingKeyQueueDelete(
         bookingKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -309,7 +313,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsByBookingKeyQueueHistoryPost(
         bookingKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -331,7 +335,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsByBookingKeyQueuePost(
         bookingKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -363,7 +367,7 @@ export class StoreBookingsService {
         endTime,
         pageSize,
         pageIndex,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -387,7 +391,7 @@ export class StoreBookingsService {
         recordLocator,
         accountCollectionKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -409,7 +413,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsByRecordLocatorAccountCollectionPost(
         recordLocator,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -427,7 +431,7 @@ export class StoreBookingsService {
     headers?: Headers
   ): Promise<Account> {
     const response = await this.baseService
-      .apiNskV1BookingsByRecordLocatorAccountGet(recordLocator, "body", headers)
+      .apiNskV1BookingsByRecordLocatorAccountGet(recordLocator, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingsByRecordLocatorAccountGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -447,7 +451,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsByRecordLocatorAccountPost(
         recordLocator,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -462,14 +466,14 @@ export class StoreBookingsService {
    */
   public async store_apiNskV1BookingsByRecordLocatorAccountStatusPut(
     recordLocator: string,
-    status: "Open" | "Closed" | "AgencyInactive" | "Unknown",
+    status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
       .apiNskV1BookingsByRecordLocatorAccountStatusPut(
         recordLocator,
         status,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -499,7 +503,7 @@ export class StoreBookingsService {
         endTime,
         pageSize,
         pageIndex,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -521,7 +525,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsByRecordLocatorCommentsPost(
         recordLocator,
         comments,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -539,7 +543,7 @@ export class StoreBookingsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1BookingsByRecordLocatorEmailPost(recordLocator, "body", headers)
+      .apiNskV1BookingsByRecordLocatorEmailPost(recordLocator, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingsByRecordLocatorEmailPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -561,7 +565,7 @@ export class StoreBookingsService {
         recordLocator,
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -579,7 +583,7 @@ export class StoreBookingsService {
     headers?: Headers
   ): Promise<Booking> {
     const response = await this.baseService
-      .apiNskV1BookingsByRecordLocatorGet(recordLocator, "body", headers)
+      .apiNskV1BookingsByRecordLocatorGet(recordLocator, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingsByRecordLocatorGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -601,7 +605,7 @@ export class StoreBookingsService {
         recordLocator,
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -623,7 +627,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(
         recordLocator,
         journeyKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -645,7 +649,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(
         recordLocator,
         journeyKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -669,7 +673,7 @@ export class StoreBookingsService {
         recordLocator,
         segmentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -691,7 +695,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(
         recordLocator,
         segmentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -713,7 +717,7 @@ export class StoreBookingsService {
       .apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(
         recordLocator,
         segmentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -757,7 +761,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -803,7 +807,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -847,7 +851,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -877,7 +881,7 @@ export class StoreBookingsService {
         pageSize,
         lastIndex,
         searchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -919,7 +923,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -959,7 +963,7 @@ export class StoreBookingsService {
         searchArchive,
         pageSize,
         lastIndex,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1001,7 +1005,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1043,7 +1047,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1083,7 +1087,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1123,7 +1127,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1165,7 +1169,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1207,7 +1211,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1249,7 +1253,7 @@ export class StoreBookingsService {
         filtersSourceOrganization,
         filtersOrganizationGroupCode,
         filtersSearchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1279,7 +1283,7 @@ export class StoreBookingsService {
         sourceOrganization,
         organizationGroupCode,
         searchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1315,7 +1319,7 @@ export class StoreBookingsService {
         sourceOrganization,
         organizationGroupCode,
         searchArchive,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1335,7 +1339,7 @@ export class StoreBookingsService {
     const response = await this.baseService
       .apiNskV2BookingsByRecordLocatorNotificationPost(
         recordLocator,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1367,7 +1371,7 @@ export class StoreBookingsService {
         lastName,
         customerNumber,
         departureDate,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1385,7 +1389,7 @@ export class StoreBookingsService {
     headers?: Headers
   ): Promise<ItineraryQuote> {
     const response = await this.baseService
-      .apiNskV2BookingsQuotePost(request, "body", headers)
+      .apiNskV2BookingsQuotePost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV2BookingsQuotePost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1407,7 +1411,7 @@ export class StoreBookingsService {
         recordLocator,
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1431,7 +1435,7 @@ export class StoreBookingsService {
         recordLocator,
         segmentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();

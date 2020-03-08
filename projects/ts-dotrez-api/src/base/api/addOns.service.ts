@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   ActivityProduct,
@@ -30,22 +30,22 @@ import {
   SellCarRequest,
   SellHotelRequest,
   SellTokenRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class AddOnsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -59,17 +59,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsActivitiesAvailablePost(
     request?: ActivitySimpleRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ActivityProduct>>;
   public apiNskV1AddOnsActivitiesAvailablePost(
     request?: ActivitySimpleRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ActivityProduct>>>;
   public apiNskV1AddOnsActivitiesAvailablePost(
     request?: ActivitySimpleRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -79,7 +79,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ActivityProduct>>httpResponse.response)
       );
@@ -95,17 +95,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsActivitiesPost(
     request?: SellTokenRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AddOn>;
   public apiNskV1AddOnsActivitiesPost(
     request?: SellTokenRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AddOn>>;
   public apiNskV1AddOnsActivitiesPost(
     request?: SellTokenRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(
@@ -113,7 +113,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <AddOn>httpResponse.response));
     }
     return response;
@@ -127,17 +127,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsActivitiesQuotePost(
     request?: QuoteTokenRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<QuotedProduct>;
   public apiNskV1AddOnsActivitiesQuotePost(
     request?: QuoteTokenRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<QuotedProduct>>;
   public apiNskV1AddOnsActivitiesQuotePost(
     request?: QuoteTokenRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -147,7 +147,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <QuotedProduct>httpResponse.response)
       );
@@ -163,17 +163,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsCarsAvailablePost(
     request?: ProductRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<CarProduct>>;
   public apiNskV1AddOnsCarsAvailablePost(
     request?: ProductRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<CarProduct>>>;
   public apiNskV1AddOnsCarsAvailablePost(
     request?: ProductRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -183,7 +183,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<CarProduct>>httpResponse.response)
       );
@@ -199,17 +199,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsCarsPost(
     request?: SellCarRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AddOn>;
   public apiNskV1AddOnsCarsPost(
     request?: SellCarRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AddOn>>;
   public apiNskV1AddOnsCarsPost(
     request?: SellCarRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(
@@ -217,7 +217,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <AddOn>httpResponse.response));
     }
     return response;
@@ -231,17 +231,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsCarsQuotePost(
     request?: QuoteCarRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<QuotedProduct>;
   public apiNskV1AddOnsCarsQuotePost(
     request?: QuoteCarRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<QuotedProduct>>;
   public apiNskV1AddOnsCarsQuotePost(
     request?: QuoteCarRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -251,7 +251,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <QuotedProduct>httpResponse.response)
       );
@@ -267,17 +267,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsHotelsAvailablePost(
     request?: HotelRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<HotelProduct>>;
   public apiNskV1AddOnsHotelsAvailablePost(
     request?: HotelRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<HotelProduct>>>;
   public apiNskV1AddOnsHotelsAvailablePost(
     request?: HotelRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -287,7 +287,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<HotelProduct>>httpResponse.response)
       );
@@ -303,17 +303,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsHotelsPost(
     request?: SellHotelRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AddOn>;
   public apiNskV1AddOnsHotelsPost(
     request?: SellHotelRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AddOn>>;
   public apiNskV1AddOnsHotelsPost(
     request?: SellHotelRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<AddOn>> = this.httpClient.post(
@@ -321,7 +321,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <AddOn>httpResponse.response));
     }
     return response;
@@ -335,17 +335,17 @@ export class AddOnsService {
      */
   public apiNskV1AddOnsHotelsQuotePost(
     request?: QuoteHotelRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<QuotedProduct>;
   public apiNskV1AddOnsHotelsQuotePost(
     request?: QuoteHotelRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<QuotedProduct>>;
   public apiNskV1AddOnsHotelsQuotePost(
     request?: QuoteHotelRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -355,7 +355,7 @@ export class AddOnsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <QuotedProduct>httpResponse.response)
       );

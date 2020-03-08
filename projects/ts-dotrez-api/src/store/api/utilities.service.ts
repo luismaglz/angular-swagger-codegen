@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { IJsonResponse } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { IJsonResponse } from 'api-models';
 
-import { UtilitiesService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { UtilitiesService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreUtilitiesService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("UtilitiesService") protected baseService: UtilitiesService
+    @inject('Store') protected store: Store<any>,
+    @inject('UtilitiesService') protected baseService: UtilitiesService
   ) {}
 
   /**
@@ -38,7 +42,7 @@ export class StoreUtilitiesService {
     const response = await this.baseService
       .apiNskV1UtilitiesStationLocalTimeByStationCodeGet(
         stationCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();

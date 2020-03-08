@@ -11,24 +11,28 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   IJsonResponse,
   VoucherIssuance,
   VoucherIssuanceRequest
-} from "api-models";
+} from 'api-models';
 
-import { VoucherIssuanceService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { VoucherIssuanceService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreVoucherIssuanceService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("VoucherIssuanceService")
+    @inject('Store') protected store: Store<any>,
+    @inject('VoucherIssuanceService')
     protected baseService: VoucherIssuanceService
   ) {}
 
@@ -43,7 +47,7 @@ export class StoreVoucherIssuanceService {
     const response = await this.baseService
       .apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(
         voucherIssuanceKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -61,7 +65,7 @@ export class StoreVoucherIssuanceService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1VoucherIssuancePost(request, "body", headers)
+      .apiNskV1VoucherIssuancePost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1VoucherIssuancePost
     // addResponsetoStore(this.store, response.data, true, true);

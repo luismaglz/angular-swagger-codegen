@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { IJsonResponse, Promotion, PromotionBase } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { IJsonResponse, Promotion, PromotionBase } from 'api-models';
 
-import { PromotionsService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { PromotionsService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StorePromotionsService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("PromotionsService") protected baseService: PromotionsService
+    @inject('Store') protected store: Store<any>,
+    @inject('PromotionsService') protected baseService: PromotionsService
   ) {}
 
   /**
@@ -36,7 +40,7 @@ export class StorePromotionsService {
     headers?: Headers
   ): Promise<Promotion> {
     const response = await this.baseService
-      .apiNskV1PromotionsByPromotionCodeGet(promotionCode, "body", headers)
+      .apiNskV1PromotionsByPromotionCodeGet(promotionCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1PromotionsByPromotionCodeGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -56,7 +60,7 @@ export class StorePromotionsService {
       .apiNskV1PromotionsByPromotionCodeValidateGet(
         promotionCode,
         organizationCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -75,15 +79,15 @@ export class StorePromotionsService {
     effectiveDate?: Date,
     cultureCode?: string,
     promotionCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     organizationCodeMatching?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     headers?: Headers
   ): Promise<Array<PromotionBase>> {
     const response = await this.baseService
@@ -94,7 +98,7 @@ export class StorePromotionsService {
         cultureCode,
         promotionCodeMatching,
         organizationCodeMatching,
-        "body",
+        'body',
         headers
       )
       .toPromise();

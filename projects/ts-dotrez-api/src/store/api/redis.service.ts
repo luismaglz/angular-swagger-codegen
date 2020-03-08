@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { IJsonResponse } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { IJsonResponse } from 'api-models';
 
-import { RedisService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { RedisService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreRedisService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("RedisService") protected baseService: RedisService
+    @inject('Store') protected store: Store<any>,
+    @inject('RedisService') protected baseService: RedisService
   ) {}
 
   /**
@@ -36,7 +40,7 @@ export class StoreRedisService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiV1RedisByNameDelete(name, "body", headers)
+      .apiV1RedisByNameDelete(name, 'body', headers)
       .toPromise();
     // TODO: Implement apiV1RedisByNameDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -51,7 +55,7 @@ export class StoreRedisService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiV1RedisDelete("body", headers)
+      .apiV1RedisDelete('body', headers)
       .toPromise();
     // TODO: Implement apiV1RedisDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -64,7 +68,7 @@ export class StoreRedisService {
    */
   public async store_apiV1RedisGet(headers?: Headers): Promise<Array<string>> {
     const response = await this.baseService
-      .apiV1RedisGet("body", headers)
+      .apiV1RedisGet('body', headers)
       .toPromise();
     // TODO: Implement apiV1RedisGet
     // addResponsetoStore(this.store, response.data, true, true);

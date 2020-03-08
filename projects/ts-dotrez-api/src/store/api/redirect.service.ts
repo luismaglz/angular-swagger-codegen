@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { RedirectResult } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { RedirectResult } from 'api-models';
 
-import { RedirectService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { RedirectService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreRedirectService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("RedirectService") protected baseService: RedirectService
+    @inject('Store') protected store: Store<any>,
+    @inject('RedirectService') protected baseService: RedirectService
   ) {}
 
   /**
@@ -60,7 +64,7 @@ export class StoreRedirectService {
         value3,
         param4,
         value4,
-        "body",
+        'body',
         headers
       )
       .toPromise();

@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   BookingSearchResult,
   BookingTripResult,
@@ -79,16 +79,20 @@ import {
   UserRole,
   UserRoleCreateRequest,
   UserRoleEditRequest
-} from "api-models";
+} from 'api-models';
 
-import { UsersService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { UsersService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreUsersService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("UsersService") protected baseService: UsersService
+    @inject('Store') protected store: Store<any>,
+    @inject('UsersService') protected baseService: UsersService
   ) {}
 
   /**
@@ -106,7 +110,7 @@ export class StoreUsersService {
         userKey,
         startDate,
         endDate,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -152,7 +156,7 @@ export class StoreUsersService {
         endDate,
         searchByCustomerNumber,
         lastBookingKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -170,7 +174,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyDelete(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyDelete(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -186,7 +190,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<User> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -206,7 +210,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPasswordChangePost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -224,7 +228,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPasswordResetPost(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPasswordResetPost(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPasswordResetPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -241,7 +245,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPatch(userKey, request, "body", headers)
+      .apiNskV1UsersByUserKeyPatch(userKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPatch
     // addResponsetoStore(this.store, response.data, true, true);
@@ -261,7 +265,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonAddressesByPersonAddressKeyDelete(
         userKey,
         personAddressKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -283,7 +287,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonAddressesByPersonAddressKeyGet(
         userKey,
         personAddressKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -307,7 +311,7 @@ export class StoreUsersService {
         userKey,
         personAddressKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -331,7 +335,7 @@ export class StoreUsersService {
         userKey,
         personAddressKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -349,7 +353,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonAddress>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonAddressesGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonAddressesGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonAddressesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -369,7 +373,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonAddressesPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -391,7 +395,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonAliasesByPersonAliasKeyDelete(
         userKey,
         personAliasKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -413,7 +417,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonAliasesByPersonAliasKeyGet(
         userKey,
         personAliasKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -437,7 +441,7 @@ export class StoreUsersService {
         userKey,
         personAliasKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -461,7 +465,7 @@ export class StoreUsersService {
         userKey,
         personAliasKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -479,7 +483,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonAlias>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonAliasesGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonAliasesGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonAliasesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -499,7 +503,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonAliasesPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -521,7 +525,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonCommentsByPersonCommentKeyDelete(
         userKey,
         personCommentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -543,7 +547,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonCommentsByPersonCommentKeyGet(
         userKey,
         personCommentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -567,7 +571,7 @@ export class StoreUsersService {
         userKey,
         personCommentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -591,7 +595,7 @@ export class StoreUsersService {
         userKey,
         personCommentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -609,7 +613,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonComment>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonCommentsGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonCommentsGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonCommentsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -629,7 +633,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonCommentsPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -651,7 +655,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonEmailsByPersonEmailAddressKeyDelete(
         userKey,
         personEmailAddressKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -673,7 +677,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonEmailsByPersonEmailAddressKeyGet(
         userKey,
         personEmailAddressKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -697,7 +701,7 @@ export class StoreUsersService {
         userKey,
         personEmailAddressKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -721,7 +725,7 @@ export class StoreUsersService {
         userKey,
         personEmailAddressKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -745,7 +749,7 @@ export class StoreUsersService {
         userKey,
         personEmailAddressKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -763,7 +767,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonEmail>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonEmailsGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonEmailsGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonEmailsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -779,7 +783,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Person> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -799,7 +803,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonInformationByPersonInformationKeyDelete(
         userKey,
         personInformationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -821,7 +825,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonInformationByPersonInformationKeyGet(
         userKey,
         personInformationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -845,7 +849,7 @@ export class StoreUsersService {
         userKey,
         personInformationKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -869,7 +873,7 @@ export class StoreUsersService {
         userKey,
         personInformationKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -887,7 +891,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonInformation>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonInformationGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonInformationGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonInformationGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -907,7 +911,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonInformationPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -926,7 +930,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonPatch(userKey, request, "body", headers)
+      .apiNskV1UsersByUserKeyPersonPatch(userKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonPatch
     // addResponsetoStore(this.store, response.data, true, true);
@@ -946,7 +950,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonPhoneNumbersByPersonPhoneNumberKeyDelete(
         userKey,
         personPhoneNumberKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -968,7 +972,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonPhoneNumbersByPersonPhoneNumberKeyGet(
         userKey,
         personPhoneNumberKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -992,7 +996,7 @@ export class StoreUsersService {
         userKey,
         personPhoneNumberKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1016,7 +1020,7 @@ export class StoreUsersService {
         userKey,
         personPhoneNumberKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1034,7 +1038,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonPhoneNumber>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonPhoneNumbersGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonPhoneNumbersGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonPhoneNumbersGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1054,7 +1058,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonPhoneNumbersPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1076,7 +1080,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonPreferencesByPersonPreferenceKeyDelete(
         userKey,
         personPreferenceKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1098,7 +1102,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonPreferencesByPersonPreferenceKeyGet(
         userKey,
         personPreferenceKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1122,7 +1126,7 @@ export class StoreUsersService {
         userKey,
         personPreferenceKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1146,7 +1150,7 @@ export class StoreUsersService {
         userKey,
         personPreferenceKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1164,7 +1168,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonPreference>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonPreferencesGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonPreferencesGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonPreferencesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1184,7 +1188,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonPreferencesPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1206,7 +1210,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonProgramsByPersonProgramKeyDelete(
         userKey,
         personProgramKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1228,7 +1232,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonProgramsByPersonProgramKeyGet(
         userKey,
         personProgramKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1252,7 +1256,7 @@ export class StoreUsersService {
         userKey,
         personProgramKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1276,7 +1280,7 @@ export class StoreUsersService {
         userKey,
         personProgramKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1294,7 +1298,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonCustomerProgram>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonProgramsGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonProgramsGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonProgramsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1314,7 +1318,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonProgramsPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1333,7 +1337,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonPut(userKey, request, "body", headers)
+      .apiNskV1UsersByUserKeyPersonPut(userKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1353,7 +1357,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonStoredPaymentsByPersonStoredPaymentKeyDelete(
         userKey,
         personStoredPaymentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1375,7 +1379,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonStoredPaymentsByPersonStoredPaymentKeyGet(
         userKey,
         personStoredPaymentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1399,7 +1403,7 @@ export class StoreUsersService {
         userKey,
         personStoredPaymentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1423,7 +1427,7 @@ export class StoreUsersService {
         userKey,
         personStoredPaymentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1441,7 +1445,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonStoredPayment>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonStoredPaymentsGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonStoredPaymentsGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonStoredPaymentsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1461,7 +1465,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonStoredPaymentsPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1483,7 +1487,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelDocumentsByPersonTravelDocumentKeyDelete(
         userKey,
         personTravelDocumentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1505,7 +1509,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelDocumentsByPersonTravelDocumentKeyGet(
         userKey,
         personTravelDocumentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1523,7 +1527,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<PersonTravelDocument>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPersonTravelDocumentsGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyPersonTravelDocumentsGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPersonTravelDocumentsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1543,7 +1547,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelDocumentsPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1565,7 +1569,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyDelete(
         userKey,
         travelNotificationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1581,7 +1585,7 @@ export class StoreUsersService {
   public async store_apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(
     userKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
@@ -1589,7 +1593,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         eventType,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1605,7 +1609,7 @@ export class StoreUsersService {
   public async store_apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(
     userKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
     headers?: Headers
   ): Promise<NotificationEvent> {
     const response = await this.baseService
@@ -1613,7 +1617,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         eventType,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1635,7 +1639,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyEventsGet(
         userKey,
         travelNotificationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1659,7 +1663,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1681,7 +1685,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyGet(
         userKey,
         travelNotificationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1705,7 +1709,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1729,7 +1733,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1745,7 +1749,7 @@ export class StoreUsersService {
   public async store_apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(
     userKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
@@ -1753,7 +1757,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         timedEventType,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1769,7 +1773,7 @@ export class StoreUsersService {
   public async store_apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(
     userKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     headers?: Headers
   ): Promise<NotificationTimedEvent> {
     const response = await this.baseService
@@ -1777,7 +1781,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         timedEventType,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1793,7 +1797,7 @@ export class StoreUsersService {
   public async store_apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(
     userKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     request?: NotificationTimedEventEditRequest,
     headers?: Headers
   ): Promise<IJsonResponse> {
@@ -1803,7 +1807,7 @@ export class StoreUsersService {
         travelNotificationKey,
         timedEventType,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1825,7 +1829,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelNotificationsByTravelNotificationKeyTimedEventsGet(
         userKey,
         travelNotificationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1849,7 +1853,7 @@ export class StoreUsersService {
         userKey,
         travelNotificationKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1869,7 +1873,7 @@ export class StoreUsersService {
     const response = await this.baseService
       .apiNskV1UsersByUserKeyPersonTravelNotificationsGet(
         userKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1891,7 +1895,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyPersonTravelNotificationsPost(
         userKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1910,7 +1914,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyPut(userKey, request, "body", headers)
+      .apiNskV1UsersByUserKeyPut(userKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1930,7 +1934,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyRolesByUserRoleKeyDelete(
         userKey,
         userRoleKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1952,7 +1956,7 @@ export class StoreUsersService {
       .apiNskV1UsersByUserKeyRolesByUserRoleKeyGet(
         userKey,
         userRoleKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1976,7 +1980,7 @@ export class StoreUsersService {
         userKey,
         userRoleKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2000,7 +2004,7 @@ export class StoreUsersService {
         userKey,
         userRoleKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2018,7 +2022,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<Array<UserRole>> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyRolesGet(userKey, "body", headers)
+      .apiNskV1UsersByUserKeyRolesGet(userKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyRolesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2035,7 +2039,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersByUserKeyRolesPost(userKey, request, "body", headers)
+      .apiNskV1UsersByUserKeyRolesPost(userKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersByUserKeyRolesPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2051,7 +2055,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UsersPost(request, "body", headers)
+      .apiNskV1UsersPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UsersPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2073,7 +2077,7 @@ export class StoreUsersService {
         userKey,
         personTravelDocumentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2097,7 +2101,7 @@ export class StoreUsersService {
         userKey,
         personTravelDocumentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2115,12 +2119,12 @@ export class StoreUsersService {
     locationGroupCode?: string,
     domainCode?: string,
     username?: string,
-    usernameMatching?: "StartsWith" | "EndsWith" | "Contains" | "ExactMatch",
+    usernameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',
     firstName?: string,
-    firstNameMatching?: "StartsWith" | "EndsWith" | "Contains" | "ExactMatch",
+    firstNameMatching?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',
     lastName?: string,
     roleCode?: string,
-    status?: "Default" | "Active" | "Pending" | "Suspended" | "Terminated",
+    status?: 'Default' | 'Active' | 'Pending' | 'Suspended' | 'Terminated',
     returnCount?: number,
     lastIndex?: number,
     headers?: Headers
@@ -2139,7 +2143,7 @@ export class StoreUsersService {
         status,
         returnCount,
         lastIndex,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2157,7 +2161,7 @@ export class StoreUsersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV2UsersPost(request, "body", headers)
+      .apiNskV2UsersPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV2UsersPost
     // addResponsetoStore(this.store, response.data, true, true);

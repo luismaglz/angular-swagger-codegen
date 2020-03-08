@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   AccountTransactionCode,
@@ -97,22 +97,22 @@ import {
   Vendor,
   Vendorv2,
   Zone
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class ResourcesService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -128,31 +128,31 @@ export class ResourcesService {
   public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(
     transactionCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AccountTransactionCode>;
   public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(
     transactionCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AccountTransactionCode>>;
   public apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(
     transactionCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!transactionCode) {
       throw new Error(
-        "Required parameter transactionCode was null or undefined when calling apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet."
+        'Required parameter transactionCode was null or undefined when calling apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -163,10 +163,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/AccountTransactionCodes/${encodeURIComponent(
         String(transactionCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <AccountTransactionCode>httpResponse.response)
       );
@@ -190,7 +190,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<AccountTransactionCode>>;
   public apiNskV1ResourcesAccountTransactionCodesGet(
@@ -199,7 +199,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<AccountTransactionCode>>>;
   public apiNskV1ResourcesAccountTransactionCodesGet(
@@ -208,37 +208,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAccountTransactionCodesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAccountTransactionCodesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -248,11 +248,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v1/resources/AccountTransactionCodes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<AccountTransactionCode>>httpResponse.response
@@ -272,50 +272,50 @@ export class ResourcesService {
      
      */
   public apiNskV1ResourcesAddOnsLocationsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<CommerceLocation>>;
   public apiNskV1ResourcesAddOnsLocationsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<CommerceLocation>>>;
   public apiNskV1ResourcesAddOnsLocationsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!type) {
       throw new Error(
-        "Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsLocationsGet."
+        'Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsLocationsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
     if (vendorCode !== undefined) {
       queryParameters.push(
-        "vendorCode=" + encodeURIComponent(String(vendorCode))
+        'vendorCode=' + encodeURIComponent(String(vendorCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -324,10 +324,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/addOns/locations?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/addOns/locations?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<CommerceLocation>>httpResponse.response)
       );
@@ -345,50 +345,50 @@ export class ResourcesService {
      
      */
   public apiNskV1ResourcesAddOnsParametersGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<DynamicParameter>>;
   public apiNskV1ResourcesAddOnsParametersGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<DynamicParameter>>>;
   public apiNskV1ResourcesAddOnsParametersGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!type) {
       throw new Error(
-        "Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsParametersGet."
+        'Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsParametersGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
     if (vendorCode !== undefined) {
       queryParameters.push(
-        "vendorCode=" + encodeURIComponent(String(vendorCode))
+        'vendorCode=' + encodeURIComponent(String(vendorCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -397,10 +397,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/addOns/parameters?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/addOns/parameters?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<DynamicParameter>>httpResponse.response)
       );
@@ -418,50 +418,50 @@ export class ResourcesService {
      
      */
   public apiNskV1ResourcesAddOnsParticipanttypesGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ParticipantType>>;
   public apiNskV1ResourcesAddOnsParticipanttypesGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ParticipantType>>>;
   public apiNskV1ResourcesAddOnsParticipanttypesGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!type) {
       throw new Error(
-        "Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsParticipanttypesGet."
+        'Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsParticipanttypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
     if (vendorCode !== undefined) {
       queryParameters.push(
-        "vendorCode=" + encodeURIComponent(String(vendorCode))
+        'vendorCode=' + encodeURIComponent(String(vendorCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -471,11 +471,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v1/resources/addOns/participanttypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ParticipantType>>httpResponse.response)
       );
@@ -493,31 +493,31 @@ export class ResourcesService {
   public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(
     sourceCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Source>;
   public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(
     sourceCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Source>>;
   public apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(
     sourceCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!sourceCode) {
       throw new Error(
-        "Required parameter sourceCode was null or undefined when calling apiNskV1ResourcesAddOnsSourcesBySourceCodeGet."
+        'Required parameter sourceCode was null or undefined when calling apiNskV1ResourcesAddOnsSourcesBySourceCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -526,10 +526,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/addOns/sources/${encodeURIComponent(
         String(sourceCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Source>httpResponse.response));
     }
     return response;
@@ -551,7 +551,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Source>>;
   public apiNskV1ResourcesAddOnsSourcesGet(
@@ -560,7 +560,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Source>>>;
   public apiNskV1ResourcesAddOnsSourcesGet(
@@ -569,37 +569,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAddOnsSourcesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAddOnsSourcesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -608,10 +608,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/addOns/sources?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/addOns/sources?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Source>>httpResponse.response)
       );
@@ -628,43 +628,43 @@ export class ResourcesService {
      
      */
   public apiNskV1ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Vendor>>;
   public apiNskV1ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Vendor>>>;
   public apiNskV1ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!type) {
       throw new Error(
-        "Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsVendorsGet."
+        'Required parameter type was null or undefined when calling apiNskV1ResourcesAddOnsVendorsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -672,10 +672,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/addOns/vendors?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/addOns/vendors?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Vendor>>httpResponse.response)
       );
@@ -693,41 +693,41 @@ export class ResourcesService {
   public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(
     addressTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AddressType>;
   public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(
     addressTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AddressType>>;
   public apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(
     addressTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!addressTypeCode) {
       throw new Error(
-        "Required parameter addressTypeCode was null or undefined when calling apiNskV1ResourcesAddressTypesByAddressTypeCodeGet."
+        'Required parameter addressTypeCode was null or undefined when calling apiNskV1ResourcesAddressTypesByAddressTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<AddressType>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/AddressTypes/${encodeURIComponent(
         String(addressTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <AddressType>httpResponse.response)
       );
@@ -751,7 +751,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<AddressType>>;
   public apiNskV1ResourcesAddressTypesGet(
@@ -760,7 +760,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<AddressType>>>;
   public apiNskV1ResourcesAddressTypesGet(
@@ -769,37 +769,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAddressTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAddressTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -808,10 +808,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/AddressTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/AddressTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<AddressType>>httpResponse.response)
       );
@@ -829,31 +829,31 @@ export class ResourcesService {
   public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(
     agentSettingTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AgentSettingType>;
   public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(
     agentSettingTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AgentSettingType>>;
   public apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(
     agentSettingTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!agentSettingTypeCode) {
       throw new Error(
-        "Required parameter agentSettingTypeCode was null or undefined when calling apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet."
+        'Required parameter agentSettingTypeCode was null or undefined when calling apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -864,10 +864,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/AgentSettingTypes/${encodeURIComponent(
         String(agentSettingTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <AgentSettingType>httpResponse.response)
       );
@@ -891,7 +891,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<AgentSettingType>>;
   public apiNskV1ResourcesAgentSettingTypesGet(
@@ -900,7 +900,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<AgentSettingType>>>;
   public apiNskV1ResourcesAgentSettingTypesGet(
@@ -909,37 +909,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAgentSettingTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAgentSettingTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -948,10 +948,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/AgentSettingTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/AgentSettingTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<AgentSettingType>>httpResponse.response)
       );
@@ -969,41 +969,41 @@ export class ResourcesService {
   public apiNskV1ResourcesAreasByAreaCodeGet(
     areaCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Area>;
   public apiNskV1ResourcesAreasByAreaCodeGet(
     areaCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Area>>;
   public apiNskV1ResourcesAreasByAreaCodeGet(
     areaCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!areaCode) {
       throw new Error(
-        "Required parameter areaCode was null or undefined when calling apiNskV1ResourcesAreasByAreaCodeGet."
+        'Required parameter areaCode was null or undefined when calling apiNskV1ResourcesAreasByAreaCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Area>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Areas/${encodeURIComponent(
         String(areaCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Area>httpResponse.response));
     }
     return response;
@@ -1025,7 +1025,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Area>>;
   public apiNskV1ResourcesAreasGet(
@@ -1034,7 +1034,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Area>>>;
   public apiNskV1ResourcesAreasGet(
@@ -1043,47 +1043,47 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAreasGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesAreasGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
     const response: Observable<HttpResponse<Array<Area>>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Areas?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Area>>httpResponse.response)
       );
@@ -1101,41 +1101,41 @@ export class ResourcesService {
   public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(
     baggageTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<BaggageType>;
   public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(
     baggageTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<BaggageType>>;
   public apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(
     baggageTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!baggageTypeCode) {
       throw new Error(
-        "Required parameter baggageTypeCode was null or undefined when calling apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet."
+        'Required parameter baggageTypeCode was null or undefined when calling apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<BaggageType>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/BaggageTypes/${encodeURIComponent(
         String(baggageTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <BaggageType>httpResponse.response)
       );
@@ -1159,7 +1159,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BaggageType>>;
   public apiNskV1ResourcesBaggageTypesGet(
@@ -1168,7 +1168,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BaggageType>>>;
   public apiNskV1ResourcesBaggageTypesGet(
@@ -1177,37 +1177,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBaggageTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBaggageTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -1216,10 +1216,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/BaggageTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/BaggageTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BaggageType>>httpResponse.response)
       );
@@ -1239,42 +1239,42 @@ export class ResourcesService {
     bundleRuleCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BundleApplication>>;
   public apiNskV1ResourcesBundlesApplicationsGet(
     bundleRuleCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BundleApplication>>>;
   public apiNskV1ResourcesBundlesApplicationsGet(
     bundleRuleCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bundleRuleCode) {
       throw new Error(
-        "Required parameter bundleRuleCode was null or undefined when calling apiNskV1ResourcesBundlesApplicationsGet."
+        'Required parameter bundleRuleCode was null or undefined when calling apiNskV1ResourcesBundlesApplicationsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (bundleRuleCode !== undefined) {
       queryParameters.push(
-        "bundleRuleCode=" + encodeURIComponent(String(bundleRuleCode))
+        'bundleRuleCode=' + encodeURIComponent(String(bundleRuleCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -1282,10 +1282,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/bundles/applications?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/bundles/applications?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BundleApplication>>httpResponse.response)
       );
@@ -1303,31 +1303,31 @@ export class ResourcesService {
   public apiNskV1ResourcesBundlesByBundleCodeGet(
     bundleCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<BundleConfiguration>;
   public apiNskV1ResourcesBundlesByBundleCodeGet(
     bundleCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<BundleConfiguration>>;
   public apiNskV1ResourcesBundlesByBundleCodeGet(
     bundleCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bundleCode) {
       throw new Error(
-        "Required parameter bundleCode was null or undefined when calling apiNskV1ResourcesBundlesByBundleCodeGet."
+        'Required parameter bundleCode was null or undefined when calling apiNskV1ResourcesBundlesByBundleCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -1336,10 +1336,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/bundles/${encodeURIComponent(
         String(bundleCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <BundleConfiguration>httpResponse.response)
       );
@@ -1363,7 +1363,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BundleConfiguration>>;
   public apiNskV1ResourcesBundlesGet(
@@ -1372,7 +1372,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BundleConfiguration>>>;
   public apiNskV1ResourcesBundlesGet(
@@ -1381,37 +1381,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBundlesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBundlesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -1419,11 +1419,11 @@ export class ResourcesService {
       Array<BundleConfiguration>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/bundles?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BundleConfiguration>>httpResponse.response)
       );
@@ -1439,22 +1439,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesBundlesRulesGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BundleRule>>;
   public apiNskV1ResourcesBundlesRulesGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BundleRule>>>;
   public apiNskV1ResourcesBundlesRulesGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -1462,10 +1462,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/bundles/rules?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/bundles/rules?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BundleRule>>httpResponse.response)
       );
@@ -1489,7 +1489,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BundleSet>>;
   public apiNskV1ResourcesBundlesSetsGet(
@@ -1498,7 +1498,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BundleSet>>>;
   public apiNskV1ResourcesBundlesSetsGet(
@@ -1507,37 +1507,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBundlesSetsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesBundlesSetsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -1546,10 +1546,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/bundles/sets?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/bundles/sets?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BundleSet>>httpResponse.response)
       );
@@ -1569,42 +1569,42 @@ export class ResourcesService {
     bundleCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BundleSsrConfiguration>>;
   public apiNskV1ResourcesBundlesSsrsGet(
     bundleCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BundleSsrConfiguration>>>;
   public apiNskV1ResourcesBundlesSsrsGet(
     bundleCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bundleCode) {
       throw new Error(
-        "Required parameter bundleCode was null or undefined when calling apiNskV1ResourcesBundlesSsrsGet."
+        'Required parameter bundleCode was null or undefined when calling apiNskV1ResourcesBundlesSsrsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (bundleCode !== undefined) {
       queryParameters.push(
-        "bundleCode=" + encodeURIComponent(String(bundleCode))
+        'bundleCode=' + encodeURIComponent(String(bundleCode))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -1612,10 +1612,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/bundles/ssrs?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/bundles/ssrs?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<BundleSsrConfiguration>>httpResponse.response
@@ -1637,46 +1637,46 @@ export class ResourcesService {
     carrierCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Carrier>;
   public apiNskV1ResourcesCarriersByCarrierCodeGet(
     carrierCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Carrier>>;
   public apiNskV1ResourcesCarriersByCarrierCodeGet(
     carrierCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!carrierCode) {
       throw new Error(
-        "Required parameter carrierCode was null or undefined when calling apiNskV1ResourcesCarriersByCarrierCodeGet."
+        'Required parameter carrierCode was null or undefined when calling apiNskV1ResourcesCarriersByCarrierCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<Carrier>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/carriers/${encodeURIComponent(
         String(carrierCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Carrier>httpResponse.response));
     }
     return response;
@@ -1698,7 +1698,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ResourceEntriesCarrier>;
   public apiNskV1ResourcesCarriersGet(
@@ -1707,7 +1707,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ResourceEntriesCarrier>>;
   public apiNskV1ResourcesCarriersGet(
@@ -1716,37 +1716,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCarriersGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCarriersGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -1754,11 +1754,11 @@ export class ResourcesService {
       ResourceEntriesCarrier
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/carriers?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ResourceEntriesCarrier>httpResponse.response)
       );
@@ -1776,41 +1776,41 @@ export class ResourcesService {
   public apiNskV1ResourcesCitiesByCityCodeGet(
     cityCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<City>;
   public apiNskV1ResourcesCitiesByCityCodeGet(
     cityCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<City>>;
   public apiNskV1ResourcesCitiesByCityCodeGet(
     cityCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!cityCode) {
       throw new Error(
-        "Required parameter cityCode was null or undefined when calling apiNskV1ResourcesCitiesByCityCodeGet."
+        'Required parameter cityCode was null or undefined when calling apiNskV1ResourcesCitiesByCityCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<City>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Cities/${encodeURIComponent(
         String(cityCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <City>httpResponse.response));
     }
     return response;
@@ -1832,7 +1832,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<City>>;
   public apiNskV1ResourcesCitiesGet(
@@ -1841,7 +1841,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<City>>>;
   public apiNskV1ResourcesCitiesGet(
@@ -1850,47 +1850,47 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCitiesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCitiesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
     const response: Observable<HttpResponse<Array<City>>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Cities?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<City>>httpResponse.response)
       );
@@ -1908,31 +1908,31 @@ export class ResourcesService {
   public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(
     classOfServiceCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ClassOfService>;
   public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(
     classOfServiceCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ClassOfService>>;
   public apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(
     classOfServiceCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!classOfServiceCode) {
       throw new Error(
-        "Required parameter classOfServiceCode was null or undefined when calling apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet."
+        'Required parameter classOfServiceCode was null or undefined when calling apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -1943,10 +1943,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/ClassOfServices/${encodeURIComponent(
         String(classOfServiceCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ClassOfService>httpResponse.response)
       );
@@ -1970,7 +1970,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ClassOfService>>;
   public apiNskV1ResourcesClassOfServicesGet(
@@ -1979,7 +1979,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ClassOfService>>>;
   public apiNskV1ResourcesClassOfServicesGet(
@@ -1988,37 +1988,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesClassOfServicesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesClassOfServicesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -2027,10 +2027,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/ClassOfServices?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/ClassOfServices?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ClassOfService>>httpResponse.response)
       );
@@ -2048,31 +2048,31 @@ export class ResourcesService {
   public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(
     commissionRateCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CommissionRate>;
   public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(
     commissionRateCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CommissionRate>>;
   public apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(
     commissionRateCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!commissionRateCode) {
       throw new Error(
-        "Required parameter commissionRateCode was null or undefined when calling apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet."
+        'Required parameter commissionRateCode was null or undefined when calling apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -2083,10 +2083,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/CommissionRates/${encodeURIComponent(
         String(commissionRateCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CommissionRate>httpResponse.response)
       );
@@ -2110,7 +2110,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<CommissionRate>>;
   public apiNskV1ResourcesCommissionRatesGet(
@@ -2119,7 +2119,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<CommissionRate>>>;
   public apiNskV1ResourcesCommissionRatesGet(
@@ -2128,37 +2128,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCommissionRatesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCommissionRatesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -2167,10 +2167,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/CommissionRates?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/CommissionRates?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<CommissionRate>>httpResponse.response)
       );
@@ -2188,41 +2188,41 @@ export class ResourcesService {
   public apiNskV1ResourcesContactTypesByContactTypeCodeGet(
     contactTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ContactType>;
   public apiNskV1ResourcesContactTypesByContactTypeCodeGet(
     contactTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ContactType>>;
   public apiNskV1ResourcesContactTypesByContactTypeCodeGet(
     contactTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1ResourcesContactTypesByContactTypeCodeGet."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1ResourcesContactTypesByContactTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<ContactType>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/ContactTypes/${encodeURIComponent(
         String(contactTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ContactType>httpResponse.response)
       );
@@ -2246,7 +2246,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ContactType>>;
   public apiNskV1ResourcesContactTypesGet(
@@ -2255,7 +2255,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ContactType>>>;
   public apiNskV1ResourcesContactTypesGet(
@@ -2264,37 +2264,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesContactTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesContactTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -2303,10 +2303,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/ContactTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/ContactTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ContactType>>httpResponse.response)
       );
@@ -2326,46 +2326,46 @@ export class ResourcesService {
     contentId: number,
     convertRtfToHtml?: boolean,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<string>;
   public apiNskV1ResourcesContentsByContentIdDataGet(
     contentId: number,
     convertRtfToHtml?: boolean,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<string>>;
   public apiNskV1ResourcesContentsByContentIdDataGet(
     contentId: number,
     convertRtfToHtml?: boolean,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contentId) {
       throw new Error(
-        "Required parameter contentId was null or undefined when calling apiNskV1ResourcesContentsByContentIdDataGet."
+        'Required parameter contentId was null or undefined when calling apiNskV1ResourcesContentsByContentIdDataGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (convertRtfToHtml !== undefined) {
       queryParameters.push(
-        "convertRtfToHtml=" + encodeURIComponent(String(convertRtfToHtml))
+        'convertRtfToHtml=' + encodeURIComponent(String(convertRtfToHtml))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<string>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/contents/${encodeURIComponent(
         String(contentId)
-      )}/data?${queryParameters.join("&")}`,
+      )}/data?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <string>httpResponse.response));
     }
     return response;
@@ -2383,37 +2383,37 @@ export class ResourcesService {
     contentId: number,
     convertRtfToHtml?: boolean,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ResourceContentItem>;
   public apiNskV1ResourcesContentsByContentIdGet(
     contentId: number,
     convertRtfToHtml?: boolean,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ResourceContentItem>>;
   public apiNskV1ResourcesContentsByContentIdGet(
     contentId: number,
     convertRtfToHtml?: boolean,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contentId) {
       throw new Error(
-        "Required parameter contentId was null or undefined when calling apiNskV1ResourcesContentsByContentIdGet."
+        'Required parameter contentId was null or undefined when calling apiNskV1ResourcesContentsByContentIdGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (convertRtfToHtml !== undefined) {
       queryParameters.push(
-        "convertRtfToHtml=" + encodeURIComponent(String(convertRtfToHtml))
+        'convertRtfToHtml=' + encodeURIComponent(String(convertRtfToHtml))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -2421,10 +2421,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/contents/${encodeURIComponent(
         String(contentId)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ResourceContentItem>httpResponse.response)
       );
@@ -2444,88 +2444,88 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesContentsGet(
     type:
-      | "GeneralReference"
-      | "News"
-      | "ConsoleHelp"
-      | "FareRuleReference"
-      | "ReviewWithCustomer"
-      | "Notices"
-      | "Literature"
-      | "Links"
-      | "Image"
-      | "PromotionReference"
-      | "SubscriptionReference",
+      | 'GeneralReference'
+      | 'News'
+      | 'ConsoleHelp'
+      | 'FareRuleReference'
+      | 'ReviewWithCustomer'
+      | 'Notices'
+      | 'Literature'
+      | 'Links'
+      | 'Image'
+      | 'PromotionReference'
+      | 'SubscriptionReference',
     name?: string,
     containerId?: number,
     pageSize?: number,
     lastContentId?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ResourceContentResult>>;
   public apiNskV1ResourcesContentsGet(
     type:
-      | "GeneralReference"
-      | "News"
-      | "ConsoleHelp"
-      | "FareRuleReference"
-      | "ReviewWithCustomer"
-      | "Notices"
-      | "Literature"
-      | "Links"
-      | "Image"
-      | "PromotionReference"
-      | "SubscriptionReference",
+      | 'GeneralReference'
+      | 'News'
+      | 'ConsoleHelp'
+      | 'FareRuleReference'
+      | 'ReviewWithCustomer'
+      | 'Notices'
+      | 'Literature'
+      | 'Links'
+      | 'Image'
+      | 'PromotionReference'
+      | 'SubscriptionReference',
     name?: string,
     containerId?: number,
     pageSize?: number,
     lastContentId?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ResourceContentResult>>>;
   public apiNskV1ResourcesContentsGet(
     type:
-      | "GeneralReference"
-      | "News"
-      | "ConsoleHelp"
-      | "FareRuleReference"
-      | "ReviewWithCustomer"
-      | "Notices"
-      | "Literature"
-      | "Links"
-      | "Image"
-      | "PromotionReference"
-      | "SubscriptionReference",
+      | 'GeneralReference'
+      | 'News'
+      | 'ConsoleHelp'
+      | 'FareRuleReference'
+      | 'ReviewWithCustomer'
+      | 'Notices'
+      | 'Literature'
+      | 'Links'
+      | 'Image'
+      | 'PromotionReference'
+      | 'SubscriptionReference',
     name?: string,
     containerId?: number,
     pageSize?: number,
     lastContentId?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!type) {
       throw new Error(
-        "Required parameter type was null or undefined when calling apiNskV1ResourcesContentsGet."
+        'Required parameter type was null or undefined when calling apiNskV1ResourcesContentsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (name !== undefined) {
-      queryParameters.push("name=" + encodeURIComponent(String(name)));
+      queryParameters.push('name=' + encodeURIComponent(String(name)));
     }
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
     if (containerId !== undefined) {
       queryParameters.push(
-        "containerId=" + encodeURIComponent(String(containerId))
+        'containerId=' + encodeURIComponent(String(containerId))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (lastContentId !== undefined) {
       queryParameters.push(
-        "lastContentId=" + encodeURIComponent(String(lastContentId))
+        'lastContentId=' + encodeURIComponent(String(lastContentId))
       );
     }
 
@@ -2533,11 +2533,11 @@ export class ResourcesService {
       Array<ResourceContentResult>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/contents?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ResourceContentResult>>httpResponse.response)
       );
@@ -2555,41 +2555,41 @@ export class ResourcesService {
   public apiNskV1ResourcesCulturesByCultureCodeGet(
     cultureCode: string,
     forCultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Culture>;
   public apiNskV1ResourcesCulturesByCultureCodeGet(
     cultureCode: string,
     forCultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Culture>>;
   public apiNskV1ResourcesCulturesByCultureCodeGet(
     cultureCode: string,
     forCultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!cultureCode) {
       throw new Error(
-        "Required parameter cultureCode was null or undefined when calling apiNskV1ResourcesCulturesByCultureCodeGet."
+        'Required parameter cultureCode was null or undefined when calling apiNskV1ResourcesCulturesByCultureCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (forCultureCode !== undefined) {
       queryParameters.push(
-        "forCultureCode=" + encodeURIComponent(String(forCultureCode))
+        'forCultureCode=' + encodeURIComponent(String(forCultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Culture>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/cultures/${encodeURIComponent(
         String(cultureCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Culture>httpResponse.response));
     }
     return response;
@@ -2611,7 +2611,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Culture>>;
   public apiNskV1ResourcesCulturesGet(
@@ -2620,7 +2620,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Culture>>>;
   public apiNskV1ResourcesCulturesGet(
@@ -2629,37 +2629,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCulturesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCulturesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -2667,11 +2667,11 @@ export class ResourcesService {
       Array<Culture>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/cultures?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Culture>>httpResponse.response)
       );
@@ -2689,31 +2689,31 @@ export class ResourcesService {
   public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(
     programCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CustomerProgram>;
   public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(
     programCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CustomerProgram>>;
   public apiNskV1ResourcesCustomerProgramsByProgramCodeGet(
     programCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!programCode) {
       throw new Error(
-        "Required parameter programCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeGet."
+        'Required parameter programCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -2724,10 +2724,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/CustomerPrograms/${encodeURIComponent(
         String(programCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CustomerProgram>httpResponse.response)
       );
@@ -2747,39 +2747,39 @@ export class ResourcesService {
     programCode: string,
     programLevelCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CustomerProgramLevel>;
   public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(
     programCode: string,
     programLevelCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CustomerProgramLevel>>;
   public apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet(
     programCode: string,
     programLevelCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!programCode) {
       throw new Error(
-        "Required parameter programCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet."
+        'Required parameter programCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet.'
       );
     }
 
     if (!programLevelCode) {
       throw new Error(
-        "Required parameter programLevelCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet."
+        'Required parameter programLevelCode was null or undefined when calling apiNskV1ResourcesCustomerProgramsByProgramCodeLevelsByProgramLevelCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -2792,10 +2792,10 @@ export class ResourcesService {
         String(programCode)
       )}/levels/${encodeURIComponent(
         String(programLevelCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CustomerProgramLevel>httpResponse.response)
       );
@@ -2819,7 +2819,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<CustomerProgram>>;
   public apiNskV1ResourcesCustomerProgramsGet(
@@ -2828,7 +2828,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<CustomerProgram>>>;
   public apiNskV1ResourcesCustomerProgramsGet(
@@ -2837,37 +2837,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCustomerProgramsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesCustomerProgramsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -2876,10 +2876,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/CustomerPrograms?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/CustomerPrograms?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<CustomerProgram>>httpResponse.response)
       );
@@ -2897,41 +2897,41 @@ export class ResourcesService {
   public apiNskV1ResourcesDelaysByDelayCodeGet(
     delayCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Delay>;
   public apiNskV1ResourcesDelaysByDelayCodeGet(
     delayCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Delay>>;
   public apiNskV1ResourcesDelaysByDelayCodeGet(
     delayCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!delayCode) {
       throw new Error(
-        "Required parameter delayCode was null or undefined when calling apiNskV1ResourcesDelaysByDelayCodeGet."
+        'Required parameter delayCode was null or undefined when calling apiNskV1ResourcesDelaysByDelayCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Delay>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Delays/${encodeURIComponent(
         String(delayCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Delay>httpResponse.response));
     }
     return response;
@@ -2953,7 +2953,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Delay>>;
   public apiNskV1ResourcesDelaysGet(
@@ -2962,7 +2962,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Delay>>>;
   public apiNskV1ResourcesDelaysGet(
@@ -2971,37 +2971,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDelaysGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDelaysGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -3009,11 +3009,11 @@ export class ResourcesService {
       Array<Delay>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Delays?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Delay>>httpResponse.response)
       );
@@ -3031,41 +3031,41 @@ export class ResourcesService {
   public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(
     departmentCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Department>;
   public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(
     departmentCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Department>>;
   public apiNskV1ResourcesDepartmentsByDepartmentCodeGet(
     departmentCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!departmentCode) {
       throw new Error(
-        "Required parameter departmentCode was null or undefined when calling apiNskV1ResourcesDepartmentsByDepartmentCodeGet."
+        'Required parameter departmentCode was null or undefined when calling apiNskV1ResourcesDepartmentsByDepartmentCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Department>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Departments/${encodeURIComponent(
         String(departmentCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Department>httpResponse.response)
       );
@@ -3089,7 +3089,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Department>>;
   public apiNskV1ResourcesDepartmentsGet(
@@ -3098,7 +3098,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Department>>>;
   public apiNskV1ResourcesDepartmentsGet(
@@ -3107,37 +3107,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDepartmentsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDepartmentsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -3145,11 +3145,11 @@ export class ResourcesService {
       Array<Department>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Departments?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Department>>httpResponse.response)
       );
@@ -3171,7 +3171,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<EnumResource>>;
   public apiNskV1ResourcesDistributionOptionsGet(
@@ -3179,7 +3179,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<EnumResource>>>;
   public apiNskV1ResourcesDistributionOptionsGet(
@@ -3187,26 +3187,26 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -3215,10 +3215,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/distributionOptions?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/distributionOptions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<EnumResource>>httpResponse.response)
       );
@@ -3236,31 +3236,31 @@ export class ResourcesService {
   public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(
     documentTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<DocumentType>;
   public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(
     documentTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<DocumentType>>;
   public apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(
     documentTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!documentTypeCode) {
       throw new Error(
-        "Required parameter documentTypeCode was null or undefined when calling apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet."
+        'Required parameter documentTypeCode was null or undefined when calling apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -3269,10 +3269,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/DocumentTypes/${encodeURIComponent(
         String(documentTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <DocumentType>httpResponse.response)
       );
@@ -3296,7 +3296,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<DocumentType>>;
   public apiNskV1ResourcesDocumentTypesGet(
@@ -3305,7 +3305,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<DocumentType>>>;
   public apiNskV1ResourcesDocumentTypesGet(
@@ -3314,37 +3314,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDocumentTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesDocumentTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -3353,10 +3353,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/DocumentTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/DocumentTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<DocumentType>>httpResponse.response)
       );
@@ -3372,22 +3372,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesDomainsByDomainCodeGet(
     domainCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Domain>;
   public apiNskV1ResourcesDomainsByDomainCodeGet(
     domainCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Domain>>;
   public apiNskV1ResourcesDomainsByDomainCodeGet(
     domainCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!domainCode) {
       throw new Error(
-        "Required parameter domainCode was null or undefined when calling apiNskV1ResourcesDomainsByDomainCodeGet."
+        'Required parameter domainCode was null or undefined when calling apiNskV1ResourcesDomainsByDomainCodeGet.'
       );
     }
 
@@ -3397,7 +3397,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Domain>httpResponse.response));
     }
     return response;
@@ -3411,33 +3411,33 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesDomainsGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Domain>>;
   public apiNskV1ResourcesDomainsGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Domain>>>;
   public apiNskV1ResourcesDomainsGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
       Array<Domain>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Domains?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Domain>>httpResponse.response)
       );
@@ -3455,41 +3455,41 @@ export class ResourcesService {
   public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(
     emailTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<EmailType>;
   public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(
     emailTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<EmailType>>;
   public apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(
     emailTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!emailTypeCode) {
       throw new Error(
-        "Required parameter emailTypeCode was null or undefined when calling apiNskV1ResourcesEmailTypesByEmailTypeCodeGet."
+        'Required parameter emailTypeCode was null or undefined when calling apiNskV1ResourcesEmailTypesByEmailTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<EmailType>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/EmailTypes/${encodeURIComponent(
         String(emailTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <EmailType>httpResponse.response)
       );
@@ -3513,7 +3513,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<EmailType>>;
   public apiNskV1ResourcesEmailTypesGet(
@@ -3522,7 +3522,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<EmailType>>>;
   public apiNskV1ResourcesEmailTypesGet(
@@ -3531,37 +3531,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesEmailTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesEmailTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -3569,11 +3569,11 @@ export class ResourcesService {
       Array<EmailType>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/EmailTypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<EmailType>>httpResponse.response)
       );
@@ -3591,31 +3591,31 @@ export class ResourcesService {
   public apiNskV1ResourcesExternalRatesByRateIdGet(
     rateId: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ExternalRate>;
   public apiNskV1ResourcesExternalRatesByRateIdGet(
     rateId: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ExternalRate>>;
   public apiNskV1ResourcesExternalRatesByRateIdGet(
     rateId: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!rateId) {
       throw new Error(
-        "Required parameter rateId was null or undefined when calling apiNskV1ResourcesExternalRatesByRateIdGet."
+        'Required parameter rateId was null or undefined when calling apiNskV1ResourcesExternalRatesByRateIdGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -3624,10 +3624,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/ExternalRates/${encodeURIComponent(
         String(rateId)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ExternalRate>httpResponse.response)
       );
@@ -3651,7 +3651,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ExternalRate>>;
   public apiNskV1ResourcesExternalRatesGet(
@@ -3660,7 +3660,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ExternalRate>>>;
   public apiNskV1ResourcesExternalRatesGet(
@@ -3669,37 +3669,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesExternalRatesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesExternalRatesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -3708,10 +3708,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/ExternalRates?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/ExternalRates?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ExternalRate>>httpResponse.response)
       );
@@ -3729,41 +3729,41 @@ export class ResourcesService {
   public apiNskV1ResourcesFareTypesByFareTypeCodeGet(
     fareTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<FareType>;
   public apiNskV1ResourcesFareTypesByFareTypeCodeGet(
     fareTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<FareType>>;
   public apiNskV1ResourcesFareTypesByFareTypeCodeGet(
     fareTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!fareTypeCode) {
       throw new Error(
-        "Required parameter fareTypeCode was null or undefined when calling apiNskV1ResourcesFareTypesByFareTypeCodeGet."
+        'Required parameter fareTypeCode was null or undefined when calling apiNskV1ResourcesFareTypesByFareTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<FareType>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/FareTypes/${encodeURIComponent(
         String(fareTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <FareType>httpResponse.response)
       );
@@ -3787,7 +3787,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<FareType>>;
   public apiNskV1ResourcesFareTypesGet(
@@ -3796,7 +3796,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<FareType>>>;
   public apiNskV1ResourcesFareTypesGet(
@@ -3805,37 +3805,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesFareTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesFareTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -3843,11 +3843,11 @@ export class ResourcesService {
       Array<FareType>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/FareTypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<FareType>>httpResponse.response)
       );
@@ -3863,22 +3863,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesFeesByFeeCodeDetailsGet(
     feeCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<FeeDetail>>;
   public apiNskV1ResourcesFeesByFeeCodeDetailsGet(
     feeCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<FeeDetail>>>;
   public apiNskV1ResourcesFeesByFeeCodeDetailsGet(
     feeCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!feeCode) {
       throw new Error(
-        "Required parameter feeCode was null or undefined when calling apiNskV1ResourcesFeesByFeeCodeDetailsGet."
+        'Required parameter feeCode was null or undefined when calling apiNskV1ResourcesFeesByFeeCodeDetailsGet.'
       );
     }
 
@@ -3890,7 +3890,7 @@ export class ResourcesService {
       )}/details`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<FeeDetail>>httpResponse.response)
       );
@@ -3908,41 +3908,41 @@ export class ResourcesService {
   public apiNskV1ResourcesFeesByFeeCodeGet(
     feeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Fee>;
   public apiNskV1ResourcesFeesByFeeCodeGet(
     feeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Fee>>;
   public apiNskV1ResourcesFeesByFeeCodeGet(
     feeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!feeCode) {
       throw new Error(
-        "Required parameter feeCode was null or undefined when calling apiNskV1ResourcesFeesByFeeCodeGet."
+        'Required parameter feeCode was null or undefined when calling apiNskV1ResourcesFeesByFeeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Fee>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Fees/${encodeURIComponent(
         String(feeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Fee>httpResponse.response));
     }
     return response;
@@ -3964,7 +3964,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Fee>>;
   public apiNskV1ResourcesFeesGet(
@@ -3973,7 +3973,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Fee>>>;
   public apiNskV1ResourcesFeesGet(
@@ -3982,45 +3982,45 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesFeesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesFeesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
     const response: Observable<HttpResponse<Array<Fee>>> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/resources/Fees?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/resources/Fees?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Fee>>httpResponse.response)
       );
@@ -4042,7 +4042,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<EnumResource>>;
   public apiNskV1ResourcesGendersGet(
@@ -4050,7 +4050,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<EnumResource>>>;
   public apiNskV1ResourcesGendersGet(
@@ -4058,26 +4058,26 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -4085,11 +4085,11 @@ export class ResourcesService {
       Array<EnumResource>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/genders?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<EnumResource>>httpResponse.response)
       );
@@ -4107,31 +4107,31 @@ export class ResourcesService {
   public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(
     hotCardReasonCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<HotCardReason>;
   public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(
     hotCardReasonCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<HotCardReason>>;
   public apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(
     hotCardReasonCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!hotCardReasonCode) {
       throw new Error(
-        "Required parameter hotCardReasonCode was null or undefined when calling apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet."
+        'Required parameter hotCardReasonCode was null or undefined when calling apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -4142,10 +4142,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/HotCardReasons/${encodeURIComponent(
         String(hotCardReasonCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <HotCardReason>httpResponse.response)
       );
@@ -4169,7 +4169,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<HotCardReason>>;
   public apiNskV1ResourcesHotCardReasonsGet(
@@ -4178,7 +4178,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<HotCardReason>>>;
   public apiNskV1ResourcesHotCardReasonsGet(
@@ -4187,37 +4187,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesHotCardReasonsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesHotCardReasonsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -4226,10 +4226,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/HotCardReasons?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/HotCardReasons?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<HotCardReason>>httpResponse.response)
       );
@@ -4247,31 +4247,31 @@ export class ResourcesService {
   public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(
     issuanceReasonCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IssuanceReason>;
   public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(
     issuanceReasonCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IssuanceReason>>;
   public apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(
     issuanceReasonCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!issuanceReasonCode) {
       throw new Error(
-        "Required parameter issuanceReasonCode was null or undefined when calling apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet."
+        'Required parameter issuanceReasonCode was null or undefined when calling apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -4282,10 +4282,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/IssuanceReasons/${encodeURIComponent(
         String(issuanceReasonCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IssuanceReason>httpResponse.response)
       );
@@ -4309,7 +4309,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<IssuanceReason>>;
   public apiNskV1ResourcesIssuanceReasonsGet(
@@ -4318,7 +4318,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<IssuanceReason>>>;
   public apiNskV1ResourcesIssuanceReasonsGet(
@@ -4327,37 +4327,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesIssuanceReasonsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesIssuanceReasonsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -4366,10 +4366,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/IssuanceReasons?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/IssuanceReasons?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<IssuanceReason>>httpResponse.response)
       );
@@ -4387,41 +4387,41 @@ export class ResourcesService {
   public apiNskV1ResourcesLocationsByLocationCodeGet(
     locationCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Location>;
   public apiNskV1ResourcesLocationsByLocationCodeGet(
     locationCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Location>>;
   public apiNskV1ResourcesLocationsByLocationCodeGet(
     locationCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!locationCode) {
       throw new Error(
-        "Required parameter locationCode was null or undefined when calling apiNskV1ResourcesLocationsByLocationCodeGet."
+        'Required parameter locationCode was null or undefined when calling apiNskV1ResourcesLocationsByLocationCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Location>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Locations/${encodeURIComponent(
         String(locationCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Location>httpResponse.response)
       );
@@ -4445,7 +4445,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Location>>;
   public apiNskV1ResourcesLocationsGet(
@@ -4454,7 +4454,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Location>>>;
   public apiNskV1ResourcesLocationsGet(
@@ -4463,37 +4463,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesLocationsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesLocationsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -4501,11 +4501,11 @@ export class ResourcesService {
       Array<Location>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Locations?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Location>>httpResponse.response)
       );
@@ -4521,22 +4521,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesMacsByMacCodeGet(
     macCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Mac>;
   public apiNskV1ResourcesMacsByMacCodeGet(
     macCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Mac>>;
   public apiNskV1ResourcesMacsByMacCodeGet(
     macCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!macCode) {
       throw new Error(
-        "Required parameter macCode was null or undefined when calling apiNskV1ResourcesMacsByMacCodeGet."
+        'Required parameter macCode was null or undefined when calling apiNskV1ResourcesMacsByMacCodeGet.'
       );
     }
 
@@ -4546,7 +4546,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Mac>httpResponse.response));
     }
     return response;
@@ -4560,29 +4560,29 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesMacsGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Mac>>;
   public apiNskV1ResourcesMacsGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Mac>>>;
   public apiNskV1ResourcesMacsGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<Array<Mac>>> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/resources/Macs?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/resources/Macs?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Mac>>httpResponse.response)
       );
@@ -4600,41 +4600,41 @@ export class ResourcesService {
   public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(
     messageTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<MessageType>;
   public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(
     messageTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<MessageType>>;
   public apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(
     messageTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!messageTypeCode) {
       throw new Error(
-        "Required parameter messageTypeCode was null or undefined when calling apiNskV1ResourcesMessageTypesByMessageTypeCodeGet."
+        'Required parameter messageTypeCode was null or undefined when calling apiNskV1ResourcesMessageTypesByMessageTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<MessageType>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/MessageTypes/${encodeURIComponent(
         String(messageTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <MessageType>httpResponse.response)
       );
@@ -4658,7 +4658,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<MessageType>>;
   public apiNskV1ResourcesMessageTypesGet(
@@ -4667,7 +4667,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<MessageType>>>;
   public apiNskV1ResourcesMessageTypesGet(
@@ -4676,37 +4676,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesMessageTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesMessageTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -4715,10 +4715,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/MessageTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/MessageTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<MessageType>>httpResponse.response)
       );
@@ -4740,7 +4740,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<EnumResource>>;
   public apiNskV1ResourcesOrganizationStatusesGet(
@@ -4748,7 +4748,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<EnumResource>>>;
   public apiNskV1ResourcesOrganizationStatusesGet(
@@ -4756,26 +4756,26 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -4784,10 +4784,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/organizationStatuses?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/organizationStatuses?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<EnumResource>>httpResponse.response)
       );
@@ -4805,31 +4805,31 @@ export class ResourcesService {
   public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(
     passengerDiscountCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerDiscount>;
   public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(
     passengerDiscountCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerDiscount>>;
   public apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(
     passengerDiscountCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerDiscountCode) {
       throw new Error(
-        "Required parameter passengerDiscountCode was null or undefined when calling apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet."
+        'Required parameter passengerDiscountCode was null or undefined when calling apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -4840,10 +4840,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/PassengerDiscounts/${encodeURIComponent(
         String(passengerDiscountCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerDiscount>httpResponse.response)
       );
@@ -4867,7 +4867,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerDiscount>>;
   public apiNskV1ResourcesPassengerDiscountsGet(
@@ -4876,7 +4876,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerDiscount>>>;
   public apiNskV1ResourcesPassengerDiscountsGet(
@@ -4885,37 +4885,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPassengerDiscountsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPassengerDiscountsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -4924,10 +4924,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/PassengerDiscounts?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/PassengerDiscounts?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PassengerDiscount>>httpResponse.response)
       );
@@ -4945,31 +4945,31 @@ export class ResourcesService {
   public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(
     passengerTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerType>;
   public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(
     passengerTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerType>>;
   public apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(
     passengerTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerTypeCode) {
       throw new Error(
-        "Required parameter passengerTypeCode was null or undefined when calling apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet."
+        'Required parameter passengerTypeCode was null or undefined when calling apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -4980,10 +4980,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/PassengerTypes/${encodeURIComponent(
         String(passengerTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerType>httpResponse.response)
       );
@@ -5007,7 +5007,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerType>>;
   public apiNskV1ResourcesPassengerTypesGet(
@@ -5016,7 +5016,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerType>>>;
   public apiNskV1ResourcesPassengerTypesGet(
@@ -5025,37 +5025,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPassengerTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPassengerTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -5064,10 +5064,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/PassengerTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/PassengerTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PassengerType>>httpResponse.response)
       );
@@ -5085,31 +5085,31 @@ export class ResourcesService {
   public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(
     paymentMethodCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PaymentMethod>;
   public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(
     paymentMethodCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PaymentMethod>>;
   public apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(
     paymentMethodCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!paymentMethodCode) {
       throw new Error(
-        "Required parameter paymentMethodCode was null or undefined when calling apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet."
+        'Required parameter paymentMethodCode was null or undefined when calling apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -5120,10 +5120,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/PaymentMethods/${encodeURIComponent(
         String(paymentMethodCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PaymentMethod>httpResponse.response)
       );
@@ -5147,7 +5147,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PaymentMethod>>;
   public apiNskV1ResourcesPaymentMethodsGet(
@@ -5156,7 +5156,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PaymentMethod>>>;
   public apiNskV1ResourcesPaymentMethodsGet(
@@ -5165,37 +5165,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPaymentMethodsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPaymentMethodsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -5204,10 +5204,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/PaymentMethods?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/PaymentMethods?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PaymentMethod>>httpResponse.response)
       );
@@ -5225,31 +5225,31 @@ export class ResourcesService {
   public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(
     personAttachmentTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonAttachmentType>;
   public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(
     personAttachmentTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonAttachmentType>>;
   public apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(
     personAttachmentTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personAttachmentTypeCode) {
       throw new Error(
-        "Required parameter personAttachmentTypeCode was null or undefined when calling apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet."
+        'Required parameter personAttachmentTypeCode was null or undefined when calling apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -5260,10 +5260,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/PersonAttachmentTypes/${encodeURIComponent(
         String(personAttachmentTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonAttachmentType>httpResponse.response)
       );
@@ -5287,7 +5287,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ResourceEntriesPersonAttachmentType>;
   public apiNskV1ResourcesPersonAttachmentTypesGet(
@@ -5296,7 +5296,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ResourceEntriesPersonAttachmentType>>;
   public apiNskV1ResourcesPersonAttachmentTypesGet(
@@ -5305,37 +5305,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPersonAttachmentTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPersonAttachmentTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -5345,11 +5345,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v1/resources/PersonAttachmentTypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse =>
@@ -5370,31 +5370,31 @@ export class ResourcesService {
   public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(
     personInformationTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PersonInformationType>;
   public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(
     personInformationTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PersonInformationType>>;
   public apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(
     personInformationTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!personInformationTypeCode) {
       throw new Error(
-        "Required parameter personInformationTypeCode was null or undefined when calling apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet."
+        'Required parameter personInformationTypeCode was null or undefined when calling apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -5405,10 +5405,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/PersonInformationTypes/${encodeURIComponent(
         String(personInformationTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PersonInformationType>httpResponse.response)
       );
@@ -5432,7 +5432,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PersonInformationType>>;
   public apiNskV1ResourcesPersonInformationTypesGet(
@@ -5441,7 +5441,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PersonInformationType>>>;
   public apiNskV1ResourcesPersonInformationTypesGet(
@@ -5450,37 +5450,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPersonInformationTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPersonInformationTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -5490,11 +5490,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v1/resources/PersonInformationTypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PersonInformationType>>httpResponse.response)
       );
@@ -5512,41 +5512,41 @@ export class ResourcesService {
   public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(
     phoneTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PhoneType>;
   public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(
     phoneTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PhoneType>>;
   public apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(
     phoneTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!phoneTypeCode) {
       throw new Error(
-        "Required parameter phoneTypeCode was null or undefined when calling apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet."
+        'Required parameter phoneTypeCode was null or undefined when calling apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<PhoneType>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/PhoneTypes/${encodeURIComponent(
         String(phoneTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PhoneType>httpResponse.response)
       );
@@ -5570,7 +5570,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PhoneType>>;
   public apiNskV1ResourcesPhoneTypesGet(
@@ -5579,7 +5579,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PhoneType>>>;
   public apiNskV1ResourcesPhoneTypesGet(
@@ -5588,37 +5588,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPhoneTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPhoneTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -5626,11 +5626,11 @@ export class ResourcesService {
       Array<PhoneType>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/PhoneTypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PhoneType>>httpResponse.response)
       );
@@ -5648,31 +5648,31 @@ export class ResourcesService {
   public apiNskV1ResourcesProductClassesByProductClassCodeGet(
     productClassCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ProductClass>;
   public apiNskV1ResourcesProductClassesByProductClassCodeGet(
     productClassCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ProductClass>>;
   public apiNskV1ResourcesProductClassesByProductClassCodeGet(
     productClassCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!productClassCode) {
       throw new Error(
-        "Required parameter productClassCode was null or undefined when calling apiNskV1ResourcesProductClassesByProductClassCodeGet."
+        'Required parameter productClassCode was null or undefined when calling apiNskV1ResourcesProductClassesByProductClassCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -5683,10 +5683,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/ProductClasses/${encodeURIComponent(
         String(productClassCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ProductClass>httpResponse.response)
       );
@@ -5710,7 +5710,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ProductClass>>;
   public apiNskV1ResourcesProductClassesGet(
@@ -5719,7 +5719,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ProductClass>>>;
   public apiNskV1ResourcesProductClassesGet(
@@ -5728,37 +5728,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesProductClassesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesProductClassesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -5767,10 +5767,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/ProductClasses?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/ProductClasses?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ProductClass>>httpResponse.response)
       );
@@ -5788,31 +5788,31 @@ export class ResourcesService {
   public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(
     promotionSettingsTypeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PromotionSettingType>;
   public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(
     promotionSettingsTypeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PromotionSettingType>>;
   public apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(
     promotionSettingsTypeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!promotionSettingsTypeCode) {
       throw new Error(
-        "Required parameter promotionSettingsTypeCode was null or undefined when calling apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet."
+        'Required parameter promotionSettingsTypeCode was null or undefined when calling apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -5823,10 +5823,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/PromotionSettingTypes/${encodeURIComponent(
         String(promotionSettingsTypeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PromotionSettingType>httpResponse.response)
       );
@@ -5850,7 +5850,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PromotionSettingType>>;
   public apiNskV1ResourcesPromotionSettingTypesGet(
@@ -5859,7 +5859,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PromotionSettingType>>>;
   public apiNskV1ResourcesPromotionSettingTypesGet(
@@ -5868,37 +5868,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPromotionSettingTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesPromotionSettingTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -5908,11 +5908,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v1/resources/PromotionSettingTypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PromotionSettingType>>httpResponse.response)
       );
@@ -5930,31 +5930,31 @@ export class ResourcesService {
   public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(
     provinceStateCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ProvinceState>;
   public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(
     provinceStateCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ProvinceState>>;
   public apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(
     provinceStateCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!provinceStateCode) {
       throw new Error(
-        "Required parameter provinceStateCode was null or undefined when calling apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet."
+        'Required parameter provinceStateCode was null or undefined when calling apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -5965,10 +5965,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/ProvinceStates/${encodeURIComponent(
         String(provinceStateCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ProvinceState>httpResponse.response)
       );
@@ -5992,7 +5992,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ProvinceState>>;
   public apiNskV1ResourcesProvinceStatesGet(
@@ -6001,7 +6001,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ProvinceState>>>;
   public apiNskV1ResourcesProvinceStatesGet(
@@ -6010,37 +6010,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesProvinceStatesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesProvinceStatesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -6049,10 +6049,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/ProvinceStates?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/ProvinceStates?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ProvinceState>>httpResponse.response)
       );
@@ -6070,31 +6070,31 @@ export class ResourcesService {
   public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(
     queueCategoryCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<QueueCategory>;
   public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(
     queueCategoryCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<QueueCategory>>;
   public apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(
     queueCategoryCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!queueCategoryCode) {
       throw new Error(
-        "Required parameter queueCategoryCode was null or undefined when calling apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet."
+        'Required parameter queueCategoryCode was null or undefined when calling apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -6105,10 +6105,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/queue/categories/${encodeURIComponent(
         String(queueCategoryCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <QueueCategory>httpResponse.response)
       );
@@ -6132,7 +6132,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<QueueCategory>>;
   public apiNskV1ResourcesQueueCategoriesGet(
@@ -6141,7 +6141,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<QueueCategory>>>;
   public apiNskV1ResourcesQueueCategoriesGet(
@@ -6150,37 +6150,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesQueueCategoriesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesQueueCategoriesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -6189,10 +6189,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/queue/categories?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/queue/categories?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<QueueCategory>>httpResponse.response)
       );
@@ -6207,23 +6207,23 @@ export class ResourcesService {
      
      */
   public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(
-    timedEventType: "Departure" | "Arrival",
-    observe?: "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'body',
     headers?: Headers
   ): Observable<ProvinceState>;
   public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(
-    timedEventType: "Departure" | "Arrival",
-    observe?: "response",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ProvinceState>>;
   public apiNskV1ResourcesReminderTimesByTimedEventTypeGet(
-    timedEventType: "Departure" | "Arrival",
-    observe: any = "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!timedEventType) {
       throw new Error(
-        "Required parameter timedEventType was null or undefined when calling apiNskV1ResourcesReminderTimesByTimedEventTypeGet."
+        'Required parameter timedEventType was null or undefined when calling apiNskV1ResourcesReminderTimesByTimedEventTypeGet.'
       );
     }
 
@@ -6235,7 +6235,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ProvinceState>httpResponse.response)
       );
@@ -6251,22 +6251,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesReminderTimesGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ReminderTime>>;
   public apiNskV1ResourcesReminderTimesGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ReminderTime>>>;
   public apiNskV1ResourcesReminderTimesGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -6274,10 +6274,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/reminderTimes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/reminderTimes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ReminderTime>>httpResponse.response)
       );
@@ -6293,22 +6293,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(
     roleSettingTypeCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<RoleSettingType>;
   public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(
     roleSettingTypeCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<RoleSettingType>>;
   public apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(
     roleSettingTypeCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!roleSettingTypeCode) {
       throw new Error(
-        "Required parameter roleSettingTypeCode was null or undefined when calling apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet."
+        'Required parameter roleSettingTypeCode was null or undefined when calling apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet.'
       );
     }
 
@@ -6322,7 +6322,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <RoleSettingType>httpResponse.response)
       );
@@ -6346,7 +6346,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<RoleSettingType>>;
   public apiNskV1ResourcesRoleSettingTypesGet(
@@ -6355,7 +6355,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<RoleSettingType>>>;
   public apiNskV1ResourcesRoleSettingTypesGet(
@@ -6364,37 +6364,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesRoleSettingTypesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesRoleSettingTypesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -6403,10 +6403,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/RoleSettingTypes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/RoleSettingTypes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<RoleSettingType>>httpResponse.response)
       );
@@ -6422,22 +6422,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesRolesByRoleCodeGet(
     roleCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Role>;
   public apiNskV1ResourcesRolesByRoleCodeGet(
     roleCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Role>>;
   public apiNskV1ResourcesRolesByRoleCodeGet(
     roleCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!roleCode) {
       throw new Error(
-        "Required parameter roleCode was null or undefined when calling apiNskV1ResourcesRolesByRoleCodeGet."
+        'Required parameter roleCode was null or undefined when calling apiNskV1ResourcesRolesByRoleCodeGet.'
       );
     }
 
@@ -6447,7 +6447,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Role>httpResponse.response));
     }
     return response;
@@ -6461,31 +6461,31 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesRolesGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Role>>;
   public apiNskV1ResourcesRolesGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Role>>>;
   public apiNskV1ResourcesRolesGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<Array<Role>>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/roles?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Role>>httpResponse.response)
       );
@@ -6507,7 +6507,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<EnumResource>>;
   public apiNskV1ResourcesSearchTypesGet(
@@ -6515,7 +6515,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<EnumResource>>>;
   public apiNskV1ResourcesSearchTypesGet(
@@ -6523,26 +6523,26 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -6550,11 +6550,11 @@ export class ResourcesService {
       Array<EnumResource>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/searchTypes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<EnumResource>>httpResponse.response)
       );
@@ -6572,34 +6572,34 @@ export class ResourcesService {
   public apiNskV1ResourcesSettingsDataPost(
     request?: SettingsCategoryRequest,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<string>;
   public apiNskV1ResourcesSettingsDataPost(
     request?: SettingsCategoryRequest,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<string>>;
   public apiNskV1ResourcesSettingsDataPost(
     request?: SettingsCategoryRequest,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<string>> = this.httpClient.post(
       `${
         this.basePath
-      }/api/nsk/v1/resources/settings/data?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/settings/data?${queryParameters.join('&')}`,
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <string>httpResponse.response));
     }
     return response;
@@ -6615,36 +6615,36 @@ export class ResourcesService {
   public apiNskV1ResourcesSettingsPost(
     request?: SettingsCategoryRequest,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ResourceCategoryItem>;
   public apiNskV1ResourcesSettingsPost(
     request?: SettingsCategoryRequest,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ResourceCategoryItem>>;
   public apiNskV1ResourcesSettingsPost(
     request?: SettingsCategoryRequest,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
       ResourceCategoryItem
     >> = this.httpClient.post(
       `${this.basePath}/api/nsk/v1/resources/settings?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ResourceCategoryItem>httpResponse.response)
       );
@@ -6662,31 +6662,31 @@ export class ResourcesService {
   public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(
     shoppingAttributeGroupCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ShoppingAttributeGroup>;
   public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(
     shoppingAttributeGroupCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ShoppingAttributeGroup>>;
   public apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(
     shoppingAttributeGroupCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!shoppingAttributeGroupCode) {
       throw new Error(
-        "Required parameter shoppingAttributeGroupCode was null or undefined when calling apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet."
+        'Required parameter shoppingAttributeGroupCode was null or undefined when calling apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -6697,10 +6697,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/ShoppingAttributeGroups/${encodeURIComponent(
         String(shoppingAttributeGroupCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ShoppingAttributeGroup>httpResponse.response)
       );
@@ -6724,7 +6724,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ShoppingAttributeGroup>>;
   public apiNskV1ResourcesShoppingAttributeGroupsGet(
@@ -6733,7 +6733,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ShoppingAttributeGroup>>>;
   public apiNskV1ResourcesShoppingAttributeGroupsGet(
@@ -6742,37 +6742,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesShoppingAttributeGroupsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesShoppingAttributeGroupsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -6782,11 +6782,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v1/resources/ShoppingAttributeGroups?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<ShoppingAttributeGroup>>httpResponse.response
@@ -6806,31 +6806,31 @@ export class ResourcesService {
   public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(
     shoppingAttributeCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ShoppingAttribute>;
   public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(
     shoppingAttributeCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ShoppingAttribute>>;
   public apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(
     shoppingAttributeCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!shoppingAttributeCode) {
       throw new Error(
-        "Required parameter shoppingAttributeCode was null or undefined when calling apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet."
+        'Required parameter shoppingAttributeCode was null or undefined when calling apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -6841,10 +6841,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/ShoppingAttributes/${encodeURIComponent(
         String(shoppingAttributeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ShoppingAttribute>httpResponse.response)
       );
@@ -6868,7 +6868,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ShoppingAttribute>>;
   public apiNskV1ResourcesShoppingAttributesGet(
@@ -6877,7 +6877,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ShoppingAttribute>>>;
   public apiNskV1ResourcesShoppingAttributesGet(
@@ -6886,37 +6886,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesShoppingAttributesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesShoppingAttributesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -6925,10 +6925,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/ShoppingAttributes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/ShoppingAttributes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ShoppingAttribute>>httpResponse.response)
       );
@@ -6944,22 +6944,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(
     providerName: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SingleSignOnProvider>;
   public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(
     providerName: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SingleSignOnProvider>>;
   public apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(
     providerName: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!providerName) {
       throw new Error(
-        "Required parameter providerName was null or undefined when calling apiNskV1ResourcesSingleSignOnProviderByProviderNameGet."
+        'Required parameter providerName was null or undefined when calling apiNskV1ResourcesSingleSignOnProviderByProviderNameGet.'
       );
     }
 
@@ -6973,7 +6973,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SingleSignOnProvider>httpResponse.response)
       );
@@ -6997,7 +6997,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SingleSignOnProvider>>;
   public apiNskV1ResourcesSingleSignOnProviderGet(
@@ -7006,7 +7006,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SingleSignOnProvider>>>;
   public apiNskV1ResourcesSingleSignOnProviderGet(
@@ -7015,37 +7015,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSingleSignOnProviderGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSingleSignOnProviderGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -7054,10 +7054,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/singleSignOnProvider?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/singleSignOnProvider?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SingleSignOnProvider>>httpResponse.response)
       );
@@ -7075,41 +7075,41 @@ export class ResourcesService {
   public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(
     ssrGroupCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SsrGroup>;
   public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(
     ssrGroupCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SsrGroup>>;
   public apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(
     ssrGroupCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrGroupCode) {
       throw new Error(
-        "Required parameter ssrGroupCode was null or undefined when calling apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet."
+        'Required parameter ssrGroupCode was null or undefined when calling apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<SsrGroup>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/SsrGroups/${encodeURIComponent(
         String(ssrGroupCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SsrGroup>httpResponse.response)
       );
@@ -7133,7 +7133,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SsrGroup>>;
   public apiNskV1ResourcesSsrGroupsGet(
@@ -7142,7 +7142,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SsrGroup>>>;
   public apiNskV1ResourcesSsrGroupsGet(
@@ -7151,37 +7151,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrGroupsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrGroupsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -7189,11 +7189,11 @@ export class ResourcesService {
       Array<SsrGroup>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/SsrGroups?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SsrGroup>>httpResponse.response)
       );
@@ -7211,41 +7211,41 @@ export class ResourcesService {
   public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(
     ssrNestCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SsrNest>;
   public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(
     ssrNestCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SsrNest>>;
   public apiNskV1ResourcesSsrNestsBySsrNestCodeGet(
     ssrNestCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrNestCode) {
       throw new Error(
-        "Required parameter ssrNestCode was null or undefined when calling apiNskV1ResourcesSsrNestsBySsrNestCodeGet."
+        'Required parameter ssrNestCode was null or undefined when calling apiNskV1ResourcesSsrNestsBySsrNestCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<SsrNest>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/SsrNests/${encodeURIComponent(
         String(ssrNestCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <SsrNest>httpResponse.response));
     }
     return response;
@@ -7267,7 +7267,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SsrNest>>;
   public apiNskV1ResourcesSsrNestsGet(
@@ -7276,7 +7276,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SsrNest>>>;
   public apiNskV1ResourcesSsrNestsGet(
@@ -7285,37 +7285,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrNestsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrNestsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -7323,11 +7323,11 @@ export class ResourcesService {
       Array<SsrNest>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/SsrNests?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SsrNest>>httpResponse.response)
       );
@@ -7345,31 +7345,31 @@ export class ResourcesService {
   public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(
     ssrRestrictionResultCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SsrRestrictionResult>;
   public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(
     ssrRestrictionResultCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SsrRestrictionResult>>;
   public apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(
     ssrRestrictionResultCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrRestrictionResultCode) {
       throw new Error(
-        "Required parameter ssrRestrictionResultCode was null or undefined when calling apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet."
+        'Required parameter ssrRestrictionResultCode was null or undefined when calling apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -7380,10 +7380,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/SsrRestrictionResults/${encodeURIComponent(
         String(ssrRestrictionResultCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SsrRestrictionResult>httpResponse.response)
       );
@@ -7407,7 +7407,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SsrRestrictionResult>>;
   public apiNskV1ResourcesSsrRestrictionResultsGet(
@@ -7416,7 +7416,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SsrRestrictionResult>>>;
   public apiNskV1ResourcesSsrRestrictionResultsGet(
@@ -7425,37 +7425,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrRestrictionResultsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrRestrictionResultsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -7465,11 +7465,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v1/resources/SsrRestrictionResults?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SsrRestrictionResult>>httpResponse.response)
       );
@@ -7487,41 +7487,41 @@ export class ResourcesService {
   public apiNskV1ResourcesSsrsBySsrCodeGet(
     ssrCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Ssr>;
   public apiNskV1ResourcesSsrsBySsrCodeGet(
     ssrCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Ssr>>;
   public apiNskV1ResourcesSsrsBySsrCodeGet(
     ssrCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrCode) {
       throw new Error(
-        "Required parameter ssrCode was null or undefined when calling apiNskV1ResourcesSsrsBySsrCodeGet."
+        'Required parameter ssrCode was null or undefined when calling apiNskV1ResourcesSsrsBySsrCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Ssr>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Ssrs/${encodeURIComponent(
         String(ssrCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Ssr>httpResponse.response));
     }
     return response;
@@ -7543,7 +7543,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Ssr>>;
   public apiNskV1ResourcesSsrsGet(
@@ -7552,7 +7552,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Ssr>>>;
   public apiNskV1ResourcesSsrsGet(
@@ -7561,45 +7561,45 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSsrsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
     const response: Observable<HttpResponse<Array<Ssr>>> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/resources/Ssrs?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/resources/Ssrs?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Ssr>>httpResponse.response)
       );
@@ -7617,31 +7617,31 @@ export class ResourcesService {
   public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(
     standByPriorityCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<StandByPriority>;
   public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(
     standByPriorityCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<StandByPriority>>;
   public apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(
     standByPriorityCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!standByPriorityCode) {
       throw new Error(
-        "Required parameter standByPriorityCode was null or undefined when calling apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet."
+        'Required parameter standByPriorityCode was null or undefined when calling apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -7652,10 +7652,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/StandByPriorities/${encodeURIComponent(
         String(standByPriorityCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <StandByPriority>httpResponse.response)
       );
@@ -7679,7 +7679,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<StandByPriority>>;
   public apiNskV1ResourcesStandByPrioritiesGet(
@@ -7688,7 +7688,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<StandByPriority>>>;
   public apiNskV1ResourcesStandByPrioritiesGet(
@@ -7697,37 +7697,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStandByPrioritiesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStandByPrioritiesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -7736,10 +7736,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/StandByPriorities?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/StandByPriorities?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<StandByPriority>>httpResponse.response)
       );
@@ -7757,31 +7757,31 @@ export class ResourcesService {
   public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(
     stationCategoryCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<StationCategory>;
   public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(
     stationCategoryCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<StationCategory>>;
   public apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(
     stationCategoryCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!stationCategoryCode) {
       throw new Error(
-        "Required parameter stationCategoryCode was null or undefined when calling apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet."
+        'Required parameter stationCategoryCode was null or undefined when calling apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -7792,10 +7792,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/StationCategories/${encodeURIComponent(
         String(stationCategoryCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <StationCategory>httpResponse.response)
       );
@@ -7819,7 +7819,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<StationCategory>>;
   public apiNskV1ResourcesStationCategoriesGet(
@@ -7828,7 +7828,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<StationCategory>>>;
   public apiNskV1ResourcesStationCategoriesGet(
@@ -7837,37 +7837,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationCategoriesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationCategoriesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -7876,10 +7876,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/StationCategories?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/StationCategories?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<StationCategory>>httpResponse.response)
       );
@@ -7895,22 +7895,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesStationsByStationCodeDetailsGet(
     stationCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ResourceEntriesStationDetail>;
   public apiNskV1ResourcesStationsByStationCodeDetailsGet(
     stationCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ResourceEntriesStationDetail>>;
   public apiNskV1ResourcesStationsByStationCodeDetailsGet(
     stationCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!stationCode) {
       throw new Error(
-        "Required parameter stationCode was null or undefined when calling apiNskV1ResourcesStationsByStationCodeDetailsGet."
+        'Required parameter stationCode was null or undefined when calling apiNskV1ResourcesStationsByStationCodeDetailsGet.'
       );
     }
 
@@ -7922,7 +7922,7 @@ export class ResourcesService {
       )}/details`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ResourceEntriesStationDetail>httpResponse.response)
       );
@@ -7942,46 +7942,46 @@ export class ResourcesService {
     stationCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Station>;
   public apiNskV1ResourcesStationsByStationCodeGet(
     stationCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Station>>;
   public apiNskV1ResourcesStationsByStationCodeGet(
     stationCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!stationCode) {
       throw new Error(
-        "Required parameter stationCode was null or undefined when calling apiNskV1ResourcesStationsByStationCodeGet."
+        'Required parameter stationCode was null or undefined when calling apiNskV1ResourcesStationsByStationCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<Station>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Stations/${encodeURIComponent(
         String(stationCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Station>httpResponse.response));
     }
     return response;
@@ -8005,7 +8005,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Station>>;
   public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(
@@ -8015,7 +8015,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Station>>>;
   public apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet(
@@ -8025,43 +8025,43 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!stationCategoryCode) {
       throw new Error(
-        "Required parameter stationCategoryCode was null or undefined when calling apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet."
+        'Required parameter stationCategoryCode was null or undefined when calling apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet.'
       );
     }
 
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationsCategoryByStationCategoryCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -8072,10 +8072,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v1/resources/stations/category/${encodeURIComponent(
         String(stationCategoryCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Station>>httpResponse.response)
       );
@@ -8099,7 +8099,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Station>>;
   public apiNskV1ResourcesStationsGet(
@@ -8108,7 +8108,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Station>>>;
   public apiNskV1ResourcesStationsGet(
@@ -8117,37 +8117,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesStationsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -8155,11 +8155,11 @@ export class ResourcesService {
       Array<Station>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Stations?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Station>>httpResponse.response)
       );
@@ -8177,41 +8177,41 @@ export class ResourcesService {
   public apiNskV1ResourcesSubZonesBySubZoneCodeGet(
     subZoneCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SubZone>;
   public apiNskV1ResourcesSubZonesBySubZoneCodeGet(
     subZoneCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SubZone>>;
   public apiNskV1ResourcesSubZonesBySubZoneCodeGet(
     subZoneCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!subZoneCode) {
       throw new Error(
-        "Required parameter subZoneCode was null or undefined when calling apiNskV1ResourcesSubZonesBySubZoneCodeGet."
+        'Required parameter subZoneCode was null or undefined when calling apiNskV1ResourcesSubZonesBySubZoneCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<SubZone>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/SubZones/${encodeURIComponent(
         String(subZoneCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <SubZone>httpResponse.response));
     }
     return response;
@@ -8233,7 +8233,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SubZone>>;
   public apiNskV1ResourcesSubZonesGet(
@@ -8242,7 +8242,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SubZone>>>;
   public apiNskV1ResourcesSubZonesGet(
@@ -8251,37 +8251,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSubZonesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSubZonesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -8289,11 +8289,11 @@ export class ResourcesService {
       Array<SubZone>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/SubZones?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SubZone>>httpResponse.response)
       );
@@ -8309,22 +8309,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesSuffixesBySuffixCodeGet(
     suffixCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Suffix>;
   public apiNskV1ResourcesSuffixesBySuffixCodeGet(
     suffixCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Suffix>>;
   public apiNskV1ResourcesSuffixesBySuffixCodeGet(
     suffixCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!suffixCode) {
       throw new Error(
-        "Required parameter suffixCode was null or undefined when calling apiNskV1ResourcesSuffixesBySuffixCodeGet."
+        'Required parameter suffixCode was null or undefined when calling apiNskV1ResourcesSuffixesBySuffixCodeGet.'
       );
     }
 
@@ -8334,7 +8334,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Suffix>httpResponse.response));
     }
     return response;
@@ -8356,7 +8356,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Suffix>>;
   public apiNskV1ResourcesSuffixesGet(
@@ -8365,7 +8365,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Suffix>>>;
   public apiNskV1ResourcesSuffixesGet(
@@ -8374,37 +8374,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSuffixesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesSuffixesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -8412,11 +8412,11 @@ export class ResourcesService {
       Array<Suffix>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Suffixes?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Suffix>>httpResponse.response)
       );
@@ -8436,46 +8436,46 @@ export class ResourcesService {
     timeZoneCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TimeZone>;
   public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(
     timeZoneCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TimeZone>>;
   public apiNskV1ResourcesTimeZonesByTimeZoneCodeGet(
     timeZoneCode: string,
     cultureCode?: string,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!timeZoneCode) {
       throw new Error(
-        "Required parameter timeZoneCode was null or undefined when calling apiNskV1ResourcesTimeZonesByTimeZoneCodeGet."
+        'Required parameter timeZoneCode was null or undefined when calling apiNskV1ResourcesTimeZonesByTimeZoneCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<TimeZone>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/TimeZones/${encodeURIComponent(
         String(timeZoneCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TimeZone>httpResponse.response)
       );
@@ -8499,7 +8499,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<TimeZone>>;
   public apiNskV1ResourcesTimeZonesGet(
@@ -8508,7 +8508,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<TimeZone>>>;
   public apiNskV1ResourcesTimeZonesGet(
@@ -8517,37 +8517,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTimeZonesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTimeZonesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -8555,11 +8555,11 @@ export class ResourcesService {
       Array<TimeZone>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/TimeZones?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<TimeZone>>httpResponse.response)
       );
@@ -8575,22 +8575,22 @@ export class ResourcesService {
      */
   public apiNskV1ResourcesTitlesByTitleKeyGet(
     titleKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Title>;
   public apiNskV1ResourcesTitlesByTitleKeyGet(
     titleKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Title>>;
   public apiNskV1ResourcesTitlesByTitleKeyGet(
     titleKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!titleKey) {
       throw new Error(
-        "Required parameter titleKey was null or undefined when calling apiNskV1ResourcesTitlesByTitleKeyGet."
+        'Required parameter titleKey was null or undefined when calling apiNskV1ResourcesTitlesByTitleKeyGet.'
       );
     }
 
@@ -8600,7 +8600,7 @@ export class ResourcesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Title>httpResponse.response));
     }
     return response;
@@ -8622,7 +8622,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Title>>;
   public apiNskV1ResourcesTitlesGet(
@@ -8631,7 +8631,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Title>>>;
   public apiNskV1ResourcesTitlesGet(
@@ -8640,37 +8640,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTitlesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTitlesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -8678,11 +8678,11 @@ export class ResourcesService {
       Array<Title>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Titles?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Title>>httpResponse.response)
       );
@@ -8700,41 +8700,41 @@ export class ResourcesService {
   public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(
     travelClassCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TravelClass>;
   public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(
     travelClassCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TravelClass>>;
   public apiNskV1ResourcesTravelClassesByTravelClassCodeGet(
     travelClassCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!travelClassCode) {
       throw new Error(
-        "Required parameter travelClassCode was null or undefined when calling apiNskV1ResourcesTravelClassesByTravelClassCodeGet."
+        'Required parameter travelClassCode was null or undefined when calling apiNskV1ResourcesTravelClassesByTravelClassCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<TravelClass>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/TravelClasses/${encodeURIComponent(
         String(travelClassCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TravelClass>httpResponse.response)
       );
@@ -8758,7 +8758,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<TravelClass>>;
   public apiNskV1ResourcesTravelClassesGet(
@@ -8767,7 +8767,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<TravelClass>>>;
   public apiNskV1ResourcesTravelClassesGet(
@@ -8776,37 +8776,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTravelClassesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesTravelClassesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -8815,10 +8815,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/resources/TravelClasses?${queryParameters.join("&")}`,
+      }/api/nsk/v1/resources/TravelClasses?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<TravelClass>>httpResponse.response)
       );
@@ -8836,41 +8836,41 @@ export class ResourcesService {
   public apiNskV1ResourcesZonesByZoneCodeGet(
     zoneCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Zone>;
   public apiNskV1ResourcesZonesByZoneCodeGet(
     zoneCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Zone>>;
   public apiNskV1ResourcesZonesByZoneCodeGet(
     zoneCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!zoneCode) {
       throw new Error(
-        "Required parameter zoneCode was null or undefined when calling apiNskV1ResourcesZonesByZoneCodeGet."
+        'Required parameter zoneCode was null or undefined when calling apiNskV1ResourcesZonesByZoneCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Zone>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Zones/${encodeURIComponent(
         String(zoneCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Zone>httpResponse.response));
     }
     return response;
@@ -8892,7 +8892,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Zone>>;
   public apiNskV1ResourcesZonesGet(
@@ -8901,7 +8901,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Zone>>>;
   public apiNskV1ResourcesZonesGet(
@@ -8910,47 +8910,47 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesZonesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV1ResourcesZonesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
     const response: Observable<HttpResponse<Array<Zone>>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/resources/Zones?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Zone>>httpResponse.response)
       );
@@ -8967,43 +8967,43 @@ export class ResourcesService {
      
      */
   public apiNskV2ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Vendorv2>>;
   public apiNskV2ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Vendorv2>>>;
   public apiNskV2ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!type) {
       throw new Error(
-        "Required parameter type was null or undefined when calling apiNskV2ResourcesAddOnsVendorsGet."
+        'Required parameter type was null or undefined when calling apiNskV2ResourcesAddOnsVendorsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -9011,10 +9011,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v2/resources/addOns/vendors?${queryParameters.join("&")}`,
+      }/api/nsk/v2/resources/addOns/vendors?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Vendorv2>>httpResponse.response)
       );
@@ -9032,41 +9032,41 @@ export class ResourcesService {
   public apiNskV2ResourcesCountriesByCountryCodeGet(
     countryCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Countryv2>;
   public apiNskV2ResourcesCountriesByCountryCodeGet(
     countryCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Countryv2>>;
   public apiNskV2ResourcesCountriesByCountryCodeGet(
     countryCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!countryCode) {
       throw new Error(
-        "Required parameter countryCode was null or undefined when calling apiNskV2ResourcesCountriesByCountryCodeGet."
+        'Required parameter countryCode was null or undefined when calling apiNskV2ResourcesCountriesByCountryCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
     const response: Observable<HttpResponse<Countryv2>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/resources/countries/${encodeURIComponent(
         String(countryCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Countryv2>httpResponse.response)
       );
@@ -9090,7 +9090,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Countryv2>>;
   public apiNskV2ResourcesCountriesGet(
@@ -9099,7 +9099,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Countryv2>>>;
   public apiNskV2ResourcesCountriesGet(
@@ -9108,37 +9108,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesCountriesGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesCountriesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -9146,11 +9146,11 @@ export class ResourcesService {
       Array<Countryv2>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/resources/countries?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Countryv2>>httpResponse.response)
       );
@@ -9168,31 +9168,31 @@ export class ResourcesService {
   public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(
     currencyCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Currency>;
   public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(
     currencyCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Currency>>;
   public apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(
     currencyCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!currencyCode) {
       throw new Error(
-        "Required parameter currencyCode was null or undefined when calling apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet."
+        'Required parameter currencyCode was null or undefined when calling apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -9201,10 +9201,10 @@ export class ResourcesService {
         this.basePath
       }/api/nsk/v2/resources/CurrenciesControllerv2/${encodeURIComponent(
         String(currencyCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Currency>httpResponse.response)
       );
@@ -9228,7 +9228,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ResourceEntriesCurrencyv2>;
   public apiNskV2ResourcesCurrenciesControllerv2Get(
@@ -9237,7 +9237,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ResourceEntriesCurrencyv2>>;
   public apiNskV2ResourcesCurrenciesControllerv2Get(
@@ -9246,37 +9246,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesCurrenciesControllerv2Get."
+        'Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesCurrenciesControllerv2Get.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -9286,11 +9286,11 @@ export class ResourcesService {
       `${
         this.basePath
       }/api/nsk/v2/resources/CurrenciesControllerv2?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ResourceEntriesCurrencyv2>httpResponse.response)
       );
@@ -9310,39 +9310,39 @@ export class ResourcesService {
     locationCode: string,
     travelLocationCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Market>;
   public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(
     locationCode: string,
     travelLocationCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Market>>;
   public apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet(
     locationCode: string,
     travelLocationCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!locationCode) {
       throw new Error(
-        "Required parameter locationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet."
+        'Required parameter locationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet.'
       );
     }
 
     if (!travelLocationCode) {
       throw new Error(
-        "Required parameter travelLocationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet."
+        'Required parameter travelLocationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeByTravelLocationCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -9351,10 +9351,10 @@ export class ResourcesService {
         String(locationCode)
       )}/${encodeURIComponent(
         String(travelLocationCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Market>httpResponse.response));
     }
     return response;
@@ -9370,31 +9370,31 @@ export class ResourcesService {
   public apiNskV2ResourcesMarketsByLocationCodeGet(
     locationCode: string,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Market>>;
   public apiNskV2ResourcesMarketsByLocationCodeGet(
     locationCode: string,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Market>>>;
   public apiNskV2ResourcesMarketsByLocationCodeGet(
     locationCode: string,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!locationCode) {
       throw new Error(
-        "Required parameter locationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeGet."
+        'Required parameter locationCode was null or undefined when calling apiNskV2ResourcesMarketsByLocationCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -9403,10 +9403,10 @@ export class ResourcesService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/resources/markets/${encodeURIComponent(
         String(locationCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Market>>httpResponse.response)
       );
@@ -9430,7 +9430,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Marketv2>>;
   public apiNskV2ResourcesMarketsGet(
@@ -9439,7 +9439,7 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Marketv2>>>;
   public apiNskV2ResourcesMarketsGet(
@@ -9448,37 +9448,37 @@ export class ResourcesService {
     eTag?: string,
     startIndex?: number,
     itemCount?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!activeOnly) {
       throw new Error(
-        "Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesMarketsGet."
+        'Required parameter activeOnly was null or undefined when calling apiNskV2ResourcesMarketsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (activeOnly !== undefined) {
       queryParameters.push(
-        "activeOnly=" + encodeURIComponent(String(activeOnly))
+        'activeOnly=' + encodeURIComponent(String(activeOnly))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (startIndex !== undefined) {
       queryParameters.push(
-        "startIndex=" + encodeURIComponent(String(startIndex))
+        'startIndex=' + encodeURIComponent(String(startIndex))
       );
     }
     if (itemCount !== undefined) {
       queryParameters.push(
-        "itemCount=" + encodeURIComponent(String(itemCount))
+        'itemCount=' + encodeURIComponent(String(itemCount))
       );
     }
 
@@ -9486,11 +9486,11 @@ export class ResourcesService {
       Array<Marketv2>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/resources/markets?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Marketv2>>httpResponse.response)
       );

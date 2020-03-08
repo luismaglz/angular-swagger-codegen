@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { IJsonResponse } from "api-models";
+import { IJsonResponse } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class RedisService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -44,22 +44,22 @@ export class RedisService {
      */
   public apiV1RedisByNameDelete(
     name: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiV1RedisByNameDelete(
     name: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiV1RedisByNameDelete(
     name: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!name) {
       throw new Error(
-        "Required parameter name was null or undefined when calling apiV1RedisByNameDelete."
+        'Required parameter name was null or undefined when calling apiV1RedisByNameDelete.'
       );
     }
 
@@ -69,7 +69,7 @@ export class RedisService {
       `${this.basePath}/api/v1/redis/${encodeURIComponent(String(name))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -83,21 +83,21 @@ export class RedisService {
      
      */
   public apiV1RedisDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiV1RedisDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiV1RedisDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       IJsonResponse
     >> = this.httpClient.delete(`${this.basePath}/api/v1/redis`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -111,21 +111,21 @@ export class RedisService {
      
      */
   public apiV1RedisGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<string>>;
   public apiV1RedisGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<string>>>;
   public apiV1RedisGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       Array<string>
     >> = this.httpClient.get(`${this.basePath}/api/v1/redis`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<string>>httpResponse.response)
       );

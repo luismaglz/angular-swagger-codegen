@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   IJsonResponse,
   Voucher,
@@ -22,16 +22,20 @@ import {
   VoucherItem,
   VoucherUpdateRequest,
   VouchersSummaryResponse
-} from "api-models";
+} from 'api-models';
 
-import { VouchersService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { VouchersService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreVouchersService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("VouchersService") protected baseService: VouchersService
+    @inject('Store') protected store: Store<any>,
+    @inject('VouchersService') protected baseService: VouchersService
   ) {}
 
   /**
@@ -51,7 +55,7 @@ export class StoreVouchersService {
         pageSize,
         lastPageKey,
         endDate,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -71,7 +75,7 @@ export class StoreVouchersService {
     const response = await this.baseService
       .apiNskV1VouchersByIssuanceByVoucherIssuanceKeyGet(
         voucherIssuanceKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -101,7 +105,7 @@ export class StoreVouchersService {
         identifier,
         carrierCode,
         opSuffix,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -119,7 +123,7 @@ export class StoreVouchersService {
     headers?: Headers
   ): Promise<Voucher> {
     const response = await this.baseService
-      .apiNskV1VouchersByVoucherKeyGet(voucherKey, "body", headers)
+      .apiNskV1VouchersByVoucherKeyGet(voucherKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1VouchersByVoucherKeyGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -136,7 +140,7 @@ export class StoreVouchersService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1VouchersByVoucherKeyPut(voucherKey, request, "body", headers)
+      .apiNskV1VouchersByVoucherKeyPut(voucherKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1VouchersByVoucherKeyPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -154,7 +158,7 @@ export class StoreVouchersService {
     const response = await this.baseService
       .apiNskV1VouchersConfigurationByConfigurationCodeGet(
         configurationCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -171,7 +175,7 @@ export class StoreVouchersService {
     headers?: Headers
   ): Promise<Array<VoucherConfiguration>> {
     const response = await this.baseService
-      .apiNskV1VouchersConfigurationGet("body", headers)
+      .apiNskV1VouchersConfigurationGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1VouchersConfigurationGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -199,7 +203,7 @@ export class StoreVouchersService {
         recordLocator,
         customerNumber,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();

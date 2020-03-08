@@ -11,24 +11,28 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   IJsonResponse,
   OrganizationGroup,
   OrganizationGroupDetails
-} from "api-models";
+} from 'api-models';
 
-import { OrganizationsService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { OrganizationsService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreOrganizationsService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("OrganizationsService") protected baseService: OrganizationsService
+    @inject('Store') protected store: Store<any>,
+    @inject('OrganizationsService') protected baseService: OrganizationsService
   ) {}
 
   /**
@@ -42,7 +46,7 @@ export class StoreOrganizationsService {
     const response = await this.baseService
       .apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(
         organizationGroupCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -59,7 +63,7 @@ export class StoreOrganizationsService {
     headers?: Headers
   ): Promise<Array<OrganizationGroup>> {
     const response = await this.baseService
-      .apiNskV1OrganizationsGroupsGet("body", headers)
+      .apiNskV1OrganizationsGroupsGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1OrganizationsGroupsGet
     // addResponsetoStore(this.store, response.data, true, true);

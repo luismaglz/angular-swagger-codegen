@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { FareRule, IJsonResponse } from "api-models";
+import { FareRule, IJsonResponse } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class FareRulesService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -44,22 +44,22 @@ export class FareRulesService {
      */
   public apiNskV1FareRulesByFareAvailabilityKeyGet(
     fareAvailabilityKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<FareRule>;
   public apiNskV1FareRulesByFareAvailabilityKeyGet(
     fareAvailabilityKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<FareRule>>;
   public apiNskV1FareRulesByFareAvailabilityKeyGet(
     fareAvailabilityKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!fareAvailabilityKey) {
       throw new Error(
-        "Required parameter fareAvailabilityKey was null or undefined when calling apiNskV1FareRulesByFareAvailabilityKeyGet."
+        'Required parameter fareAvailabilityKey was null or undefined when calling apiNskV1FareRulesByFareAvailabilityKeyGet.'
       );
     }
 
@@ -69,7 +69,7 @@ export class FareRulesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <FareRule>httpResponse.response)
       );

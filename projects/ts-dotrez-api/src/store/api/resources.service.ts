@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   AccountTransactionCode,
   AddressType,
@@ -97,16 +97,20 @@ import {
   Vendor,
   Vendorv2,
   Zone
-} from "api-models";
+} from 'api-models';
 
-import { ResourcesService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { ResourcesService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreResourcesService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("ResourcesService") protected baseService: ResourcesService
+    @inject('Store') protected store: Store<any>,
+    @inject('ResourcesService') protected baseService: ResourcesService
   ) {}
 
   /**
@@ -122,7 +126,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesAccountTransactionCodesByTransactionCodeGet(
         transactionCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -150,7 +154,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -164,7 +168,7 @@ export class StoreResourcesService {
    *
    */
   public async store_apiNskV1ResourcesAddOnsLocationsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
@@ -176,7 +180,7 @@ export class StoreResourcesService {
         eTag,
         vendorCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -190,7 +194,7 @@ export class StoreResourcesService {
    *
    */
   public async store_apiNskV1ResourcesAddOnsParametersGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
@@ -202,7 +206,7 @@ export class StoreResourcesService {
         eTag,
         vendorCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -216,7 +220,7 @@ export class StoreResourcesService {
    *
    */
   public async store_apiNskV1ResourcesAddOnsParticipanttypesGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     eTag?: string,
     vendorCode?: string,
     cultureCode?: string,
@@ -228,7 +232,7 @@ export class StoreResourcesService {
         eTag,
         vendorCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -250,7 +254,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesAddOnsSourcesBySourceCodeGet(
         sourceCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -278,7 +282,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -292,7 +296,7 @@ export class StoreResourcesService {
    *
    */
   public async store_apiNskV1ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
     headers?: Headers
@@ -302,7 +306,7 @@ export class StoreResourcesService {
         type,
         cultureCode,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -324,7 +328,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesAddressTypesByAddressTypeCodeGet(
         addressTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -352,7 +356,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -374,7 +378,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesAgentSettingTypesByAgentSettingTypeCodeGet(
         agentSettingTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -402,7 +406,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -424,7 +428,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesAreasByAreaCodeGet(
         areaCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -452,7 +456,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -474,7 +478,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesBaggageTypesByBaggageTypeCodeGet(
         baggageTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -502,7 +506,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -526,7 +530,7 @@ export class StoreResourcesService {
         bundleRuleCode,
         cultureCode,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -548,7 +552,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesBundlesByBundleCodeGet(
         bundleCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -576,7 +580,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -594,7 +598,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Array<BundleRule>> {
     const response = await this.baseService
-      .apiNskV1ResourcesBundlesRulesGet(eTag, "body", headers)
+      .apiNskV1ResourcesBundlesRulesGet(eTag, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesBundlesRulesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -620,7 +624,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -644,7 +648,7 @@ export class StoreResourcesService {
         bundleCode,
         cultureCode,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -668,7 +672,7 @@ export class StoreResourcesService {
         carrierCode,
         cultureCode,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -696,7 +700,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -718,7 +722,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesCitiesByCityCodeGet(
         cityCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -746,7 +750,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -768,7 +772,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesClassOfServicesByClassOfServiceCodeGet(
         classOfServiceCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -796,7 +800,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -818,7 +822,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesCommissionRatesByCommissionRateCodeGet(
         commissionRateCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -846,7 +850,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -868,7 +872,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesContactTypesByContactTypeCodeGet(
         contactTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -896,7 +900,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -920,7 +924,7 @@ export class StoreResourcesService {
         contentId,
         convertRtfToHtml,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -944,7 +948,7 @@ export class StoreResourcesService {
         contentId,
         convertRtfToHtml,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -959,17 +963,17 @@ export class StoreResourcesService {
    */
   public async store_apiNskV1ResourcesContentsGet(
     type:
-      | "GeneralReference"
-      | "News"
-      | "ConsoleHelp"
-      | "FareRuleReference"
-      | "ReviewWithCustomer"
-      | "Notices"
-      | "Literature"
-      | "Links"
-      | "Image"
-      | "PromotionReference"
-      | "SubscriptionReference",
+      | 'GeneralReference'
+      | 'News'
+      | 'ConsoleHelp'
+      | 'FareRuleReference'
+      | 'ReviewWithCustomer'
+      | 'Notices'
+      | 'Literature'
+      | 'Links'
+      | 'Image'
+      | 'PromotionReference'
+      | 'SubscriptionReference',
     name?: string,
     containerId?: number,
     pageSize?: number,
@@ -983,7 +987,7 @@ export class StoreResourcesService {
         containerId,
         pageSize,
         lastContentId,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1005,7 +1009,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesCulturesByCultureCodeGet(
         cultureCode,
         forCultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1033,7 +1037,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1055,7 +1059,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesCustomerProgramsByProgramCodeGet(
         programCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1079,7 +1083,7 @@ export class StoreResourcesService {
         programCode,
         programLevelCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1107,7 +1111,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1129,7 +1133,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesDelaysByDelayCodeGet(
         delayCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1157,7 +1161,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1179,7 +1183,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesDepartmentsByDepartmentCodeGet(
         departmentCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1207,7 +1211,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1233,7 +1237,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1255,7 +1259,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesDocumentTypesByDocumentTypeCodeGet(
         documentTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1283,7 +1287,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1301,7 +1305,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Domain> {
     const response = await this.baseService
-      .apiNskV1ResourcesDomainsByDomainCodeGet(domainCode, "body", headers)
+      .apiNskV1ResourcesDomainsByDomainCodeGet(domainCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesDomainsByDomainCodeGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1317,7 +1321,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Array<Domain>> {
     const response = await this.baseService
-      .apiNskV1ResourcesDomainsGet(eTag, "body", headers)
+      .apiNskV1ResourcesDomainsGet(eTag, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesDomainsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1337,7 +1341,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesEmailTypesByEmailTypeCodeGet(
         emailTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1365,7 +1369,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1387,7 +1391,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesExternalRatesByRateIdGet(
         rateId,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1415,7 +1419,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1437,7 +1441,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesFareTypesByFareTypeCodeGet(
         fareTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1465,7 +1469,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1483,7 +1487,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Array<FeeDetail>> {
     const response = await this.baseService
-      .apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode, "body", headers)
+      .apiNskV1ResourcesFeesByFeeCodeDetailsGet(feeCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesFeesByFeeCodeDetailsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1500,7 +1504,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Fee> {
     const response = await this.baseService
-      .apiNskV1ResourcesFeesByFeeCodeGet(feeCode, cultureCode, "body", headers)
+      .apiNskV1ResourcesFeesByFeeCodeGet(feeCode, cultureCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesFeesByFeeCodeGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1526,7 +1530,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1552,7 +1556,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1574,7 +1578,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesHotCardReasonsByHotCardReasonCodeGet(
         hotCardReasonCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1602,7 +1606,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1624,7 +1628,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesIssuanceReasonsByIssuanceReasonCodeGet(
         issuanceReasonCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1652,7 +1656,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1674,7 +1678,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesLocationsByLocationCodeGet(
         locationCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1702,7 +1706,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1720,7 +1724,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Mac> {
     const response = await this.baseService
-      .apiNskV1ResourcesMacsByMacCodeGet(macCode, "body", headers)
+      .apiNskV1ResourcesMacsByMacCodeGet(macCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesMacsByMacCodeGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1736,7 +1740,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Array<Mac>> {
     const response = await this.baseService
-      .apiNskV1ResourcesMacsGet(eTag, "body", headers)
+      .apiNskV1ResourcesMacsGet(eTag, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesMacsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -1756,7 +1760,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesMessageTypesByMessageTypeCodeGet(
         messageTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1784,7 +1788,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1810,7 +1814,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1832,7 +1836,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesPassengerDiscountsByPassengerDiscountCodeGet(
         passengerDiscountCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1860,7 +1864,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1882,7 +1886,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesPassengerTypesByPassengerTypeCodeGet(
         passengerTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1910,7 +1914,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1932,7 +1936,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesPaymentMethodsByPaymentMethodCodeGet(
         paymentMethodCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1960,7 +1964,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -1982,7 +1986,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesPersonAttachmentTypesByPersonAttachmentTypeCodeGet(
         personAttachmentTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2010,7 +2014,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2032,7 +2036,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesPersonInformationTypesByPersonInformationTypeCodeGet(
         personInformationTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2060,7 +2064,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2082,7 +2086,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesPhoneTypesByPhoneTypeCodeGet(
         phoneTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2110,7 +2114,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2132,7 +2136,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesProductClassesByProductClassCodeGet(
         productClassCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2160,7 +2164,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2182,7 +2186,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesPromotionSettingTypesByPromotionSettingsTypeCodeGet(
         promotionSettingsTypeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2210,7 +2214,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2232,7 +2236,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesProvinceStatesByProvinceStateCodeGet(
         provinceStateCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2260,7 +2264,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2282,7 +2286,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesQueueCategoriesByQueueCategoryCodeGet(
         queueCategoryCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2310,7 +2314,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2324,13 +2328,13 @@ export class StoreResourcesService {
    *
    */
   public async store_apiNskV1ResourcesReminderTimesByTimedEventTypeGet(
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     headers?: Headers
   ): Promise<ProvinceState> {
     const response = await this.baseService
       .apiNskV1ResourcesReminderTimesByTimedEventTypeGet(
         timedEventType,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2348,7 +2352,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Array<ReminderTime>> {
     const response = await this.baseService
-      .apiNskV1ResourcesReminderTimesGet(eTag, "body", headers)
+      .apiNskV1ResourcesReminderTimesGet(eTag, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesReminderTimesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2366,7 +2370,7 @@ export class StoreResourcesService {
     const response = await this.baseService
       .apiNskV1ResourcesRoleSettingTypesByRoleSettingTypeCodeGet(
         roleSettingTypeCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2394,7 +2398,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2412,7 +2416,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Role> {
     const response = await this.baseService
-      .apiNskV1ResourcesRolesByRoleCodeGet(roleCode, "body", headers)
+      .apiNskV1ResourcesRolesByRoleCodeGet(roleCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesRolesByRoleCodeGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2428,7 +2432,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Array<Role>> {
     const response = await this.baseService
-      .apiNskV1ResourcesRolesGet(eTag, "body", headers)
+      .apiNskV1ResourcesRolesGet(eTag, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesRolesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2452,7 +2456,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2471,7 +2475,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<string> {
     const response = await this.baseService
-      .apiNskV1ResourcesSettingsDataPost(request, eTag, "body", headers)
+      .apiNskV1ResourcesSettingsDataPost(request, eTag, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesSettingsDataPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2488,7 +2492,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<ResourceCategoryItem> {
     const response = await this.baseService
-      .apiNskV1ResourcesSettingsPost(request, eTag, "body", headers)
+      .apiNskV1ResourcesSettingsPost(request, eTag, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesSettingsPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2508,7 +2512,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesShoppingAttributeGroupsByShoppingAttributeGroupCodeGet(
         shoppingAttributeGroupCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2536,7 +2540,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2558,7 +2562,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesShoppingAttributesByShoppingAttributeCodeGet(
         shoppingAttributeCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2586,7 +2590,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2606,7 +2610,7 @@ export class StoreResourcesService {
     const response = await this.baseService
       .apiNskV1ResourcesSingleSignOnProviderByProviderNameGet(
         providerName,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2634,7 +2638,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2656,7 +2660,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesSsrGroupsBySsrGroupCodeGet(
         ssrGroupCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2684,7 +2688,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2706,7 +2710,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesSsrNestsBySsrNestCodeGet(
         ssrNestCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2734,7 +2738,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2756,7 +2760,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesSsrRestrictionResultsBySsrRestrictionResultCodeGet(
         ssrRestrictionResultCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2784,7 +2788,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2803,7 +2807,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Ssr> {
     const response = await this.baseService
-      .apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode, cultureCode, "body", headers)
+      .apiNskV1ResourcesSsrsBySsrCodeGet(ssrCode, cultureCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesSsrsBySsrCodeGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -2829,7 +2833,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2851,7 +2855,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesStandByPrioritiesByStandByPriorityCodeGet(
         standByPriorityCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2879,7 +2883,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2901,7 +2905,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesStationCategoriesByStationCategoryCodeGet(
         stationCategoryCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2929,7 +2933,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2949,7 +2953,7 @@ export class StoreResourcesService {
     const response = await this.baseService
       .apiNskV1ResourcesStationsByStationCodeDetailsGet(
         stationCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -2973,7 +2977,7 @@ export class StoreResourcesService {
         stationCode,
         cultureCode,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3003,7 +3007,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3031,7 +3035,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3053,7 +3057,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesSubZonesBySubZoneCodeGet(
         subZoneCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3081,7 +3085,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3099,7 +3103,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Suffix> {
     const response = await this.baseService
-      .apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode, "body", headers)
+      .apiNskV1ResourcesSuffixesBySuffixCodeGet(suffixCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesSuffixesBySuffixCodeGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -3125,7 +3129,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3149,7 +3153,7 @@ export class StoreResourcesService {
         timeZoneCode,
         cultureCode,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3177,7 +3181,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3195,7 +3199,7 @@ export class StoreResourcesService {
     headers?: Headers
   ): Promise<Title> {
     const response = await this.baseService
-      .apiNskV1ResourcesTitlesByTitleKeyGet(titleKey, "body", headers)
+      .apiNskV1ResourcesTitlesByTitleKeyGet(titleKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ResourcesTitlesByTitleKeyGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -3221,7 +3225,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3243,7 +3247,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesTravelClassesByTravelClassCodeGet(
         travelClassCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3271,7 +3275,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3293,7 +3297,7 @@ export class StoreResourcesService {
       .apiNskV1ResourcesZonesByZoneCodeGet(
         zoneCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3321,7 +3325,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3335,7 +3339,7 @@ export class StoreResourcesService {
    *
    */
   public async store_apiNskV2ResourcesAddOnsVendorsGet(
-    type: "Default" | "Insurance" | "Activity" | "Hotel" | "Car",
+    type: 'Default' | 'Insurance' | 'Activity' | 'Hotel' | 'Car',
     cultureCode?: string,
     eTag?: string,
     headers?: Headers
@@ -3345,7 +3349,7 @@ export class StoreResourcesService {
         type,
         cultureCode,
         eTag,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3367,7 +3371,7 @@ export class StoreResourcesService {
       .apiNskV2ResourcesCountriesByCountryCodeGet(
         countryCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3395,7 +3399,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3417,7 +3421,7 @@ export class StoreResourcesService {
       .apiNskV2ResourcesCurrenciesControllerv2ByCurrencyCodeGet(
         currencyCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3445,7 +3449,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3469,7 +3473,7 @@ export class StoreResourcesService {
         locationCode,
         travelLocationCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3491,7 +3495,7 @@ export class StoreResourcesService {
       .apiNskV2ResourcesMarketsByLocationCodeGet(
         locationCode,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -3519,7 +3523,7 @@ export class StoreResourcesService {
         eTag,
         startIndex,
         itemCount,
-        "body",
+        'body',
         headers
       )
       .toPromise();

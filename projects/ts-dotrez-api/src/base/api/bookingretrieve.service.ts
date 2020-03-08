@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { Booking, IJsonResponse } from "api-models";
+import { Booking, IJsonResponse } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BookingretrieveService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -44,22 +44,22 @@ export class BookingretrieveService {
      */
   public apiNskV1BookingRetrieveByBookingKeyGet(
     bookingKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV1BookingRetrieveByBookingKeyGet(
     bookingKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV1BookingRetrieveByBookingKeyGet(
     bookingKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingRetrieveByBookingKeyGet."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingRetrieveByBookingKeyGet.'
       );
     }
 
@@ -69,7 +69,7 @@ export class BookingretrieveService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;
@@ -83,22 +83,22 @@ export class BookingretrieveService {
      */
   public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(
     recordLocator: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(
     recordLocator: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(
     recordLocator: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet.'
       );
     }
 
@@ -110,7 +110,7 @@ export class BookingretrieveService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;
@@ -136,7 +136,7 @@ export class BookingretrieveService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV2BookingRetrieveGet(
@@ -147,7 +147,7 @@ export class BookingretrieveService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV2BookingRetrieveGet(
@@ -158,55 +158,55 @@ export class BookingretrieveService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV2BookingRetrieveGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV2BookingRetrieveGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (recordLocator !== undefined) {
       queryParameters.push(
-        "recordLocator=" + encodeURIComponent(String(recordLocator))
+        'recordLocator=' + encodeURIComponent(String(recordLocator))
       );
     }
     if (emailAddress !== undefined) {
       queryParameters.push(
-        "emailAddress=" + encodeURIComponent(String(emailAddress))
+        'emailAddress=' + encodeURIComponent(String(emailAddress))
       );
     }
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (customerNumber !== undefined) {
       queryParameters.push(
-        "customerNumber=" + encodeURIComponent(String(customerNumber))
+        'customerNumber=' + encodeURIComponent(String(customerNumber))
       );
     }
     if (departureDate !== undefined) {
       queryParameters.push(
-        "departureDate=" + encodeURIComponent(<any>departureDate.toISOString())
+        'departureDate=' + encodeURIComponent(<any>departureDate.toISOString())
       );
     }
 
     const response: Observable<HttpResponse<Booking>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/booking/retrieve?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;

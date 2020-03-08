@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { IJsonResponse, MessageBase } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { IJsonResponse, MessageBase } from 'api-models';
 
-import { MessagesService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { MessagesService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreMessagesService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("MessagesService") protected baseService: MessagesService
+    @inject('Store') protected store: Store<any>,
+    @inject('MessagesService') protected baseService: MessagesService
   ) {}
 
   /**
@@ -36,7 +40,7 @@ export class StoreMessagesService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1MessagesByMessageKeyDelete(messageKey, "body", headers)
+      .apiNskV1MessagesByMessageKeyDelete(messageKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1MessagesByMessageKeyDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -52,7 +56,7 @@ export class StoreMessagesService {
     headers?: Headers
   ): Promise<MessageBase> {
     const response = await this.baseService
-      .apiNskV1MessagesByMessageKeyGet(messageKey, "body", headers)
+      .apiNskV1MessagesByMessageKeyGet(messageKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1MessagesByMessageKeyGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -64,7 +68,7 @@ export class StoreMessagesService {
    *
    */
   public async store_apiNskV1MessagesGet(
-    searchType: "StartsWith" | "EndsWith" | "Contains" | "ExactMatch",
+    searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',
     messageTypeCode?: string,
     searchStartDate?: Date,
     searchEndDate?: Date,
@@ -82,7 +86,7 @@ export class StoreMessagesService {
         pageSize,
         lastIndex,
         searchValue,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -100,7 +104,7 @@ export class StoreMessagesService {
     headers?: Headers
   ): Promise<MessageBase> {
     const response = await this.baseService
-      .apiNskV1MessagesPost(request, "body", headers)
+      .apiNskV1MessagesPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1MessagesPost
     // addResponsetoStore(this.store, response.data, true, true);

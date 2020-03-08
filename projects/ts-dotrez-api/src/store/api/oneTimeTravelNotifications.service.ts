@@ -11,24 +11,28 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   IJsonResponse,
   OneTimeNotificationCreateRequest,
   OneTimeTravelNotification
-} from "api-models";
+} from 'api-models';
 
-import { OneTimeTravelNotificationsService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { OneTimeTravelNotificationsService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreOneTimeTravelNotificationsService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("OneTimeTravelNotificationsService")
+    @inject('Store') protected store: Store<any>,
+    @inject('OneTimeTravelNotificationsService')
     protected baseService: OneTimeTravelNotificationsService
   ) {}
 
@@ -43,7 +47,7 @@ export class StoreOneTimeTravelNotificationsService {
     const response = await this.baseService
       .apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(
         oneTimeTravelNotificationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -63,7 +67,7 @@ export class StoreOneTimeTravelNotificationsService {
     const response = await this.baseService
       .apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(
         oneTimeTravelNotificationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -81,7 +85,7 @@ export class StoreOneTimeTravelNotificationsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1OneTimeTravelNotificationsPost(request, "body", headers)
+      .apiNskV1OneTimeTravelNotificationsPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1OneTimeTravelNotificationsPost
     // addResponsetoStore(this.store, response.data, true, true);

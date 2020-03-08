@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { CurrencyConversion, IJsonResponse } from "api-models";
+import { CurrencyConversion, IJsonResponse } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class CurrencyService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -48,65 +48,65 @@ export class CurrencyService {
     fromCurrencyCode: string,
     toCurrencyCode: string,
     amount: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CurrencyConversion>;
   public apiNskV1CurrencyConverterGet(
     fromCurrencyCode: string,
     toCurrencyCode: string,
     amount: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CurrencyConversion>>;
   public apiNskV1CurrencyConverterGet(
     fromCurrencyCode: string,
     toCurrencyCode: string,
     amount: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!fromCurrencyCode) {
       throw new Error(
-        "Required parameter fromCurrencyCode was null or undefined when calling apiNskV1CurrencyConverterGet."
+        'Required parameter fromCurrencyCode was null or undefined when calling apiNskV1CurrencyConverterGet.'
       );
     }
 
     if (!toCurrencyCode) {
       throw new Error(
-        "Required parameter toCurrencyCode was null or undefined when calling apiNskV1CurrencyConverterGet."
+        'Required parameter toCurrencyCode was null or undefined when calling apiNskV1CurrencyConverterGet.'
       );
     }
 
     if (!amount) {
       throw new Error(
-        "Required parameter amount was null or undefined when calling apiNskV1CurrencyConverterGet."
+        'Required parameter amount was null or undefined when calling apiNskV1CurrencyConverterGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (fromCurrencyCode !== undefined) {
       queryParameters.push(
-        "fromCurrencyCode=" + encodeURIComponent(String(fromCurrencyCode))
+        'fromCurrencyCode=' + encodeURIComponent(String(fromCurrencyCode))
       );
     }
     if (toCurrencyCode !== undefined) {
       queryParameters.push(
-        "toCurrencyCode=" + encodeURIComponent(String(toCurrencyCode))
+        'toCurrencyCode=' + encodeURIComponent(String(toCurrencyCode))
       );
     }
     if (amount !== undefined) {
-      queryParameters.push("amount=" + encodeURIComponent(String(amount)));
+      queryParameters.push('amount=' + encodeURIComponent(String(amount)));
     }
 
     const response: Observable<HttpResponse<
       CurrencyConversion
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/currency/converter?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CurrencyConversion>httpResponse.response)
       );

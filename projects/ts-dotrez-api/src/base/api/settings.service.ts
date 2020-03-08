@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   AgencyCreationSettings,
@@ -35,22 +35,22 @@ import {
   ReserveFlightsSettings,
   SessionSettings,
   SkySpeedSettingsv2
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class SettingsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -66,27 +66,27 @@ export class SettingsService {
   public apiNskV1SettingsBookingCheckinGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CheckInSettings>;
   public apiNskV1SettingsBookingCheckinGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CheckInSettings>>;
   public apiNskV1SettingsBookingCheckinGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -94,10 +94,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/booking/checkin?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/booking/checkin?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CheckInSettings>httpResponse.response)
       );
@@ -115,27 +115,27 @@ export class SettingsService {
   public apiNskV1SettingsBookingContactGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ContactSettings>;
   public apiNskV1SettingsBookingContactGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ContactSettings>>;
   public apiNskV1SettingsBookingContactGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -143,10 +143,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/booking/contact?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/booking/contact?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ContactSettings>httpResponse.response)
       );
@@ -164,27 +164,27 @@ export class SettingsService {
   public apiNskV1SettingsBookingCustomerAccountGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CustomerAccountSettings>;
   public apiNskV1SettingsBookingCustomerAccountGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CustomerAccountSettings>>;
   public apiNskV1SettingsBookingCustomerAccountGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -193,11 +193,11 @@ export class SettingsService {
       `${
         this.basePath
       }/api/nsk/v1/settings/booking/customerAccount?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CustomerAccountSettings>httpResponse.response)
       );
@@ -215,36 +215,36 @@ export class SettingsService {
   public apiNskV1SettingsBookingFeeGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<FeeSettings>;
   public apiNskV1SettingsBookingFeeGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<FeeSettings>>;
   public apiNskV1SettingsBookingFeeGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<FeeSettings>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/settings/booking/fee?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <FeeSettings>httpResponse.response)
       );
@@ -262,27 +262,27 @@ export class SettingsService {
   public apiNskV1SettingsBookingFlightSearchGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<FlightSearchSettings>;
   public apiNskV1SettingsBookingFlightSearchGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<FlightSearchSettings>>;
   public apiNskV1SettingsBookingFlightSearchGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -290,10 +290,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/booking/flightSearch?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/booking/flightSearch?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <FlightSearchSettings>httpResponse.response)
       );
@@ -311,38 +311,38 @@ export class SettingsService {
   public apiNskV1SettingsBookingGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<GeneralSettings>;
   public apiNskV1SettingsBookingGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<GeneralSettings>>;
   public apiNskV1SettingsBookingGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
       GeneralSettings
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/settings/booking?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <GeneralSettings>httpResponse.response)
       );
@@ -360,27 +360,27 @@ export class SettingsService {
   public apiNskV1SettingsBookingPassengerGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerSettings>;
   public apiNskV1SettingsBookingPassengerGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerSettings>>;
   public apiNskV1SettingsBookingPassengerGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -388,10 +388,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/booking/passenger?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/booking/passenger?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerSettings>httpResponse.response)
       );
@@ -409,27 +409,27 @@ export class SettingsService {
   public apiNskV1SettingsBookingReserveFlightsGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ReserveFlightsSettings>;
   public apiNskV1SettingsBookingReserveFlightsGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ReserveFlightsSettings>>;
   public apiNskV1SettingsBookingReserveFlightsGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -438,11 +438,11 @@ export class SettingsService {
       `${
         this.basePath
       }/api/nsk/v1/settings/booking/reserveFlights?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ReserveFlightsSettings>httpResponse.response)
       );
@@ -460,27 +460,27 @@ export class SettingsService {
   public apiNskV1SettingsGeneralApplicationLogonGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<LogonSettings>;
   public apiNskV1SettingsGeneralApplicationLogonGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<LogonSettings>>;
   public apiNskV1SettingsGeneralApplicationLogonGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -489,11 +489,11 @@ export class SettingsService {
       `${
         this.basePath
       }/api/nsk/v1/settings/general/applicationLogon?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <LogonSettings>httpResponse.response)
       );
@@ -511,27 +511,27 @@ export class SettingsService {
   public apiNskV1SettingsGeneralCodesGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CodesSettings>;
   public apiNskV1SettingsGeneralCodesGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CodesSettings>>;
   public apiNskV1SettingsGeneralCodesGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -539,10 +539,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/general/codes?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/general/codes?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CodesSettings>httpResponse.response)
       );
@@ -560,27 +560,27 @@ export class SettingsService {
   public apiNskV1SettingsGeneralSessionGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SessionSettings>;
   public apiNskV1SettingsGeneralSessionGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SessionSettings>>;
   public apiNskV1SettingsGeneralSessionGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -588,10 +588,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/general/session?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/general/session?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SessionSettings>httpResponse.response)
       );
@@ -607,33 +607,33 @@ export class SettingsService {
      */
   public apiNskV1SettingsItineraryGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ItinerarySettings>;
   public apiNskV1SettingsItineraryGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ItinerarySettings>>;
   public apiNskV1SettingsItineraryGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
       ItinerarySettings
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/settings/itinerary?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ItinerarySettings>httpResponse.response)
       );
@@ -649,33 +649,33 @@ export class SettingsService {
      */
   public apiNskV1SettingsPaymentGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PaymentSettings>;
   public apiNskV1SettingsPaymentGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PaymentSettings>>;
   public apiNskV1SettingsPaymentGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
       PaymentSettings
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/settings/payment?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PaymentSettings>httpResponse.response)
       );
@@ -691,22 +691,22 @@ export class SettingsService {
      */
   public apiNskV1SettingsUserAgencyCreationGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AgencyCreationSettings>;
   public apiNskV1SettingsUserAgencyCreationGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AgencyCreationSettings>>;
   public apiNskV1SettingsUserAgencyCreationGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -714,10 +714,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/user/agencyCreation?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/user/agencyCreation?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <AgencyCreationSettings>httpResponse.response)
       );
@@ -733,22 +733,22 @@ export class SettingsService {
      */
   public apiNskV1SettingsUserCustomerCreationGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CustomerCreationSettings>;
   public apiNskV1SettingsUserCustomerCreationGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CustomerCreationSettings>>;
   public apiNskV1SettingsUserCustomerCreationGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -756,10 +756,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/settings/user/customerCreation?${queryParameters.join("&")}`,
+      }/api/nsk/v1/settings/user/customerCreation?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CustomerCreationSettings>httpResponse.response)
       );
@@ -777,27 +777,27 @@ export class SettingsService {
   public apiNskV2SettingsBookingPaymentGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<BookingPaymentSettingsv2>;
   public apiNskV2SettingsBookingPaymentGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<BookingPaymentSettingsv2>>;
   public apiNskV2SettingsBookingPaymentGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
@@ -805,10 +805,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v2/settings/booking/payment?${queryParameters.join("&")}`,
+      }/api/nsk/v2/settings/booking/payment?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <BookingPaymentSettingsv2>httpResponse.response)
       );
@@ -824,22 +824,22 @@ export class SettingsService {
      */
   public apiNskV2SettingsPremiumServicesGet(
     eTag?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PremiumServicesSettingsv2>;
   public apiNskV2SettingsPremiumServicesGet(
     eTag?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PremiumServicesSettingsv2>>;
   public apiNskV2SettingsPremiumServicesGet(
     eTag?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
 
     const response: Observable<HttpResponse<
@@ -847,10 +847,10 @@ export class SettingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v2/settings/premiumServices?${queryParameters.join("&")}`,
+      }/api/nsk/v2/settings/premiumServices?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PremiumServicesSettingsv2>httpResponse.response)
       );
@@ -868,38 +868,38 @@ export class SettingsService {
   public apiNskV2SettingsSkySpeedGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SkySpeedSettingsv2>;
   public apiNskV2SettingsSkySpeedGet(
     eTag?: string,
     roleCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SkySpeedSettingsv2>>;
   public apiNskV2SettingsSkySpeedGet(
     eTag?: string,
     roleCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (eTag !== undefined) {
-      queryParameters.push("eTag=" + encodeURIComponent(String(eTag)));
+      queryParameters.push('eTag=' + encodeURIComponent(String(eTag)));
     }
     if (roleCode !== undefined) {
-      queryParameters.push("roleCode=" + encodeURIComponent(String(roleCode)));
+      queryParameters.push('roleCode=' + encodeURIComponent(String(roleCode)));
     }
 
     const response: Observable<HttpResponse<
       SkySpeedSettingsv2
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/settings/skySpeed?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SkySpeedSettingsv2>httpResponse.response)
       );

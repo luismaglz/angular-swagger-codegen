@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   BookingSearchResult,
   BookingTripResult,
@@ -34,16 +34,20 @@ import {
   UserRoleCreateRequest,
   UserRoleEditRequest,
   UserSingleSignOnToken
-} from "api-models";
+} from 'api-models';
 
-import { UserService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { UserService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreUserService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("UserService") protected baseService: UserService
+    @inject('Store') protected store: Store<any>,
+    @inject('UserService') protected baseService: UserService
   ) {}
 
   /**
@@ -56,7 +60,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<Array<BookingTripResult>> {
     const response = await this.baseService
-      .apiNskV1UserBookingsByPassengerGet(startDate, endDate, "body", headers)
+      .apiNskV1UserBookingsByPassengerGet(startDate, endDate, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserBookingsByPassengerGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -98,7 +102,7 @@ export class StoreUserService {
         endDate,
         searchByCustomerNumber,
         lastBookingKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -113,7 +117,7 @@ export class StoreUserService {
    */
   public async store_apiNskV1UserGet(headers?: Headers): Promise<User> {
     const response = await this.baseService
-      .apiNskV1UserGet("body", headers)
+      .apiNskV1UserGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -128,7 +132,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserImpersonateDelete("body", headers)
+      .apiNskV1UserImpersonateDelete('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserImpersonateDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -143,7 +147,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<SessionRoles> {
     const response = await this.baseService
-      .apiNskV1UserImpersonateGet("body", headers)
+      .apiNskV1UserImpersonateGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserImpersonateGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -159,7 +163,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserImpersonatePost(request, "body", headers)
+      .apiNskV1UserImpersonatePost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserImpersonatePost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -175,7 +179,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserPasswordChangePost(request, "body", headers)
+      .apiNskV1UserPasswordChangePost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserPasswordChangePost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -191,7 +195,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserPatch(request, "body", headers)
+      .apiNskV1UserPatch(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserPatch
     // addResponsetoStore(this.store, response.data, true, true);
@@ -207,7 +211,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserPost(request, "body", headers)
+      .apiNskV1UserPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -223,7 +227,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserPut(request, "body", headers)
+      .apiNskV1UserPut(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -239,7 +243,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey, "body", headers)
+      .apiNskV1UserRolesByUserRoleKeyDelete(userRoleKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserRolesByUserRoleKeyDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -255,7 +259,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<UserRole> {
     const response = await this.baseService
-      .apiNskV1UserRolesByUserRoleKeyGet(userRoleKey, "body", headers)
+      .apiNskV1UserRolesByUserRoleKeyGet(userRoleKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserRolesByUserRoleKeyGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -275,7 +279,7 @@ export class StoreUserService {
       .apiNskV1UserRolesByUserRoleKeyPatch(
         userRoleKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -294,7 +298,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserRolesByUserRoleKeyPut(userRoleKey, request, "body", headers)
+      .apiNskV1UserRolesByUserRoleKeyPut(userRoleKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserRolesByUserRoleKeyPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -309,7 +313,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<Array<UserRole>> {
     const response = await this.baseService
-      .apiNskV1UserRolesGet("body", headers)
+      .apiNskV1UserRolesGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserRolesGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -325,7 +329,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1UserRolesPost(request, "body", headers)
+      .apiNskV1UserRolesPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserRolesPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -343,7 +347,7 @@ export class StoreUserService {
     const response = await this.baseService
       .apiNskV1UserSingleSignOnTokenByProviderKeyDelete(
         providerKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -363,7 +367,7 @@ export class StoreUserService {
     const response = await this.baseService
       .apiNskV1UserSingleSignOnTokenByProviderKeyGet(
         providerKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -385,7 +389,7 @@ export class StoreUserService {
       .apiNskV1UserSingleSignOnTokenByProviderKeyPatch(
         providerKey,
         tokenRequest,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -407,7 +411,7 @@ export class StoreUserService {
       .apiNskV1UserSingleSignOnTokenByProviderKeyPost(
         providerKey,
         tokenRequest,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -429,7 +433,7 @@ export class StoreUserService {
       .apiNskV1UserSingleSignOnTokenByProviderKeyPut(
         providerKey,
         tokenRequest,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -446,7 +450,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<Array<UserSingleSignOnToken>> {
     const response = await this.baseService
-      .apiNskV1UserSingleSignOnTokenGet("body", headers)
+      .apiNskV1UserSingleSignOnTokenGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1UserSingleSignOnTokenGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -462,7 +466,7 @@ export class StoreUserService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV2UserPost(request, "body", headers)
+      .apiNskV2UserPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV2UserPost
     // addResponsetoStore(this.store, response.data, true, true);

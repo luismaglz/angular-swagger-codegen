@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   AvailabilityRequestv2,
@@ -25,22 +25,22 @@ import {
   LowFareAvailabilitySearchSimpleRequest,
   LowFareCacheAvailability,
   LowFareCacheRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class AvailabilityService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -54,17 +54,17 @@ export class AvailabilityService {
      */
   public apiNskV1AvailabilityLowfareBetaPost(
     request?: LowFareCacheRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<LowFareCacheAvailability>;
   public apiNskV1AvailabilityLowfareBetaPost(
     request?: LowFareCacheRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<LowFareCacheAvailability>>;
   public apiNskV1AvailabilityLowfareBetaPost(
     request?: LowFareCacheRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -74,7 +74,7 @@ export class AvailabilityService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <LowFareCacheAvailability>httpResponse.response)
       );
@@ -90,17 +90,17 @@ export class AvailabilityService {
      */
   public apiNskV2AvailabilityLowfarePost(
     request?: LowFareAvailabilityRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<LowFareAvailability>;
   public apiNskV2AvailabilityLowfarePost(
     request?: LowFareAvailabilityRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<LowFareAvailability>>;
   public apiNskV2AvailabilityLowfarePost(
     request?: LowFareAvailabilityRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -110,7 +110,7 @@ export class AvailabilityService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <LowFareAvailability>httpResponse.response)
       );
@@ -126,17 +126,17 @@ export class AvailabilityService {
      */
   public apiNskV2AvailabilityLowfareSimplePost(
     request?: LowFareAvailabilitySearchSimpleRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<LowFareAvailability>;
   public apiNskV2AvailabilityLowfareSimplePost(
     request?: LowFareAvailabilitySearchSimpleRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<LowFareAvailability>>;
   public apiNskV2AvailabilityLowfareSimplePost(
     request?: LowFareAvailabilitySearchSimpleRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -146,7 +146,7 @@ export class AvailabilityService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <LowFareAvailability>httpResponse.response)
       );
@@ -162,17 +162,17 @@ export class AvailabilityService {
      */
   public apiNskV4AvailabilitySearchPost(
     request?: AvailabilityRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Availabilityv2>;
   public apiNskV4AvailabilitySearchPost(
     request?: AvailabilityRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Availabilityv2>>;
   public apiNskV4AvailabilitySearchPost(
     request?: AvailabilityRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -182,7 +182,7 @@ export class AvailabilityService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Availabilityv2>httpResponse.response)
       );
@@ -198,17 +198,17 @@ export class AvailabilityService {
      */
   public apiNskV4AvailabilitySearchSimplePost(
     request?: AvailabilitySimpleRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Availabilityv2>;
   public apiNskV4AvailabilitySearchSimplePost(
     request?: AvailabilitySimpleRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Availabilityv2>>;
   public apiNskV4AvailabilitySearchSimplePost(
     request?: AvailabilitySimpleRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -218,7 +218,7 @@ export class AvailabilityService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Availabilityv2>httpResponse.response)
       );

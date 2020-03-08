@@ -11,25 +11,29 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   BundleApplication,
   BundleApplicationDetails,
   BundleSetDetails,
   IJsonResponse
-} from "api-models";
+} from 'api-models';
 
-import { BundlesService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { BundlesService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreBundlesService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("BundlesService") protected baseService: BundlesService
+    @inject('Store') protected store: Store<any>,
+    @inject('BundlesService') protected baseService: BundlesService
   ) {}
 
   /**
@@ -43,7 +47,7 @@ export class StoreBundlesService {
     const response = await this.baseService
       .apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(
         bundleApplicationKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -63,7 +67,7 @@ export class StoreBundlesService {
     const response = await this.baseService
       .apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(
         bundleRuleCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -83,7 +87,7 @@ export class StoreBundlesService {
     const response = await this.baseService
       .apiNskV1BundlesSetsByBundleSetCodeDetailsGet(
         bundleSetCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();

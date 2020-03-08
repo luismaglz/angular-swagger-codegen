@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   Account,
@@ -40,22 +40,22 @@ import {
   SegmentChangeHistoryResponse,
   Transaction,
   TransactionRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BookingsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -73,37 +73,37 @@ export class BookingsService {
     bookingKey: string,
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SeatAssignmentHistoryResponse>;
   public apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(
     bookingKey: string,
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SeatAssignmentHistoryResponse>>;
   public apiNskV1BookingsByBookingKeyHistoryFlightMoveGet(
     bookingKey: string,
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryFlightMoveGet."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryFlightMoveGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
@@ -111,10 +111,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(
         String(bookingKey)
-      )}/history/flightMove?${queryParameters.join("&")}`,
+      )}/history/flightMove?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <SeatAssignmentHistoryResponse>httpResponse.response
@@ -136,284 +136,284 @@ export class BookingsService {
   public apiNskV1BookingsByBookingKeyHistoryGet(
     bookingKey: string,
     event?:
-      | "Unknown"
-      | "ConvertedHistory"
-      | "FlightTimeChange"
-      | "FlightDesignatorChange"
-      | "AssignedSeat"
-      | "RemoveSeat"
-      | "AddedFlight"
-      | "DeletedFlight"
-      | "DeletedPassenger"
-      | "NameChange"
-      | "GroupNameChange"
-      | "CancelledTicketing"
-      | "ScheduleChange"
-      | "AddedPayment"
-      | "ServiceFee"
-      | "QueuedPnr"
-      | "UnqueuedPnr"
-      | "DeletedComment"
-      | "Divided"
-      | "CheckedIn"
-      | "CheckedOut"
-      | "FareOverride"
-      | "AddedBaggage"
-      | "ChangedBaggageWeight"
-      | "CheckedBaggage"
-      | "RemovedBaggage"
-      | "BoardedPassenger"
-      | "UnboardedPassenger"
-      | "ManualAuthorization"
-      | "ManualDecline"
-      | "UndoCancel"
-      | "ItinerarySent"
-      | "ContactChange"
-      | "SsrAdded"
-      | "FlightMoved"
-      | "VerifiedDocument"
-      | "RemovedVerifiedDocument"
-      | "Promotion"
-      | "BookingComment"
-      | "CancelledSchedule"
-      | "CancelServiceFee"
-      | "OverrideServiceFee"
-      | "AddedRecordLocator"
-      | "DeletedRecordLocator"
-      | "UpgradeClassOfService"
-      | "DowngradeClassOfService"
-      | "StandbyPriorityChange"
-      | "AssignedTicketNumber"
-      | "DeletedTicketNumber"
-      | "ConfirmSegmentStatusCodeChange"
-      | "CodeshareFlightChanged"
-      | "PdsCancel"
-      | "PdsPending"
-      | "PdsConfirm"
-      | "PdsFinalized"
-      | "PdsDeclined"
-      | "PdsException"
-      | "PdsCancelRefused"
-      | "PdsCancelUnsuccessful"
-      | "Apps"
-      | "InhibitedOverride"
-      | "PrintedBagTag"
-      | "SelfPrintedBagTag"
-      | "PrintedBoardingPass"
-      | "AddCustomerId"
-      | "DeleteCustomerId"
-      | "HoldCreated"
-      | "HoldRemoved"
-      | "HoldChanged"
-      | "OverrideCoupon"
-      | "PdsSynchronized"
-      | "PdsItemremoved"
-      | "Reprice"
-      | "ChannelOverride"
-      | "EmdCreated"
-      | "EmdRemoved"
-      | "EmdChanged"
-      | "ServiceBundle"
-      | "PublishedFareOverride"
-      | "FareClassRealignment",
+      | 'Unknown'
+      | 'ConvertedHistory'
+      | 'FlightTimeChange'
+      | 'FlightDesignatorChange'
+      | 'AssignedSeat'
+      | 'RemoveSeat'
+      | 'AddedFlight'
+      | 'DeletedFlight'
+      | 'DeletedPassenger'
+      | 'NameChange'
+      | 'GroupNameChange'
+      | 'CancelledTicketing'
+      | 'ScheduleChange'
+      | 'AddedPayment'
+      | 'ServiceFee'
+      | 'QueuedPnr'
+      | 'UnqueuedPnr'
+      | 'DeletedComment'
+      | 'Divided'
+      | 'CheckedIn'
+      | 'CheckedOut'
+      | 'FareOverride'
+      | 'AddedBaggage'
+      | 'ChangedBaggageWeight'
+      | 'CheckedBaggage'
+      | 'RemovedBaggage'
+      | 'BoardedPassenger'
+      | 'UnboardedPassenger'
+      | 'ManualAuthorization'
+      | 'ManualDecline'
+      | 'UndoCancel'
+      | 'ItinerarySent'
+      | 'ContactChange'
+      | 'SsrAdded'
+      | 'FlightMoved'
+      | 'VerifiedDocument'
+      | 'RemovedVerifiedDocument'
+      | 'Promotion'
+      | 'BookingComment'
+      | 'CancelledSchedule'
+      | 'CancelServiceFee'
+      | 'OverrideServiceFee'
+      | 'AddedRecordLocator'
+      | 'DeletedRecordLocator'
+      | 'UpgradeClassOfService'
+      | 'DowngradeClassOfService'
+      | 'StandbyPriorityChange'
+      | 'AssignedTicketNumber'
+      | 'DeletedTicketNumber'
+      | 'ConfirmSegmentStatusCodeChange'
+      | 'CodeshareFlightChanged'
+      | 'PdsCancel'
+      | 'PdsPending'
+      | 'PdsConfirm'
+      | 'PdsFinalized'
+      | 'PdsDeclined'
+      | 'PdsException'
+      | 'PdsCancelRefused'
+      | 'PdsCancelUnsuccessful'
+      | 'Apps'
+      | 'InhibitedOverride'
+      | 'PrintedBagTag'
+      | 'SelfPrintedBagTag'
+      | 'PrintedBoardingPass'
+      | 'AddCustomerId'
+      | 'DeleteCustomerId'
+      | 'HoldCreated'
+      | 'HoldRemoved'
+      | 'HoldChanged'
+      | 'OverrideCoupon'
+      | 'PdsSynchronized'
+      | 'PdsItemremoved'
+      | 'Reprice'
+      | 'ChannelOverride'
+      | 'EmdCreated'
+      | 'EmdRemoved'
+      | 'EmdChanged'
+      | 'ServiceBundle'
+      | 'PublishedFareOverride'
+      | 'FareClassRealignment',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<HistoryResponse>;
   public apiNskV1BookingsByBookingKeyHistoryGet(
     bookingKey: string,
     event?:
-      | "Unknown"
-      | "ConvertedHistory"
-      | "FlightTimeChange"
-      | "FlightDesignatorChange"
-      | "AssignedSeat"
-      | "RemoveSeat"
-      | "AddedFlight"
-      | "DeletedFlight"
-      | "DeletedPassenger"
-      | "NameChange"
-      | "GroupNameChange"
-      | "CancelledTicketing"
-      | "ScheduleChange"
-      | "AddedPayment"
-      | "ServiceFee"
-      | "QueuedPnr"
-      | "UnqueuedPnr"
-      | "DeletedComment"
-      | "Divided"
-      | "CheckedIn"
-      | "CheckedOut"
-      | "FareOverride"
-      | "AddedBaggage"
-      | "ChangedBaggageWeight"
-      | "CheckedBaggage"
-      | "RemovedBaggage"
-      | "BoardedPassenger"
-      | "UnboardedPassenger"
-      | "ManualAuthorization"
-      | "ManualDecline"
-      | "UndoCancel"
-      | "ItinerarySent"
-      | "ContactChange"
-      | "SsrAdded"
-      | "FlightMoved"
-      | "VerifiedDocument"
-      | "RemovedVerifiedDocument"
-      | "Promotion"
-      | "BookingComment"
-      | "CancelledSchedule"
-      | "CancelServiceFee"
-      | "OverrideServiceFee"
-      | "AddedRecordLocator"
-      | "DeletedRecordLocator"
-      | "UpgradeClassOfService"
-      | "DowngradeClassOfService"
-      | "StandbyPriorityChange"
-      | "AssignedTicketNumber"
-      | "DeletedTicketNumber"
-      | "ConfirmSegmentStatusCodeChange"
-      | "CodeshareFlightChanged"
-      | "PdsCancel"
-      | "PdsPending"
-      | "PdsConfirm"
-      | "PdsFinalized"
-      | "PdsDeclined"
-      | "PdsException"
-      | "PdsCancelRefused"
-      | "PdsCancelUnsuccessful"
-      | "Apps"
-      | "InhibitedOverride"
-      | "PrintedBagTag"
-      | "SelfPrintedBagTag"
-      | "PrintedBoardingPass"
-      | "AddCustomerId"
-      | "DeleteCustomerId"
-      | "HoldCreated"
-      | "HoldRemoved"
-      | "HoldChanged"
-      | "OverrideCoupon"
-      | "PdsSynchronized"
-      | "PdsItemremoved"
-      | "Reprice"
-      | "ChannelOverride"
-      | "EmdCreated"
-      | "EmdRemoved"
-      | "EmdChanged"
-      | "ServiceBundle"
-      | "PublishedFareOverride"
-      | "FareClassRealignment",
+      | 'Unknown'
+      | 'ConvertedHistory'
+      | 'FlightTimeChange'
+      | 'FlightDesignatorChange'
+      | 'AssignedSeat'
+      | 'RemoveSeat'
+      | 'AddedFlight'
+      | 'DeletedFlight'
+      | 'DeletedPassenger'
+      | 'NameChange'
+      | 'GroupNameChange'
+      | 'CancelledTicketing'
+      | 'ScheduleChange'
+      | 'AddedPayment'
+      | 'ServiceFee'
+      | 'QueuedPnr'
+      | 'UnqueuedPnr'
+      | 'DeletedComment'
+      | 'Divided'
+      | 'CheckedIn'
+      | 'CheckedOut'
+      | 'FareOverride'
+      | 'AddedBaggage'
+      | 'ChangedBaggageWeight'
+      | 'CheckedBaggage'
+      | 'RemovedBaggage'
+      | 'BoardedPassenger'
+      | 'UnboardedPassenger'
+      | 'ManualAuthorization'
+      | 'ManualDecline'
+      | 'UndoCancel'
+      | 'ItinerarySent'
+      | 'ContactChange'
+      | 'SsrAdded'
+      | 'FlightMoved'
+      | 'VerifiedDocument'
+      | 'RemovedVerifiedDocument'
+      | 'Promotion'
+      | 'BookingComment'
+      | 'CancelledSchedule'
+      | 'CancelServiceFee'
+      | 'OverrideServiceFee'
+      | 'AddedRecordLocator'
+      | 'DeletedRecordLocator'
+      | 'UpgradeClassOfService'
+      | 'DowngradeClassOfService'
+      | 'StandbyPriorityChange'
+      | 'AssignedTicketNumber'
+      | 'DeletedTicketNumber'
+      | 'ConfirmSegmentStatusCodeChange'
+      | 'CodeshareFlightChanged'
+      | 'PdsCancel'
+      | 'PdsPending'
+      | 'PdsConfirm'
+      | 'PdsFinalized'
+      | 'PdsDeclined'
+      | 'PdsException'
+      | 'PdsCancelRefused'
+      | 'PdsCancelUnsuccessful'
+      | 'Apps'
+      | 'InhibitedOverride'
+      | 'PrintedBagTag'
+      | 'SelfPrintedBagTag'
+      | 'PrintedBoardingPass'
+      | 'AddCustomerId'
+      | 'DeleteCustomerId'
+      | 'HoldCreated'
+      | 'HoldRemoved'
+      | 'HoldChanged'
+      | 'OverrideCoupon'
+      | 'PdsSynchronized'
+      | 'PdsItemremoved'
+      | 'Reprice'
+      | 'ChannelOverride'
+      | 'EmdCreated'
+      | 'EmdRemoved'
+      | 'EmdChanged'
+      | 'ServiceBundle'
+      | 'PublishedFareOverride'
+      | 'FareClassRealignment',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<HistoryResponse>>;
   public apiNskV1BookingsByBookingKeyHistoryGet(
     bookingKey: string,
     event?:
-      | "Unknown"
-      | "ConvertedHistory"
-      | "FlightTimeChange"
-      | "FlightDesignatorChange"
-      | "AssignedSeat"
-      | "RemoveSeat"
-      | "AddedFlight"
-      | "DeletedFlight"
-      | "DeletedPassenger"
-      | "NameChange"
-      | "GroupNameChange"
-      | "CancelledTicketing"
-      | "ScheduleChange"
-      | "AddedPayment"
-      | "ServiceFee"
-      | "QueuedPnr"
-      | "UnqueuedPnr"
-      | "DeletedComment"
-      | "Divided"
-      | "CheckedIn"
-      | "CheckedOut"
-      | "FareOverride"
-      | "AddedBaggage"
-      | "ChangedBaggageWeight"
-      | "CheckedBaggage"
-      | "RemovedBaggage"
-      | "BoardedPassenger"
-      | "UnboardedPassenger"
-      | "ManualAuthorization"
-      | "ManualDecline"
-      | "UndoCancel"
-      | "ItinerarySent"
-      | "ContactChange"
-      | "SsrAdded"
-      | "FlightMoved"
-      | "VerifiedDocument"
-      | "RemovedVerifiedDocument"
-      | "Promotion"
-      | "BookingComment"
-      | "CancelledSchedule"
-      | "CancelServiceFee"
-      | "OverrideServiceFee"
-      | "AddedRecordLocator"
-      | "DeletedRecordLocator"
-      | "UpgradeClassOfService"
-      | "DowngradeClassOfService"
-      | "StandbyPriorityChange"
-      | "AssignedTicketNumber"
-      | "DeletedTicketNumber"
-      | "ConfirmSegmentStatusCodeChange"
-      | "CodeshareFlightChanged"
-      | "PdsCancel"
-      | "PdsPending"
-      | "PdsConfirm"
-      | "PdsFinalized"
-      | "PdsDeclined"
-      | "PdsException"
-      | "PdsCancelRefused"
-      | "PdsCancelUnsuccessful"
-      | "Apps"
-      | "InhibitedOverride"
-      | "PrintedBagTag"
-      | "SelfPrintedBagTag"
-      | "PrintedBoardingPass"
-      | "AddCustomerId"
-      | "DeleteCustomerId"
-      | "HoldCreated"
-      | "HoldRemoved"
-      | "HoldChanged"
-      | "OverrideCoupon"
-      | "PdsSynchronized"
-      | "PdsItemremoved"
-      | "Reprice"
-      | "ChannelOverride"
-      | "EmdCreated"
-      | "EmdRemoved"
-      | "EmdChanged"
-      | "ServiceBundle"
-      | "PublishedFareOverride"
-      | "FareClassRealignment",
+      | 'Unknown'
+      | 'ConvertedHistory'
+      | 'FlightTimeChange'
+      | 'FlightDesignatorChange'
+      | 'AssignedSeat'
+      | 'RemoveSeat'
+      | 'AddedFlight'
+      | 'DeletedFlight'
+      | 'DeletedPassenger'
+      | 'NameChange'
+      | 'GroupNameChange'
+      | 'CancelledTicketing'
+      | 'ScheduleChange'
+      | 'AddedPayment'
+      | 'ServiceFee'
+      | 'QueuedPnr'
+      | 'UnqueuedPnr'
+      | 'DeletedComment'
+      | 'Divided'
+      | 'CheckedIn'
+      | 'CheckedOut'
+      | 'FareOverride'
+      | 'AddedBaggage'
+      | 'ChangedBaggageWeight'
+      | 'CheckedBaggage'
+      | 'RemovedBaggage'
+      | 'BoardedPassenger'
+      | 'UnboardedPassenger'
+      | 'ManualAuthorization'
+      | 'ManualDecline'
+      | 'UndoCancel'
+      | 'ItinerarySent'
+      | 'ContactChange'
+      | 'SsrAdded'
+      | 'FlightMoved'
+      | 'VerifiedDocument'
+      | 'RemovedVerifiedDocument'
+      | 'Promotion'
+      | 'BookingComment'
+      | 'CancelledSchedule'
+      | 'CancelServiceFee'
+      | 'OverrideServiceFee'
+      | 'AddedRecordLocator'
+      | 'DeletedRecordLocator'
+      | 'UpgradeClassOfService'
+      | 'DowngradeClassOfService'
+      | 'StandbyPriorityChange'
+      | 'AssignedTicketNumber'
+      | 'DeletedTicketNumber'
+      | 'ConfirmSegmentStatusCodeChange'
+      | 'CodeshareFlightChanged'
+      | 'PdsCancel'
+      | 'PdsPending'
+      | 'PdsConfirm'
+      | 'PdsFinalized'
+      | 'PdsDeclined'
+      | 'PdsException'
+      | 'PdsCancelRefused'
+      | 'PdsCancelUnsuccessful'
+      | 'Apps'
+      | 'InhibitedOverride'
+      | 'PrintedBagTag'
+      | 'SelfPrintedBagTag'
+      | 'PrintedBoardingPass'
+      | 'AddCustomerId'
+      | 'DeleteCustomerId'
+      | 'HoldCreated'
+      | 'HoldRemoved'
+      | 'HoldChanged'
+      | 'OverrideCoupon'
+      | 'PdsSynchronized'
+      | 'PdsItemremoved'
+      | 'Reprice'
+      | 'ChannelOverride'
+      | 'EmdCreated'
+      | 'EmdRemoved'
+      | 'EmdChanged'
+      | 'ServiceBundle'
+      | 'PublishedFareOverride'
+      | 'FareClassRealignment',
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryGet."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (event !== undefined) {
-      queryParameters.push("event=" + encodeURIComponent(String(event)));
+      queryParameters.push('event=' + encodeURIComponent(String(event)));
     }
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
@@ -421,10 +421,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(
         String(bookingKey)
-      )}/history?${queryParameters.join("&")}`,
+      )}/history?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <HistoryResponse>httpResponse.response)
       );
@@ -440,22 +440,22 @@ export class BookingsService {
      */
   public apiNskV1BookingsByBookingKeyHistoryMessageGet(
     bookingKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingMessageHistory>>;
   public apiNskV1BookingsByBookingKeyHistoryMessageGet(
     bookingKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingMessageHistory>>>;
   public apiNskV1BookingsByBookingKeyHistoryMessageGet(
     bookingKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryMessageGet."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryMessageGet.'
       );
     }
 
@@ -467,7 +467,7 @@ export class BookingsService {
       )}/history/message`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingMessageHistory>>httpResponse.response)
       );
@@ -483,22 +483,22 @@ export class BookingsService {
      */
   public apiNskV1BookingsByBookingKeyHistoryNotificationGet(
     bookingKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingNotificationHistory>>;
   public apiNskV1BookingsByBookingKeyHistoryNotificationGet(
     bookingKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingNotificationHistory>>>;
   public apiNskV1BookingsByBookingKeyHistoryNotificationGet(
     bookingKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryNotificationGet."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistoryNotificationGet.'
       );
     }
 
@@ -510,7 +510,7 @@ export class BookingsService {
       )}/history/notification`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse =>
@@ -532,51 +532,51 @@ export class BookingsService {
      */
   public apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(
     bookingKey: string,
-    event: "AssignedSeat" | "RemoveSeat",
+    event: 'AssignedSeat' | 'RemoveSeat',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SeatAssignmentHistoryResponse>;
   public apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(
     bookingKey: string,
-    event: "AssignedSeat" | "RemoveSeat",
+    event: 'AssignedSeat' | 'RemoveSeat',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SeatAssignmentHistoryResponse>>;
   public apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet(
     bookingKey: string,
-    event: "AssignedSeat" | "RemoveSeat",
+    event: 'AssignedSeat' | 'RemoveSeat',
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet.'
       );
     }
 
     if (!event) {
       throw new Error(
-        "Required parameter event was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet."
+        'Required parameter event was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySeatAssignmentGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (event !== undefined) {
-      queryParameters.push("event=" + encodeURIComponent(String(event)));
+      queryParameters.push('event=' + encodeURIComponent(String(event)));
     }
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
@@ -584,10 +584,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(
         String(bookingKey)
-      )}/history/seatAssignment?${queryParameters.join("&")}`,
+      )}/history/seatAssignment?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <SeatAssignmentHistoryResponse>httpResponse.response
@@ -608,51 +608,51 @@ export class BookingsService {
      */
   public apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(
     bookingKey: string,
-    event: "AddedFlight" | "DeletedFlight",
+    event: 'AddedFlight' | 'DeletedFlight',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SegmentChangeHistoryResponse>;
   public apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(
     bookingKey: string,
-    event: "AddedFlight" | "DeletedFlight",
+    event: 'AddedFlight' | 'DeletedFlight',
     lastPageKey?: string,
     pageSize?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SegmentChangeHistoryResponse>>;
   public apiNskV1BookingsByBookingKeyHistorySegmentChangeGet(
     bookingKey: string,
-    event: "AddedFlight" | "DeletedFlight",
+    event: 'AddedFlight' | 'DeletedFlight',
     lastPageKey?: string,
     pageSize?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySegmentChangeGet."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySegmentChangeGet.'
       );
     }
 
     if (!event) {
       throw new Error(
-        "Required parameter event was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySegmentChangeGet."
+        'Required parameter event was null or undefined when calling apiNskV1BookingsByBookingKeyHistorySegmentChangeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (event !== undefined) {
-      queryParameters.push("event=" + encodeURIComponent(String(event)));
+      queryParameters.push('event=' + encodeURIComponent(String(event)));
     }
     if (lastPageKey !== undefined) {
       queryParameters.push(
-        "lastPageKey=" + encodeURIComponent(String(lastPageKey))
+        'lastPageKey=' + encodeURIComponent(String(lastPageKey))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
 
     const response: Observable<HttpResponse<
@@ -660,10 +660,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(
         String(bookingKey)
-      )}/history/segmentChange?${queryParameters.join("&")}`,
+      )}/history/segmentChange?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SegmentChangeHistoryResponse>httpResponse.response)
       );
@@ -681,24 +681,24 @@ export class BookingsService {
   public apiNskV1BookingsByBookingKeyQueueDelete(
     bookingKey: string,
     request?: BookingQueueRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByBookingKeyQueueDelete(
     bookingKey: string,
     request?: BookingQueueRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByBookingKeyQueueDelete(
     bookingKey: string,
     request?: BookingQueueRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueueDelete."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueueDelete.'
       );
     }
 
@@ -711,7 +711,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -729,24 +729,24 @@ export class BookingsService {
   public apiNskV1BookingsByBookingKeyQueueHistoryPost(
     bookingKey: string,
     request?: BookingQueueHistoryRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingQueueHistory>>;
   public apiNskV1BookingsByBookingKeyQueueHistoryPost(
     bookingKey: string,
     request?: BookingQueueHistoryRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingQueueHistory>>>;
   public apiNskV1BookingsByBookingKeyQueueHistoryPost(
     bookingKey: string,
     request?: BookingQueueHistoryRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueueHistoryPost."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueueHistoryPost.'
       );
     }
 
@@ -759,7 +759,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingQueueHistory>>httpResponse.response)
       );
@@ -777,24 +777,24 @@ export class BookingsService {
   public apiNskV1BookingsByBookingKeyQueuePost(
     bookingKey: string,
     request?: BookingQueueRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByBookingKeyQueuePost(
     bookingKey: string,
     request?: BookingQueueRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByBookingKeyQueuePost(
     bookingKey: string,
     request?: BookingQueueRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bookingKey) {
       throw new Error(
-        "Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueuePost."
+        'Required parameter bookingKey was null or undefined when calling apiNskV1BookingsByBookingKeyQueuePost.'
       );
     }
 
@@ -807,7 +807,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -835,7 +835,7 @@ export class BookingsService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Transaction>>;
   public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(
@@ -846,7 +846,7 @@ export class BookingsService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Transaction>>>;
   public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet(
@@ -857,55 +857,55 @@ export class BookingsService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!accountCollectionKey) {
       throw new Error(
-        "Required parameter accountCollectionKey was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter accountCollectionKey was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!startTime) {
       throw new Error(
-        "Required parameter startTime was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter startTime was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!sortByNewest) {
       throw new Error(
-        "Required parameter sortByNewest was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter sortByNewest was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startTime !== undefined) {
       queryParameters.push(
-        "startTime=" + encodeURIComponent(<any>startTime.toISOString())
+        'startTime=' + encodeURIComponent(<any>startTime.toISOString())
       );
     }
     if (endTime !== undefined) {
       queryParameters.push(
-        "endTime=" + encodeURIComponent(<any>endTime.toISOString())
+        'endTime=' + encodeURIComponent(<any>endTime.toISOString())
       );
     }
     if (sortByNewest !== undefined) {
       queryParameters.push(
-        "sortByNewest=" + encodeURIComponent(String(sortByNewest))
+        'sortByNewest=' + encodeURIComponent(String(sortByNewest))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (pageIndex !== undefined) {
       queryParameters.push(
-        "pageIndex=" + encodeURIComponent(String(pageIndex))
+        'pageIndex=' + encodeURIComponent(String(pageIndex))
       );
     }
 
@@ -916,10 +916,10 @@ export class BookingsService {
         String(recordLocator)
       )}/account/collection/${encodeURIComponent(
         String(accountCollectionKey)
-      )}/transactions?${queryParameters.join("&")}`,
+      )}/transactions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Transaction>>httpResponse.response)
       );
@@ -939,32 +939,32 @@ export class BookingsService {
     recordLocator: string,
     accountCollectionKey: string,
     request?: TransactionRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(
     recordLocator: string,
     accountCollectionKey: string,
     request?: TransactionRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost(
     recordLocator: string,
     accountCollectionKey: string,
     request?: TransactionRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost.'
       );
     }
 
     if (!accountCollectionKey) {
       throw new Error(
-        "Required parameter accountCollectionKey was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost."
+        'Required parameter accountCollectionKey was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionByAccountCollectionKeyTransactionsPost.'
       );
     }
 
@@ -979,7 +979,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -997,24 +997,24 @@ export class BookingsService {
   public apiNskV1BookingsByRecordLocatorAccountCollectionPost(
     recordLocator: string,
     request?: AccountCollectionRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByRecordLocatorAccountCollectionPost(
     recordLocator: string,
     request?: AccountCollectionRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByRecordLocatorAccountCollectionPost(
     recordLocator: string,
     request?: AccountCollectionRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountCollectionPost.'
       );
     }
 
@@ -1027,7 +1027,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1043,22 +1043,22 @@ export class BookingsService {
      */
   public apiNskV1BookingsByRecordLocatorAccountGet(
     recordLocator: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Account>;
   public apiNskV1BookingsByRecordLocatorAccountGet(
     recordLocator: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Account>>;
   public apiNskV1BookingsByRecordLocatorAccountGet(
     recordLocator: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountGet.'
       );
     }
 
@@ -1068,7 +1068,7 @@ export class BookingsService {
       )}/account`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Account>httpResponse.response));
     }
     return response;
@@ -1084,24 +1084,24 @@ export class BookingsService {
   public apiNskV1BookingsByRecordLocatorAccountPost(
     recordLocator: string,
     request?: CreateAccountRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByRecordLocatorAccountPost(
     recordLocator: string,
     request?: CreateAccountRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByRecordLocatorAccountPost(
     recordLocator: string,
     request?: CreateAccountRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountPost.'
       );
     }
 
@@ -1114,7 +1114,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1131,37 +1131,37 @@ export class BookingsService {
      */
   public apiNskV1BookingsByRecordLocatorAccountStatusPut(
     recordLocator: string,
-    status: "Open" | "Closed" | "AgencyInactive" | "Unknown",
-    observe?: "body",
+    status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByRecordLocatorAccountStatusPut(
     recordLocator: string,
-    status: "Open" | "Closed" | "AgencyInactive" | "Unknown",
-    observe?: "response",
+    status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByRecordLocatorAccountStatusPut(
     recordLocator: string,
-    status: "Open" | "Closed" | "AgencyInactive" | "Unknown",
-    observe: any = "body",
+    status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountStatusPut."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountStatusPut.'
       );
     }
 
     if (!status) {
       throw new Error(
-        "Required parameter status was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountStatusPut."
+        'Required parameter status was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountStatusPut.'
       );
     }
 
     let queryParameters: string[] = [];
     if (status !== undefined) {
-      queryParameters.push("status=" + encodeURIComponent(String(status)));
+      queryParameters.push('status=' + encodeURIComponent(String(status)));
     }
 
     const response: Observable<HttpResponse<
@@ -1169,10 +1169,10 @@ export class BookingsService {
     >> = this.httpClient.put(
       `${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(
         String(recordLocator)
-      )}/account/status?${queryParameters.join("&")}`,
+      )}/account/status?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1198,7 +1198,7 @@ export class BookingsService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Transaction>>;
   public apiNskV1BookingsByRecordLocatorAccountTransactionsGet(
@@ -1208,7 +1208,7 @@ export class BookingsService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Transaction>>>;
   public apiNskV1BookingsByRecordLocatorAccountTransactionsGet(
@@ -1218,49 +1218,49 @@ export class BookingsService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountTransactionsGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountTransactionsGet.'
       );
     }
 
     if (!startTime) {
       throw new Error(
-        "Required parameter startTime was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountTransactionsGet."
+        'Required parameter startTime was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountTransactionsGet.'
       );
     }
 
     if (!sortByNewest) {
       throw new Error(
-        "Required parameter sortByNewest was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountTransactionsGet."
+        'Required parameter sortByNewest was null or undefined when calling apiNskV1BookingsByRecordLocatorAccountTransactionsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startTime !== undefined) {
       queryParameters.push(
-        "startTime=" + encodeURIComponent(<any>startTime.toISOString())
+        'startTime=' + encodeURIComponent(<any>startTime.toISOString())
       );
     }
     if (endTime !== undefined) {
       queryParameters.push(
-        "endTime=" + encodeURIComponent(<any>endTime.toISOString())
+        'endTime=' + encodeURIComponent(<any>endTime.toISOString())
       );
     }
     if (sortByNewest !== undefined) {
       queryParameters.push(
-        "sortByNewest=" + encodeURIComponent(String(sortByNewest))
+        'sortByNewest=' + encodeURIComponent(String(sortByNewest))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (pageIndex !== undefined) {
       queryParameters.push(
-        "pageIndex=" + encodeURIComponent(String(pageIndex))
+        'pageIndex=' + encodeURIComponent(String(pageIndex))
       );
     }
 
@@ -1269,10 +1269,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/bookings/${encodeURIComponent(
         String(recordLocator)
-      )}/account/transactions?${queryParameters.join("&")}`,
+      )}/account/transactions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Transaction>>httpResponse.response)
       );
@@ -1290,24 +1290,24 @@ export class BookingsService {
   public apiNskV1BookingsByRecordLocatorCommentsPost(
     recordLocator: string,
     comments?: Array<BookingCommentRequest>,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByRecordLocatorCommentsPost(
     recordLocator: string,
     comments?: Array<BookingCommentRequest>,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByRecordLocatorCommentsPost(
     recordLocator: string,
     comments?: Array<BookingCommentRequest>,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorCommentsPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorCommentsPost.'
       );
     }
 
@@ -1320,7 +1320,7 @@ export class BookingsService {
       comments,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1336,22 +1336,22 @@ export class BookingsService {
      */
   public apiNskV1BookingsByRecordLocatorEmailPost(
     recordLocator: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByRecordLocatorEmailPost(
     recordLocator: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByRecordLocatorEmailPost(
     recordLocator: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorEmailPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorEmailPost.'
       );
     }
 
@@ -1363,7 +1363,7 @@ export class BookingsService {
       )}/email`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1383,32 +1383,32 @@ export class BookingsService {
     recordLocator: string,
     journeyKey: string,
     request?: FareOverrideRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(
     recordLocator: string,
     journeyKey: string,
     request?: FareOverrideRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost(
     recordLocator: string,
     journeyKey: string,
     request?: FareOverrideRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost.'
       );
     }
 
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1BookingsByRecordLocatorFareOverrideJourneyByJourneyKeyPost.'
       );
     }
 
@@ -1421,7 +1421,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1437,22 +1437,22 @@ export class BookingsService {
      */
   public apiNskV1BookingsByRecordLocatorGet(
     recordLocator: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV1BookingsByRecordLocatorGet(
     recordLocator: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV1BookingsByRecordLocatorGet(
     recordLocator: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsByRecordLocatorGet.'
       );
     }
 
@@ -1462,7 +1462,7 @@ export class BookingsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;
@@ -1480,32 +1480,32 @@ export class BookingsService {
     recordLocator: string,
     journeyKey: string,
     request?: CheckinPassengersRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(
     recordLocator: string,
     journeyKey: string,
     request?: CheckinPassengersRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete(
     recordLocator: string,
     journeyKey: string,
     request?: CheckinPassengersRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete.'
       );
     }
 
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyDelete.'
       );
     }
 
@@ -1518,7 +1518,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1536,30 +1536,30 @@ export class BookingsService {
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(
     recordLocator: string,
     journeyKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CheckinRequirements>;
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(
     recordLocator: string,
     journeyKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CheckinRequirements>>;
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet(
     recordLocator: string,
     journeyKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet.'
       );
     }
 
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyRequirementsGet.'
       );
     }
 
@@ -1571,7 +1571,7 @@ export class BookingsService {
       )}/journey/${encodeURIComponent(String(journeyKey))}/requirements`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CheckinRequirements>httpResponse.response)
       );
@@ -1589,30 +1589,30 @@ export class BookingsService {
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(
     recordLocator: string,
     journeyKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2003>;
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(
     recordLocator: string,
     journeyKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2003>>;
   public apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet(
     recordLocator: string,
     journeyKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet.'
       );
     }
 
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorJourneyByJourneyKeyStatusGet.'
       );
     }
 
@@ -1624,7 +1624,7 @@ export class BookingsService {
       )}/journey/${encodeURIComponent(String(journeyKey))}/status`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2003>httpResponse.response)
       );
@@ -1644,32 +1644,32 @@ export class BookingsService {
     recordLocator: string,
     segmentKey: string,
     request?: CheckinPassengersRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(
     recordLocator: string,
     segmentKey: string,
     request?: CheckinPassengersRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete(
     recordLocator: string,
     segmentKey: string,
     request?: CheckinPassengersRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete.'
       );
     }
 
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete."
+        'Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyDelete.'
       );
     }
 
@@ -1682,7 +1682,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1700,30 +1700,30 @@ export class BookingsService {
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(
     recordLocator: string,
     segmentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CheckinRequirements>;
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(
     recordLocator: string,
     segmentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CheckinRequirements>>;
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet(
     recordLocator: string,
     segmentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet.'
       );
     }
 
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet."
+        'Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyRequirementsGet.'
       );
     }
 
@@ -1735,7 +1735,7 @@ export class BookingsService {
       )}/segment/${encodeURIComponent(String(segmentKey))}/requirements`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CheckinRequirements>httpResponse.response)
       );
@@ -1753,30 +1753,30 @@ export class BookingsService {
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(
     recordLocator: string,
     segmentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2003>;
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(
     recordLocator: string,
     segmentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2003>>;
   public apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet(
     recordLocator: string,
     segmentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet.'
       );
     }
 
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet."
+        'Required parameter segmentKey was null or undefined when calling apiNskV1BookingsCheckinByRecordLocatorSegmentBySegmentKeyStatusGet.'
       );
     }
 
@@ -1788,7 +1788,7 @@ export class BookingsService {
       )}/segment/${encodeURIComponent(String(segmentKey))}/status`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2003>httpResponse.response)
       );
@@ -1828,7 +1828,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByAgencyGet(
@@ -1845,7 +1845,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByAgencyGet(
@@ -1862,80 +1862,80 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!organizationCode) {
       throw new Error(
-        "Required parameter organizationCode was null or undefined when calling apiNskV1BookingsSearchByAgencyGet."
+        'Required parameter organizationCode was null or undefined when calling apiNskV1BookingsSearchByAgencyGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (phoneticSearch !== undefined) {
       queryParameters.push(
-        "phoneticSearch=" + encodeURIComponent(String(phoneticSearch))
+        'phoneticSearch=' + encodeURIComponent(String(phoneticSearch))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -1945,10 +1945,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByAgency?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByAgency?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -1990,7 +1990,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByAgentCodeGet(
@@ -2008,7 +2008,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByAgentCodeGet(
@@ -2026,91 +2026,91 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!agentCode) {
       throw new Error(
-        "Required parameter agentCode was null or undefined when calling apiNskV1BookingsSearchByAgentCodeGet."
+        'Required parameter agentCode was null or undefined when calling apiNskV1BookingsSearchByAgentCodeGet.'
       );
     }
 
     if (!domainCode) {
       throw new Error(
-        "Required parameter domainCode was null or undefined when calling apiNskV1BookingsSearchByAgentCodeGet."
+        'Required parameter domainCode was null or undefined when calling apiNskV1BookingsSearchByAgentCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (agentCode !== undefined) {
       queryParameters.push(
-        "agentCode=" + encodeURIComponent(String(agentCode))
+        'agentCode=' + encodeURIComponent(String(agentCode))
       );
     }
     if (domainCode !== undefined) {
       queryParameters.push(
-        "domainCode=" + encodeURIComponent(String(domainCode))
+        'domainCode=' + encodeURIComponent(String(domainCode))
       );
     }
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (phoneticSearch !== undefined) {
       queryParameters.push(
-        "phoneticSearch=" + encodeURIComponent(String(phoneticSearch))
+        'phoneticSearch=' + encodeURIComponent(String(phoneticSearch))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -2120,10 +2120,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByAgentCode?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByAgentCode?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -2163,7 +2163,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByAgentGet(
@@ -2180,7 +2180,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByAgentGet(
@@ -2197,78 +2197,78 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!agentId) {
       throw new Error(
-        "Required parameter agentId was null or undefined when calling apiNskV1BookingsSearchByAgentGet."
+        'Required parameter agentId was null or undefined when calling apiNskV1BookingsSearchByAgentGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (agentId !== undefined) {
-      queryParameters.push("agentId=" + encodeURIComponent(String(agentId)));
+      queryParameters.push('agentId=' + encodeURIComponent(String(agentId)));
     }
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (phoneticSearch !== undefined) {
       queryParameters.push(
-        "phoneticSearch=" + encodeURIComponent(String(phoneticSearch))
+        'phoneticSearch=' + encodeURIComponent(String(phoneticSearch))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -2278,10 +2278,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByAgent?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByAgent?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -2307,7 +2307,7 @@ export class BookingsService {
     pageSize?: number,
     lastIndex?: number,
     searchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByBagTagGet(
@@ -2317,7 +2317,7 @@ export class BookingsService {
     pageSize?: number,
     lastIndex?: number,
     searchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByBagTagGet(
@@ -2327,52 +2327,52 @@ export class BookingsService {
     pageSize?: number,
     lastIndex?: number,
     searchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bagTag) {
       throw new Error(
-        "Required parameter bagTag was null or undefined when calling apiNskV1BookingsSearchByBagTagGet."
+        'Required parameter bagTag was null or undefined when calling apiNskV1BookingsSearchByBagTagGet.'
       );
     }
 
     if (!startUtc) {
       throw new Error(
-        "Required parameter startUtc was null or undefined when calling apiNskV1BookingsSearchByBagTagGet."
+        'Required parameter startUtc was null or undefined when calling apiNskV1BookingsSearchByBagTagGet.'
       );
     }
 
     if (!endUtc) {
       throw new Error(
-        "Required parameter endUtc was null or undefined when calling apiNskV1BookingsSearchByBagTagGet."
+        'Required parameter endUtc was null or undefined when calling apiNskV1BookingsSearchByBagTagGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (bagTag !== undefined) {
-      queryParameters.push("bagTag=" + encodeURIComponent(String(bagTag)));
+      queryParameters.push('bagTag=' + encodeURIComponent(String(bagTag)));
     }
     if (startUtc !== undefined) {
       queryParameters.push(
-        "startUtc=" + encodeURIComponent(<any>startUtc.toISOString())
+        'startUtc=' + encodeURIComponent(<any>startUtc.toISOString())
       );
     }
     if (endUtc !== undefined) {
       queryParameters.push(
-        "endUtc=" + encodeURIComponent(<any>endUtc.toISOString())
+        'endUtc=' + encodeURIComponent(<any>endUtc.toISOString())
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (lastIndex !== undefined) {
       queryParameters.push(
-        "lastIndex=" + encodeURIComponent(String(lastIndex))
+        'lastIndex=' + encodeURIComponent(String(lastIndex))
       );
     }
     if (searchArchive !== undefined) {
       queryParameters.push(
-        "searchArchive=" + encodeURIComponent(String(searchArchive))
+        'searchArchive=' + encodeURIComponent(String(searchArchive))
       );
     }
 
@@ -2381,10 +2381,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByBagTag?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByBagTag?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -2422,7 +2422,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByContactCustomerNumberGet(
@@ -2438,7 +2438,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByContactCustomerNumberGet(
@@ -2454,76 +2454,76 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactCustomerNumber) {
       throw new Error(
-        "Required parameter contactCustomerNumber was null or undefined when calling apiNskV1BookingsSearchByContactCustomerNumberGet."
+        'Required parameter contactCustomerNumber was null or undefined when calling apiNskV1BookingsSearchByContactCustomerNumberGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (contactCustomerNumber !== undefined) {
       queryParameters.push(
-        "contactCustomerNumber=" +
+        'contactCustomerNumber=' +
           encodeURIComponent(String(contactCustomerNumber))
       );
     }
     if (agentId !== undefined) {
-      queryParameters.push("agentId=" + encodeURIComponent(String(agentId)));
+      queryParameters.push('agentId=' + encodeURIComponent(String(agentId)));
     }
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -2534,11 +2534,11 @@ export class BookingsService {
       `${
         this.basePath
       }/api/nsk/v1/bookings/searchByContactCustomerNumber?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -2574,7 +2574,7 @@ export class BookingsService {
     searchArchive?: boolean,
     pageSize?: number,
     lastIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByContactGet(
@@ -2589,7 +2589,7 @@ export class BookingsService {
     searchArchive?: boolean,
     pageSize?: number,
     lastIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByContactGet(
@@ -2604,60 +2604,60 @@ export class BookingsService {
     searchArchive?: boolean,
     pageSize?: number,
     lastIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (recordLocator !== undefined) {
       queryParameters.push(
-        "recordLocator=" + encodeURIComponent(String(recordLocator))
+        'recordLocator=' + encodeURIComponent(String(recordLocator))
       );
     }
     if (phoneNumber !== undefined) {
       queryParameters.push(
-        "phoneNumber=" + encodeURIComponent(String(phoneNumber))
+        'phoneNumber=' + encodeURIComponent(String(phoneNumber))
       );
     }
     if (emailAddress !== undefined) {
       queryParameters.push(
-        "emailAddress=" + encodeURIComponent(String(emailAddress))
+        'emailAddress=' + encodeURIComponent(String(emailAddress))
       );
     }
     if (sourceOrganization !== undefined) {
       queryParameters.push(
-        "sourceOrganization=" + encodeURIComponent(String(sourceOrganization))
+        'sourceOrganization=' + encodeURIComponent(String(sourceOrganization))
       );
     }
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (organizationGroupCode !== undefined) {
       queryParameters.push(
-        "organizationGroupCode=" +
+        'organizationGroupCode=' +
           encodeURIComponent(String(organizationGroupCode))
       );
     }
     if (searchArchive !== undefined) {
       queryParameters.push(
-        "searchArchive=" + encodeURIComponent(String(searchArchive))
+        'searchArchive=' + encodeURIComponent(String(searchArchive))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (lastIndex !== undefined) {
       queryParameters.push(
-        "lastIndex=" + encodeURIComponent(String(lastIndex))
+        'lastIndex=' + encodeURIComponent(String(lastIndex))
       );
     }
 
@@ -2666,10 +2666,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByContact?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByContact?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -2707,7 +2707,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByCreditCardGet(
@@ -2723,7 +2723,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByCreditCardGet(
@@ -2739,75 +2739,75 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!creditCardNumber) {
       throw new Error(
-        "Required parameter creditCardNumber was null or undefined when calling apiNskV1BookingsSearchByCreditCardGet."
+        'Required parameter creditCardNumber was null or undefined when calling apiNskV1BookingsSearchByCreditCardGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (creditCardNumber !== undefined) {
       queryParameters.push(
-        "creditCardNumber=" + encodeURIComponent(String(creditCardNumber))
+        'creditCardNumber=' + encodeURIComponent(String(creditCardNumber))
       );
     }
     if (agentId !== undefined) {
-      queryParameters.push("agentId=" + encodeURIComponent(String(agentId)));
+      queryParameters.push('agentId=' + encodeURIComponent(String(agentId)));
     }
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -2817,10 +2817,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByCreditCard?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByCreditCard?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -2858,7 +2858,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByCustomerNumberGet(
@@ -2874,7 +2874,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByCustomerNumberGet(
@@ -2890,75 +2890,75 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!customerNumber) {
       throw new Error(
-        "Required parameter customerNumber was null or undefined when calling apiNskV1BookingsSearchByCustomerNumberGet."
+        'Required parameter customerNumber was null or undefined when calling apiNskV1BookingsSearchByCustomerNumberGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (customerNumber !== undefined) {
       queryParameters.push(
-        "customerNumber=" + encodeURIComponent(String(customerNumber))
+        'customerNumber=' + encodeURIComponent(String(customerNumber))
       );
     }
     if (agentId !== undefined) {
-      queryParameters.push("agentId=" + encodeURIComponent(String(agentId)));
+      queryParameters.push('agentId=' + encodeURIComponent(String(agentId)));
     }
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -2969,11 +2969,11 @@ export class BookingsService {
       `${
         this.basePath
       }/api/nsk/v1/bookings/searchByCustomerNumber?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3009,7 +3009,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByDateGet(
@@ -3024,7 +3024,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByDateGet(
@@ -3039,78 +3039,78 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!startDateUtc) {
       throw new Error(
-        "Required parameter startDateUtc was null or undefined when calling apiNskV1BookingsSearchByDateGet."
+        'Required parameter startDateUtc was null or undefined when calling apiNskV1BookingsSearchByDateGet.'
       );
     }
 
     if (!endDateUtc) {
       throw new Error(
-        "Required parameter endDateUtc was null or undefined when calling apiNskV1BookingsSearchByDateGet."
+        'Required parameter endDateUtc was null or undefined when calling apiNskV1BookingsSearchByDateGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startDateUtc !== undefined) {
       queryParameters.push(
-        "startDateUtc=" + encodeURIComponent(<any>startDateUtc.toISOString())
+        'startDateUtc=' + encodeURIComponent(<any>startDateUtc.toISOString())
       );
     }
     if (endDateUtc !== undefined) {
       queryParameters.push(
-        "endDateUtc=" + encodeURIComponent(<any>endDateUtc.toISOString())
+        'endDateUtc=' + encodeURIComponent(<any>endDateUtc.toISOString())
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -3119,11 +3119,11 @@ export class BookingsService {
       Array<BookingSearchResult>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/bookings/searchByDate?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3159,7 +3159,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByDocumentGet(
@@ -3174,7 +3174,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByDocumentGet(
@@ -3189,80 +3189,80 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!documentDocumentNumber) {
       throw new Error(
-        "Required parameter documentDocumentNumber was null or undefined when calling apiNskV1BookingsSearchByDocumentGet."
+        'Required parameter documentDocumentNumber was null or undefined when calling apiNskV1BookingsSearchByDocumentGet.'
       );
     }
 
     if (!documentDocumentTypeCode) {
       throw new Error(
-        "Required parameter documentDocumentTypeCode was null or undefined when calling apiNskV1BookingsSearchByDocumentGet."
+        'Required parameter documentDocumentTypeCode was null or undefined when calling apiNskV1BookingsSearchByDocumentGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (documentDocumentNumber !== undefined) {
       queryParameters.push(
-        "documentDocumentNumber=" +
+        'documentDocumentNumber=' +
           encodeURIComponent(String(documentDocumentNumber))
       );
     }
     if (documentDocumentTypeCode !== undefined) {
       queryParameters.push(
-        "documentDocumentTypeCode=" +
+        'documentDocumentTypeCode=' +
           encodeURIComponent(String(documentDocumentTypeCode))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -3272,10 +3272,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByDocument?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByDocument?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3313,7 +3313,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByEmailGet(
@@ -3329,7 +3329,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByEmailGet(
@@ -3345,75 +3345,75 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!emailAddress) {
       throw new Error(
-        "Required parameter emailAddress was null or undefined when calling apiNskV1BookingsSearchByEmailGet."
+        'Required parameter emailAddress was null or undefined when calling apiNskV1BookingsSearchByEmailGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (emailAddress !== undefined) {
       queryParameters.push(
-        "emailAddress=" + encodeURIComponent(String(emailAddress))
+        'emailAddress=' + encodeURIComponent(String(emailAddress))
       );
     }
     if (agentId !== undefined) {
-      queryParameters.push("agentId=" + encodeURIComponent(String(agentId)));
+      queryParameters.push('agentId=' + encodeURIComponent(String(agentId)));
     }
     if (phoneticSearch !== undefined) {
       queryParameters.push(
-        "phoneticSearch=" + encodeURIComponent(String(phoneticSearch))
+        'phoneticSearch=' + encodeURIComponent(String(phoneticSearch))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -3423,10 +3423,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByEmail?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByEmail?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3464,7 +3464,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByLastNameGet(
@@ -3480,7 +3480,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByLastNameGet(
@@ -3496,75 +3496,75 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!lastName) {
       throw new Error(
-        "Required parameter lastName was null or undefined when calling apiNskV1BookingsSearchByLastNameGet."
+        'Required parameter lastName was null or undefined when calling apiNskV1BookingsSearchByLastNameGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (phoneticSearch !== undefined) {
       queryParameters.push(
-        "phoneticSearch=" + encodeURIComponent(String(phoneticSearch))
+        'phoneticSearch=' + encodeURIComponent(String(phoneticSearch))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -3574,10 +3574,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByLastName?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByLastName?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3615,7 +3615,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByPhoneGet(
@@ -3631,7 +3631,7 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByPhoneGet(
@@ -3647,75 +3647,75 @@ export class BookingsService {
     filtersSourceOrganization?: string,
     filtersOrganizationGroupCode?: string,
     filtersSearchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!phoneNumber) {
       throw new Error(
-        "Required parameter phoneNumber was null or undefined when calling apiNskV1BookingsSearchByPhoneGet."
+        'Required parameter phoneNumber was null or undefined when calling apiNskV1BookingsSearchByPhoneGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (phoneNumber !== undefined) {
       queryParameters.push(
-        "phoneNumber=" + encodeURIComponent(String(phoneNumber))
+        'phoneNumber=' + encodeURIComponent(String(phoneNumber))
       );
     }
     if (agentId !== undefined) {
-      queryParameters.push("agentId=" + encodeURIComponent(String(agentId)));
+      queryParameters.push('agentId=' + encodeURIComponent(String(agentId)));
     }
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (filtersPageSize !== undefined) {
       queryParameters.push(
-        "filtersPageSize=" + encodeURIComponent(String(filtersPageSize))
+        'filtersPageSize=' + encodeURIComponent(String(filtersPageSize))
       );
     }
     if (filtersLastIndex !== undefined) {
       queryParameters.push(
-        "filtersLastIndex=" + encodeURIComponent(String(filtersLastIndex))
+        'filtersLastIndex=' + encodeURIComponent(String(filtersLastIndex))
       );
     }
     if (filtersFlightNumber !== undefined) {
       queryParameters.push(
-        "filtersFlightNumber=" + encodeURIComponent(String(filtersFlightNumber))
+        'filtersFlightNumber=' + encodeURIComponent(String(filtersFlightNumber))
       );
     }
     if (filtersDepartureDate !== undefined) {
       queryParameters.push(
-        "filtersDepartureDate=" +
+        'filtersDepartureDate=' +
           encodeURIComponent(<any>filtersDepartureDate.toISOString())
       );
     }
     if (filtersDestination !== undefined) {
       queryParameters.push(
-        "filtersDestination=" + encodeURIComponent(String(filtersDestination))
+        'filtersDestination=' + encodeURIComponent(String(filtersDestination))
       );
     }
     if (filtersOrigin !== undefined) {
       queryParameters.push(
-        "filtersOrigin=" + encodeURIComponent(String(filtersOrigin))
+        'filtersOrigin=' + encodeURIComponent(String(filtersOrigin))
       );
     }
     if (filtersSourceOrganization !== undefined) {
       queryParameters.push(
-        "filtersSourceOrganization=" +
+        'filtersSourceOrganization=' +
           encodeURIComponent(String(filtersSourceOrganization))
       );
     }
     if (filtersOrganizationGroupCode !== undefined) {
       queryParameters.push(
-        "filtersOrganizationGroupCode=" +
+        'filtersOrganizationGroupCode=' +
           encodeURIComponent(String(filtersOrganizationGroupCode))
       );
     }
     if (filtersSearchArchive !== undefined) {
       queryParameters.push(
-        "filtersSearchArchive=" +
+        'filtersSearchArchive=' +
           encodeURIComponent(String(filtersSearchArchive))
       );
     }
@@ -3725,10 +3725,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByPhone?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByPhone?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3754,7 +3754,7 @@ export class BookingsService {
     sourceOrganization?: string,
     organizationGroupCode?: string,
     searchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByRecordLocatorGet(
@@ -3764,7 +3764,7 @@ export class BookingsService {
     sourceOrganization?: string,
     organizationGroupCode?: string,
     searchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByRecordLocatorGet(
@@ -3774,43 +3774,43 @@ export class BookingsService {
     sourceOrganization?: string,
     organizationGroupCode?: string,
     searchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsSearchByRecordLocatorGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsSearchByRecordLocatorGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (recordLocator !== undefined) {
       queryParameters.push(
-        "recordLocator=" + encodeURIComponent(String(recordLocator))
+        'recordLocator=' + encodeURIComponent(String(recordLocator))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (lastIndex !== undefined) {
       queryParameters.push(
-        "lastIndex=" + encodeURIComponent(String(lastIndex))
+        'lastIndex=' + encodeURIComponent(String(lastIndex))
       );
     }
     if (sourceOrganization !== undefined) {
       queryParameters.push(
-        "sourceOrganization=" + encodeURIComponent(String(sourceOrganization))
+        'sourceOrganization=' + encodeURIComponent(String(sourceOrganization))
       );
     }
     if (organizationGroupCode !== undefined) {
       queryParameters.push(
-        "organizationGroupCode=" +
+        'organizationGroupCode=' +
           encodeURIComponent(String(organizationGroupCode))
       );
     }
     if (searchArchive !== undefined) {
       queryParameters.push(
-        "searchArchive=" + encodeURIComponent(String(searchArchive))
+        'searchArchive=' + encodeURIComponent(String(searchArchive))
       );
     }
 
@@ -3819,10 +3819,10 @@ export class BookingsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/bookings/searchByRecordLocator?${queryParameters.join("&")}`,
+      }/api/nsk/v1/bookings/searchByRecordLocator?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3854,7 +3854,7 @@ export class BookingsService {
     sourceOrganization?: string,
     organizationGroupCode?: string,
     searchArchive?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(
@@ -3867,7 +3867,7 @@ export class BookingsService {
     sourceOrganization?: string,
     organizationGroupCode?: string,
     searchArchive?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1BookingsSearchByThirdPartyRecordLocatorGet(
@@ -3880,62 +3880,62 @@ export class BookingsService {
     sourceOrganization?: string,
     organizationGroupCode?: string,
     searchArchive?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!systemCode) {
       throw new Error(
-        "Required parameter systemCode was null or undefined when calling apiNskV1BookingsSearchByThirdPartyRecordLocatorGet."
+        'Required parameter systemCode was null or undefined when calling apiNskV1BookingsSearchByThirdPartyRecordLocatorGet.'
       );
     }
 
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV1BookingsSearchByThirdPartyRecordLocatorGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV1BookingsSearchByThirdPartyRecordLocatorGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (systemCode !== undefined) {
       queryParameters.push(
-        "systemCode=" + encodeURIComponent(String(systemCode))
+        'systemCode=' + encodeURIComponent(String(systemCode))
       );
     }
     if (agentId !== undefined) {
-      queryParameters.push("agentId=" + encodeURIComponent(String(agentId)));
+      queryParameters.push('agentId=' + encodeURIComponent(String(agentId)));
     }
     if (organizationCode !== undefined) {
       queryParameters.push(
-        "organizationCode=" + encodeURIComponent(String(organizationCode))
+        'organizationCode=' + encodeURIComponent(String(organizationCode))
       );
     }
     if (recordLocator !== undefined) {
       queryParameters.push(
-        "recordLocator=" + encodeURIComponent(String(recordLocator))
+        'recordLocator=' + encodeURIComponent(String(recordLocator))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (lastIndex !== undefined) {
       queryParameters.push(
-        "lastIndex=" + encodeURIComponent(String(lastIndex))
+        'lastIndex=' + encodeURIComponent(String(lastIndex))
       );
     }
     if (sourceOrganization !== undefined) {
       queryParameters.push(
-        "sourceOrganization=" + encodeURIComponent(String(sourceOrganization))
+        'sourceOrganization=' + encodeURIComponent(String(sourceOrganization))
       );
     }
     if (organizationGroupCode !== undefined) {
       queryParameters.push(
-        "organizationGroupCode=" +
+        'organizationGroupCode=' +
           encodeURIComponent(String(organizationGroupCode))
       );
     }
     if (searchArchive !== undefined) {
       queryParameters.push(
-        "searchArchive=" + encodeURIComponent(String(searchArchive))
+        'searchArchive=' + encodeURIComponent(String(searchArchive))
       );
     }
 
@@ -3945,11 +3945,11 @@ export class BookingsService {
       `${
         this.basePath
       }/api/nsk/v1/bookings/searchByThirdPartyRecordLocator?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -3965,22 +3965,22 @@ export class BookingsService {
      */
   public apiNskV2BookingsByRecordLocatorNotificationPost(
     recordLocator: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingsByRecordLocatorNotificationPost(
     recordLocator: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingsByRecordLocatorNotificationPost(
     recordLocator: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV2BookingsByRecordLocatorNotificationPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV2BookingsByRecordLocatorNotificationPost.'
       );
     }
 
@@ -3992,7 +3992,7 @@ export class BookingsService {
       )}/notification`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -4020,7 +4020,7 @@ export class BookingsService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV2BookingsGet(
@@ -4031,7 +4031,7 @@ export class BookingsService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV2BookingsGet(
@@ -4042,53 +4042,53 @@ export class BookingsService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV2BookingsGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV2BookingsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (recordLocator !== undefined) {
       queryParameters.push(
-        "recordLocator=" + encodeURIComponent(String(recordLocator))
+        'recordLocator=' + encodeURIComponent(String(recordLocator))
       );
     }
     if (emailAddress !== undefined) {
       queryParameters.push(
-        "emailAddress=" + encodeURIComponent(String(emailAddress))
+        'emailAddress=' + encodeURIComponent(String(emailAddress))
       );
     }
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (customerNumber !== undefined) {
       queryParameters.push(
-        "customerNumber=" + encodeURIComponent(String(customerNumber))
+        'customerNumber=' + encodeURIComponent(String(customerNumber))
       );
     }
     if (departureDate !== undefined) {
       queryParameters.push(
-        "departureDate=" + encodeURIComponent(<any>departureDate.toISOString())
+        'departureDate=' + encodeURIComponent(<any>departureDate.toISOString())
       );
     }
 
     const response: Observable<HttpResponse<Booking>> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v2/bookings?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v2/bookings?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;
@@ -4102,17 +4102,17 @@ export class BookingsService {
      */
   public apiNskV2BookingsQuotePost(
     request?: ItineraryQuoteRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<ItineraryQuote>;
   public apiNskV2BookingsQuotePost(
     request?: ItineraryQuoteRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<ItineraryQuote>>;
   public apiNskV2BookingsQuotePost(
     request?: ItineraryQuoteRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -4122,7 +4122,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <ItineraryQuote>httpResponse.response)
       );
@@ -4142,32 +4142,32 @@ export class BookingsService {
     recordLocator: string,
     journeyKey: string,
     request?: CheckinPassengersRequestv3,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(
     recordLocator: string,
     journeyKey: string,
     request?: CheckinPassengersRequestv3,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost(
     recordLocator: string,
     journeyKey: string,
     request?: CheckinPassengersRequestv3,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost.'
       );
     }
 
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost."
+        'Required parameter journeyKey was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorJourneyByJourneyKeyPost.'
       );
     }
 
@@ -4180,7 +4180,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -4200,32 +4200,32 @@ export class BookingsService {
     recordLocator: string,
     segmentKey: string,
     request?: CheckinPassengersRequestv3,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(
     recordLocator: string,
     segmentKey: string,
     request?: CheckinPassengersRequestv3,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost(
     recordLocator: string,
     segmentKey: string,
     request?: CheckinPassengersRequestv3,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost."
+        'Required parameter recordLocator was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost.'
       );
     }
 
     if (!segmentKey) {
       throw new Error(
-        "Required parameter segmentKey was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost."
+        'Required parameter segmentKey was null or undefined when calling apiNskV3BookingsCheckinByRecordLocatorSegmentBySegmentKeyPost.'
       );
     }
 
@@ -4238,7 +4238,7 @@ export class BookingsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

@@ -1,15 +1,15 @@
-import IHttpClient from "./IHttpClient";
-import { Observable } from "rxjs/Observable";
-import "whatwg-fetch";
-import HttpResponse from "./HttpResponse";
-import { injectable } from "inversify";
-import "rxjs/add/observable/fromPromise";
-import { Headers } from "./Headers";
+import IHttpClient from './IHttpClient';
+import { Observable } from 'rxjs/Observable';
+import 'whatwg-fetch';
+import HttpResponse from './HttpResponse';
+import { injectable } from 'inversify';
+import 'rxjs/add/observable/fromPromise';
+import { Headers } from './Headers';
 
 @injectable()
 class HttpClient implements IHttpClient {
   get(url: string, headers?: Headers): Observable<HttpResponse> {
-    return this.performNetworkCall(url, "get", undefined, headers);
+    return this.performNetworkCall(url, 'get', undefined, headers);
   }
 
   post(
@@ -19,7 +19,7 @@ class HttpClient implements IHttpClient {
   ): Observable<HttpResponse> {
     return this.performNetworkCall(
       url,
-      "post",
+      'post',
       this.getJsonBody(body),
       this.addJsonHeaders(headers)
     );
@@ -28,7 +28,7 @@ class HttpClient implements IHttpClient {
   put(url: string, body: {}, headers?: Headers): Observable<HttpResponse> {
     return this.performNetworkCall(
       url,
-      "put",
+      'put',
       this.getJsonBody(body),
       this.addJsonHeaders(headers)
     );
@@ -36,14 +36,14 @@ class HttpClient implements IHttpClient {
   patch(url: string, body: {}, headers?: Headers): Observable<HttpResponse> {
     return this.performNetworkCall(
       url,
-      "patch",
+      'patch',
       this.getJsonBody(body),
       this.addJsonHeaders(headers)
     );
   }
 
   delete(url: string, headers?: Headers): Observable<HttpResponse> {
-    return this.performNetworkCall(url, "delete", undefined, headers);
+    return this.performNetworkCall(url, 'delete', undefined, headers);
   }
 
   private getJsonBody(body: {} | FormData) {
@@ -54,8 +54,8 @@ class HttpClient implements IHttpClient {
     return Object.assign(
       {},
       {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
       },
       headers
     );
@@ -79,8 +79,8 @@ class HttpClient implements IHttpClient {
           headers[name.toString().toLowerCase()] = value;
         });
         return response.text().then(text => {
-          let contentType = headers["content-type"] || "";
-          let payload = contentType.match("application/json")
+          let contentType = headers['content-type'] || '';
+          let payload = contentType.match('application/json')
             ? JSON.parse(text)
             : text;
           let httpResponse = new HttpResponse(

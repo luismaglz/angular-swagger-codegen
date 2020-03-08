@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   IJsonResponse,
   PassengerSsr,
@@ -25,16 +25,20 @@ import {
   SsrAvailabilityRequestv2,
   SsrByKeysRequestv2,
   SsrsRequest
-} from "api-models";
+} from 'api-models';
 
-import { BookingssrsService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { BookingssrsService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreBookingssrsService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("BookingssrsService") protected baseService: BookingssrsService
+    @inject('Store') protected store: Store<any>,
+    @inject('BookingssrsService') protected baseService: BookingssrsService
   ) {}
 
   /**
@@ -46,7 +50,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1BookingSsrsBySsrKeyDelete(ssrKey, "body", headers)
+      .apiNskV1BookingSsrsBySsrKeyDelete(ssrKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingSsrsBySsrKeyDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -62,7 +66,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<PassengerSsr> {
     const response = await this.baseService
-      .apiNskV1BookingSsrsBySsrKeyGet(ssrKey, "body", headers)
+      .apiNskV1BookingSsrsBySsrKeyGet(ssrKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingSsrsBySsrKeyGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -79,7 +83,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1BookingSsrsBySsrKeyPut(ssrKey, note, "body", headers)
+      .apiNskV1BookingSsrsBySsrKeyPut(ssrKey, note, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingSsrsBySsrKeyPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -94,7 +98,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<Array<PassengerSsr>> {
     const response = await this.baseService
-      .apiNskV1BookingSsrsGet("body", headers)
+      .apiNskV1BookingSsrsGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingSsrsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -110,7 +114,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1BookingSsrsManualDelete(request, "body", headers)
+      .apiNskV1BookingSsrsManualDelete(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingSsrsManualDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -126,7 +130,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1BookingSsrsManualPost(request, "body", headers)
+      .apiNskV1BookingSsrsManualPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingSsrsManualPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -142,7 +146,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1BookingSsrsResellPost(request, "body", headers)
+      .apiNskV1BookingSsrsResellPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingSsrsResellPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -158,7 +162,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<SsrAvailability> {
     const response = await this.baseService
-      .apiNskV2BookingSsrsAvailabilityPost(request, "body", headers)
+      .apiNskV2BookingSsrsAvailabilityPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV2BookingSsrsAvailabilityPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -175,7 +179,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV2BookingSsrsBySsrKeyPost(ssrKey, request, "body", headers)
+      .apiNskV2BookingSsrsBySsrKeyPost(ssrKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV2BookingSsrsBySsrKeyPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -191,7 +195,7 @@ export class StoreBookingssrsService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV2BookingSsrsPost(request, "body", headers)
+      .apiNskV2BookingSsrsPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV2BookingSsrsPost
     // addResponsetoStore(this.store, response.data, true, true);

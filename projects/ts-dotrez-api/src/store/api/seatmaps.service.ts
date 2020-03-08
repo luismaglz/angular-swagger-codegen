@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { IJsonResponse, SeatMapAvailability } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { IJsonResponse, SeatMapAvailability } from 'api-models';
 
-import { SeatmapsService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { SeatmapsService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreSeatmapsService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("SeatmapsService") protected baseService: SeatmapsService
+    @inject('Store') protected store: Store<any>,
+    @inject('SeatmapsService') protected baseService: SeatmapsService
   ) {}
 
   /**
@@ -42,7 +46,7 @@ export class StoreSeatmapsService {
         journeyKey,
         includePropertyLookup,
         cultureCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();

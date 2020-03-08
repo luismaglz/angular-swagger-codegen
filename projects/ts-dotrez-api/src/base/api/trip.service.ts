@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   Availability,
@@ -35,22 +35,22 @@ import {
   TripUpgradeBaseRequest,
   TripUpgradeRequest,
   UpgradeSegment
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class TripService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -64,17 +64,17 @@ export class TripService {
      */
   public apiNskV1TripDowngradePost(
     request?: TripDowngradeRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TripDowngradePost(
     request?: TripDowngradeRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TripDowngradePost(
     request?: TripDowngradeRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -84,7 +84,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -100,22 +100,22 @@ export class TripService {
      */
   public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(
     journeyKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Trip>;
   public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(
     journeyKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Trip>>;
   public apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet(
     journeyKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet."
+        'Required parameter journeyKey was null or undefined when calling apiNskV1TripFlyAheadAvailabilityByJourneyKeyGet.'
       );
     }
 
@@ -127,7 +127,7 @@ export class TripService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Trip>httpResponse.response));
     }
     return response;
@@ -141,17 +141,17 @@ export class TripService {
      */
   public apiNskV1TripFlyAheadAvailabilityPost(
     request?: AvailabilityFlyAheadRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Trip>;
   public apiNskV1TripFlyAheadAvailabilityPost(
     request?: AvailabilityFlyAheadRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Trip>>;
   public apiNskV1TripFlyAheadAvailabilityPost(
     request?: AvailabilityFlyAheadRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Trip>> = this.httpClient.post(
@@ -159,7 +159,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Trip>httpResponse.response));
     }
     return response;
@@ -173,22 +173,22 @@ export class TripService {
      */
   public apiNskV1TripInfoByLegKeyDetailsGet(
     legKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TripDetails>;
   public apiNskV1TripInfoByLegKeyDetailsGet(
     legKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TripDetails>>;
   public apiNskV1TripInfoByLegKeyDetailsGet(
     legKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!legKey) {
       throw new Error(
-        "Required parameter legKey was null or undefined when calling apiNskV1TripInfoByLegKeyDetailsGet."
+        'Required parameter legKey was null or undefined when calling apiNskV1TripInfoByLegKeyDetailsGet.'
       );
     }
 
@@ -198,7 +198,7 @@ export class TripService {
       )}/details`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TripDetails>httpResponse.response)
       );
@@ -214,17 +214,17 @@ export class TripService {
      */
   public apiNskV1TripInfoPost(
     request?: TripInformationQuery,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<TripInformationResponse>>;
   public apiNskV1TripInfoPost(
     request?: TripInformationQuery,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<TripInformationResponse>>>;
   public apiNskV1TripInfoPost(
     request?: TripInformationQuery,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -234,7 +234,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<TripInformationResponse>>httpResponse.response
@@ -269,8 +269,8 @@ export class TripService {
     endTimeInterval?: string,
     identifier?: string,
     carrierCode?: string,
-    flightType?: "All" | "NonStop" | "Through" | "Direct" | "Connect",
-    observe?: "body",
+    flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<TripInformationResponse>>;
   public apiNskV1TripInfoSimpleGet(
@@ -283,8 +283,8 @@ export class TripService {
     endTimeInterval?: string,
     identifier?: string,
     carrierCode?: string,
-    flightType?: "All" | "NonStop" | "Through" | "Direct" | "Connect",
-    observe?: "response",
+    flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<TripInformationResponse>>>;
   public apiNskV1TripInfoSimpleGet(
@@ -297,63 +297,63 @@ export class TripService {
     endTimeInterval?: string,
     identifier?: string,
     carrierCode?: string,
-    flightType?: "All" | "NonStop" | "Through" | "Direct" | "Connect",
-    observe: any = "body",
+    flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!beginDate) {
       throw new Error(
-        "Required parameter beginDate was null or undefined when calling apiNskV1TripInfoSimpleGet."
+        'Required parameter beginDate was null or undefined when calling apiNskV1TripInfoSimpleGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (numberOfJourneys !== undefined) {
       queryParameters.push(
-        "numberOfJourneys=" + encodeURIComponent(String(numberOfJourneys))
+        'numberOfJourneys=' + encodeURIComponent(String(numberOfJourneys))
       );
     }
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (destination !== undefined) {
       queryParameters.push(
-        "destination=" + encodeURIComponent(String(destination))
+        'destination=' + encodeURIComponent(String(destination))
       );
     }
     if (endDate !== undefined) {
       queryParameters.push(
-        "endDate=" + encodeURIComponent(<any>endDate.toISOString())
+        'endDate=' + encodeURIComponent(<any>endDate.toISOString())
       );
     }
     if (startTimeInterval !== undefined) {
       queryParameters.push(
-        "startTimeInterval=" + encodeURIComponent(String(startTimeInterval))
+        'startTimeInterval=' + encodeURIComponent(String(startTimeInterval))
       );
     }
     if (endTimeInterval !== undefined) {
       queryParameters.push(
-        "endTimeInterval=" + encodeURIComponent(String(endTimeInterval))
+        'endTimeInterval=' + encodeURIComponent(String(endTimeInterval))
       );
     }
     if (beginDate !== undefined) {
       queryParameters.push(
-        "beginDate=" + encodeURIComponent(<any>beginDate.toISOString())
+        'beginDate=' + encodeURIComponent(<any>beginDate.toISOString())
       );
     }
     if (identifier !== undefined) {
       queryParameters.push(
-        "identifier=" + encodeURIComponent(String(identifier))
+        'identifier=' + encodeURIComponent(String(identifier))
       );
     }
     if (carrierCode !== undefined) {
       queryParameters.push(
-        "carrierCode=" + encodeURIComponent(String(carrierCode))
+        'carrierCode=' + encodeURIComponent(String(carrierCode))
       );
     }
     if (flightType !== undefined) {
       queryParameters.push(
-        "flightType=" + encodeURIComponent(String(flightType))
+        'flightType=' + encodeURIComponent(String(flightType))
       );
     }
 
@@ -361,11 +361,11 @@ export class TripService {
       Array<TripInformationResponse>
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/trip/info/simple?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<TripInformationResponse>>httpResponse.response
@@ -381,15 +381,15 @@ export class TripService {
      
      */
   public apiNskV1TripMoveAvailabilitySelfServiceGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Availability>;
   public apiNskV1TripMoveAvailabilitySelfServiceGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Availability>>;
   public apiNskV1TripMoveAvailabilitySelfServiceGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -398,7 +398,7 @@ export class TripService {
       `${this.basePath}/api/nsk/v1/trip/move/availability/selfService`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Availability>httpResponse.response)
       );
@@ -414,17 +414,17 @@ export class TripService {
      */
   public apiNskV1TripMovePost(
     request?: MoveRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TripMovePost(
     request?: MoveRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TripMovePost(
     request?: MoveRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -434,7 +434,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -457,8 +457,8 @@ export class TripService {
     destination: string,
     beginDate: Date,
     endDate: Date,
-    type?: "None" | "NonStop" | "Through" | "Direct" | "Connect" | "All",
-    observe?: "body",
+    type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All',
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<ScheduleDetail>>;
   public apiNskV1TripScheduleGet(
@@ -466,8 +466,8 @@ export class TripService {
     destination: string,
     beginDate: Date,
     endDate: Date,
-    type?: "None" | "NonStop" | "Through" | "Direct" | "Connect" | "All",
-    observe?: "response",
+    type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<ScheduleDetail>>>;
   public apiNskV1TripScheduleGet(
@@ -475,64 +475,64 @@ export class TripService {
     destination: string,
     beginDate: Date,
     endDate: Date,
-    type?: "None" | "NonStop" | "Through" | "Direct" | "Connect" | "All",
-    observe: any = "body",
+    type?: 'None' | 'NonStop' | 'Through' | 'Direct' | 'Connect' | 'All',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!origin) {
       throw new Error(
-        "Required parameter origin was null or undefined when calling apiNskV1TripScheduleGet."
+        'Required parameter origin was null or undefined when calling apiNskV1TripScheduleGet.'
       );
     }
 
     if (!destination) {
       throw new Error(
-        "Required parameter destination was null or undefined when calling apiNskV1TripScheduleGet."
+        'Required parameter destination was null or undefined when calling apiNskV1TripScheduleGet.'
       );
     }
 
     if (!beginDate) {
       throw new Error(
-        "Required parameter beginDate was null or undefined when calling apiNskV1TripScheduleGet."
+        'Required parameter beginDate was null or undefined when calling apiNskV1TripScheduleGet.'
       );
     }
 
     if (!endDate) {
       throw new Error(
-        "Required parameter endDate was null or undefined when calling apiNskV1TripScheduleGet."
+        'Required parameter endDate was null or undefined when calling apiNskV1TripScheduleGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (destination !== undefined) {
       queryParameters.push(
-        "destination=" + encodeURIComponent(String(destination))
+        'destination=' + encodeURIComponent(String(destination))
       );
     }
     if (beginDate !== undefined) {
       queryParameters.push(
-        "beginDate=" + encodeURIComponent(<any>beginDate.toISOString())
+        'beginDate=' + encodeURIComponent(<any>beginDate.toISOString())
       );
     }
     if (endDate !== undefined) {
       queryParameters.push(
-        "endDate=" + encodeURIComponent(<any>endDate.toISOString())
+        'endDate=' + encodeURIComponent(<any>endDate.toISOString())
       );
     }
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
 
     const response: Observable<HttpResponse<
       Array<ScheduleDetail>
     >> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/trip/schedule?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/trip/schedule?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<ScheduleDetail>>httpResponse.response)
       );
@@ -550,24 +550,24 @@ export class TripService {
   public apiNskV1TripUpgradeByUpgradeKeyPost(
     upgradeKey: string,
     request?: TripUpgradeBaseRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TripUpgradeByUpgradeKeyPost(
     upgradeKey: string,
     request?: TripUpgradeBaseRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TripUpgradeByUpgradeKeyPost(
     upgradeKey: string,
     request?: TripUpgradeBaseRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!upgradeKey) {
       throw new Error(
-        "Required parameter upgradeKey was null or undefined when calling apiNskV1TripUpgradeByUpgradeKeyPost."
+        'Required parameter upgradeKey was null or undefined when calling apiNskV1TripUpgradeByUpgradeKeyPost.'
       );
     }
 
@@ -580,7 +580,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -594,15 +594,15 @@ export class TripService {
      
      */
   public apiNskV1TripUpgradeGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<UpgradeSegment>>;
   public apiNskV1TripUpgradeGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<UpgradeSegment>>>;
   public apiNskV1TripUpgradeGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -611,7 +611,7 @@ export class TripService {
       `${this.basePath}/api/nsk/v1/trip/upgrade`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<UpgradeSegment>>httpResponse.response)
       );
@@ -627,17 +627,17 @@ export class TripService {
      */
   public apiNskV1TripUpgradePost(
     request?: TripUpgradeRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TripUpgradePost(
     request?: TripUpgradeRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TripUpgradePost(
     request?: TripUpgradeRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -647,7 +647,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -663,22 +663,22 @@ export class TripService {
      */
   public apiNskV2TripInfoByLegKeyStatusGet(
     legKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TripStatusv2>;
   public apiNskV2TripInfoByLegKeyStatusGet(
     legKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TripStatusv2>>;
   public apiNskV2TripInfoByLegKeyStatusGet(
     legKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!legKey) {
       throw new Error(
-        "Required parameter legKey was null or undefined when calling apiNskV2TripInfoByLegKeyStatusGet."
+        'Required parameter legKey was null or undefined when calling apiNskV2TripInfoByLegKeyStatusGet.'
       );
     }
 
@@ -690,7 +690,7 @@ export class TripService {
       )}/status`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TripStatusv2>httpResponse.response)
       );
@@ -711,80 +711,80 @@ export class TripService {
   public apiNskV2TripMoveAvailabilityByJourneyKeyGet(
     journeyKey: string,
     passengerMoveType:
-      | "None"
-      | "Irop"
-      | "Diversion"
-      | "FlightClose"
-      | "FlyAhead"
-      | "SplitJourney"
-      | "SelfServiceRebooking",
+      | 'None'
+      | 'Irop'
+      | 'Diversion'
+      | 'FlightClose'
+      | 'FlyAhead'
+      | 'SplitJourney'
+      | 'SelfServiceRebooking',
     beginDate?: Date,
     origin?: string,
     destination?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Availability>;
   public apiNskV2TripMoveAvailabilityByJourneyKeyGet(
     journeyKey: string,
     passengerMoveType:
-      | "None"
-      | "Irop"
-      | "Diversion"
-      | "FlightClose"
-      | "FlyAhead"
-      | "SplitJourney"
-      | "SelfServiceRebooking",
+      | 'None'
+      | 'Irop'
+      | 'Diversion'
+      | 'FlightClose'
+      | 'FlyAhead'
+      | 'SplitJourney'
+      | 'SelfServiceRebooking',
     beginDate?: Date,
     origin?: string,
     destination?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Availability>>;
   public apiNskV2TripMoveAvailabilityByJourneyKeyGet(
     journeyKey: string,
     passengerMoveType:
-      | "None"
-      | "Irop"
-      | "Diversion"
-      | "FlightClose"
-      | "FlyAhead"
-      | "SplitJourney"
-      | "SelfServiceRebooking",
+      | 'None'
+      | 'Irop'
+      | 'Diversion'
+      | 'FlightClose'
+      | 'FlyAhead'
+      | 'SplitJourney'
+      | 'SelfServiceRebooking',
     beginDate?: Date,
     origin?: string,
     destination?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV2TripMoveAvailabilityByJourneyKeyGet."
+        'Required parameter journeyKey was null or undefined when calling apiNskV2TripMoveAvailabilityByJourneyKeyGet.'
       );
     }
 
     if (!passengerMoveType) {
       throw new Error(
-        "Required parameter passengerMoveType was null or undefined when calling apiNskV2TripMoveAvailabilityByJourneyKeyGet."
+        'Required parameter passengerMoveType was null or undefined when calling apiNskV2TripMoveAvailabilityByJourneyKeyGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (beginDate !== undefined) {
       queryParameters.push(
-        "beginDate=" + encodeURIComponent(<any>beginDate.toISOString())
+        'beginDate=' + encodeURIComponent(<any>beginDate.toISOString())
       );
     }
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (destination !== undefined) {
       queryParameters.push(
-        "destination=" + encodeURIComponent(String(destination))
+        'destination=' + encodeURIComponent(String(destination))
       );
     }
     if (passengerMoveType !== undefined) {
       queryParameters.push(
-        "passengerMoveType=" + encodeURIComponent(String(passengerMoveType))
+        'passengerMoveType=' + encodeURIComponent(String(passengerMoveType))
       );
     }
 
@@ -793,10 +793,10 @@ export class TripService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v2/trip/move/availability/${encodeURIComponent(
         String(journeyKey)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Availability>httpResponse.response)
       );
@@ -812,17 +812,17 @@ export class TripService {
      */
   public apiNskV2TripMoveAvailabilityPost(
     request?: AvailabilityMoveRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Availability>;
   public apiNskV2TripMoveAvailabilityPost(
     request?: AvailabilityMoveRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Availability>>;
   public apiNskV2TripMoveAvailabilityPost(
     request?: AvailabilityMoveRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -832,7 +832,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Availability>httpResponse.response)
       );
@@ -848,17 +848,17 @@ export class TripService {
      */
   public apiNskV3TripRebookAvailabilityPost(
     request?: AvailabilityRebookRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Availability>;
   public apiNskV3TripRebookAvailabilityPost(
     request?: AvailabilityRebookRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Availability>>;
   public apiNskV3TripRebookAvailabilityPost(
     request?: AvailabilityRebookRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -868,7 +868,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Availability>httpResponse.response)
       );
@@ -892,11 +892,11 @@ export class TripService {
     beginDate: Date,
     endDate?: Date,
     loyaltyFilter?:
-      | "MonetaryOnly"
-      | "PointsOnly"
-      | "PointsAndMonetary"
-      | "PreserveCurrent",
-    observe?: "body",
+      | 'MonetaryOnly'
+      | 'PointsOnly'
+      | 'PointsAndMonetary'
+      | 'PreserveCurrent',
+    observe?: 'body',
     headers?: Headers
   ): Observable<Availability>;
   public apiNskV3TripRebookAvailabilitySimpleGet(
@@ -905,11 +905,11 @@ export class TripService {
     beginDate: Date,
     endDate?: Date,
     loyaltyFilter?:
-      | "MonetaryOnly"
-      | "PointsOnly"
-      | "PointsAndMonetary"
-      | "PreserveCurrent",
-    observe?: "response",
+      | 'MonetaryOnly'
+      | 'PointsOnly'
+      | 'PointsAndMonetary'
+      | 'PreserveCurrent',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Availability>>;
   public apiNskV3TripRebookAvailabilitySimpleGet(
@@ -918,53 +918,53 @@ export class TripService {
     beginDate: Date,
     endDate?: Date,
     loyaltyFilter?:
-      | "MonetaryOnly"
-      | "PointsOnly"
-      | "PointsAndMonetary"
-      | "PreserveCurrent",
-    observe: any = "body",
+      | 'MonetaryOnly'
+      | 'PointsOnly'
+      | 'PointsAndMonetary'
+      | 'PreserveCurrent',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!origin) {
       throw new Error(
-        "Required parameter origin was null or undefined when calling apiNskV3TripRebookAvailabilitySimpleGet."
+        'Required parameter origin was null or undefined when calling apiNskV3TripRebookAvailabilitySimpleGet.'
       );
     }
 
     if (!destination) {
       throw new Error(
-        "Required parameter destination was null or undefined when calling apiNskV3TripRebookAvailabilitySimpleGet."
+        'Required parameter destination was null or undefined when calling apiNskV3TripRebookAvailabilitySimpleGet.'
       );
     }
 
     if (!beginDate) {
       throw new Error(
-        "Required parameter beginDate was null or undefined when calling apiNskV3TripRebookAvailabilitySimpleGet."
+        'Required parameter beginDate was null or undefined when calling apiNskV3TripRebookAvailabilitySimpleGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (destination !== undefined) {
       queryParameters.push(
-        "destination=" + encodeURIComponent(String(destination))
+        'destination=' + encodeURIComponent(String(destination))
       );
     }
     if (beginDate !== undefined) {
       queryParameters.push(
-        "beginDate=" + encodeURIComponent(<any>beginDate.toISOString())
+        'beginDate=' + encodeURIComponent(<any>beginDate.toISOString())
       );
     }
     if (endDate !== undefined) {
       queryParameters.push(
-        "endDate=" + encodeURIComponent(<any>endDate.toISOString())
+        'endDate=' + encodeURIComponent(<any>endDate.toISOString())
       );
     }
     if (loyaltyFilter !== undefined) {
       queryParameters.push(
-        "loyaltyFilter=" + encodeURIComponent(String(loyaltyFilter))
+        'loyaltyFilter=' + encodeURIComponent(String(loyaltyFilter))
       );
     }
 
@@ -974,11 +974,11 @@ export class TripService {
       `${
         this.basePath
       }/api/nsk/v3/trip/rebook/availability/simple?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Availability>httpResponse.response)
       );
@@ -994,17 +994,17 @@ export class TripService {
      */
   public apiNskV4TripPost(
     request?: BookingSellRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV4TripPost(
     request?: BookingSellRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV4TripPost(
     request?: BookingSellRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1014,7 +1014,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1030,17 +1030,17 @@ export class TripService {
      */
   public apiNskV4TripSellPost(
     request?: TripSellRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Booking>;
   public apiNskV4TripSellPost(
     request?: TripSellRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Booking>>;
   public apiNskV4TripSellPost(
     request?: TripSellRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Booking>> = this.httpClient.post(
@@ -1048,7 +1048,7 @@ export class TripService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Booking>httpResponse.response));
     }
     return response;

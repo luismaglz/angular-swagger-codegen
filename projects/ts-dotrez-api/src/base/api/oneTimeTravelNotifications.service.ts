@@ -11,30 +11,30 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   IJsonResponse,
   OneTimeNotificationCreateRequest,
   OneTimeTravelNotification
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class OneTimeTravelNotificationsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -48,22 +48,22 @@ export class OneTimeTravelNotificationsService {
      */
   public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(
     oneTimeTravelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(
     oneTimeTravelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete(
     oneTimeTravelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!oneTimeTravelNotificationKey) {
       throw new Error(
-        "Required parameter oneTimeTravelNotificationKey was null or undefined when calling apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete."
+        'Required parameter oneTimeTravelNotificationKey was null or undefined when calling apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyDelete.'
       );
     }
 
@@ -77,7 +77,7 @@ export class OneTimeTravelNotificationsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -93,22 +93,22 @@ export class OneTimeTravelNotificationsService {
      */
   public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(
     oneTimeTravelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<OneTimeTravelNotification>;
   public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(
     oneTimeTravelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<OneTimeTravelNotification>>;
   public apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet(
     oneTimeTravelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!oneTimeTravelNotificationKey) {
       throw new Error(
-        "Required parameter oneTimeTravelNotificationKey was null or undefined when calling apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet."
+        'Required parameter oneTimeTravelNotificationKey was null or undefined when calling apiNskV1OneTimeTravelNotificationsByOneTimeTravelNotificationKeyGet.'
       );
     }
 
@@ -122,7 +122,7 @@ export class OneTimeTravelNotificationsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <OneTimeTravelNotification>httpResponse.response)
       );
@@ -138,17 +138,17 @@ export class OneTimeTravelNotificationsService {
      */
   public apiNskV1OneTimeTravelNotificationsPost(
     request?: OneTimeNotificationCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1OneTimeTravelNotificationsPost(
     request?: OneTimeNotificationCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1OneTimeTravelNotificationsPost(
     request?: OneTimeNotificationCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -158,7 +158,7 @@ export class OneTimeTravelNotificationsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

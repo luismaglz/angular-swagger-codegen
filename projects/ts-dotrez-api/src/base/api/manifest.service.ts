@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   IJsonResponse,
@@ -22,22 +22,22 @@ import {
   PassengerDetails,
   PassengerSeatAssignment,
   TripInformationResponse
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class ManifestService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -51,22 +51,22 @@ export class ManifestService {
      */
   public apiNskV1ManifestByLegKeyPassengerDetailsGet(
     legKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerDetails>;
   public apiNskV1ManifestByLegKeyPassengerDetailsGet(
     legKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerDetails>>;
   public apiNskV1ManifestByLegKeyPassengerDetailsGet(
     legKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!legKey) {
       throw new Error(
-        "Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPassengerDetailsGet."
+        'Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPassengerDetailsGet.'
       );
     }
 
@@ -78,7 +78,7 @@ export class ManifestService {
       )}/passengerDetails`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerDetails>httpResponse.response)
       );
@@ -94,22 +94,22 @@ export class ManifestService {
      */
   public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(
     legKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerSeatAssignment>>;
   public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(
     legKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerSeatAssignment>>>;
   public apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(
     legKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!legKey) {
       throw new Error(
-        "Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet."
+        'Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet.'
       );
     }
 
@@ -121,7 +121,7 @@ export class ManifestService {
       )}/passengerSeatAssignments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<PassengerSeatAssignment>>httpResponse.response
@@ -141,24 +141,24 @@ export class ManifestService {
   public apiNskV1ManifestByLegKeyPost(
     legKey: string,
     request?: ManifestRequestBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Manifest>;
   public apiNskV1ManifestByLegKeyPost(
     legKey: string,
     request?: ManifestRequestBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Manifest>>;
   public apiNskV1ManifestByLegKeyPost(
     legKey: string,
     request?: ManifestRequestBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!legKey) {
       throw new Error(
-        "Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPost."
+        'Required parameter legKey was null or undefined when calling apiNskV1ManifestByLegKeyPost.'
       );
     }
 
@@ -169,7 +169,7 @@ export class ManifestService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Manifest>httpResponse.response)
       );
@@ -194,8 +194,8 @@ export class ManifestService {
     destination?: string,
     identifier?: string,
     carrierCode?: string,
-    flightType?: "All" | "NonStop" | "Through" | "Direct" | "Connect",
-    observe?: "body",
+    flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',
+    observe?: 'body',
     headers?: Headers
   ): Observable<TripInformationResponse>;
   public apiNskV1ManifestGet(
@@ -204,8 +204,8 @@ export class ManifestService {
     destination?: string,
     identifier?: string,
     carrierCode?: string,
-    flightType?: "All" | "NonStop" | "Through" | "Direct" | "Connect",
-    observe?: "response",
+    flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TripInformationResponse>>;
   public apiNskV1ManifestGet(
@@ -214,53 +214,53 @@ export class ManifestService {
     destination?: string,
     identifier?: string,
     carrierCode?: string,
-    flightType?: "All" | "NonStop" | "Through" | "Direct" | "Connect",
-    observe: any = "body",
+    flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!beginDate) {
       throw new Error(
-        "Required parameter beginDate was null or undefined when calling apiNskV1ManifestGet."
+        'Required parameter beginDate was null or undefined when calling apiNskV1ManifestGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (destination !== undefined) {
       queryParameters.push(
-        "destination=" + encodeURIComponent(String(destination))
+        'destination=' + encodeURIComponent(String(destination))
       );
     }
     if (beginDate !== undefined) {
       queryParameters.push(
-        "beginDate=" + encodeURIComponent(<any>beginDate.toISOString())
+        'beginDate=' + encodeURIComponent(<any>beginDate.toISOString())
       );
     }
     if (identifier !== undefined) {
       queryParameters.push(
-        "identifier=" + encodeURIComponent(String(identifier))
+        'identifier=' + encodeURIComponent(String(identifier))
       );
     }
     if (carrierCode !== undefined) {
       queryParameters.push(
-        "carrierCode=" + encodeURIComponent(String(carrierCode))
+        'carrierCode=' + encodeURIComponent(String(carrierCode))
       );
     }
     if (flightType !== undefined) {
       queryParameters.push(
-        "flightType=" + encodeURIComponent(String(flightType))
+        'flightType=' + encodeURIComponent(String(flightType))
       );
     }
 
     const response: Observable<HttpResponse<
       TripInformationResponse
     >> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/manifest?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/manifest?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TripInformationResponse>httpResponse.response)
       );

@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { GraphQlQuery, GraphQlQueryv2 } from "api-models";
+import { GraphQlQuery, GraphQlQueryv2 } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class GraphService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -48,50 +48,50 @@ export class GraphService {
     queryName: string,
     cachedResults: boolean,
     variables?: any,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<any>;
   public apiNskV1GraphByQueryNamePost(
     queryName: string,
     cachedResults: boolean,
     variables?: any,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<any>>;
   public apiNskV1GraphByQueryNamePost(
     queryName: string,
     cachedResults: boolean,
     variables?: any,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!queryName) {
       throw new Error(
-        "Required parameter queryName was null or undefined when calling apiNskV1GraphByQueryNamePost."
+        'Required parameter queryName was null or undefined when calling apiNskV1GraphByQueryNamePost.'
       );
     }
 
     if (!cachedResults) {
       throw new Error(
-        "Required parameter cachedResults was null or undefined when calling apiNskV1GraphByQueryNamePost."
+        'Required parameter cachedResults was null or undefined when calling apiNskV1GraphByQueryNamePost.'
       );
     }
 
     let queryParameters: string[] = [];
     if (cachedResults !== undefined) {
       queryParameters.push(
-        "cachedResults=" + encodeURIComponent(String(cachedResults))
+        'cachedResults=' + encodeURIComponent(String(cachedResults))
       );
     }
 
     const response: Observable<HttpResponse<any>> = this.httpClient.post(
       `${this.basePath}/api/nsk/v1/graph/${encodeURIComponent(
         String(queryName)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       variables,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <any>httpResponse.response));
     }
     return response;
@@ -105,17 +105,17 @@ export class GraphService {
      */
   public apiV1GraphPost(
     query?: GraphQlQuery,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<any>;
   public apiV1GraphPost(
     query?: GraphQlQuery,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<any>>;
   public apiV1GraphPost(
     query?: GraphQlQuery,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<any>> = this.httpClient.post(
@@ -123,7 +123,7 @@ export class GraphService {
       query,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <any>httpResponse.response));
     }
     return response;
@@ -139,24 +139,24 @@ export class GraphService {
   public apiV2GraphByQueryNamePost(
     queryName: string,
     query?: GraphQlQueryv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<any>;
   public apiV2GraphByQueryNamePost(
     queryName: string,
     query?: GraphQlQueryv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<any>>;
   public apiV2GraphByQueryNamePost(
     queryName: string,
     query?: GraphQlQueryv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!queryName) {
       throw new Error(
-        "Required parameter queryName was null or undefined when calling apiV2GraphByQueryNamePost."
+        'Required parameter queryName was null or undefined when calling apiV2GraphByQueryNamePost.'
       );
     }
 
@@ -165,7 +165,7 @@ export class GraphService {
       query,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <any>httpResponse.response));
     }
     return response;

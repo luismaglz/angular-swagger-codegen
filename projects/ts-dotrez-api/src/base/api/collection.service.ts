@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { IJsonResponse, Transaction } from "api-models";
+import { IJsonResponse, Transaction } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class CollectionService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -54,7 +54,7 @@ export class CollectionService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Transaction>>;
   public apiNskV1CollectionByAccountCollectionKeyTransactionsGet(
@@ -64,7 +64,7 @@ export class CollectionService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Transaction>>>;
   public apiNskV1CollectionByAccountCollectionKeyTransactionsGet(
@@ -74,49 +74,49 @@ export class CollectionService {
     endTime?: Date,
     pageSize?: number,
     pageIndex?: number,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!accountCollectionKey) {
       throw new Error(
-        "Required parameter accountCollectionKey was null or undefined when calling apiNskV1CollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter accountCollectionKey was null or undefined when calling apiNskV1CollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!startTime) {
       throw new Error(
-        "Required parameter startTime was null or undefined when calling apiNskV1CollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter startTime was null or undefined when calling apiNskV1CollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     if (!sortByNewest) {
       throw new Error(
-        "Required parameter sortByNewest was null or undefined when calling apiNskV1CollectionByAccountCollectionKeyTransactionsGet."
+        'Required parameter sortByNewest was null or undefined when calling apiNskV1CollectionByAccountCollectionKeyTransactionsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (startTime !== undefined) {
       queryParameters.push(
-        "startTime=" + encodeURIComponent(<any>startTime.toISOString())
+        'startTime=' + encodeURIComponent(<any>startTime.toISOString())
       );
     }
     if (endTime !== undefined) {
       queryParameters.push(
-        "endTime=" + encodeURIComponent(<any>endTime.toISOString())
+        'endTime=' + encodeURIComponent(<any>endTime.toISOString())
       );
     }
     if (sortByNewest !== undefined) {
       queryParameters.push(
-        "sortByNewest=" + encodeURIComponent(String(sortByNewest))
+        'sortByNewest=' + encodeURIComponent(String(sortByNewest))
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (pageIndex !== undefined) {
       queryParameters.push(
-        "pageIndex=" + encodeURIComponent(String(pageIndex))
+        'pageIndex=' + encodeURIComponent(String(pageIndex))
       );
     }
 
@@ -125,10 +125,10 @@ export class CollectionService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/collection/${encodeURIComponent(
         String(accountCollectionKey)
-      )}/transactions?${queryParameters.join("&")}`,
+      )}/transactions?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Transaction>>httpResponse.response)
       );

@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   IJsonResponse,
   Manifest,
@@ -22,16 +22,20 @@ import {
   PassengerDetails,
   PassengerSeatAssignment,
   TripInformationResponse
-} from "api-models";
+} from 'api-models';
 
-import { ManifestService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { ManifestService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreManifestService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("ManifestService") protected baseService: ManifestService
+    @inject('Store') protected store: Store<any>,
+    @inject('ManifestService') protected baseService: ManifestService
   ) {}
 
   /**
@@ -43,7 +47,7 @@ export class StoreManifestService {
     headers?: Headers
   ): Promise<PassengerDetails> {
     const response = await this.baseService
-      .apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey, "body", headers)
+      .apiNskV1ManifestByLegKeyPassengerDetailsGet(legKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ManifestByLegKeyPassengerDetailsGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -61,7 +65,7 @@ export class StoreManifestService {
     const response = await this.baseService
       .apiNskV1ManifestByLegKeyPassengerSeatAssignmentsGet(
         legKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -80,7 +84,7 @@ export class StoreManifestService {
     headers?: Headers
   ): Promise<Manifest> {
     const response = await this.baseService
-      .apiNskV1ManifestByLegKeyPost(legKey, request, "body", headers)
+      .apiNskV1ManifestByLegKeyPost(legKey, request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ManifestByLegKeyPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -97,7 +101,7 @@ export class StoreManifestService {
     destination?: string,
     identifier?: string,
     carrierCode?: string,
-    flightType?: "All" | "NonStop" | "Through" | "Direct" | "Connect",
+    flightType?: 'All' | 'NonStop' | 'Through' | 'Direct' | 'Connect',
     headers?: Headers
   ): Promise<TripInformationResponse> {
     const response = await this.baseService
@@ -108,7 +112,7 @@ export class StoreManifestService {
         identifier,
         carrierCode,
         flightType,
-        "body",
+        'body',
         headers
       )
       .toPromise();

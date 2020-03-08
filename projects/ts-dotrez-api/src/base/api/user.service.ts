@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   BookingSearchResult,
@@ -34,22 +34,22 @@ import {
   UserRoleCreateRequest,
   UserRoleEditRequest,
   UserSingleSignOnToken
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class UserService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -65,30 +65,30 @@ export class UserService {
   public apiNskV1UserBookingsByPassengerGet(
     startDate?: Date,
     endDate?: Date,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingTripResult>>;
   public apiNskV1UserBookingsByPassengerGet(
     startDate?: Date,
     endDate?: Date,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingTripResult>>>;
   public apiNskV1UserBookingsByPassengerGet(
     startDate?: Date,
     endDate?: Date,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (startDate !== undefined) {
       queryParameters.push(
-        "startDate=" + encodeURIComponent(<any>startDate.toISOString())
+        'startDate=' + encodeURIComponent(<any>startDate.toISOString())
       );
     }
     if (endDate !== undefined) {
       queryParameters.push(
-        "endDate=" + encodeURIComponent(<any>endDate.toISOString())
+        'endDate=' + encodeURIComponent(<any>endDate.toISOString())
       );
     }
 
@@ -97,10 +97,10 @@ export class UserService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/user/bookingsByPassenger?${queryParameters.join("&")}`,
+      }/api/nsk/v1/user/bookingsByPassenger?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingTripResult>>httpResponse.response)
       );
@@ -140,7 +140,7 @@ export class UserService {
     endDate?: Date,
     searchByCustomerNumber?: boolean,
     lastBookingKey?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BookingSearchResult>>;
   public apiNskV1UserBookingsGet(
@@ -157,7 +157,7 @@ export class UserService {
     endDate?: Date,
     searchByCustomerNumber?: boolean,
     lastBookingKey?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BookingSearchResult>>>;
   public apiNskV1UserBookingsGet(
@@ -174,88 +174,88 @@ export class UserService {
     endDate?: Date,
     searchByCustomerNumber?: boolean,
     lastBookingKey?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!returnCount) {
       throw new Error(
-        "Required parameter returnCount was null or undefined when calling apiNskV1UserBookingsGet."
+        'Required parameter returnCount was null or undefined when calling apiNskV1UserBookingsGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (associatedFirstName !== undefined) {
       queryParameters.push(
-        "associatedFirstName=" + encodeURIComponent(String(associatedFirstName))
+        'associatedFirstName=' + encodeURIComponent(String(associatedFirstName))
       );
     }
     if (associatedLastName !== undefined) {
       queryParameters.push(
-        "associatedLastName=" + encodeURIComponent(String(associatedLastName))
+        'associatedLastName=' + encodeURIComponent(String(associatedLastName))
       );
     }
     if (phoneticSearch !== undefined) {
       queryParameters.push(
-        "phoneticSearch=" + encodeURIComponent(String(phoneticSearch))
+        'phoneticSearch=' + encodeURIComponent(String(phoneticSearch))
       );
     }
     if (tripIdentifier !== undefined) {
       queryParameters.push(
-        "tripIdentifier=" + encodeURIComponent(String(tripIdentifier))
+        'tripIdentifier=' + encodeURIComponent(String(tripIdentifier))
       );
     }
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (destination !== undefined) {
       queryParameters.push(
-        "destination=" + encodeURIComponent(String(destination))
+        'destination=' + encodeURIComponent(String(destination))
       );
     }
     if (searchArchive !== undefined) {
       queryParameters.push(
-        "searchArchive=" + encodeURIComponent(String(searchArchive))
+        'searchArchive=' + encodeURIComponent(String(searchArchive))
       );
     }
     if (tripDate !== undefined) {
       queryParameters.push(
-        "tripDate=" + encodeURIComponent(<any>tripDate.toISOString())
+        'tripDate=' + encodeURIComponent(<any>tripDate.toISOString())
       );
     }
     if (startDate !== undefined) {
       queryParameters.push(
-        "startDate=" + encodeURIComponent(<any>startDate.toISOString())
+        'startDate=' + encodeURIComponent(<any>startDate.toISOString())
       );
     }
     if (endDate !== undefined) {
       queryParameters.push(
-        "endDate=" + encodeURIComponent(<any>endDate.toISOString())
+        'endDate=' + encodeURIComponent(<any>endDate.toISOString())
       );
     }
     if (searchByCustomerNumber !== undefined) {
       queryParameters.push(
-        "searchByCustomerNumber=" +
+        'searchByCustomerNumber=' +
           encodeURIComponent(String(searchByCustomerNumber))
       );
     }
     if (returnCount !== undefined) {
       queryParameters.push(
-        "returnCount=" + encodeURIComponent(String(returnCount))
+        'returnCount=' + encodeURIComponent(String(returnCount))
       );
     }
     if (lastBookingKey !== undefined) {
       queryParameters.push(
-        "lastBookingKey=" + encodeURIComponent(String(lastBookingKey))
+        'lastBookingKey=' + encodeURIComponent(String(lastBookingKey))
       );
     }
 
     const response: Observable<HttpResponse<
       Array<BookingSearchResult>
     >> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/user/bookings?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/user/bookings?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BookingSearchResult>>httpResponse.response)
       );
@@ -268,20 +268,20 @@ export class UserService {
      * 
      
      */
-  public apiNskV1UserGet(observe?: "body", headers?: Headers): Observable<User>;
+  public apiNskV1UserGet(observe?: 'body', headers?: Headers): Observable<User>;
   public apiNskV1UserGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<User>>;
   public apiNskV1UserGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<User>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/user`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <User>httpResponse.response));
     }
     return response;
@@ -293,15 +293,15 @@ export class UserService {
      
      */
   public apiNskV1UserImpersonateDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserImpersonateDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserImpersonateDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -310,7 +310,7 @@ export class UserService {
       `${this.basePath}/api/nsk/v1/user/impersonate`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -324,15 +324,15 @@ export class UserService {
      
      */
   public apiNskV1UserImpersonateGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SessionRoles>;
   public apiNskV1UserImpersonateGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SessionRoles>>;
   public apiNskV1UserImpersonateGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -341,7 +341,7 @@ export class UserService {
       `${this.basePath}/api/nsk/v1/user/impersonate`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SessionRoles>httpResponse.response)
       );
@@ -357,17 +357,17 @@ export class UserService {
      */
   public apiNskV1UserImpersonatePost(
     request?: UserImpersonateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserImpersonatePost(
     request?: UserImpersonateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserImpersonatePost(
     request?: UserImpersonateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -377,7 +377,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -393,17 +393,17 @@ export class UserService {
      */
   public apiNskV1UserPasswordChangePost(
     request?: UserChangePasswordRequestBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPasswordChangePost(
     request?: UserChangePasswordRequestBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPasswordChangePost(
     request?: UserChangePasswordRequestBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -413,7 +413,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -429,17 +429,17 @@ export class UserService {
      */
   public apiNskV1UserPatch(
     request?: DeltaMapperUserRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPatch(
     request?: DeltaMapperUserRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPatch(
     request?: DeltaMapperUserRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -449,7 +449,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -465,17 +465,17 @@ export class UserService {
      */
   public apiNskV1UserPost(
     request?: UserCustomerCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPost(
     request?: UserCustomerCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPost(
     request?: UserCustomerCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -485,7 +485,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -501,17 +501,17 @@ export class UserService {
      */
   public apiNskV1UserPut(
     request?: UserRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserPut(
     request?: UserRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserPut(
     request?: UserRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -521,7 +521,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -537,22 +537,22 @@ export class UserService {
      */
   public apiNskV1UserRolesByUserRoleKeyDelete(
     userRoleKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserRolesByUserRoleKeyDelete(
     userRoleKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserRolesByUserRoleKeyDelete(
     userRoleKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!userRoleKey) {
       throw new Error(
-        "Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyDelete."
+        'Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyDelete.'
       );
     }
 
@@ -564,7 +564,7 @@ export class UserService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -580,22 +580,22 @@ export class UserService {
      */
   public apiNskV1UserRolesByUserRoleKeyGet(
     userRoleKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<UserRole>;
   public apiNskV1UserRolesByUserRoleKeyGet(
     userRoleKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<UserRole>>;
   public apiNskV1UserRolesByUserRoleKeyGet(
     userRoleKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!userRoleKey) {
       throw new Error(
-        "Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyGet."
+        'Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyGet.'
       );
     }
 
@@ -605,7 +605,7 @@ export class UserService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <UserRole>httpResponse.response)
       );
@@ -623,24 +623,24 @@ export class UserService {
   public apiNskV1UserRolesByUserRoleKeyPatch(
     userRoleKey: string,
     request?: DeltaMapperUserRolePatchRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserRolesByUserRoleKeyPatch(
     userRoleKey: string,
     request?: DeltaMapperUserRolePatchRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserRolesByUserRoleKeyPatch(
     userRoleKey: string,
     request?: DeltaMapperUserRolePatchRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!userRoleKey) {
       throw new Error(
-        "Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyPatch."
+        'Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyPatch.'
       );
     }
 
@@ -653,7 +653,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -671,24 +671,24 @@ export class UserService {
   public apiNskV1UserRolesByUserRoleKeyPut(
     userRoleKey: string,
     request?: UserRoleEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserRolesByUserRoleKeyPut(
     userRoleKey: string,
     request?: UserRoleEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserRolesByUserRoleKeyPut(
     userRoleKey: string,
     request?: UserRoleEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!userRoleKey) {
       throw new Error(
-        "Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyPut."
+        'Required parameter userRoleKey was null or undefined when calling apiNskV1UserRolesByUserRoleKeyPut.'
       );
     }
 
@@ -701,7 +701,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -715,21 +715,21 @@ export class UserService {
      
      */
   public apiNskV1UserRolesGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<UserRole>>;
   public apiNskV1UserRolesGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<UserRole>>>;
   public apiNskV1UserRolesGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       Array<UserRole>
     >> = this.httpClient.get(`${this.basePath}/api/nsk/v1/user/roles`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<UserRole>>httpResponse.response)
       );
@@ -745,17 +745,17 @@ export class UserService {
      */
   public apiNskV1UserRolesPost(
     request?: UserRoleCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserRolesPost(
     request?: UserRoleCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserRolesPost(
     request?: UserRoleCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -765,7 +765,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -781,22 +781,22 @@ export class UserService {
      */
   public apiNskV1UserSingleSignOnTokenByProviderKeyDelete(
     providerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyDelete(
     providerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyDelete(
     providerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!providerKey) {
       throw new Error(
-        "Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyDelete."
+        'Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyDelete.'
       );
     }
 
@@ -808,7 +808,7 @@ export class UserService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -824,22 +824,22 @@ export class UserService {
      */
   public apiNskV1UserSingleSignOnTokenByProviderKeyGet(
     providerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<UserSingleSignOnToken>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyGet(
     providerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<UserSingleSignOnToken>>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyGet(
     providerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!providerKey) {
       throw new Error(
-        "Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyGet."
+        'Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyGet.'
       );
     }
 
@@ -851,7 +851,7 @@ export class UserService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <UserSingleSignOnToken>httpResponse.response)
       );
@@ -869,24 +869,24 @@ export class UserService {
   public apiNskV1UserSingleSignOnTokenByProviderKeyPatch(
     providerKey: string,
     tokenRequest?: DeltaMapperSingleSignOnTokenRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyPatch(
     providerKey: string,
     tokenRequest?: DeltaMapperSingleSignOnTokenRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyPatch(
     providerKey: string,
     tokenRequest?: DeltaMapperSingleSignOnTokenRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!providerKey) {
       throw new Error(
-        "Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPatch."
+        'Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPatch.'
       );
     }
 
@@ -899,7 +899,7 @@ export class UserService {
       tokenRequest,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -917,24 +917,24 @@ export class UserService {
   public apiNskV1UserSingleSignOnTokenByProviderKeyPost(
     providerKey: string,
     tokenRequest?: SingleSignOnTokenRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyPost(
     providerKey: string,
     tokenRequest?: SingleSignOnTokenRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyPost(
     providerKey: string,
     tokenRequest?: SingleSignOnTokenRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!providerKey) {
       throw new Error(
-        "Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPost."
+        'Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPost.'
       );
     }
 
@@ -947,7 +947,7 @@ export class UserService {
       tokenRequest,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -965,24 +965,24 @@ export class UserService {
   public apiNskV1UserSingleSignOnTokenByProviderKeyPut(
     providerKey: string,
     tokenRequest?: SingleSignOnTokenRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyPut(
     providerKey: string,
     tokenRequest?: SingleSignOnTokenRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1UserSingleSignOnTokenByProviderKeyPut(
     providerKey: string,
     tokenRequest?: SingleSignOnTokenRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!providerKey) {
       throw new Error(
-        "Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPut."
+        'Required parameter providerKey was null or undefined when calling apiNskV1UserSingleSignOnTokenByProviderKeyPut.'
       );
     }
 
@@ -995,7 +995,7 @@ export class UserService {
       tokenRequest,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1009,15 +1009,15 @@ export class UserService {
      
      */
   public apiNskV1UserSingleSignOnTokenGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<UserSingleSignOnToken>>;
   public apiNskV1UserSingleSignOnTokenGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<UserSingleSignOnToken>>>;
   public apiNskV1UserSingleSignOnTokenGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1026,7 +1026,7 @@ export class UserService {
       `${this.basePath}/api/nsk/v1/user/singleSignOnToken`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<UserSingleSignOnToken>>httpResponse.response)
       );
@@ -1042,17 +1042,17 @@ export class UserService {
      */
   public apiNskV2UserPost(
     request?: UserCustomerCreateRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2UserPost(
     request?: UserCustomerCreateRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2UserPost(
     request?: UserCustomerCreateRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1062,7 +1062,7 @@ export class UserService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

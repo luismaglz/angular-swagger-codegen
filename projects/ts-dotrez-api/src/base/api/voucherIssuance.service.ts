@@ -11,30 +11,30 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   IJsonResponse,
   VoucherIssuance,
   VoucherIssuanceRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class VoucherIssuanceService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -48,22 +48,22 @@ export class VoucherIssuanceService {
      */
   public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(
     voucherIssuanceKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<VoucherIssuance>;
   public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(
     voucherIssuanceKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<VoucherIssuance>>;
   public apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet(
     voucherIssuanceKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!voucherIssuanceKey) {
       throw new Error(
-        "Required parameter voucherIssuanceKey was null or undefined when calling apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet."
+        'Required parameter voucherIssuanceKey was null or undefined when calling apiNskV1VoucherIssuanceByVoucherIssuanceKeyGet.'
       );
     }
 
@@ -75,7 +75,7 @@ export class VoucherIssuanceService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <VoucherIssuance>httpResponse.response)
       );
@@ -91,17 +91,17 @@ export class VoucherIssuanceService {
      */
   public apiNskV1VoucherIssuancePost(
     request?: VoucherIssuanceRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1VoucherIssuancePost(
     request?: VoucherIssuanceRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1VoucherIssuancePost(
     request?: VoucherIssuanceRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -111,7 +111,7 @@ export class VoucherIssuanceService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

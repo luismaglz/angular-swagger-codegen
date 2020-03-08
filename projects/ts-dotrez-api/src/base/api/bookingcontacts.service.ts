@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   Contact,
@@ -23,22 +23,22 @@ import {
   InlineResponse2004,
   PhoneNumber,
   PhoneNumberBase
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BookingcontactsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -52,22 +52,22 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsByContactTypeCodeDelete(
     contactTypeCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsByContactTypeCodeDelete(
     contactTypeCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsByContactTypeCodeDelete(
     contactTypeCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodeDelete."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodeDelete.'
       );
     }
 
@@ -79,7 +79,7 @@ export class BookingcontactsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -95,22 +95,22 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsByContactTypeCodeGet(
     contactTypeCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Contact>;
   public apiNskV1BookingContactsByContactTypeCodeGet(
     contactTypeCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Contact>>;
   public apiNskV1BookingContactsByContactTypeCodeGet(
     contactTypeCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodeGet."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodeGet.'
       );
     }
 
@@ -120,7 +120,7 @@ export class BookingcontactsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Contact>httpResponse.response));
     }
     return response;
@@ -136,24 +136,24 @@ export class BookingcontactsService {
   public apiNskV1BookingContactsByContactTypeCodePatch(
     contactTypeCode: string,
     request?: DeltaMapperContactBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsByContactTypeCodePatch(
     contactTypeCode: string,
     request?: DeltaMapperContactBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsByContactTypeCodePatch(
     contactTypeCode: string,
     request?: DeltaMapperContactBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePatch."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePatch.'
       );
     }
 
@@ -166,7 +166,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -183,31 +183,31 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
-    observe?: "body",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
-    observe?: "response",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
-    observe: any = "body",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete.'
       );
     }
 
     if (!phoneNumberType) {
       throw new Error(
-        "Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete."
+        'Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeDelete.'
       );
     }
 
@@ -219,7 +219,7 @@ export class BookingcontactsService {
       )}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -236,31 +236,31 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
-    observe?: "body",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
+    observe?: 'body',
     headers?: Headers
   ): Observable<PhoneNumber>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
-    observe?: "response",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PhoneNumber>>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
-    observe: any = "body",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet.'
       );
     }
 
     if (!phoneNumberType) {
       throw new Error(
-        "Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet."
+        'Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypeGet.'
       );
     }
 
@@ -270,7 +270,7 @@ export class BookingcontactsService {
       )}/phoneNumbers/${encodeURIComponent(String(phoneNumberType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PhoneNumber>httpResponse.response)
       );
@@ -288,34 +288,34 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
     request?: PhoneNumberBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
     request?: PhoneNumberBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut(
     contactTypeCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
     request?: PhoneNumberBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut.'
       );
     }
 
     if (!phoneNumberType) {
       throw new Error(
-        "Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut."
+        'Required parameter phoneNumberType was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersByPhoneNumberTypePut.'
       );
     }
 
@@ -328,7 +328,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -344,22 +344,22 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(
     contactTypeCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PhoneNumber>>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(
     contactTypeCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PhoneNumber>>>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet(
     contactTypeCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersGet.'
       );
     }
 
@@ -371,7 +371,7 @@ export class BookingcontactsService {
       )}/phoneNumbers`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PhoneNumber>>httpResponse.response)
       );
@@ -389,24 +389,24 @@ export class BookingcontactsService {
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(
     contactTypeCode: string,
     request?: PhoneNumber,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(
     contactTypeCode: string,
     request?: PhoneNumber,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost(
     contactTypeCode: string,
     request?: PhoneNumber,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePhoneNumbersPost.'
       );
     }
 
@@ -419,7 +419,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -437,24 +437,24 @@ export class BookingcontactsService {
   public apiNskV1BookingContactsByContactTypeCodePut(
     contactTypeCode: string,
     request?: ContactRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsByContactTypeCodePut(
     contactTypeCode: string,
     request?: ContactRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsByContactTypeCodePut(
     contactTypeCode: string,
     request?: ContactRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!contactTypeCode) {
       throw new Error(
-        "Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePut."
+        'Required parameter contactTypeCode was null or undefined when calling apiNskV1BookingContactsByContactTypeCodePut.'
       );
     }
 
@@ -467,7 +467,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -481,15 +481,15 @@ export class BookingcontactsService {
      
      */
   public apiNskV1BookingContactsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2004>;
   public apiNskV1BookingContactsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2004>>;
   public apiNskV1BookingContactsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -498,7 +498,7 @@ export class BookingcontactsService {
       `${this.basePath}/api/nsk/v1/booking/contacts`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2004>httpResponse.response)
       );
@@ -514,17 +514,17 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsPost(
     request?: Contact,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsPost(
     request?: Contact,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsPost(
     request?: Contact,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -534,7 +534,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -548,15 +548,15 @@ export class BookingcontactsService {
      
      */
   public apiNskV1BookingContactsPrimaryDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsPrimaryDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsPrimaryDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -565,7 +565,7 @@ export class BookingcontactsService {
       `${this.basePath}/api/nsk/v1/booking/contacts/primary`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -579,22 +579,22 @@ export class BookingcontactsService {
      
      */
   public apiNskV1BookingContactsPrimaryGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Contact>;
   public apiNskV1BookingContactsPrimaryGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Contact>>;
   public apiNskV1BookingContactsPrimaryGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<Contact>> = this.httpClient.get(
       `${this.basePath}/api/nsk/v1/booking/contacts/primary`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Contact>httpResponse.response));
     }
     return response;
@@ -608,17 +608,17 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsPrimaryPatch(
     request?: DeltaMapperContactBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsPrimaryPatch(
     request?: DeltaMapperContactBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsPrimaryPatch(
     request?: DeltaMapperContactBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -628,7 +628,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -644,17 +644,17 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsPrimaryPost(
     request?: ContactRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsPrimaryPost(
     request?: ContactRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsPrimaryPost(
     request?: ContactRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -664,7 +664,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -680,17 +680,17 @@ export class BookingcontactsService {
      */
   public apiNskV1BookingContactsPrimaryPut(
     request?: ContactRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingContactsPrimaryPut(
     request?: ContactRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingContactsPrimaryPut(
     request?: ContactRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -700,7 +700,7 @@ export class BookingcontactsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { EnvironmentHealth } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { EnvironmentHealth } from 'api-models';
 
-import { ConfigurationService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { ConfigurationService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreConfigurationService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("ConfigurationService") protected baseService: ConfigurationService
+    @inject('Store') protected store: Store<any>,
+    @inject('ConfigurationService') protected baseService: ConfigurationService
   ) {}
 
   /**
@@ -35,7 +39,7 @@ export class StoreConfigurationService {
     headers?: Headers
   ): Promise<EnvironmentHealth> {
     const response = await this.baseService
-      .apiNskV1ConfigurationCheckGet("body", headers)
+      .apiNskV1ConfigurationCheckGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ConfigurationCheckGet
     // addResponsetoStore(this.store, response.data, true, true);

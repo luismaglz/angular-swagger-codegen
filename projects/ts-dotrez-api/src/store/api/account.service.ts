@@ -11,24 +11,28 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   AccountChangePasswordRequest,
   AccountForgotPasswordRequest,
   IJsonResponse
-} from "api-models";
+} from 'api-models';
 
-import { AccountService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { AccountService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreAccountService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("AccountService") protected baseService: AccountService
+    @inject('Store') protected store: Store<any>,
+    @inject('AccountService') protected baseService: AccountService
   ) {}
 
   /**
@@ -40,7 +44,7 @@ export class StoreAccountService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1AccountPasswordChangePost(request, "body", headers)
+      .apiNskV1AccountPasswordChangePost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1AccountPasswordChangePost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -56,7 +60,7 @@ export class StoreAccountService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1AccountPasswordResetPost(request, "body", headers)
+      .apiNskV1AccountPasswordResetPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1AccountPasswordResetPost
     // addResponsetoStore(this.store, response.data, true, true);

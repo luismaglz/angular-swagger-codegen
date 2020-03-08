@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   IJsonResponse,
@@ -25,22 +25,22 @@ import {
   SsrAvailabilityRequestv2,
   SsrByKeysRequestv2,
   SsrsRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BookingssrsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -54,22 +54,22 @@ export class BookingssrsService {
      */
   public apiNskV1BookingSsrsBySsrKeyDelete(
     ssrKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSsrsBySsrKeyDelete(
     ssrKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSsrsBySsrKeyDelete(
     ssrKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrKey) {
       throw new Error(
-        "Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyDelete."
+        'Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyDelete.'
       );
     }
 
@@ -81,7 +81,7 @@ export class BookingssrsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -97,22 +97,22 @@ export class BookingssrsService {
      */
   public apiNskV1BookingSsrsBySsrKeyGet(
     ssrKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerSsr>;
   public apiNskV1BookingSsrsBySsrKeyGet(
     ssrKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerSsr>>;
   public apiNskV1BookingSsrsBySsrKeyGet(
     ssrKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrKey) {
       throw new Error(
-        "Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyGet."
+        'Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyGet.'
       );
     }
 
@@ -124,7 +124,7 @@ export class BookingssrsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerSsr>httpResponse.response)
       );
@@ -142,24 +142,24 @@ export class BookingssrsService {
   public apiNskV1BookingSsrsBySsrKeyPut(
     ssrKey: string,
     note?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSsrsBySsrKeyPut(
     ssrKey: string,
     note?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSsrsBySsrKeyPut(
     ssrKey: string,
     note?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrKey) {
       throw new Error(
-        "Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyPut."
+        'Required parameter ssrKey was null or undefined when calling apiNskV1BookingSsrsBySsrKeyPut.'
       );
     }
 
@@ -172,7 +172,7 @@ export class BookingssrsService {
       note,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -186,15 +186,15 @@ export class BookingssrsService {
      
      */
   public apiNskV1BookingSsrsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerSsr>>;
   public apiNskV1BookingSsrsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerSsr>>>;
   public apiNskV1BookingSsrsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -203,7 +203,7 @@ export class BookingssrsService {
       `${this.basePath}/api/nsk/v1/booking/ssrs`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PassengerSsr>>httpResponse.response)
       );
@@ -219,17 +219,17 @@ export class BookingssrsService {
      */
   public apiNskV1BookingSsrsManualDelete(
     request?: PassengerSsrKey,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSsrsManualDelete(
     request?: PassengerSsrKey,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSsrsManualDelete(
     request?: PassengerSsrKey,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -239,7 +239,7 @@ export class BookingssrsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -255,17 +255,17 @@ export class BookingssrsService {
      */
   public apiNskV1BookingSsrsManualPost(
     request?: SsrsRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSsrsManualPost(
     request?: SsrsRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSsrsManualPost(
     request?: SsrsRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -275,7 +275,7 @@ export class BookingssrsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -291,17 +291,17 @@ export class BookingssrsService {
      */
   public apiNskV1BookingSsrsResellPost(
     request?: ResellSsrRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingSsrsResellPost(
     request?: ResellSsrRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingSsrsResellPost(
     request?: ResellSsrRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -311,7 +311,7 @@ export class BookingssrsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -327,17 +327,17 @@ export class BookingssrsService {
      */
   public apiNskV2BookingSsrsAvailabilityPost(
     request?: SsrAvailabilityRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<SsrAvailability>;
   public apiNskV2BookingSsrsAvailabilityPost(
     request?: SsrAvailabilityRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<SsrAvailability>>;
   public apiNskV2BookingSsrsAvailabilityPost(
     request?: SsrAvailabilityRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -347,7 +347,7 @@ export class BookingssrsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <SsrAvailability>httpResponse.response)
       );
@@ -365,24 +365,24 @@ export class BookingssrsService {
   public apiNskV2BookingSsrsBySsrKeyPost(
     ssrKey: string,
     request?: SingleSsrByKeyRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingSsrsBySsrKeyPost(
     ssrKey: string,
     request?: SingleSsrByKeyRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingSsrsBySsrKeyPost(
     ssrKey: string,
     request?: SingleSsrByKeyRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!ssrKey) {
       throw new Error(
-        "Required parameter ssrKey was null or undefined when calling apiNskV2BookingSsrsBySsrKeyPost."
+        'Required parameter ssrKey was null or undefined when calling apiNskV2BookingSsrsBySsrKeyPost.'
       );
     }
 
@@ -395,7 +395,7 @@ export class BookingssrsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -411,17 +411,17 @@ export class BookingssrsService {
      */
   public apiNskV2BookingSsrsPost(
     request?: SsrByKeysRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingSsrsPost(
     request?: SsrByKeysRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingSsrsPost(
     request?: SsrByKeysRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -431,7 +431,7 @@ export class BookingssrsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

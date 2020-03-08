@@ -11,31 +11,31 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   BundleApplication,
   BundleApplicationDetails,
   BundleSetDetails,
   IJsonResponse
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BundlesService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -49,22 +49,22 @@ export class BundlesService {
      */
   public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(
     bundleApplicationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<BundleApplicationDetails>;
   public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(
     bundleApplicationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<BundleApplicationDetails>>;
   public apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet(
     bundleApplicationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bundleApplicationKey) {
       throw new Error(
-        "Required parameter bundleApplicationKey was null or undefined when calling apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet."
+        'Required parameter bundleApplicationKey was null or undefined when calling apiNskV1BundlesApplicationsByBundleApplicationKeyDetailsGet.'
       );
     }
 
@@ -76,7 +76,7 @@ export class BundlesService {
       )}/details`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <BundleApplicationDetails>httpResponse.response)
       );
@@ -92,22 +92,22 @@ export class BundlesService {
      */
   public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(
     bundleRuleCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<BundleApplication>>;
   public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(
     bundleRuleCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<BundleApplication>>>;
   public apiNskV1BundlesRulesByBundleRuleCodeDetailsGet(
     bundleRuleCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bundleRuleCode) {
       throw new Error(
-        "Required parameter bundleRuleCode was null or undefined when calling apiNskV1BundlesRulesByBundleRuleCodeDetailsGet."
+        'Required parameter bundleRuleCode was null or undefined when calling apiNskV1BundlesRulesByBundleRuleCodeDetailsGet.'
       );
     }
 
@@ -119,7 +119,7 @@ export class BundlesService {
       )}/details`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<BundleApplication>>httpResponse.response)
       );
@@ -135,22 +135,22 @@ export class BundlesService {
      */
   public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(
     bundleSetCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<BundleSetDetails>;
   public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(
     bundleSetCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<BundleSetDetails>>;
   public apiNskV1BundlesSetsByBundleSetCodeDetailsGet(
     bundleSetCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!bundleSetCode) {
       throw new Error(
-        "Required parameter bundleSetCode was null or undefined when calling apiNskV1BundlesSetsByBundleSetCodeDetailsGet."
+        'Required parameter bundleSetCode was null or undefined when calling apiNskV1BundlesSetsByBundleSetCodeDetailsGet.'
       );
     }
 
@@ -162,7 +162,7 @@ export class BundlesService {
       )}/details`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <BundleSetDetails>httpResponse.response)
       );

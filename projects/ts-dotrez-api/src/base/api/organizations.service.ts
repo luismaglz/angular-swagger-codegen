@@ -11,30 +11,30 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   IJsonResponse,
   OrganizationGroup,
   OrganizationGroupDetails
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class OrganizationsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -48,22 +48,22 @@ export class OrganizationsService {
      */
   public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(
     organizationGroupCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<OrganizationGroupDetails>;
   public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(
     organizationGroupCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<OrganizationGroupDetails>>;
   public apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet(
     organizationGroupCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!organizationGroupCode) {
       throw new Error(
-        "Required parameter organizationGroupCode was null or undefined when calling apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet."
+        'Required parameter organizationGroupCode was null or undefined when calling apiNskV1OrganizationsGroupsByOrganizationGroupCodeGet.'
       );
     }
 
@@ -75,7 +75,7 @@ export class OrganizationsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <OrganizationGroupDetails>httpResponse.response)
       );
@@ -89,15 +89,15 @@ export class OrganizationsService {
      
      */
   public apiNskV1OrganizationsGroupsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<OrganizationGroup>>;
   public apiNskV1OrganizationsGroupsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<OrganizationGroup>>>;
   public apiNskV1OrganizationsGroupsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -106,7 +106,7 @@ export class OrganizationsService {
       `${this.basePath}/api/nsk/v1/organizations/groups`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<OrganizationGroup>>httpResponse.response)
       );

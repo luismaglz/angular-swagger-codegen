@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   CheckinPassengerLiftStatus,
   CheckinPassengersRequest,
@@ -22,16 +22,20 @@ import {
   CheckinRequirements,
   IJsonResponse,
   InlineResponse2003
-} from "api-models";
+} from 'api-models';
 
-import { BookingcheckinService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { BookingcheckinService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreBookingcheckinService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("BookingcheckinService")
+    @inject('Store') protected store: Store<any>,
+    @inject('BookingcheckinService')
     protected baseService: BookingcheckinService
   ) {}
 
@@ -48,7 +52,7 @@ export class StoreBookingcheckinService {
       .apiNskV1BookingCheckinJourneyByJourneyKeyDelete(
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -68,7 +72,7 @@ export class StoreBookingcheckinService {
     const response = await this.baseService
       .apiNskV1BookingCheckinJourneyByJourneyKeyRequirementsGet(
         journeyKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -88,7 +92,7 @@ export class StoreBookingcheckinService {
     const response = await this.baseService
       .apiNskV1BookingCheckinJourneyByJourneyKeyStatusGet(
         journeyKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -110,7 +114,7 @@ export class StoreBookingcheckinService {
       .apiNskV1BookingCheckinSegmentBySegmentKeyDelete(
         segmentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -130,7 +134,7 @@ export class StoreBookingcheckinService {
     const response = await this.baseService
       .apiNskV1BookingCheckinSegmentBySegmentKeyRequirementsGet(
         segmentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -150,7 +154,7 @@ export class StoreBookingcheckinService {
     const response = await this.baseService
       .apiNskV1BookingCheckinSegmentBySegmentKeyStatusGet(
         segmentKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -172,7 +176,7 @@ export class StoreBookingcheckinService {
       .apiNskV3BookingCheckinJourneyByJourneyKeyPost(
         journeyKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -194,7 +198,7 @@ export class StoreBookingcheckinService {
       .apiNskV3BookingCheckinSegmentBySegmentKeyPost(
         segmentKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();

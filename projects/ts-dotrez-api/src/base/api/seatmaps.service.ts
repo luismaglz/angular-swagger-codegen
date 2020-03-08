@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { IJsonResponse, SeatMapAvailability } from "api-models";
+import { IJsonResponse, SeatMapAvailability } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class SeatmapsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -48,39 +48,39 @@ export class SeatmapsService {
     journeyKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<SeatMapAvailability>>;
   public apiNskV3SeatmapsByJourneyKeyGet(
     journeyKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<SeatMapAvailability>>>;
   public apiNskV3SeatmapsByJourneyKeyGet(
     journeyKey: string,
     includePropertyLookup?: boolean,
     cultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!journeyKey) {
       throw new Error(
-        "Required parameter journeyKey was null or undefined when calling apiNskV3SeatmapsByJourneyKeyGet."
+        'Required parameter journeyKey was null or undefined when calling apiNskV3SeatmapsByJourneyKeyGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (includePropertyLookup !== undefined) {
       queryParameters.push(
-        "includePropertyLookup=" +
+        'includePropertyLookup=' +
           encodeURIComponent(String(includePropertyLookup))
       );
     }
     if (cultureCode !== undefined) {
       queryParameters.push(
-        "cultureCode=" + encodeURIComponent(String(cultureCode))
+        'cultureCode=' + encodeURIComponent(String(cultureCode))
       );
     }
 
@@ -89,10 +89,10 @@ export class SeatmapsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v3/seatmaps/${encodeURIComponent(
         String(journeyKey)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<SeatMapAvailability>>httpResponse.response)
       );

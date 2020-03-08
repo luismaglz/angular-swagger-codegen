@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { CurrencyConversion, IJsonResponse } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { CurrencyConversion, IJsonResponse } from 'api-models';
 
-import { CurrencyService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { CurrencyService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreCurrencyService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("CurrencyService") protected baseService: CurrencyService
+    @inject('Store') protected store: Store<any>,
+    @inject('CurrencyService') protected baseService: CurrencyService
   ) {}
 
   /**
@@ -42,7 +46,7 @@ export class StoreCurrencyService {
         fromCurrencyCode,
         toCurrencyCode,
         amount,
-        "body",
+        'body',
         headers
       )
       .toPromise();

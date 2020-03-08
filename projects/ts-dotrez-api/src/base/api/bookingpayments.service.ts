@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   ApplyBookingCreditRequestv2,
@@ -36,22 +36,22 @@ import {
   ThreeDSecureResponse,
   VoucherInformation,
   VoucherPaymentRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BookingpaymentsService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -65,22 +65,22 @@ export class BookingpaymentsService {
      */
   public apiNskV1BookingPaymentsByPaymentKeyDelete(
     paymentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPaymentsByPaymentKeyDelete(
     paymentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPaymentsByPaymentKeyDelete(
     paymentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!paymentKey) {
       throw new Error(
-        "Required parameter paymentKey was null or undefined when calling apiNskV1BookingPaymentsByPaymentKeyDelete."
+        'Required parameter paymentKey was null or undefined when calling apiNskV1BookingPaymentsByPaymentKeyDelete.'
       );
     }
 
@@ -92,7 +92,7 @@ export class BookingpaymentsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -108,22 +108,22 @@ export class BookingpaymentsService {
      */
   public apiNskV1BookingPaymentsByPaymentKeyGet(
     paymentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Payment>;
   public apiNskV1BookingPaymentsByPaymentKeyGet(
     paymentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Payment>>;
   public apiNskV1BookingPaymentsByPaymentKeyGet(
     paymentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!paymentKey) {
       throw new Error(
-        "Required parameter paymentKey was null or undefined when calling apiNskV1BookingPaymentsByPaymentKeyGet."
+        'Required parameter paymentKey was null or undefined when calling apiNskV1BookingPaymentsByPaymentKeyGet.'
       );
     }
 
@@ -133,7 +133,7 @@ export class BookingpaymentsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Payment>httpResponse.response));
     }
     return response;
@@ -145,15 +145,15 @@ export class BookingpaymentsService {
      
      */
   public apiNskV1BookingPaymentsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<Payment>>;
   public apiNskV1BookingPaymentsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<Payment>>>;
   public apiNskV1BookingPaymentsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -162,7 +162,7 @@ export class BookingpaymentsService {
       `${this.basePath}/api/nsk/v1/booking/payments`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<Payment>>httpResponse.response)
       );
@@ -176,15 +176,15 @@ export class BookingpaymentsService {
      
      */
   public apiNskV1BookingPaymentsRefundsGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2008>;
   public apiNskV1BookingPaymentsRefundsGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2008>>;
   public apiNskV1BookingPaymentsRefundsGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -193,7 +193,7 @@ export class BookingpaymentsService {
       `${this.basePath}/api/nsk/v1/booking/payments/refunds`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2008>httpResponse.response)
       );
@@ -209,17 +209,17 @@ export class BookingpaymentsService {
      */
   public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(
     request?: OrganizationRefundRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(
     request?: OrganizationRefundRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPaymentsRefundsOrganizationCreditPost(
     request?: OrganizationRefundRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -229,7 +229,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -245,22 +245,22 @@ export class BookingpaymentsService {
      */
   public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(
     voucherPaymentReference: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(
     voucherPaymentReference: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete(
     voucherPaymentReference: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!voucherPaymentReference) {
       throw new Error(
-        "Required parameter voucherPaymentReference was null or undefined when calling apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete."
+        'Required parameter voucherPaymentReference was null or undefined when calling apiNskV1BookingPaymentsVoucherByVoucherPaymentReferenceDelete.'
       );
     }
 
@@ -274,7 +274,7 @@ export class BookingpaymentsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -292,36 +292,36 @@ export class BookingpaymentsService {
   public apiNskV1BookingPaymentsVoucherGet(
     referenceCode: string,
     overrideRestrictions?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<VoucherInformation>;
   public apiNskV1BookingPaymentsVoucherGet(
     referenceCode: string,
     overrideRestrictions?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<VoucherInformation>>;
   public apiNskV1BookingPaymentsVoucherGet(
     referenceCode: string,
     overrideRestrictions?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!referenceCode) {
       throw new Error(
-        "Required parameter referenceCode was null or undefined when calling apiNskV1BookingPaymentsVoucherGet."
+        'Required parameter referenceCode was null or undefined when calling apiNskV1BookingPaymentsVoucherGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (referenceCode !== undefined) {
       queryParameters.push(
-        "referenceCode=" + encodeURIComponent(String(referenceCode))
+        'referenceCode=' + encodeURIComponent(String(referenceCode))
       );
     }
     if (overrideRestrictions !== undefined) {
       queryParameters.push(
-        "overrideRestrictions=" +
+        'overrideRestrictions=' +
           encodeURIComponent(String(overrideRestrictions))
       );
     }
@@ -331,10 +331,10 @@ export class BookingpaymentsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v1/booking/payments/voucher?${queryParameters.join("&")}`,
+      }/api/nsk/v1/booking/payments/voucher?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <VoucherInformation>httpResponse.response)
       );
@@ -348,15 +348,15 @@ export class BookingpaymentsService {
      
      */
   public apiNskV2BookingPaymentsAvailableGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2008>;
   public apiNskV2BookingPaymentsAvailableGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2008>>;
   public apiNskV2BookingPaymentsAvailableGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -365,7 +365,7 @@ export class BookingpaymentsService {
       `${this.basePath}/api/nsk/v2/booking/payments/available`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2008>httpResponse.response)
       );
@@ -395,7 +395,7 @@ export class BookingpaymentsService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CreditAccount>;
   public apiNskV2BookingPaymentsBookingCreditGet(
@@ -407,7 +407,7 @@ export class BookingpaymentsService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CreditAccount>>;
   public apiNskV2BookingPaymentsBookingCreditGet(
@@ -419,50 +419,50 @@ export class BookingpaymentsService {
     lastName?: string,
     customerNumber?: string,
     departureDate?: Date,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!recordLocator) {
       throw new Error(
-        "Required parameter recordLocator was null or undefined when calling apiNskV2BookingPaymentsBookingCreditGet."
+        'Required parameter recordLocator was null or undefined when calling apiNskV2BookingPaymentsBookingCreditGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (currencyCode !== undefined) {
       queryParameters.push(
-        "currencyCode=" + encodeURIComponent(String(currencyCode))
+        'currencyCode=' + encodeURIComponent(String(currencyCode))
       );
     }
     if (recordLocator !== undefined) {
       queryParameters.push(
-        "recordLocator=" + encodeURIComponent(String(recordLocator))
+        'recordLocator=' + encodeURIComponent(String(recordLocator))
       );
     }
     if (emailAddress !== undefined) {
       queryParameters.push(
-        "emailAddress=" + encodeURIComponent(String(emailAddress))
+        'emailAddress=' + encodeURIComponent(String(emailAddress))
       );
     }
     if (origin !== undefined) {
-      queryParameters.push("origin=" + encodeURIComponent(String(origin)));
+      queryParameters.push('origin=' + encodeURIComponent(String(origin)));
     }
     if (firstName !== undefined) {
       queryParameters.push(
-        "firstName=" + encodeURIComponent(String(firstName))
+        'firstName=' + encodeURIComponent(String(firstName))
       );
     }
     if (lastName !== undefined) {
-      queryParameters.push("lastName=" + encodeURIComponent(String(lastName)));
+      queryParameters.push('lastName=' + encodeURIComponent(String(lastName)));
     }
     if (customerNumber !== undefined) {
       queryParameters.push(
-        "customerNumber=" + encodeURIComponent(String(customerNumber))
+        'customerNumber=' + encodeURIComponent(String(customerNumber))
       );
     }
     if (departureDate !== undefined) {
       queryParameters.push(
-        "departureDate=" + encodeURIComponent(<any>departureDate.toISOString())
+        'departureDate=' + encodeURIComponent(<any>departureDate.toISOString())
       );
     }
 
@@ -471,10 +471,10 @@ export class BookingpaymentsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v2/booking/payments/bookingCredit?${queryParameters.join("&")}`,
+      }/api/nsk/v2/booking/payments/bookingCredit?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CreditAccount>httpResponse.response)
       );
@@ -490,17 +490,17 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsBookingCreditPost(
     request?: ApplyBookingCreditRequestv2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPaymentsBookingCreditPost(
     request?: ApplyBookingCreditRequestv2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPaymentsBookingCreditPost(
     request?: ApplyBookingCreditRequestv2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -510,7 +510,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -528,50 +528,50 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsCreditGet(
     referenceNumber: string,
-    type: "Customer" | "Booking" | "Organization",
+    type: 'Customer' | 'Booking' | 'Organization',
     currencyCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CreditAccount>;
   public apiNskV2BookingPaymentsCreditGet(
     referenceNumber: string,
-    type: "Customer" | "Booking" | "Organization",
+    type: 'Customer' | 'Booking' | 'Organization',
     currencyCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CreditAccount>>;
   public apiNskV2BookingPaymentsCreditGet(
     referenceNumber: string,
-    type: "Customer" | "Booking" | "Organization",
+    type: 'Customer' | 'Booking' | 'Organization',
     currencyCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!referenceNumber) {
       throw new Error(
-        "Required parameter referenceNumber was null or undefined when calling apiNskV2BookingPaymentsCreditGet."
+        'Required parameter referenceNumber was null or undefined when calling apiNskV2BookingPaymentsCreditGet.'
       );
     }
 
     if (!type) {
       throw new Error(
-        "Required parameter type was null or undefined when calling apiNskV2BookingPaymentsCreditGet."
+        'Required parameter type was null or undefined when calling apiNskV2BookingPaymentsCreditGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (referenceNumber !== undefined) {
       queryParameters.push(
-        "referenceNumber=" + encodeURIComponent(String(referenceNumber))
+        'referenceNumber=' + encodeURIComponent(String(referenceNumber))
       );
     }
     if (currencyCode !== undefined) {
       queryParameters.push(
-        "currencyCode=" + encodeURIComponent(String(currencyCode))
+        'currencyCode=' + encodeURIComponent(String(currencyCode))
       );
     }
     if (type !== undefined) {
-      queryParameters.push("type=" + encodeURIComponent(String(type)));
+      queryParameters.push('type=' + encodeURIComponent(String(type)));
     }
 
     const response: Observable<HttpResponse<
@@ -579,10 +579,10 @@ export class BookingpaymentsService {
     >> = this.httpClient.get(
       `${
         this.basePath
-      }/api/nsk/v2/booking/payments/credit?${queryParameters.join("&")}`,
+      }/api/nsk/v2/booking/payments/credit?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CreditAccount>httpResponse.response)
       );
@@ -598,17 +598,17 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsCreditPost(
     request?: ApplyCreditAccountRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPaymentsCreditPost(
     request?: ApplyCreditAccountRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPaymentsCreditPost(
     request?: ApplyCreditAccountRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -618,7 +618,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -634,23 +634,23 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsCustomerCreditGet(
     currencyCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CreditAccount>;
   public apiNskV2BookingPaymentsCustomerCreditGet(
     currencyCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CreditAccount>>;
   public apiNskV2BookingPaymentsCustomerCreditGet(
     currencyCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (currencyCode !== undefined) {
       queryParameters.push(
-        "currencyCode=" + encodeURIComponent(String(currencyCode))
+        'currencyCode=' + encodeURIComponent(String(currencyCode))
       );
     }
 
@@ -660,11 +660,11 @@ export class BookingpaymentsService {
       `${
         this.basePath
       }/api/nsk/v2/booking/payments/customerCredit?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CreditAccount>httpResponse.response)
       );
@@ -680,17 +680,17 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsCustomerCreditPost(
     request?: ApplyCreditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPaymentsCustomerCreditPost(
     request?: ApplyCreditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPaymentsCustomerCreditPost(
     request?: ApplyCreditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -700,7 +700,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -716,23 +716,23 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsOrganizationCreditGet(
     currencyCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<CreditAccount>;
   public apiNskV2BookingPaymentsOrganizationCreditGet(
     currencyCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<CreditAccount>>;
   public apiNskV2BookingPaymentsOrganizationCreditGet(
     currencyCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (currencyCode !== undefined) {
       queryParameters.push(
-        "currencyCode=" + encodeURIComponent(String(currencyCode))
+        'currencyCode=' + encodeURIComponent(String(currencyCode))
       );
     }
 
@@ -742,11 +742,11 @@ export class BookingpaymentsService {
       `${
         this.basePath
       }/api/nsk/v2/booking/payments/organizationCredit?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <CreditAccount>httpResponse.response)
       );
@@ -762,17 +762,17 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsOrganizationCreditPost(
     request?: ApplyCreditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPaymentsOrganizationCreditPost(
     request?: ApplyCreditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPaymentsOrganizationCreditPost(
     request?: ApplyCreditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -782,7 +782,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -800,36 +800,36 @@ export class BookingpaymentsService {
   public apiNskV2BookingPaymentsPost(
     request?: PaymentMethodRequest,
     termUrl?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPaymentsPost(
     request?: PaymentMethodRequest,
     termUrl?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPaymentsPost(
     request?: PaymentMethodRequest,
     termUrl?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (termUrl !== undefined) {
-      queryParameters.push("termUrl=" + encodeURIComponent(String(termUrl)));
+      queryParameters.push('termUrl=' + encodeURIComponent(String(termUrl)));
     }
 
     const response: Observable<HttpResponse<
       IJsonResponse
     >> = this.httpClient.post(
       `${this.basePath}/api/nsk/v2/booking/payments?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -845,17 +845,17 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsRefundsCustomerCreditPost(
     request?: CustomerCreditRefundRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPaymentsRefundsCustomerCreditPost(
     request?: CustomerCreditRefundRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPaymentsRefundsCustomerCreditPost(
     request?: CustomerCreditRefundRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -865,7 +865,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -881,22 +881,22 @@ export class BookingpaymentsService {
      */
   public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(
     voucherPaymentReference: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(
     voucherPaymentReference: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete(
     voucherPaymentReference: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!voucherPaymentReference) {
       throw new Error(
-        "Required parameter voucherPaymentReference was null or undefined when calling apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete."
+        'Required parameter voucherPaymentReference was null or undefined when calling apiNskV2BookingPaymentsVoucherByVoucherPaymentReferenceDelete.'
       );
     }
 
@@ -910,7 +910,7 @@ export class BookingpaymentsService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -932,7 +932,7 @@ export class BookingpaymentsService {
     amount: number,
     accountNumber: string,
     quotedCurrencyCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<DirectCurrencyConversionAvailability>;
   public apiNskV3BookingPaymentsByPaymentMethodDccGet(
@@ -940,7 +940,7 @@ export class BookingpaymentsService {
     amount: number,
     accountNumber: string,
     quotedCurrencyCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<DirectCurrencyConversionAvailability>>;
   public apiNskV3BookingPaymentsByPaymentMethodDccGet(
@@ -948,45 +948,45 @@ export class BookingpaymentsService {
     amount: number,
     accountNumber: string,
     quotedCurrencyCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!paymentMethod) {
       throw new Error(
-        "Required parameter paymentMethod was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet."
+        'Required parameter paymentMethod was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet.'
       );
     }
 
     if (!amount) {
       throw new Error(
-        "Required parameter amount was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet."
+        'Required parameter amount was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet.'
       );
     }
 
     if (!accountNumber) {
       throw new Error(
-        "Required parameter accountNumber was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet."
+        'Required parameter accountNumber was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet.'
       );
     }
 
     if (!quotedCurrencyCode) {
       throw new Error(
-        "Required parameter quotedCurrencyCode was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet."
+        'Required parameter quotedCurrencyCode was null or undefined when calling apiNskV3BookingPaymentsByPaymentMethodDccGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (amount !== undefined) {
-      queryParameters.push("amount=" + encodeURIComponent(String(amount)));
+      queryParameters.push('amount=' + encodeURIComponent(String(amount)));
     }
     if (accountNumber !== undefined) {
       queryParameters.push(
-        "accountNumber=" + encodeURIComponent(String(accountNumber))
+        'accountNumber=' + encodeURIComponent(String(accountNumber))
       );
     }
     if (quotedCurrencyCode !== undefined) {
       queryParameters.push(
-        "quotedCurrencyCode=" + encodeURIComponent(String(quotedCurrencyCode))
+        'quotedCurrencyCode=' + encodeURIComponent(String(quotedCurrencyCode))
       );
     }
 
@@ -995,10 +995,10 @@ export class BookingpaymentsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v3/booking/payments/${encodeURIComponent(
         String(paymentMethod)
-      )}/dcc?${queryParameters.join("&")}`,
+      )}/dcc?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse =>
@@ -1023,7 +1023,7 @@ export class BookingpaymentsService {
     amount: number,
     currencyCode?: string,
     collectedCurrencyCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PaymentFeeResponse>;
   public apiNskV3BookingPaymentsFeesByFeeCodeGet(
@@ -1031,7 +1031,7 @@ export class BookingpaymentsService {
     amount: number,
     currencyCode?: string,
     collectedCurrencyCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PaymentFeeResponse>>;
   public apiNskV3BookingPaymentsFeesByFeeCodeGet(
@@ -1039,33 +1039,33 @@ export class BookingpaymentsService {
     amount: number,
     currencyCode?: string,
     collectedCurrencyCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!feeCode) {
       throw new Error(
-        "Required parameter feeCode was null or undefined when calling apiNskV3BookingPaymentsFeesByFeeCodeGet."
+        'Required parameter feeCode was null or undefined when calling apiNskV3BookingPaymentsFeesByFeeCodeGet.'
       );
     }
 
     if (!amount) {
       throw new Error(
-        "Required parameter amount was null or undefined when calling apiNskV3BookingPaymentsFeesByFeeCodeGet."
+        'Required parameter amount was null or undefined when calling apiNskV3BookingPaymentsFeesByFeeCodeGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (amount !== undefined) {
-      queryParameters.push("amount=" + encodeURIComponent(String(amount)));
+      queryParameters.push('amount=' + encodeURIComponent(String(amount)));
     }
     if (currencyCode !== undefined) {
       queryParameters.push(
-        "currencyCode=" + encodeURIComponent(String(currencyCode))
+        'currencyCode=' + encodeURIComponent(String(currencyCode))
       );
     }
     if (collectedCurrencyCode !== undefined) {
       queryParameters.push(
-        "collectedCurrencyCode=" +
+        'collectedCurrencyCode=' +
           encodeURIComponent(String(collectedCurrencyCode))
       );
     }
@@ -1075,10 +1075,10 @@ export class BookingpaymentsService {
     >> = this.httpClient.get(
       `${this.basePath}/api/nsk/v3/booking/payments/fees/${encodeURIComponent(
         String(feeCode)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PaymentFeeResponse>httpResponse.response)
       );
@@ -1096,24 +1096,24 @@ export class BookingpaymentsService {
   public apiNskV3BookingPaymentsMccByCurrencyCodePost(
     currencyCode: string,
     request?: PaymentMethodRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPaymentsMccByCurrencyCodePost(
     currencyCode: string,
     request?: PaymentMethodRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPaymentsMccByCurrencyCodePost(
     currencyCode: string,
     request?: PaymentMethodRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!currencyCode) {
       throw new Error(
-        "Required parameter currencyCode was null or undefined when calling apiNskV3BookingPaymentsMccByCurrencyCodePost."
+        'Required parameter currencyCode was null or undefined when calling apiNskV3BookingPaymentsMccByCurrencyCodePost.'
       );
     }
 
@@ -1126,7 +1126,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1146,32 +1146,32 @@ export class BookingpaymentsService {
     currencyCode: string,
     storedPaymentKey: string,
     request?: PaymentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(
     currencyCode: string,
     storedPaymentKey: string,
     request?: PaymentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost(
     currencyCode: string,
     storedPaymentKey: string,
     request?: PaymentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!currencyCode) {
       throw new Error(
-        "Required parameter currencyCode was null or undefined when calling apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost."
+        'Required parameter currencyCode was null or undefined when calling apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost.'
       );
     }
 
     if (!storedPaymentKey) {
       throw new Error(
-        "Required parameter storedPaymentKey was null or undefined when calling apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost."
+        'Required parameter storedPaymentKey was null or undefined when calling apiNskV3BookingPaymentsMccByCurrencyCodeStoredPaymentByStoredPaymentKeyPost.'
       );
     }
 
@@ -1184,7 +1184,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1198,15 +1198,15 @@ export class BookingpaymentsService {
      
      */
   public apiNskV3BookingPaymentsMccGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2009>;
   public apiNskV3BookingPaymentsMccGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2009>>;
   public apiNskV3BookingPaymentsMccGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1215,7 +1215,7 @@ export class BookingpaymentsService {
       `${this.basePath}/api/nsk/v3/booking/payments/mcc`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2009>httpResponse.response)
       );
@@ -1231,17 +1231,17 @@ export class BookingpaymentsService {
      */
   public apiNskV3BookingPaymentsRefundsPost(
     request?: PaymentRefundRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPaymentsRefundsPost(
     request?: PaymentRefundRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPaymentsRefundsPost(
     request?: PaymentRefundRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1251,7 +1251,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1269,24 +1269,24 @@ export class BookingpaymentsService {
   public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(
     storedPaymentKey: string,
     request?: PaymentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(
     storedPaymentKey: string,
     request?: PaymentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost(
     storedPaymentKey: string,
     request?: PaymentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!storedPaymentKey) {
       throw new Error(
-        "Required parameter storedPaymentKey was null or undefined when calling apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost."
+        'Required parameter storedPaymentKey was null or undefined when calling apiNskV3BookingPaymentsStoredPaymentByStoredPaymentKeyPost.'
       );
     }
 
@@ -1301,7 +1301,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1319,24 +1319,24 @@ export class BookingpaymentsService {
   public apiNskV3BookingPaymentsThreeDSecurePost(
     request?: ThreeDSecurePaymentMethodRequestv2,
     termUrl?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPaymentsThreeDSecurePost(
     request?: ThreeDSecurePaymentMethodRequestv2,
     termUrl?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPaymentsThreeDSecurePost(
     request?: ThreeDSecurePaymentMethodRequestv2,
     termUrl?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (termUrl !== undefined) {
-      queryParameters.push("termUrl=" + encodeURIComponent(String(termUrl)));
+      queryParameters.push('termUrl=' + encodeURIComponent(String(termUrl)));
     }
 
     const response: Observable<HttpResponse<
@@ -1344,11 +1344,11 @@ export class BookingpaymentsService {
     >> = this.httpClient.post(
       `${
         this.basePath
-      }/api/nsk/v3/booking/payments/threeDSecure?${queryParameters.join("&")}`,
+      }/api/nsk/v3/booking/payments/threeDSecure?${queryParameters.join('&')}`,
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1364,17 +1364,17 @@ export class BookingpaymentsService {
      */
   public apiNskV3BookingPaymentsVoucherPost(
     request?: VoucherPaymentRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPaymentsVoucherPost(
     request?: VoucherPaymentRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPaymentsVoucherPost(
     request?: VoucherPaymentRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1384,7 +1384,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1402,24 +1402,24 @@ export class BookingpaymentsService {
   public apiNskV4BookingPaymentsDccByDccKeyPost(
     dccKey: string,
     request?: DccRequestBasev2,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV4BookingPaymentsDccByDccKeyPost(
     dccKey: string,
     request?: DccRequestBasev2,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV4BookingPaymentsDccByDccKeyPost(
     dccKey: string,
     request?: DccRequestBasev2,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!dccKey) {
       throw new Error(
-        "Required parameter dccKey was null or undefined when calling apiNskV4BookingPaymentsDccByDccKeyPost."
+        'Required parameter dccKey was null or undefined when calling apiNskV4BookingPaymentsDccByDccKeyPost.'
       );
     }
 
@@ -1432,7 +1432,7 @@ export class BookingpaymentsService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

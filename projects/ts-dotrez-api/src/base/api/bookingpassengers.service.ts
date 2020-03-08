@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   AddSeatRequest,
@@ -50,22 +50,22 @@ import {
   TravelNotification,
   TravelNotificationCreateRequest,
   TravelNotificationEditRequest
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class BookingpassengersService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -77,15 +77,15 @@ export class BookingpassengersService {
      
      */
   public apiNskV1BookingPassengersBreakdownByTypeGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2007>;
   public apiNskV1BookingPassengersBreakdownByTypeGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2007>>;
   public apiNskV1BookingPassengersBreakdownByTypeGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -94,7 +94,7 @@ export class BookingpassengersService {
       `${this.basePath}/api/nsk/v1/booking/passengers/breakdown/byType`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2007>httpResponse.response)
       );
@@ -108,15 +108,15 @@ export class BookingpassengersService {
      
      */
   public apiNskV1BookingPassengersBreakdownGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2006>;
   public apiNskV1BookingPassengersBreakdownGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2006>>;
   public apiNskV1BookingPassengersBreakdownGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -125,7 +125,7 @@ export class BookingpassengersService {
       `${this.basePath}/api/nsk/v1/booking/passengers/breakdown`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2006>httpResponse.response)
       );
@@ -143,30 +143,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyDelete.'
       );
     }
 
@@ -180,7 +180,7 @@ export class BookingpassengersService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -199,39 +199,39 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "response",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe: any = "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete.'
       );
     }
 
     if (!eventType) {
       throw new Error(
-        "Required parameter eventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete."
+        'Required parameter eventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeDelete.'
       );
     }
 
@@ -245,7 +245,7 @@ export class BookingpassengersService {
       )}/events/${encodeURIComponent(String(eventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -264,39 +264,39 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'body',
     headers?: Headers
   ): Observable<NotificationEvent>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe?: "response",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<NotificationEvent>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    eventType: "DepartureDelay" | "ArrivalDelay" | "ScheduleChange" | "CheckIn",
-    observe: any = "body",
+    eventType: 'DepartureDelay' | 'ArrivalDelay' | 'ScheduleChange' | 'CheckIn',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet.'
       );
     }
 
     if (!eventType) {
       throw new Error(
-        "Required parameter eventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet."
+        'Required parameter eventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsByEventTypeGet.'
       );
     }
 
@@ -310,7 +310,7 @@ export class BookingpassengersService {
       )}/events/${encodeURIComponent(String(eventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <NotificationEvent>httpResponse.response)
       );
@@ -328,30 +328,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<NotificationEvent>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<NotificationEvent>>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsGet.'
       );
     }
 
@@ -365,7 +365,7 @@ export class BookingpassengersService {
       )}/events`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<NotificationEvent>>httpResponse.response)
       );
@@ -385,32 +385,32 @@ export class BookingpassengersService {
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: NotificationEventCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: NotificationEventCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: NotificationEventCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyEventsPost.'
       );
     }
 
@@ -425,7 +425,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -443,30 +443,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TravelNotification>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TravelNotification>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyGet.'
       );
     }
 
@@ -480,7 +480,7 @@ export class BookingpassengersService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TravelNotification>httpResponse.response)
       );
@@ -500,32 +500,32 @@ export class BookingpassengersService {
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: DeltaMapperTravelNotificationEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: DeltaMapperTravelNotificationEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: DeltaMapperTravelNotificationEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPatch.'
       );
     }
 
@@ -540,7 +540,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -560,32 +560,32 @@ export class BookingpassengersService {
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: TravelNotificationEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: TravelNotificationEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: TravelNotificationEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyPut.'
       );
     }
 
@@ -600,7 +600,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -619,39 +619,39 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "response",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe: any = "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete.'
       );
     }
 
     if (!timedEventType) {
       throw new Error(
-        "Required parameter timedEventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete."
+        'Required parameter timedEventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeDelete.'
       );
     }
 
@@ -665,7 +665,7 @@ export class BookingpassengersService {
       )}/timedEvents/${encodeURIComponent(String(timedEventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -684,39 +684,39 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'body',
     headers?: Headers
   ): Observable<NotificationTimedEvent>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe?: "response",
+    timedEventType: 'Departure' | 'Arrival',
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<NotificationTimedEvent>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
-    observe: any = "body",
+    timedEventType: 'Departure' | 'Arrival',
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet.'
       );
     }
 
     if (!timedEventType) {
       throw new Error(
-        "Required parameter timedEventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet."
+        'Required parameter timedEventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypeGet.'
       );
     }
 
@@ -730,7 +730,7 @@ export class BookingpassengersService {
       )}/timedEvents/${encodeURIComponent(String(timedEventType))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <NotificationTimedEvent>httpResponse.response)
       );
@@ -750,42 +750,42 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     request?: NotificationTimedEventEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     request?: NotificationTimedEventEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    timedEventType: "Departure" | "Arrival",
+    timedEventType: 'Departure' | 'Arrival',
     request?: NotificationTimedEventEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut.'
       );
     }
 
     if (!timedEventType) {
       throw new Error(
-        "Required parameter timedEventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut."
+        'Required parameter timedEventType was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsByTimedEventTypePut.'
       );
     }
 
@@ -800,7 +800,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -818,30 +818,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<NotificationTimedEvent>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<NotificationTimedEvent>>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet(
     passengerAlternateKey: string,
     travelNotificationKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsGet.'
       );
     }
 
@@ -855,7 +855,7 @@ export class BookingpassengersService {
       )}/timedEvents`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<NotificationTimedEvent>>httpResponse.response
@@ -877,32 +877,32 @@ export class BookingpassengersService {
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: NotificationTimedEventCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: NotificationTimedEventCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost(
     passengerAlternateKey: string,
     travelNotificationKey: string,
     request?: NotificationTimedEventCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost.'
       );
     }
 
     if (!travelNotificationKey) {
       throw new Error(
-        "Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost."
+        'Required parameter travelNotificationKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsByTravelNotificationKeyTimedEventsPost.'
       );
     }
 
@@ -917,7 +917,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -933,22 +933,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(
     passengerAlternateKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<TravelNotification>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(
     passengerAlternateKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<TravelNotification>>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet(
     passengerAlternateKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsGet.'
       );
     }
 
@@ -960,7 +960,7 @@ export class BookingpassengersService {
       )}/travelNotifications`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<TravelNotification>>httpResponse.response)
       );
@@ -978,24 +978,24 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(
     passengerAlternateKey: string,
     request?: TravelNotificationCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(
     passengerAlternateKey: string,
     request?: TravelNotificationCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost(
     passengerAlternateKey: string,
     request?: TravelNotificationCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerAlternateKey) {
       throw new Error(
-        "Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost."
+        'Required parameter passengerAlternateKey was null or undefined when calling apiNskV1BookingPassengersByPassengerAlternateKeyTravelNotificationsPost.'
       );
     }
 
@@ -1008,7 +1008,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1026,30 +1026,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(
     passengerKey: string,
     addressKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerAddress>;
   public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(
     passengerKey: string,
     addressKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerAddress>>;
   public apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet(
     passengerKey: string,
     addressKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet.'
       );
     }
 
     if (!addressKey) {
       throw new Error(
-        "Required parameter addressKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet."
+        'Required parameter addressKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyAddressesByAddressKeyGet.'
       );
     }
 
@@ -1061,7 +1061,7 @@ export class BookingpassengersService {
       )}/addresses/${encodeURIComponent(String(addressKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerAddress>httpResponse.response)
       );
@@ -1077,22 +1077,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerKeyAddressesGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerAddress>>;
   public apiNskV1BookingPassengersByPassengerKeyAddressesGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerAddress>>>;
   public apiNskV1BookingPassengersByPassengerKeyAddressesGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyAddressesGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyAddressesGet.'
       );
     }
 
@@ -1104,7 +1104,7 @@ export class BookingpassengersService {
       )}/addresses`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PassengerAddress>>httpResponse.response)
       );
@@ -1122,30 +1122,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(
     passengerKey: string,
     baggageKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerBag>;
   public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(
     passengerKey: string,
     baggageKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerBag>>;
   public apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet(
     passengerKey: string,
     baggageKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet.'
       );
     }
 
     if (!baggageKey) {
       throw new Error(
-        "Required parameter baggageKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet."
+        'Required parameter baggageKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBaggageByBaggageKeyGet.'
       );
     }
 
@@ -1157,7 +1157,7 @@ export class BookingpassengersService {
       )}/baggage/${encodeURIComponent(String(baggageKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerBag>httpResponse.response)
       );
@@ -1173,22 +1173,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerKeyBaggageGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerBag>>;
   public apiNskV1BookingPassengersByPassengerKeyBaggageGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerBag>>>;
   public apiNskV1BookingPassengersByPassengerKeyBaggageGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBaggageGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBaggageGet.'
       );
     }
 
@@ -1200,7 +1200,7 @@ export class BookingpassengersService {
       )}/baggage`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PassengerBag>>httpResponse.response)
       );
@@ -1216,22 +1216,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerPriceBreakdown>;
   public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerPriceBreakdown>>;
   public apiNskV1BookingPassengersByPassengerKeyBreakdownGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBreakdownGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyBreakdownGet.'
       );
     }
 
@@ -1243,7 +1243,7 @@ export class BookingpassengersService {
       )}/breakdown`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerPriceBreakdown>httpResponse.response)
       );
@@ -1261,30 +1261,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerTravelDocument>;
   public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerTravelDocument>>;
   public apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet(
     passengerKey: string,
     travelDocumentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyGet.'
       );
     }
 
@@ -1296,7 +1296,7 @@ export class BookingpassengersService {
       )}/documents/${encodeURIComponent(String(travelDocumentKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerTravelDocument>httpResponse.response)
       );
@@ -1312,22 +1312,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerTravelDocument>>;
   public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerTravelDocument>>>;
   public apiNskV1BookingPassengersByPassengerKeyDocumentsGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyDocumentsGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyDocumentsGet.'
       );
     }
 
@@ -1339,7 +1339,7 @@ export class BookingpassengersService {
       )}/documents`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<PassengerTravelDocument>>httpResponse.response
@@ -1357,22 +1357,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerKeyGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Passenger>;
   public apiNskV1BookingPassengersByPassengerKeyGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Passenger>>;
   public apiNskV1BookingPassengersByPassengerKeyGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyGet.'
       );
     }
 
@@ -1382,7 +1382,7 @@ export class BookingpassengersService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Passenger>httpResponse.response)
       );
@@ -1400,30 +1400,30 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerTravelDocument>;
   public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerTravelDocument>>;
   public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet(
     passengerKey: string,
     travelDocumentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyGet.'
       );
     }
 
@@ -1435,7 +1435,7 @@ export class BookingpassengersService {
       )}/infant/documents/${encodeURIComponent(String(travelDocumentKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerTravelDocument>httpResponse.response)
       );
@@ -1451,22 +1451,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerTravelDocument>>;
   public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerTravelDocument>>>;
   public apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantDocumentsGet.'
       );
     }
 
@@ -1478,7 +1478,7 @@ export class BookingpassengersService {
       )}/infant/documents`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <Array<PassengerTravelDocument>>httpResponse.response
@@ -1496,22 +1496,22 @@ export class BookingpassengersService {
      */
   public apiNskV1BookingPassengersByPassengerKeyInfantGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerInfant>;
   public apiNskV1BookingPassengersByPassengerKeyInfantGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerInfant>>;
   public apiNskV1BookingPassengersByPassengerKeyInfantGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyInfantGet.'
       );
     }
 
@@ -1523,7 +1523,7 @@ export class BookingpassengersService {
       )}/infant`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerInfant>httpResponse.response)
       );
@@ -1541,24 +1541,24 @@ export class BookingpassengersService {
   public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(
     passengerKey: string,
     request?: PassengerTypeCodeEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerKeyResponse>;
   public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(
     passengerKey: string,
     request?: PassengerTypeCodeEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerKeyResponse>>;
   public apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch(
     passengerKey: string,
     request?: PassengerTypeCodeEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeyPassengerTypeCodePatch.'
       );
     }
 
@@ -1571,7 +1571,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerKeyResponse>httpResponse.response)
       );
@@ -1593,7 +1593,7 @@ export class BookingpassengersService {
     unitKey: string,
     waiveFee?: boolean,
     ignoreSeatSsrs?: boolean,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(
@@ -1601,7 +1601,7 @@ export class BookingpassengersService {
     unitKey: string,
     waiveFee?: boolean,
     ignoreSeatSsrs?: boolean,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete(
@@ -1609,28 +1609,28 @@ export class BookingpassengersService {
     unitKey: string,
     waiveFee?: boolean,
     ignoreSeatSsrs?: boolean,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete."
+        'Required parameter passengerKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete.'
       );
     }
 
     if (!unitKey) {
       throw new Error(
-        "Required parameter unitKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete."
+        'Required parameter unitKey was null or undefined when calling apiNskV1BookingPassengersByPassengerKeySeatsByUnitKeyDelete.'
       );
     }
 
     let queryParameters: string[] = [];
     if (waiveFee !== undefined) {
-      queryParameters.push("waiveFee=" + encodeURIComponent(String(waiveFee)));
+      queryParameters.push('waiveFee=' + encodeURIComponent(String(waiveFee)));
     }
     if (ignoreSeatSsrs !== undefined) {
       queryParameters.push(
-        "ignoreSeatSsrs=" + encodeURIComponent(String(ignoreSeatSsrs))
+        'ignoreSeatSsrs=' + encodeURIComponent(String(ignoreSeatSsrs))
       );
     }
 
@@ -1640,11 +1640,11 @@ export class BookingpassengersService {
       `${this.basePath}/api/nsk/v1/booking/passengers/${encodeURIComponent(
         String(passengerKey)
       )}/seats/${encodeURIComponent(String(unitKey))}?${queryParameters.join(
-        "&"
+        '&'
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1658,15 +1658,15 @@ export class BookingpassengersService {
      
      */
   public apiNskV1BookingPassengersGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<InlineResponse2005>;
   public apiNskV1BookingPassengersGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<InlineResponse2005>>;
   public apiNskV1BookingPassengersGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -1675,7 +1675,7 @@ export class BookingpassengersService {
       `${this.basePath}/api/nsk/v1/booking/passengers`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <InlineResponse2005>httpResponse.response)
       );
@@ -1693,30 +1693,30 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(
     passengerKey: string,
     addressKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(
     passengerKey: string,
     addressKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete(
     passengerKey: string,
     addressKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete.'
       );
     }
 
     if (!addressKey) {
       throw new Error(
-        "Required parameter addressKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete."
+        'Required parameter addressKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyDelete.'
       );
     }
 
@@ -1728,7 +1728,7 @@ export class BookingpassengersService {
       )}/addresses/${encodeURIComponent(String(addressKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1748,32 +1748,32 @@ export class BookingpassengersService {
     passengerKey: string,
     addressKey: string,
     request?: DeltaMapperPassengerAddressEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(
     passengerKey: string,
     addressKey: string,
     request?: DeltaMapperPassengerAddressEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch(
     passengerKey: string,
     addressKey: string,
     request?: DeltaMapperPassengerAddressEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch.'
       );
     }
 
     if (!addressKey) {
       throw new Error(
-        "Required parameter addressKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch."
+        'Required parameter addressKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPatch.'
       );
     }
 
@@ -1786,7 +1786,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1806,32 +1806,32 @@ export class BookingpassengersService {
     passengerKey: string,
     addressKey: string,
     request?: PassengerAddressEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(
     passengerKey: string,
     addressKey: string,
     request?: PassengerAddressEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut(
     passengerKey: string,
     addressKey: string,
     request?: PassengerAddressEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut.'
       );
     }
 
     if (!addressKey) {
       throw new Error(
-        "Required parameter addressKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut."
+        'Required parameter addressKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesByAddressKeyPut.'
       );
     }
 
@@ -1844,7 +1844,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1862,24 +1862,24 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeyAddressesPost(
     passengerKey: string,
     request?: PassengerAddressCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesPost(
     passengerKey: string,
     request?: PassengerAddressCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyAddressesPost(
     passengerKey: string,
     request?: PassengerAddressCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesPost."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyAddressesPost.'
       );
     }
 
@@ -1892,7 +1892,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1910,30 +1910,30 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete(
     passengerKey: string,
     travelDocumentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyDelete.'
       );
     }
 
@@ -1945,7 +1945,7 @@ export class BookingpassengersService {
       )}/documents/${encodeURIComponent(String(travelDocumentKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -1965,32 +1965,32 @@ export class BookingpassengersService {
     passengerKey: string,
     travelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(
     passengerKey: string,
     travelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch(
     passengerKey: string,
     travelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPatch.'
       );
     }
 
@@ -2003,7 +2003,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2023,32 +2023,32 @@ export class BookingpassengersService {
     passengerKey: string,
     travelDocumentKey: string,
     request?: TravelDocumentEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(
     passengerKey: string,
     travelDocumentKey: string,
     request?: TravelDocumentEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut(
     passengerKey: string,
     travelDocumentKey: string,
     request?: TravelDocumentEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsByTravelDocumentKeyPut.'
       );
     }
 
@@ -2061,7 +2061,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2079,24 +2079,24 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(
     passengerKey: string,
     request?: TravelDocumentCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(
     passengerKey: string,
     request?: TravelDocumentCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyDocumentsPost(
     passengerKey: string,
     request?: TravelDocumentCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsPost."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyDocumentsPost.'
       );
     }
 
@@ -2109,7 +2109,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2125,22 +2125,22 @@ export class BookingpassengersService {
      */
   public apiNskV2BookingPassengersByPassengerKeyInfantDelete(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDelete(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDelete(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDelete."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDelete.'
       );
     }
 
@@ -2152,7 +2152,7 @@ export class BookingpassengersService {
       )}/infant`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2170,30 +2170,30 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(
     passengerKey: string,
     travelDocumentKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete(
     passengerKey: string,
     travelDocumentKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyDelete.'
       );
     }
 
@@ -2205,7 +2205,7 @@ export class BookingpassengersService {
       )}/infant/documents/${encodeURIComponent(String(travelDocumentKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2225,32 +2225,32 @@ export class BookingpassengersService {
     passengerKey: string,
     travelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(
     passengerKey: string,
     travelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch(
     passengerKey: string,
     travelDocumentKey: string,
     request?: DeltaMapperTravelDocumentEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPatch.'
       );
     }
 
@@ -2263,7 +2263,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2283,32 +2283,32 @@ export class BookingpassengersService {
     passengerKey: string,
     travelDocumentKey: string,
     request?: TravelDocumentEditRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(
     passengerKey: string,
     travelDocumentKey: string,
     request?: TravelDocumentEditRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut(
     passengerKey: string,
     travelDocumentKey: string,
     request?: TravelDocumentEditRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut.'
       );
     }
 
     if (!travelDocumentKey) {
       throw new Error(
-        "Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut."
+        'Required parameter travelDocumentKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsByTravelDocumentKeyPut.'
       );
     }
 
@@ -2321,7 +2321,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2339,24 +2339,24 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(
     passengerKey: string,
     request?: TravelDocumentCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(
     passengerKey: string,
     request?: TravelDocumentCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost(
     passengerKey: string,
     request?: TravelDocumentCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantDocumentsPost.'
       );
     }
 
@@ -2369,7 +2369,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2387,24 +2387,24 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeyInfantPatch(
     passengerKey: string,
     request?: DeltaMapperInfant,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeyInfantPatch(
     passengerKey: string,
     request?: DeltaMapperInfant,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeyInfantPatch(
     passengerKey: string,
     request?: DeltaMapperInfant,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantPatch."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeyInfantPatch.'
       );
     }
 
@@ -2417,7 +2417,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2435,30 +2435,30 @@ export class BookingpassengersService {
   public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(
     passengerKey: string,
     unitKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<PassengerSeat>;
   public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(
     passengerKey: string,
     unitKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<PassengerSeat>>;
   public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet(
     passengerKey: string,
     unitKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet.'
       );
     }
 
     if (!unitKey) {
       throw new Error(
-        "Required parameter unitKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet."
+        'Required parameter unitKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyGet.'
       );
     }
 
@@ -2470,7 +2470,7 @@ export class BookingpassengersService {
       )}/seats/${encodeURIComponent(String(unitKey))}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <PassengerSeat>httpResponse.response)
       );
@@ -2490,32 +2490,32 @@ export class BookingpassengersService {
     passengerKey: string,
     unitKey: string,
     request?: AddSeatRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(
     passengerKey: string,
     unitKey: string,
     request?: AddSeatRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost(
     passengerKey: string,
     unitKey: string,
     request?: AddSeatRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost.'
       );
     }
 
     if (!unitKey) {
       throw new Error(
-        "Required parameter unitKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost."
+        'Required parameter unitKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsByUnitKeyPost.'
       );
     }
 
@@ -2528,7 +2528,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2544,22 +2544,22 @@ export class BookingpassengersService {
      */
   public apiNskV2BookingPassengersByPassengerKeySeatsGet(
     passengerKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<PassengerSeat>>;
   public apiNskV2BookingPassengersByPassengerKeySeatsGet(
     passengerKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<PassengerSeat>>>;
   public apiNskV2BookingPassengersByPassengerKeySeatsGet(
     passengerKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsGet."
+        'Required parameter passengerKey was null or undefined when calling apiNskV2BookingPassengersByPassengerKeySeatsGet.'
       );
     }
 
@@ -2571,7 +2571,7 @@ export class BookingpassengersService {
       )}/seats`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<PassengerSeat>>httpResponse.response)
       );
@@ -2589,24 +2589,24 @@ export class BookingpassengersService {
   public apiNskV3BookingPassengersByPassengerKeyInfantPost(
     passengerKey: string,
     request?: PassengerInfantCreateRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPassengersByPassengerKeyInfantPost(
     passengerKey: string,
     request?: PassengerInfantCreateRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPassengersByPassengerKeyInfantPost(
     passengerKey: string,
     request?: PassengerInfantCreateRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyInfantPost."
+        'Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyInfantPost.'
       );
     }
 
@@ -2619,7 +2619,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2637,24 +2637,24 @@ export class BookingpassengersService {
   public apiNskV3BookingPassengersByPassengerKeyInfantPut(
     passengerKey: string,
     request?: Infant,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPassengersByPassengerKeyInfantPut(
     passengerKey: string,
     request?: Infant,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPassengersByPassengerKeyInfantPut(
     passengerKey: string,
     request?: Infant,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyInfantPut."
+        'Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyInfantPut.'
       );
     }
 
@@ -2667,7 +2667,7 @@ export class BookingpassengersService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2687,33 +2687,33 @@ export class BookingpassengersService {
     passengerKey: string,
     waiveNameChangeFees?: boolean,
     request?: DeltaMapperPassengerBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPassengersByPassengerKeyPatch(
     passengerKey: string,
     waiveNameChangeFees?: boolean,
     request?: DeltaMapperPassengerBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPassengersByPassengerKeyPatch(
     passengerKey: string,
     waiveNameChangeFees?: boolean,
     request?: DeltaMapperPassengerBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyPatch."
+        'Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyPatch.'
       );
     }
 
     let queryParameters: string[] = [];
     if (waiveNameChangeFees !== undefined) {
       queryParameters.push(
-        "waiveNameChangeFees=" + encodeURIComponent(String(waiveNameChangeFees))
+        'waiveNameChangeFees=' + encodeURIComponent(String(waiveNameChangeFees))
       );
     }
 
@@ -2722,11 +2722,11 @@ export class BookingpassengersService {
     >> = this.httpClient.patch(
       `${this.basePath}/api/nsk/v3/booking/passengers/${encodeURIComponent(
         String(passengerKey)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -2746,33 +2746,33 @@ export class BookingpassengersService {
     passengerKey: string,
     waiveNameChangeFees?: boolean,
     request?: PassengerBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV3BookingPassengersByPassengerKeyPut(
     passengerKey: string,
     waiveNameChangeFees?: boolean,
     request?: PassengerBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV3BookingPassengersByPassengerKeyPut(
     passengerKey: string,
     waiveNameChangeFees?: boolean,
     request?: PassengerBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!passengerKey) {
       throw new Error(
-        "Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyPut."
+        'Required parameter passengerKey was null or undefined when calling apiNskV3BookingPassengersByPassengerKeyPut.'
       );
     }
 
     let queryParameters: string[] = [];
     if (waiveNameChangeFees !== undefined) {
       queryParameters.push(
-        "waiveNameChangeFees=" + encodeURIComponent(String(waiveNameChangeFees))
+        'waiveNameChangeFees=' + encodeURIComponent(String(waiveNameChangeFees))
       );
     }
 
@@ -2781,11 +2781,11 @@ export class BookingpassengersService {
     >> = this.httpClient.put(
       `${this.basePath}/api/nsk/v3/booking/passengers/${encodeURIComponent(
         String(passengerKey)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

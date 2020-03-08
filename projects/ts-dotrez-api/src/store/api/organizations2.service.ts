@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   ChildAccountTransactionsRequest,
   CreateOrganizationAccountRequest,
@@ -33,16 +33,20 @@ import {
   PhoneNumber,
   PhoneNumberBase,
   Transaction
-} from "api-models";
+} from 'api-models';
 
-import { Organizations2Service } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { Organizations2Service } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreOrganizations2Service {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("Organizations2Service")
+    @inject('Store') protected store: Store<any>,
+    @inject('Organizations2Service')
     protected baseService: Organizations2Service
   ) {}
 
@@ -59,7 +63,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPost(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -81,7 +85,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeAccountChildAccountTransactionsPut(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -101,7 +105,7 @@ export class StoreOrganizations2Service {
     const response = await this.baseService
       .apiNskV1Organizations2ByOrganizationCodeAccountGet(
         organizationCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -123,7 +127,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeAccountPost(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -138,14 +142,14 @@ export class StoreOrganizations2Service {
    */
   public async store_apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(
     organizationCode: string,
-    status: "Open" | "Closed" | "AgencyInactive" | "Unknown",
+    status: 'Open' | 'Closed' | 'AgencyInactive' | 'Unknown',
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
       .apiNskV1Organizations2ByOrganizationCodeAccountStatusPut(
         organizationCode,
         status,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -175,7 +179,7 @@ export class StoreOrganizations2Service {
         endTime,
         pageSize,
         pageIndex,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -197,7 +201,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeAccountTransactionsPost(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -219,7 +223,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeDelete(
         organizationCode,
         commissionRateCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -241,7 +245,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeCommissionRatesByCommissionRateCodeGet(
         organizationCode,
         commissionRateCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -263,7 +267,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeCommissionRatesPost(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -278,14 +282,14 @@ export class StoreOrganizations2Service {
    */
   public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(
     organizationCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
       .apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypeDelete(
         organizationCode,
         phoneNumberType,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -300,7 +304,7 @@ export class StoreOrganizations2Service {
    */
   public async store_apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersByPhoneNumberTypePut(
     organizationCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
     request?: PhoneNumberBase,
     headers?: Headers
   ): Promise<IJsonResponse> {
@@ -309,7 +313,7 @@ export class StoreOrganizations2Service {
         organizationCode,
         phoneNumberType,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -331,7 +335,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeCompanyPhoneNumbersPost(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -346,14 +350,14 @@ export class StoreOrganizations2Service {
    */
   public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(
     organizationCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
       .apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypeDelete(
         organizationCode,
         phoneNumberType,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -368,7 +372,7 @@ export class StoreOrganizations2Service {
    */
   public async store_apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersByPhoneNumberTypePut(
     organizationCode: string,
-    phoneNumberType: "Other" | "Home" | "Work" | "Mobile" | "Fax",
+    phoneNumberType: 'Other' | 'Home' | 'Work' | 'Mobile' | 'Fax',
     request?: PhoneNumberBase,
     headers?: Headers
   ): Promise<IJsonResponse> {
@@ -377,7 +381,7 @@ export class StoreOrganizations2Service {
         organizationCode,
         phoneNumberType,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -399,7 +403,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeContactPhoneNumbersPost(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -421,7 +425,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyDelete(
         organizationCode,
         externalAccountKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -443,7 +447,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeExternalAccountsByExternalAccountKeyGet(
         organizationCode,
         externalAccountKey,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -465,7 +469,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodeExternalAccountsPost(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -485,7 +489,7 @@ export class StoreOrganizations2Service {
     const response = await this.baseService
       .apiNskV1Organizations2ByOrganizationCodeGet(
         organizationCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -507,7 +511,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodePatch(
         organizationCode,
         createRequest,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -529,7 +533,7 @@ export class StoreOrganizations2Service {
       .apiNskV1Organizations2ByOrganizationCodePut(
         organizationCode,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -547,7 +551,7 @@ export class StoreOrganizations2Service {
     headers?: Headers
   ): Promise<Organizationv2> {
     const response = await this.baseService
-      .apiNskV1Organizations2Post(createRequest, "body", headers)
+      .apiNskV1Organizations2Post(createRequest, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1Organizations2Post
     // addResponsetoStore(this.store, response.data, true, true);
@@ -563,7 +567,7 @@ export class StoreOrganizations2Service {
     headers?: Headers
   ): Promise<Organizationv2> {
     const response = await this.baseService
-      .apiNskV1Organizations2RegisterPost(registerRequest, "body", headers)
+      .apiNskV1Organizations2RegisterPost(registerRequest, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1Organizations2RegisterPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -575,8 +579,8 @@ export class StoreOrganizations2Service {
    *
    */
   public async store_apiNskV2Organizations2Get(
-    type: "Default" | "Master" | "Carrier" | "TravelAgency" | "ThirdParty",
-    status: "Default" | "Active" | "Cancelled" | "Pending",
+    type: 'Default' | 'Master' | 'Carrier' | 'TravelAgency' | 'ThirdParty',
+    status: 'Default' | 'Active' | 'Cancelled' | 'Pending',
     organizationCode?: string,
     parentOrganizationCode?: string,
     companyName?: string,
@@ -585,26 +589,26 @@ export class StoreOrganizations2Service {
     pagedItemIndex?: number,
     pageSize?: number,
     matchCriteriaOrganizationCode?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     matchCriteriaParentOrganizationCode?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     matchCriteriaCompanyName?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
-    matchCriteriaCity?: "StartsWith" | "EndsWith" | "Contains" | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
+    matchCriteriaCity?: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',
     matchCriteriaPostalCode?:
-      | "StartsWith"
-      | "EndsWith"
-      | "Contains"
-      | "ExactMatch",
+      | 'StartsWith'
+      | 'EndsWith'
+      | 'Contains'
+      | 'ExactMatch',
     headers?: Headers
   ): Promise<Array<OrganizationRecord>> {
     const response = await this.baseService
@@ -623,7 +627,7 @@ export class StoreOrganizations2Service {
         matchCriteriaCompanyName,
         matchCriteriaCity,
         matchCriteriaPostalCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();

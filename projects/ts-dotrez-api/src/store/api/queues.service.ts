@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   BookingQueueItemBase,
   DeleteBookingQueueItemBaseRequest,
@@ -23,16 +23,20 @@ import {
   MoveBookingQueueItemBase,
   QueueResults,
   TravelQueueItemRequest
-} from "api-models";
+} from 'api-models';
 
-import { QueuesService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { QueuesService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreQueuesService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("QueuesService") protected baseService: QueuesService
+    @inject('Store') protected store: Store<any>,
+    @inject('QueuesService') protected baseService: QueuesService
   ) {}
 
   /**
@@ -50,7 +54,7 @@ export class StoreQueuesService {
         bookingQueueCode,
         bookingQueueItemKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -74,7 +78,7 @@ export class StoreQueuesService {
         bookingQueueCode,
         bookingQueueItemKey,
         request,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -96,7 +100,7 @@ export class StoreQueuesService {
       .apiNskV1QueuesTravelByTravelQueueCodeNextGet(
         travelQueueCode,
         subQueueCode,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -114,7 +118,7 @@ export class StoreQueuesService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1QueuesTravelPost(item, "body", headers)
+      .apiNskV1QueuesTravelPost(item, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1QueuesTravelPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -140,7 +144,7 @@ export class StoreQueuesService {
         startDate,
         endDate,
         password,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -168,7 +172,7 @@ export class StoreQueuesService {
         queueCategoryCode,
         pageSize,
         lastPageIndex,
-        "body",
+        'body',
         headers
       )
       .toPromise();

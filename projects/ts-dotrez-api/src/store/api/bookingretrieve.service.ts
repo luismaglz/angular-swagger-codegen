@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { Booking, IJsonResponse } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { Booking, IJsonResponse } from 'api-models';
 
-import { BookingretrieveService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { BookingretrieveService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreBookingretrieveService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("BookingretrieveService")
+    @inject('Store') protected store: Store<any>,
+    @inject('BookingretrieveService')
     protected baseService: BookingretrieveService
   ) {}
 
@@ -37,7 +41,7 @@ export class StoreBookingretrieveService {
     headers?: Headers
   ): Promise<Booking> {
     const response = await this.baseService
-      .apiNskV1BookingRetrieveByBookingKeyGet(bookingKey, "body", headers)
+      .apiNskV1BookingRetrieveByBookingKeyGet(bookingKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1BookingRetrieveByBookingKeyGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -55,7 +59,7 @@ export class StoreBookingretrieveService {
     const response = await this.baseService
       .apiNskV1BookingRetrieveByRecordLocatorByRecordLocatorGet(
         recordLocator,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -87,7 +91,7 @@ export class StoreBookingretrieveService {
         lastName,
         customerNumber,
         departureDate,
-        "body",
+        'body',
         headers
       )
       .toPromise();

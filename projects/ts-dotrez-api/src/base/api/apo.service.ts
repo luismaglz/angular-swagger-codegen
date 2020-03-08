@@ -11,30 +11,30 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   AncillaryPricingOptionsContext,
   IJsonResponse,
   InputParameters
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class ApoService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -48,22 +48,22 @@ export class ApoService {
      */
   public apiNskV1ApoByInputParameterKeyDelete(
     inputParameterKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1ApoByInputParameterKeyDelete(
     inputParameterKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1ApoByInputParameterKeyDelete(
     inputParameterKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!inputParameterKey) {
       throw new Error(
-        "Required parameter inputParameterKey was null or undefined when calling apiNskV1ApoByInputParameterKeyDelete."
+        'Required parameter inputParameterKey was null or undefined when calling apiNskV1ApoByInputParameterKeyDelete.'
       );
     }
 
@@ -75,7 +75,7 @@ export class ApoService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -93,31 +93,31 @@ export class ApoService {
   public apiNskV1ApoByInputParameterKeyPut(
     inputParameterKey: string,
     inputParameterValue?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1ApoByInputParameterKeyPut(
     inputParameterKey: string,
     inputParameterValue?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1ApoByInputParameterKeyPut(
     inputParameterKey: string,
     inputParameterValue?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!inputParameterKey) {
       throw new Error(
-        "Required parameter inputParameterKey was null or undefined when calling apiNskV1ApoByInputParameterKeyPut."
+        'Required parameter inputParameterKey was null or undefined when calling apiNskV1ApoByInputParameterKeyPut.'
       );
     }
 
     let queryParameters: string[] = [];
     if (inputParameterValue !== undefined) {
       queryParameters.push(
-        "inputParameterValue=" + encodeURIComponent(String(inputParameterValue))
+        'inputParameterValue=' + encodeURIComponent(String(inputParameterValue))
       );
     }
 
@@ -126,10 +126,10 @@ export class ApoService {
     >> = this.httpClient.put(
       `${this.basePath}/api/nsk/v1/apo/${encodeURIComponent(
         String(inputParameterKey)
-      )}?${queryParameters.join("&")}`,
+      )}?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -143,21 +143,21 @@ export class ApoService {
      
      */
   public apiNskV1ApoDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1ApoDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1ApoDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       IJsonResponse
     >> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/apo`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -171,21 +171,21 @@ export class ApoService {
      
      */
   public apiNskV1ApoGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<AncillaryPricingOptionsContext>;
   public apiNskV1ApoGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<AncillaryPricingOptionsContext>>;
   public apiNskV1ApoGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       AncillaryPricingOptionsContext
     >> = this.httpClient.get(`${this.basePath}/api/nsk/v1/apo`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(
           httpResponse => <AncillaryPricingOptionsContext>httpResponse.response
@@ -203,17 +203,17 @@ export class ApoService {
      */
   public apiNskV1ApoPost(
     inputParameters?: InputParameters,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1ApoPost(
     inputParameters?: InputParameters,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1ApoPost(
     inputParameters?: InputParameters,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -223,7 +223,7 @@ export class ApoService {
       inputParameters,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );

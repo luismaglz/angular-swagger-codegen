@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { RedirectResult } from "api-models";
+import { RedirectResult } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class RedirectService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -66,7 +66,7 @@ export class RedirectService {
     value3?: string,
     param4?: string,
     value4?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<any>;
   public apiV1RedirectGet(
@@ -82,7 +82,7 @@ export class RedirectService {
     value3?: string,
     param4?: string,
     value4?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<any>>;
   public apiV1RedirectGet(
@@ -98,52 +98,52 @@ export class RedirectService {
     value3?: string,
     param4?: string,
     value4?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (domain !== undefined) {
-      queryParameters.push("domain=" + encodeURIComponent(String(domain)));
+      queryParameters.push('domain=' + encodeURIComponent(String(domain)));
     }
     if (scheme !== undefined) {
-      queryParameters.push("scheme=" + encodeURIComponent(String(scheme)));
+      queryParameters.push('scheme=' + encodeURIComponent(String(scheme)));
     }
     if (port !== undefined) {
-      queryParameters.push("port=" + encodeURIComponent(String(port)));
+      queryParameters.push('port=' + encodeURIComponent(String(port)));
     }
     if (path !== undefined) {
-      queryParameters.push("path=" + encodeURIComponent(String(path)));
+      queryParameters.push('path=' + encodeURIComponent(String(path)));
     }
     if (param1 !== undefined) {
-      queryParameters.push("param1=" + encodeURIComponent(String(param1)));
+      queryParameters.push('param1=' + encodeURIComponent(String(param1)));
     }
     if (value1 !== undefined) {
-      queryParameters.push("value1=" + encodeURIComponent(String(value1)));
+      queryParameters.push('value1=' + encodeURIComponent(String(value1)));
     }
     if (param2 !== undefined) {
-      queryParameters.push("param2=" + encodeURIComponent(String(param2)));
+      queryParameters.push('param2=' + encodeURIComponent(String(param2)));
     }
     if (value2 !== undefined) {
-      queryParameters.push("value2=" + encodeURIComponent(String(value2)));
+      queryParameters.push('value2=' + encodeURIComponent(String(value2)));
     }
     if (param3 !== undefined) {
-      queryParameters.push("param3=" + encodeURIComponent(String(param3)));
+      queryParameters.push('param3=' + encodeURIComponent(String(param3)));
     }
     if (value3 !== undefined) {
-      queryParameters.push("value3=" + encodeURIComponent(String(value3)));
+      queryParameters.push('value3=' + encodeURIComponent(String(value3)));
     }
     if (param4 !== undefined) {
-      queryParameters.push("param4=" + encodeURIComponent(String(param4)));
+      queryParameters.push('param4=' + encodeURIComponent(String(param4)));
     }
     if (value4 !== undefined) {
-      queryParameters.push("value4=" + encodeURIComponent(String(value4)));
+      queryParameters.push('value4=' + encodeURIComponent(String(value4)));
     }
 
     const response: Observable<HttpResponse<any>> = this.httpClient.get(
-      `${this.basePath}/api/v1/redirect?${queryParameters.join("&")}`,
+      `${this.basePath}/api/v1/redirect?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <any>httpResponse.response));
     }
     return response;

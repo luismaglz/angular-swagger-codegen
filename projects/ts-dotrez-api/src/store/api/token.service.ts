@@ -11,10 +11,10 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   Credentials,
   IJsonResponse,
@@ -24,16 +24,20 @@ import {
   SingleSignOnCredentials,
   TokenRequest,
   TokenResponse
-} from "api-models";
+} from 'api-models';
 
-import { TokenService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { TokenService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreTokenService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("TokenService") protected baseService: TokenService
+    @inject('Store') protected store: Store<any>,
+    @inject('TokenService') protected baseService: TokenService
   ) {}
 
   /**
@@ -45,7 +49,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1TokenCulturePost(defaultCultureCode, "body", headers)
+      .apiNskV1TokenCulturePost(defaultCultureCode, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenCulturePost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -60,7 +64,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1TokenDelete("body", headers)
+      .apiNskV1TokenDelete('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -75,7 +79,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<NskSessionContext> {
     const response = await this.baseService
-      .apiNskV1TokenGet("body", headers)
+      .apiNskV1TokenGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -91,7 +95,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<TokenResponse> {
     const response = await this.baseService
-      .apiNskV1TokenPost(request, "body", headers)
+      .apiNskV1TokenPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -107,7 +111,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1TokenPut(request, "body", headers)
+      .apiNskV1TokenPut(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -123,7 +127,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<TokenResponse> {
     const response = await this.baseService
-      .apiNskV1TokenServerTransferPost(request, "body", headers)
+      .apiNskV1TokenServerTransferPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenServerTransferPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -139,7 +143,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<TokenResponse> {
     const response = await this.baseService
-      .apiNskV1TokenSingleSignOnPost(credentials, "body", headers)
+      .apiNskV1TokenSingleSignOnPost(credentials, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenSingleSignOnPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -155,7 +159,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1TokenSingleSignOnPut(credentials, "body", headers)
+      .apiNskV1TokenSingleSignOnPut(credentials, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1TokenSingleSignOnPut
     // addResponsetoStore(this.store, response.data, true, true);
@@ -170,7 +174,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiV1TokenDelete("body", headers)
+      .apiV1TokenDelete('body', headers)
       .toPromise();
     // TODO: Implement apiV1TokenDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -186,7 +190,7 @@ export class StoreTokenService {
     headers?: Headers
   ): Promise<TokenResponse> {
     const response = await this.baseService
-      .apiV1TokenPost(request, "body", headers)
+      .apiV1TokenPost(request, 'body', headers)
       .toPromise();
     // TODO: Implement apiV1TokenPost
     // addResponsetoStore(this.store, response.data, true, true);
@@ -199,7 +203,7 @@ export class StoreTokenService {
    */
   public async store_apiV1TokenPut(headers?: Headers): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiV1TokenPut("body", headers)
+      .apiV1TokenPut('body', headers)
       .toPromise();
     // TODO: Implement apiV1TokenPut
     // addResponsetoStore(this.store, response.data, true, true);

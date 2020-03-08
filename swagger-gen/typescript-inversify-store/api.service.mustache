@@ -12,11 +12,11 @@ import {
 } from 'api-models';
 
 import { {{classname}} } from '../../base/api/index'
-import { 
-  HttpResponse,
-    Headers,
-    IHttpClient,
-} from '../../base/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
     
 
 {{#withInterfaces}}

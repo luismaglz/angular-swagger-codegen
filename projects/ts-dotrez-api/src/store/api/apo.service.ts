@@ -11,24 +11,28 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
 import {
   AncillaryPricingOptionsContext,
   IJsonResponse,
   InputParameters
-} from "api-models";
+} from 'api-models';
 
-import { ApoService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { ApoService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreApoService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("ApoService") protected baseService: ApoService
+    @inject('Store') protected store: Store<any>,
+    @inject('ApoService') protected baseService: ApoService
   ) {}
 
   /**
@@ -40,7 +44,7 @@ export class StoreApoService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1ApoByInputParameterKeyDelete(inputParameterKey, "body", headers)
+      .apiNskV1ApoByInputParameterKeyDelete(inputParameterKey, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ApoByInputParameterKeyDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -60,7 +64,7 @@ export class StoreApoService {
       .apiNskV1ApoByInputParameterKeyPut(
         inputParameterKey,
         inputParameterValue,
-        "body",
+        'body',
         headers
       )
       .toPromise();
@@ -77,7 +81,7 @@ export class StoreApoService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1ApoDelete("body", headers)
+      .apiNskV1ApoDelete('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ApoDelete
     // addResponsetoStore(this.store, response.data, true, true);
@@ -92,7 +96,7 @@ export class StoreApoService {
     headers?: Headers
   ): Promise<AncillaryPricingOptionsContext> {
     const response = await this.baseService
-      .apiNskV1ApoGet("body", headers)
+      .apiNskV1ApoGet('body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ApoGet
     // addResponsetoStore(this.store, response.data, true, true);
@@ -108,7 +112,7 @@ export class StoreApoService {
     headers?: Headers
   ): Promise<IJsonResponse> {
     const response = await this.baseService
-      .apiNskV1ApoPost(inputParameters, "body", headers)
+      .apiNskV1ApoPost(inputParameters, 'body', headers)
       .toPromise();
     // TODO: Implement apiNskV1ApoPost
     // addResponsetoStore(this.store, response.data, true, true);

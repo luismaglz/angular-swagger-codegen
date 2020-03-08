@@ -11,20 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
-import { Store } from "redux";
-import { EnvironmentHealth } from "api-models";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
+import { Store } from 'redux';
+import { EnvironmentHealth } from 'api-models';
 
-import { HealthService } from "../../base/api/index";
-import { HttpResponse, Headers, IHttpClient } from "../../base/index";
+import { HealthService } from '../../base/api/index';
+
+import { IHttpClient } from '../../base/IHttpClient';
+import { IAPIConfiguration } from '../../base/IAPIConfiguration';
+import { HttpResponse } from '../../base/HttpResponse';
+import { Headers } from '../../base/Headers';
 
 @injectable()
 export class StoreHealthService {
   constructor(
-    @inject("Store") protected store: Store<any>,
-    @inject("HealthService") protected baseService: HealthService
+    @inject('Store') protected store: Store<any>,
+    @inject('HealthService') protected baseService: HealthService
   ) {}
 
   /**
@@ -35,7 +39,7 @@ export class StoreHealthService {
     headers?: Headers
   ): Promise<EnvironmentHealth> {
     const response = await this.baseService
-      .apiV1HealthGet("body", headers)
+      .apiV1HealthGet('body', headers)
       .toPromise();
     // TODO: Implement apiV1HealthGet
     // addResponsetoStore(this.store, response.data, true, true);

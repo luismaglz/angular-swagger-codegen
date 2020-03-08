@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { IJsonResponse } from "api-models";
+import { IJsonResponse } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class UtilitiesService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -44,22 +44,22 @@ export class UtilitiesService {
      */
   public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(
     stationCode: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Date>;
   public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(
     stationCode: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Date>>;
   public apiNskV1UtilitiesStationLocalTimeByStationCodeGet(
     stationCode: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!stationCode) {
       throw new Error(
-        "Required parameter stationCode was null or undefined when calling apiNskV1UtilitiesStationLocalTimeByStationCodeGet."
+        'Required parameter stationCode was null or undefined when calling apiNskV1UtilitiesStationLocalTimeByStationCodeGet.'
       );
     }
 
@@ -71,7 +71,7 @@ export class UtilitiesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(map(httpResponse => <Date>httpResponse.response));
     }
     return response;

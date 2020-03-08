@@ -11,26 +11,26 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
-import { IJsonResponse, MessageBase } from "api-models";
+import { IJsonResponse, MessageBase } from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class MessagesService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -44,22 +44,22 @@ export class MessagesService {
      */
   public apiNskV1MessagesByMessageKeyDelete(
     messageKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1MessagesByMessageKeyDelete(
     messageKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1MessagesByMessageKeyDelete(
     messageKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!messageKey) {
       throw new Error(
-        "Required parameter messageKey was null or undefined when calling apiNskV1MessagesByMessageKeyDelete."
+        'Required parameter messageKey was null or undefined when calling apiNskV1MessagesByMessageKeyDelete.'
       );
     }
 
@@ -71,7 +71,7 @@ export class MessagesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -87,22 +87,22 @@ export class MessagesService {
      */
   public apiNskV1MessagesByMessageKeyGet(
     messageKey: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<MessageBase>;
   public apiNskV1MessagesByMessageKeyGet(
     messageKey: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<MessageBase>>;
   public apiNskV1MessagesByMessageKeyGet(
     messageKey: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!messageKey) {
       throw new Error(
-        "Required parameter messageKey was null or undefined when calling apiNskV1MessagesByMessageKeyGet."
+        'Required parameter messageKey was null or undefined when calling apiNskV1MessagesByMessageKeyGet.'
       );
     }
 
@@ -112,7 +112,7 @@ export class MessagesService {
       )}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <MessageBase>httpResponse.response)
       );
@@ -133,87 +133,87 @@ export class MessagesService {
      
      */
   public apiNskV1MessagesGet(
-    searchType: "StartsWith" | "EndsWith" | "Contains" | "ExactMatch",
+    searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',
     messageTypeCode?: string,
     searchStartDate?: Date,
     searchEndDate?: Date,
     pageSize?: number,
     lastIndex?: number,
     searchValue?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<Array<MessageBase>>;
   public apiNskV1MessagesGet(
-    searchType: "StartsWith" | "EndsWith" | "Contains" | "ExactMatch",
+    searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',
     messageTypeCode?: string,
     searchStartDate?: Date,
     searchEndDate?: Date,
     pageSize?: number,
     lastIndex?: number,
     searchValue?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<Array<MessageBase>>>;
   public apiNskV1MessagesGet(
-    searchType: "StartsWith" | "EndsWith" | "Contains" | "ExactMatch",
+    searchType: 'StartsWith' | 'EndsWith' | 'Contains' | 'ExactMatch',
     messageTypeCode?: string,
     searchStartDate?: Date,
     searchEndDate?: Date,
     pageSize?: number,
     lastIndex?: number,
     searchValue?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     if (!searchType) {
       throw new Error(
-        "Required parameter searchType was null or undefined when calling apiNskV1MessagesGet."
+        'Required parameter searchType was null or undefined when calling apiNskV1MessagesGet.'
       );
     }
 
     let queryParameters: string[] = [];
     if (messageTypeCode !== undefined) {
       queryParameters.push(
-        "messageTypeCode=" + encodeURIComponent(String(messageTypeCode))
+        'messageTypeCode=' + encodeURIComponent(String(messageTypeCode))
       );
     }
     if (searchStartDate !== undefined) {
       queryParameters.push(
-        "searchStartDate=" +
+        'searchStartDate=' +
           encodeURIComponent(<any>searchStartDate.toISOString())
       );
     }
     if (searchEndDate !== undefined) {
       queryParameters.push(
-        "searchEndDate=" + encodeURIComponent(<any>searchEndDate.toISOString())
+        'searchEndDate=' + encodeURIComponent(<any>searchEndDate.toISOString())
       );
     }
     if (pageSize !== undefined) {
-      queryParameters.push("pageSize=" + encodeURIComponent(String(pageSize)));
+      queryParameters.push('pageSize=' + encodeURIComponent(String(pageSize)));
     }
     if (lastIndex !== undefined) {
       queryParameters.push(
-        "lastIndex=" + encodeURIComponent(String(lastIndex))
+        'lastIndex=' + encodeURIComponent(String(lastIndex))
       );
     }
     if (searchValue !== undefined) {
       queryParameters.push(
-        "searchValue=" + encodeURIComponent(String(searchValue))
+        'searchValue=' + encodeURIComponent(String(searchValue))
       );
     }
     if (searchType !== undefined) {
       queryParameters.push(
-        "searchType=" + encodeURIComponent(String(searchType))
+        'searchType=' + encodeURIComponent(String(searchType))
       );
     }
 
     const response: Observable<HttpResponse<
       Array<MessageBase>
     >> = this.httpClient.get(
-      `${this.basePath}/api/nsk/v1/messages?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/messages?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <Array<MessageBase>>httpResponse.response)
       );
@@ -229,17 +229,17 @@ export class MessagesService {
      */
   public apiNskV1MessagesPost(
     request?: MessageBase,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<MessageBase>;
   public apiNskV1MessagesPost(
     request?: MessageBase,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<MessageBase>>;
   public apiNskV1MessagesPost(
     request?: MessageBase,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -249,7 +249,7 @@ export class MessagesService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <MessageBase>httpResponse.response)
       );

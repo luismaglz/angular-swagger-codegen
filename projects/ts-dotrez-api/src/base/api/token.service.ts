@@ -11,9 +11,9 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { inject, injectable } from "inversify";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { inject, injectable } from 'inversify';
 
 import {
   Credentials,
@@ -24,22 +24,22 @@ import {
   SingleSignOnCredentials,
   TokenRequest,
   TokenResponse
-} from "api-models";
+} from 'api-models';
 
-import { IHttpClient } from "../IHttpClient";
-import { IAPIConfiguration } from "../IAPIConfiguration";
-import { HttpResponse } from "../HttpResponse";
-import { Headers } from "../Headers";
+import { IHttpClient } from '../IHttpClient';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { HttpResponse } from '../HttpResponse';
+import { Headers } from '../Headers';
 
-import { COLLECTION_FORMATS } from "../variables";
+import { COLLECTION_FORMATS } from '../variables';
 
 @injectable()
 export class TokenService {
-  private basePath: string = "https://localhost";
+  private basePath: string = 'https://localhost';
 
   constructor(
-    @inject("IApiHttpClient") private httpClient: IHttpClient,
-    @inject("IAPIConfiguration") private APIConfiguration: IAPIConfiguration
+    @inject('IApiHttpClient') private httpClient: IHttpClient,
+    @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration
   ) {
     if (this.APIConfiguration.basePath)
       this.basePath = this.APIConfiguration.basePath;
@@ -53,33 +53,33 @@ export class TokenService {
      */
   public apiNskV1TokenCulturePost(
     defaultCultureCode?: string,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TokenCulturePost(
     defaultCultureCode?: string,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TokenCulturePost(
     defaultCultureCode?: string,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     let queryParameters: string[] = [];
     if (defaultCultureCode !== undefined) {
       queryParameters.push(
-        "defaultCultureCode=" + encodeURIComponent(String(defaultCultureCode))
+        'defaultCultureCode=' + encodeURIComponent(String(defaultCultureCode))
       );
     }
 
     const response: Observable<HttpResponse<
       IJsonResponse
     >> = this.httpClient.post(
-      `${this.basePath}/api/nsk/v1/token/culture?${queryParameters.join("&")}`,
+      `${this.basePath}/api/nsk/v1/token/culture?${queryParameters.join('&')}`,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -93,21 +93,21 @@ export class TokenService {
      
      */
   public apiNskV1TokenDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TokenDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TokenDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       IJsonResponse
     >> = this.httpClient.delete(`${this.basePath}/api/nsk/v1/token`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -121,21 +121,21 @@ export class TokenService {
      
      */
   public apiNskV1TokenGet(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<NskSessionContext>;
   public apiNskV1TokenGet(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<NskSessionContext>>;
   public apiNskV1TokenGet(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       NskSessionContext
     >> = this.httpClient.get(`${this.basePath}/api/nsk/v1/token`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <NskSessionContext>httpResponse.response)
       );
@@ -151,17 +151,17 @@ export class TokenService {
      */
   public apiNskV1TokenPost(
     request?: NskTokenRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TokenResponse>;
   public apiNskV1TokenPost(
     request?: NskTokenRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TokenResponse>>;
   public apiNskV1TokenPost(
     request?: NskTokenRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -171,7 +171,7 @@ export class TokenService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TokenResponse>httpResponse.response)
       );
@@ -187,17 +187,17 @@ export class TokenService {
      */
   public apiNskV1TokenPut(
     request?: Credentials,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TokenPut(
     request?: Credentials,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TokenPut(
     request?: Credentials,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -207,7 +207,7 @@ export class TokenService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -223,17 +223,17 @@ export class TokenService {
      */
   public apiNskV1TokenServerTransferPost(
     request?: ServerTransferRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TokenResponse>;
   public apiNskV1TokenServerTransferPost(
     request?: ServerTransferRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TokenResponse>>;
   public apiNskV1TokenServerTransferPost(
     request?: ServerTransferRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -243,7 +243,7 @@ export class TokenService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TokenResponse>httpResponse.response)
       );
@@ -259,17 +259,17 @@ export class TokenService {
      */
   public apiNskV1TokenSingleSignOnPost(
     credentials?: SingleSignOnCredentials,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TokenResponse>;
   public apiNskV1TokenSingleSignOnPost(
     credentials?: SingleSignOnCredentials,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TokenResponse>>;
   public apiNskV1TokenSingleSignOnPost(
     credentials?: SingleSignOnCredentials,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -279,7 +279,7 @@ export class TokenService {
       credentials,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TokenResponse>httpResponse.response)
       );
@@ -295,17 +295,17 @@ export class TokenService {
      */
   public apiNskV1TokenSingleSignOnPut(
     credentials?: SingleSignOnCredentials,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiNskV1TokenSingleSignOnPut(
     credentials?: SingleSignOnCredentials,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiNskV1TokenSingleSignOnPut(
     credentials?: SingleSignOnCredentials,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -315,7 +315,7 @@ export class TokenService {
       credentials,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -329,21 +329,21 @@ export class TokenService {
      
      */
   public apiV1TokenDelete(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiV1TokenDelete(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiV1TokenDelete(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       IJsonResponse
     >> = this.httpClient.delete(`${this.basePath}/api/v1/token`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
@@ -359,17 +359,17 @@ export class TokenService {
      */
   public apiV1TokenPost(
     request?: TokenRequest,
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<TokenResponse>;
   public apiV1TokenPost(
     request?: TokenRequest,
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<TokenResponse>>;
   public apiV1TokenPost(
     request?: TokenRequest,
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
@@ -379,7 +379,7 @@ export class TokenService {
       request,
       headers
     );
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <TokenResponse>httpResponse.response)
       );
@@ -393,21 +393,21 @@ export class TokenService {
      
      */
   public apiV1TokenPut(
-    observe?: "body",
+    observe?: 'body',
     headers?: Headers
   ): Observable<IJsonResponse>;
   public apiV1TokenPut(
-    observe?: "response",
+    observe?: 'response',
     headers?: Headers
   ): Observable<HttpResponse<IJsonResponse>>;
   public apiV1TokenPut(
-    observe: any = "body",
+    observe: any = 'body',
     headers: Headers = {}
   ): Observable<any> {
     const response: Observable<HttpResponse<
       IJsonResponse
     >> = this.httpClient.put(`${this.basePath}/api/v1/token`, headers);
-    if (observe == "body") {
+    if (observe == 'body') {
       return response.pipe(
         map(httpResponse => <IJsonResponse>httpResponse.response)
       );
