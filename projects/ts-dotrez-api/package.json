@@ -12,7 +12,7 @@
   "scripts": {
     "pretsc": "rimraf -rf dist/",
     "tsc": "tsc",
-    "tslint": "tslint --fix",
+    "tslint": "tslint --config ./tsconfig.json --fix --project \"./\" ",
     "watch": "tsc --watch",
     "barrel": "barrelsby -c ./barrel-config.json",
     "test": "SET TS_NODE_PROJECT=./tsconfig.spec.json&&mocha -r ts-node/register -r esm ./src/**/*.spec.ts*",
