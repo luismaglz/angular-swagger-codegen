@@ -21,9 +21,10 @@ import {
   OrganizationGroupDetails
 } from "api-models";
 
-import IHttpClient from "../IHttpClient";
+import { IHttpClient } from "../IHttpClient";
 import { IAPIConfiguration } from "../IAPIConfiguration";
-import HttpResponse from "../HttpResponse";
+import { HttpResponse } from "../HttpResponse";
+import { Headers } from "../Headers";
 
 import { COLLECTION_FORMATS } from "../variables";
 
