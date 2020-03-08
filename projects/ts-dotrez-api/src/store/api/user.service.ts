@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   BookingSearchResult,
   BookingTripResult,
   DeltaMapperSingleSignOnTokenRequest,
@@ -39,7 +36,12 @@ import {
   UserSingleSignOnToken
 } from "api-models";
 
-import { UserService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  UserService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreUserService {

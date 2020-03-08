@@ -15,9 +15,14 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
-import { HttpResponse, Headers, IHttpClient, IJsonResponse } from "api-models";
+import { IJsonResponse } from "api-models";
 
-import { RedisService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  RedisService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreRedisService {

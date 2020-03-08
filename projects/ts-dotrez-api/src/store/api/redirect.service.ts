@@ -15,9 +15,14 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
-import { HttpResponse, Headers, IHttpClient, RedirectResult } from "api-models";
+import { RedirectResult } from "api-models";
 
-import { RedirectService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  RedirectService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreRedirectService {

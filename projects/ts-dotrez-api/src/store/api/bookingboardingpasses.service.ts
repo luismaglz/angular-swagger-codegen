@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   BoardingPassFilterRequest,
   BoardingPassPassengerFilterRequest,
   BoardingPassesCollectionv2,
@@ -27,7 +24,12 @@ import {
   IJsonResponse
 } from "api-models";
 
-import { BookingboardingpassesService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  BookingboardingpassesService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreBookingboardingpassesService {

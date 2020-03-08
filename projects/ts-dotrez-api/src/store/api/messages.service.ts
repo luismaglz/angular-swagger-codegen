@@ -15,15 +15,14 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
+import { IJsonResponse, MessageBase } from "api-models";
+
 import {
   HttpResponse,
   Headers,
   IHttpClient,
-  IJsonResponse,
-  MessageBase
-} from "api-models";
-
-import { MessagesService } from "../../base/api/index";
+  MessagesService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreMessagesService {

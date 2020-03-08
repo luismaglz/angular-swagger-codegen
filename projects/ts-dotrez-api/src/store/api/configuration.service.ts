@@ -15,14 +15,14 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
+import { EnvironmentHealth } from "api-models";
+
 import {
   HttpResponse,
   Headers,
   IHttpClient,
-  EnvironmentHealth
-} from "api-models";
-
-import { ConfigurationService } from "../../base/api/index";
+  ConfigurationService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreConfigurationService {

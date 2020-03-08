@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   Contact,
   ContactRequest,
   DeltaMapperContactBase,
@@ -28,7 +25,12 @@ import {
   PhoneNumberBase
 } from "api-models";
 
-import { BookingcontactsService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  BookingcontactsService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreBookingcontactsService {

@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   Account,
   DeltaMapperPersonAddressEditRequest,
   DeltaMapperPersonAliasRequest,
@@ -73,7 +70,12 @@ import {
   TravelNotificationEditRequest
 } from "api-models";
 
-import { UserpersonService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  UserpersonService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreUserpersonService {

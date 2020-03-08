@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   Account,
   AccountCollectionRequest,
   Booking,
@@ -45,7 +42,12 @@ import {
   TransactionRequest
 } from "api-models";
 
-import { BookingsService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  BookingsService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreBookingsService {

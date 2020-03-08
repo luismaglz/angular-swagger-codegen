@@ -16,15 +16,17 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   IJsonResponse,
   OneTimeNotificationCreateRequest,
   OneTimeTravelNotification
 } from "api-models";
 
-import { OneTimeTravelNotificationsService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  OneTimeTravelNotificationsService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreOneTimeTravelNotificationsService {

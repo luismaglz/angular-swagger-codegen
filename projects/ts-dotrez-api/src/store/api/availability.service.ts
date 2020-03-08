@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   AvailabilityRequestv2,
   AvailabilitySimpleRequestv2,
   Availabilityv2,
@@ -30,7 +27,12 @@ import {
   LowFareCacheRequest
 } from "api-models";
 
-import { AvailabilityService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  AvailabilityService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreAvailabilityService {

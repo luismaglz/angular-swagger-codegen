@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   Account,
   AccountCollectionRequest,
   CreateAccountRequest,
@@ -77,7 +74,12 @@ import {
   TravelNotificationEditRequest
 } from "api-models";
 
-import { PersonsService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  PersonsService
+} from "../../base/api/index";
 
 @injectable()
 export class StorePersonsService {

@@ -16,15 +16,17 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   AncillaryPricingOptionsContext,
   IJsonResponse,
   InputParameters
 } from "api-models";
 
-import { ApoService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  ApoService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreApoService {

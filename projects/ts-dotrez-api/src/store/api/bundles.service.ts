@@ -16,16 +16,18 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   BundleApplication,
   BundleApplicationDetails,
   BundleSetDetails,
   IJsonResponse
 } from "api-models";
 
-import { BundlesService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  BundlesService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreBundlesService {

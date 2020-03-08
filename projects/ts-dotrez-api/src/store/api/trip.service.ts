@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   Availability,
   AvailabilityFlyAheadRequest,
   AvailabilityMoveRequest,
@@ -40,7 +37,12 @@ import {
   UpgradeSegment
 } from "api-models";
 
-import { TripService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  TripService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreTripService {

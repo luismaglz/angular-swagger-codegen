@@ -16,10 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
-  IAPIConfiguration,
-  HttpResponse,
-  Headers,
-  IHttpClient,
   AvailabilityRequestv2,
   AvailabilitySimpleRequestv2,
   Availabilityv2,
@@ -30,6 +26,10 @@ import {
   LowFareCacheAvailability,
   LowFareCacheRequest
 } from "api-models";
+
+import IHttpClient from "../IHttpClient";
+import { IAPIConfiguration } from "../IAPIConfiguration";
+import HttpResponse from "../HttpResponse";
 
 import { COLLECTION_FORMATS } from "../variables";
 

@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   BookingQueueItemBase,
   DeleteBookingQueueItemBaseRequest,
   DequeueTravelSummary,
@@ -28,7 +25,12 @@ import {
   TravelQueueItemRequest
 } from "api-models";
 
-import { QueuesService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  QueuesService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreQueuesService {

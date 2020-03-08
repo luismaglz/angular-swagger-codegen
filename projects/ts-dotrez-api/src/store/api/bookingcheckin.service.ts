@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   CheckinPassengerLiftStatus,
   CheckinPassengersRequest,
   CheckinPassengersRequestv3,
@@ -27,7 +24,12 @@ import {
   InlineResponse2003
 } from "api-models";
 
-import { BookingcheckinService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  BookingcheckinService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreBookingcheckinService {

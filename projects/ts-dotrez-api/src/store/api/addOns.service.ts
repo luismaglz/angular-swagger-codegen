@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   ActivityProduct,
   ActivitySimpleRequest,
   AddOn,
@@ -35,7 +32,12 @@ import {
   SellTokenRequest
 } from "api-models";
 
-import { AddOnsService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  AddOnsService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreAddOnsService {

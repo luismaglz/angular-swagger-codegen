@@ -15,15 +15,11 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
-import {
-  IAPIConfiguration,
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  IJsonResponse,
-  Promotion,
-  PromotionBase
-} from "api-models";
+import { IJsonResponse, Promotion, PromotionBase } from "api-models";
+
+import IHttpClient from "../IHttpClient";
+import { IAPIConfiguration } from "../IAPIConfiguration";
+import HttpResponse from "../HttpResponse";
 
 import { COLLECTION_FORMATS } from "../variables";
 

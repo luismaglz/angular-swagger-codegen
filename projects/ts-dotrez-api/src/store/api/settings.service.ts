@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   AgencyCreationSettings,
   BookingPaymentSettingsv2,
   CheckInSettings,
@@ -40,7 +37,12 @@ import {
   SkySpeedSettingsv2
 } from "api-models";
 
-import { SettingsService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  SettingsService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreSettingsService {

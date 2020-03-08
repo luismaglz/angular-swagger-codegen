@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   AccountTransactionCode,
   AddressType,
   AgentSettingType,
@@ -102,7 +99,12 @@ import {
   Zone
 } from "api-models";
 
-import { ResourcesService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  ResourcesService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreResourcesService {

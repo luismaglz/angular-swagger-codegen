@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   Credentials,
   IJsonResponse,
   NskSessionContext,
@@ -29,7 +26,12 @@ import {
   TokenResponse
 } from "api-models";
 
-import { TokenService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  TokenService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreTokenService {

@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   IJsonResponse,
   Manifest,
   ManifestRequestBase,
@@ -27,7 +24,12 @@ import {
   TripInformationResponse
 } from "api-models";
 
-import { ManifestService } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  ManifestService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreManifestService {

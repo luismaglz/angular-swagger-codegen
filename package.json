@@ -31,7 +31,7 @@
     "config:angular": "java -jar ./swagger-gen/swagger-codegen-cli.jar config-help -l typescript-angular",
     "config:inversify": "java -jar ./swagger-gen/swagger-codegen-cli.jar config-help -l typescript-inversify",
     "swagger-gen": "java -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-angular -o projects/dotrez-api/src/lib/ -t ./swagger-gen/typescript-angular/ -c ./swagger-gen/config.json",
-    "swagger-gen-ts-api-base": "java -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-inversify -o projects/ts-dotrez-api/src/base -c ./swagger-gen/config-inversify.json -t ./swagger-gen/typescript-inversify-base/",
+    "swagger-gen-ts-api-base": "java -Dapis -DsupportingFiles -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-inversify -o projects/ts-dotrez-api/src/base -c ./swagger-gen/config-inversify.json -t ./swagger-gen/typescript-inversify-base/",
     "swagger-gen-ts-api-store": "java -Dapis  -DsupportingFiles=ApiServiceBinder.ts -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-inversify -o projects/ts-dotrez-api/src/store -c ./swagger-gen/config-inversify.json -t ./swagger-gen/typescript-inversify-store/",
     "swagger-gen-models": "java -Dmodels -jar ./swagger-gen/swagger-codegen-cli.jar generate -i ./swagger-gen/swagger.json -l typescript-inversify -o projects/api-models/src -c ./swagger-gen/config-inversify.json -t ./swagger-gen/typescript-inversify-base/",
     "gen": "npm run swagger-gen && npm run replace && npm run barrel:api && npm run pretty && npm run build:dotrez-api --model-package ts-models",

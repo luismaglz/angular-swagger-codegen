@@ -16,10 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 
 import {
-  IAPIConfiguration,
-  HttpResponse,
-  Headers,
-  IHttpClient,
   Account,
   DeltaMapperPersonAddressEditRequest,
   DeltaMapperPersonAliasRequest,
@@ -73,6 +69,10 @@ import {
   TravelNotificationCreateRequest,
   TravelNotificationEditRequest
 } from "api-models";
+
+import IHttpClient from "../IHttpClient";
+import { IAPIConfiguration } from "../IAPIConfiguration";
+import HttpResponse from "../HttpResponse";
 
 import { COLLECTION_FORMATS } from "../variables";
 

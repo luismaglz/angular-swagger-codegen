@@ -15,15 +15,14 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
+import { GraphQlQuery, GraphQlQueryv2 } from "api-models";
+
 import {
   HttpResponse,
   Headers,
   IHttpClient,
-  GraphQlQuery,
-  GraphQlQueryv2
-} from "api-models";
-
-import { GraphService } from "../../base/api/index";
+  GraphService
+} from "../../base/api/index";
 
 @injectable()
 export class StoreGraphService {

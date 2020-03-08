@@ -16,9 +16,6 @@ import { map } from "rxjs/operators";
 import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
   ChildAccountTransactionsRequest,
   CreateOrganizationAccountRequest,
   DeltaMapperOrganizationEditRequest,
@@ -38,7 +35,12 @@ import {
   Transaction
 } from "api-models";
 
-import { Organizations2Service } from "../../base/api/index";
+import {
+  HttpResponse,
+  Headers,
+  IHttpClient,
+  Organizations2Service
+} from "../../base/api/index";
 
 @injectable()
 export class StoreOrganizations2Service {
