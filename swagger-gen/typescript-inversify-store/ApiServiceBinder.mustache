@@ -10,6 +10,7 @@ export class StoreApiServiceBinder {
         {{#apiInfo}}
         {{#apis}}
     public static withStore{{classname}}(container: interfaces.Container) {
+        container.bind<{{classname}}{{#withInterfaces}}Interface{{/withInterfaces}}>("{{classname}}").to({{classname}}).inSingletonScope();
         container.bind<Store{{classname}}{{#withInterfaces}}Interface{{/withInterfaces}}>("Store{{classname}}").to(Store{{classname}}).inSingletonScope();
     }
         {{/apis}}
