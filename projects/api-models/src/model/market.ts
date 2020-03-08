@@ -52,7 +52,7 @@ export interface Market {
     /**
      * The market rules for requiring travel documents for this market.
      */
-    travelDocsRequired?: Enums.<ENUM>'None'|'FromTravel'|'ToTravel'|'BothTravel'|'BothOverride'|'FromOverride'|'ToOverride'|'ToTravelToOverride'|'ToTravelBothOverride'|'ToTravelFromOverride'|'FromTravelToOverride'|'FromTravelBothOverride'|'FromTravelFromOverride'|'BothTravelToOverride'|'BothTravelBothOverride'|'BothTravelFromOverride'</ENUM>;
+    travelDocsRequired?: 'None'|'FromTravel'|'ToTravel'|'BothTravel'|'BothOverride'|'FromOverride'|'ToOverride'|'ToTravelToOverride'|'ToTravelBothOverride'|'ToTravelFromOverride'|'FromTravelToOverride'|'FromTravelBothOverride'|'FromTravelFromOverride'|'BothTravelToOverride'|'BothTravelBothOverride'|'BothTravelFromOverride';
     /**
      * The ending location code for this market.
      */

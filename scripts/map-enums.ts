@@ -18,7 +18,7 @@ function processEnums(err, contents) {
   paths.forEach(modelPath => {
     const options = {
       files: modelPath,
-      from: /<ENUM>(.*)<\/ENUM>/gm,
+      from: /Enums.<ENUM>(.*)<\/ENUM>/gm,
       to: (m, g) => replaceEnums(m, g, enumDictionary),
       dry
     };
@@ -36,5 +36,5 @@ function processEnums(err, contents) {
 function replaceEnums(match: string, group: string, enumDictionary: string) {
   if (typeof group !== "string") return "";
   const key = group.replace(/'/g, '"');
-  return enumDictionary[key] ? enumDictionary[key] : match;
+  return enumDictionary[key] ? `Enums.${enumDictionary[key]}` : group;
 }

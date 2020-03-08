@@ -20,7 +20,8 @@
   "dependencies": {
     "inversify": "^5.0.1",
     "rxjs": "^6.5.4",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "api-models": "1.0.0"
   },
   "devDependencies": {
     "tslib": "^1.10.0",

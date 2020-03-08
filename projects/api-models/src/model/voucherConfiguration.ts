@@ -71,7 +71,7 @@ export interface VoucherConfiguration {
     /**
      * The voucher calculated amount control.
      */
-    calculatedAmountControl?: Enums.<ENUM>'Default'|'Fares'|'FaresPlusTaxes'</ENUM>;
+    calculatedAmountControl?: 'Default'|'Fares'|'FaresPlusTaxes';
     /**
      * The voucher maximum passenger total.
      */

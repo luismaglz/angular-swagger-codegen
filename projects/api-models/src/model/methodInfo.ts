@@ -17,14 +17,14 @@ import { ParameterInfo } from './parameterInfo';
 import * as Enums from '../enums';
 
 export interface MethodInfo { 
-    readonly memberType?: Enums.<ENUM>'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All'</ENUM>;
+    readonly memberType?: 'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All';
     readonly returnType?: string;
     readonly returnParameter?: ParameterInfo;
     readonly returnTypeCustomAttributes?: ICustomAttributeProvider;
-    readonly methodImplementationFlags?: Enums.<ENUM>'Managed'|'IL'|'Native'|'OPTIL'|'Runtime'|'CodeTypeMask'|'Unmanaged'|'ManagedMask'|'NoInlining'|'ForwardRef'|'Synchronized'|'NoOptimization'|'PreserveSig'|'AggressiveInlining'|'InternalCall'|'MaxMethodImplVal'</ENUM>;
+    readonly methodImplementationFlags?: 'Managed'|'IL'|'Native'|'OPTIL'|'Runtime'|'CodeTypeMask'|'Unmanaged'|'ManagedMask'|'NoInlining'|'ForwardRef'|'Synchronized'|'NoOptimization'|'PreserveSig'|'AggressiveInlining'|'InternalCall'|'MaxMethodImplVal';
     readonly methodHandle?: any;
-    readonly attributes?: Enums.<ENUM>'ReuseSlot'|'PrivateScope'|'Private'|'FamANDAssem'|'Assembly'|'Family'|'FamORAssem'|'Public'|'MemberAccessMask'|'UnmanagedExport'|'Static'|'Final'|'Virtual'|'HideBySig'|'NewSlot'|'VtableLayoutMask'|'CheckAccessOnOverride'|'Abstract'|'SpecialName'|'RTSpecialName'|'PinvokeImpl'|'HasSecurity'|'RequireSecObject'|'ReservedMask'</ENUM>;
-    readonly callingConvention?: Enums.<ENUM>'Standard'|'VarArgs'|'Any'|'HasThis'|'ExplicitThis'</ENUM>;
+    readonly attributes?: 'ReuseSlot'|'PrivateScope'|'Private'|'FamANDAssem'|'Assembly'|'Family'|'FamORAssem'|'Public'|'MemberAccessMask'|'UnmanagedExport'|'Static'|'Final'|'Virtual'|'HideBySig'|'NewSlot'|'VtableLayoutMask'|'CheckAccessOnOverride'|'Abstract'|'SpecialName'|'RTSpecialName'|'PinvokeImpl'|'HasSecurity'|'RequireSecObject'|'ReservedMask';
+    readonly callingConvention?: 'Standard'|'VarArgs'|'Any'|'HasThis'|'ExplicitThis';
     readonly isGenericMethodDefinition?: boolean;
     readonly containsGenericParameters?: boolean;
     readonly isGenericMethod?: boolean;
