@@ -1,9 +1,9 @@
-import { IHttpClient } from './IHttpClient';
-import { Observable, from } from 'rxjs';
-import 'whatwg-fetch';
-import { HttpResponse } from './HttpResponse';
 import { injectable } from 'inversify';
+import { from, Observable } from 'rxjs';
+import 'whatwg-fetch';
 import { Headers } from './Headers';
+import { HttpResponse } from './HttpResponse';
+import { IHttpClient } from './IHttpClient';
 
 @injectable()
 export class HttpClient implements IHttpClient {
@@ -41,8 +41,13 @@ export class HttpClient implements IHttpClient {
     );
   }
 
-  delete(url: string, headers?: Headers): Observable<HttpResponse> {
-    return this.performNetworkCall(url, 'delete', undefined, headers);
+  delete(url: string, body?: {}, headers?: Headers): Observable<HttpResponse> {
+    return this.performNetworkCall(
+      url,
+      'delete',
+      this.getJsonBody(body || {}),
+      this.addJsonHeaders(headers)
+    );
   }
 
   private getJsonBody(body: {} | FormData) {

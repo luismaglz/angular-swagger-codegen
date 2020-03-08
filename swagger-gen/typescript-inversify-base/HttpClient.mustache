@@ -23,8 +23,8 @@ export class HttpClient implements IHttpClient {
         return this.performNetworkCall(url, "patch", this.getJsonBody(body || {}), this.addJsonHeaders(headers));
     }
 
-    delete(url: string, headers?: Headers): Observable<HttpResponse> {
-        return this.performNetworkCall(url, "delete", undefined, headers);
+    delete(url: string, body?: {}, headers?: Headers): Observable<HttpResponse> {
+        return this.performNetworkCall(url, "delete", this.getJsonBody(body || {}), this.addJsonHeaders(headers));
     }
 
     private getJsonBody(body: {}|FormData) {
