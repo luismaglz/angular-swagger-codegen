@@ -3,6 +3,7 @@ import {interfaces} from "inversify";
 {{#apiInfo}}
 {{#apis}}
 import { Store{{classname}} } from './{{importPath}}';
+import { {{classname}} } from '../base/index';
 {{/apis}}
 {{/apiInfo}}
 
