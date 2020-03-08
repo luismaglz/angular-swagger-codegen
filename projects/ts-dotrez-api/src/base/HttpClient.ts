@@ -7,7 +7,7 @@ import 'rxjs/add/observable/fromPromise';
 import { Headers } from './Headers';
 
 @injectable()
-class HttpClient implements IHttpClient {
+export class HttpClient implements IHttpClient {
   get(url: string, headers?: Headers): Observable<HttpResponse> {
     return this.performNetworkCall(url, 'get', undefined, headers);
   }
@@ -96,5 +96,3 @@ class HttpClient implements IHttpClient {
     return Observable.fromPromise(promise);
   }
 }
-
-export default HttpClient;

@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import HttpResponse from './HttpResponse';
 import { Headers } from './Headers';
 
-interface IHttpClient {
+export interface IHttpClient {
   get(url: string, headers?: Headers): Observable<HttpResponse>;
   post(
     url: string,
@@ -13,5 +13,3 @@ interface IHttpClient {
   patch(url: string, body: {}, headers?: Headers): Observable<HttpResponse>;
   delete(url: string, headers?: Headers): Observable<HttpResponse>;
 }
-
-export default IHttpClient;
