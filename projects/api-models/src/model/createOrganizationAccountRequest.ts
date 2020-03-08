@@ -28,7 +28,7 @@ export interface CreateOrganizationAccountRequest {
     /**
      * The allowed account types for account creation.
      */
-    type?: Enums.<ENUM>'Credit'|'Prepaid'|'Supplementary'</ENUM>;
+    type?: Enums.AllowedAccountTypes;
     /**
      * The optional note to associate with the account creation.
      */

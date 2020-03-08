@@ -36,7 +36,7 @@ export interface QuotedOrder {
     /**
      * The product type code.
      */
-    type?: Enums.<ENUM>'Default'|'Insurance'|'Activity'|'Hotel'|'Car'</ENUM>;
+    type?: Enums.ProductTypeCode;
     /**
      * Flag indicating if the order is active.
      */
@@ -100,7 +100,7 @@ export interface QuotedOrder {
     /**
      * The payment action.
      */
-    paymentAction?: Enums.<ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
+    paymentAction?: Enums.PaymentAction;
     /**
      * The pricing breakdown.
      */

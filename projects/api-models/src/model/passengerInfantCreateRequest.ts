@@ -38,7 +38,7 @@ export interface PassengerInfantCreateRequest {
     /**
      * The gender of the passenger.
      */
-    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The name of the passenger.
      */

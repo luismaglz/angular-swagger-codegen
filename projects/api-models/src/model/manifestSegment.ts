@@ -40,7 +40,7 @@ export interface ManifestSegment {
     /**
      * Weight Type.
      */
-    baggageAllowanceWeightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
+    baggageAllowanceWeightType?: Enums.WeightType;
     /**
      * The BookingStatus property.
      */

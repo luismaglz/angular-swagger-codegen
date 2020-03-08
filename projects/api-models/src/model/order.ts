@@ -103,7 +103,7 @@ export interface Order {
     /**
      * The payment action.
      */
-    paymentAction?: Enums.<ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
+    paymentAction?: Enums.PaymentAction;
     /**
      * The pricing breakdown.
      */

@@ -28,5 +28,5 @@ export interface ServerTransferRequest {
     /**
      * The transferred server's channel type.
      */
-    channel?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channel?: Enums.ChannelType;
 }

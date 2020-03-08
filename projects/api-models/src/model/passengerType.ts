@@ -40,7 +40,7 @@ export interface PassengerType {
     /**
      * The type indicator specifying the age group this belongs to.
      */
-    typeIndicator?: Enums.<ENUM>'Adult'|'Infant'|'Child'|'NonAdult'</ENUM>;
+    typeIndicator?: Enums.PassengerTypeIndicator;
     /**
      * The minimum age for the passenger type.
      */

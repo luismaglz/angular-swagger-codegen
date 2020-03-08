@@ -28,11 +28,11 @@ export interface Ticket {
     /**
      * The ticket indicator.
      */
-    ticketIndicator?: Enums.<ENUM>'Unknown'|'TicketRequired'|'AutomatedTicketLiftRequired'|'ManualTicketLiftRequired'|'AutomatedTicketNoLiftRequired'|'ManualTicketNoLiftRequired'|'HostETicketNoLiftRequired'|'ElectronicTicketNoLiftRequired'</ENUM>;
+    ticketIndicator?: Enums.TicketIndicatorCode;
     /**
      * The ticket status.
      */
-    ticketStatus?: Enums.<ENUM>'Unknown'|'TicketAvailableForUse'|'TicketUnavailableForUse'|'TicketReissueRequiredForPassenger'|'TicketReissueRequiredForInfant'|'TicketReissueRequiredForBoth'</ENUM>;
+    ticketStatus?: Enums.TicketStatusCode;
     /**
      * The passenger key the ticket is associated with.
      */

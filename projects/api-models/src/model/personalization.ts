@@ -37,7 +37,7 @@ export interface Personalization {
     /**
      * The display data type.
      */
-    dataType?: Enums.<ENUM>'Unknown'|'Bool'|'List'|'Text'|'Date'</ENUM>;
+    dataType?: Enums.PersonalizationDataType;
     /**
      * Flag indicating that user input is required.
      */

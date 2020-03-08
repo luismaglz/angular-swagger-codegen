@@ -22,7 +22,7 @@ export interface ParameterInfo {
     readonly defaultValue?: any;
     readonly rawDefaultValue?: any;
     readonly position?: number;
-    readonly attributes?: Enums.<ENUM>'None'|'In'|'Out'|'Lcid'|'Retval'|'Optional'|'HasDefault'|'HasFieldMarshal'|'Reserved3'|'Reserved4'|'ReservedMask'</ENUM>;
+    readonly attributes?: 'None'|'In'|'Out'|'Lcid'|'Retval'|'Optional'|'HasDefault'|'HasFieldMarshal'|'Reserved3'|'Reserved4'|'ReservedMask';
     readonly member?: MemberInfo;
     readonly isIn?: boolean;
     readonly isOut?: boolean;

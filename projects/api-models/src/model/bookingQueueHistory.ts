@@ -29,7 +29,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue history event type.
      */
-    historyEvent?: Enums.<ENUM>'Unknown'|'Add'|'Remove'|'Update'</ENUM>;
+    historyEvent?: Enums.BookingQueueHistoryEvent;
     /**
      * The booking queue code.
      */
@@ -53,7 +53,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue action.
      */
-    queueAction?: Enums.<ENUM>'Default'|'Warning'|'Lock'|'DefaultAndNotify'|'WarningAndNotify'|'LockAndNotify'</ENUM>;
+    queueAction?: Enums.QueueAction;
     /**
      * The booking queue domain code.
      */
@@ -69,7 +69,7 @@ export interface BookingQueueHistory {
     /**
      * The booking queue item event type.
      */
-    queueType?: Enums.<ENUM>'Default'|'BookingBalanceDue'|'BookingNegativeBalance'|'BookingCustomerComment'|'DeclinedPaymentInitial'|'DeclinedPaymentChange'|'FareOverride'|'ScheduleTimeChange'|'ScheduleTimeChangeMisconnect'|'ScheduleCancellation'|'FlightDesignatorChange'|'ReaccommodationMove'|'GdsCancelWithPendingPayment'|'InvalidPriceStatusOverride'|'FareRestrictionOverride'|'HeldBookings'|'InvalidPriceStatus'|'Watchlist'|'NonFlightServiceFee'|'NotAllTicketNumbersReceived'|'BookingSegmentOversold'|'ReaccommodationCancel'|'ExternalSsrAutoConfirmed'|'OpCarrierSegUpdate'|'OpCarrierSsrUpdate'|'OpCarrierOtherUpdate'|'NameChangeNotAllowed'|'InboundAscNotProcessed'|'OpCarrierInformationChange'|'BookingComponentUpdate'|'GroupBookings'|'BankDirectPnrOutOfBalance'|'NoSeatAssigned'|'SeatNumberChange'|'SsrNotSupportedOnNewSeat'|'FewerSeatPreferencesMetOnNewSeat'|'AosUnableToConfirmCancel'|'ETicketIssue'|'ETicketFollowup'|'InvoluntaryFlyAhead'|'ManualClearanceOnOutage'|'UnbalancedPoints'|'OpCarrierTimeChange'|'OaCarrierTimeChange'|'VoluntaryFlightChange'|'InvoluntaryFlightChange'|'HoldCancellationFailed'|'ScheduleTimeChangeWithDynamicQueueCode'|'ReaccommodationMoveWithDynamicQueueCode'|'ItineraryIntegrity'|'ReducePartyNotProcessed'|'CheckedPassengerUpdate'|'NameChangeWithinRule'|'IncompletePassengerEMDCoupon'|'ASVCUpdateFailed'|'ScheduleTimeChangeMisconnectBelowMinimum'|'ScheduleTimeChangeMisconnectAboveMaximum'|'OpCarrierMisconnect'|'InventoryQueuing'|'SelfServiceAsm'|'SelfServiceDelay'|'SelfServiceFlightCancellation'|'SelfServiceIrop'|'SelfServiceScheduleChange'|'SelfServiceTimeChange'|'AosAddOrCancelNotSuccessful'|'MissingGdsFareFamily'|'ChangeCabinQueue'</ENUM>;
+    queueType?: Enums.QueueEventType;
     /**
      * The booking queue item point of sale.
      */

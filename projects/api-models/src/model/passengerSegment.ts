@@ -48,7 +48,7 @@ export interface PassengerSegment {
     /**
      * The type of passenger segment baggage allowance weight.
      */
-    baggageAllowanceWeightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
+    baggageAllowanceWeightType?: Enums.WeightType;
     /**
      * The passenger segment boarding sequence.
      */
@@ -60,7 +60,7 @@ export interface PassengerSegment {
     /**
      * The lift status.
      */
-    liftStatus?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    liftStatus?: Enums.LiftStatus;
     /**
      * The modified date.
      */
@@ -68,7 +68,7 @@ export interface PassengerSegment {
     /**
      * The over book indicator.
      */
-    overBookIndicator?: Enums.<ENUM>'NormalSell'|'Oversold'|'ClassOrCabinOversold'</ENUM>;
+    overBookIndicator?: Enums.OverbookIndicatorTypes;
     /**
      * The priority date.
      */

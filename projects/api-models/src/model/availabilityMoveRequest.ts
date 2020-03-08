@@ -24,7 +24,7 @@ export interface AvailabilityMoveRequest {
     /**
      * The passenger move type.
      */
-    passengerMoveType?: Enums.<ENUM>'None'|'Irop'|'Diversion'|'FlightClose'|'FlyAhead'|'SplitJourney'|'SelfServiceRebooking'</ENUM>;
+    passengerMoveType?: Enums.MovePassengerJourneyType;
     /**
      * The filtering criteria.
      */
@@ -48,5 +48,5 @@ export interface AvailabilityMoveRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: Enums.<ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
+    type?: Enums.AvailabilityType;
 }

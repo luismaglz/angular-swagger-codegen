@@ -59,11 +59,11 @@ export interface AvailabilitySegment {
     /**
      * The change reason code.
      */
-    changeReasonCode?: Enums.<ENUM>'NoChange'|'Irop'|'ScheduleChange'|'Move'|'VoluntaryFlyAhead'|'InvoluntaryFlyAhead'|'SelfServiceRebooking'</ENUM>;
+    changeReasonCode?: Enums.ChangeReasonCodes;
     /**
      * The type of the segment.
      */
-    segmentType?: Enums.<ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
+    segmentType?: Enums.SegmentTypes;
     /**
      * The value indicating if this segment is international.
      */

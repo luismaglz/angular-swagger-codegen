@@ -24,7 +24,7 @@ export interface AvailableJourneyFareDetail {
     /**
      * The classes status.
      */
-    status?: Enums.<ENUM>'Active'|'InActive'|'AvsOpen'|'AvsOnRequest'|'AvsClosed'</ENUM>;
+    status?: Enums.ClassStatus;
     /**
      * The reference to the fare in the master fare collection.
      */

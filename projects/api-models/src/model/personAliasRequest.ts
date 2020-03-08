@@ -20,7 +20,7 @@ export interface PersonAliasRequest {
     /**
      * The type of alias.
      */
-    type?: Enums.<ENUM>'Alias'|'Variant'</ENUM>;
+    type?: Enums.PersonAliasType;
     /**
      * The given first name.
      */

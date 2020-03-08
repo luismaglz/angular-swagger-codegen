@@ -28,7 +28,7 @@ export interface PassengerInformation {
     /**
      * Gets or sets passenger gender.
      */
-    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The passenger's date of birth.
      */

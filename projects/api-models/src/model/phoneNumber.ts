@@ -20,7 +20,7 @@ export interface PhoneNumber {
     /**
      * The phone number type.
      */
-    type: Enums.<ENUM>'Other'|'Home'|'Work'|'Mobile'|'Fax'</ENUM>;
+    type: Enums.PhoneNumberType;
     /**
      * The phone number without any formatting characters.
      */

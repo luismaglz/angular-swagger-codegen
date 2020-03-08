@@ -52,23 +52,23 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to view manifest.
      */
-    viewManifestControl?: Enums.<ENUM>'None'|'StandbyOnly'|'Full'</ENUM>;
+    viewManifestControl?: Enums.ViewManifestControl;
     /**
      * Indicator on permissions for AdHoc flight operations.
      */
-    adHocFlightControl?: Enums.<ENUM>'None'|'View'|'Sell'</ENUM>;
+    adHocFlightControl?: Enums.AdHocFlightControl;
     /**
      * Indicator whether the agent is allowed to overbook except on moves.
      */
-    allowSellOverbook?: Enums.<ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
+    allowSellOverbook?: Enums.OverbookControl;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowMoveOverbook?: Enums.<ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
+    allowMoveOverbook?: Enums.OverbookControl;
     /**
      * Indicator whether the agent is allowed to overbook on move only.
      */
-    allowUpgradeOverbook?: Enums.<ENUM>'CannotOverbook'|'CanOverbookClass'|'CanOverbookNest'|'CanOverbookLeg'</ENUM>;
+    allowUpgradeOverbook?: Enums.OverbookControl;
     /**
      * Flag indicating whether the agent allows split-journey moves.
      */
@@ -76,7 +76,7 @@ export interface ReserveFlightsSettings {
     /**
      * Indicator whether the agent is allowed to move a passenger from a flight to another without repricing.
      */
-    allowMove?: Enums.<ENUM>'NotAllowed'|'AllowedOnInventory'|'Allowed'</ENUM>;
+    allowMove?: Enums.MoveFlightCode;
     /**
      * Flag indicating if move by maximum class availability.
      */
@@ -164,7 +164,7 @@ export interface ReserveFlightsSettings {
     /**
      * Controls which type of fare overrides are allowed by a role.
      */
-    allowedFareOverrideType?: Enums.<ENUM>'DiscountedPrice'|'PublishedPrice'|'All'</ENUM>;
+    allowedFareOverrideType?: Enums.AllowedFareOverrideType;
     /**
      * Flag indicating whether or not to allow a trip move for the initial (non-committed) booking.
      */

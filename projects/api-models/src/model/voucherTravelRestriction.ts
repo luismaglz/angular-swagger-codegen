@@ -20,7 +20,7 @@ export interface VoucherTravelRestriction {
     /**
      * The travel restriction type.
      */
-    restrictionType?: Enums.<ENUM>'Default'|'Blackout'|'Season'</ENUM>;
+    restrictionType?: Enums.TravelRestrictionType;
     /**
      * The voucher configuration code.
      */

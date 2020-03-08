@@ -20,7 +20,7 @@ export interface BookingMessageHistory {
     /**
      * The message history type.
      */
-    type?: Enums.<ENUM>'TeletypeMessage'|'ETicket'|'GovernmentSecurity'|'PnrGovernment'</ENUM>;
+    type?: 'TeletypeMessage'|'ETicket'|'GovernmentSecurity'|'PnrGovernment';
     /**
      * The message.
      */

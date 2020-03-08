@@ -20,7 +20,7 @@ export interface NotificationDestination {
     /**
      * The delivery method code.
      */
-    deliveryMethodCode: Enums.<ENUM>'Email'|'Sms'</ENUM>;
+    deliveryMethodCode: 'Email'|'Sms';
     /**
      * The notification destination, an email or phone number.
      */

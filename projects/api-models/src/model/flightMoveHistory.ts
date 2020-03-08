@@ -50,7 +50,7 @@ export interface FlightMoveHistory {
     /**
      * The reason for the move operation.
      */
-    changeReason?: Enums.<ENUM>'NoChange'|'Irop'|'ScheduleChange'|'Move'|'VoluntaryFlyAhead'|'InvoluntaryFlyAhead'|'SelfServiceRebooking'</ENUM>;
+    changeReason?: Enums.ChangeReasonCodes;
     /**
      * The received by reference number.
      */

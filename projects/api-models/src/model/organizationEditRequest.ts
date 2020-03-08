@@ -35,7 +35,7 @@ export interface OrganizationEditRequest {
     /**
      * Organization type.
      */
-    type?: Enums.<ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
+    type?: Enums.OrganizationType;
     /**
      * Advanced configuration values.
      */
@@ -43,7 +43,7 @@ export interface OrganizationEditRequest {
     /**
      * The organization status.
      */
-    status?: Enums.<ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
+    status?: Enums.OrganizationStatus;
     /**
      * The parent organization code.
      */

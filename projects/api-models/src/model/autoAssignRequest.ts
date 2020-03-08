@@ -33,9 +33,9 @@ export interface AutoAssignRequest {
     /**
      * Indicates the type of hold placed on a unit.
      */
-    inventoryControl?: Enums.<ENUM>'Session'|'None'</ENUM>;
+    inventoryControl?: Enums.UnitInventoryControlType;
     /**
      * The seat assignment mode.
      */
-    seatAssignmentMode?: Enums.<ENUM>'AutoDetermine'|'PreSeatAssignment'|'WebCheckIn'</ENUM>;
+    seatAssignmentMode?: Enums.SeatAssignmentMode;
 }

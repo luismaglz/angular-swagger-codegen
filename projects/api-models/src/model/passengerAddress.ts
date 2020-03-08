@@ -20,7 +20,7 @@ export interface PassengerAddress {
     /**
      * The addresses APIS status.
      */
-    status?: Enums.<ENUM>'Residence'|'InCountry'|'Emergency'|'Contact'</ENUM>;
+    status?: Enums.ApisAddressStatus;
     /**
      * Company name associated with this address.
      */

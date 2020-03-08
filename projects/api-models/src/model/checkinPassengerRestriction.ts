@@ -20,7 +20,7 @@ export interface CheckinPassengerRestriction {
     /**
      * The passenger restriction type.
      */
-    restriction?: Enums.<ENUM>'NotFound'|'MissingDestinationAddress'|'MissingCountryOrResidence'|'OnLockQueue'|'MissingRequiredSsrs'|'ContainsRestrictedSsrs'|'IsSelectee'|'MissingSeat'|'NotConfirmed'|'NotStandby'|'ContainsUnknownSsr'|'MissingApisRequirement'|'MissingDocuments'|'MissingName'|'MissingInfantName'|'MissingDateOfBirth'|'MissingInfantDateOfBirth'|'RestrictedInfantInLap'</ENUM>;
+    restriction?: Enums.CheckinPassengerRestrictionType;
     /**
      * The description of the restriction.
      */

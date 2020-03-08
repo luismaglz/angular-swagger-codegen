@@ -20,7 +20,7 @@ export interface ManifestComment {
     /**
      * The comment type.
      */
-    commentType?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
+    commentType?: Enums.PersonCommentType;
     /**
      * The agentID.
      */
@@ -44,5 +44,5 @@ export interface ManifestComment {
     /**
      * The system type.
      */
-    systemName?: Enums.<ENUM>'Default'|'WinRez'|'FareManager'|'ScheduleManager'|'WinManager'|'ConsoleRez'|'WebRez'|'WebServicesApi'|'WebServicesEsc'|'InternalService'|'WebReporting'|'TaxAndFeeManager'|'Dcs'|'DCS_Kiosk'</ENUM>;
+    systemName?: 'Default'|'WinRez'|'FareManager'|'ScheduleManager'|'WinManager'|'ConsoleRez'|'WebRez'|'WebServicesApi'|'WebServicesEsc'|'InternalService'|'WebReporting'|'TaxAndFeeManager'|'Dcs'|'DCS_Kiosk';
 }

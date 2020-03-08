@@ -53,7 +53,7 @@ export interface TravelDocumentCreateRequest {
     /**
      * The travel document holder's gender.
      */
-    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The person's date of birth.
      */

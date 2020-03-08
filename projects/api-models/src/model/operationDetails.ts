@@ -40,7 +40,7 @@ export interface OperationDetails {
     /**
      * Represents the trip status.
      */
-    status?: Enums.<ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
+    status?: Enums.LegStatus;
     /**
      * Represents the transportation identifier.
      */

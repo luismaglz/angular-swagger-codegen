@@ -44,7 +44,7 @@ export interface OrganizationConfigurationv2 {
     /**
      * Gds email itinerary.
      */
-    gdsEmailItinerary?: Enums.<ENUM>'NoDistribution'|'UseOrganizationEmailOnly'|'UseMessageEmailOnly'|'UseMessageEmail'</ENUM>;
+    gdsEmailItinerary?: Enums.ExternalDistributionOption;
     /**
      * Organization source is internal. Otherwise its external.
      */
@@ -60,5 +60,5 @@ export interface OrganizationConfigurationv2 {
     /**
      * Referral type.
      */
-    referralType?: Enums.<ENUM>'Default'|'Allowed'|'AllowedWithUrlMatch'|'NotAllowed'</ENUM>;
+    referralType?: Enums.ReferralType;
 }

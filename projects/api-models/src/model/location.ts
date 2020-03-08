@@ -28,7 +28,7 @@ export interface Location {
     /**
      * The location type.
      */
-    locationType?: Enums.<ENUM>'Other'|'Station'|'City'</ENUM>;
+    locationType?: Enums.LocationType;
     /**
      * The payment group id.
      */

@@ -42,7 +42,7 @@ export interface ProductVariationCatalog {
     /**
      * Determines how the inventory quantity is counted.
      */
-    inventoryGrouping?: Enums.<ENUM>'Existing'|'Total'</ENUM>;
+    inventoryGrouping?: Enums.InventoryQuantityGrouping;
     /**
      * The actual number available.
      */
@@ -58,5 +58,5 @@ export interface ProductVariationCatalog {
     /**
      * The configured payment action.
      */
-    paymentAction?: Enums.<ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
+    paymentAction?: Enums.PaymentAction;
 }

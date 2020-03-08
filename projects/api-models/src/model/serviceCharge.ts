@@ -32,11 +32,11 @@ export interface ServiceCharge {
     /**
      * The service charge type.
      */
-    type?: Enums.<ENUM>'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment'</ENUM>;
+    type?: 'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment';
     /**
      * The service charge collect type.
      */
-    collectType?: Enums.<ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
+    collectType?: Enums.CollectType;
     /**
      * The service charge currency code.
      */

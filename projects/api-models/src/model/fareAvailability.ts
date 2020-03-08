@@ -49,7 +49,7 @@ export interface FareAvailability {
     /**
      * The type of the fare application.
      */
-    fareApplicationType?: Enums.<ENUM>'Route'|'Sector'|'Governing'</ENUM>;
+    fareApplicationType?: Enums.FareApplicationType;
     /**
      * The fare class of service.
      */
@@ -61,11 +61,11 @@ export interface FareAvailability {
     /**
      * The fare status.
      */
-    fareStatus?: Enums.<ENUM>'Default'|'SameDayStandBy'|'FareOverrideConfirming'|'FareOverrideConfirmed'|'PublishedFareOverrideConfirming'|'PublishedFareOverrideConfirmed'</ENUM>;
+    fareStatus?: Enums.FareStatus;
     /**
      * The inbound and outbound.
      */
-    inboundOutBound?: Enums.<ENUM>'None'|'Inbound'|'Outbound'|'Both'|'RoundFrom'|'RoundTo'</ENUM>;
+    inboundOutBound?: Enums.InboundOutbound;
     /**
      * Gets or sets a value indicating whether this fare is an allotment marker.
      */

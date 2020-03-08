@@ -63,7 +63,7 @@ export interface AvailableSegment {
     /**
      * The type of the segment.
      */
-    segmentType?: Enums.<ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
+    segmentType?: Enums.SegmentTypes;
     /**
      * The collection of legs on the segment.
      */

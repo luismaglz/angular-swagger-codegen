@@ -25,15 +25,15 @@ export interface BookingTripResult {
     /**
      * The booking status.
      */
-    bookingStatus?: Enums.<ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
+    bookingStatus?: Enums.BookingStatus;
     /**
      * The price status.
      */
-    priceStatus?: Enums.<ENUM>'Invalid'|'Override'|'Valid'</ENUM>;
+    priceStatus?: Enums.PriceStatus;
     /**
      * The paid status.
      */
-    paidStatus?: Enums.<ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
+    paidStatus?: Enums.PaidStatus;
     /**
      * The UTC date and time of when the booking was created.
      */

@@ -17,5 +17,5 @@ export interface HealthInformation {
     component?: string;
     componentType?: string;
     details?: string;
-    status?: Enums.<ENUM>'Unknown'|'Ok'|'Warning'|'Error'</ENUM>;
+    status?: 'Unknown'|'Ok'|'Warning'|'Error';
 }

@@ -28,9 +28,9 @@ export interface ServerContext {
     /**
      * The acting system name.
      */
-    systemName?: Enums.<ENUM>'Default'|'WinRez'|'FareManager'|'ScheduleManager'|'WinManager'|'ConsoleRez'|'WebRez'|'WebServicesApi'|'WebServicesEsc'|'InternalService'|'WebReporting'|'TaxAndFeeManager'|'Dcs'|'DCS_Kiosk'</ENUM>;
+    systemName?: 'Default'|'WinRez'|'FareManager'|'ScheduleManager'|'WinManager'|'ConsoleRez'|'WebRez'|'WebServicesApi'|'WebServicesEsc'|'InternalService'|'WebReporting'|'TaxAndFeeManager'|'Dcs'|'DCS_Kiosk';
     /**
      * The acting channel type.
      */
-    channel?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channel?: Enums.ChannelType;
 }

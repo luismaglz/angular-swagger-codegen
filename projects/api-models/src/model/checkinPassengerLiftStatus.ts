@@ -21,7 +21,7 @@ export interface CheckinPassengerLiftStatus {
     /**
      * The lift status of the passenger for a specific segment.
      */
-    status?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    status?: Enums.LiftStatus;
     /**
      * The transportation identifier.
      */

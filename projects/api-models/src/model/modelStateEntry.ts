@@ -18,7 +18,7 @@ export interface ModelStateEntry {
     rawValue?: any;
     attemptedValue?: string;
     readonly errors?: Array<ModelError>;
-    validationState?: Enums.<ENUM>'Unvalidated'|'Invalid'|'Valid'|'Skipped'</ENUM>;
+    validationState?: 'Unvalidated'|'Invalid'|'Valid'|'Skipped';
     readonly isContainerNode?: boolean;
     readonly children?: Array<ModelStateEntry>;
 }

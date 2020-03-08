@@ -17,5 +17,5 @@ export interface Message {
     code?: string;
     type?: string;
     value?: string;
-    status?: Enums.<ENUM>'General'|'Warning'|'Critical'</ENUM>;
+    status?: 'General'|'Warning'|'Critical';
 }

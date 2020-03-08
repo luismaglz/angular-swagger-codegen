@@ -21,11 +21,11 @@ export interface SeatPreferences {
     /**
      * The simple seating preference.
      */
-    seat?: Enums.<ENUM>'None'|'Window'|'Aisle'|'Other'</ENUM>;
+    seat?: Enums.SimpleSeatPreference;
     /**
      * The prefered travel class of service.
      */
-    travelClass?: Enums.<ENUM>'None'|'Business'|'Economy'|'FirstClass'</ENUM>;
+    travelClass?: Enums.TravelClassSeatPreference;
     /**
      * The advanced seating preferences.
      */

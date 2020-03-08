@@ -24,9 +24,9 @@ export interface GovernmentProgramRequirements {
     /**
      * The collection of required document fields to be collected.
      */
-    requiredDocumentFields?: Enums.<ENUM>'FirstName'|'MiddleName'|'LastName'|'Title'|'Suffix'|'DateOfBirth'|'BirthCountry'|'Gender'|'Nationality'|'Number'|'IssuingCountry'|'ExpirationDate'|'IssuedDate'|'Verified'</ENUM>;
+    requiredDocumentFields?: Enums.GovernmentDocumentFieldType;
     /**
      * The collection of additional data that is required that are not related to documents.
      */
-    additionalDataRequired?: Enums.<ENUM>'CountryOfResidence'|'InTransitOrigin'|'InTransitDestination'|'DateOfBirth'|'Gender'|'FirstName'|'LastName'</ENUM>;
+    additionalDataRequired?: Enums.GovernmentAdditionalDataType;
 }

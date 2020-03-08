@@ -13,4 +13,4 @@
 
 import * as Enums from '../enums';
 
-import {Dictionary} from "lodash"; export type CodesSettingsPaymentFieldOverrides_ =  Dictionary<Enums.<ENUM>'Required'|'Optional'|'NotAllowed'</ENUM>>
+import {Dictionary} from "lodash"; export type CodesSettingsPaymentFieldOverrides_ =  Dictionary<Enums.RequiredType>

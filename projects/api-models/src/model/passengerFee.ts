@@ -21,7 +21,7 @@ export interface PassengerFee {
     /**
      * The fee type.
      */
-    type?: Enums.<ENUM>'All'|'Tax'|'TravelFee'|'ServiceFee'|'PaymentFee'|'PenaltyFee'|'SsrFee'|'NonFlightServiceFee'|'UpgradeFee'|'SeatFee'|'BaseFare'|'SpoilageFee'|'NameChangeFee'|'ConvenienceFee'|'BaggageFee'|'FareSurcharge'|'PromotionDiscount'|'ServiceBundle'|'ExtraBagFee'|'ATPCOBagFee'</ENUM>;
+    type?: Enums.FeeType;
     /**
      * The SSR code.
      */

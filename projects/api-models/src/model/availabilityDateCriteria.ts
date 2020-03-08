@@ -36,5 +36,5 @@ export interface AvailabilityDateCriteria {
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: Enums.<ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
+    daysOfWeek?: Enums.DayOfWeek;
 }

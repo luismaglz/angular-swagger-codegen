@@ -25,7 +25,7 @@ export interface TravelQueueItemBase {
     /**
      * Process status.
      */
-    processStatus?: Enums.<ENUM>'Ready'|'Pending'</ENUM>;
+    processStatus?: Enums.QueueProcessStatus;
     /**
      * Notes.
      */
@@ -33,7 +33,7 @@ export interface TravelQueueItemBase {
     /**
      * Process state.
      */
-    processState?: Enums.<ENUM>'Default'|'SegmentsConfirmed'|'BookingBalanced'|'Other'|'Complete'</ENUM>;
+    processState?: Enums.QueueProcessState;
     /**
      * Priority code.
      */

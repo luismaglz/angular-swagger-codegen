@@ -20,7 +20,7 @@ export interface AddOnCharge {
     /**
      * The charge type.
      */
-    type?: Enums.<ENUM>'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment'</ENUM>;
+    type?: 'FarePrice'|'Discount'|'IncludedTravelFee'|'IncludedTax'|'TravelFee'|'Tax'|'ServiceCharge'|'PromotionDiscount'|'ConnectionAdjustmentAmount'|'AddOnsPrice'|'FarePoints'|'DiscountPoints'|'IncludedAddOnsFee'|'AddOnsFee'|'AddOnsMarkup'|'FareSurcharge'|'Loyalty'|'AddOnsCancelFee'|'Calculated'|'Note'|'Points'|'DynamicFareAdjustment';
     /**
      * The charge code.
      */
@@ -32,7 +32,7 @@ export interface AddOnCharge {
     /**
      * The charge collection type.
      */
-    collection?: Enums.<ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
+    collection?: Enums.CollectType;
     /**
      * The currency code.
      */

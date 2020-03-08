@@ -29,7 +29,7 @@ export interface CustomerProgram {
     /**
      * The program type.
      */
-    programType?: Enums.<ENUM>'Default'|'Internal'|'External'</ENUM>;
+    programType?: Enums.ProgramType;
     /**
      * The validation type.
      */

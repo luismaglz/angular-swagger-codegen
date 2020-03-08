@@ -20,11 +20,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Defines the type of fares to be included in the response.
      */
-    fareInclusionType?: Enums.<ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
+    fareInclusionType?: Enums.AvailabilityType;
     /**
      * The class compression type.
      */
-    compressionType?: Enums.<ENUM>'LowestFareClass'|'CompressByProductClass'|'Default'</ENUM>;
+    compressionType?: Enums.FareClassControl;
     /**
      * The max fare price.
      */
@@ -36,7 +36,7 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters fares based on loyalty.
      */
-    loyalty?: Enums.<ENUM>'MonetaryOnly'|'PointsOnly'|'PointsAndMonetary'|'PreserveCurrent'</ENUM>;
+    loyalty?: Enums.LoyaltyFilter;
     /**
      * Flag indicating to include allotted fare classes of service.
      */
@@ -44,11 +44,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * Filters the type of journeys to return.
      */
-    exclusionType?: Enums.<ENUM>'Default'|'ExcludeDeparted'|'ExcludeImminent'|'ExcludeUnavailable'</ENUM>;
+    exclusionType?: Enums.AvailabilityFilter;
     /**
      * The list of inventory journey sort options, used for filtering journeys on the response.
      */
-    sortOptions?: Enums.<ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
+    sortOptions?: Enums.JourneySortKey;
     /**
      * The list of product class codes to filter with.
      */
@@ -76,11 +76,11 @@ export interface AvailabilityCriteriaFilter {
     /**
      * The type filtering based on connections.
      */
-    type?: Enums.<ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
+    type?: Enums.FlightType;
     /**
      * Specifies the type of sold as connection when segment connects with passive segment.
      */
-    connectionType?: Enums.<ENUM>'None'|'Domestic'|'International'|'Both'</ENUM>;
+    connectionType?: Enums.SoldAsConnectionType;
     /**
      * The number of max connections.
      */

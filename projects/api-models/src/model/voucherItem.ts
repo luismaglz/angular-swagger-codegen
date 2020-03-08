@@ -48,7 +48,7 @@ export interface VoucherItem {
     /**
      * The voucher status.
      */
-    status?: Enums.<ENUM>'Available'|'Void'|'Redeemed'|'Expired'</ENUM>;
+    status?: Enums.VoucherStatus;
     /**
      * The availability count of the voucher.
      */

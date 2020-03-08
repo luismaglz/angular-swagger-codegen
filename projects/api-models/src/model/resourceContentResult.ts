@@ -32,5 +32,5 @@ export interface ResourceContentResult {
     /**
      * Specific content type.
      */
-    type?: Enums.<ENUM>'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference'</ENUM>;
+    type?: 'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference';
 }
