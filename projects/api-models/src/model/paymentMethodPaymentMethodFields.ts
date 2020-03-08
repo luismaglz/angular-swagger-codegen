@@ -17,6 +17,4 @@ import { PaymentMethodField } from './paymentMethodField';
  */
 import * as Enums from '../enums';
 
-export interface PaymentMethodPaymentMethodFields { 
-    ?: PaymentMethodField;
-}
+import {Dictionary} from "lodash"; export type PaymentMethodPaymentMethodFields =  Dictionary<PaymentMethodField>

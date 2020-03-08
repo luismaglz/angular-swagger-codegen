@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface CodesSettingsAllowedPaymentMethodsForFraudPrevention { 
-    ?: boolean;
-}
+import {Dictionary} from "lodash"; export type CodesSettingsAllowedPaymentMethodsForFraudPrevention =  Dictionary<boolean>

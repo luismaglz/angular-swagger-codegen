@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface SellTokenCatalogRequestParameters { 
-    ?: string;
-}
+import {Dictionary} from "lodash"; export type SellTokenCatalogRequestParameters =  Dictionary<string>

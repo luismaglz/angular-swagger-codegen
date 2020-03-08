@@ -13,6 +13,4 @@
 
 import * as Enums from '../enums';
 
-export interface InputParameters { 
-    ?: string;
-}
+import {Dictionary} from "lodash"; export type InputParameters =  Dictionary<string>

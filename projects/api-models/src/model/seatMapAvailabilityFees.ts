@@ -17,6 +17,4 @@ import { PassengerSeatGroupInfo } from './passengerSeatGroupInfo';
  */
 import * as Enums from '../enums';
 
-export interface SeatMapAvailabilityFees { 
-    ?: PassengerSeatGroupInfo;
-}
+import {Dictionary} from "lodash"; export type SeatMapAvailabilityFees =  Dictionary<PassengerSeatGroupInfo>

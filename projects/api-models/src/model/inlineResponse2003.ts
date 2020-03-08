@@ -14,6 +14,4 @@ import { CheckinPassengerLiftStatus } from './checkinPassengerLiftStatus';
 
 import * as Enums from '../enums';
 
-export interface InlineResponse2003 { 
-    ?: Array<CheckinPassengerLiftStatus>;
-}
+import {Dictionary} from "lodash"; export type InlineResponse2003 =  Dictionary<Array<CheckinPassengerLiftStatus>>

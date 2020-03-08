@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface CodesSettingsExternalPaymentValidationOverrides { 
-    ?: boolean;
-}
+import {Dictionary} from "lodash"; export type CodesSettingsExternalPaymentValidationOverrides =  Dictionary<boolean>

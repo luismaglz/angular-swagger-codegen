@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface DccRequestBasev2PaymentFields { 
-    ?: string;
-}
+import {Dictionary} from "lodash"; export type DccRequestBasev2PaymentFields =  Dictionary<string>

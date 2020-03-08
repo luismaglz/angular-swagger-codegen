@@ -17,6 +17,4 @@ import { FareReference } from './fareReference';
  */
 import * as Enums from '../enums';
 
-export interface Availabilityv2FaresAvailable { 
-    ?: FareReference;
-}
+import {Dictionary} from "lodash"; export type Availabilityv2FaresAvailable =  Dictionary<FareReference>

@@ -13,6 +13,4 @@
 
 import * as Enums from '../enums';
 
-export interface ActionDescriptorProperties { 
-    ?: any;
-}
+import {Dictionary} from "lodash"; export type ActionDescriptorProperties =  Dictionary<any>

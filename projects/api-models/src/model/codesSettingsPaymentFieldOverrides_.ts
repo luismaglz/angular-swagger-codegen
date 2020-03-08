@@ -13,6 +13,4 @@
 
 import * as Enums from '../enums';
 
-export interface CodesSettingsPaymentFieldOverrides_ { 
-    ?: Enums.<ENUM>'Required'|'Optional'|'NotAllowed'</ENUM>;
-}
+import {Dictionary} from "lodash"; export type CodesSettingsPaymentFieldOverrides_ =  Dictionary<Enums.<ENUM>'Required'|'Optional'|'NotAllowed'</ENUM>>

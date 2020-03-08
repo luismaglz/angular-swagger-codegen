@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface ActivitySimpleRequestParameters { 
-    ?: string;
-}
+import {Dictionary} from "lodash"; export type ActivitySimpleRequestParameters =  Dictionary<string>

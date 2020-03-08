@@ -13,6 +13,4 @@
 
 import * as Enums from '../enums';
 
-export interface HttpRequestHeaders { 
-    ?: Array<string>;
-}
+import {Dictionary} from "lodash"; export type HttpRequestHeaders =  Dictionary<Array<string>>

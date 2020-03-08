@@ -17,6 +17,4 @@ import { CodesSettingsPaymentFieldOverrides_ } from './codesSettingsPaymentField
  */
 import * as Enums from '../enums';
 
-export interface CodesSettingsPaymentFieldOverrides { 
-    ?: CodesSettingsPaymentFieldOverrides_;
-}
+import {Dictionary} from "lodash"; export type CodesSettingsPaymentFieldOverrides =  Dictionary<CodesSettingsPaymentFieldOverrides_>

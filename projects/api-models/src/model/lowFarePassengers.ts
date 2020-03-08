@@ -17,6 +17,4 @@ import { LowFarePassenger } from './lowFarePassenger';
  */
 import * as Enums from '../enums';
 
-export interface LowFarePassengers { 
-    ?: LowFarePassenger;
-}
+import {Dictionary} from "lodash"; export type LowFarePassengers =  Dictionary<LowFarePassenger>

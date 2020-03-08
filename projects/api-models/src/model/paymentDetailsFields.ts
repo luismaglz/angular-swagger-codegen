@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface PaymentDetailsFields { 
-    ?: string;
-}
+import {Dictionary} from "lodash"; export type PaymentDetailsFields =  Dictionary<string>

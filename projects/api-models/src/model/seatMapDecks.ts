@@ -17,6 +17,4 @@ import { DeckInformation } from './deckInformation';
  */
 import * as Enums from '../enums';
 
-export interface SeatMapDecks { 
-    ?: DeckInformation;
-}
+import {Dictionary} from "lodash"; export type SeatMapDecks =  Dictionary<DeckInformation>

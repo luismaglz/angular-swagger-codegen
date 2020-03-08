@@ -17,6 +17,4 @@ import { BundlePricesByJourney } from './bundlePricesByJourney';
  */
 import * as Enums from '../enums';
 
-export interface BundleAvailabilityPricesByJourney { 
-    ?: BundlePricesByJourney;
-}
+import {Dictionary} from "lodash"; export type BundleAvailabilityPricesByJourney =  Dictionary<BundlePricesByJourney>

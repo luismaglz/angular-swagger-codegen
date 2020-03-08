@@ -14,6 +14,4 @@ import { AddOn } from './addOn';
 
 import * as Enums from '../enums';
 
-export interface InlineResponse200 { 
-    ?: AddOn;
-}
+import {Dictionary} from "lodash"; export type InlineResponse200 =  Dictionary<AddOn>

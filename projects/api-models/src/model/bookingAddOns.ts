@@ -17,6 +17,4 @@ import { AddOn } from './addOn';
  */
 import * as Enums from '../enums';
 
-export interface BookingAddOns { 
-    ?: AddOn;
-}
+import {Dictionary} from "lodash"; export type BookingAddOns =  Dictionary<AddOn>

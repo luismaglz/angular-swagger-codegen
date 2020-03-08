@@ -17,6 +17,4 @@ import { CheckinPassengerRequirements } from './checkinPassengerRequirements';
  */
 import * as Enums from '../enums';
 
-export interface CheckinRequirementsPassengers { 
-    ?: CheckinPassengerRequirements;
-}
+import {Dictionary} from "lodash"; export type CheckinRequirementsPassengers =  Dictionary<CheckinPassengerRequirements>

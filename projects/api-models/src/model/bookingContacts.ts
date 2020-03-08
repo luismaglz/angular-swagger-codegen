@@ -17,6 +17,4 @@ import { Contact } from './contact';
  */
 import * as Enums from '../enums';
 
-export interface BookingContacts { 
-    ?: Contact;
-}
+import {Dictionary} from "lodash"; export type BookingContacts =  Dictionary<Contact>

@@ -17,6 +17,4 @@ import { GovernmentProgramRequirements } from './governmentProgramRequirements';
  */
 import * as Enums from '../enums';
 
-export interface CheckinRequirementsGovernmentProgramRequirements { 
-    ?: GovernmentProgramRequirements;
-}
+import {Dictionary} from "lodash"; export type CheckinRequirementsGovernmentProgramRequirements =  Dictionary<GovernmentProgramRequirements>

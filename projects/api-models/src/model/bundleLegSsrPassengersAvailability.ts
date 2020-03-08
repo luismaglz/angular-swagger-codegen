@@ -17,6 +17,4 @@ import { PassengerSsrAvailability } from './passengerSsrAvailability';
  */
 import * as Enums from '../enums';
 
-export interface BundleLegSsrPassengersAvailability { 
-    ?: PassengerSsrAvailability;
-}
+import {Dictionary} from "lodash"; export type BundleLegSsrPassengersAvailability =  Dictionary<PassengerSsrAvailability>

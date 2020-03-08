@@ -14,6 +14,4 @@ import { Contact } from './contact';
 
 import * as Enums from '../enums';
 
-export interface InlineResponse2004 { 
-    ?: Contact;
-}
+import {Dictionary} from "lodash"; export type InlineResponse2004 =  Dictionary<Contact>

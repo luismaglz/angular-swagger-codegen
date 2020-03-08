@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface SeatInfoPropertyList { 
-    ?: string;
-}
+import {Dictionary} from "lodash"; export type SeatInfoPropertyList =  Dictionary<string>

@@ -17,6 +17,4 @@ import { Ssr } from './ssr';
  */
 import * as Enums from '../enums';
 
-export interface SeatMapAvailabilitySsrLookup { 
-    ?: Ssr;
-}
+import {Dictionary} from "lodash"; export type SeatMapAvailabilitySsrLookup =  Dictionary<Ssr>

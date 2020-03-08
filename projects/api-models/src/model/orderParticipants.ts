@@ -17,6 +17,4 @@ import { OrderParticipant } from './orderParticipant';
  */
 import * as Enums from '../enums';
 
-export interface OrderParticipants { 
-    ?: OrderParticipant;
-}
+import {Dictionary} from "lodash"; export type OrderParticipants =  Dictionary<OrderParticipant>

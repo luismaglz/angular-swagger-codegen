@@ -14,6 +14,4 @@ import { ModelStateEntry } from './modelStateEntry';
 
 import * as Enums from '../enums';
 
-export interface ActionContextModelState { 
-    ?: ModelStateEntry;
-}
+import {Dictionary} from "lodash"; export type ActionContextModelState =  Dictionary<ModelStateEntry>

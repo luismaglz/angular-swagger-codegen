@@ -14,6 +14,4 @@ import { AddOnAllowedPayments } from './addOnAllowedPayments';
 
 import * as Enums from '../enums';
 
-export interface InlineResponse2001 { 
-    ?: AddOnAllowedPayments;
-}
+import {Dictionary} from "lodash"; export type InlineResponse2001 =  Dictionary<AddOnAllowedPayments>

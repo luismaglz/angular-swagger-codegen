@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface CodesSettingsQueueCategoryCodes { 
-    ?: number;
-}
+import {Dictionary} from "lodash"; export type CodesSettingsQueueCategoryCodes =  Dictionary<number>

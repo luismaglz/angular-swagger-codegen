@@ -16,6 +16,4 @@
  */
 import * as Enums from '../enums';
 
-export interface AncillaryPricingOptionsContextInputParameters { 
-    ?: string;
-}
+import {Dictionary} from "lodash"; export type AncillaryPricingOptionsContextInputParameters =  Dictionary<string>

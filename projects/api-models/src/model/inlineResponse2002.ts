@@ -14,6 +14,4 @@ import { BaggageAllowance } from './baggageAllowance';
 
 import * as Enums from '../enums';
 
-export interface InlineResponse2002 { 
-    ?: Array<BaggageAllowance>;
-}
+import {Dictionary} from "lodash"; export type InlineResponse2002 =  Dictionary<Array<BaggageAllowance>>

@@ -14,6 +14,4 @@ import { Passenger } from './passenger';
 
 import * as Enums from '../enums';
 
-export interface InlineResponse2005 { 
-    ?: Passenger;
-}
+import {Dictionary} from "lodash"; export type InlineResponse2005 =  Dictionary<Passenger>

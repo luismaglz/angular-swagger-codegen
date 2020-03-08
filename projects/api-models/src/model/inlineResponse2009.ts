@@ -14,6 +14,4 @@ import { MccCurrencyInformationv2 } from './mccCurrencyInformationv2';
 
 import * as Enums from '../enums';
 
-export interface InlineResponse2009 { 
-    ?: MccCurrencyInformationv2;
-}
+import {Dictionary} from "lodash"; export type InlineResponse2009 =  Dictionary<MccCurrencyInformationv2>
