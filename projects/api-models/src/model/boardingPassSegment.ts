@@ -41,7 +41,7 @@ export interface BoardingPassSegment {
     /**
      * The type of the current segment.
      */
-    type?: Enums.<ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
+    type?: Enums.SegmentTypes;
     /**
      * Flag indicating if the segment is international.
      */

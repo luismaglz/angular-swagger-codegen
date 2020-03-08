@@ -37,11 +37,11 @@ export interface LegTripResult {
     /**
      * The leg's status.
      */
-    status?: Enums.<ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
+    status?: Enums.LegStatus;
     /**
      * The lift status.
      */
-    liftStatus?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    liftStatus?: Enums.LiftStatus;
     /**
      * The departure time using the time variant in universal time.
      */

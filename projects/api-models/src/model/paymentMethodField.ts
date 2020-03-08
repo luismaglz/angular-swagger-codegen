@@ -24,7 +24,7 @@ export interface PaymentMethodField {
     /**
      * The field category for this payment field.
      */
-    bookingPaymentField?: Enums.<ENUM>'Miscellaneous'|'AccountNumber'|'Amount'|'ExpirationDate'|'CurrencyCode'|'PaymentText'|'PrepaidApprovalCode'|'Deposit'</ENUM>;
+    bookingPaymentField?: Enums.BookingPaymentField;
     /**
      * The name of this payment field
      */
@@ -40,7 +40,7 @@ export interface PaymentMethodField {
     /**
      * The payment method type for this payment field.
      */
-    paymentMethodType?: Enums.<ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
+    paymentMethodType?: Enums.PaymentMethodType;
     /**
      * The persist data flag for this payment field.
      */
@@ -48,11 +48,11 @@ export interface PaymentMethodField {
     /**
      * The refund ui state for this payment field.
      */
-    refundUiState?: Enums.<ENUM>'Enabled'|'Disabled'|'Hidden'</ENUM>;
+    refundUiState?: Enums.RefundState;
     /**
      * The required type for this payment field.
      */
-    requiredType?: Enums.<ENUM>'Required'|'Optional'|'NotAllowed'</ENUM>;
+    requiredType?: Enums.RequiredType;
     /**
      * The value max length for this payment field.
      */
@@ -68,5 +68,5 @@ export interface PaymentMethodField {
     /**
      * The value type for this payment field.
      */
-    valueType?: Enums.<ENUM>'Unknown'|'String'|'UpperCaseString'|'Numeric'|'Alphanumeric'|'Amount'|'Date'|'Mod10'|'Name'|'Address'|'State'|'Zip'|'Country'|'City'|'Boolean'|'Email'</ENUM>;
+    valueType?: Enums.ValueType;
 }

@@ -29,11 +29,11 @@ export interface BookingSearchResult {
     /**
      * The booking status.
      */
-    bookingStatus?: Enums.<ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
+    bookingStatus?: Enums.BookingStatus;
     /**
      * The type of the channel.
      */
-    channelType?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channelType?: Enums.ChannelType;
     /**
      * Indicates whether this is editable.
      */

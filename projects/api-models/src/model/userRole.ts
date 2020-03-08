@@ -32,7 +32,7 @@ export interface UserRole {
     /**
      * The days the role is effective.
      */
-    effectiveDays?: Enums.<ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
+    effectiveDays?: Enums.DayOfWeek;
     /**
      * The date the role is effective after.
      */

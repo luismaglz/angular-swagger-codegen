@@ -52,7 +52,7 @@ export interface LegInformation {
     /**
      * The leg code share indicator.
      */
-    codeShareIndicator?: Enums.<ENUM>'NonCodeShare'|'CodeShareCommercialDuplicate'|'SharedDesignatorOrWetLease'|'CodeShareHostOperatingCarrier'|'CodeShareCommercialDuplicateWithOverrideText'|'SharedDesignatorOrWetLeaseWithOverrideText'</ENUM>;
+    codeShareIndicator?: Enums.CodeShareIndicator;
     /**
      * The leg departure terminal.
      */
@@ -136,7 +136,7 @@ export interface LegInformation {
     /**
      * The legs status.
      */
-    status?: Enums.<ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
+    status?: Enums.LegStatus;
     /**
      * A value indicating whether the leg is subject to government approval.
      */

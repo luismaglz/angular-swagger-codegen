@@ -36,7 +36,7 @@ export interface ServiceCharge {
     /**
      * The service charge collect type.
      */
-    collectType?: Enums.<ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
+    collectType?: Enums.CollectType;
     /**
      * The service charge currency code.
      */

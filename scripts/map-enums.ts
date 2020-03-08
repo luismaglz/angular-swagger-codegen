@@ -2,7 +2,11 @@ const fs = require("fs");
 const replace = require("replace-in-file");
 
 const enumsPath = "../string-enums.txt";
-const modelsPath = "../../projects/ts-dotrez-api/model/*.ts";
+const paths = [
+  "../../projects/api-models/src/model/*.ts",
+  "../../projects/ts-dotrez-api/src/base/api/*.ts",
+  "../../projects/ts-dotrez-api/src/store/api/*.ts"
+];
 const dry = false;
 
 // Read and process enums
@@ -11,20 +15,22 @@ fs.readFile(enumsPath, "utf8", processEnums);
 function processEnums(err, contents) {
   const enumDictionary = JSON.parse(contents);
 
-  const options = {
-    files: modelsPath,
-    from: /<ENUM>(.*)<\/ENUM>/gm,
-    to: (m, g) => replaceEnums(m, g, enumDictionary),
-    dry
-  };
+  paths.forEach(modelPath => {
+    const options = {
+      files: modelPath,
+      from: /<ENUM>(.*)<\/ENUM>/gm,
+      to: (m, g) => replaceEnums(m, g, enumDictionary),
+      dry
+    };
 
-  replace(options)
-    .then(results => {
-      // console.log("Replacement results:", results);
-    })
-    .catch(error => {
-      console.error("Error occurred:", error);
-    });
+    replace(options)
+      .then(results => {
+        // console.log("Replacement results:", results);
+      })
+      .catch(error => {
+        console.error("Error occurred:", error);
+      });
+  });
 }
 
 function replaceEnums(match: string, group: string, enumDictionary: string) {

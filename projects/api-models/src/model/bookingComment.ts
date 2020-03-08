@@ -21,7 +21,7 @@ export interface BookingComment {
     /**
      * Indicates where the comment will be seen.
      */
-    type?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
+    type?: Enums.PersonCommentType;
     /**
      * The point of sale for the comment.
      */

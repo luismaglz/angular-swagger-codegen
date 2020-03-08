@@ -34,7 +34,7 @@ export interface BoardingPassInfantDetails {
     /**
      * The gender.
      */
-    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The collection of travel documents.
      */

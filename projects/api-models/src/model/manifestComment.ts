@@ -20,7 +20,7 @@ export interface ManifestComment {
     /**
      * The comment type.
      */
-    commentType?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
+    commentType?: Enums.PersonCommentType;
     /**
      * The agentID.
      */

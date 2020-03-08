@@ -39,27 +39,27 @@ export interface VoucherConfiguration {
     /**
      * The voucher type.
      */
-    type: Enums.<ENUM>'Credit'|'SingleUseCredit'|'Service'|'SingleUse'|'MultiUse'|'SingleUseNegativeAdjustment'</ENUM>;
+    type: Enums.VoucherType;
     /**
      * The issuance type.
      */
-    issuanceType: Enums.<ENUM>'Individual'|'Batch'|'FlightBatch'|'HighVolumeBatch'|'OdBatch'</ENUM>;
+    issuanceType: Enums.IssuanceType;
     /**
      * The voucher usage types.
      */
-    usageTypes?: Enums.<ENUM>'None'|'Fares'|'Taxes'|'TravelFees'|'ServiceFees'|'PenaltyFees'|'SsrFees'|'NonFlightServiceFees'|'UpgradeFees'|'SeatFees'|'SpoilageFees'|'NameChangeFees'|'ConvenienceFees'|'Car'|'Hotel'|'Insurance'|'Activities'</ENUM>;
+    usageTypes?: Enums.VoucherUsageType;
     /**
      * The voucher trip type.
      */
-    tripType?: Enums.<ENUM>'Any'|'OneWay'|'RoundTrip'|'None'</ENUM>;
+    tripType?: Enums.VoucherTripType;
     /**
      * The voucher expiration control.
      */
-    expirationControl?: Enums.<ENUM>'None'|'Fixed'|'FixedAtIssuance'|'Calculated'</ENUM>;
+    expirationControl?: Enums.VoucherExpirationControl;
     /**
      * The voucher expiration type.
      */
-    expirationType: Enums.<ENUM>'TravelBy'|'TravelCompleteBy'|'BookingBy'</ENUM>;
+    expirationType: Enums.VoucherExpirationType;
     /**
      * The voucher expiration days.
      */
@@ -67,7 +67,7 @@ export interface VoucherConfiguration {
     /**
      * The voucher amount control.
      */
-    amountControl?: Enums.<ENUM>'Fixed'|'FixedAtIssuance'|'Calculated'</ENUM>;
+    amountControl?: Enums.AmountControl;
     /**
      * The voucher calculated amount control.
      */
@@ -83,11 +83,11 @@ export interface VoucherConfiguration {
     /**
      * The voucher day of week travel restrictions.
      */
-    travelDowRestriction?: Enums.<ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
+    travelDowRestriction?: Enums.DayOfWeek;
     /**
      * The voucher name restriction.
      */
-    nameRestriction?: Enums.<ENUM>'None'|'MustBePassenger'|'MustBePassengerOrContact'</ENUM>;
+    nameRestriction?: Enums.VoucherNameRestriction;
     /**
      * The flag to indicate if a record locator is required.
      */
@@ -111,7 +111,7 @@ export interface VoucherConfiguration {
     /**
      * The voucher issuance control.
      */
-    issuanceControl?: Enums.<ENUM>'IssuedToPassengers'|'IssuedToContact'</ENUM>;
+    issuanceControl?: Enums.VoucherIssuanceControl;
     /**
      * The voucher configuration fare classes.
      */

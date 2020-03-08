@@ -40,5 +40,5 @@ export interface ShoppingAttribute {
     /**
      * Gets or sets the type of this shopping attribute.
      */
-    shoppingAttributeType?: Enums.<ENUM>'None'|'Destination'|'Region'|'Event'</ENUM>;
+    shoppingAttributeType?: Enums.ShoppingAttributeType;
 }

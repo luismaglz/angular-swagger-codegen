@@ -80,5 +80,5 @@ export interface Passenger {
     /**
      * The weight category assigned to this passenger.
      */
-    weightCategory?: Enums.<ENUM>'Male'|'Female'|'Child'</ENUM>;
+    weightCategory?: Enums.WeightCategory;
 }

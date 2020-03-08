@@ -28,7 +28,7 @@ export interface FeeRuleProperty {
     /**
      * Gets or sets the property operator of this fee rule property.
      */
-    operator?: Enums.<ENUM>'Default'|'MustBe'|'MustNotBe'|'AllMustBe'</ENUM>;
+    operator?: Enums.FeeRulePropertyOperator;
     /**
      * Gets or sets the property type of this fee rule property.
      */

@@ -32,5 +32,5 @@ export interface ServerContext {
     /**
      * The acting channel type.
      */
-    channel?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channel?: Enums.ChannelType;
 }

@@ -21,7 +21,7 @@ export interface TripInformationQuery {
     /**
      * The days of the week to include in the provided date range.
      */
-    daysOfWeek?: Enums.<ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
+    daysOfWeek?: Enums.DayOfWeek;
     /**
      * The end date of the trip information search.
      */
@@ -61,7 +61,7 @@ export interface TripInformationQuery {
     /**
      * The flight type.
      */
-    flightType?: Enums.<ENUM>'All'|'NonStop'|'Through'|'Direct'|'Connect'</ENUM>;
+    flightType?: Enums.OperationsFlightType;
     /**
      * The operational suffix.
      */

@@ -56,7 +56,7 @@ export interface LegClass {
     /**
      * The status.
      */
-    status?: Enums.<ENUM>'Active'|'InActive'|'AvsOpen'|'AvsOnRequest'|'AvsClosed'</ENUM>;
+    status?: Enums.ClassStatus;
     /**
      * The thru sold.
      */

@@ -24,5 +24,5 @@ export interface TripDowngradeRequest {
     /**
      * The reserving inventory action of the upgrade once sold by the system.
      */
-    inventoryControl?: Enums.<ENUM>'HoldSpace'|'SoftHoldSpace'|'ClaimSpace'|'OversellSpace'|'StandBy'</ENUM>;
+    inventoryControl?: Enums.InventoryControlType;
 }

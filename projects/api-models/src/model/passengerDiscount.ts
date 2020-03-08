@@ -28,7 +28,7 @@ export interface PassengerDiscount {
     /**
      * The passenger discount type.
      */
-    passengerDiscountType?: Enums.<ENUM>'Default'|'Regular'|'Loyalty'</ENUM>;
+    passengerDiscountType?: Enums.PassengerDiscountType;
     /**
      * The in active.
      */

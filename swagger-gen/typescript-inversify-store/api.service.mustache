@@ -14,13 +14,7 @@ import {
     {{/imports}}
 } from 'api-models';
 
-import {
-{{#operations}}
-    {{#operation}}
-        {{nickname}},
-    {{/operation}}
-{{/operations}}
-} from '../base/api/index'
+import { {{classname}} } from '../../base/api/index'
 
 {{#withInterfaces}}
 import { {{classname}}Interface }  from './{{classname}}Interface';
@@ -44,7 +38,7 @@ export class Store{{classname}} implements {{classname}}Interface {
 export class Store{{classname}} {
 {{/withInterfaces}}
 
-    constructor(@inject("Store") private store: Store<any>) {}
+    constructor(@inject("Store") protected store: Store<any>, @inject("{{classname}}") protected baseService:{{classname}}) {}
 {{#operation}}
 
     /**
@@ -53,7 +47,7 @@ export class Store{{classname}} {
      */
     public async store_{{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}} headers?: Headers): Promise<{{#returnType}}{{{returnType}}}{{#isResponseTypeFile}}|undefined{{/isResponseTypeFile}}{{/returnType}}{{^returnType}}any{{/returnType}}>
     {
-        const response = await {{nickname}}({{#allParams}}{{paramName}},{{/allParams}}'body', headers).toPromise();
+        const response = await this.baseService.{{nickname}}({{#allParams}}{{paramName}},{{/allParams}}'body', headers).toPromise();
         // TODO: Implement {{nickname}}
         // addResponsetoStore(this.store, response.data, true, true);
         return response;

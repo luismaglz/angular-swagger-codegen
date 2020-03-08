@@ -36,7 +36,7 @@ export interface Marketv2 {
     /**
      * The directions where taxes and fees are included in this market.
      */
-    includesTaxesAndFees?: Enums.<ENUM>'None'|'To'|'From'|'Between'</ENUM>;
+    includesTaxesAndFees?: Enums.Directionality;
     /**
      * The latest check in from travel location for this market.
      */
@@ -48,7 +48,7 @@ export interface Marketv2 {
     /**
      * The location type of the starting location for this market.
      */
-    locationType?: Enums.<ENUM>'Undefined'|'Station'|'Mac'</ENUM>;
+    locationType?: Enums.MarketLocationType;
     /**
      * The ending location code for this market.
      */
@@ -56,9 +56,9 @@ export interface Marketv2 {
     /**
      * The location type of the ending location for this market.
      */
-    travelLocationType?: Enums.<ENUM>'Undefined'|'Station'|'Mac'</ENUM>;
+    travelLocationType?: Enums.MarketLocationType;
     /**
      * The market rules for requiring travel documents for this market.
      */
-    travelLocationsRequired?: Enums.<ENUM>'None'|'FromTravel'|'ToTravel'|'BothTravel'</ENUM>;
+    travelLocationsRequired?: Enums.TravelLocationsRequired;
 }

@@ -32,7 +32,7 @@ export interface AddOnCharge {
     /**
      * The charge collection type.
      */
-    collection?: Enums.<ENUM>'SellerChargeable'|'ExternalChargeable'|'SellerNonChargeable'|'ExternalNonChargeable'|'ExternalChargeableImmediate'</ENUM>;
+    collection?: Enums.CollectType;
     /**
      * The currency code.
      */

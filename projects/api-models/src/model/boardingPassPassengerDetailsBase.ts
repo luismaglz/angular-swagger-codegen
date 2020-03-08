@@ -52,7 +52,7 @@ export interface BoardingPassPassengerDetailsBase {
     /**
      * The gender.
      */
-    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The passengers infant details if an infant exists.
      */

@@ -26,7 +26,7 @@ export interface OrganizationRecord {
     /**
      * Organization type.
      */
-    type?: Enums.<ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
+    type?: Enums.OrganizationType;
     /**
      * The company details.
      */
@@ -38,7 +38,7 @@ export interface OrganizationRecord {
     /**
      * The organization status.
      */
-    status?: Enums.<ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
+    status?: Enums.OrganizationStatus;
     /**
      * The parent organization code.
      */

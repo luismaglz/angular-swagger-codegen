@@ -38,7 +38,7 @@ export interface UserRecord {
     /**
      * The status of the user.
      */
-    status?: Enums.<ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
+    status?: Enums.UserStatus;
     /**
      * Flag indicating if the user is allowed.
      */

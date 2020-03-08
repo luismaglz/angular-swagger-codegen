@@ -66,7 +66,7 @@ export interface Segment {
     /**
      * The type of the channel from the user that added the segment.
      */
-    channelType?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channelType?: Enums.ChannelType;
     /**
      * The cabin of service.
      */
@@ -82,11 +82,11 @@ export interface Segment {
     /**
      * The change reason code.
      */
-    changeReasonCode?: Enums.<ENUM>'NoChange'|'Irop'|'ScheduleChange'|'Move'|'VoluntaryFlyAhead'|'InvoluntaryFlyAhead'|'SelfServiceRebooking'</ENUM>;
+    changeReasonCode?: Enums.ChangeReasonCodes;
     /**
      * The type of the segment.
      */
-    segmentType?: Enums.<ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
+    segmentType?: Enums.SegmentTypes;
     /**
      * The segment sales date.
      */

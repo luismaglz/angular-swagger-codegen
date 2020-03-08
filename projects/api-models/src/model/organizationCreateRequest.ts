@@ -37,7 +37,7 @@ export interface OrganizationCreateRequest {
     /**
      * Organization type.
      */
-    type?: Enums.<ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
+    type?: Enums.OrganizationType;
     /**
      * Commission rates.
      */
@@ -53,7 +53,7 @@ export interface OrganizationCreateRequest {
     /**
      * The organization status.
      */
-    status?: Enums.<ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
+    status?: Enums.OrganizationStatus;
     /**
      * The contact details.
      */

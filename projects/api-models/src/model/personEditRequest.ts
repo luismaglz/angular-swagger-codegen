@@ -26,11 +26,11 @@ export interface PersonEditRequest {
     /**
      * The type of person.
      */
-    type?: Enums.<ENUM>'None'|'Customer'|'Agent'</ENUM>;
+    type?: Enums.PersonType;
     /**
      * The status of the person.
      */
-    status?: Enums.<ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
+    status?: Enums.PersonStatus;
     /**
      * The person's basic information.
      */
@@ -38,5 +38,5 @@ export interface PersonEditRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: Enums.<ENUM>'None'|'Promotional'</ENUM>;
+    notificationPreference?: Enums.NotificationPreference;
 }

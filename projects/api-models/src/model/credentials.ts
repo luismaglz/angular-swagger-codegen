@@ -40,7 +40,7 @@ export interface Credentials {
     /**
      * The optional channel type invoking the communication with the server.
      */
-    channelType?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
+    channelType?: Enums.ChannelType;
     /**
      * The role to log in as.
      */

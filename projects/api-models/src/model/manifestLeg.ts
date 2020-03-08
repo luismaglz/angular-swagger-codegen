@@ -55,7 +55,7 @@ export interface ManifestLeg {
     /**
      * The LiftStatus property.
      */
-    liftStatus?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    liftStatus?: Enums.LiftStatus;
     /**
      * The ManifestOrigin property.
      */

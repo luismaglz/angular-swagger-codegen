@@ -37,7 +37,7 @@ export interface BundleSsrConfiguration {
     /**
      * The bundle ssr type.
      */
-    bundleSsrType?: Enums.<ENUM>'InBundle'|'InBundleUpgrade'|'NotInBundle'</ENUM>;
+    bundleSsrType?: Enums.BundleSsrType;
     /**
      * The discount percent.
      */

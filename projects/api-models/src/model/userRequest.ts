@@ -21,7 +21,7 @@ export interface UserRequest {
     /**
      * The status of the account.
      */
-    status?: Enums.<ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
+    status?: Enums.UserStatus;
     /**
      * The unique username.
      */

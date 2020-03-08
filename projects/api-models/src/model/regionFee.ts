@@ -34,7 +34,7 @@ export interface RegionFee {
     /**
      * Gets or sets the deduction type of this region fee.
      */
-    deductionType?: Enums.<ENUM>'All'|'First'|'Last'|'ExceptForFirst'|'ExceptForLast'|'None'</ENUM>;
+    deductionType?: Enums.DeductionType;
     /**
      * Gets or sets the default currency code of this region fee.
      */
@@ -42,7 +42,7 @@ export interface RegionFee {
     /**
      * Gets or sets the directionality of this region fee.
      */
-    directionality?: Enums.<ENUM>'None'|'To'|'From'|'Between'</ENUM>;
+    directionality?: Enums.Directionality;
     /**
      * Gets or sets the discontinue date of this region fee.
      */
@@ -74,7 +74,7 @@ export interface RegionFee {
     /**
      * Gets or sets the region type for this region fee.
      */
-    regionType?: Enums.<ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
+    regionType?: Enums.RegionType;
     /**
      * Gets or sets the release date for this region fee.
      */
@@ -94,7 +94,7 @@ export interface RegionFee {
     /**
      * Gets or sets the travel region type for this region.
      */
-    travelRegionType?: Enums.<ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
+    travelRegionType?: Enums.RegionType;
     /**
      * Gets or sets the travel release date for this region.
      */
@@ -102,5 +102,5 @@ export interface RegionFee {
     /**
      * Gets or sets the travel segment indicator for this region.
      */
-    travelSegmentIndicator?: Enums.<ENUM>'None'|'CheckAgainstJourney'|'CheckAgainstTrip'|'Departure'|'DepartureOfTripOrigin'|'DepartureAtConnection'|'DepartureWithinStopoverTime'|'DepartureAtPointOfTurnaround'|'DepartureOfTransOceanicSegment'|'DepartureFromGateway'|'DepartureOfLastSegment'|'DepartureExceedsStopoverTime'|'NotDepartingViaConnection'|'GroundTimeBeforeDepartureOfJourneyWithin'|'GroundTimeBeforeDepartureOfJourneyExceeds'|'Arrival'|'ArrivalOfTransOceanicSegment'|'ArrivalAtGateway'|'ArrivalAtPointOfTurnaround'|'ArrivalAtConnection'|'ArrivalAtTripOrigin'|'NotDepartingViaConnectionOnSameCalendarDay'|'CheckAgainstItinerary'|'GroundTimeAfterArrivalAtConnectionWithin'|'GroundTimeAfterArrivalAtConnectionExceeds'|'GroundTimeAfterArrivalOfJourneyWithin'|'GroundTimeAfterArrivalOfJourneyExceeds'</ENUM>;
+    travelSegmentIndicator?: Enums.TravelSegmentIndicator;
 }

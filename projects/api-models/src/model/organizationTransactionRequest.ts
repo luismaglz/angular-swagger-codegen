@@ -20,7 +20,7 @@ export interface OrganizationTransactionRequest {
     /**
      * The transaction types for an organization account.
      */
-    type?: Enums.<ENUM>'Default'|'Payment'|'Adjustment'|'Supplementary'</ENUM>;
+    type?: Enums.AllowedTransactionTypes;
     /**
      * The credit account transaction amount.
      */

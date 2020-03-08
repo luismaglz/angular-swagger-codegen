@@ -28,11 +28,11 @@ export interface Title {
     /**
      * The gender.
      */
-    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
     /**
      * The weight category.
      */
-    weightCategory?: Enums.<ENUM>'Male'|'Female'|'Child'</ENUM>;
+    weightCategory?: Enums.WeightCategory;
     /**
      * The InActive.
      */

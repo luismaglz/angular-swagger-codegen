@@ -24,7 +24,7 @@ export interface SkySpeedSettingsv2 {
     /**
      * The value to indicate what type of date to display in the SkySpeed manifest view.
      */
-    manifestViewDate?: Enums.<ENUM>'BookingDate'|'SoldDate'</ENUM>;
+    manifestViewDate?: Enums.ManifestViewDateType;
     /**
      * Disables outbound time when searching flights.
      */
@@ -40,7 +40,7 @@ export interface SkySpeedSettingsv2 {
     /**
      * The value to indicate the manner in which postal codes will be looked up  in SkySpeed.
      */
-    postalCodeLookup?: Enums.<ENUM>'None'|'UsZipCode'</ENUM>;
+    postalCodeLookup?: Enums.PostalCodeLookupType;
     /**
      * Disables return time when searching flights.
      */

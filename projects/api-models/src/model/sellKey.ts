@@ -32,5 +32,5 @@ export interface SellKey {
     /**
      * The reserving inventory action of the journey once sold by the system.
      */
-    inventoryControl?: Enums.<ENUM>'HoldSpace'|'SoftHoldSpace'|'ClaimSpace'|'OversellSpace'|'StandBy'</ENUM>;
+    inventoryControl?: Enums.InventoryControlType;
 }

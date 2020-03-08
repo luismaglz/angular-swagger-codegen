@@ -32,5 +32,5 @@ export interface ApplyCreditAccountRequest {
     /**
      * Defines the type of credit being applied.
      */
-    type?: Enums.<ENUM>'Customer'|'Booking'|'Organization'</ENUM>;
+    type?: Enums.CreditType;
 }

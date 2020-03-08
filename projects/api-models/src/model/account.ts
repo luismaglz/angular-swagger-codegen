@@ -37,15 +37,15 @@ export interface Account {
     /**
      * The account owner type.
      */
-    owner?: Enums.<ENUM>'Organization'|'Personnal'|'Booking'|'Unknown'</ENUM>;
+    owner?: Enums.AccountOwnerType;
     /**
      * The account type.
      */
-    type?: Enums.<ENUM>'Credit'|'Prepaid'|'Supplementary'|'Dependent'|'Unknown'</ENUM>;
+    type?: Enums.AccountType;
     /**
      * The account status.
      */
-    status?: Enums.<ENUM>'Open'|'Closed'|'AgencyInactive'|'Unknown'</ENUM>;
+    status?: Enums.AccountStatus;
     /**
      * The total amount.
      */

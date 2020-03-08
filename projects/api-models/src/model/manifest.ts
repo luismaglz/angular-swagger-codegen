@@ -44,7 +44,7 @@ export interface Manifest {
     /**
      * The Status in Manifest object.
      */
-    legStatus?: Enums.<ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
+    legStatus?: Enums.LegStatus;
     /**
      * Collection of InventoryLegCrossReference objects.
      */

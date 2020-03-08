@@ -32,7 +32,7 @@ export interface PassengerBagRequest {
     /**
      * Type of weight for the baggage weight.
      */
-    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
+    weightType?: Enums.WeightType;
     /**
      * The baggage weight.
      */

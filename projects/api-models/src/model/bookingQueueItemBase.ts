@@ -25,7 +25,7 @@ export interface BookingQueueItemBase {
     /**
      * Process status.
      */
-    processStatus?: Enums.<ENUM>'Ready'|'Pending'</ENUM>;
+    processStatus?: Enums.QueueProcessStatus;
     /**
      * The segment key of the flight associated with the booking queue entry.
      */
@@ -33,7 +33,7 @@ export interface BookingQueueItemBase {
     /**
      * Process state.
      */
-    processState?: Enums.<ENUM>'Default'|'SegmentsConfirmed'|'BookingBalanced'|'Other'|'Complete'</ENUM>;
+    processState?: Enums.QueueProcessState;
     /**
      * The WatchList Id of the booking queue entry.
      */
@@ -69,11 +69,11 @@ export interface BookingQueueItemBase {
     /**
      * The booking queue event type that caused the booking queue entry to be created.
      */
-    eventType?: Enums.<ENUM>'Default'|'BookingBalanceDue'|'BookingNegativeBalance'|'BookingCustomerComment'|'DeclinedPaymentInitial'|'DeclinedPaymentChange'|'FareOverride'|'ScheduleTimeChange'|'ScheduleTimeChangeMisconnect'|'ScheduleCancellation'|'FlightDesignatorChange'|'ReaccommodationMove'|'GdsCancelWithPendingPayment'|'InvalidPriceStatusOverride'|'FareRestrictionOverride'|'HeldBookings'|'InvalidPriceStatus'|'Watchlist'|'NonFlightServiceFee'|'NotAllTicketNumbersReceived'|'BookingSegmentOversold'|'ReaccommodationCancel'|'ExternalSsrAutoConfirmed'|'OpCarrierSegUpdate'|'OpCarrierSsrUpdate'|'OpCarrierOtherUpdate'|'NameChangeNotAllowed'|'InboundAscNotProcessed'|'OpCarrierInformationChange'|'BookingComponentUpdate'|'GroupBookings'|'BankDirectPnrOutOfBalance'|'NoSeatAssigned'|'SeatNumberChange'|'SsrNotSupportedOnNewSeat'|'FewerSeatPreferencesMetOnNewSeat'|'AosUnableToConfirmCancel'|'ETicketIssue'|'ETicketFollowup'|'InvoluntaryFlyAhead'|'ManualClearanceOnOutage'|'UnbalancedPoints'|'OpCarrierTimeChange'|'OaCarrierTimeChange'|'VoluntaryFlightChange'|'InvoluntaryFlightChange'|'HoldCancellationFailed'|'ScheduleTimeChangeWithDynamicQueueCode'|'ReaccommodationMoveWithDynamicQueueCode'|'ItineraryIntegrity'|'ReducePartyNotProcessed'|'CheckedPassengerUpdate'|'NameChangeWithinRule'|'IncompletePassengerEMDCoupon'|'ASVCUpdateFailed'|'ScheduleTimeChangeMisconnectBelowMinimum'|'ScheduleTimeChangeMisconnectAboveMaximum'|'OpCarrierMisconnect'|'InventoryQueuing'|'SelfServiceAsm'|'SelfServiceDelay'|'SelfServiceFlightCancellation'|'SelfServiceIrop'|'SelfServiceScheduleChange'|'SelfServiceTimeChange'|'AosAddOrCancelNotSuccessful'|'MissingGdsFareFamily'|'ChangeCabinQueue'</ENUM>;
+    eventType?: Enums.QueueEventType;
     /**
      * The restrictions associated with the booking queue.
      */
-    restriction?: Enums.<ENUM>'Restricted'|'AddAllowedOnly'|'Allowed'</ENUM>;
+    restriction?: Enums.BookingQueueRestriction;
     /**
      * The booking record locator associated with the booking queue entry.
      */

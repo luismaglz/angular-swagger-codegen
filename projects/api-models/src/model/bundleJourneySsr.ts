@@ -35,7 +35,7 @@ export interface BundleJourneySsr {
     /**
      * Gets the SSR type.
      */
-    ssrType?: Enums.<ENUM>'Standard'|'Infant'|'Meal'|'BaggageAllowance'|'TravelLineMeal'</ENUM>;
+    ssrType?: Enums.SsrType;
     /**
      * Gets the SSR name.
      */
@@ -67,5 +67,5 @@ export interface BundleJourneySsr {
     /**
      * Gets the seat restriction.
      */
-    seatRestriction?: Enums.<ENUM>'Undefined'|'AlwaysAllowed'|'DefaultAllowed'|'DefaultRestricted'</ENUM>;
+    seatRestriction?: Enums.SeatRestriction;
 }

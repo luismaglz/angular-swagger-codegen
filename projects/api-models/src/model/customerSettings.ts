@@ -20,77 +20,77 @@ export interface CustomerSettings {
     /**
      * The field usage for the customer number.
      */
-    customerNumber?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    customerNumber?: Enums.FieldUsage;
     /**
      * The title field usage.
      */
-    title?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    title?: Enums.FieldUsage;
     /**
      * The first name field usage.
      */
-    firstName?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    firstName?: Enums.FieldUsage;
     /**
      * The middle name field usage.
      */
-    middleName?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    middleName?: Enums.FieldUsage;
     /**
      * The last name field usage.
      */
-    lastName?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    lastName?: Enums.FieldUsage;
     /**
      * The address line one field usage.
      */
-    lineOne?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    lineOne?: Enums.FieldUsage;
     /**
      * The address line two field usage.
      */
-    lineTwo?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    lineTwo?: Enums.FieldUsage;
     /**
      * The address city field usage.
      */
-    city?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    city?: Enums.FieldUsage;
     /**
      * The address postal code field usage.
      */
-    postalCode?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    postalCode?: Enums.FieldUsage;
     /**
      * The address province state field usage.
      */
-    provinceState?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    provinceState?: Enums.FieldUsage;
     /**
      * The address country code field usage.
      */
-    countryCode?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    countryCode?: Enums.FieldUsage;
     /**
      * The address county field usage.
      */
-    county?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    county?: Enums.FieldUsage;
     /**
      * The home phone number field usage.
      */
-    homePhone?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    homePhone?: Enums.FieldUsage;
     /**
      * The work phone field usage.
      */
-    workPhone?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    workPhone?: Enums.FieldUsage;
     /**
      * The fax number field usage.
      */
-    fax?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    fax?: Enums.FieldUsage;
     /**
      * The email address field usage.
      */
-    email?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    email?: Enums.FieldUsage;
     /**
      * The consumer type field usage.
      */
-    type?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    type?: Enums.FieldUsage;
     /**
      * The company name field usage.
      */
-    companyName?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    companyName?: Enums.FieldUsage;
     /**
      * The date of birth field usage.
      */
-    birthDate?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
+    birthDate?: Enums.FieldUsage;
 }

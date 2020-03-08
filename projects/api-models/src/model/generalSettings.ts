@@ -76,19 +76,19 @@ export interface GeneralSettings {
     /**
      * The seat assignment rules for this role.
      */
-    allowSeatAssignment?: Enums.<ENUM>'Never'|'OnlyOnUnheldBookings'|'Always'</ENUM>;
+    allowSeatAssignment?: Enums.SeatAssignmentRole;
     /**
      * The booking access allowed on this role.
      */
-    bookingAccessControl?: Enums.<ENUM>'None'|'ScheduleOnly'|'Availability'|'View'|'ModifyNoCommit'|'Create'|'Change'|'CreateAndChange'</ENUM>;
+    bookingAccessControl?: Enums.BookingAccessControl;
     /**
      * The highest organization that the role can view bookings for.
      */
-    viewBookingsByControl?: Enums.<ENUM>'Agent'|'Organization'|'OrganizationGroup'|'All'</ENUM>;
+    viewBookingsByControl?: Enums.GroupAccessControl;
     /**
      * The highest organization that the role can edit bookings for.
      */
-    editBookingsByControl?: Enums.<ENUM>'Agent'|'Organization'|'OrganizationGroup'|'All'</ENUM>;
+    editBookingsByControl?: Enums.GroupAccessControl;
     /**
      * The mandatory booking comment.
      */
@@ -108,23 +108,23 @@ export interface GeneralSettings {
     /**
      * The option to highlight the fare override on this role.
      */
-    highlightFareOverride?: Enums.<ENUM>'None'|'Highlight'</ENUM>;
+    highlightFareOverride?: Enums.HighlightOption;
     /**
      * The option to highlight IROP information on this role.
      */
-    highlightIrop?: Enums.<ENUM>'None'|'Highlight'</ENUM>;
+    highlightIrop?: Enums.HighlightOption;
     /**
      * The option to highlight schedule changes on this role.
      */
-    highlightScheduleChange?: Enums.<ENUM>'None'|'Highlight'</ENUM>;
+    highlightScheduleChange?: Enums.HighlightOption;
     /**
      * The option to highlight standbys on this role.
      */
-    highlightStandby?: Enums.<ENUM>'None'|'Highlight'</ENUM>;
+    highlightStandby?: Enums.HighlightOption;
     /**
      * The option to highlight upgrades on this role.
      */
-    highlightUpgrade?: Enums.<ENUM>'None'|'Highlight'</ENUM>;
+    highlightUpgrade?: Enums.HighlightOption;
     /**
      * The flag to allow managing passive segments on this role.
      */
@@ -132,7 +132,7 @@ export interface GeneralSettings {
     /**
      * The reassign seat behavior for this role.
      */
-    reassignSeatingBehavior?: Enums.<ENUM>'DropSeats'|'LikeForLike'|'Algorithm'</ENUM>;
+    reassignSeatingBehavior?: Enums.ReassignSeatingBehavior;
     /**
      * Gets or sets a list of restricted external system codes for this role.
      */
@@ -140,7 +140,7 @@ export interface GeneralSettings {
     /**
      * The time display style for this role.
      */
-    timeDisplay?: Enums.<ENUM>'Default'|'AmPm'|'TwentyFourHour'</ENUM>;
+    timeDisplay?: Enums.TimeDisplay;
     /**
      * The allow seat group restriction override flag.
      */

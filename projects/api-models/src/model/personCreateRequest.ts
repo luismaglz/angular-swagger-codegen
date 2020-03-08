@@ -39,7 +39,7 @@ export interface PersonCreateRequest {
     /**
      * The type of person.
      */
-    type?: Enums.<ENUM>'None'|'Customer'|'Agent'</ENUM>;
+    type?: Enums.PersonType;
     /**
      * The collection of registered email address.
      */
@@ -47,7 +47,7 @@ export interface PersonCreateRequest {
     /**
      * The status of the person.
      */
-    status?: Enums.<ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
+    status?: Enums.PersonStatus;
     /**
      * The collection of registered phone numbers.
      */
@@ -63,7 +63,7 @@ export interface PersonCreateRequest {
     /**
      * The person's notification preference.
      */
-    notificationPreference?: Enums.<ENUM>'None'|'Promotional'</ENUM>;
+    notificationPreference?: Enums.NotificationPreference;
     /**
      * The collection of registered stored payments.
      */

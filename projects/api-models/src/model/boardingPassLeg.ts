@@ -38,7 +38,7 @@ export interface BoardingPassLeg {
     /**
      * The status of the leg for the passenger.
      */
-    liftStatus?: Enums.<ENUM>'Default'|'CheckedIn'|'Boarded'|'NoShow'</ENUM>;
+    liftStatus?: Enums.LiftStatus;
     /**
      * The legs operated by text.
      */

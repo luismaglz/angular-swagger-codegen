@@ -23,7 +23,7 @@ export interface AvailableJourney {
     /**
      * The flight type of the journey.
      */
-    readonly flightType?: Enums.<ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
+    readonly flightType?: Enums.FlightType;
     /**
      * The number of stops the journey will make.
      */

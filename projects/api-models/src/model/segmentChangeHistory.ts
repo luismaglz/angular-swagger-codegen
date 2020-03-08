@@ -22,7 +22,7 @@ export interface SegmentChangeHistory {
     /**
      * The days of the week of the operation.
      */
-    daysOfWeek?: Enums.<ENUM>'None'|'Monday'|'Tuesday'|'Wednesday'|'Thursday'|'Friday'|'Saturday'|'Sunday'</ENUM>;
+    daysOfWeek?: Enums.DayOfWeek;
     /**
      * The segment number.
      */

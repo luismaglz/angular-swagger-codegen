@@ -28,5 +28,5 @@ export interface PassengerTypeCodeEditRequest {
     /**
      * The new gender of the passenger.  Only required if GDPR is enabled.
      */
-    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
+    gender?: Enums.Gender;
 }

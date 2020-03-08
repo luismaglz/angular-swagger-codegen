@@ -24,5 +24,5 @@ export interface OneTimeNotificationEvent {
     /**
      * The one time travel notification event type.
      */
-    type: Enums.<ENUM>'DepartureDelay'|'ArrivalDelay'</ENUM>;
+    type: Enums.OneTimeNotificationEventType;
 }

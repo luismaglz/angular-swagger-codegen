@@ -20,7 +20,7 @@ export interface GovernmentDocumentRequirement {
     /**
      * The document group.
      */
-    group?: Enums.<ENUM>'Unknown'|'AlienRegistrationCard'|'PermanentResidentCard'|'FacilitationDocument'|'InsPass'|'MilitaryId'|'Passport'|'ReEntryPermit'|'CreditCard'|'TravelVisa'|'OaFrequentFlyer'|'ParoleLetter'|'NoticeOfAction'|'TransportationLetter'|'BorderCrossingCard'|'PilotLicense'|'UsNaturalizationCertificate'|'RefugeeTravelDocument'|'GovernmentId'|'DriversLicense'|'RedressNumber'|'KnownTravelerId'|'FormOfId'|'Nexus'|'SecondaryExempt'</ENUM>;
+    group?: Enums.DocumentGroup;
     /**
      * The documents type code.
      */

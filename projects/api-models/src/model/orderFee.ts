@@ -41,7 +41,7 @@ export interface OrderFee {
     /**
      * The type of fee applied.
      */
-    type?: Enums.<ENUM>'Default'|'Tax'|'Markup'|'Discount'</ENUM>;
+    type?: Enums.OrderFeeType;
     /**
      * Flag indicating if they specific fee is waiveable.
      */

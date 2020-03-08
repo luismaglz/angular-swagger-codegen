@@ -57,5 +57,5 @@ export interface StationLocationDetails {
     /**
      * The stations configured weight units of measurement.
      */
-    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
+    weightType?: Enums.WeightType;
 }

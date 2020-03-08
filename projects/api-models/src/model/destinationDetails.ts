@@ -21,7 +21,7 @@ export interface DestinationDetails {
     /**
      * Represents the arrival status.
      */
-    status?: Enums.<ENUM>'Default'|'Cancelled'|'Arrived'|'SeeAgent'|'Delayed'</ENUM>;
+    status?: Enums.ArrivalStatus;
     /**
      * Represents additional information about the  trip operation station.
      */
