@@ -37,7 +37,7 @@ export interface Organizationv2 {
     /**
      * Organization type.
      */
-    type?: Enums.OrganizationType;
+    type?: Enums.<ENUM>'Default'|'Master'|'Carrier'|'TravelAgency'|'ThirdParty'</ENUM>;
     /**
      * The company details.
      */
@@ -53,7 +53,7 @@ export interface Organizationv2 {
     /**
      * The organization status.
      */
-    status?: Enums.OrganizationStatus;
+    status?: Enums.<ENUM>'Default'|'Active'|'Cancelled'|'Pending'</ENUM>;
     /**
      * The parent organization code.
      */

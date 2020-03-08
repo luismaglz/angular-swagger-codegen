@@ -40,7 +40,7 @@ export interface Ssr {
     /**
      * The Ssr type.
      */
-    ssrType?: Enums.SsrType;
+    ssrType?: Enums.<ENUM>'Standard'|'Infant'|'Meal'|'BaggageAllowance'|'TravelLineMeal'</ENUM>;
     /**
      * The in active.
      */
@@ -68,7 +68,7 @@ export interface Ssr {
     /**
      * The seat restriction.
      */
-    seatRestriction?: Enums.SeatRestriction;
+    seatRestriction?: Enums.<ENUM>'Undefined'|'AlwaysAllowed'|'DefaultAllowed'|'DefaultRestricted'</ENUM>;
     /**
      * The rule set name.
      */

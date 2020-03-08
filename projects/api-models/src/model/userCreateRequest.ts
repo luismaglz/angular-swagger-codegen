@@ -32,7 +32,7 @@ export interface UserCreateRequest {
     /**
      * The status of the account.
      */
-    status?: Enums.UserStatus;
+    status?: Enums.<ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
     /**
      * The collection of user roles.
      */

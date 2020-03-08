@@ -54,7 +54,7 @@ export interface OperationsInformation {
     /**
      * The arrival status.
      */
-    arrivalStatus?: Enums.ArrivalStatus;
+    arrivalStatus?: Enums.<ENUM>'Default'|'Cancelled'|'Arrived'|'SeeAgent'|'Delayed'</ENUM>;
     /**
      * The baggage claim.
      */
@@ -66,7 +66,7 @@ export interface OperationsInformation {
     /**
      * The departure status.
      */
-    departureStatus?: Enums.DepartureStatus;
+    departureStatus?: Enums.<ENUM>'Default'|'Cancelled'|'Boarding'|'SeeAgent'|'Delayed'|'Departed'</ENUM>;
     /**
      * The departure time information.
      */

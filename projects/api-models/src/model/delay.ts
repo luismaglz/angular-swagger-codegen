@@ -24,7 +24,7 @@ export interface Delay {
     /**
      * The delay type.
      */
-    delayType?: Enums.DelayType;
+    delayType?: Enums.<ENUM>'Unknown'|'AirlineInternalCodes'|'Others'|'Schedules'|'PassengerAndBaggage'|'CargoAndMail'|'MailOnly'|'AircraftAndRampHandling'|'TechnicalAndAircraftEquipment'|'DamageToAircraft'|'EdpAutomatedEquipmentFailure'|'FlightOperationsAndCrewing'|'Weather'|'AirTrafficFlowManagement'|'AirportAndGovernmentalAuthorities'|'Reactionary'|'Miscellaneous'</ENUM>;
     /**
      * The Name.
      */

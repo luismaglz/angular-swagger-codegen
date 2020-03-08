@@ -33,5 +33,5 @@ export interface FeeRule {
     /**
      * Gets or sets the fee rule operator for this fee rule.
      */
-    operator?: Enums.FeeRuleOperator;
+    operator?: Enums.<ENUM>'Default'|'MustBe'|'MustNotBe'</ENUM>;
 }

@@ -45,5 +45,5 @@ export interface AvailabilityFlyAheadRequest {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: Enums.AvailabilityType;
+    type?: Enums.<ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
 }

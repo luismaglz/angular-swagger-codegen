@@ -20,9 +20,9 @@ export interface AvailabilityMoveFilterCriteria {
     /**
      * Filters the type of journeys to return.
      */
-    filter?: Enums.AvailabilityFilter;
+    filter?: Enums.<ENUM>'Default'|'ExcludeDeparted'|'ExcludeImminent'|'ExcludeUnavailable'</ENUM>;
     /**
      * The list of inventory journey sort keys. Used for filtering journeys on the response.
      */
-    sortKeys?: Enums.JourneySortKey;
+    sortKeys?: Enums.<ENUM>'ServiceType'|'ShortestTravelTime'|'LowestFare'|'HighestFare'|'EarliestDeparture'|'LatestDeparture'|'EarliestArrival'|'LatestArrival'|'NoSort'|'BiasOnlineCommercialDuplicates'|'JourneyNumber'</ENUM>;
 }

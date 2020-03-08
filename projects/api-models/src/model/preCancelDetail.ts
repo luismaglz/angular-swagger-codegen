@@ -33,7 +33,7 @@ export interface PreCancelDetail {
     /**
      * The status of the pre cancel.
      */
-    status?: Enums.PreCancelStatus;
+    status?: Enums.<ENUM>'Unknown'|'CancelAvailable'|'ExternalCancelAvailable'|'ImmediateCancel'|'CancelDenied'|'RemoveFromBooking'|'CancelPending'</ENUM>;
     /**
      * The pre cancel description.
      */

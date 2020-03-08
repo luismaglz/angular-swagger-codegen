@@ -60,5 +60,5 @@ export interface PassengerBag {
     /**
      * The WeightType in Bag object.
      */
-    weightType?: Enums.WeightType;
+    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
 }

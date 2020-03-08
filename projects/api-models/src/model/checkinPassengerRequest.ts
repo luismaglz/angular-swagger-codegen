@@ -24,7 +24,7 @@ export interface CheckinPassengerRequest {
     /**
      * The passengers transit type.
      */
-    transitType?: Enums.TransitType;
+    transitType?: Enums.<ENUM>'Default'|'Origin'|'Destination'|'Both'</ENUM>;
     /**
      * Flag indicating to process APPS.
      */

@@ -32,7 +32,7 @@ export interface PassengerSegmentBag {
     /**
      * The bag status.
      */
-    status?: Enums.BaggageStatus;
+    status?: Enums.<ENUM>'Default'|'Checked'|'Removed'|'Added'|'AddedPrinted'</ENUM>;
     /**
      * The bag segment departure station.
      */

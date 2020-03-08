@@ -37,7 +37,7 @@ export interface BaggageAllowance {
     /**
      * The allowance behavior.
      */
-    behavior?: Enums.BaggageAllowanceBehavior;
+    behavior?: Enums.<ENUM>'Default'|'WeightSharing'|'PerPiece'|'PerPieceWithWeightSharing'</ENUM>;
     /**
      * The list of baggage type codes.
      */
@@ -57,7 +57,7 @@ export interface BaggageAllowance {
     /**
      * The weight type for MaximumWeightPerPiece and TotalWeight.
      */
-    weightType?: Enums.WeightType;
+    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
     /**
      * The associated baggage usage details.
      */

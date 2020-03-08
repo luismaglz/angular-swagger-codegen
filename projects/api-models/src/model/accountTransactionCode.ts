@@ -28,7 +28,7 @@ export interface AccountTransactionCode {
     /**
      * The expiration type.
      */
-    expirationType?: Enums.CreditExpirationType;
+    expirationType?: Enums.<ENUM>'None'|'FixedAtIssuance'|'FixedDate'|'FixedAtBooking'</ENUM>;
     /**
      * The expiration days.
      */

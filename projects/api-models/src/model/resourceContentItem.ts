@@ -40,11 +40,11 @@ export interface ResourceContentItem {
     /**
      * Specific content type.
      */
-    type?: 'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference';
+    type?: Enums.<ENUM>'GeneralReference'|'News'|'ConsoleHelp'|'FareRuleReference'|'ReviewWithCustomer'|'Notices'|'Literature'|'Links'|'Image'|'PromotionReference'|'SubscriptionReference'</ENUM>;
     /**
      * Content data type.
      */
-    dataType?: 'Default'|'Text'|'RichTextFormat'|'ImageJpg'|'ImageGif'|'ImageBmp'|'ImagePng'|'WordDoc'|'Html'|'Pdf'|'Uri'|'WordDocx'|'Unmapped';
+    dataType?: Enums.<ENUM>'Default'|'Text'|'RichTextFormat'|'ImageJpg'|'ImageGif'|'ImageBmp'|'ImagePng'|'WordDoc'|'Html'|'Pdf'|'Uri'|'WordDocx'|'Unmapped'</ENUM>;
     /**
      * Data bytes.
      */

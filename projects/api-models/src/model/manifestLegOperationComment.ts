@@ -20,7 +20,7 @@ export interface ManifestLegOperationComment {
     /**
      * The comment type.
      */
-    commentType?: Enums.OperationCommentType;
+    commentType?: Enums.<ENUM>'Default'|'Reservation'|'Operation'|'PitLoad'|'Irop'|'AppsOverride'|'ManualAppsOverride'</ENUM>;
     /**
      * The agentID.
      */

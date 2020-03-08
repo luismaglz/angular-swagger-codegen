@@ -23,7 +23,7 @@ export interface Journey {
     /**
      * Returns a flight type enumeration. (NonStop, Thru, etc.)
      */
-    readonly flightType?: Enums.FlightType;
+    readonly flightType?: Enums.<ENUM>'None'|'NonStop'|'Through'|'Direct'|'Connect'|'All'</ENUM>;
     /**
      * The total number of stops this flight takes.
      */

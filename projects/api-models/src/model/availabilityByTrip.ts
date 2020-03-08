@@ -40,7 +40,7 @@ export interface AvailabilityByTrip {
     /**
      * Determines how and when to return the Ssr nest information.
      */
-    ssrCollectionsMode?: Enums.AvailabilitySsrCollectionsMode;
+    ssrCollectionsMode?: Enums.<ENUM>'None'|'Leg'</ENUM>;
     /**
      * The flight search criteria.
      */
@@ -48,5 +48,5 @@ export interface AvailabilityByTrip {
     /**
      * Defines the type of fares to be returned.
      */
-    type?: Enums.AvailabilityType;
+    type?: Enums.<ENUM>'Default'|'Standby'|'Overbook'|'NoPricing'</ENUM>;
 }

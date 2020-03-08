@@ -49,7 +49,7 @@ export interface Voucher {
     /**
      * The voucher type.
      */
-    type?: Enums.VoucherType;
+    type?: Enums.<ENUM>'Credit'|'SingleUseCredit'|'Service'|'SingleUse'|'MultiUse'|'SingleUseNegativeAdjustment'</ENUM>;
     /**
      * The voucher configuration code.
      */
@@ -61,7 +61,7 @@ export interface Voucher {
     /**
      * The voucher status.
      */
-    status?: Enums.VoucherStatus;
+    status?: Enums.<ENUM>'Available'|'Void'|'Redeemed'|'Expired'</ENUM>;
     /**
      * The record locator associated with the voucher.
      */

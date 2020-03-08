@@ -20,7 +20,7 @@ export interface ReminderTime {
     /**
      * The notification timed event type.
      */
-    type?: Enums.NotificationTimedEventType;
+    type?: Enums.<ENUM>'Departure'|'Arrival'</ENUM>;
     /**
      * The list of acceptable reminder times.
      */

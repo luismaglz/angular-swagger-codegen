@@ -51,7 +51,7 @@ export interface NskSessionContext {
     /**
      * The type of session permissions based on the logged in user.
      */
-    type?: Enums.SessionPermissionType;
+    type?: Enums.<ENUM>'Unknown'|'Customer'|'Anonymous'|'Agent'</ENUM>;
     /**
      * True if the booking exists in NewSkies for the session.
      */

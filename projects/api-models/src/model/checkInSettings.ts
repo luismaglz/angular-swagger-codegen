@@ -20,19 +20,19 @@ export interface CheckInSettings {
     /**
      * Gets or sets the APIS rules for Check-In.
      */
-    allowApisCheckIn?: Enums.IappCheckInType;
+    allowApisCheckIn?: Enums.<ENUM>'NotAllowed'|'AllowedWithVerifiedDocument'|'AllowedWithDocument'|'AllowedWithoutVerifiedDocument'</ENUM>;
     /**
      * Gets or sets the IAPP rules for Check-In.
      */
-    allowIappCheckIn?: Enums.IappCheckInType;
+    allowIappCheckIn?: Enums.<ENUM>'NotAllowed'|'AllowedWithVerifiedDocument'|'AllowedWithDocument'|'AllowedWithoutVerifiedDocument'</ENUM>;
     /**
      * Gets or sets the Domestic bag weight rules for Check-In.
      */
-    domesticBagWeight?: Enums.BagWeightControl;
+    domesticBagWeight?: Enums.<ENUM>'WeightNotRequired'|'TotalWeightRequired'|'IndividualWeightRequired'</ENUM>;
     /**
      * Gets or sets the International bag weight rules for Check-In.
      */
-    internationalBagWeight?: Enums.BagWeightControl;
+    internationalBagWeight?: Enums.<ENUM>'WeightNotRequired'|'TotalWeightRequired'|'IndividualWeightRequired'</ENUM>;
     /**
      * Gets or sets the flag to allow APPS Checkin.
      */

@@ -26,7 +26,7 @@ export interface SsrDetail {
     /**
      * Gets the SSR type.
      */
-    ssrType?: Enums.SsrType;
+    ssrType?: Enums.<ENUM>'Standard'|'Infant'|'Meal'|'BaggageAllowance'|'TravelLineMeal'</ENUM>;
     /**
      * Gets the SSR name.
      */
@@ -58,5 +58,5 @@ export interface SsrDetail {
     /**
      * Gets the seat restriction.
      */
-    seatRestriction?: Enums.SeatRestriction;
+    seatRestriction?: Enums.<ENUM>'Undefined'|'AlwaysAllowed'|'DefaultAllowed'|'DefaultRestricted'</ENUM>;
 }

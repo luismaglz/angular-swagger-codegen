@@ -34,16 +34,16 @@ export interface CodesSettings {
     /**
      * A list of fee types that allow overrides. = ['All', 'Tax', 'TravelFee', 'ServiceFee', 'PaymentFee', 'PenaltyFee', 'SsrFee', 'NonFlightServiceFee', 'UpgradeFee', 'SeatFee', 'BaseFare', 'SpoilageFee', 'NameChangeFee', 'ConvenienceFee', 'BaggageFee', 'FareSurcharge', 'PromotionDiscount']
      */
-    overrideFeeTypes?: Enums.FeeType;
+    overrideFeeTypes?: Enums.<ENUM>'All'|'Tax'|'TravelFee'|'ServiceFee'|'PaymentFee'|'PenaltyFee'|'SsrFee'|'NonFlightServiceFee'|'UpgradeFee'|'SeatFee'|'BaseFare'|'SpoilageFee'|'NameChangeFee'|'ConvenienceFee'|'BaggageFee'|'FareSurcharge'|'PromotionDiscount'|'ServiceBundle'|'ExtraBagFee'|'ATPCOBagFee'</ENUM>;
     paymentFieldOverrides?: CodesSettingsPaymentFieldOverrides;
     /**
      * The permissions allowed on the private travel queue category for this role.
      */
-    privateTravelQueueCategory?: Enums.QueueCategoriesAccessControl;
+    privateTravelQueueCategory?: Enums.<ENUM>'None'|'View'|'All'</ENUM>;
     /**
      * The permissions allowed on the public travel queue category for this role.
      */
-    publicTravelQueueCategory?: Enums.QueueCategoriesAccessControl;
+    publicTravelQueueCategory?: Enums.<ENUM>'None'|'View'|'All'</ENUM>;
     /**
      * A list of payment codes that allow refunds.
      */
@@ -51,7 +51,7 @@ export interface CodesSettings {
     /**
      * A list of fee types that are Spoilage Fees. = ['All', 'Tax', 'TravelFee', 'ServiceFee', 'PaymentFee', 'PenaltyFee', 'SsrFee', 'NonFlightServiceFee', 'UpgradeFee', 'SeatFee', 'BaseFare', 'SpoilageFee', 'NameChangeFee', 'ConvenienceFee', 'BaggageFee', 'FareSurcharge', 'PromotionDiscount']
      */
-    spoilFeeTypes?: Enums.FeeType;
+    spoilFeeTypes?: Enums.<ENUM>'All'|'Tax'|'TravelFee'|'ServiceFee'|'PaymentFee'|'PenaltyFee'|'SsrFee'|'NonFlightServiceFee'|'UpgradeFee'|'SeatFee'|'BaseFare'|'SpoilageFee'|'NameChangeFee'|'ConvenienceFee'|'BaggageFee'|'FareSurcharge'|'PromotionDiscount'|'ServiceBundle'|'ExtraBagFee'|'ATPCOBagFee'</ENUM>;
     /**
      * A list of allowed classes of service.
      */
@@ -108,5 +108,5 @@ export interface CodesSettings {
     /**
      * The fee types that allow waiving. = ['All', 'Tax', 'TravelFee', 'ServiceFee', 'PaymentFee', 'PenaltyFee', 'SsrFee', 'NonFlightServiceFee', 'UpgradeFee', 'SeatFee', 'BaseFare', 'SpoilageFee', 'NameChangeFee', 'ConvenienceFee', 'BaggageFee', 'FareSurcharge', 'PromotionDiscount']
      */
-    waiveFeeTypes?: Enums.FeeType;
+    waiveFeeTypes?: Enums.<ENUM>'All'|'Tax'|'TravelFee'|'ServiceFee'|'PaymentFee'|'PenaltyFee'|'SsrFee'|'NonFlightServiceFee'|'UpgradeFee'|'SeatFee'|'BaseFare'|'SpoilageFee'|'NameChangeFee'|'ConvenienceFee'|'BaggageFee'|'FareSurcharge'|'PromotionDiscount'|'ServiceBundle'|'ExtraBagFee'|'ATPCOBagFee'</ENUM>;
 }

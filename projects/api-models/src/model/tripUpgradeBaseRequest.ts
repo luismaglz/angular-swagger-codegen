@@ -20,7 +20,7 @@ export interface TripUpgradeBaseRequest {
     /**
      * The reserving inventory action of the upgrade once sold by the system.
      */
-    inventoryControl?: Enums.InventoryControlType;
+    inventoryControl?: Enums.<ENUM>'HoldSpace'|'SoftHoldSpace'|'ClaimSpace'|'OversellSpace'|'StandBy'</ENUM>;
     /**
      * Flag indicating to override the fee if permissions allow it.
      */

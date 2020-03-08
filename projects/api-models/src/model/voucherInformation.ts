@@ -61,7 +61,7 @@ export interface VoucherInformation {
     /**
      * The voucher type.
      */
-    type?: Enums.VoucherType;
+    type?: Enums.<ENUM>'Credit'|'SingleUseCredit'|'Service'|'SingleUse'|'MultiUse'|'SingleUseNegativeAdjustment'</ENUM>;
     /**
      * The voucher configuration code.
      */
@@ -77,7 +77,7 @@ export interface VoucherInformation {
     /**
      * The voucher status.
      */
-    status?: Enums.VoucherStatus;
+    status?: Enums.<ENUM>'Available'|'Void'|'Redeemed'|'Expired'</ENUM>;
     /**
      * Returns the original available amount of the voucher, converted to a foreign currency.  Used if the booking and voucher are in different currencies.
      */
@@ -93,7 +93,7 @@ export interface VoucherInformation {
     /**
      * The name restriction for the voucher.
      */
-    nameRestriction?: Enums.VoucherNameRestriction;
+    nameRestriction?: Enums.<ENUM>'None'|'MustBePassenger'|'MustBePassengerOrContact'</ENUM>;
     /**
      * The voucher transactions.
      */

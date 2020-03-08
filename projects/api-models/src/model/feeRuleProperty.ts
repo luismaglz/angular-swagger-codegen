@@ -28,11 +28,11 @@ export interface FeeRuleProperty {
     /**
      * Gets or sets the property operator of this fee rule property.
      */
-    operator?: Enums.FeeRulePropertyOperator;
+    operator?: Enums.<ENUM>'Default'|'MustBe'|'MustNotBe'|'AllMustBe'</ENUM>;
     /**
      * Gets or sets the property type of this fee rule property.
      */
-    type?: 'Default'|'PassengerType'|'FromStationClass'|'FareClass'|'PassengerResidentCountry'|'FeeCode'|'ToStationClass'|'EventChannel'|'OrganizationGroup'|'OrganizationCode'|'AgentRole'|'BestCustomerProgramLevel'|'WorstCustomerProgramLevel'|'ExactCustomerProgramLevel'|'CarrierCode'|'SeatGroup'|'FeeType'|'ProductClass'|'SystemCode'|'TripType'|'PaymentType'|'TicketAccountingCode'|'SoldChannel'|'ItineraryFullyWithinCountry'|'ChangeReasonCode'|'GuestRecognitionLevel'|'FlightType'|'FareType'|'DayOfWeek'|'StartTimeOfDay'|'EndTimeOfDay'|'StartFlightNumberRange'|'EndFlightNumberRange'|'MinAdvancedPurchaseDays'|'FareDiscount'|'BookingStatus'|'EarliestAdvancedPurchaseDays'|'SalesStartTimeOfDay'|'SalesEndTimeOfDay'|'BookingCurrency'|'CardSubType'|'PaymentMethodCode'|'ServiceBundle'|'CreatedAgentRoleCode'|'StartExtraBagRange'|'EndExtraBagRange'|'JourneyDepartureStation'|'JourneyDepartureCountry'|'GSTStateCode';
+    type?: Enums.<ENUM>'Default'|'PassengerType'|'FromStationClass'|'FareClass'|'PassengerResidentCountry'|'FeeCode'|'ToStationClass'|'EventChannel'|'OrganizationGroup'|'OrganizationCode'|'AgentRole'|'BestCustomerProgramLevel'|'WorstCustomerProgramLevel'|'ExactCustomerProgramLevel'|'CarrierCode'|'SeatGroup'|'FeeType'|'ProductClass'|'SystemCode'|'TripType'|'PaymentType'|'TicketAccountingCode'|'SoldChannel'|'ItineraryFullyWithinCountry'|'ChangeReasonCode'|'GuestRecognitionLevel'|'FlightType'|'FareType'|'DayOfWeek'|'StartTimeOfDay'|'EndTimeOfDay'|'StartFlightNumberRange'|'EndFlightNumberRange'|'MinAdvancedPurchaseDays'|'FareDiscount'|'BookingStatus'|'EarliestAdvancedPurchaseDays'|'SalesStartTimeOfDay'|'SalesEndTimeOfDay'|'BookingCurrency'|'CardSubType'|'PaymentMethodCode'|'ServiceBundle'|'CreatedAgentRoleCode'|'StartExtraBagRange'|'EndExtraBagRange'|'JourneyDepartureStation'|'JourneyDepartureCountry'|'GSTStateCode'</ENUM>;
     /**
      * Gets or sets the property value of this fee rule property.
      */

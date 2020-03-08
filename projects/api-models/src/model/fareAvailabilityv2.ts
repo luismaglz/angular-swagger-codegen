@@ -37,11 +37,11 @@ export interface FareAvailabilityv2 {
     /**
      * The fare application type.
      */
-    fareApplicationType?: Enums.FareApplicationType;
+    fareApplicationType?: Enums.<ENUM>'Route'|'Sector'|'Governing'</ENUM>;
     /**
      * The fare status.
      */
-    fareStatus?: Enums.FareStatus;
+    fareStatus?: Enums.<ENUM>'Default'|'SameDayStandBy'|'FareOverrideConfirming'|'FareOverrideConfirmed'|'PublishedFareOverrideConfirming'|'PublishedFareOverrideConfirmed'</ENUM>;
     /**
      * The fare product class.
      */

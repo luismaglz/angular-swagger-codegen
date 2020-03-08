@@ -52,7 +52,7 @@ export interface Transaction {
     /**
      * The transaction type.
      */
-    type?: Enums.TransactionType;
+    type?: Enums.<ENUM>'Default'|'Payment'|'Adjustment'|'Supplementary'|'Transfer'|'Spoilage'|'StatementDateAndBalance'|'PayableCommission'|'Commission'|'ChildCommissionTransfer'|'ParentCommissionTransfer'</ENUM>;
     /**
      * The payment ID of the transaction. This will only be non zero on refunded booking payments. A zero signifies that  no payment ID is found.
      */

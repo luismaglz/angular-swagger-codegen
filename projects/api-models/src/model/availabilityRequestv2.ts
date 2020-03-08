@@ -35,7 +35,7 @@ export interface AvailabilityRequestv2 {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: Enums.TaxesAndFeesRollupMode;
+    taxesAndFees?: Enums.<ENUM>'None'|'Taxes'|'TaxesAndFees'</ENUM>;
     /**
      * The number of fares per journey to be returned. If not set it will use the default optimized values
      */

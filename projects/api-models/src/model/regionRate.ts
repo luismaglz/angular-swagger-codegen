@@ -40,5 +40,5 @@ export interface RegionRate {
     /**
      * The type of this region rate.
      */
-    regionType?: Enums.RegionType;
+    regionType?: Enums.<ENUM>'Default'|'Station'|'City'|'ProvinceState'|'Country'|'FeeZone'|'SubZone'|'Area'|'All'|'Mac'</ENUM>;
 }

@@ -15,7 +15,7 @@ import * as Enums from '../enums';
 
 export interface IPAddress { 
     address?: number;
-    readonly addressFamily?: 'Unspecified'|'Unix'|'InterNetwork'|'ImpLink'|'Pup'|'Chaos'|'Ipx'|'NS'|'Iso'|'Osi'|'Ecma'|'DataKit'|'Ccitt'|'Sna'|'DecNet'|'DataLink'|'Lat'|'HyperChannel'|'AppleTalk'|'NetBios'|'VoiceView'|'FireFox'|'Banyan'|'Atm'|'InterNetworkV6'|'Cluster'|'Ieee12844'|'Irda'|'NetworkDesigners'|'Max'|'Unknown';
+    readonly addressFamily?: Enums.<ENUM>'Unspecified'|'Unix'|'InterNetwork'|'ImpLink'|'Pup'|'Chaos'|'Ipx'|'NS'|'Iso'|'Osi'|'Ecma'|'DataKit'|'Ccitt'|'Sna'|'DecNet'|'DataLink'|'Lat'|'HyperChannel'|'AppleTalk'|'NetBios'|'VoiceView'|'FireFox'|'Banyan'|'Atm'|'InterNetworkV6'|'Cluster'|'Ieee12844'|'Irda'|'NetworkDesigners'|'Max'|'Unknown'</ENUM>;
     scopeId?: number;
     readonly isIPv6Multicast?: boolean;
     readonly isIPv6LinkLocal?: boolean;

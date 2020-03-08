@@ -41,7 +41,7 @@ export interface PaymentMethod {
     /**
      * The DCC type for this payment method.
      */
-    dccType?: Enums.DccType;
+    dccType?: Enums.<ENUM>'None'|'ZeroRate'|'FullAmount'</ENUM>;
     /**
      * The disallow partial refund flag for this payment method.
      */
@@ -66,11 +66,11 @@ export interface PaymentMethod {
     /**
      * The payment method type for this payment method.
      */
-    paymentMethodType?: Enums.PaymentMethodType;
+    paymentMethodType?: Enums.<ENUM>'ExternalAccount'|'PrePaid'|'AgencyAccount'|'CustomerAccount'|'Voucher'|'Loyalty'</ENUM>;
     /**
      * The payment refund type for this payment method.
      */
-    paymentRefundType?: Enums.PaymentRefundType;
+    paymentRefundType?: Enums.<ENUM>'NotAllowed'|'LineItemLevel'|'AccountLevel'|'BookingLevel'</ENUM>;
     /**
      * The proportional refund flag for this payment method.
      */
@@ -82,7 +82,7 @@ export interface PaymentMethod {
     /**
      * The refund currency control for this payment method.
      */
-    refundCurrencyControl?: Enums.RefundCurrencyControl;
+    refundCurrencyControl?: Enums.<ENUM>'UseCollectedCurrency'|'UseQuotedCurrency'</ENUM>;
     /**
      * The hours of restriction for this payment method.
      */

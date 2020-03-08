@@ -37,7 +37,7 @@ export interface LegNest {
     /**
      * Gets or sets the type of the nest.
      */
-    nestType?: Enums.NestType;
+    nestType?: Enums.<ENUM>'Default'|'Net'|'Serial'|'OneBooking'</ENUM>;
     /**
      * Gets or sets the nest leg classes.
      */

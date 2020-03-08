@@ -50,7 +50,7 @@ export interface ActivitySimpleRequest {
     /**
      * The search sort order.
      */
-    sort?: Enums.SearchSortType;
+    sort?: Enums.<ENUM>'SupplierDefined'|'Price'|'Rating'|'Name'|'Category'|'VendorDescription'|'Preferred'|'Relevance'</ENUM>;
     /**
      * The promotion code with which to search.
      */

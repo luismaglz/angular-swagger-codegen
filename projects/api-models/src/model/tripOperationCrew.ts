@@ -24,5 +24,5 @@ export interface TripOperationCrew {
     /**
      * The crew personnel type.
      */
-    crewType?: Enums.CrewType;
+    crewType?: Enums.<ENUM>'Default'|'Pilot'|'CoPilot'|'CockpitJumpseat'|'CabinJumpseat'|'CabinCrew'</ENUM>;
 }

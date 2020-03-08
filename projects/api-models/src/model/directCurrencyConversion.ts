@@ -40,7 +40,7 @@ export interface DirectCurrencyConversion {
     /**
      * The conversion status.
      */
-    status?: Enums.DirectCurrencyConversionStatus;
+    status?: Enums.<ENUM>'DccNotOffered'|'DccOfferRejected'|'DccOfferAccepted'|'DccInitialValue'|'MccInUse'</ENUM>;
     /**
      * Flag indicating if DCC is applicable.
      */

@@ -25,7 +25,7 @@ export interface InfantBase {
     /**
      * The gender of the passenger.
      */
-    gender?: Enums.Gender;
+    gender?: Enums.<ENUM>'XX'|'Male'|'Female'</ENUM>;
     /**
      * The name of the passenger.
      */

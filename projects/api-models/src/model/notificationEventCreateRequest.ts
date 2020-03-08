@@ -20,5 +20,5 @@ export interface NotificationEventCreateRequest {
     /**
      * The travel notification event type.
      */
-    type: Enums.NotificationEventType;
+    type: Enums.<ENUM>'DepartureDelay'|'ArrivalDelay'|'ScheduleChange'|'CheckIn'</ENUM>;
 }

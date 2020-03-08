@@ -49,7 +49,7 @@ export interface Vendorv2 {
     /**
      * The payment action.
      */
-    paymentAction?: Enums.PaymentAction;
+    paymentAction?: Enums.<ENUM>'SellingSystemCollects'|'PassThroughHold'|'NoPaymentRequired'|'ReferToSupplierMessage'|'PassThroughCharge'</ENUM>;
     /**
      * Supplier information.
      */

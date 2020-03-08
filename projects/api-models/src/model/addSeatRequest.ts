@@ -29,7 +29,7 @@ export interface AddSeatRequest {
     /**
      * Indicates the type of hold placed on a unit.
      */
-    inventoryControl?: Enums.UnitInventoryControlType;
+    inventoryControl?: Enums.<ENUM>'Session'|'None'</ENUM>;
     /**
      * Flag indicating whether to ignore seat SSR's.
      */
@@ -37,5 +37,5 @@ export interface AddSeatRequest {
     /**
      * The seat assignment mode.
      */
-    seatAssignmentMode?: Enums.SeatAssignmentMode;
+    seatAssignmentMode?: Enums.<ENUM>'AutoDetermine'|'PreSeatAssignment'|'WebCheckIn'</ENUM>;
 }

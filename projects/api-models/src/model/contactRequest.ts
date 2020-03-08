@@ -47,11 +47,11 @@ export interface ContactRequest {
     /**
      * The contact distribution option.
      */
-    distributionOption?: Enums.DistributionOption;
+    distributionOption?: Enums.<ENUM>'None'|'Mail'|'Email'|'Fax'|'MailFax'|'Airport'|'Hold'|'Print'</ENUM>;
     /**
      * The notification preference of the contact.
      */
-    notificationPreference?: Enums.NotificationPreference;
+    notificationPreference?: Enums.<ENUM>'None'|'Promotional'</ENUM>;
     /**
      * The company name.
      */

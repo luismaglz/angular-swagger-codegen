@@ -20,7 +20,7 @@ export interface BookingCommentRequest {
     /**
      * Indicates where the comment will be seen.
      */
-    type?: Enums.PersonCommentType;
+    type?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
     /**
      * The text of the comment.
      */

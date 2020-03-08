@@ -32,5 +32,5 @@ export interface BaggageUsageDetails {
     /**
      * The weight type for RemainingTotalWeight.
      */
-    weightType?: Enums.WeightType;
+    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
 }

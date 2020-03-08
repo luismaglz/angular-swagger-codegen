@@ -28,5 +28,5 @@ export interface TripOperationComment {
     /**
      * Represents the comment type.
      */
-    type?: Enums.OperationCommentType;
+    type?: Enums.<ENUM>'Default'|'Reservation'|'Operation'|'PitLoad'|'Irop'|'AppsOverride'|'ManualAppsOverride'</ENUM>;
 }

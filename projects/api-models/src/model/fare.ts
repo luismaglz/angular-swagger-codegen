@@ -45,7 +45,7 @@ export interface Fare {
     /**
      * The type of the fare application.
      */
-    fareApplicationType?: Enums.FareApplicationType;
+    fareApplicationType?: Enums.<ENUM>'Route'|'Sector'|'Governing'</ENUM>;
     /**
      * The fare class of service.
      */
@@ -61,11 +61,11 @@ export interface Fare {
     /**
      * The inbound and outbound.
      */
-    inboundOutBound?: Enums.InboundOutbound;
+    inboundOutBound?: Enums.<ENUM>'None'|'Inbound'|'Outbound'|'Both'|'RoundFrom'|'RoundTo'</ENUM>;
     /**
      * The fare status.
      */
-    fareStatus?: Enums.FareStatus;
+    fareStatus?: Enums.<ENUM>'Default'|'SameDayStandBy'|'FareOverrideConfirming'|'FareOverrideConfirmed'|'PublishedFareOverrideConfirming'|'PublishedFareOverrideConfirmed'</ENUM>;
     /**
      * Gets or sets a value indicating whether this fare is an allotment marker.
      */

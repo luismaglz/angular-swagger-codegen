@@ -28,21 +28,21 @@ export interface ComponentPaymentType {
     /**
      * The modulus check to perform.
      */
-    modType?: Enums.PaymentModType;
+    modType?: Enums.<ENUM>'None'|'Mod10'|'Mod11'</ENUM>;
     /**
      * The field usage for expiration date.
      */
-    expiration?: Enums.FieldUsage;
+    expiration?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The field usage for CVV.
      */
-    cvv?: Enums.FieldUsage;
+    cvv?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The field usage for card holder name.
      */
-    name?: Enums.FieldUsage;
+    name?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
     /**
      * The field usage for issue number.
      */
-    issueNumber?: Enums.FieldUsage;
+    issueNumber?: Enums.<ENUM>'Prompt'|'DoNotPrompt'|'Required'</ENUM>;
 }

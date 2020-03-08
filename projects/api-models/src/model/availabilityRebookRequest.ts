@@ -31,7 +31,7 @@ export interface AvailabilityRebookRequest {
     /**
      * The taxes and fees rollup mode which affects the pricing information.
      */
-    taxesAndFees?: Enums.TaxesAndFeesRollupMode;
+    taxesAndFees?: Enums.<ENUM>'None'|'Taxes'|'TaxesAndFees'</ENUM>;
     /**
      * The code criteria.
      */

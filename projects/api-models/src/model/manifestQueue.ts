@@ -24,7 +24,7 @@ export interface ManifestQueue {
     /**
      * The action that will be taken as a result of the placement in.
      */
-    queueAction?: Enums.QueueAction;
+    queueAction?: Enums.<ENUM>'Default'|'Warning'|'Lock'|'DefaultAndNotify'|'WarningAndNotify'|'LockAndNotify'</ENUM>;
     /**
      * The QueueCategoryCode property.
      */

@@ -28,7 +28,7 @@ export interface OperationBag {
     /**
      * The BaggageStatus in Bag object.
      */
-    baggageStatus?: Enums.BaggageStatus;
+    baggageStatus?: Enums.<ENUM>'Default'|'Checked'|'Removed'|'Added'|'AddedPrinted'</ENUM>;
     /**
      * Flag for marking a bag as a non-standard piece of luggage.
      */
@@ -60,5 +60,5 @@ export interface OperationBag {
     /**
      * The WeightType in Bag object.
      */
-    weightType?: Enums.WeightType;
+    weightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
 }

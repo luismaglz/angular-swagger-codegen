@@ -21,7 +21,7 @@ export interface BookingHistory {
     /**
      * The booking history report category.
      */
-    readonly historyCategory?: Enums.HistoryCategory;
+    readonly historyCategory?: Enums.<ENUM>'Unknown'|'Baggage'|'BagTagPrint'|'BoardingPassPrint'|'CheckIn'|'ClassOfServiceChange'|'Comment'|'ConfirmedSegment'|'ContactChange'|'Converted'|'CouponOverride'|'DividePnr'|'FareOverride'|'Fee'|'FlightMove'|'GroupNameChange'|'Hold'|'ItinerarySent'|'ManualPayment'|'MoveBackPnr'|'NameChange'|'NameRemove'|'Payment'|'Pds'|'Promotion'|'QueuePlaceRemove'|'RecordLocator'|'ScheduleCancelllation'|'ScheduleCodeShareChange'|'ScheduleFlightDesignatorChange'|'ScheduleTimeChange'|'SeatAssignment'|'SegmentChange'|'Reprice'|'SsrChange'|'StandByChange'|'TicketNumber'|'VerifiedTravelDocument'|'Apps'|'InhibitedOverride'|'CustomIdChange'|'HoldDateChange'</ENUM>;
     /**
      * The the history report data.
      */
@@ -29,7 +29,7 @@ export interface BookingHistory {
     /**
      * The specific history code.
      */
-    event?: Enums.BookingHistoryEvent;
+    event?: Enums.<ENUM>'Unknown'|'ConvertedHistory'|'FlightTimeChange'|'FlightDesignatorChange'|'AssignedSeat'|'RemoveSeat'|'AddedFlight'|'DeletedFlight'|'DeletedPassenger'|'NameChange'|'GroupNameChange'|'CancelledTicketing'|'ScheduleChange'|'AddedPayment'|'ServiceFee'|'QueuedPnr'|'UnqueuedPnr'|'DeletedComment'|'Divided'|'CheckedIn'|'CheckedOut'|'FareOverride'|'AddedBaggage'|'ChangedBaggageWeight'|'CheckedBaggage'|'RemovedBaggage'|'BoardedPassenger'|'UnboardedPassenger'|'ManualAuthorization'|'ManualDecline'|'UndoCancel'|'ItinerarySent'|'ContactChange'|'SsrAdded'|'FlightMoved'|'VerifiedDocument'|'RemovedVerifiedDocument'|'Promotion'|'BookingComment'|'CancelledSchedule'|'CancelServiceFee'|'OverrideServiceFee'|'AddedRecordLocator'|'DeletedRecordLocator'|'UpgradeClassOfService'|'DowngradeClassOfService'|'StandbyPriorityChange'|'AssignedTicketNumber'|'DeletedTicketNumber'|'ConfirmSegmentStatusCodeChange'|'CodeshareFlightChanged'|'PdsCancel'|'PdsPending'|'PdsConfirm'|'PdsFinalized'|'PdsDeclined'|'PdsException'|'PdsCancelRefused'|'PdsCancelUnsuccessful'|'Apps'|'InhibitedOverride'|'PrintedBagTag'|'SelfPrintedBagTag'|'PrintedBoardingPass'|'AddCustomerId'|'DeleteCustomerId'|'HoldCreated'|'HoldRemoved'|'HoldChanged'|'OverrideCoupon'|'PdsSynchronized'|'PdsItemremoved'|'Reprice'|'ChannelOverride'|'EmdCreated'|'EmdRemoved'|'EmdChanged'|'ServiceBundle'|'PublishedFareOverride'|'FareClassRealignment'</ENUM>;
     /**
      * The point of sale.
      */

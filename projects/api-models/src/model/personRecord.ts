@@ -26,11 +26,11 @@ export interface PersonRecord {
     /**
      * The person's type.
      */
-    type?: Enums.PersonType;
+    type?: Enums.<ENUM>'None'|'Customer'|'Agent'</ENUM>;
     /**
      * The person's status.
      */
-    status?: Enums.PersonStatus;
+    status?: Enums.<ENUM>'Active'|'Terminated'|'Suspended'</ENUM>;
     /**
      * The person's customer number.
      */

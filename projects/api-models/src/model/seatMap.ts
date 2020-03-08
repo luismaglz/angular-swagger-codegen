@@ -45,7 +45,7 @@ export interface SeatMap {
     /**
      * The categorization of the equipment.
      */
-    category?: Enums.EquipmentCategory;
+    category?: Enums.<ENUM>'None'|'JetAircraft'|'PistonAircraft'|'TurbopropAircraft'|'Helicopter'|'Surface'|'Train'|'Bus'|'AllCategories'</ENUM>;
     /**
      * Number of available units on the inventory equipment.
      */

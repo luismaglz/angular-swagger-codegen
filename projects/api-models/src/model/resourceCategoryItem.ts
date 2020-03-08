@@ -20,7 +20,7 @@ export interface ResourceCategoryItem {
     /**
      * The default content type.
      */
-    readonly contentType?: Enums.ResponseContentType;
+    readonly contentType?: Enums.<ENUM>'Unknown'|'Json'|'Xml'</ENUM>;
     /**
      * The resource id.
      */

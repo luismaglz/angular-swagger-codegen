@@ -31,7 +31,7 @@ export interface User {
     /**
      * The status of the account.
      */
-    status?: Enums.UserStatus;
+    status?: Enums.<ENUM>'Default'|'Active'|'Pending'|'Suspended'|'Terminated'</ENUM>;
     /**
      * The unque person key associated to the user.
      */

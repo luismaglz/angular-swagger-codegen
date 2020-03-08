@@ -16,6 +16,6 @@
     "lib": ["dom", "es2015", "es2016"],
     "allowJs": true
   },
-  "files": ["./map-enums.ts"],
+  "files": ["./map-enums.ts", "./convert-to-dictionary.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -24,7 +24,7 @@ export interface BaggageType {
     /**
      * Gets or sets the bag weight type.
      */
-    bagWeightType?: Enums.WeightType;
+    bagWeightType?: Enums.<ENUM>'Default'|'Pounds'|'Kilograms'</ENUM>;
     /**
      * Gets or sets the free bag flag.
      */

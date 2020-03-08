@@ -14,5 +14,5 @@
 import * as Enums from '../enums';
 
 export interface CodesSettingsPaymentFieldOverrides_ { 
-    ?: Enums.RequiredType;
+    ?: Enums.<ENUM>'Required'|'Optional'|'NotAllowed'</ENUM>;
 }

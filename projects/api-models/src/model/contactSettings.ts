@@ -20,71 +20,71 @@ export interface ContactSettings {
     /**
      * Title field validation control.
      */
-    title?: Enums.FieldControlType;
+    title?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * First name field validation control.
      */
-    firstName?: Enums.FieldControlType;
+    firstName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Middle name field validation control.
      */
-    middleName?: Enums.FieldControlType;
+    middleName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Last name field validation control.
      */
-    lastName?: Enums.FieldControlType;
+    lastName?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Suffix field validation control.
      */
-    suffix?: Enums.FieldControlType;
+    suffix?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address line one field validation control.
      */
-    addressLineOne?: Enums.FieldControlType;
+    addressLineOne?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address line two field validation control.
      */
-    addressLineTwo?: Enums.FieldControlType;
+    addressLineTwo?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address line three field validation control.
      */
-    addressLineThree?: Enums.FieldControlType;
+    addressLineThree?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address city field validation control.
      */
-    city?: Enums.FieldControlType;
+    city?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address state field validation control.
      */
-    state?: Enums.FieldControlType;
+    state?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address postal code field validation control.
      */
-    postalCode?: Enums.FieldControlType;
+    postalCode?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Address country field validation control.
      */
-    country?: Enums.FieldControlType;
+    country?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Email field validation control.
      */
-    email?: Enums.FieldControlType;
+    email?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Home phone number field validation control.
      */
-    homePhoneNumber?: Enums.FieldControlType;
+    homePhoneNumber?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Work phone number field validation control.
      */
-    workPhoneNumber?: Enums.FieldControlType;
+    workPhoneNumber?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Other phone number field validation control.
      */
-    otherPhoneNumber?: Enums.FieldControlType;
+    otherPhoneNumber?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Fax number field validation control.
      */
-    faxNumber?: Enums.FieldControlType;
+    faxNumber?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * Flag indicating to disable phone number formatting.
      */
@@ -92,15 +92,15 @@ export interface ContactSettings {
     /**
      * The default itinerary distribution option.
      */
-    defaultItineraryDistribution?: Enums.DistributionOption;
+    defaultItineraryDistribution?: Enums.<ENUM>'None'|'Mail'|'Email'|'Fax'|'MailFax'|'Airport'|'Hold'|'Print'</ENUM>;
     /**
      * Notification preference field validation control.
      */
-    notificationPreference?: Enums.FieldControlType;
+    notificationPreference?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
     /**
      * The default notification preference.
      */
-    defaultNotificationPreference?: Enums.NotificationPreference;
+    defaultNotificationPreference?: Enums.<ENUM>'None'|'Promotional'</ENUM>;
     /**
      * Flag indicating to default the customer preferences to the contact.
      */

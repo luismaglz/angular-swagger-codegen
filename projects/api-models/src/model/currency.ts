@@ -32,7 +32,7 @@ export interface Currency {
     /**
      * The display digits of currency.
      */
-    displayDigits?: 'ZeroDigits'|'TwoDigits'|'ThreeDigits';
+    displayDigits?: Enums.<ENUM>'ZeroDigits'|'TwoDigits'|'ThreeDigits'</ENUM>;
     /**
      * The digit prefix of currency.
      */

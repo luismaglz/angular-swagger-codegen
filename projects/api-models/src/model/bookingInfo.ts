@@ -20,19 +20,19 @@ export interface BookingInfo {
     /**
      * The status of the entire booking.
      */
-    status?: Enums.BookingStatus;
+    status?: Enums.<ENUM>'Default'|'Hold'|'Confirmed'|'Closed'|'HoldCanceled'|'PendingArchive'|'Archived'</ENUM>;
     /**
      * The status of the applied payments.
      */
-    paidStatus?: Enums.PaidStatus;
+    paidStatus?: Enums.<ENUM>'UnderPaid'|'PaidInFull'|'OverPaid'</ENUM>;
     /**
      * The pricing status of the booking.
      */
-    priceStatus?: Enums.PriceStatus;
+    priceStatus?: Enums.<ENUM>'Invalid'|'Override'|'Valid'</ENUM>;
     /**
      * The booking profiling status.
      */
-    profileStatus?: Enums.BookingProfileStatus;
+    profileStatus?: Enums.<ENUM>'Default'|'KnownIndividual'|'ResolutionGroup'|'SelecteeGroup'|'NotUsed'|'FailureGroup'|'RandomSelectee'|'Exempt'</ENUM>;
     /**
      * Identifies the type (Default, GDS, CodeShare, ect) of the booking set during the commit process.
      */
@@ -40,7 +40,7 @@ export interface BookingInfo {
     /**
      * The channel that is responsible for created the booking.
      */
-    channelType?: Enums.ChannelType;
+    channelType?: Enums.<ENUM>'Default'|'Direct'|'Web'|'Gds'|'Api'</ENUM>;
     /**
      * The UTC date and time the booking was originally created.
      */

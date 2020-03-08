@@ -20,5 +20,5 @@ export interface VoucherUpdateRequest {
     /**
      * The status to update the voucher to.
      */
-    status: Enums.VoucherStatusUpdate;
+    status: Enums.<ENUM>'Reinstate'|'Void'</ENUM>;
 }

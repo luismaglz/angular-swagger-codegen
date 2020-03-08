@@ -36,5 +36,5 @@ export interface FeeSettings {
     /**
      * Gets or sets the restriction for fee description fields.
      */
-    feeDescription?: Enums.FieldControlType;
+    feeDescription?: Enums.<ENUM>'Required'|'Optional'|'Disabled'|'RequiredMasked'|'OptionalMasked'</ENUM>;
 }

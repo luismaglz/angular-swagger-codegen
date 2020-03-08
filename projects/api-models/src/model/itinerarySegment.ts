@@ -47,5 +47,5 @@ export interface ItinerarySegment {
     /**
      * The type of the segment.
      */
-    segmentType?: Enums.SegmentTypes;
+    segmentType?: Enums.<ENUM>'Normal'|'CodeShareOperating'|'CodeShareMarketing'|'InterlineOutbound'|'InterlineInbound'|'Passive'</ENUM>;
 }

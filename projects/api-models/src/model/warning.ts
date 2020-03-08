@@ -32,5 +32,5 @@ export interface Warning {
     /**
      * The origin of the charge in Travel Commerce.
      */
-    chargeOrigin?: Enums.ChargeOrigin;
+    chargeOrigin?: Enums.<ENUM>'Internal'|'External'|'Unknown'</ENUM>;
 }

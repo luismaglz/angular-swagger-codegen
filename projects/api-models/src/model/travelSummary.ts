@@ -21,7 +21,7 @@ export interface TravelSummary {
     /**
      * Status of the flight summary.
      */
-    status?: Enums.LegStatus;
+    status?: Enums.<ENUM>'Normal'|'Closed'|'Canceled'|'Suspended'|'ClosedPending'|'BlockAllActivities'|'Mishap'</ENUM>;
     /**
      * Number of the flight.
      */

@@ -29,7 +29,7 @@ export interface AddOn {
     /**
      * The status of the add on.
      */
-    readonly status?: Enums.AddOnStatus;
+    readonly status?: Enums.<ENUM>'Unknown'|'Active'|'Pending'|'Confirming'|'CancelPending'|'Cancelled'</ENUM>;
     /**
      * The unique add on key.
      */
@@ -37,7 +37,7 @@ export interface AddOn {
     /**
      * The type of add on.
      */
-    type?: Enums.ProductTypeCode;
+    type?: Enums.<ENUM>'Default'|'Insurance'|'Activity'|'Hotel'|'Car'</ENUM>;
     /**
      * The components order summary when the order is not available.
      */

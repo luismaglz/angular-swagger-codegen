@@ -32,7 +32,7 @@ export interface VoucherTransaction {
     /**
      * The voucher transaction type.
      */
-    type?: Enums.VoucherTransactionType;
+    type?: Enums.<ENUM>'Debit'|'Credit'|'Void'|'Reinstate'|'Adjustment'</ENUM>;
     /**
      * The amount of foreign currency.
      */

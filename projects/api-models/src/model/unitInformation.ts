@@ -29,7 +29,7 @@ export interface UnitInformation {
     /**
      * The availability of the seat.
      */
-    availability?: Enums.SeatAvailability;
+    availability?: Enums.<ENUM>'Unknown'|'Reserved'|'Blocked'|'HeldForAnotherSession'|'HeldForThisSession'|'Open'|'Missing'|'CheckedIn'|'FleetBlocked'|'Restricted'|'Broken'|'ReservedForPnr'|'SoftBlocked'|'Unavailable'</ENUM>;
     /**
      * Defines compartment designator of the compartment to which unit belongs to.
      */
@@ -41,7 +41,7 @@ export interface UnitInformation {
     /**
      * The type of the unit.
      */
-    type?: Enums.UnitType;
+    type?: Enums.<ENUM>'None'|'NormalSeat'|'LargeSeat'|'Couchette'|'Compartment'|'Table'|'Wall'|'Window'|'Door'|'Stairs'|'Wing'|'Other'|'Bulkhead'|'BedOneOfThree'|'BedTwoOfThree'|'BedThreeOfThree'|'BedOneOfTwo'|'BedTwoOfTwo'|'Bed'|'Exit'|'LabelRuler'|'GenericUnitResizableArea'|'Lavatory'|'LavatoryWithHandicappedFacilities'|'Luggage'|'MovableCompartmentDivider'|'Bar'|'Closet'|'Galley'|'MovieScreen'|'Storage'</ENUM>;
     /**
      * The designated travel class code.
      */

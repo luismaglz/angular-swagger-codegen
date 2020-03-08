@@ -28,5 +28,5 @@ export interface PersonComment {
     /**
      * The comment type.
      */
-    type?: Enums.PersonCommentType;
+    type?: Enums.<ENUM>'Default'|'Itinerary'|'Manifest'|'Alert'|'Archive'</ENUM>;
 }

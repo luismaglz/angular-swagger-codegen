@@ -22,7 +22,7 @@ export interface SsrsByType {
     /**
      * Defines the duration type of the Ssr.
      */
-    type: Enums.SsrDurationType;
+    type: Enums.<ENUM>'Segment'|'Journey'|'Leg'</ENUM>;
     /**
      * Market for the corresponding type.
      */

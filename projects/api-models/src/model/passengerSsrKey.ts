@@ -21,7 +21,7 @@ export interface PassengerSsrKey {
     /**
      * The length of the Ssr duration.
      */
-    ssrDuration?: Enums.SsrDurationType;
+    ssrDuration?: Enums.<ENUM>'Segment'|'Journey'|'Leg'</ENUM>;
     /**
      * The passenger SSR code.
      */

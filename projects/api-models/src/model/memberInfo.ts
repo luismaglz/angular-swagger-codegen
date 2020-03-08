@@ -15,7 +15,7 @@ import { CustomAttributeData } from './customAttributeData';
 import * as Enums from '../enums';
 
 export interface MemberInfo { 
-    readonly memberType?: 'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All';
+    readonly memberType?: Enums.<ENUM>'Constructor'|'Event'|'Field'|'Method'|'Property'|'TypeInfo'|'Custom'|'NestedType'|'All'</ENUM>;
     readonly name?: string;
     readonly declaringType?: string;
     readonly reflectedType?: string;

@@ -24,5 +24,5 @@ export interface NotificationTimedEventCreateRequest {
     /**
      * The travel notification timed event type.
      */
-    type: Enums.NotificationTimedEventType;
+    type: Enums.<ENUM>'Departure'|'Arrival'</ENUM>;
 }

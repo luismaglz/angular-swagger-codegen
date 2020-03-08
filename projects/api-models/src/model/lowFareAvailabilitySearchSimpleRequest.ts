@@ -49,7 +49,7 @@ export interface LowFareAvailabilitySearchSimpleRequest {
     /**
      * The loyalty fare filter.
      */
-    loyaltyFilter?: Enums.LoyaltyFilter;
+    loyaltyFilter?: Enums.<ENUM>'MonetaryOnly'|'PointsOnly'|'PointsAndMonetary'|'PreserveCurrent'</ENUM>;
     /**
      * The number of days to subtract from the begin/end date.
      */

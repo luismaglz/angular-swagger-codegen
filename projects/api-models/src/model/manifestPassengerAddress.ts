@@ -24,7 +24,7 @@ export interface ManifestPassengerAddress {
     /**
      * The addresses APIS status.
      */
-    status?: Enums.ApisAddressStatus;
+    status?: Enums.<ENUM>'Residence'|'InCountry'|'Emergency'|'Contact'</ENUM>;
     /**
      * Company name associated with this address.
      */

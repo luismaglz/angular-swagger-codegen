@@ -39,5 +39,5 @@ export interface AvailabilityCriteria {
     /**
      * Determines if SSR nest information will be returned on the legs for each available journey segments.
      */
-    ssrCollectionsMode?: Enums.AvailabilitySsrCollectionsMode;
+    ssrCollectionsMode?: Enums.<ENUM>'None'|'Leg'</ENUM>;
 }
