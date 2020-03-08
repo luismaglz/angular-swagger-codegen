@@ -8,7 +8,8 @@
         "module": "commonjs",
         "target": "es5",
         "strictNullChecks": true,
-        "types": []
+        "types": [],
+        "skipLibCheck": true
     },
     "include": [
         "./src/**/*"

@@ -1,9 +1,8 @@
-import IHttpClient from './IHttpClient';
-import { Observable } from 'rxjs/Observable';
+import { IHttpClient } from './IHttpClient';
+import { Observable, from } from 'rxjs';
 import 'whatwg-fetch';
-import HttpResponse from './HttpResponse';
+import { HttpResponse } from './HttpResponse';
 import { injectable } from 'inversify';
-import 'rxjs/add/observable/fromPromise';
 import { Headers } from './Headers';
 
 @injectable()
@@ -14,30 +13,30 @@ export class HttpClient implements IHttpClient {
 
   post(
     url: string,
-    body: {} | FormData,
+    body?: {} | FormData,
     headers?: Headers
   ): Observable<HttpResponse> {
     return this.performNetworkCall(
       url,
       'post',
-      this.getJsonBody(body),
+      this.getJsonBody(body || {}),
       this.addJsonHeaders(headers)
     );
   }
 
-  put(url: string, body: {}, headers?: Headers): Observable<HttpResponse> {
+  put(url: string, body?: {}, headers?: Headers): Observable<HttpResponse> {
     return this.performNetworkCall(
       url,
       'put',
-      this.getJsonBody(body),
+      this.getJsonBody(body || {}),
       this.addJsonHeaders(headers)
     );
   }
-  patch(url: string, body: {}, headers?: Headers): Observable<HttpResponse> {
+  patch(url: string, body?: {}, headers?: Headers): Observable<HttpResponse> {
     return this.performNetworkCall(
       url,
       'patch',
-      this.getJsonBody(body),
+      this.getJsonBody(body || {}),
       this.addJsonHeaders(headers)
     );
   }
@@ -50,7 +49,7 @@ export class HttpClient implements IHttpClient {
     return !(body instanceof FormData) ? JSON.stringify(body) : body;
   }
 
-  private addJsonHeaders(headers: Headers) {
+  private addJsonHeaders(headers: Headers = {}) {
     return Object.assign(
       {},
       {
@@ -93,6 +92,6 @@ export class HttpClient implements IHttpClient {
           return httpResponse;
         });
       });
-    return Observable.fromPromise(promise);
+    return from(promise);
   }
 }
