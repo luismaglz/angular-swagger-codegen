@@ -24,12 +24,8 @@ import {
   TripInformationResponse
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  ManifestService
-} from "../../base/api/index";
+import { ManifestService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreManifestService {

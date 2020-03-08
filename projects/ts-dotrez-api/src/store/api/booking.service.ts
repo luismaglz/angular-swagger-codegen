@@ -66,12 +66,8 @@ import {
   Transaction
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  BookingService
-} from "../../base/api/index";
+import { BookingService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreBookingService {

@@ -24,12 +24,8 @@ import {
   InlineResponse2003
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  BookingcheckinService
-} from "../../base/api/index";
+import { BookingcheckinService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreBookingcheckinService {

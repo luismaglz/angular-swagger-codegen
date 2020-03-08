@@ -17,12 +17,8 @@ import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import { EnvironmentHealth } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  HealthService
-} from "../../base/api/index";
+import { HealthService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreHealthService {

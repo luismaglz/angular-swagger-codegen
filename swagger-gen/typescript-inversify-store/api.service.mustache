@@ -11,13 +11,13 @@ import {
     {{/imports}}
 } from 'api-models';
 
+import { {{classname}} } from '../../base/api/index'
 import { 
-        HttpResponse,
+  HttpResponse,
     Headers,
     IHttpClient,
-    {{classname}} 
-    } from '../../base/api/index'
-
+} from '../../base/index';
+    
 
 {{#withInterfaces}}
 import { {{classname}}Interface }  from './{{classname}}Interface';

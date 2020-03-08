@@ -17,12 +17,8 @@ import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import { CurrencyConversion, IJsonResponse } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  CurrencyService
-} from "../../base/api/index";
+import { CurrencyService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreCurrencyService {

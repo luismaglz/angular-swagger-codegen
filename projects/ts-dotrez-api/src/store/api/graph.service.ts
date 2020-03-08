@@ -17,12 +17,8 @@ import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import { GraphQlQuery, GraphQlQueryv2 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  GraphService
-} from "../../base/api/index";
+import { GraphService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreGraphService {

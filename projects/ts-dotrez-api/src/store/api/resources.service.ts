@@ -99,12 +99,8 @@ import {
   Zone
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  ResourcesService
-} from "../../base/api/index";
+import { ResourcesService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreResourcesService {

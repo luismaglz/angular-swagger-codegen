@@ -25,12 +25,8 @@ import {
   PhoneNumberBase
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  BookingcontactsService
-} from "../../base/api/index";
+import { BookingcontactsService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreBookingcontactsService {

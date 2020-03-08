@@ -17,12 +17,8 @@ import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import { IJsonResponse, SeatMapAvailability } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  SeatmapsService
-} from "../../base/api/index";
+import { SeatmapsService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreSeatmapsService {

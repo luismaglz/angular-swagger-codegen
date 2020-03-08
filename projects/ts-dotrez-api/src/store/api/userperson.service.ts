@@ -70,12 +70,8 @@ import {
   TravelNotificationEditRequest
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  UserpersonService
-} from "../../base/api/index";
+import { UserpersonService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreUserpersonService {

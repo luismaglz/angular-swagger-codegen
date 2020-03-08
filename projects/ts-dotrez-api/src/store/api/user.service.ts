@@ -36,12 +36,8 @@ import {
   UserSingleSignOnToken
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  UserService
-} from "../../base/api/index";
+import { UserService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreUserService {

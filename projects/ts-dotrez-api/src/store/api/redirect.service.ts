@@ -17,12 +17,8 @@ import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import { RedirectResult } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  RedirectService
-} from "../../base/api/index";
+import { RedirectService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreRedirectService {

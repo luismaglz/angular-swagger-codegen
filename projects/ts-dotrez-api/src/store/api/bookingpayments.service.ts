@@ -38,12 +38,8 @@ import {
   VoucherPaymentRequest
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  BookingpaymentsService
-} from "../../base/api/index";
+import { BookingpaymentsService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreBookingpaymentsService {

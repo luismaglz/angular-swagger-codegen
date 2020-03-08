@@ -25,12 +25,8 @@ import {
   TravelQueueItemRequest
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  QueuesService
-} from "../../base/api/index";
+import { QueuesService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreQueuesService {

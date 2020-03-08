@@ -52,12 +52,8 @@ import {
   TravelNotificationEditRequest
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  BookingpassengersService
-} from "../../base/api/index";
+import { BookingpassengersService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreBookingpassengersService {

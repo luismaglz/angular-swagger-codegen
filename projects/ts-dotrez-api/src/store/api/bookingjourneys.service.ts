@@ -25,12 +25,8 @@ import {
   TravelDocumentRequirements
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  BookingjourneysService
-} from "../../base/api/index";
+import { BookingjourneysService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreBookingjourneysService {

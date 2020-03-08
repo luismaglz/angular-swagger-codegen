@@ -21,12 +21,8 @@ import {
   VoucherIssuanceRequest
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  VoucherIssuanceService
-} from "../../base/api/index";
+import { VoucherIssuanceService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreVoucherIssuanceService {

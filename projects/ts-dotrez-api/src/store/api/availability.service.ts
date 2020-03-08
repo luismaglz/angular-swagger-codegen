@@ -27,12 +27,8 @@ import {
   LowFareCacheRequest
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  AvailabilityService
-} from "../../base/api/index";
+import { AvailabilityService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreAvailabilityService {

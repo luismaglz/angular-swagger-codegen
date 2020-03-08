@@ -32,12 +32,8 @@ import {
   SellTokenRequest
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  AddOnsService
-} from "../../base/api/index";
+import { AddOnsService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreAddOnsService {

@@ -26,12 +26,8 @@ import {
   TokenResponse
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  TokenService
-} from "../../base/api/index";
+import { TokenService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreTokenService {

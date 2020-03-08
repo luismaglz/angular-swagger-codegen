@@ -17,12 +17,8 @@ import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import { IJsonResponse, Transaction } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  CollectionService
-} from "../../base/api/index";
+import { CollectionService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreCollectionService {

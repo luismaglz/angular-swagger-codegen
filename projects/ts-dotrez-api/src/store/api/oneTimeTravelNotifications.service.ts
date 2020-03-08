@@ -21,12 +21,8 @@ import {
   OneTimeTravelNotification
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  OneTimeTravelNotificationsService
-} from "../../base/api/index";
+import { OneTimeTravelNotificationsService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreOneTimeTravelNotificationsService {

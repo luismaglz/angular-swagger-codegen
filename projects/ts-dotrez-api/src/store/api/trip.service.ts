@@ -37,12 +37,8 @@ import {
   UpgradeSegment
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  TripService
-} from "../../base/api/index";
+import { TripService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreTripService {

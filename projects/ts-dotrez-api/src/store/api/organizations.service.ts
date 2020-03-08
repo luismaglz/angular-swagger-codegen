@@ -21,12 +21,8 @@ import {
   OrganizationGroupDetails
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  OrganizationsService
-} from "../../base/api/index";
+import { OrganizationsService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreOrganizationsService {

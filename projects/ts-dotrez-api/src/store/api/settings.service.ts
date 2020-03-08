@@ -37,12 +37,8 @@ import {
   SkySpeedSettingsv2
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  SettingsService
-} from "../../base/api/index";
+import { SettingsService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreSettingsService {

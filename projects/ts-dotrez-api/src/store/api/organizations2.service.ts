@@ -35,12 +35,8 @@ import {
   Transaction
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  Organizations2Service
-} from "../../base/api/index";
+import { Organizations2Service } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreOrganizations2Service {

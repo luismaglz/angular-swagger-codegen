@@ -17,12 +17,8 @@ import { inject, injectable } from "inversify";
 import { Store } from "redux";
 import { IJsonResponse, MessageBase } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  MessagesService
-} from "../../base/api/index";
+import { MessagesService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreMessagesService {

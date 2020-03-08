@@ -21,12 +21,8 @@ import {
   IJsonResponse
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  AccountService
-} from "../../base/api/index";
+import { AccountService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreAccountService {

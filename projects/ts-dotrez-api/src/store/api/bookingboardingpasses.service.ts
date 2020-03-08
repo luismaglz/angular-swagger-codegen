@@ -24,12 +24,8 @@ import {
   IJsonResponse
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  BookingboardingpassesService
-} from "../../base/api/index";
+import { BookingboardingpassesService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreBookingboardingpassesService {

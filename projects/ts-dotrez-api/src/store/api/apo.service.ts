@@ -21,12 +21,8 @@ import {
   InputParameters
 } from "api-models";
 
-import {
-  HttpResponse,
-  Headers,
-  IHttpClient,
-  ApoService
-} from "../../base/api/index";
+import { ApoService } from "../../base/api/index";
+import { HttpResponse, Headers, IHttpClient } from "../../base/index";
 
 @injectable()
 export class StoreApoService {
