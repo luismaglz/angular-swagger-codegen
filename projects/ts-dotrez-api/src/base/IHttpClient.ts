@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { HttpResponse } from './HttpResponse';
 import { Headers } from './Headers';
+import { HttpResponse } from './HttpResponse';
 
 export interface IHttpClient {
   get(url: string, headers?: Headers): Observable<HttpResponse>;
@@ -11,5 +11,5 @@ export interface IHttpClient {
   ): Observable<HttpResponse>;
   put(url: string, body?: {}, headers?: Headers): Observable<HttpResponse>;
   patch(url: string, body?: {}, headers?: Headers): Observable<HttpResponse>;
-  delete(url: string, headers?: Headers): Observable<HttpResponse>;
+  delete(url: string, body?: {}, headers?: Headers): Observable<HttpResponse>;
 }
