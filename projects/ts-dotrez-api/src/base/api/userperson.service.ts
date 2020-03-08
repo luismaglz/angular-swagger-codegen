@@ -10,10 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { inject, injectable } from 'inversify';
-
 import {
   Account,
   DeltaMapperPersonAddressEditRequest,
@@ -68,13 +64,13 @@ import {
   TravelNotificationCreateRequest,
   TravelNotificationEditRequest
 } from 'api-models';
-
-import { IHttpClient } from '../IHttpClient';
-import { IAPIConfiguration } from '../IAPIConfiguration';
-import { HttpResponse } from '../HttpResponse';
+import { inject, injectable } from 'inversify';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Headers } from '../Headers';
-
-import { COLLECTION_FORMATS } from '../variables';
+import { HttpResponse } from '../HttpResponse';
+import { IAPIConfiguration } from '../IAPIConfiguration';
+import { IHttpClient } from '../IHttpClient';
 
 @injectable()
 export class UserpersonService {
