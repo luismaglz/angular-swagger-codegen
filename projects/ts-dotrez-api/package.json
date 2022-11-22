@@ -28,7 +28,7 @@
     "tslib": "^1.10.0",
     "typescript": "~3.7.2",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.12",
     "tslint": "6.0.0"
   },
   "author": "",
